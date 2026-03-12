@@ -2,11 +2,13 @@ import { writeFile } from 'node:fs/promises';
 import iconv from 'iconv-lite';
 
 const feeds = [
+  { name: 'OpenClaw Releases', url: 'https://github.com/openclaw/openclaw/releases.atom', tag: 'OpenClaw' },
+  { name: 'OpenClaw Commits', url: 'https://github.com/openclaw/openclaw/commits/main.atom', tag: 'OpenClaw' },
+  { name: 'OpenClaw Docs', url: 'https://docs.openclaw.ai/rss.xml', tag: 'OpenClaw' },
   { name: 'INSIDE', url: 'https://www.inside.com.tw/feed', tag: '繁中' },
   { name: 'TechNews', url: 'https://technews.tw/feed/', tag: '繁中' },
   { name: 'iThome', url: 'https://www.ithome.com.tw/rss', tag: '繁中' },
-  { name: '數位時代', url: 'https://www.bnext.com.tw/rss', tag: '繁中' },
-  { name: 'OpenClaw Releases', url: 'https://github.com/openclaw/openclaw/releases.atom', tag: 'OpenClaw' }
+  { name: '數位時代', url: 'https://www.bnext.com.tw/rss', tag: '繁中' }
 ];
 
 const decodeText = (buf, contentType = '') => {
@@ -17,11 +19,8 @@ const decodeText = (buf, contentType = '') => {
   try {
     if (iconv.encodingExists(charset)) return iconv.decode(Buffer.from(buf), charset);
   } catch {}
-  // fallback common Traditional Chinese encodings
   for (const enc of ['big5', 'cp950']) {
-    try {
-      return iconv.decode(Buffer.from(buf), enc);
-    } catch {}
+    try { return iconv.decode(Buffer.from(buf), enc); } catch {}
   }
   return Buffer.from(buf).toString('utf8');
 };
@@ -93,7 +92,13 @@ const unique = all.filter((n) => {
 });
 
 unique.sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
-const top10 = unique.slice(0, 10).map((n, i) => ({ id: i + 1, ...n }));
 
-await writeFile(new URL('../src/data/news.json', import.meta.url), JSON.stringify({ generatedAt: new Date().toISOString(), items: top10 }, null, 2), 'utf8');
-console.log(`Generated ${top10.length} items`);
+const openclaw = unique.filter((x) => x.tag === 'OpenClaw').slice(0, 4);
+const chinese = unique.filter((x) => x.tag !== 'OpenClaw').slice(0, 6);
+const merged = [...openclaw, ...chinese]
+  .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0))
+  .slice(0, 10)
+  .map((n, i) => ({ id: i + 1, ...n }));
+
+await writeFile(new URL('../src/data/news.json', import.meta.url), JSON.stringify({ generatedAt: new Date().toISOString(), items: merged }, null, 2), 'utf8');
+console.log(`Generated ${merged.length} items; OpenClaw=${openclaw.length}`);
