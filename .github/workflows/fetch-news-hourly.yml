@@ -1,0 +1,40 @@
+name: Fetch news hourly
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Fetch latest news
+        run: node scripts/fetch-news.mjs
+
+      - name: Commit updates if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain src/data/news.json)" ]]; then
+            git add src/data/news.json
+            git commit -m "chore(news): hourly refresh"
+            git push
+          else
+            echo "No changes in news feed"
+          fi
