@@ -36,6 +36,49 @@ const clean = (s = '') => s
   .replace(/\s+/g, ' ')
   .trim();
 
+const zhMap = [
+  [/docs?/gi, '文件'],
+  [/release/gi, '版本發布'],
+  [/releases/gi, '版本發布'],
+  [/commit(s)?/gi, '提交'],
+  [/gateway/gi, 'Gateway'],
+  [/security/gi, '安全'],
+  [/fix(es|ed)?/gi, '修正'],
+  [/feat(ure)?/gi, '新功能'],
+  [/model(s)?/gi, '模型'],
+  [/memory/gi, '記憶'],
+  [/cron/gi, '排程'],
+  [/telegram/gi, 'Telegram'],
+  [/discord/gi, 'Discord'],
+  [/openclaw/gi, 'OpenClaw']
+];
+
+const toZh = (text = '') => {
+  let t = String(text);
+  for (const [re, rep] of zhMap) t = t.replace(re, rep);
+  return t;
+};
+
+const localizeOpenClaw = (item) => {
+  if (item.tag !== 'OpenClaw') return item;
+  let titleZh = '';
+  if (/openclaw\s+\d{4}/i.test(item.title)) {
+    titleZh = `OpenClaw 版本更新：${item.title.replace(/openclaw\s*/i, '')}`;
+  } else if (/docs?/i.test(item.title)) {
+    titleZh = `OpenClaw 文件更新：${toZh(item.title)}`;
+  } else if (/commit/i.test(item.source)) {
+    titleZh = `OpenClaw 程式碼更新：${toZh(item.title)}`;
+  } else {
+    titleZh = `OpenClaw 最新動態：${toZh(item.title)}`;
+  }
+
+  const summaryZh = item.summary
+    ? `重點：${toZh(item.summary).slice(0, 120)}...`
+    : '重點：OpenClaw 官方更新，建議點擊原文查看完整變更內容。';
+
+  return { ...item, titleZh, summaryZh };
+};
+
 const pick = (block, patterns) => {
   for (const p of patterns) {
     const m = block.match(p);
@@ -98,7 +141,7 @@ const chinese = unique.filter((x) => x.tag !== 'OpenClaw').slice(0, 6);
 const merged = [...openclaw, ...chinese]
   .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0))
   .slice(0, 10)
-  .map((n, i) => ({ id: i + 1, ...n }));
+  .map((n, i) => ({ id: i + 1, ...localizeOpenClaw(n) }));
 
 await writeFile(new URL('../src/data/news.json', import.meta.url), JSON.stringify({ generatedAt: new Date().toISOString(), items: merged }, null, 2), 'utf8');
 console.log(`Generated ${merged.length} items; OpenClaw=${openclaw.length}`);

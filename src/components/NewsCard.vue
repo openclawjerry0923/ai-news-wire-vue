@@ -19,8 +19,8 @@ const short = (txt = '') => {
       <span class="tag">{{ item.tag }}</span>
       <time>{{ fmtDate(item.publishedAt) }}</time>
     </div>
-    <h3>{{ item.title }}</h3>
-    <p class="summary">{{ short(item.summary) }}</p>
+    <h3>{{ item.titleZh || item.title }}</h3>
+    <p class="summary">{{ short(item.summaryZh || item.summary) }}</p>
     <div class="row end">
       <span class="source">{{ item.source }}</span>
       <a :href="item.link" target="_blank" rel="noopener">閱讀原文</a>
