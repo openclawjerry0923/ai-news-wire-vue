@@ -1,16 +1,32 @@
 import { writeFile } from 'node:fs/promises';
+import iconv from 'iconv-lite';
 
 const feeds = [
-  { name: 'OpenAI News', url: 'https://openai.com/news/rss.xml', tag: 'OpenAI' },
-  { name: 'Anthropic News', url: 'https://www.anthropic.com/news/rss.xml', tag: 'Anthropic' },
-  { name: 'Google AI', url: 'https://blog.google/technology/ai/rss/', tag: 'Google' },
-  { name: 'Microsoft AI', url: 'https://blogs.microsoft.com/blog/tag/ai/feed/', tag: 'Microsoft' },
-  { name: 'NVIDIA AI', url: 'https://blogs.nvidia.com/blog/category/artificial-intelligence/feed/', tag: 'NVIDIA' },
-  { name: 'Hugging Face', url: 'https://huggingface.co/blog/feed.xml', tag: 'Hugging Face' },
+  { name: 'INSIDE', url: 'https://www.inside.com.tw/feed', tag: '繁中' },
+  { name: 'TechNews', url: 'https://technews.tw/feed/', tag: '繁中' },
+  { name: 'iThome', url: 'https://www.ithome.com.tw/rss', tag: '繁中' },
+  { name: '數位時代', url: 'https://www.bnext.com.tw/rss', tag: '繁中' },
   { name: 'OpenClaw Releases', url: 'https://github.com/openclaw/openclaw/releases.atom', tag: 'OpenClaw' }
 ];
 
-const decode = (s = '') => s
+const decodeText = (buf, contentType = '') => {
+  const ct = String(contentType).toLowerCase();
+  const m = ct.match(/charset=([^;\s]+)/i);
+  const charset = (m?.[1] || 'utf-8').toLowerCase();
+  if (charset.includes('utf')) return Buffer.from(buf).toString('utf8');
+  try {
+    if (iconv.encodingExists(charset)) return iconv.decode(Buffer.from(buf), charset);
+  } catch {}
+  // fallback common Traditional Chinese encodings
+  for (const enc of ['big5', 'cp950']) {
+    try {
+      return iconv.decode(Buffer.from(buf), enc);
+    } catch {}
+  }
+  return Buffer.from(buf).toString('utf8');
+};
+
+const clean = (s = '') => s
   .replace(/<!\[CDATA\[(.*?)\]\]>/gs, '$1')
   .replace(/&amp;/g, '&')
   .replace(/&lt;/g, '<')
@@ -24,7 +40,7 @@ const decode = (s = '') => s
 const pick = (block, patterns) => {
   for (const p of patterns) {
     const m = block.match(p);
-    if (m?.[1]) return decode(m[1]);
+    if (m?.[1]) return clean(m[1]);
   }
   return '';
 };
@@ -47,7 +63,7 @@ function parseAtom(xml, source, tag) {
     const linkMatch = entry.match(/<link[^>]*href="([^"]+)"/i);
     return {
       title: pick(entry, [/<title[^>]*>([\s\S]*?)<\/title>/i]),
-      link: decode(linkMatch?.[1] || ''),
+      link: clean(linkMatch?.[1] || ''),
       publishedAt: pick(entry, [/<updated>([\s\S]*?)<\/updated>/i, /<published>([\s\S]*?)<\/published>/i]),
       summary: pick(entry, [/<summary[^>]*>([\s\S]*?)<\/summary>/i, /<content[^>]*>([\s\S]*?)<\/content>/i]),
       source,
@@ -60,29 +76,24 @@ const all = [];
 for (const feed of feeds) {
   try {
     const res = await fetch(feed.url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-    const xml = await res.text();
+    const ab = await res.arrayBuffer();
     if (!res.ok) continue;
+    const xml = decodeText(ab, res.headers.get('content-type'));
     const parsed = xml.includes('<rss') ? parseRss(xml, feed.name, feed.tag) : parseAtom(xml, feed.name, feed.tag);
     all.push(...parsed.filter((x) => x.title && x.link));
   } catch {}
 }
 
-const unique = [];
 const seen = new Set();
-for (const n of all) {
+const unique = all.filter((n) => {
   const key = n.link || n.title;
-  if (seen.has(key)) continue;
+  if (seen.has(key)) return false;
   seen.add(key);
-  unique.push(n);
-}
+  return true;
+});
 
 unique.sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
 const top10 = unique.slice(0, 10).map((n, i) => ({ id: i + 1, ...n }));
 
-await writeFile(
-  new URL('../src/data/news.json', import.meta.url),
-  JSON.stringify({ generatedAt: new Date().toISOString(), items: top10 }, null, 2),
-  'utf8'
-);
-
+await writeFile(new URL('../src/data/news.json', import.meta.url), JSON.stringify({ generatedAt: new Date().toISOString(), items: top10 }, null, 2), 'utf8');
 console.log(`Generated ${top10.length} items`);
