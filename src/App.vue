@@ -25,22 +25,8 @@ const items = computed(() =>
   </header>
 
   <main>
-    <section class="videoPanel">
-      <div>
-        <h2>精選影片</h2>
-        <p>
-          I've spent 5 BILLION tokens perfecting OpenClaw...<br />
-          影片重點：分享如何優化 OpenClaw 工作流，並用 Vibe Coding 快速做出可用產品。
-        </p>
-      </div>
-      <a
-        class="videoBtn"
-        href="https://www.youtube.com/watch?v=3110hx3ygp0"
-        target="_blank"
-        rel="noopener"
-      >
-        ▶ 觀看影片
-      </a>
+    <section class="topActions">
+      <a class="videoBtn" href="./videos.html">🎬 影片專區</a>
     </section>
 
     <section class="toolbar">
