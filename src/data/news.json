@@ -1,30 +1,52 @@
 {
-  "generatedAt": "2026-03-14T17:01:34.195Z",
+  "generatedAt": "2026-03-14T19:17:36.394Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(btw): stop persisting side questions (#46328)",
-      "link": "https://github.com/openclaw/openclaw/commit/133cce23ce82f4a8b0e7bb83d3fb0b7650066624",
-      "publishedAt": "2026-03-14T17:01:13Z",
-      "summary": "fix(btw): stop persisting side questions (#46328) * fix(btw): stop persisting side questions * docs(btw): document side-question behavior",
+      "title": "fix(agents): restore usage tracking for non-native openai-completions…",
+      "link": "https://github.com/openclaw/openclaw/commit/bb06dc7cc9e71fbac29d7888d64323db2acec7ca",
+      "publishedAt": "2026-03-14T18:41:21Z",
+      "summary": "fix(agents): restore usage tracking for non-native openai-completions providers Fixes #46142 Stop forcing supportsUsageInStreaming=false on non-native openai-completions endpoints. Most OpenAI-compatible APIs (DashScope, DeepSeek, Groq, Together, etc.) handle stream_options: { include_usage: true } correctly. The blanket disable broke usage/cost tracking for all non-OpenAI providers. supportsDeveloperRole is still forced off for non-native endpoints since the developer message role is genuinely OpenAI-specific. Users on backends that reject stream_options can opt out with compat.supportsUsageInStreaming: false in their model config. Fixes #46142",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(btw): stop persisting side questions (#46328)",
-      "summaryZh": "重點：修正(btw): stop persisting side questions (#46328) * 修正(btw): stop persisting side questions * 文件(btw): 文件ument side-quest..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): restore usage tracking for non-native openai-completions…",
+      "summaryZh": "重點：修正(agents): restore usage tracking for non-native openai-completions providers 修正 #46142 Stop forcing supportsUsageInStr..."
     },
     {
       "id": 2,
-      "title": "Fix configure startup stalls from outbound send-deps imports (#46301)",
-      "link": "https://github.com/openclaw/openclaw/commit/d9c285e930d744a747ccc4ee600b4f6ffd6bd772",
-      "publishedAt": "2026-03-14T16:58:03Z",
-      "summary": "Fix configure startup stalls from outbound send-deps imports (#46301) * fix: avoid configure startup plugin stalls * fix: credit configure startup changelog entry",
+      "title": "ci: allow fallback npm correction tags (#46486)",
+      "link": "https://github.com/openclaw/openclaw/commit/d33f3f843ad3b8aa00f44ff04cd9b0e1e07db7e6",
+      "publishedAt": "2026-03-14T18:38:14Z",
+      "summary": "ci: allow fallback npm correction tags (#46486)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 configure startup stalls from outbound send-deps imports (#46301)",
-      "summaryZh": "重點：修正 configure startup stalls from outbound send-deps imports (#46301) * 修正: avoid configure startup plugin stalls * 修正: c..."
+      "titleZh": "OpenClaw 程式碼更新：ci: allow fallback npm correction tags (#46486)",
+      "summaryZh": "重點：ci: allow fallback npm correction tags (#46486)..."
     },
     {
       "id": 3,
+      "title": "fix(gateway/cli): relax local backend self-pairing and harden launchd…",
+      "link": "https://github.com/openclaw/openclaw/commit/8db6fcca777ac751597b1290a201d0df6161f9f2",
+      "publishedAt": "2026-03-14T18:27:52Z",
+      "summary": "fix(gateway/cli): relax local backend self-pairing and harden launchd restarts (#46290) Signed-off-by: sallyom",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway/cli): relax local backend self-pairing and harden launchd…",
+      "summaryZh": "重點：修正(Gateway/cli): relax local backend self-pairing and harden launchd restarts (#46290) Signed-off-by: sallyom..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ci): update vitest configs after channel move to extensions/ (ope…",
+      "link": "https://github.com/openclaw/openclaw/commit/ac29edf6c3b1c55ee66ea66c2552e36323dcb348",
+      "publishedAt": "2026-03-14T18:23:25Z",
+      "summary": "fix(ci): update vitest configs after channel move to extensions/ (openclaw#46066) Verified: - pnpm build - pnpm check - pnpm test:macmini Co-authored-by: scoootscooob Co-authored-by: Tak Hoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): update vitest configs after channel move to extensions/ (ope…",
+      "summaryZh": "重點：修正(ci): update vitest configs after channel move to extensions/ (OpenClaw#46066) Verified: - pnpm build - pnpm check - p..."
+    },
+    {
+      "id": 5,
       "title": "不再苦等捐贈者，魚鱗製人工角膜有望解決全球移植短缺困境",
       "link": "https://technews.tw/2026/03/15/fish-scales-corneal-transplant-materials/",
       "publishedAt": "Sat, 14 Mar 2026 16:00:24 +0000",
@@ -33,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "粒子加速器化身「時光機」：還原喜帕恰斯失傳星表的最後拼圖",
       "link": "https://technews.tw/2026/03/15/scientists-reveal-the-oldest-map-of-the-night-sky-ever-made/",
       "publishedAt": "Sat, 14 Mar 2026 16:00:17 +0000",
@@ -42,35 +64,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 7,
       "title": "德國 EMBL 開發 AI 工具 MAGIC，助力解開染色體異常與癌症的關係之謎",
       "link": "https://technews.tw/2026/03/15/ai-finally-tests-a-century-old-theory-about-how-cancer-begins/",
       "publishedAt": "Sat, 14 Mar 2026 16:00:13 +0000",
       "summary": "科學家最近利用人工智慧（AI），測試有百年歷史的理論：癌症起源與細胞染色體異常有密切關係。德國海德堡歐洲分子生 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "ci: add manual backfill support to Docker release (#46269)",
-      "link": "https://github.com/openclaw/openclaw/commit/62afc4b5148591acb1333d5ca5888a62b930aad6",
-      "publishedAt": "2026-03-14T15:36:20Z",
-      "summary": "ci: add manual backfill support to Docker release (#46269) * ci: add docker release backfill workflow * ci: add manual backfill support to docker release * ci: keep docker latest tags off manual backfills",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：ci: add manual backfill support to 文件ker 版本發布 (#46269)",
-      "summaryZh": "重點：ci: add manual backfill support to 文件ker 版本發布 (#46269) * ci: add 文件ker 版本發布 backfill workflow * ci: add manual backfill ..."
-    },
-    {
-      "id": 7,
-      "title": "Add /btw side questions (#45444)",
-      "link": "https://github.com/openclaw/openclaw/commit/9aac55d30614bb0ba6146764bba0be6da57b4496",
-      "publishedAt": "2026-03-14T15:27:54Z",
-      "summary": "Add /btw side questions (#45444) * feat(agent): add /btw side questions * fix(agent): gate and log /btw reviews * feat(btw): isolate side-question delivery * test(reply): update route reply runtime mocks * fix(btw): complete side-result delivery across clients * fix(gateway): handle streamed btw side results * fix(telegram): unblock btw side questions * fix(reply): make external btw replies explicit * fix(chat): keep btw side results ephemeral in internal history * fix(btw): address remaining review feedback * fix(chat): preserve btw history on mobile refresh * fix(acp): keep btw replies out of prompt history * refactor(btw): narrow side questions to live channels * fix(btw): preserve channel typing indicators * fix(btw): keep side questions isolated in chat * fix(outbound): restore typed channel send deps * fix(btw): avoid blocking replies on transcript persistence * fix(btw): keep side questions fast * docs(commands): document btw slash command * docs(changelog): add btw side questions entry * test(outbound): align session transcript mocks",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Add /btw side questions (#45444)",
-      "summaryZh": "重點：Add /btw side questions (#45444) * 新功能(agent): add /btw side questions * 修正(agent): gate and log /btw reviews * 新功能(btw)..."
     },
     {
       "id": 8,
