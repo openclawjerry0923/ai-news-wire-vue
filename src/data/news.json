@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-03-14T10:58:58.732Z",
+  "generatedAt": "2026-03-14T11:49:39.978Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(zai): align explicit coding endpoint setup with detected model de…",
-      "link": "https://github.com/openclaw/openclaw/commit/c79c4ffbfb5797c1da45fd32a92def1d56b06835",
-      "publishedAt": "2026-03-14T10:50:37Z",
-      "summary": "fix(zai): align explicit coding endpoint setup with detected model defaults (#45969) * fix: align Z.AI coding onboarding with endpoint docs * fix: align Z.AI coding onboarding with endpoint docs (#45969)",
+      "title": "Update CONTRIBUTING.md",
+      "link": "https://github.com/openclaw/openclaw/commit/2fad7b823ee13f2bae979a42aea00028adcaa2af",
+      "publishedAt": "2026-03-14T11:43:53Z",
+      "summary": "Update CONTRIBUTING.md",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(zai): align explicit coding endpoint setup with detected 模型 de…",
-      "summaryZh": "重點：修正(zai): align explicit coding endpoint setup with detected 模型 defaults (#45969) * 修正: align Z.AI coding onboarding with..."
+      "titleZh": "OpenClaw 程式碼更新：Update CONTRIBUTING.md",
+      "summaryZh": "重點：Update CONTRIBUTING.md..."
     },
     {
       "id": 2,
-      "title": "refactor: remove channel shim directories, point all imports to exten…",
-      "link": "https://github.com/openclaw/openclaw/commit/439c21e078f168a3e774013c390e4d97b5404174",
-      "publishedAt": "2026-03-14T10:43:07Z",
-      "summary": "refactor: remove channel shim directories, point all imports to extensions (#45967) * refactor: remove channel shim directories, point all imports to extensions Delete the 6 backward-compat shim directories (src/telegram, src/discord, src/slack, src/signal, src/imessage, src/web) that were re-exporting from extensions. Update all 112+ source files to import directly from extensions/{channel}/src/ instead of through the shims. Also: - Move src/channels/telegram/ (allow-from, api) to extensions/telegram/src/ - Fix outbound adapters to use resolveOutboundSendDep (fixes 5 pre-existing TS errors) - Update cross-extension imports (src/web/media.js → extensions/whatsapp/src/media.js) - Update vitest, tsdown, knip, labeler, and script configs for new paths - Update guard test allowlists for extension paths After this, src/ has zero channel-specific implementation code — only the generic plugin framework remains. * fix: update raw-fetch guard allowlist line numbers after shim removal * refactor: document direct extension channel imports * test: mock transcript module in delivery helpers",
+      "title": "feat: add --force-document to message.send for Telegram (bypass sendP…",
+      "link": "https://github.com/openclaw/openclaw/commit/0ee11d332105f2b7e8ced9d22586b030668c9b66",
+      "publishedAt": "2026-03-14T11:43:49Z",
+      "summary": "feat: add --force-document to message.send for Telegram (bypass sendPhoto + image optimizer) (#45111) * feat: add --force-document to message.send for Telegram Adds --force-document CLI flag to bypass sendPhoto and use sendDocument instead, avoiding Telegram image compression for PNG/image files. - TelegramSendOpts: add forceDocument field - send.ts: skip sendPhoto when forceDocument=true (mediaSender pattern) - ChannelOutboundContext: add forceDocument field - telegramOutbound.sendMedia: pass forceDocument to sendMessageTelegram - ChannelHandlerParams / DeliverOutboundPayloadsCoreParams: add forceDocument - createChannelOutboundContextBase: propagate forceDocument - outbound-send-service.ts: add forceDocument to executeSendAction params - message-action-runner.ts: read forceDocument from params - message.ts: add forceDocument to MessageSendParams - register.send.ts: add --force-document CLI option * fix: pass forceDocument through telegram action dispatch path The actual send path goes through dispatchChannelMessageAction -> telegramMessageActions.handleAction -> handleTelegramAction, not deliverOutboundPayloads. forceDocument was not being read in readTelegramSendParams or passed to sendMessageTelegram. * fix: apply forceDocument to GIF branch to avoid sendAnimation * fix: add disable_content_type_detection=true to sendDocument for --force-document * fix: add forceDocument to buildSendSchema for agent discoverability * fix: scope telegram force-document detection * test: fix heartbeat target helper typing * fix: skip image optimization when forceDocument is set * fix: persist forceDocument in WAL queue for crash-recovery replay * test: tighten heartbeat target test entry typing --------- Co-authored-by: thepagent Co-authored-by: Frank Yang",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: remove channel shim directories, point all imports to exten…",
-      "summaryZh": "重點：refactor: remove channel shim directories, point all imports to extensions (#45967) * refactor: remove channel shim dire..."
+      "titleZh": "OpenClaw 文件更新：新功能: add --force-文件ument to message.send for Telegram (bypass sendP…",
+      "summaryZh": "重點：新功能: add --force-文件ument to message.send for Telegram (bypass sendPhoto + image optimizer) (#45111) * 新功能: add --force-文..."
     },
     {
       "id": 3,
+      "title": "fix(ui): session dropdown shows label instead of key (#45130)",
+      "link": "https://github.com/openclaw/openclaw/commit/40c81e9cd3b7d74ea589fa3b96c13a0b8f8412ab",
+      "publishedAt": "2026-03-14T11:36:46Z",
+      "summary": "fix(ui): session dropdown shows label instead of key (#45130) Merged via squash. Prepared head SHA: 0255e3971b06b3641e6b26590eaa22a900079517 Co-authored-by: luzhidong Co-authored-by: altaywtf Reviewed-by: @altaywtf",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): session dropdown shows label instead of key (#45130)",
+      "summaryZh": "重點：修正(ui): session dropdown shows label instead of key (#45130) Merged via squash. Prepared head SHA: 0255e3971b06b3641e6b2..."
+    },
+    {
+      "id": 4,
+      "title": "docs: mark memory bootstrap change as breaking",
+      "link": "https://github.com/openclaw/openclaw/commit/64e6df7eead1f68cf8606a122f8e9dc30a50e05a",
+      "publishedAt": "2026-03-14T11:25:32Z",
+      "summary": "docs: mark memory bootstrap change as breaking",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: mark 記憶 bootstrap change as breaking",
+      "summaryZh": "重點：文件: mark 記憶 bootstrap change as breaking..."
+    },
+    {
+      "id": 5,
       "title": "拆解 MacBook Neo，iFixit 盛讚「14 年來最容易維修的 MacBook」",
       "link": "https://technews.tw/2026/03/14/macbook-neo-is-the-most-repairable-macbook-in-14-years/",
       "publishedAt": "Sat, 14 Mar 2026 09:59:02 +0000",
       "summary": "知名維修團隊 iFixit 發表對於蘋果 MacBook Neo 拆解與維修分析，宣稱它是「14 年來最容易維 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "refactor: move Discord channel implementation to extensions/ (#45660)",
-      "link": "https://github.com/openclaw/openclaw/commit/5682ec37fada89205821ee16a03f1e0d0948efb7",
-      "publishedAt": "2026-03-14T09:53:57Z",
-      "summary": "refactor: move Discord channel implementation to extensions/ (#45660) * refactor: move Discord channel implementation to extensions/discord/src/ Move all Discord source files from src/discord/ to extensions/discord/src/, following the extension migration pattern. Source files in src/discord/ are replaced with re-export shims. Channel-plugin files from src/channels/plugins/*/discord* are similarly moved and shimmed. - Copy all .ts source files preserving subdirectory structure (monitor/, voice/) - Move channel-plugin files (actions, normalize, onboarding, outbound, status-issues) - Fix all relative imports to use correct paths from new location - Create re-export shims at original locations for backward compatibility - Delete test files from shim locations (tests live in extension now) - Update tsconfig.plugin-sdk.dts.json rootDir from \"src\" to \".\" to accommodate extension files outside src/ - Update write-plugin-sdk-entry-dts.ts to match new declaration output paths * fix: add importOriginal to thread-bindings session-meta mock for extensions test * style: fix formatting in thread-bindings lifecycle test",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: move Discord channel implementation to extensions/ (#45660)",
-      "summaryZh": "重點：refactor: move Discord channel implementation to extensions/ (#45660) * refactor: move Discord channel implementation to..."
-    },
-    {
-      "id": 5,
-      "title": "refactor: move Telegram channel implementation to extensions/ (#45635)",
-      "link": "https://github.com/openclaw/openclaw/commit/e5bca0832fbd01b98eeede548d2f1cf94166f149",
-      "publishedAt": "2026-03-14T09:50:17Z",
-      "summary": "refactor: move Telegram channel implementation to extensions/ (#45635) * refactor: move Telegram channel implementation to extensions/telegram/src/ Move all Telegram channel code (123 files + 10 bot/ files + 8 channel plugin files) from src/telegram/ and src/channels/plugins/*/telegram.ts to extensions/telegram/src/. Leave thin re-export shims at original locations so cross-cutting src/ imports continue to resolve. - Fix all relative import paths in moved files (../X/ -> ../../../src/X/) - Fix vi.mock paths in 60 test files - Fix inline typeof import() expressions - Update tsconfig.plugin-sdk.dts.json rootDir to \".\" for cross-directory DTS - Update write-plugin-sdk-entry-dts.ts for new rootDir structure - Move channel plugin files with correct path remapping * fix: support keyed telegram send deps * fix: sync telegram extension copies with latest main * fix: correct import paths and remove misplaced files in telegram extension * fix: sync outbound-adapter with main (add sendTelegramPayloadMessages) and fix delivery.test import path",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: move Telegram channel implementation to extensions/ (#45635)",
-      "summaryZh": "重點：refactor: move Telegram channel implementation to extensions/ (#45635) * refactor: move Telegram channel implementation ..."
     },
     {
       "id": 6,
