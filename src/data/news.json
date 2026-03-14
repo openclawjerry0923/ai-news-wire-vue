@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-03-14T09:04:41.753Z",
+  "generatedAt": "2026-03-14T10:58:58.732Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(zai): align explicit coding endpoint setup with detected model de…",
+      "link": "https://github.com/openclaw/openclaw/commit/c79c4ffbfb5797c1da45fd32a92def1d56b06835",
+      "publishedAt": "2026-03-14T10:50:37Z",
+      "summary": "fix(zai): align explicit coding endpoint setup with detected model defaults (#45969) * fix: align Z.AI coding onboarding with endpoint docs * fix: align Z.AI coding onboarding with endpoint docs (#45969)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(zai): align explicit coding endpoint setup with detected 模型 de…",
+      "summaryZh": "重點：修正(zai): align explicit coding endpoint setup with detected 模型 defaults (#45969) * 修正: align Z.AI coding onboarding with..."
+    },
+    {
+      "id": 2,
+      "title": "refactor: remove channel shim directories, point all imports to exten…",
+      "link": "https://github.com/openclaw/openclaw/commit/439c21e078f168a3e774013c390e4d97b5404174",
+      "publishedAt": "2026-03-14T10:43:07Z",
+      "summary": "refactor: remove channel shim directories, point all imports to extensions (#45967) * refactor: remove channel shim directories, point all imports to extensions Delete the 6 backward-compat shim directories (src/telegram, src/discord, src/slack, src/signal, src/imessage, src/web) that were re-exporting from extensions. Update all 112+ source files to import directly from extensions/{channel}/src/ instead of through the shims. Also: - Move src/channels/telegram/ (allow-from, api) to extensions/telegram/src/ - Fix outbound adapters to use resolveOutboundSendDep (fixes 5 pre-existing TS errors) - Update cross-extension imports (src/web/media.js → extensions/whatsapp/src/media.js) - Update vitest, tsdown, knip, labeler, and script configs for new paths - Update guard test allowlists for extension paths After this, src/ has zero channel-specific implementation code — only the generic plugin framework remains. * fix: update raw-fetch guard allowlist line numbers after shim removal * refactor: document direct extension channel imports * test: mock transcript module in delivery helpers",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: remove channel shim directories, point all imports to exten…",
+      "summaryZh": "重點：refactor: remove channel shim directories, point all imports to extensions (#45967) * refactor: remove channel shim dire..."
+    },
+    {
+      "id": 3,
+      "title": "拆解 MacBook Neo，iFixit 盛讚「14 年來最容易維修的 MacBook」",
+      "link": "https://technews.tw/2026/03/14/macbook-neo-is-the-most-repairable-macbook-in-14-years/",
+      "publishedAt": "Sat, 14 Mar 2026 09:59:02 +0000",
+      "summary": "知名維修團隊 iFixit 發表對於蘋果 MacBook Neo 拆解與維修分析，宣稱它是「14 年來最容易維 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "refactor: move Discord channel implementation to extensions/ (#45660)",
+      "link": "https://github.com/openclaw/openclaw/commit/5682ec37fada89205821ee16a03f1e0d0948efb7",
+      "publishedAt": "2026-03-14T09:53:57Z",
+      "summary": "refactor: move Discord channel implementation to extensions/ (#45660) * refactor: move Discord channel implementation to extensions/discord/src/ Move all Discord source files from src/discord/ to extensions/discord/src/, following the extension migration pattern. Source files in src/discord/ are replaced with re-export shims. Channel-plugin files from src/channels/plugins/*/discord* are similarly moved and shimmed. - Copy all .ts source files preserving subdirectory structure (monitor/, voice/) - Move channel-plugin files (actions, normalize, onboarding, outbound, status-issues) - Fix all relative imports to use correct paths from new location - Create re-export shims at original locations for backward compatibility - Delete test files from shim locations (tests live in extension now) - Update tsconfig.plugin-sdk.dts.json rootDir from \"src\" to \".\" to accommodate extension files outside src/ - Update write-plugin-sdk-entry-dts.ts to match new declaration output paths * fix: add importOriginal to thread-bindings session-meta mock for extensions test * style: fix formatting in thread-bindings lifecycle test",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: move Discord channel implementation to extensions/ (#45660)",
+      "summaryZh": "重點：refactor: move Discord channel implementation to extensions/ (#45660) * refactor: move Discord channel implementation to..."
+    },
+    {
+      "id": 5,
+      "title": "refactor: move Telegram channel implementation to extensions/ (#45635)",
+      "link": "https://github.com/openclaw/openclaw/commit/e5bca0832fbd01b98eeede548d2f1cf94166f149",
+      "publishedAt": "2026-03-14T09:50:17Z",
+      "summary": "refactor: move Telegram channel implementation to extensions/ (#45635) * refactor: move Telegram channel implementation to extensions/telegram/src/ Move all Telegram channel code (123 files + 10 bot/ files + 8 channel plugin files) from src/telegram/ and src/channels/plugins/*/telegram.ts to extensions/telegram/src/. Leave thin re-export shims at original locations so cross-cutting src/ imports continue to resolve. - Fix all relative import paths in moved files (../X/ -> ../../../src/X/) - Fix vi.mock paths in 60 test files - Fix inline typeof import() expressions - Update tsconfig.plugin-sdk.dts.json rootDir to \".\" for cross-directory DTS - Update write-plugin-sdk-entry-dts.ts for new rootDir structure - Move channel plugin files with correct path remapping * fix: support keyed telegram send deps * fix: sync telegram extension copies with latest main * fix: correct import paths and remove misplaced files in telegram extension * fix: sync outbound-adapter with main (add sendTelegramPayloadMessages) and fix delivery.test import path",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: move Telegram channel implementation to extensions/ (#45635)",
+      "summaryZh": "重點：refactor: move Telegram channel implementation to extensions/ (#45635) * refactor: move Telegram channel implementation ..."
+    },
+    {
+      "id": 6,
       "title": "效率之年再現？Meta 擬大規模裁員，抵銷 AI 基建部分支出",
       "link": "https://technews.tw/2026/03/14/meta-plans-layoffs-affecting-20-percent-or-more-of-workforce/",
       "publishedAt": "Sat, 14 Mar 2026 08:00:17 +0000",
@@ -11,18 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(mattermost): carry thread context to non-inbound reply paths (#44…",
-      "link": "https://github.com/openclaw/openclaw/commit/0c926a2c5e82e5fa01eee151618f2d8a05c160de",
-      "publishedAt": "2026-03-14T06:53:23Z",
-      "summary": "fix(mattermost): carry thread context to non-inbound reply paths (#44283) Merged via squash. Prepared head SHA: 2846a6cfa959019d3ed811ccafae6b757db3bdf3 Co-authored-by: teconomix Co-authored-by: mukhtharcm Reviewed-by: @mukhtharcm",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mattermost): carry thread context to non-inbound reply paths (#44…",
-      "summaryZh": "重點：修正(mattermost): carry thread context to non-inbound reply paths (#44283) Merged via squash. Prepared head SHA: 2846a6cfa..."
-    },
-    {
-      "id": 3,
+      "id": 7,
       "title": "AI 關鍵零件供應鏈齊聚 GTC，看好今年營運逐季成長",
       "link": "https://technews.tw/2026/03/14/ai-supply-chain-convenes-at-nvidia-gtc-2026/",
       "publishedAt": "Sat, 14 Mar 2026 06:40:53 +0000",
@@ -31,40 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "test(ci): isolate cron heartbeat delivery cases",
-      "link": "https://github.com/openclaw/openclaw/commit/17cb60080ade324bcd34a88d49841c89d8b8b286",
-      "publishedAt": "2026-03-14T06:28:58Z",
-      "summary": "test(ci): isolate cron heartbeat delivery cases",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): isolate 排程 heartbeat delivery cases",
-      "summaryZh": "重點：test(ci): isolate 排程 heartbeat delivery cases..."
-    },
-    {
-      "id": 5,
-      "title": "fix: annotate shared failover mocks (openclaw#39820) thanks @lupuletic",
-      "link": "https://github.com/openclaw/openclaw/commit/61bf7b8536c509bb870dadb92e41886c3fb82b7e",
-      "publishedAt": "2026-03-14T06:25:04Z",
-      "summary": "fix: annotate shared failover mocks (openclaw#39820) thanks @lupuletic",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: annotate shared failover mocks (OpenClaw#39820) thanks @lupuletic",
-      "summaryZh": "重點：修正: annotate shared failover mocks (OpenClaw#39820) thanks @lupuletic..."
-    },
-    {
-      "id": 6,
-      "title": "fix: tighten runner failover test types (openclaw#39820) thanks @lupu…",
-      "link": "https://github.com/openclaw/openclaw/commit/dd6ecd5bfa5da81fea423d74ac3b10c586684c33",
-      "publishedAt": "2026-03-14T06:25:04Z",
-      "summary": "fix: tighten runner failover test types (openclaw#39820) thanks @lupuletic",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: tighten runner failover test types (OpenClaw#39820) thanks @lupu…",
-      "summaryZh": "重點：修正: tighten runner failover test types (OpenClaw#39820) thanks @lupuletic..."
-    },
-    {
-      "id": 7,
+      "id": 8,
       "title": "記憶體與儲存元件成本攀高，公部門資訊設備標案投標意願轉冷",
       "link": "https://technews.tw/2026/03/14/there-is-a-sharp-decline-in-interest-among-suppliers-to-participate-in-tenders/",
       "publishedAt": "Sat, 14 Mar 2026 06:09:44 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "內需快窒息！彭博：中國年初消費支出恐創新冠疫情後新低紀錄",
       "link": "https://finance.technews.tw/2026/03/14/china-consumption-start-to-year-seen-as-worst-ever-outside-covid/",
       "publishedAt": "Sat, 14 Mar 2026 06:00:47 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "技嘉推出支援英特爾 Core Ultra 200S PLUS 系列處理器與 CQDIMM 的 Z890 PLUS 系列主機板",
       "link": "https://technews.tw/2026/03/14/gigabyte-z890-aorus-elite-duo-x-z890m-force-duo-x-wifi7/",
       "publishedAt": "Sat, 14 Mar 2026 06:00:09 +0000",
       "summary": "全球電腦領導品牌技嘉科技推出 Z890 PLUS 系列主機板，專為完整釋放英特爾 Core Ultra 200 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "和倭黑猩猩玩扮家家酒會發生什麼事？研究顯示動物也有想像力",
-      "link": "https://technews.tw/2026/03/14/study-shows-humans-arent-the-only-species-that-can-pretend/",
-      "publishedAt": "Sat, 14 Mar 2026 05:00:25 +0000",
-      "summary": "科學界普遍認為「想像」與「假裝」這類認知能力是人類演化獨有的特質，並為人類的認知發展和社會互動有至關重要的作用 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
