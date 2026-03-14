@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-03-14T11:49:39.978Z",
+  "generatedAt": "2026-03-14T13:58:22.304Z",
   "items": [
     {
       "id": 1,
-      "title": "Update CONTRIBUTING.md",
-      "link": "https://github.com/openclaw/openclaw/commit/2fad7b823ee13f2bae979a42aea00028adcaa2af",
-      "publishedAt": "2026-03-14T11:43:53Z",
-      "summary": "Update CONTRIBUTING.md",
+      "title": "ci: enforce calver freshness on npm publish",
+      "link": "https://github.com/openclaw/openclaw/commit/c08317203d76ab0fe844c03de74bfc577ac95714",
+      "publishedAt": "2026-03-14T12:45:40Z",
+      "summary": "ci: enforce calver freshness on npm publish",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Update CONTRIBUTING.md",
-      "summaryZh": "重點：Update CONTRIBUTING.md..."
+      "titleZh": "OpenClaw 程式碼更新：ci: enforce calver freshness on npm publish",
+      "summaryZh": "重點：ci: enforce calver freshness on npm publish..."
     },
     {
       "id": 2,
-      "title": "feat: add --force-document to message.send for Telegram (bypass sendP…",
-      "link": "https://github.com/openclaw/openclaw/commit/0ee11d332105f2b7e8ced9d22586b030668c9b66",
-      "publishedAt": "2026-03-14T11:43:49Z",
-      "summary": "feat: add --force-document to message.send for Telegram (bypass sendPhoto + image optimizer) (#45111) * feat: add --force-document to message.send for Telegram Adds --force-document CLI flag to bypass sendPhoto and use sendDocument instead, avoiding Telegram image compression for PNG/image files. - TelegramSendOpts: add forceDocument field - send.ts: skip sendPhoto when forceDocument=true (mediaSender pattern) - ChannelOutboundContext: add forceDocument field - telegramOutbound.sendMedia: pass forceDocument to sendMessageTelegram - ChannelHandlerParams / DeliverOutboundPayloadsCoreParams: add forceDocument - createChannelOutboundContextBase: propagate forceDocument - outbound-send-service.ts: add forceDocument to executeSendAction params - message-action-runner.ts: read forceDocument from params - message.ts: add forceDocument to MessageSendParams - register.send.ts: add --force-document CLI option * fix: pass forceDocument through telegram action dispatch path The actual send path goes through dispatchChannelMessageAction -> telegramMessageActions.handleAction -> handleTelegramAction, not deliverOutboundPayloads. forceDocument was not being read in readTelegramSendParams or passed to sendMessageTelegram. * fix: apply forceDocument to GIF branch to avoid sendAnimation * fix: add disable_content_type_detection=true to sendDocument for --force-document * fix: add forceDocument to buildSendSchema for agent discoverability * fix: scope telegram force-document detection * test: fix heartbeat target helper typing * fix: skip image optimization when forceDocument is set * fix: persist forceDocument in WAL queue for crash-recovery replay * test: tighten heartbeat target test entry typing --------- Co-authored-by: thepagent Co-authored-by: Frank Yang",
+      "title": "chore: add code owners for npm release paths",
+      "link": "https://github.com/openclaw/openclaw/commit/5c9fae5adc335b30e253750e1cd9963b288ae359",
+      "publishedAt": "2026-03-14T12:45:40Z",
+      "summary": "chore: add code owners for npm release paths",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：新功能: add --force-文件ument to message.send for Telegram (bypass sendP…",
-      "summaryZh": "重點：新功能: add --force-文件ument to message.send for Telegram (bypass sendPhoto + image optimizer) (#45111) * 新功能: add --force-文..."
+      "titleZh": "OpenClaw 程式碼更新：chore: add code owners for npm 版本發布 paths",
+      "summaryZh": "重點：chore: add code owners for npm 版本發布 paths..."
     },
     {
       "id": 3,
-      "title": "fix(ui): session dropdown shows label instead of key (#45130)",
-      "link": "https://github.com/openclaw/openclaw/commit/40c81e9cd3b7d74ea589fa3b96c13a0b8f8412ab",
-      "publishedAt": "2026-03-14T11:36:46Z",
-      "summary": "fix(ui): session dropdown shows label instead of key (#45130) Merged via squash. Prepared head SHA: 0255e3971b06b3641e6b26590eaa22a900079517 Co-authored-by: luzhidong Co-authored-by: altaywtf Reviewed-by: @altaywtf",
+      "title": "ci: switch npm release workflow to trusted publishing",
+      "link": "https://github.com/openclaw/openclaw/commit/00891dee903b65d18110421baa4afcd8722bc7c3",
+      "publishedAt": "2026-03-14T12:45:40Z",
+      "summary": "ci: switch npm release workflow to trusted publishing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): session dropdown shows label instead of key (#45130)",
-      "summaryZh": "重點：修正(ui): session dropdown shows label instead of key (#45130) Merged via squash. Prepared head SHA: 0255e3971b06b3641e6b2..."
+      "titleZh": "OpenClaw 程式碼更新：ci: switch npm 版本發布 workflow to trusted publishing",
+      "summaryZh": "重點：ci: switch npm 版本發布 workflow to trusted publishing..."
     },
     {
       "id": 4,
-      "title": "docs: mark memory bootstrap change as breaking",
-      "link": "https://github.com/openclaw/openclaw/commit/64e6df7eead1f68cf8606a122f8e9dc30a50e05a",
-      "publishedAt": "2026-03-14T11:25:32Z",
-      "summary": "docs: mark memory bootstrap change as breaking",
+      "title": "docs: clarify npm release preview and publish flow",
+      "link": "https://github.com/openclaw/openclaw/commit/61a7f2e7c3c7be6a2af2c77ae6f8175010e33771",
+      "publishedAt": "2026-03-14T12:45:40Z",
+      "summary": "docs: clarify npm release preview and publish flow",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: mark 記憶 bootstrap change as breaking",
-      "summaryZh": "重點：文件: mark 記憶 bootstrap change as breaking..."
+      "titleZh": "OpenClaw 文件更新：文件: clarify npm 版本發布 preview and publish flow",
+      "summaryZh": "重點：文件: clarify npm 版本發布 preview and publish flow..."
     },
     {
       "id": 5,
