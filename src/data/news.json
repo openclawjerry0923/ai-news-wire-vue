@@ -1,19 +1,88 @@
 {
-  "generatedAt": "2026-03-15T05:45:05.743Z",
+  "generatedAt": "2026-03-15T07:57:15.549Z",
   "items": [
     {
       "id": 1,
-      "title": "docs: reorder unreleased changelog",
-      "link": "https://github.com/openclaw/openclaw/commit/8851d064292c9c8254d512342c9ea14de942ba95",
-      "publishedAt": "2026-03-15T05:16:41Z",
-      "summary": "docs: reorder unreleased changelog",
+      "title": "docs: replace outdated Clawdbot references with OpenClaw in skill doc…",
+      "link": "https://github.com/openclaw/openclaw/commit/c33375f8433967aabdb5b5978f5da10d6e384a82",
+      "publishedAt": "2026-03-15T07:29:19Z",
+      "summary": "docs: replace outdated Clawdbot references with OpenClaw in skill docs (#41563) Update 5 references to the old \"Clawdbot\" name in skills/apple-reminders/SKILL.md and skills/imsg/SKILL.md. Co-authored-by: imanisynapse",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: reorder un版本發布d changelog",
-      "summaryZh": "重點：文件: reorder un版本發布d changelog..."
+      "titleZh": "OpenClaw 文件更新：文件: replace outdated Clawdbot references with OpenClaw in skill 文件…",
+      "summaryZh": "重點：文件: replace outdated Clawdbot references with OpenClaw in skill 文件 (#41563) Update 5 references to the old \"Clawdbot\" na..."
     },
     {
       "id": 2,
+      "title": "馬斯克要自建超大型晶圓廠，Terafab 計畫未來 7 天內啟動",
+      "link": "https://technews.tw/2026/03/15/chip-fab-elon-musk-terafab/",
+      "publishedAt": "Sun, 15 Mar 2026 07:26:00 +0000",
+      "summary": "半導體產業正在 AI 狂潮經歷前所未有的「緊湊」出貨時程，特斯拉自駕雄心因此面臨晶片需求瓶頸，馬斯克不想被掐脖 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "Docs: fix stale Clawdbot branding in agent workflow file (#46963)",
+      "link": "https://github.com/openclaw/openclaw/commit/d230bd9c388cc55cb5975ca67cdd5f67e7d767b8",
+      "publishedAt": "2026-03-15T07:01:03Z",
+      "summary": "Docs: fix stale Clawdbot branding in agent workflow file (#46963) Co-authored-by: webdevpraveen",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: 修正 stale Clawdbot branding in agent workflow file (#46963)",
+      "summaryZh": "重點：文件: 修正 stale Clawdbot branding in agent workflow file (#46963) Co-authored-by: webdevpraveen..."
+    },
+    {
+      "id": 4,
+      "title": "fix: harden compaction timeout follow-ups",
+      "link": "https://github.com/openclaw/openclaw/commit/6a458ef29e150b42e1f55ff8e01722728b11b218",
+      "publishedAt": "2026-03-15T06:43:23Z",
+      "summary": "fix: harden compaction timeout follow-ups",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: harden compaction timeout follow-ups",
+      "summaryZh": "重點：修正: harden compaction timeout follow-ups..."
+    },
+    {
+      "id": 5,
+      "title": "feat: make compaction timeout configurable via agents.defaults.compac…",
+      "link": "https://github.com/openclaw/openclaw/commit/f77a6841317c13253902a85e2bd78a51f26c84dc",
+      "publishedAt": "2026-03-15T06:34:48Z",
+      "summary": "feat: make compaction timeout configurable via agents.defaults.compaction.timeoutSeconds (#46889) * feat: make compaction timeout configurable via agents.defaults.compaction.timeoutSeconds The hardcoded 5-minute (300s) compaction timeout causes large sessions to enter a death spiral where compaction repeatedly fails and the session grows indefinitely. This adds agents.defaults.compaction.timeoutSeconds to allow operators to override the compaction safety timeout. Default raised to 900s (15min) which is sufficient for sessions up to ~400k tokens. The resolved timeout is also used for the session write lock duration so locks don't expire before compaction completes. Fixes #38233 Co-Authored-By: Claude Opus 4.6 (1M context) * test: add resolveCompactionTimeoutMs tests Cover config resolution edge cases: undefined config, missing compaction section, valid seconds, fractional values, zero, negative, NaN, and Infinity. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: add timeoutSeconds to compaction Zod schema The compaction object schema uses .strict(), so setting the new timeoutSeconds config option would fail validation at startup. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: enforce integer constraint on compaction timeoutSeconds schema Prevents sub-second values like 0.5 which would floor to 0ms and cause immediate compaction timeout. Matches pattern of other integer timeout fields in the schema. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: clamp compaction timeout to Node timer-safe maximum Values above ~2.1B ms overflow Node's setTimeout to 1ms, causing immediate timeout. Clamp to MAX_SAFE_TIMEOUT_MS matching the pattern in agents/timeout.ts. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: add FIELD_LABELS entry for compaction timeoutSeconds Maintains label/help parity invariant enforced by schema.help.quality.test.ts. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: align compaction timeouts with abort handling * fix: land compaction timeout handling (#46889) (thanks @asyncjason) --------- Co-authored-by: Jason Separovic Co-authored-by: Claude Opus 4.6 (1M context) Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能: make compaction timeout configurable via agents.defaults.compac…",
+      "summaryZh": "重點：新功能: make compaction timeout configurable via agents.defaults.compaction.timeoutSeconds (#46889) * 新功能: make compaction ..."
+    },
+    {
+      "id": 6,
+      "title": "新創 Mantis Space 獲千萬種子資金，開發「太空行動電源」衛星",
+      "link": "https://technews.tw/2026/03/15/mantis-space-laser-satellite/",
+      "publishedAt": "Sun, 15 Mar 2026 06:18:53 +0000",
+      "summary": "如今手機能無線充電，太空人造衛星是否也能「隔空充電」？新創公司 Mantis Space 近日從秘密研發狀態脫 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Cognizant 研究顯示即插即用 AI 純屬迷思",
+      "link": "https://finance.technews.tw/2026/03/15/cognizant/",
+      "publishedAt": "Sun, 15 Mar 2026 06:00:56 +0000",
+      "summary": "Cognizant 發布最新研究，指出正積極導入人工智慧（AI）的企業，大多傾向於選擇資訊科技服務公司，例如「 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "1.2 兆美元順差背後：廣東工人薪水跌 40%，被「黑暗工廠」淘汰",
+      "link": "https://technews.tw/2026/03/15/china-dark-factory-automation-workers-wages-drop/",
+      "publishedAt": "Sun, 15 Mar 2026 06:00:48 +0000",
+      "summary": "中國 2025 年官方數據為近 1.2 兆美元創紀錄貿易順差，出口持續攀升，但廣東省工廠工人生活水準卻急劇惡化 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "和「婚姻處罰稅」說再見！瑞士公投通過個人所得稅法，未來結婚不用多繳稅？",
       "link": "https://finance.technews.tw/2026/03/15/swiss-vote-on-individual-taxation-end-of-the-marriage-tax-penalty/",
       "publishedAt": "Sun, 15 Mar 2026 05:00:46 +0000",
@@ -22,80 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(android): theme popup surfaces",
-      "link": "https://github.com/openclaw/openclaw/commit/37c79f84ba86816629d70330890a643a62af4f97",
-      "publishedAt": "2026-03-15T04:18:08Z",
-      "summary": "fix(android): theme popup surfaces",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): theme popup surfaces",
-      "summaryZh": "重點：修正(android): theme popup surfaces..."
-    },
-    {
-      "id": 4,
-      "title": "feat(android): add dark theme (#46249)",
-      "link": "https://github.com/openclaw/openclaw/commit/db20141993f1f674abeb563642a4e03249c87e98",
-      "publishedAt": "2026-03-15T03:05:04Z",
-      "summary": "feat(android): add dark theme (#46249) * Android: add mobile dark theme * Android: fix remaining dark mode card surfaces * Android: address dark mode review comments * fix(android): theme onboarding flow * fix: add Android dark theme coverage (#46249) (thanks @sibbl) --------- Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(android): add dark theme (#46249)",
-      "summaryZh": "重點：新功能(android): add dark theme (#46249) * Android: add mobile dark theme * Android: 修正 remaining dark mode card surfaces *..."
-    },
-    {
-      "id": 5,
+      "id": 10,
       "title": "a16z 發表 2026 百大生成式 AI 榜單，Google 靠 Android 生態系強勢攔截 ChatGPT 半數行動用戶",
       "link": "https://technews.tw/2026/03/15/a16z-top-100-generative-ai-ranking/",
       "publishedAt": "Sun, 15 Mar 2026 03:00:10 +0000",
       "summary": "知名創投 Andreessen Horowitz（a16z）再次更新了2026 年百大生成式 AI 應用（AI [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "fix(gateway): harden health monitor account gating (#46749)",
-      "link": "https://github.com/openclaw/openclaw/commit/29fec8bb9f0b909ceecb232569c562ec599be8cb",
-      "publishedAt": "2026-03-15T02:58:28Z",
-      "summary": "fix(gateway): harden health monitor account gating (#46749) * gateway: harden health monitor account gating * gateway: tighten health monitor account-id guard",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): harden health monitor account gating (#46749)",
-      "summaryZh": "重點：修正(Gateway): harden health monitor account gating (#46749) * Gateway: harden health monitor account gating * Gateway: ti..."
-    },
-    {
-      "id": 7,
-      "title": "NASA 目標 4/1 發射阿提米絲二號，希望不會成為愚人節玩笑",
-      "link": "https://technews.tw/2026/03/15/nasa-targets-april-1-launch-for-artemis-ii-crewed-moon-mission/",
-      "publishedAt": "Sun, 15 Mar 2026 02:30:49 +0000",
-      "summary": "美國國家航空暨太空總署（NASA）12 日確認，阿提米絲二號（Artemis II）發射計畫已準備就緒，目標定 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "玩家福音，AMD Ryzen 7 9800X3D 降至歷史低價 429 美元",
-      "link": "https://ccc.technews.tw/2026/03/15/amd-ryzen-7-9850x3d-cpu/",
-      "publishedAt": "Sun, 15 Mar 2026 02:28:44 +0000",
-      "summary": "自 AMD 號稱遊戲終極體的 Ryzen 7 9850X3D 新一代處理器推出後，Ryzen 7 9800X3 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "職涯規劃很重要！紐約聯準銀行報告：這 14 學系畢業五年後「錢途」最差",
-      "link": "https://technews.tw/2026/03/15/the-14-worst-paying-college-majors-5-years-after-graduation/",
-      "publishedAt": "Sun, 15 Mar 2026 02:00:46 +0000",
-      "summary": "紐約聯邦準備銀行（Federal Reserve Bank of New York）2 月最新調查，主修人文與 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "憂鬱症傳統認知翻轉，科學家發現大腦隱藏的能量問題",
-      "link": "https://technews.tw/2026/03/15/scientists-discover-hidden-energy-problem-in-the-depressed-brain/",
-      "publishedAt": "Sun, 15 Mar 2026 01:30:26 +0000",
-      "summary": "在一項最新研究中，昆士蘭大學（University of Queensland）科學家與明尼蘇達大學（Univ [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
