@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-03-15T14:00:29.522Z",
+  "generatedAt": "2026-03-15T15:55:28.608Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: preserve Telegram word boundaries when rechunking HTML (#47274)",
-      "link": "https://github.com/openclaw/openclaw/commit/c4265a5f166f99b19b6bccaf445463640411c4f2",
-      "publishedAt": "2026-03-15T12:40:49Z",
-      "summary": "fix: preserve Telegram word boundaries when rechunking HTML (#47274) * fix: preserve Telegram chunk word boundaries * fix: address Telegram chunking review feedback * fix: preserve Telegram retry separators * fix: preserve Telegram chunking boundaries (#47274)",
+      "title": "refactor: drop deprecated whatsapp mention pattern sdk helper",
+      "link": "https://github.com/openclaw/openclaw/commit/87c4ae36b4ccbcac25ceb238ef357297761f4bdc",
+      "publishedAt": "2026-03-15T15:50:31Z",
+      "summary": "refactor: drop deprecated whatsapp mention pattern sdk helper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve Telegram word boundaries when rechunking HTML (#47274)",
-      "summaryZh": "重點：修正: preserve Telegram word boundaries when rechunking HTML (#47274) * 修正: preserve Telegram chunk word boundaries * 修正: ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: drop deprecated whatsapp mention pattern sdk helper",
+      "summaryZh": "重點：refactor: drop deprecated whatsapp mention pattern sdk helper..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): skip Control UI pairing when auth.mode=none (closes #42…",
-      "link": "https://github.com/openclaw/openclaw/commit/26e0a3ee9a6b5e1251919f6b3b07015cebbf9375",
-      "publishedAt": "2026-03-15T12:03:39Z",
-      "summary": "fix(gateway): skip Control UI pairing when auth.mode=none (closes #42931) (#47148) When auth is completely disabled (mode=none), requiring device pairing for Control UI operator sessions adds friction without security value since any client can already connect without credentials. Add authMode parameter to shouldSkipControlUiPairing so the bypass fires only for Control UI + operator role + auth.mode=none. This avoids the #43478 regression where a top-level OR disabled pairing for ALL websocket clients.",
+      "title": "Nodes: recheck queued actions before delivery (#46815)",
+      "link": "https://github.com/openclaw/openclaw/commit/ec2c6d83b9f5f91d6d9094842e0f19b88e63e3e2",
+      "publishedAt": "2026-03-15T15:47:17Z",
+      "summary": "Nodes: recheck queued actions before delivery (#46815) * Nodes: recheck queued actions before delivery * Nodes tests: cover pull-time policy recheck * Nodes tests: type node policy mocks explicitly",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): skip Control UI pairing when auth.mode=none (closes #42…",
-      "summaryZh": "重點：修正(Gateway): skip Control UI pairing when auth.mode=none (closes #42931) (#47148) When auth is completely disabled (mode..."
+      "titleZh": "OpenClaw 程式碼更新：Nodes: recheck queued actions before delivery (#46815)",
+      "summaryZh": "重點：Nodes: recheck queued actions before delivery (#46815) * Nodes: recheck queued actions before delivery * Nodes tests: co..."
     },
     {
       "id": 3,
-      "title": "Deduplicate repeated tool call IDs for OpenAI-compatible APIs (#40996)",
-      "link": "https://github.com/openclaw/openclaw/commit/5c5c64b6129a5ab199488d1e0255a25292ed3c66",
-      "publishedAt": "2026-03-15T11:46:07Z",
-      "summary": "Deduplicate repeated tool call IDs for OpenAI-compatible APIs (#40996) Merged via squash. Prepared head SHA: 38d80483592de63866b07cd61edc7f41ffd56021 Co-authored-by: xaeon2026 Co-authored-by: frankekn Reviewed-by: @frankekn",
+      "title": "fix: harden mention pattern regex compilation",
+      "link": "https://github.com/openclaw/openclaw/commit/ff61343d76933c2d7bc01a13db87a2554514e0d0",
+      "publishedAt": "2026-03-15T15:44:12Z",
+      "summary": "fix: harden mention pattern regex compilation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Deduplicate repeated tool call IDs for OpenAI-compatible APIs (#40996)",
-      "summaryZh": "重點：Deduplicate repeated tool call IDs for OpenAI-compatible APIs (#40996) Merged via squash. Prepared head SHA: 38d80483592..."
+      "titleZh": "OpenClaw 程式碼更新：修正: harden mention pattern regex compilation",
+      "summaryZh": "重點：修正: harden mention pattern regex compilation..."
     },
     {
       "id": 4,
-      "title": "fix(web): handle 515 Stream Error during WhatsApp QR pairing (#27910)",
-      "link": "https://github.com/openclaw/openclaw/commit/9d3e653ec9d262fa34d6c63ab0ed2239d19895b1",
-      "publishedAt": "2026-03-15T11:30:07Z",
-      "summary": "fix(web): handle 515 Stream Error during WhatsApp QR pairing (#27910) * fix(web): handle 515 Stream Error during WhatsApp QR pairing getStatusCode() never unwrapped the lastDisconnect wrapper object, so login.errorStatus was always undefined and the 515 restart path in restartLoginSocket was dead code. - Add err.error?.output?.statusCode fallback to getStatusCode() - Export waitForCredsSaveQueue() so callers can await pending creds - Await creds flush in restartLoginSocket before creating new socket Fixes #3942 * test: update session mock for getStatusCode unwrap + waitForCredsSaveQueue Mirror the getStatusCode fix (err.error?.output?.statusCode fallback) in the test mock and export waitForCredsSaveQueue so restartLoginSocket tests work correctly. * fix(web): scope creds save queue per-authDir to avoid cross-account blocking The credential save queue was a single global promise chain shared by all WhatsApp accounts. In multi-account setups, a slow save on one account blocked credential writes and 515 restart recovery for unrelated accounts. Replace the global queue with a per-authDir Map so each account's creds serialize independently. waitForCredsSaveQueue() now accepts an optional authDir to wait on a single account's queue, or waits on all when omitted. Co-Authored-By: Claude Opus 4.6 * test: use real Baileys v7 error shape in 515 restart test The test was using { output: { statusCode: 515 } } which was already handled before the fix. Updated to use the actual Baileys v7 shape { error: { output: { statusCode: 515 } } } to cover the new fallback path in getStatusCode. Co-Authored-By: Claude Code (Opus 4.6) * fix(web): bound credential-queue wait during 515 restart Prevents restartLoginSocket from blocking indefinitely if a queued saveCreds() promise stalls (e.g. hung filesystem write). Co-Authored-By: Claude * fix: clear flush timeout handle and assert creds queue in test Co-Authored-By: Claude * fix: evict settled credsSaveQueues entries to prevent unbounded growth Co-Authored-By: Claude * fix: share WhatsApp 515 creds flush handling (#27910) (thanks @asyncjason) --------- Co-authored-by: Jason Separovic Co-authored-by: Claude Opus 4.6 Co-authored-by: Ayaan Zaidi",
+      "title": "ACP: fail closed on conflicting tool identity hints (#46817)",
+      "link": "https://github.com/openclaw/openclaw/commit/e4c61723cd2d530680cc61789311d464ab8cdf60",
+      "publishedAt": "2026-03-15T15:39:49Z",
+      "summary": "ACP: fail closed on conflicting tool identity hints (#46817) * ACP: fail closed on conflicting tool identity hints * ACP: restore rawInput fallback for safe tool resolution * ACP tests: cover rawInput-only safe tool approval",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(web): handle 515 Stream Error during WhatsApp QR pairing (#27910)",
-      "summaryZh": "重點：修正(web): handle 515 Stream Error during WhatsApp QR pairing (#27910) * 修正(web): handle 515 Stream Error during WhatsApp ..."
+      "titleZh": "OpenClaw 程式碼更新：ACP: fail closed on conflicting tool identity hints (#46817)",
+      "summaryZh": "重點：ACP: fail closed on conflicting tool identity hints (#46817) * ACP: fail closed on conflicting tool identity hints * ACP..."
     },
     {
       "id": 5,
