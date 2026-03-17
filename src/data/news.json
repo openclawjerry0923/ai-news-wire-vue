@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-17T08:07:41.535Z",
+  "generatedAt": "2026-03-17T11:33:28.561Z",
   "items": [
     {
       "id": 1,
@@ -39,6 +39,17 @@
     },
     {
       "id": 5,
+      "title": "fix ssh sandbox key cp (#48924)",
+      "link": "https://github.com/openclaw/openclaw/commit/59cd98068fdbc559810d71fdcca4f6a2598aa1f8",
+      "publishedAt": "2026-03-17T11:22:33Z",
+      "summary": "fix ssh sandbox key cp (#48924) Signed-off-by: sallyom",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正 ssh sandbox key cp (#48924)",
+      "summaryZh": "重點：修正 ssh sandbox key cp (#48924) Signed-off-by: sallyom..."
+    },
+    {
+      "id": 6,
       "title": "駭客組織Handala攻擊美國醫療科技公司Stryker，傳出透過遠端裝置管理平臺抹除8萬臺裝置",
       "link": "https://www.ithome.com.tw/news/174435",
       "publishedAt": "2026-03-17 11:03:46",
@@ -47,7 +58,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Google、微軟、Amazon與Meta等科技巨頭簽署協議以共同對抗網路詐騙",
       "link": "https://www.ithome.com.tw/news/174437",
       "publishedAt": "2026-03-17 11:03:41",
@@ -56,48 +67,37 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "test: fix discord provider helper import",
-      "link": "https://github.com/openclaw/openclaw/commit/ce486292a183a0a87f17def6f3e315c9c02532ef",
-      "publishedAt": "2026-03-17T08:05:09Z",
-      "summary": "test: fix discord provider helper import",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: 修正 Discord provider helper import",
-      "summaryZh": "重點：test: 修正 Discord provider helper import..."
-    },
-    {
       "id": 8,
-      "title": "refactor: split plugin testing seam from bundled extension helpers",
-      "link": "https://github.com/openclaw/openclaw/commit/f9588da3e01ccabe5eec09b65a61afc51300031f",
-      "publishedAt": "2026-03-17T08:05:09Z",
-      "summary": "refactor: split plugin testing seam from bundled extension helpers",
+      "title": "tests: add missing useNoBundledPlugins() to bundle MCP loader test",
+      "link": "https://github.com/openclaw/openclaw/commit/f404ff32d527d2cbcccd7dc1beb30a0d024d6c0d",
+      "publishedAt": "2026-03-17T10:19:08Z",
+      "summary": "tests: add missing useNoBundledPlugins() to bundle MCP loader test The \"treats bundle MCP as a supported bundle surface\" test was missing the useNoBundledPlugins() call present in all surrounding bundle plugin tests. Without it, loadOpenClawPlugins() scanned and loaded the full real bundled plugins directory on every call (with cache:false), causing excessive memory pressure and an OOM crash on Linux CI, which manifested as the test timing out at 120s. Co-Authored-By: Claude Sonnet 4.6",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: split plugin testing seam from bundled extension helpers",
-      "summaryZh": "重點：refactor: split plugin testing seam from bundled extension helpers..."
+      "titleZh": "OpenClaw 程式碼更新：tests: add missing useNoBundledPlugins() to bundle MCP loader test",
+      "summaryZh": "重點：tests: add missing useNoBundledPlugins() to bundle MCP loader test The \"treats bundle MCP as a supported bundle surface\"..."
     },
     {
       "id": 9,
-      "title": "fix(ci): quote changed extension matrix input",
-      "link": "https://github.com/openclaw/openclaw/commit/527a1919ea2064052fa7601f3a7cd32918992bd3",
-      "publishedAt": "2026-03-17T08:04:47Z",
-      "summary": "fix(ci): quote changed extension matrix input",
+      "title": "fix(macos): stop relaunching the app after quit when launch-at-login …",
+      "link": "https://github.com/openclaw/openclaw/commit/6b6942552d847a047d70f3c4947b796e3e00047c",
+      "publishedAt": "2026-03-17T09:59:56Z",
+      "summary": "fix(macos): stop relaunching the app after quit when launch-at-login is enabled (#40213) Merged via squash. Prepared head SHA: c702d98bd63f4de4059df54f8aaea1ff56c01a34 Co-authored-by: stablegenius49 Co-authored-by: ImLukeF Reviewed-by: @ImLukeF",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): quote changed extension matrix input",
-      "summaryZh": "重點：修正(ci): quote changed extension matrix input..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): stop relaunching the app after quit when launch-at-login …",
+      "summaryZh": "重點：修正(macos): stop relaunching the app after quit when launch-at-login is enabled (#40213) Merged via squash. Prepared head..."
     },
     {
       "id": 10,
-      "title": "refactor(extension-tests): share safeguard runtime assertions",
-      "link": "https://github.com/openclaw/openclaw/commit/85e610e4e75a2a41a12cb4962249ca39c12c203f",
-      "publishedAt": "2026-03-17T08:02:44Z",
-      "summary": "refactor(extension-tests): share safeguard runtime assertions",
+      "title": "fix: update macOS node service to use current CLI command shape (clos…",
+      "link": "https://github.com/openclaw/openclaw/commit/73032534276d1dedf645e785f02ec2a3c0a2cf89",
+      "publishedAt": "2026-03-17T09:46:54Z",
+      "summary": "fix: update macOS node service to use current CLI command shape (closes #43171) (#46843) Merged via squash. Prepared head SHA: dbf2edd6f4fdc89aea865bec631f7a289a4dcbd1 Co-authored-by: Br1an67 Co-authored-by: ImLukeF Reviewed-by: @ImLukeF",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(extension-tests): share safeguard runtime assertions",
-      "summaryZh": "重點：refactor(extension-tests): share safeguard runtime assertions..."
+      "titleZh": "OpenClaw 程式碼更新：修正: update macOS node service to use current CLI command shape (clos…",
+      "summaryZh": "重點：修正: update macOS node service to use current CLI command shape (closes #43171) (#46843) Merged via squash. Prepared head..."
     }
   ]
 }
