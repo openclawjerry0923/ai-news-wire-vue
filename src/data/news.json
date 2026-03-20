@@ -1,41 +1,79 @@
 {
-  "generatedAt": "2026-03-20T14:33:08.373Z",
+  "generatedAt": "2026-03-20T17:11:35.448Z",
   "items": [
     {
       "id": 1,
-      "title": "docs(azure): replace ARM template deployment with pure az CLI command…",
-      "link": "https://github.com/openclaw/openclaw/commit/dc86b6d72a138f54e4fb50d5c015ad8a335ec38a",
-      "publishedAt": "2026-03-20T14:23:21Z",
-      "summary": "docs(azure): replace ARM template deployment with pure az CLI commands (#50700) * docs(azure): replace ARM template deployment with pure az CLI commands Rewrites the Azure install guide to use individual az CLI commands instead of referencing ARM templates in infra/azure/templates/ (removed upstream). Each Azure resource (NSG, VNet, subnets, VM, Bastion) is now created with explicit az commands, preserving the same security posture (Bastion-only SSH, no public IP, NSG hardening). Also addresses BradGroux review feedback from #47898: - Add cost considerations section (Bastion ~$140/mo, VM ~$55/mo) - Add cleanup/teardown section (az group delete) - Remove stale /install/azure/azure redirect from docs.json Co-authored-by: Copilot * docs(azure): split into multiple Steps blocks for richer TOC Add Quick path and What you need sections. Split the single Steps block into three (Configure deployment, Deploy Azure resources, Install OpenClaw) so H2 headers appear in the Mintlify sidebar TOC. Co-authored-by: Copilot * docs(azure): remove Quick path section Co-authored-by: Copilot * docs(azure): fix cost section LaTeX rendering, remove comparison Escape dollar signs to prevent Mintlify LaTeX interpretation. Also escape underscores in VM SKU name within bold text. Co-authored-by: Copilot * docs(azure): add caveat that deallocated VM stops Gateway Co-authored-by: Copilot * docs(azure): simplify install step with clearer description Download then run pattern (no sudo). Clarify that installer handles Node LTS, dependencies, OpenClaw install, and onboarding wizard. Co-authored-by: Copilot * docs(azure): add Bastion provisioning latency note Co-authored-by: Copilot * docs(azure): use deployment variables in cost and cleanup sections Replace hardcoded rg-openclaw/vm-openclaw with variables in deallocate/start and group delete commands so users who customized names in step 3 get correct commands. Co-authored-by: Copilot * docs(azure): fix formatting (oxfmt) Co-authored-by: Copilot --------- Co-authored-by: Copilot",
+      "title": "test: speed up isolated test lanes",
+      "link": "https://github.com/openclaw/openclaw/commit/85a5d64d8f3b91f1a41caa322583df30900a62c8",
+      "publishedAt": "2026-03-20T17:11:23Z",
+      "summary": "test: speed up isolated test lanes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(azure): replace ARM template deployment with pure az CLI command…",
-      "summaryZh": "重點：文件(azure): replace ARM template deployment with pure az CLI commands (#50700) * 文件(azure): replace ARM template deployme..."
+      "titleZh": "OpenClaw 程式碼更新：test: speed up isolated test lanes",
+      "summaryZh": "重點：test: speed up isolated test lanes..."
     },
     {
       "id": 2,
-      "title": "docs: add delegate architecture guide for organizational deployments …",
-      "link": "https://github.com/openclaw/openclaw/commit/99e53612cb23f1453d7be6c9f66fff9cf3c7480f",
-      "publishedAt": "2026-03-20T14:23:17Z",
-      "summary": "docs: add delegate architecture guide for organizational deployments (#43261) * docs: add delegate architecture guide for organizational deployments Adds a guide for running OpenClaw as a named delegate for organizations. Covers three capability tiers (read-only, send-on-behalf, proactive), M365 and Google Workspace delegation setup, security guardrails, and integration with multi-agent routing. AI-assisted: Claude Code (Opus 4.6) Based on: Production deployment at a 501(c)(3) nonprofit Co-Authored-By: Claude Opus 4.6 (1M context) * docs: address review — add Google DWD warning, fix canvas in deny list - Add security warning for Google Workspace domain-wide delegation matching the existing M365 application access policy warning - Add \"canvas\" to the security guardrails tool deny list for consistency with the full example and multi-agent.md Co-Authored-By: Claude Opus 4.6 (1M context) * docs: fix Tier 1 description to match read-only permissions Remove \"draft replies (saved to Drafts folder)\" from Tier 1 since saving drafts requires write access. Tier 1 is strictly read-only — the agent summarizes and flags via chat, human acts on the mailbox. Co-Authored-By: Claude Opus 4.6 (1M context) * style: fix oxfmt formatting for delegate-architecture and docs.json Co-Authored-By: Claude Opus 4.6 (1M context) * docs: fix broken links to /automation/standing-orders Standing orders is a deployment pattern, not an existing doc page. Replaced with inline descriptions and links to /automation/cron-jobs and #security-guardrails anchor. Co-Authored-By: Claude Opus 4.6 (1M context) * docs: move hardening to prerequisites before identity provider setup Restructure per community feedback: isolation, tool restrictions, sandbox, hard blocks, and audit trail now come BEFORE granting any credentials. The most dangerous step (tenant-wide permissions) no longer precedes the most important step (scoping and isolation). Also strengthened M365 and Google Workspace security warnings with actionable verification steps. Co-Authored-By: Claude Opus 4.6 (1M context) * docs: add standing orders guide and fix broken links Add docs/automation/standing-orders.md covering: - Why standing orders (agent autonomy vs human bottleneck) - Anatomy of a standing order (scope, triggers, gates, escalation) - Integration with cron jobs for time-based enforcement - Execute-Verify-Report pattern for execution discipline - Three production-tested examples (content, finance, monitoring) - Multi-program architecture for complex agents - Best practices (do's and don'ts) Update delegate-architecture.md to link standing orders references to the new page instead of dead links. Add standing-orders to Automation nav group in docs.json (en + zh-CN). Co-Authored-By: Claude Opus 4.6 (1M context) * docs: address review feedback on standing-orders - P1: Clarify that standing orders should go in AGENTS.md (auto-injected) rather than arbitrary subdirectory files. Add Tip callout explaining which workspace files are bootstrapped. - P2: Remove dead /concepts/personality-files link, replace with /concepts/agent-workspace which covers bootstrap files. Co-Authored-By: Claude Opus 4.6 (1M context) --------- Co-authored-by: Claude Opus 4.6 (1M context)",
+      "title": "fix(config): tighten json and json5 parsing paths (#51153)",
+      "link": "https://github.com/openclaw/openclaw/commit/93fbe26adbbcf15fec0b2ddd395478e9100de41e",
+      "publishedAt": "2026-03-20T17:10:57Z",
+      "summary": "fix(config): tighten json and json5 parsing paths (#51153)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: add delegate architecture guide for organizational deployments …",
-      "summaryZh": "重點：文件: add delegate architecture guide for organizational deployments (#43261) * 文件: add delegate architecture guide for or..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): tighten json and json5 parsing paths (#51153)",
+      "summaryZh": "重點：修正(config): tighten json and json5 parsing paths (#51153)..."
     },
     {
       "id": 3,
-      "title": "feat(compaction): truncate session JSONL after compaction to prevent …",
-      "link": "https://github.com/openclaw/openclaw/commit/c6968c39d6c24b13d8a259ba5025ae20d3c21950",
-      "publishedAt": "2026-03-20T14:15:09Z",
-      "summary": "feat(compaction): truncate session JSONL after compaction to prevent unbounded growth (#41021) Merged via squash. Prepared head SHA: fa50b635800f20b0732d4f34c6da404db4dbc95f Co-authored-by: thirumaleshp Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "docs: add plugin SDK migration guide, link deprecation warning to docs",
+      "link": "https://github.com/openclaw/openclaw/commit/87eeab703465eb42481946b130b9122c3e0fb587",
+      "publishedAt": "2026-03-20T17:05:06Z",
+      "summary": "docs: add plugin SDK migration guide, link deprecation warning to docs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(compaction): truncate session JSONL after compaction to prevent …",
-      "summaryZh": "重點：新功能(compaction): truncate session JSONL after compaction to prevent unbounded growth (#41021) Merged via squash. Prepare..."
+      "titleZh": "OpenClaw 文件更新：文件: add plugin SDK migration guide, link deprecation warning to 文件",
+      "summaryZh": "重點：文件: add plugin SDK migration guide, link deprecation warning to 文件..."
     },
     {
       "id": 4,
+      "title": "fix: remove duplicate plugin sdk exports",
+      "link": "https://github.com/openclaw/openclaw/commit/fcabecc9a4fbeb47b07d770bb734b4580cecc783",
+      "publishedAt": "2026-03-20T16:52:10Z",
+      "summary": "fix: remove duplicate plugin sdk exports",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: remove duplicate plugin sdk exports",
+      "summaryZh": "重點：修正: remove duplicate plugin sdk exports..."
+    },
+    {
+      "id": 5,
+      "title": "破解 20 年謎團，天文學家首度直接觀測到超亮超新星背後的磁星「動力引擎」",
+      "link": "https://technews.tw/2026/03/21/scientists-witness-birth-of-a-magnetar-for-the-first-time/",
+      "publishedAt": "Fri, 20 Mar 2026 16:00:52 +0000",
+      "summary": "自 2000 年代初期發現「超亮超新星」（Superluminous Supernovae）以來，其亮度可達一 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "充氣艙、太空娛樂場館到商業園區，國際太空站 2030 年退役後的五種想像",
+      "link": "https://technews.tw/2026/03/21/5-companies-competing-to-replace-the-international-space-station/",
+      "publishedAt": "Fri, 20 Mar 2026 16:00:40 +0000",
+      "summary": "國際太空站（International Space Station，ISS）計劃於 2030 年底除役，屆時將 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "AI 建模變深偽詐騙，年輕女性淪跨國犯罪幫兇",
+      "link": "https://infosecu.technews.tw/2026/03/21/deepfake-ai-face-model/",
+      "publishedAt": "Fri, 20 Mar 2026 16:00:11 +0000",
+      "summary": "在當今的數位時代，越來越多的年輕女性正申請成為所謂的「AI 臉孔模特兒」，這項職位實際上是為了協助詐騙集團進行 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "Google發布電腦版與安卓版Chrome 146更新，修補3項重大漏洞",
       "link": "https://www.ithome.com.tw/news/174544",
       "publishedAt": "2026-03-20 12:03:25",
@@ -44,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "FBI掃蕩伊朗駭客Handala的網站",
       "link": "https://www.ithome.com.tw/news/174546",
       "publishedAt": "2026-03-20 12:03:00",
@@ -53,50 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "build(android): update Gradle tooling",
-      "link": "https://github.com/openclaw/openclaw/commit/4c60956d8e54c01a0942fa2af5dd182c5cfc24e7",
-      "publishedAt": "2026-03-20T11:42:10Z",
-      "summary": "build(android): update Gradle tooling",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build(android): update Gradle tooling",
-      "summaryZh": "重點：build(android): update Gradle tooling..."
-    },
-    {
-      "id": 7,
+      "id": 10,
       "title": "Adobe電商平臺存在資安漏洞PolyShell",
       "link": "https://www.ithome.com.tw/news/174543",
       "publishedAt": "2026-03-20 11:03:05",
       "summary": "在Adobe每月的例行更新裡，電商平臺Adobe Commerce與Magento Open Source（以下簡稱Magento）的相關弱點，經常是該公司呼籲用戶須優先處理的重點項目，現在有資安公司指出，Adobe近期對預覽版本修補的弱點，相關利用方法正在流傳，可能會演變成大規模自動化攻擊。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Codex 突破 200 萬活躍用戶，OpenAI 收購 Python 工具開發商 Astral",
-      "link": "https://finance.technews.tw/2026/03/20/openai-to-acquire-astral/",
-      "publishedAt": "Fri, 20 Mar 2026 10:39:18 +0000",
-      "summary": "OpenAI 19 日宣布，收購開發熱門開源工具的新創公司 Astral，將其產品以及人才引進 Codex 生 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "又一家豪車品牌暫緩電動超跑計畫！藍寶堅尼擱置 Lanzador 轉向插電式混合動力車",
-      "link": "https://finance.technews.tw/2026/03/20/lamborghini-ceo-says-disappointing-ev-charging-infrastructure-contributed-to-no-demand-for-the-evs/",
-      "publishedAt": "Fri, 20 Mar 2026 10:30:57 +0000",
-      "summary": "藍寶堅尼執行長 Stephan Winkelmann 坦言，顧客對全電動跑車需求不如預期，部分原因是缺乏可靠的 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "台灣能源補助整理：太陽光電、風電與儲能系統補助機制",
-      "link": "https://technews.tw/2026/03/20/taiwan-green-energy-susidy/",
-      "publishedAt": "Fri, 20 Mar 2026 10:30:35 +0000",
-      "summary": "隨著能源轉型政策持續推進，政府除了透過電力結構調整與產業政策引導再生能源發展外，也透過各類補助制度與市場機制， [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
