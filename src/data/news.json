@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-03-20T11:57:59.626Z",
+  "generatedAt": "2026-03-20T14:33:08.373Z",
   "items": [
     {
       "id": 1,
+      "title": "docs(azure): replace ARM template deployment with pure az CLI command…",
+      "link": "https://github.com/openclaw/openclaw/commit/dc86b6d72a138f54e4fb50d5c015ad8a335ec38a",
+      "publishedAt": "2026-03-20T14:23:21Z",
+      "summary": "docs(azure): replace ARM template deployment with pure az CLI commands (#50700) * docs(azure): replace ARM template deployment with pure az CLI commands Rewrites the Azure install guide to use individual az CLI commands instead of referencing ARM templates in infra/azure/templates/ (removed upstream). Each Azure resource (NSG, VNet, subnets, VM, Bastion) is now created with explicit az commands, preserving the same security posture (Bastion-only SSH, no public IP, NSG hardening). Also addresses BradGroux review feedback from #47898: - Add cost considerations section (Bastion ~$140/mo, VM ~$55/mo) - Add cleanup/teardown section (az group delete) - Remove stale /install/azure/azure redirect from docs.json Co-authored-by: Copilot * docs(azure): split into multiple Steps blocks for richer TOC Add Quick path and What you need sections. Split the single Steps block into three (Configure deployment, Deploy Azure resources, Install OpenClaw) so H2 headers appear in the Mintlify sidebar TOC. Co-authored-by: Copilot * docs(azure): remove Quick path section Co-authored-by: Copilot * docs(azure): fix cost section LaTeX rendering, remove comparison Escape dollar signs to prevent Mintlify LaTeX interpretation. Also escape underscores in VM SKU name within bold text. Co-authored-by: Copilot * docs(azure): add caveat that deallocated VM stops Gateway Co-authored-by: Copilot * docs(azure): simplify install step with clearer description Download then run pattern (no sudo). Clarify that installer handles Node LTS, dependencies, OpenClaw install, and onboarding wizard. Co-authored-by: Copilot * docs(azure): add Bastion provisioning latency note Co-authored-by: Copilot * docs(azure): use deployment variables in cost and cleanup sections Replace hardcoded rg-openclaw/vm-openclaw with variables in deallocate/start and group delete commands so users who customized names in step 3 get correct commands. Co-authored-by: Copilot * docs(azure): fix formatting (oxfmt) Co-authored-by: Copilot --------- Co-authored-by: Copilot",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(azure): replace ARM template deployment with pure az CLI command…",
+      "summaryZh": "重點：文件(azure): replace ARM template deployment with pure az CLI commands (#50700) * 文件(azure): replace ARM template deployme..."
+    },
+    {
+      "id": 2,
+      "title": "docs: add delegate architecture guide for organizational deployments …",
+      "link": "https://github.com/openclaw/openclaw/commit/99e53612cb23f1453d7be6c9f66fff9cf3c7480f",
+      "publishedAt": "2026-03-20T14:23:17Z",
+      "summary": "docs: add delegate architecture guide for organizational deployments (#43261) * docs: add delegate architecture guide for organizational deployments Adds a guide for running OpenClaw as a named delegate for organizations. Covers three capability tiers (read-only, send-on-behalf, proactive), M365 and Google Workspace delegation setup, security guardrails, and integration with multi-agent routing. AI-assisted: Claude Code (Opus 4.6) Based on: Production deployment at a 501(c)(3) nonprofit Co-Authored-By: Claude Opus 4.6 (1M context) * docs: address review — add Google DWD warning, fix canvas in deny list - Add security warning for Google Workspace domain-wide delegation matching the existing M365 application access policy warning - Add \"canvas\" to the security guardrails tool deny list for consistency with the full example and multi-agent.md Co-Authored-By: Claude Opus 4.6 (1M context) * docs: fix Tier 1 description to match read-only permissions Remove \"draft replies (saved to Drafts folder)\" from Tier 1 since saving drafts requires write access. Tier 1 is strictly read-only — the agent summarizes and flags via chat, human acts on the mailbox. Co-Authored-By: Claude Opus 4.6 (1M context) * style: fix oxfmt formatting for delegate-architecture and docs.json Co-Authored-By: Claude Opus 4.6 (1M context) * docs: fix broken links to /automation/standing-orders Standing orders is a deployment pattern, not an existing doc page. Replaced with inline descriptions and links to /automation/cron-jobs and #security-guardrails anchor. Co-Authored-By: Claude Opus 4.6 (1M context) * docs: move hardening to prerequisites before identity provider setup Restructure per community feedback: isolation, tool restrictions, sandbox, hard blocks, and audit trail now come BEFORE granting any credentials. The most dangerous step (tenant-wide permissions) no longer precedes the most important step (scoping and isolation). Also strengthened M365 and Google Workspace security warnings with actionable verification steps. Co-Authored-By: Claude Opus 4.6 (1M context) * docs: add standing orders guide and fix broken links Add docs/automation/standing-orders.md covering: - Why standing orders (agent autonomy vs human bottleneck) - Anatomy of a standing order (scope, triggers, gates, escalation) - Integration with cron jobs for time-based enforcement - Execute-Verify-Report pattern for execution discipline - Three production-tested examples (content, finance, monitoring) - Multi-program architecture for complex agents - Best practices (do's and don'ts) Update delegate-architecture.md to link standing orders references to the new page instead of dead links. Add standing-orders to Automation nav group in docs.json (en + zh-CN). Co-Authored-By: Claude Opus 4.6 (1M context) * docs: address review feedback on standing-orders - P1: Clarify that standing orders should go in AGENTS.md (auto-injected) rather than arbitrary subdirectory files. Add Tip callout explaining which workspace files are bootstrapped. - P2: Remove dead /concepts/personality-files link, replace with /concepts/agent-workspace which covers bootstrap files. Co-Authored-By: Claude Opus 4.6 (1M context) --------- Co-authored-by: Claude Opus 4.6 (1M context)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: add delegate architecture guide for organizational deployments …",
+      "summaryZh": "重點：文件: add delegate architecture guide for organizational deployments (#43261) * 文件: add delegate architecture guide for or..."
+    },
+    {
+      "id": 3,
+      "title": "feat(compaction): truncate session JSONL after compaction to prevent …",
+      "link": "https://github.com/openclaw/openclaw/commit/c6968c39d6c24b13d8a259ba5025ae20d3c21950",
+      "publishedAt": "2026-03-20T14:15:09Z",
+      "summary": "feat(compaction): truncate session JSONL after compaction to prevent unbounded growth (#41021) Merged via squash. Prepared head SHA: fa50b635800f20b0732d4f34c6da404db4dbc95f Co-authored-by: thirumaleshp Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(compaction): truncate session JSONL after compaction to prevent …",
+      "summaryZh": "重點：新功能(compaction): truncate session JSONL after compaction to prevent unbounded growth (#41021) Merged via squash. Prepare..."
+    },
+    {
+      "id": 4,
       "title": "Google發布電腦版與安卓版Chrome 146更新，修補3項重大漏洞",
       "link": "https://www.ithome.com.tw/news/174544",
       "publishedAt": "2026-03-20 12:03:25",
@@ -11,7 +44,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 5,
       "title": "FBI掃蕩伊朗駭客Handala的網站",
       "link": "https://www.ithome.com.tw/news/174546",
       "publishedAt": "2026-03-20 12:03:00",
@@ -20,7 +53,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "build(android): update Gradle tooling",
       "link": "https://github.com/openclaw/openclaw/commit/4c60956d8e54c01a0942fa2af5dd182c5cfc24e7",
       "publishedAt": "2026-03-20T11:42:10Z",
@@ -31,18 +64,7 @@
       "summaryZh": "重點：build(android): update Gradle tooling..."
     },
     {
-      "id": 4,
-      "title": "perf(android): reduce tab-switch CPU churn",
-      "link": "https://github.com/openclaw/openclaw/commit/3bda64f75c67bdb05ec5a852bf7ec6663825e5df",
-      "publishedAt": "2026-03-20T11:40:18Z",
-      "summary": "perf(android): reduce tab-switch CPU churn",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(android): reduce tab-switch CPU churn",
-      "summaryZh": "重點：perf(android): reduce tab-switch CPU churn..."
-    },
-    {
-      "id": 5,
+      "id": 7,
       "title": "Adobe電商平臺存在資安漏洞PolyShell",
       "link": "https://www.ithome.com.tw/news/174543",
       "publishedAt": "2026-03-20 11:03:05",
@@ -51,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "Codex 突破 200 萬活躍用戶，OpenAI 收購 Python 工具開發商 Astral",
       "link": "https://finance.technews.tw/2026/03/20/openai-to-acquire-astral/",
       "publishedAt": "Fri, 20 Mar 2026 10:39:18 +0000",
@@ -60,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "又一家豪車品牌暫緩電動超跑計畫！藍寶堅尼擱置 Lanzador 轉向插電式混合動力車",
       "link": "https://finance.technews.tw/2026/03/20/lamborghini-ceo-says-disappointing-ev-charging-infrastructure-contributed-to-no-demand-for-the-evs/",
       "publishedAt": "Fri, 20 Mar 2026 10:30:57 +0000",
@@ -69,35 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "台灣能源補助整理：太陽光電、風電與儲能系統補助機制",
       "link": "https://technews.tw/2026/03/20/taiwan-green-energy-susidy/",
       "publishedAt": "Fri, 20 Mar 2026 10:30:35 +0000",
       "summary": "隨著能源轉型政策持續推進，政府除了透過電力結構調整與產業政策引導再生能源發展外，也透過各類補助制度與市場機制， [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "fix(gateway): skip seq-gap broadcast for stale post-lifecycle events …",
-      "link": "https://github.com/openclaw/openclaw/commit/57f1cf66ad334b8835dd780ac42b5dcebf7972fa",
-      "publishedAt": "2026-03-20T09:26:54Z",
-      "summary": "fix(gateway): skip seq-gap broadcast for stale post-lifecycle events (#43751) * fix: stop stale gateway seq-gap errors (#43751) (thanks @caesargattuso) * fix: keep agent.request run ids session-scoped --------- Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): skip seq-gap broadcast for stale post-lifecycle events …",
-      "summaryZh": "重點：修正(Gateway): skip seq-gap broadcast for stale post-lifecycle events (#43751) * 修正: stop stale Gateway seq-gap errors (#4..."
-    },
-    {
-      "id": 10,
-      "title": "Add Community plugins - openclaw-dingtalk (#29913)",
-      "link": "https://github.com/openclaw/openclaw/commit/192f85932535adca53a0d9ef11b90500da11f280",
-      "publishedAt": "2026-03-20T08:58:51Z",
-      "summary": "Add Community plugins - openclaw-dingtalk (#29913) Merged via squash. Prepared head SHA: e8e99997cb83b8f88cc89abb7fc0b96570ef313f Co-authored-by: sliverp Co-authored-by: frankekn Reviewed-by: @frankekn",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Add Community plugins - OpenClaw-dingtalk (#29913)",
-      "summaryZh": "重點：Add Community plugins - OpenClaw-dingtalk (#29913) Merged via squash. Prepared head SHA: e8e99997cb83b8f88cc89abb7fc0b96..."
     }
   ]
 }
