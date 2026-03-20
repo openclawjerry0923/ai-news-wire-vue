@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-03-20T21:02:54.958Z",
+  "generatedAt": "2026-03-20T23:00:35.766Z",
   "items": [
     {
       "id": 1,
-      "title": "test: batch thread-only unit lanes",
-      "link": "https://github.com/openclaw/openclaw/commit/09cf6d80ec8948d25fae2b331267803e2a8514ee",
-      "publishedAt": "2026-03-20T20:51:38Z",
-      "summary": "test: batch thread-only unit lanes",
+      "title": "test: align extension runtime mocks with plugin-sdk (#51289)",
+      "link": "https://github.com/openclaw/openclaw/commit/2364e45fe4a1900a98982cc758f588843224a3b3",
+      "publishedAt": "2026-03-20T22:59:53Z",
+      "summary": "test: align extension runtime mocks with plugin-sdk (#51289) * test: align extension runtime mocks with plugin-sdk Update stale extension tests to mock the plugin-sdk runtime barrels that production code now imports, and harden the Signal tool-result harness around system-event assertions so the channels lane matches current extension boundaries. Regeneration-Prompt: | Verify the failing channels-lane tests against current origin/main in an isolated worktree before changing anything. If the failures reproduce on main, keep the fix test-only unless production behavior is clearly wrong. Recent extension refactors moved Telegram, WhatsApp, and Signal code onto plugin-sdk runtime barrels, so update stale tests that still mock old core module paths to intercept the seams production code now uses. For Signal reaction notifications, avoid brittle assertions that depend on shared queued system-event state when a direct harness spy on enqueue behavior is sufficient. Preserve scope: only touch the failing tests and their local harness, then rerun the reproduced targeted tests plus the full channels lane and repo check gate. * test: fix extension test drift on main * fix: lazy-load bundled web search plugin registry * test: make matrix sweeper failure injection portable * fix: split heavy matrix runtime-api seams * fix: simplify bundled web search id lookup * test: tolerate windows env key casing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: batch thread-only unit lanes",
-      "summaryZh": "重點：test: batch thread-only unit lanes..."
+      "titleZh": "OpenClaw 程式碼更新：test: align extension runtime mocks with plugin-sdk (#51289)",
+      "summaryZh": "重點：test: align extension runtime mocks with plugin-sdk (#51289) * test: align extension runtime mocks with plugin-sdk Updat..."
     },
     {
       "id": 2,
-      "title": "Exec: harden host env override handling across gateway and node (#51207)",
-      "link": "https://github.com/openclaw/openclaw/commit/7abfff756d6c68d17e21d1657bbacbaec86de232",
-      "publishedAt": "2026-03-20T20:44:15Z",
-      "summary": "Exec: harden host env override handling across gateway and node (#51207) * Exec: harden host env override enforcement and fail closed * Node host: enforce env override diagnostics before shell filtering * Env overrides: align Windows key handling and mac node rejection",
+      "title": "test(openai): cover bundle media surfaces",
+      "link": "https://github.com/openclaw/openclaw/commit/e635cedb856a6f8e6595840f4065d5cfc705f045",
+      "publishedAt": "2026-03-20T22:53:12Z",
+      "summary": "test(openai): cover bundle media surfaces",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Exec: harden host env override handling across Gateway and node (#51207)",
-      "summaryZh": "重點：Exec: harden host env override handling across Gateway and node (#51207) * Exec: harden host env override enforcement an..."
+      "titleZh": "OpenClaw 程式碼更新：test(openai): cover bundle media surfaces",
+      "summaryZh": "重點：test(openai): cover bundle media surfaces..."
     },
     {
       "id": 3,
-      "title": "LINE: harden Express webhook parsing to verified raw body (#51202)",
-      "link": "https://github.com/openclaw/openclaw/commit/c7134e629c917c120c79f6988b78069fda244318",
-      "publishedAt": "2026-03-20T20:32:55Z",
-      "summary": "LINE: harden Express webhook parsing to verified raw body (#51202) * LINE: enforce signed-raw webhook parsing * LINE: narrow scope and add buffer regression * changelog Signed-off-by: joshavant --------- Signed-off-by: joshavant",
+      "title": "test(openai): add plugin entry live coverage",
+      "link": "https://github.com/openclaw/openclaw/commit/d54ebed7c847fc7bd13a5941292266e7cb6250c4",
+      "publishedAt": "2026-03-20T22:53:12Z",
+      "summary": "test(openai): add plugin entry live coverage",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：LINE: harden Express webhook parsing to verified raw body (#51202)",
-      "summaryZh": "重點：LINE: harden Express webhook parsing to verified raw body (#51202) * LINE: enforce signed-raw webhook parsing * LINE: na..."
+      "titleZh": "OpenClaw 程式碼更新：test(openai): add plugin entry live coverage",
+      "summaryZh": "重點：test(openai): add plugin entry live coverage..."
     },
     {
       "id": 4,
-      "title": "pairing: keep setup codes bootstrap-token only (#51259)",
-      "link": "https://github.com/openclaw/openclaw/commit/11d71ca35219b27d3604f99b181006d19129461e",
-      "publishedAt": "2026-03-20T20:27:39Z",
-      "summary": "pairing: keep setup codes bootstrap-token only (#51259)",
+      "title": "test(openai): broaden live model coverage",
+      "link": "https://github.com/openclaw/openclaw/commit/d1d46c6cfb2b9b8a21493dad3d46a1e1ed02131a",
+      "publishedAt": "2026-03-20T22:53:12Z",
+      "summary": "test(openai): broaden live model coverage",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：pairing: keep setup codes bootstrap-token only (#51259)",
-      "summaryZh": "重點：pairing: keep setup codes bootstrap-token only (#51259)..."
+      "titleZh": "OpenClaw 程式碼更新：test(openai): broaden live 模型 coverage",
+      "summaryZh": "重點：test(openai): broaden live 模型 coverage..."
     },
     {
       "id": 5,
