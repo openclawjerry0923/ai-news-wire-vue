@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-03-21T13:54:41.548Z",
+  "generatedAt": "2026-03-21T14:56:43.841Z",
   "items": [
     {
       "id": 1,
-      "title": "Docs: refresh generated config baseline (#51625)",
-      "link": "https://github.com/openclaw/openclaw/commit/35e6310b2292614d7dd020a8f4b036c6b5d622a4",
-      "publishedAt": "2026-03-21T13:41:56Z",
-      "summary": "Docs: refresh generated config baseline (#51625)",
+      "title": "fix(matrix): pass agentId to buildMentionRegexes for agent-level ment…",
+      "link": "https://github.com/openclaw/openclaw/commit/1643d15057ec365bfdf8069e2ea3119655422fb6",
+      "publishedAt": "2026-03-21T14:43:59Z",
+      "summary": "fix(matrix): pass agentId to buildMentionRegexes for agent-level mention patterns (#51272) * fix(matrix): pass agentId to buildMentionRegexes for agent-level mention patterns * fix(matrix): resolve conflicts from main branch * Retrigger CI --------- Co-authored-by: Dinakar Sarbada",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: refresh generated config baseline (#51625)",
-      "summaryZh": "重點：文件: refresh generated config baseline (#51625)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(matrix): pass agentId to buildMentionRegexes for agent-level ment…",
+      "summaryZh": "重點：修正(matrix): pass agentId to buildMentionRegexes for agent-level mention patterns (#51272) * 修正(matrix): pass agentId to ..."
     },
     {
       "id": 2,
-      "title": "feat(gateway): persist webchat inbound images to disk (#51324)",
-      "link": "https://github.com/openclaw/openclaw/commit/c9449d77b40a9f1f2967b8ec607713aed7c03848",
-      "publishedAt": "2026-03-21T13:35:11Z",
-      "summary": "feat(gateway): persist webchat inbound images to disk (#51324) * feat(gateway): persist webchat inbound images to disk Images sent via the webchat control UI (chat.send RPC) were parsed into content blocks but never written to disk, unlike WhatsApp and Telegram handlers which call saveMediaBuffer(). This caused: - Images lost after conversation compaction (only existed as ephemeral base64) - Image editing/generation workflows failing for webchat-origin images - Incomplete ~/.openclaw/media/inbound/ directory After parseMessageWithAttachments extracts parsedImages, iterate and persist each via saveMediaBuffer(buffer, mimeType, 'inbound'). Uses fire-and-forget (.catch + warn log) so disk I/O never blocks the chat.send response path. Fixes #47930 * fix(gateway): address PR review comments on webchat image persistence - Move saveMediaBuffer calls after sendPolicy/stop/dedupe checks so rejected or retried requests don't write files to disk (Codex P1) - Await all saves and collect SavedMedia results into persistedImages so the persisted paths are available in scope (Greptile P1) - Preserve Error stack trace in warn log instead of coercing to toString() (Greptile P2) - Switch to Promise.all for concurrent writes * fix(gateway): address remaining review comments on webchat image persistence - Revert to fire-and-forget pattern (no await) to eliminate race window where retried requests miss the in-flight guard during image saves - Remove unused SavedMedia import and persistedImages collection - Use formatForLog for consistent error logging with stack traces - Add NOTE comment about path propagation being a follow-up task Co-Authored-By: Claude Opus 4.6 * fix(gateway): gate image persistence to webchat callers and defer base64 decode * fix: drop unrelated format churn in lifecycle.test.ts * gateway: clarify image persistence scope covers all chat.send callers * fix(gateway): use generic chat.send log prefix for image persistence warnings * fix(gateway): persist chat.send image refs in transcript * fix(gateway): keep chat.send image refs off visible text * fix(gateway): persist chat send media refs on dispatch * fix(gateway): serialize chat send image persistence * fix(gateway): persist chat send media after dispatch * fix: persist chat.send inbound images across follow-ups (#51324) (thanks @fuller-stack-dev) --------- Co-authored-by: Claude Opus 4.6 Co-authored-by: Ayaan Zaidi",
+      "title": "fix(onboarding): hide image-only auth providers",
+      "link": "https://github.com/openclaw/openclaw/commit/a3a5cad7d724aaede6ed0b2c8d764a970e2ba6ac",
+      "publishedAt": "2026-03-21T14:42:42Z",
+      "summary": "fix(onboarding): hide image-only auth providers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): persist webchat inbound images to disk (#51324)",
-      "summaryZh": "重點：新功能(Gateway): persist webchat inbound images to disk (#51324) * 新功能(Gateway): persist webchat inbound images to disk Ima..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboarding): hide image-only auth providers",
+      "summaryZh": "重點：修正(onboarding): hide image-only auth providers..."
     },
     {
       "id": 3,
-      "title": "fix: trim config validation startup imports (#51574)",
-      "link": "https://github.com/openclaw/openclaw/commit/7bf437402de555f7a295389a542ab79b350a66dd",
-      "publishedAt": "2026-03-21T13:31:39Z",
-      "summary": "fix: trim config validation startup imports (#51574) Merged via squash. Prepared head SHA: 23b235e46540a0d31d1bb2289edcf869b5465bdc Co-authored-by: RichardCao Co-authored-by: huntharo Reviewed-by: @huntharo",
+      "title": "refactor: route discord runtime through plugin sdk (#51444)",
+      "link": "https://github.com/openclaw/openclaw/commit/f10d0547457bd37b10e75fd2a437925723cd3017",
+      "publishedAt": "2026-03-21T14:40:51Z",
+      "summary": "refactor: route discord runtime through plugin sdk (#51444)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: trim config validation startup imports (#51574)",
-      "summaryZh": "重點：修正: trim config validation startup imports (#51574) Merged via squash. Prepared head SHA: 23b235e46540a0d31d1bb2289edcf8..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: route Discord runtime through plugin sdk (#51444)",
+      "summaryZh": "重點：refactor: route Discord runtime through plugin sdk (#51444)..."
     },
     {
       "id": 4,
-      "title": "fix(ui): use current session context usage in chat notice",
-      "link": "https://github.com/openclaw/openclaw/commit/6db6e117df9d0d1054fe3d1ec1043342d41f107b",
-      "publishedAt": "2026-03-21T13:18:27Z",
-      "summary": "fix(ui): use current session context usage in chat notice",
+      "title": "fix(auth): support remote Codex OAuth manual input (#51631)",
+      "link": "https://github.com/openclaw/openclaw/commit/11aff6ed727641868db0d6dfca94239eed234c48",
+      "publishedAt": "2026-03-21T14:10:54Z",
+      "summary": "fix(auth): support remote Codex OAuth manual input (#51631) * fix(auth): support remote codex oauth manual input * fix: support remote Codex OAuth manual input (#51631) (thanks @cash-echo-bot) --------- Co-authored-by: Cash Williams Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): use current session context usage in chat notice",
-      "summaryZh": "重點：修正(ui): use current session context usage in chat notice..."
+      "titleZh": "OpenClaw 程式碼更新：修正(auth): support remote Codex OAuth manual input (#51631)",
+      "summaryZh": "重點：修正(auth): support remote Codex OAuth manual input (#51631) * 修正(auth): support remote codex oauth manual input * 修正: sup..."
     },
     {
       "id": 5,
