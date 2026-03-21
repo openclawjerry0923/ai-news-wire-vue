@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-03-20T23:00:35.766Z",
+  "generatedAt": "2026-03-21T04:54:59.162Z",
   "items": [
     {
       "id": 1,
-      "title": "test: align extension runtime mocks with plugin-sdk (#51289)",
-      "link": "https://github.com/openclaw/openclaw/commit/2364e45fe4a1900a98982cc758f588843224a3b3",
-      "publishedAt": "2026-03-20T22:59:53Z",
-      "summary": "test: align extension runtime mocks with plugin-sdk (#51289) * test: align extension runtime mocks with plugin-sdk Update stale extension tests to mock the plugin-sdk runtime barrels that production code now imports, and harden the Signal tool-result harness around system-event assertions so the channels lane matches current extension boundaries. Regeneration-Prompt: | Verify the failing channels-lane tests against current origin/main in an isolated worktree before changing anything. If the failures reproduce on main, keep the fix test-only unless production behavior is clearly wrong. Recent extension refactors moved Telegram, WhatsApp, and Signal code onto plugin-sdk runtime barrels, so update stale tests that still mock old core module paths to intercept the seams production code now uses. For Signal reaction notifications, avoid brittle assertions that depend on shared queued system-event state when a direct harness spy on enqueue behavior is sufficient. Preserve scope: only touch the failing tests and their local harness, then rerun the reproduced targeted tests plus the full channels lane and repo check gate. * test: fix extension test drift on main * fix: lazy-load bundled web search plugin registry * test: make matrix sweeper failure injection portable * fix: split heavy matrix runtime-api seams * fix: simplify bundled web search id lookup * test: tolerate windows env key casing",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: align extension runtime mocks with plugin-sdk (#51289)",
-      "summaryZh": "重點：test: align extension runtime mocks with plugin-sdk (#51289) * test: align extension runtime mocks with plugin-sdk Updat..."
-    },
-    {
-      "id": 2,
-      "title": "test(openai): cover bundle media surfaces",
-      "link": "https://github.com/openclaw/openclaw/commit/e635cedb856a6f8e6595840f4065d5cfc705f045",
-      "publishedAt": "2026-03-20T22:53:12Z",
-      "summary": "test(openai): cover bundle media surfaces",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(openai): cover bundle media surfaces",
-      "summaryZh": "重點：test(openai): cover bundle media surfaces..."
-    },
-    {
-      "id": 3,
-      "title": "test(openai): add plugin entry live coverage",
-      "link": "https://github.com/openclaw/openclaw/commit/d54ebed7c847fc7bd13a5941292266e7cb6250c4",
-      "publishedAt": "2026-03-20T22:53:12Z",
-      "summary": "test(openai): add plugin entry live coverage",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(openai): add plugin entry live coverage",
-      "summaryZh": "重點：test(openai): add plugin entry live coverage..."
-    },
-    {
-      "id": 4,
-      "title": "test(openai): broaden live model coverage",
-      "link": "https://github.com/openclaw/openclaw/commit/d1d46c6cfb2b9b8a21493dad3d46a1e1ed02131a",
-      "publishedAt": "2026-03-20T22:53:12Z",
-      "summary": "test(openai): broaden live model coverage",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(openai): broaden live 模型 coverage",
-      "summaryZh": "重點：test(openai): broaden live 模型 coverage..."
-    },
-    {
-      "id": 5,
-      "title": "破解 20 年謎團，天文學家首度直接觀測到超亮超新星背後的磁星「動力引擎」",
-      "link": "https://technews.tw/2026/03/21/scientists-witness-birth-of-a-magnetar-for-the-first-time/",
-      "publishedAt": "Fri, 20 Mar 2026 16:00:52 +0000",
-      "summary": "自 2000 年代初期發現「超亮超新星」（Superluminous Supernovae）以來，其亮度可達一 [&#8230;]",
-      "source": "TechNews",
+      "title": "Google整合Antigravity與Firebase，擴展AI Studio全端Web應用開發能力",
+      "link": "https://www.ithome.com.tw/news/174566",
+      "publishedAt": "2026-03-21 12:03:39",
+      "summary": "Google升級開發工具Google AI Studio中的AI程式開發能力，導入新的Antigravity程式開發代理，並加入Firebase後端整合，讓開發者可在同一個介面中，從提示生成應用原型進一步延伸到具備資料儲存、使用者登入與多人即時互動能力的Web應用。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
+      "id": 2,
+      "title": "OpenAI規畫推出桌面「超級App」，整合ChatGPT、Codex與瀏覽器",
+      "link": "https://www.ithome.com.tw/news/174565",
+      "publishedAt": "2026-03-21 12:03:38",
+      "summary": "華爾街日報本週引述消息來源報導，OpenAI正規畫推出一款桌面版的超級App，將ChatGPT、程式開發工具Codex與自家瀏覽器ChatGPT Atlas整合為單一應用，以簡化使用體驗並集中產品資源。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "前端應用框架Next.js 16.2改善效能與除錯，開發模式啟動加快達4倍速",
+      "link": "https://www.ithome.com.tw/news/174552",
+      "publishedAt": "2026-03-21 10:03:29",
+      "summary": "Vercel發布React",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "fix(agent): clarify embedded transport errors (#51419)",
+      "link": "https://github.com/openclaw/openclaw/commit/d78e13f545136fcbba1feceecc5e0485a06c33a6",
+      "publishedAt": "2026-03-21T04:47:47Z",
+      "summary": "fix(agent): clarify embedded transport errors (#51419) Merged via squash. Prepared head SHA: cea32a4bdaca0a0e8f21c4bd734d7bae787b0c98 Co-authored-by: scoootscooob Co-authored-by: scoootscooob Reviewed-by: @scoootscooob",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agent): clarify embedded transport errors (#51419)",
+      "summaryZh": "重點：修正(agent): clarify embedded transport errors (#51419) Merged via squash. Prepared head SHA: cea32a4bdaca0a0e8f21c4bd734d..."
+    },
+    {
+      "id": 5,
+      "title": "feat(telegram): support custom apiRoot for alternative API endpoints …",
+      "link": "https://github.com/openclaw/openclaw/commit/6b4c24c2e55b5b4013277bd799525086f6a0c40f",
+      "publishedAt": "2026-03-21T04:40:38Z",
+      "summary": "feat(telegram): support custom apiRoot for alternative API endpoints (#48842) * feat(telegram): support custom apiRoot for alternative API endpoints Add `apiRoot` config option to allow users to specify custom Telegram Bot API endpoints (e.g., self-hosted Bot API servers). Threads the configured base URL through all Telegram API call sites: bot creation, send, probe, audit, media download, and api-fetch. Extends SSRF policy to dynamically trust custom apiRoot hostname for media downloads. Closes #28535 Co-Authored-By: Claude Opus 4.6 (1M context) * fix(telegram): thread apiRoot through allowFrom lookups * fix(telegram): honor lookup transport and local file paths * refactor(telegram): unify username lookup plumbing * fix(telegram): restore doctor lookup imports * fix: document Telegram apiRoot support (#48842) (thanks @Cypherm) --------- Co-authored-by: Cypherm Co-authored-by: Claude Opus 4.6 (1M context) Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(Telegram): support custom apiRoot for alternative API endpoints …",
+      "summaryZh": "重點：新功能(Telegram): support custom apiRoot for alternative API endpoints (#48842) * 新功能(Telegram): support custom apiRoot for..."
+    },
+    {
       "id": 6,
-      "title": "充氣艙、太空娛樂場館到商業園區，國際太空站 2030 年退役後的五種想像",
-      "link": "https://technews.tw/2026/03/21/5-companies-competing-to-replace-the-international-space-station/",
-      "publishedAt": "Fri, 20 Mar 2026 16:00:40 +0000",
-      "summary": "國際太空站（International Space Station，ISS）計劃於 2030 年底除役，屆時將 [&#8230;]",
+      "title": "電力需求達 10 GW！軟銀擬在美打造全球最大資料中心，供電成最大挑戰",
+      "link": "https://technews.tw/2026/03/21/softbank-10-gigawatt-data-center/",
+      "publishedAt": "Sat, 21 Mar 2026 03:40:17 +0000",
+      "summary": "軟銀準備在美國俄亥俄州建造一座新的 AI 資料中心，其電力需求可能高達 10 吉瓦（GW）。根據彭博社報導，執 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "AI 建模變深偽詐騙，年輕女性淪跨國犯罪幫兇",
-      "link": "https://infosecu.technews.tw/2026/03/21/deepfake-ai-face-model/",
-      "publishedAt": "Fri, 20 Mar 2026 16:00:11 +0000",
-      "summary": "在當今的數位時代，越來越多的年輕女性正申請成為所謂的「AI 臉孔模特兒」，這項職位實際上是為了協助詐騙集團進行 [&#8230;]",
+      "title": "fix(subagent): include partial progress when subagent times out (#40700)",
+      "link": "https://github.com/openclaw/openclaw/commit/598f1826d8b2bc969aace2c6459824737667218c",
+      "publishedAt": "2026-03-21T03:14:38Z",
+      "summary": "fix(subagent): include partial progress when subagent times out (#40700) * fix(subagent): preserve timeout partial progress reporting * refactor: unify subagent output selection * test: cover distilled subagent timeout output * fix: remove timeout-only subagent path --------- Co-authored-by: Wesley Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(subagent): include partial progress when subagent times out (#40700)",
+      "summaryZh": "重點：修正(subagent): include partial progress when subagent times out (#40700) * 修正(subagent): preserve timeout partial progres..."
+    },
+    {
+      "id": 8,
+      "title": "美超微股價暴跌 33%、市值蒸發 1/3！共同創辦人廖益賢已辭董事職務",
+      "link": "https://technews.tw/2026/03/21/supermicro-ai-china-export-3/",
+      "publishedAt": "Sat, 21 Mar 2026 03:08:35 +0000",
+      "summary": "美超微（Supermicro）近期被爆出，有三名與該公司有關人員涉嫌違規轉運 AI 伺服器到中國，進而被美國紐 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
-      "id": 8,
-      "title": "Google發布電腦版與安卓版Chrome 146更新，修補3項重大漏洞",
-      "link": "https://www.ithome.com.tw/news/174544",
-      "publishedAt": "2026-03-20 12:03:25",
-      "summary": "3月18日Google發布Chrome 146更新，修補電腦版與安卓版26個資安漏洞，根據嚴重程度，有3個被評為重大、22個有高風險，以及1個有中度風險。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 9,
-      "title": "FBI掃蕩伊朗駭客Handala的網站",
-      "link": "https://www.ithome.com.tw/news/174546",
-      "publishedAt": "2026-03-20 12:03:00",
-      "summary": "3月初，以美國突襲軍事行動導致伊朗一所學校至少175人死亡為由，伊朗駭客Handala進行報復，對美國醫療科技公司Stryker發動大規模網路攻擊，滲透裝置管理平臺抹除近8萬臺員工的電腦與行動裝置。現在傳出美國執法機關出手，查封該組織使用的網站。",
-      "source": "iThome",
+      "title": "把週報、整理逐字稿、寫提案外包給 AI，Claude Cowork 四大實戰場景解析",
+      "link": "https://technews.tw/2026/03/21/how-to-use-claude-cowork/",
+      "publishedAt": "Sat, 21 Mar 2026 03:00:19 +0000",
+      "summary": "大多數人用 AI 的方式，是這樣的：打開對話框，貼上資料，問問題，等回答，再複製貼上到 Word。但如果現在有 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "Adobe電商平臺存在資安漏洞PolyShell",
-      "link": "https://www.ithome.com.tw/news/174543",
-      "publishedAt": "2026-03-20 11:03:05",
-      "summary": "在Adobe每月的例行更新裡，電商平臺Adobe Commerce與Magento Open Source（以下簡稱Magento）的相關弱點，經常是該公司呼籲用戶須優先處理的重點項目，現在有資安公司指出，Adobe近期對預覽版本修補的弱點，相關利用方法正在流傳，可能會演變成大規模自動化攻擊。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "Outbound: skip broadcast channel scan when channel is explicit",
+      "link": "https://github.com/openclaw/openclaw/commit/5e417b44e1540f528d2ae63e3e20229a902d1db2",
+      "publishedAt": "2026-03-21T01:21:01Z",
+      "summary": "Outbound: skip broadcast channel scan when channel is explicit",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：Outbound: skip broadcast channel scan when channel is explicit",
+      "summaryZh": "重點：Outbound: skip broadcast channel scan when channel is explicit..."
     }
   ]
 }
