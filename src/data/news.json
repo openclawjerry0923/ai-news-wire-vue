@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-03-21T11:47:18.992Z",
+  "generatedAt": "2026-03-21T13:54:41.548Z",
   "items": [
     {
       "id": 1,
+      "title": "Docs: refresh generated config baseline (#51625)",
+      "link": "https://github.com/openclaw/openclaw/commit/35e6310b2292614d7dd020a8f4b036c6b5d622a4",
+      "publishedAt": "2026-03-21T13:41:56Z",
+      "summary": "Docs: refresh generated config baseline (#51625)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: refresh generated config baseline (#51625)",
+      "summaryZh": "重點：文件: refresh generated config baseline (#51625)..."
+    },
+    {
+      "id": 2,
+      "title": "feat(gateway): persist webchat inbound images to disk (#51324)",
+      "link": "https://github.com/openclaw/openclaw/commit/c9449d77b40a9f1f2967b8ec607713aed7c03848",
+      "publishedAt": "2026-03-21T13:35:11Z",
+      "summary": "feat(gateway): persist webchat inbound images to disk (#51324) * feat(gateway): persist webchat inbound images to disk Images sent via the webchat control UI (chat.send RPC) were parsed into content blocks but never written to disk, unlike WhatsApp and Telegram handlers which call saveMediaBuffer(). This caused: - Images lost after conversation compaction (only existed as ephemeral base64) - Image editing/generation workflows failing for webchat-origin images - Incomplete ~/.openclaw/media/inbound/ directory After parseMessageWithAttachments extracts parsedImages, iterate and persist each via saveMediaBuffer(buffer, mimeType, 'inbound'). Uses fire-and-forget (.catch + warn log) so disk I/O never blocks the chat.send response path. Fixes #47930 * fix(gateway): address PR review comments on webchat image persistence - Move saveMediaBuffer calls after sendPolicy/stop/dedupe checks so rejected or retried requests don't write files to disk (Codex P1) - Await all saves and collect SavedMedia results into persistedImages so the persisted paths are available in scope (Greptile P1) - Preserve Error stack trace in warn log instead of coercing to toString() (Greptile P2) - Switch to Promise.all for concurrent writes * fix(gateway): address remaining review comments on webchat image persistence - Revert to fire-and-forget pattern (no await) to eliminate race window where retried requests miss the in-flight guard during image saves - Remove unused SavedMedia import and persistedImages collection - Use formatForLog for consistent error logging with stack traces - Add NOTE comment about path propagation being a follow-up task Co-Authored-By: Claude Opus 4.6 * fix(gateway): gate image persistence to webchat callers and defer base64 decode * fix: drop unrelated format churn in lifecycle.test.ts * gateway: clarify image persistence scope covers all chat.send callers * fix(gateway): use generic chat.send log prefix for image persistence warnings * fix(gateway): persist chat.send image refs in transcript * fix(gateway): keep chat.send image refs off visible text * fix(gateway): persist chat send media refs on dispatch * fix(gateway): serialize chat send image persistence * fix(gateway): persist chat send media after dispatch * fix: persist chat.send inbound images across follow-ups (#51324) (thanks @fuller-stack-dev) --------- Co-authored-by: Claude Opus 4.6 Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): persist webchat inbound images to disk (#51324)",
+      "summaryZh": "重點：新功能(Gateway): persist webchat inbound images to disk (#51324) * 新功能(Gateway): persist webchat inbound images to disk Ima..."
+    },
+    {
+      "id": 3,
+      "title": "fix: trim config validation startup imports (#51574)",
+      "link": "https://github.com/openclaw/openclaw/commit/7bf437402de555f7a295389a542ab79b350a66dd",
+      "publishedAt": "2026-03-21T13:31:39Z",
+      "summary": "fix: trim config validation startup imports (#51574) Merged via squash. Prepared head SHA: 23b235e46540a0d31d1bb2289edcf869b5465bdc Co-authored-by: RichardCao Co-authored-by: huntharo Reviewed-by: @huntharo",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: trim config validation startup imports (#51574)",
+      "summaryZh": "重點：修正: trim config validation startup imports (#51574) Merged via squash. Prepared head SHA: 23b235e46540a0d31d1bb2289edcf8..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ui): use current session context usage in chat notice",
+      "link": "https://github.com/openclaw/openclaw/commit/6db6e117df9d0d1054fe3d1ec1043342d41f107b",
+      "publishedAt": "2026-03-21T13:18:27Z",
+      "summary": "fix(ui): use current session context usage in chat notice",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): use current session context usage in chat notice",
+      "summaryZh": "重點：修正(ui): use current session context usage in chat notice..."
+    },
+    {
+      "id": 5,
       "title": "Google整合Antigravity與Firebase，擴展AI Studio全端Web應用開發能力",
       "link": "https://www.ithome.com.tw/news/174566",
       "publishedAt": "2026-03-21 12:03:39",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "OpenAI規畫推出桌面「超級App」，整合ChatGPT、Codex與瀏覽器",
       "link": "https://www.ithome.com.tw/news/174565",
       "publishedAt": "2026-03-21 12:03:38",
@@ -20,18 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "feat(telegram): auto-rename DM topics on first message (#51502)",
-      "link": "https://github.com/openclaw/openclaw/commit/466debb75c0b5b8819dfbe52977e67741cb023e7",
-      "publishedAt": "2026-03-21T11:23:30Z",
-      "summary": "feat(telegram): auto-rename DM topics on first message (#51502) * feat(telegram): auto-rename DM topics on first message fix(telegram): use bot.api for topic rename to avoid SecretRef resolution * fix(telegram): address security + test review feedback - Fix test assertion: DEFAULT_PROMPT_SUBSTRING matches 'very short' - Use RawBody instead of Body (no envelope metadata to LLM) - Truncate user message to 500 chars for LLM prompt - Remove user-derived content from verbose logs - Remove redundant threadSpec.id null check - Fix AutoTopicLabelParams type to match generateTopicLabel * fix(telegram): use effective dm auto-topic config * fix(telegram): detect direct auto-topic overrides * fix: auto-rename Telegram DM topics on first message (#51502) (thanks @Lukavyi) --------- Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Telegram): auto-rename DM topics on first message (#51502)",
-      "summaryZh": "重點：新功能(Telegram): auto-rename DM topics on first message (#51502) * 新功能(Telegram): auto-rename DM topics on first message 修..."
-    },
-    {
-      "id": 4,
+      "id": 7,
       "title": "中國機器人跳來跳去「好看頭而已」！魏哲家：大腦 95% 台積電製造",
       "link": "https://technews.tw/2026/03/21/ccwei-2026-asia-university/",
       "publishedAt": "Sat, 21 Mar 2026 10:43:19 +0000",
@@ -40,18 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "zalo: use photo_url for inbound images (#51543)",
-      "link": "https://github.com/openclaw/openclaw/commit/cdf49f0b00671b0f7cb7e8372d34d8db1b2be0ea",
-      "publishedAt": "2026-03-21T10:21:44Z",
-      "summary": "zalo: use photo_url for inbound images (#51543) * Zalo: use photo_url for inbound images * Tests: wait for Zalo webhook image processing",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：zalo: use photo_url for inbound images (#51543)",
-      "summaryZh": "重點：zalo: use photo_url for inbound images (#51543) * Zalo: use photo_url for inbound images * Tests: wait for Zalo webhook ..."
-    },
-    {
-      "id": 6,
+      "id": 8,
       "title": "前端應用框架Next.js 16.2改善效能與除錯，開發模式啟動加快達4倍速",
       "link": "https://www.ithome.com.tw/news/174552",
       "publishedAt": "2026-03-21 10:03:29",
@@ -60,35 +82,13 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "Voice Call: enforce spoken-output contract and fix stream TTS silence…",
-      "link": "https://github.com/openclaw/openclaw/commit/3f7f2c8dc96e353173eb5572b46775cff5b80147",
-      "publishedAt": "2026-03-21T09:15:16Z",
-      "summary": "Voice Call: enforce spoken-output contract and fix stream TTS silence regression (#51500) * voice-call: harden streaming startup and fallback behavior * voice-call: suppress barge-in during intro * voice-call: skip first-turn auto-response while greeting plays * Voice-call: improve telephony audio fidelity and pacing * voice-call: enforce spoken JSON and first-message barge skip * voice-call: fix silent stream TTS regression * voice-call: remove TTS timing diagnostics and document stream behavior * voice-call: fail stream playback when stream sends are dropped * voice-call: harden spoken contract and initial stream replay * voice-call: suppress barge transcripts during initial greeting * voice-call: harden stream fallback and media safety",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Voice Call: enforce spoken-output contract and 修正 stream TTS silence…",
-      "summaryZh": "重點：Voice Call: enforce spoken-output contract and 修正 stream TTS silence regression (#51500) * voice-call: harden streaming ..."
-    },
-    {
-      "id": 8,
+      "id": 9,
       "title": "Windows 11 大調整！微軟放慢 AI 腳步，移除部分 Copilot 功能、工作列回歸自訂",
       "link": "https://technews.tw/2026/03/21/microsoft-windows-quality-and-windows11/",
       "publishedAt": "Sat, 21 Mar 2026 08:23:25 +0000",
       "summary": "微軟（Microsoft）近日發布一份長長的變更清單，說明計畫如何調整 Windows 11。在一篇名為「我們 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "UI: fix and optimize overview log panels (#51477)",
-      "link": "https://github.com/openclaw/openclaw/commit/e9f715f27b1088d85fcba9d0c4025b6b1f420034",
-      "publishedAt": "2026-03-21T07:14:53Z",
-      "summary": "UI: fix and optimize overview log panels (#51477)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：UI: 修正 and optimize overview log panels (#51477)",
-      "summaryZh": "重點：UI: 修正 and optimize overview log panels (#51477)..."
     },
     {
       "id": 10,
