@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-03-24T11:34:51.152Z",
+  "generatedAt": "2026-03-24T15:47:12.377Z",
   "items": [
     {
       "id": 1,
+      "title": "add missing autoArchiveDuration to DiscordGuildChannelConfig type (#4…",
+      "link": "https://github.com/openclaw/openclaw/commit/66e954858b6681a1b9d5cca8c5876f540659b420",
+      "publishedAt": "2026-03-24T15:30:24Z",
+      "summary": "add missing autoArchiveDuration to DiscordGuildChannelConfig type (#43427) * add missing autoArchiveDuration to DiscordGuildChannelConfig type The autoArchiveDuration field is present in the Zod schema (DiscordGuildChannelSchema) and actively used at runtime in threading.ts and allow-list.ts, but was missing from the canonical TypeScript type definition. Add autoArchiveDuration to DiscordGuildChannelConfig to align the type with the schema and runtime usage. * Discord: add changelog for config type fix (#43427) (thanks @davidguttman) --------- Co-authored-by: Onur Solmaz",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：add missing autoArchiveDuration to DiscordGuildChannelConfig type (#4…",
+      "summaryZh": "重點：add missing autoArchiveDuration to DiscordGuildChannelConfig type (#43427) * add missing autoArchiveDuration to DiscordG..."
+    },
+    {
+      "id": 2,
+      "title": "feat(discord): add autoThreadName 'generated' strategy (#43366)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa91000a5d1b5a5278f6355bbf4725552fe8f4ff",
+      "publishedAt": "2026-03-24T15:27:19Z",
+      "summary": "feat(discord): add autoThreadName 'generated' strategy (#43366) * feat(discord): add autoThreadName 'generated' strategy Adds async thread title generation for auto-created threads: - autoThread: boolean - enables/disables auto-threading - autoThreadName: 'message' | 'generated' - naming strategy - 'generated' uses LLM to create concise 3-6 word titles - Includes channel name/description context for better titles - 10s timeout with graceful fallback * Discord: support non-key auth for generated thread titles * Discord: skip fallback auto-thread rename * Discord: normalize generated thread title first content line * Discord: split thread title generation helpers * Discord: tidy thread title generation constants and order * Discord: use runtime fallback model resolution for thread titles * Discord: resolve thread-title model aliases * Discord: fallback thread-title model selection to runtime defaults * Agents: centralize simple completion runtime * fix(discord): pass apiKey to complete() for thread title generation The setRuntimeApiKey approach only works for full agent runs that use authStorage.getApiKey(). The pi-ai complete() function expects apiKey directly in options or falls back to env vars — it doesn't read from authStorage.runtimeOverrides. Fixes thread title generation for Claude/Anthropic users. * fix(agents): return exchanged Copilot token from prepareSimpleCompletionModel The recent thread-title fix (3346ba6) passes prepared.auth.apiKey to complete(). For github-copilot, this was still the raw GitHub token rather than the exchanged runtime token, causing auth failures. Now setRuntimeApiKeyForCompletion returns the resolved token and prepareSimpleCompletionModel includes it in auth.apiKey, so both the authStorage path and direct apiKey pass-through work correctly. * fix(agents): catch auth lookup exceptions in completion model prep getApiKeyForModel can throw for credential issues (missing profile, etc). Wrap in try/catch to return { error } for fail-soft handling rather than propagating rejected promises to callers like thread title generation. * Discord: strip markdown wrappers from generated thread titles * Discord/agents: align thread-title model and local no-auth completion headers * Tests: import fresh modules for mocked thread-title/simple-completion suites * Agents: apply exchanged Copilot baseUrl in simple completions * Discord: route thread runtime imports through plugin SDK * Lockfile: add Discord pi-ai runtime dependency * Lockfile: regenerate Discord pi-ai runtime dependency entries * Agents: use published Copilot token runtime module * Discord: refresh config baseline and lockfile * Tests: split extension runs by isolation * Discord: add changelog for generated thread titles (#43366) (thanks @davidguttman) --------- Co-authored-by: Onur Solmaz Co-authored-by: Onur Solmaz",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(Discord): add autoThreadName 'generated' strategy (#43366)",
+      "summaryZh": "重點：新功能(Discord): add autoThreadName 'generated' strategy (#43366) * 新功能(Discord): add autoThreadName 'generated' strategy A..."
+    },
+    {
+      "id": 3,
+      "title": "fix: clean up attachments when replacing subagent runs",
+      "link": "https://github.com/openclaw/openclaw/commit/3f99a30163739d55ed3b28995239ac3162b7bc58",
+      "publishedAt": "2026-03-24T15:21:15Z",
+      "summary": "fix: clean up attachments when replacing subagent runs",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: clean up attachments when replacing subagent runs",
+      "summaryZh": "重點：修正: clean up attachments when replacing subagent runs..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ci): do not cancel in-progress bun runs on main",
+      "link": "https://github.com/openclaw/openclaw/commit/0bda670d9ab2f7d9edab06372b9ab1c599ce70aa",
+      "publishedAt": "2026-03-24T15:19:59Z",
+      "summary": "fix(ci): do not cancel in-progress bun runs on main",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): do not cancel in-progress bun runs on main",
+      "summaryZh": "重點：修正(ci): do not cancel in-progress bun runs on main..."
+    },
+    {
+      "id": 5,
+      "title": "進入邊緣 AI 時代，高通要以解決物聯網碎片化技術為發展關鍵",
+      "link": "https://finance.technews.tw/2026/03/24/qualcomm-aims-to-address-the-fragmentation-of-technologies-in-the-internet-of-things-iot-as-a-key-driver-of-its-development/",
+      "publishedAt": "Tue, 24 Mar 2026 12:50:18 +0000",
+      "summary": "高通（Qualcomm）物聯網領域的最新戰略，除了不僅針對物聯網市場高度「碎片化」的痛點提出全面的軟硬體解決方 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "馬自達倉儲資訊系統遭駭，外洩員工、合作夥伴資料",
       "link": "https://www.ithome.com.tw/news/174609",
       "publishedAt": "2026-03-24 12:03:15",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "Anthropic公布Claude Code Channels，開發人員可用Telegram、Discord和Claude溝通",
       "link": "https://www.ithome.com.tw/news/174612",
       "publishedAt": "2026-03-24 12:03:13",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "Anthropic讓Claude接管滑鼠鍵盤，AI代理人正式進入桌面",
       "link": "https://www.ithome.com.tw/news/174610",
       "publishedAt": "2026-03-24 12:03:03",
@@ -29,75 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
+      "title": "智原推記憶體新解決方案，搶攻 MCU NOR Flash 替代商機",
+      "link": "https://technews.tw/2026/03/24/faraday-highlights-40nm-sonos-envm-as-nor-flash-alternative-for-mcu-designs/",
+      "publishedAt": "Tue, 24 Mar 2026 12:01:46 +0000",
+      "summary": "ASIC 設計服務暨 IP 研發銷售廠商智原科技宣布其主打的 40uLP SONOS 嵌入式非揮發性記憶體（e [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 10,
       "title": "Langflow重大漏洞甫公布就遭到利用",
       "link": "https://www.ithome.com.tw/news/174608",
       "publishedAt": "2026-03-24 11:03:52",
       "summary": "上週Langflow開發工程團隊揭露與修補重大風險漏洞CVE-2026-33017，通報此事的研究人員Aviral Srivastava指出，該漏洞發生的原因與一年前揭露CVE-2025-3248雷同，攻擊者都能在未經身分驗證的情況下遠端執行任意程式碼。由於CVE-2025-3248公布不久後就出現攻擊行動，CVE-2026-33017也有可能成為被利用的對象，果不其然，有資安公司發現，駭客在不到一天的時間裡，就試圖尋找存在弱點的Langflow伺服器。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "網家子公司二十一世紀金融科技擬赴日掛牌上市，助力金融科技業務",
-      "link": "https://finance.technews.tw/2026/03/24/21st-fintech-20260324/",
-      "publishedAt": "Tue, 24 Mar 2026 10:34:50 +0000",
-      "summary": "PChome 網路家庭旗下子公司「二十一世紀金融科技株式會社」（21JP），即將赴日投入資本市場，拓展金融科技 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "博通談 2026 供應鏈「三大瓶頸」！力拚 200T AI 時代加速落地",
-      "link": "https://technews.tw/2026/03/24/broadcom-2026-ofc/",
-      "publishedAt": "Tue, 24 Mar 2026 10:30:00 +0000",
-      "summary": "晶片設計大廠博通指出，目前供應鏈瓶頸包括雷射產能、晶圓和 PCB，這些都是市場主要瓶頸。 博通實體層產品部門產 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test: defer slack bolt interop for helper-only suites",
-      "link": "https://github.com/openclaw/openclaw/commit/60cd98a841c37d076751f1582d555118eaed3f64",
-      "publishedAt": "2026-03-24T09:34:23Z",
-      "summary": "test: defer slack bolt interop for helper-only suites",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: defer slack bolt interop for helper-only suites",
-      "summaryZh": "重點：test: defer slack bolt interop for helper-only suites..."
-    },
-    {
-      "id": 8,
-      "title": "test: harden threaded channel follow-ups",
-      "link": "https://github.com/openclaw/openclaw/commit/b1b162fcdbf47ddccd71e09b8b17dad40dcf58d1",
-      "publishedAt": "2026-03-24T09:24:29Z",
-      "summary": "test: harden threaded channel follow-ups",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: harden threaded channel follow-ups",
-      "summaryZh": "重點：test: harden threaded channel follow-ups..."
-    },
-    {
-      "id": 9,
-      "title": "test: harden threaded shared-worker suites",
-      "link": "https://github.com/openclaw/openclaw/commit/43131dcc0886647a46fdce55101132dab83c8d04",
-      "publishedAt": "2026-03-24T08:37:00Z",
-      "summary": "test: harden threaded shared-worker suites",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: harden threaded shared-worker suites",
-      "summaryZh": "重點：test: harden threaded shared-worker suites..."
-    },
-    {
-      "id": 10,
-      "title": "test: continue vitest threads migration",
-      "link": "https://github.com/openclaw/openclaw/commit/e7817ad12a54a7779f55bdc87a2335b6c79561d0",
-      "publishedAt": "2026-03-24T08:37:00Z",
-      "summary": "test: continue vitest threads migration",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: continue vitest threads migration",
-      "summaryZh": "重點：test: continue vitest threads migration..."
     }
   ]
 }
