@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-03-24T15:47:12.377Z",
+  "generatedAt": "2026-03-24T19:37:31.187Z",
   "items": [
     {
       "id": 1,
-      "title": "add missing autoArchiveDuration to DiscordGuildChannelConfig type (#4…",
-      "link": "https://github.com/openclaw/openclaw/commit/66e954858b6681a1b9d5cca8c5876f540659b420",
-      "publishedAt": "2026-03-24T15:30:24Z",
-      "summary": "add missing autoArchiveDuration to DiscordGuildChannelConfig type (#43427) * add missing autoArchiveDuration to DiscordGuildChannelConfig type The autoArchiveDuration field is present in the Zod schema (DiscordGuildChannelSchema) and actively used at runtime in threading.ts and allow-list.ts, but was missing from the canonical TypeScript type definition. Add autoArchiveDuration to DiscordGuildChannelConfig to align the type with the schema and runtime usage. * Discord: add changelog for config type fix (#43427) (thanks @davidguttman) --------- Co-authored-by: Onur Solmaz",
+      "title": "test: speed up targeted unit suites",
+      "link": "https://github.com/openclaw/openclaw/commit/4029ce738c5a8f286875fdae49a48a463548e432",
+      "publishedAt": "2026-03-24T19:36:08Z",
+      "summary": "test: speed up targeted unit suites",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：add missing autoArchiveDuration to DiscordGuildChannelConfig type (#4…",
-      "summaryZh": "重點：add missing autoArchiveDuration to DiscordGuildChannelConfig type (#43427) * add missing autoArchiveDuration to DiscordG..."
+      "titleZh": "OpenClaw 程式碼更新：test: speed up targeted unit suites",
+      "summaryZh": "重點：test: speed up targeted unit suites..."
     },
     {
       "id": 2,
-      "title": "feat(discord): add autoThreadName 'generated' strategy (#43366)",
-      "link": "https://github.com/openclaw/openclaw/commit/aa91000a5d1b5a5278f6355bbf4725552fe8f4ff",
-      "publishedAt": "2026-03-24T15:27:19Z",
-      "summary": "feat(discord): add autoThreadName 'generated' strategy (#43366) * feat(discord): add autoThreadName 'generated' strategy Adds async thread title generation for auto-created threads: - autoThread: boolean - enables/disables auto-threading - autoThreadName: 'message' | 'generated' - naming strategy - 'generated' uses LLM to create concise 3-6 word titles - Includes channel name/description context for better titles - 10s timeout with graceful fallback * Discord: support non-key auth for generated thread titles * Discord: skip fallback auto-thread rename * Discord: normalize generated thread title first content line * Discord: split thread title generation helpers * Discord: tidy thread title generation constants and order * Discord: use runtime fallback model resolution for thread titles * Discord: resolve thread-title model aliases * Discord: fallback thread-title model selection to runtime defaults * Agents: centralize simple completion runtime * fix(discord): pass apiKey to complete() for thread title generation The setRuntimeApiKey approach only works for full agent runs that use authStorage.getApiKey(). The pi-ai complete() function expects apiKey directly in options or falls back to env vars — it doesn't read from authStorage.runtimeOverrides. Fixes thread title generation for Claude/Anthropic users. * fix(agents): return exchanged Copilot token from prepareSimpleCompletionModel The recent thread-title fix (3346ba6) passes prepared.auth.apiKey to complete(). For github-copilot, this was still the raw GitHub token rather than the exchanged runtime token, causing auth failures. Now setRuntimeApiKeyForCompletion returns the resolved token and prepareSimpleCompletionModel includes it in auth.apiKey, so both the authStorage path and direct apiKey pass-through work correctly. * fix(agents): catch auth lookup exceptions in completion model prep getApiKeyForModel can throw for credential issues (missing profile, etc). Wrap in try/catch to return { error } for fail-soft handling rather than propagating rejected promises to callers like thread title generation. * Discord: strip markdown wrappers from generated thread titles * Discord/agents: align thread-title model and local no-auth completion headers * Tests: import fresh modules for mocked thread-title/simple-completion suites * Agents: apply exchanged Copilot baseUrl in simple completions * Discord: route thread runtime imports through plugin SDK * Lockfile: add Discord pi-ai runtime dependency * Lockfile: regenerate Discord pi-ai runtime dependency entries * Agents: use published Copilot token runtime module * Discord: refresh config baseline and lockfile * Tests: split extension runs by isolation * Discord: add changelog for generated thread titles (#43366) (thanks @davidguttman) --------- Co-authored-by: Onur Solmaz Co-authored-by: Onur Solmaz",
+      "title": "test(gateway): align safe open error code",
+      "link": "https://github.com/openclaw/openclaw/commit/698c02e775bfa8425e894b0f35bd701c8a1a12b6",
+      "publishedAt": "2026-03-24T19:33:15Z",
+      "summary": "test(gateway): align safe open error code",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Discord): add autoThreadName 'generated' strategy (#43366)",
-      "summaryZh": "重點：新功能(Discord): add autoThreadName 'generated' strategy (#43366) * 新功能(Discord): add autoThreadName 'generated' strategy A..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): align safe open error code",
+      "summaryZh": "重點：test(Gateway): align safe open error code..."
     },
     {
       "id": 3,
-      "title": "fix: clean up attachments when replacing subagent runs",
-      "link": "https://github.com/openclaw/openclaw/commit/3f99a30163739d55ed3b28995239ac3162b7bc58",
-      "publishedAt": "2026-03-24T15:21:15Z",
-      "summary": "fix: clean up attachments when replacing subagent runs",
+      "title": "fix(test): stabilize npm runner path assertion",
+      "link": "https://github.com/openclaw/openclaw/commit/87919dec2c6ea64790c8c5ea85dced45b12db036",
+      "publishedAt": "2026-03-24T19:32:01Z",
+      "summary": "fix(test): stabilize npm runner path assertion",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: clean up attachments when replacing subagent runs",
-      "summaryZh": "重點：修正: clean up attachments when replacing subagent runs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): stabilize npm runner path assertion",
+      "summaryZh": "重點：修正(test): stabilize npm runner path assertion..."
     },
     {
       "id": 4,
-      "title": "fix(ci): do not cancel in-progress bun runs on main",
-      "link": "https://github.com/openclaw/openclaw/commit/0bda670d9ab2f7d9edab06372b9ab1c599ce70aa",
-      "publishedAt": "2026-03-24T15:19:59Z",
-      "summary": "fix(ci): do not cancel in-progress bun runs on main",
+      "title": "fix(cli): precompute bare root help startup path",
+      "link": "https://github.com/openclaw/openclaw/commit/805bff6e7e1f19eb5b6e0dca4e4cfad0e7a4534c",
+      "publishedAt": "2026-03-24T19:24:52Z",
+      "summary": "fix(cli): precompute bare root help startup path",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): do not cancel in-progress bun runs on main",
-      "summaryZh": "重點：修正(ci): do not cancel in-progress bun runs on main..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): precompute bare root help startup path",
+      "summaryZh": "重點：修正(cli): precompute bare root help startup path..."
     },
     {
       "id": 5,
