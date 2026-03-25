@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-03-25T15:53:00.087Z",
+  "generatedAt": "2026-03-25T18:38:17.570Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(feishu): use message create_time for inbound timestamps (#52809)",
-      "link": "https://github.com/openclaw/openclaw/commit/a0b9dc007823dff69832b16419c9511b321d8e1b",
-      "publishedAt": "2026-03-25T15:36:12Z",
-      "summary": "fix(feishu): use message create_time for inbound timestamps (#52809) * fix(feishu): use message create_time instead of Date.now() for Timestamp field When a message is sent offline and later retried by the Feishu client upon reconnection, Date.now() captures the *delivery* time rather than the *authoring* time. This causes downstream consumers to see a timestamp that can be minutes or hours after the user actually composed the message, leading to incorrect temporal semantics — for example, a \"delete this\" command may target the wrong resource because the agent believes the instruction was issued much later than it actually was. Replace every Date.now() used for message timestamps with the original create_time from the Feishu event payload (millisecond-epoch string), falling back to Date.now() only when the field is absent. The definition is also hoisted to the top of handleFeishuMessage so that both the pending-history path and the main inbound-payload path share the same authoritative value. Co-Authored-By: Claude Opus 4.6 (1M context) * test(feishu): verify Timestamp uses message create_time Add two test cases: 1. When create_time is present, Timestamp must equal the parsed value 2. When create_time is absent, Timestamp falls back to Date.now() Co-Authored-By: Claude Opus 4.6 (1M context) * chore: revert unrelated formatting change to lifecycle.test.ts This file was inadvertently formatted in a prior commit. Reverting to match main and keep the PR scoped to the Feishu timestamp fix only. Co-Authored-By: Claude Opus 4.6 (1M context) * fix(feishu): use message create_time for inbound timestamps (#52809) (thanks @schumilin) --------- Co-authored-by: Claude Opus 4.6 (1M context) Co-authored-by: George Zhang",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): use message create_time for inbound timestamps (#52809)",
-      "summaryZh": "重點：修正(feishu): use message create_time for inbound timestamps (#52809) * 修正(feishu): use message create_time instead of Dat..."
+      "title": "Ai2開源視覺網頁代理MolmoWeb，並公開模型資料與評測工具",
+      "link": "https://www.ithome.com.tw/news/174674",
+      "publishedAt": "2026-03-26 08:03:00",
+      "summary": "Ai2發布開源視覺網頁代理系統MolmoWeb，該系統建立在Molmo 2多模態模型家族之上，提供4B與8B兩種模型規模，並且還釋出模型權重、訓練資料、代理與推論程式碼及評測工具，訓練程式碼則在稍晚時候公開。MolmoWeb可自行託管，能根據任務指令與當前網頁截圖，直接在瀏覽器中執行點擊、輸入、捲動等操作。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(feishu): close WebSocket connections on monitor stop (#52844)",
-      "link": "https://github.com/openclaw/openclaw/commit/bd4237c16c2c7d3cd0a30e58dd264938306bb03d",
-      "publishedAt": "2026-03-25T15:32:21Z",
-      "summary": "fix(feishu): close WebSocket connections on monitor stop (#52844) * fix(feishu): close WebSocket connections on monitor stop/abort Co-Authored-By: Claude Opus 4.6 (1M context) * test(feishu): add WebSocket cleanup tests Co-Authored-By: Claude Opus 4.6 (1M context) * fix(feishu): close WebSocket connections on monitor stop (#52844) (thanks @schumilin) --------- Co-authored-by: Claude Opus 4.6 (1M context) Co-authored-by: George Zhang",
+      "title": "Fix/telegram writeback admin scope gate (#54561)",
+      "link": "https://github.com/openclaw/openclaw/commit/b7d70ade3b9900dbe97bd73be9c02e924ff3c986",
+      "publishedAt": "2026-03-25T18:12:09Z",
+      "summary": "Fix/telegram writeback admin scope gate (#54561) * fix(telegram): require operator.admin for legacy target writeback persistence * Address claude feedback * Update extensions/telegram/src/target-writeback.ts Co-authored-by: greptile-apps[bot] * Remove stray brace * Add updated docs * Add missing test file, address codex concerns * Fix test formatting error * Address comments, fix tests --------- Co-authored-by: greptile-apps[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): close WebSocket connections on monitor stop (#52844)",
-      "summaryZh": "重點：修正(feishu): close WebSocket connections on monitor stop (#52844) * 修正(feishu): close WebSocket connections on monitor st..."
+      "titleZh": "OpenClaw 程式碼更新：修正/Telegram writeback admin scope gate (#54561)",
+      "summaryZh": "重點：修正/Telegram writeback admin scope gate (#54561) * 修正(Telegram): require operator.admin for legacy target writeback persi..."
     },
     {
       "id": 3,
-      "title": "fix(sandbox): honor sandbox alsoAllow and explicit re-allows (#54492)",
-      "link": "https://github.com/openclaw/openclaw/commit/edb5123f26e9b410cf299456505181588beba3cc",
-      "publishedAt": "2026-03-25T14:51:13Z",
-      "summary": "fix(sandbox): honor sandbox alsoAllow and explicit re-allows (#54492) * fix(sandbox): honor effective sandbox alsoAllow policy * fix(sandbox): prefer resolved sandbox context policy * fix: honor sandbox alsoAllow policy (#54492) (thanks @ngutman)",
+      "title": "fix(compaction): surface safeguard cancel reasons and clarify /compac…",
+      "link": "https://github.com/openclaw/openclaw/commit/89c4c674d17855df79f3824b09d31e7658822f82",
+      "publishedAt": "2026-03-25T18:03:22Z",
+      "summary": "fix(compaction): surface safeguard cancel reasons and clarify /compact skips (#51072) Merged via squash. Prepared head SHA: f1dbef044384fbd79ca5ef3616ad37fb03b05fae Co-authored-by: afurm Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): honor sandbox alsoAllow and explicit re-allows (#54492)",
-      "summaryZh": "重點：修正(sandbox): honor sandbox alsoAllow and explicit re-allows (#54492) * 修正(sandbox): honor effective sandbox alsoAllow po..."
+      "titleZh": "OpenClaw 程式碼更新：修正(compaction): surface safeguard cancel reasons and clarify /compac…",
+      "summaryZh": "重點：修正(compaction): surface safeguard cancel reasons and clarify /compact skips (#51072) Merged via squash. Prepared head SH..."
     },
     {
       "id": 4,
-      "title": "openclaw 2026.3.24-beta.2",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.3.24-beta.2",
-      "publishedAt": "2026-03-25T14:46:36Z",
-      "summary": "Fixes Outbound media/local files: align outbound media access with the configured fs policy so host-local files and inbound-media paths keep sending when workspaceOnly is off, while strict workspace-only agents remain sandboxed. Runtime/install: lower the supported Node 22 floor to 22.14+ while continuing to recommend Node 24, so npm installs and self-updates do not strand Node 22.14 users on older releases. CLI/update: preflight the target npm package engines.node before openclaw update runs a global package install, so outdated Node runtimes fail with a clear upgrade message instead of attempting an unsupported latest release. Tests/security audit: isolate audit-test home and personal skill resolution so local ~/.agents/skills installs no longer make maintainer prep runs fail nondeterministically. (#54473) thanks @huntharo",
-      "source": "OpenClaw Releases",
+      "title": "plugin-runtime: expose runHeartbeatOnce in system API (#40299)",
+      "link": "https://github.com/openclaw/openclaw/commit/7847e67f8acb19072e638aa97758cdbd9867e9ae",
+      "publishedAt": "2026-03-25T17:47:01Z",
+      "summary": "plugin-runtime: expose runHeartbeatOnce in system API (#40299) * plugin-runtime: expose runHeartbeatOnce in system API Plugins that enqueue system events and need the agent to deliver responses to the originating channel currently have no way to override the default `heartbeat.target: \"none\"` behaviour. Expose `runHeartbeatOnce` in the plugin runtime `system` namespace so plugins can trigger a single heartbeat cycle with an explicit `heartbeat: { target: \"last\" }` override — the same pattern the cron service already uses (see #28508). Changes: - Add `RunHeartbeatOnceOptions` type and `runHeartbeatOnce` to `PluginRuntimeCore.system` (types-core.ts) - Wire the function through a thin wrapper in runtime-system.ts - Update the test-utils plugin-runtime mock Made-with: Cursor * feat(plugins): expose runHeartbeatOnce in system API (#40299) (thanks @loveyana) --------- Co-authored-by: George Zhang",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.3.24-beta.2",
-      "summaryZh": "重點：修正 Outbound media/local files: align outbound media access with the configured fs policy so host-local files and inbound..."
+      "titleZh": "OpenClaw 程式碼更新：plugin-runtime: expose runHeartbeatOnce in system API (#40299)",
+      "summaryZh": "重點：plugin-runtime: expose runHeartbeatOnce in system API (#40299) * plugin-runtime: expose runHeartbeatOnce in system API P..."
     },
     {
       "id": 5,
+      "title": "fix: mid-turn 429 rate limit silent no-reply and context engine regis…",
+      "link": "https://github.com/openclaw/openclaw/commit/4ae4d1fabee2caa23ab200c5480ad164a0f25f62",
+      "publishedAt": "2026-03-25T17:43:08Z",
+      "summary": "fix: mid-turn 429 rate limit silent no-reply and context engine registration failure (#50930) Merged via squash. Prepared head SHA: eea7800df31f30caabfec2aefe8f20008365a8e8 Co-authored-by: infichen Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: mid-turn 429 rate limit silent no-reply and context engine regis…",
+      "summaryZh": "重點：修正: mid-turn 429 rate limit silent no-reply and context engine registration failure (#50930) Merged via squash. Prepared..."
+    },
+    {
+      "id": 6,
       "title": "找尋外星人不用再大海撈針，「適居帶岩質系外行星目錄」出爐",
       "link": "https://technews.tw/2026/03/25/astronomers-create-catalogue-of-habitable-zone-rocky-exoplanets/",
       "publishedAt": "Wed, 25 Mar 2026 14:20:10 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "戰事蔓延，導致AWS中東地區第二個服務區域陷入中斷",
       "link": "https://www.ithome.com.tw/news/174665",
       "publishedAt": "2026-03-25 12:03:33",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "VS Code自動執行機制遭濫用，北韓駭客企圖部署惡意軟體StoatWaffle",
       "link": "https://www.ithome.com.tw/news/174664",
       "publishedAt": "2026-03-25 12:03:29",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "開源大型語言模型串接套件LiteLLM遭遇供應鏈攻擊",
       "link": "https://www.ithome.com.tw/news/174661",
       "publishedAt": "2026-03-25 11:03:40",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Mozilla發布內建VPN的Firefox 149.0版本，每月流量最高可達50GB",
       "link": "https://www.ithome.com.tw/news/174655",
       "publishedAt": "2026-03-25 11:03:17",
       "summary": "Mozilla昨日公布Firefox 149.0正式版本，新增內建VPN、安全上網、分割畫面等功能。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google發布Chrome瀏覽器更新，修補8個高風險漏洞",
-      "link": "https://www.ithome.com.tw/news/174659",
-      "publishedAt": "2026-03-25 11:03:05",
-      "summary": "Google於3月23日發布Chrome瀏覽器的安全更新，將Windows與Mac平臺穩定版更新至146.0.7680.164與146.0.7680.165，Linux版本更新至146.0.7680.164。 這次更新一共修補8個安全漏洞，且全都被列為高風險漏洞 ，其中2026年2月18日通報的CVE-2026-4673，通報者已獲得Google提供的7,000美元獎金。",
       "source": "iThome",
       "tag": "繁中"
     }
