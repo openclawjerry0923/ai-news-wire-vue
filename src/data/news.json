@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T08:06:34.496Z",
+  "generatedAt": "2026-03-25T11:29:34.393Z",
   "items": [
     {
       "id": 1,
@@ -21,6 +21,50 @@
     },
     {
       "id": 3,
+      "title": "refactor(openai): extract codex auth identity helper",
+      "link": "https://github.com/openclaw/openclaw/commit/c3d1dbc6961147d80f1b7c4f960285532a6223a2",
+      "publishedAt": "2026-03-25T11:24:46Z",
+      "summary": "refactor(openai): extract codex auth identity helper",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(openai): extract codex auth identity helper",
+      "summaryZh": "重點：refactor(openai): extract codex auth identity helper..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(auth): separate profile ids from email metadata",
+      "link": "https://github.com/openclaw/openclaw/commit/d363af8c131a2f02b5141946fa19b64766848d71",
+      "publishedAt": "2026-03-25T11:24:46Z",
+      "summary": "refactor(auth): separate profile ids from email metadata",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(auth): separate profile ids from email metadata",
+      "summaryZh": "重點：refactor(auth): separate profile ids from email metadata..."
+    },
+    {
+      "id": 5,
+      "title": "fix(whatsapp): use async fs.promises.readFile for selfLid creds read",
+      "link": "https://github.com/openclaw/openclaw/commit/f3fe019e3d40c2d7c021d3e01960d4e58ac24057",
+      "publishedAt": "2026-03-25T11:24:31Z",
+      "summary": "fix(whatsapp): use async fs.promises.readFile for selfLid creds read",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): use async fs.promises.readFile for selfLid creds read",
+      "summaryZh": "重點：修正(whatsapp): use async fs.promises.readFile for selfLid creds read..."
+    },
+    {
+      "id": 6,
+      "title": "fix(whatsapp): read selfLid from creds.json for reply-to-bot detection",
+      "link": "https://github.com/openclaw/openclaw/commit/770a5ee5b1e44fc6d4b61fe90930a1b1427c5e33",
+      "publishedAt": "2026-03-25T11:24:31Z",
+      "summary": "fix(whatsapp): read selfLid from creds.json for reply-to-bot detection",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): read selfLid from creds.json for reply-to-bot detection",
+      "summaryZh": "重點：修正(whatsapp): read selfLid from creds.json for reply-to-bot detection..."
+    },
+    {
+      "id": 7,
       "title": "開源大型語言模型串接套件LiteLLM遭遇供應鏈攻擊",
       "link": "https://www.ithome.com.tw/news/174661",
       "publishedAt": "2026-03-25 11:03:40",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Mozilla發布內建VPN的Firefox 149.0版本，每月流量最高可達50GB",
       "link": "https://www.ithome.com.tw/news/174655",
       "publishedAt": "2026-03-25 11:03:17",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Google發布Chrome瀏覽器更新，修補8個高風險漏洞",
       "link": "https://www.ithome.com.tw/news/174659",
       "publishedAt": "2026-03-25 11:03:05",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "TP-Link修補家用路由器產品非授權存取、指令注入等高風險漏洞",
-      "link": "https://www.ithome.com.tw/news/174654",
-      "publishedAt": "2026-03-25 10:03:40",
-      "summary": "網通設備廠商TP-Link本週發布安全更新，修補家用路由器Archer系列部分機種的非授權存取、指令注入等4項高風險漏洞。 其中CVE-2025-15517（CVSS風險值8.6）為HTTP伺服器端點的授權繞過漏洞，它是出於HTTP Server欠缺對某些特定CGI端點的驗證檢查，使經過驗證（具有帳號）的使用者，得以執行未經驗證的存取行為，例如攻擊者可以執行較高權限的HTTP行為，例如上傳韌體或配置操作。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix: clarify cron best-effort partial delivery status (#42535) (thank…",
-      "link": "https://github.com/openclaw/openclaw/commit/4140100807e9745236a5a368b0a58815dc93bba5",
-      "publishedAt": "2026-03-25T07:19:32Z",
-      "summary": "fix: clarify cron best-effort partial delivery status (#42535) (thanks @MoerAI) * fix(cron): track and log bestEffort delivery failures, mark not delivered on partial failure * fix(cron): cache successful results on partial failure to preserve replay idempotency When a best-effort send partially fails, we now still cache the successful delivery results via rememberCompletedDirectCronDelivery. This prevents duplicate sends on same-process replay while still correctly marking the job as not fully delivered. * fix(cron): preserve partial-failure state on replay (#27069) * fix(cron): restore test infrastructure and fix formatting * fix: clarify cron best-effort partial delivery status (#42535) (thanks @MoerAI) --------- Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: clarify 排程 best-effort partial delivery status (#42535) (thank…",
-      "summaryZh": "重點：修正: clarify 排程 best-effort partial delivery status (#42535) (thanks @MoerAI) * 修正(排程): track and log bestEffort delivery..."
-    },
-    {
-      "id": 8,
-      "title": "fix: preflight invalid telegram photos (#52545) (thanks @hnshah)",
-      "link": "https://github.com/openclaw/openclaw/commit/c7f021f70fa996ffc985c4b1b9bde7a906a67eb9",
-      "publishedAt": "2026-03-25T06:30:20Z",
-      "summary": "fix: preflight invalid telegram photos (#52545) (thanks @hnshah) * fix(telegram): validate photo dimensions before sendPhoto Prevents PHOTO_INVALID_DIMENSIONS errors by checking image dimensions against Telegram Bot API requirements before calling sendPhoto. If dimensions exceed limits (width + height > 10,000px), automatically falls back to sending as document instead of crashing with 400 error. Tested in production (openclaw 2026.3.13) where this error occurred: [telegram] tool reply failed: GrammyError: Call to 'sendPhoto' failed! (400: Bad Request: PHOTO_INVALID_DIMENSIONS) Uses existing sharp dependency to read image metadata. Gracefully degrades if sharp fails (lets Telegram handle validation, backward compatible behavior). Closes: #XXXXX (will reference OpenClaw issue if one exists) * fix(telegram): validate photo aspect ratio * refactor: use shared telegram image metadata * fix: fail closed on telegram image metadata * fix: preflight invalid telegram photos (#52545) (thanks @hnshah) --------- Co-authored-by: Bob Shah Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preflight invalid Telegram photos (#52545) (thanks @hnshah)",
-      "summaryZh": "重點：修正: preflight invalid Telegram photos (#52545) (thanks @hnshah) * 修正(Telegram): validate photo dimensions before sendPho..."
-    },
-    {
-      "id": 9,
-      "title": "test: allow daemon start hints to grow on linux (#54058) (thanks @byu…",
-      "link": "https://github.com/openclaw/openclaw/commit/b9857a2b7952016ac84158fe8f79d0b271445055",
-      "publishedAt": "2026-03-25T06:09:04Z",
-      "summary": "test: allow daemon start hints to grow on linux (#54058) (thanks @byungsker)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: allow daemon start hints to grow on linux (#54058) (thanks @byu…",
-      "summaryZh": "重點：test: allow daemon start hints to grow on linux (#54058) (thanks @byungsker)..."
-    },
-    {
       "id": 10,
-      "title": "test: accept fenced discord pairing codes (#54058) (thanks @byungsker)",
-      "link": "https://github.com/openclaw/openclaw/commit/8b80690a1a90a5dcd61fe86e141fdde19c7a45c5",
-      "publishedAt": "2026-03-25T06:09:04Z",
-      "summary": "test: accept fenced discord pairing codes (#54058) (thanks @byungsker)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: accept fenced Discord pairing codes (#54058) (thanks @byungsker)",
-      "summaryZh": "重點：test: accept fenced Discord pairing codes (#54058) (thanks @byungsker)..."
+      "title": "TXOne Stellar 再獲 Siemens WinCC OA 驗證，為工控系統資安把關",
+      "link": "https://infosecu.technews.tw/2026/03/25/txone-stellar-receives-siemens-wincc-oa-verification-again/",
+      "publishedAt": "Wed, 25 Mar 2026 11:00:55 +0000",
+      "summary": "工業控制系統資安領導廠商 TXOne Networks 宣布，其端點防護解決方案 TXOne Stellar [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
