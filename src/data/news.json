@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T18:38:17.570Z",
+  "generatedAt": "2026-03-25T20:57:25.576Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "Fix/telegram writeback admin scope gate (#54561)",
-      "link": "https://github.com/openclaw/openclaw/commit/b7d70ade3b9900dbe97bd73be9c02e924ff3c986",
-      "publishedAt": "2026-03-25T18:12:09Z",
-      "summary": "Fix/telegram writeback admin scope gate (#54561) * fix(telegram): require operator.admin for legacy target writeback persistence * Address claude feedback * Update extensions/telegram/src/target-writeback.ts Co-authored-by: greptile-apps[bot] * Remove stray brace * Add updated docs * Add missing test file, address codex concerns * Fix test formatting error * Address comments, fix tests --------- Co-authored-by: greptile-apps[bot]",
+      "title": "Trigger preflight compaction from transcript estimates when usage is …",
+      "link": "https://github.com/openclaw/openclaw/commit/c6d8318d07f5479f5e6a66c548f6bb67b62f1f09",
+      "publishedAt": "2026-03-25T20:22:16Z",
+      "summary": "Trigger preflight compaction from transcript estimates when usage is stale (#49479) Merged via squash. Prepared head SHA: 8d214b708b433702aba21b86ad19b6e2721c3ee0 Co-authored-by: jared596 Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正/Telegram writeback admin scope gate (#54561)",
-      "summaryZh": "重點：修正/Telegram writeback admin scope gate (#54561) * 修正(Telegram): require operator.admin for legacy target writeback persi..."
+      "titleZh": "OpenClaw 程式碼更新：Trigger preflight compaction from transcript estimates when usage is …",
+      "summaryZh": "重點：Trigger preflight compaction from transcript estimates when usage is stale (#49479) Merged via squash. Prepared head SHA..."
     },
     {
       "id": 3,
-      "title": "fix(compaction): surface safeguard cancel reasons and clarify /compac…",
-      "link": "https://github.com/openclaw/openclaw/commit/89c4c674d17855df79f3824b09d31e7658822f82",
-      "publishedAt": "2026-03-25T18:03:22Z",
-      "summary": "fix(compaction): surface safeguard cancel reasons and clarify /compact skips (#51072) Merged via squash. Prepared head SHA: f1dbef044384fbd79ca5ef3616ad37fb03b05fae Co-authored-by: afurm Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "OpenShell: exclude hooks/ from mirror sync (#54657)",
+      "link": "https://github.com/openclaw/openclaw/commit/c02ee8a3a4cb390b23afdf21317aa8b2096854d1",
+      "publishedAt": "2026-03-25T19:59:07Z",
+      "summary": "OpenShell: exclude hooks/ from mirror sync (#54657) * OpenShell: exclude hooks/ from mirror sync * OpenShell: make excludeDirs case-insensitive for cross-platform safety",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(compaction): surface safeguard cancel reasons and clarify /compac…",
-      "summaryZh": "重點：修正(compaction): surface safeguard cancel reasons and clarify /compact skips (#51072) Merged via squash. Prepared head SH..."
+      "titleZh": "OpenClaw 程式碼更新：OpenShell: exclude hooks/ from mirror sync (#54657)",
+      "summaryZh": "重點：OpenShell: exclude hooks/ from mirror sync (#54657) * OpenShell: exclude hooks/ from mirror sync * OpenShell: make exclu..."
     },
     {
       "id": 4,
-      "title": "plugin-runtime: expose runHeartbeatOnce in system API (#40299)",
-      "link": "https://github.com/openclaw/openclaw/commit/7847e67f8acb19072e638aa97758cdbd9867e9ae",
-      "publishedAt": "2026-03-25T17:47:01Z",
-      "summary": "plugin-runtime: expose runHeartbeatOnce in system API (#40299) * plugin-runtime: expose runHeartbeatOnce in system API Plugins that enqueue system events and need the agent to deliver responses to the originating channel currently have no way to override the default `heartbeat.target: \"none\"` behaviour. Expose `runHeartbeatOnce` in the plugin runtime `system` namespace so plugins can trigger a single heartbeat cycle with an explicit `heartbeat: { target: \"last\" }` override — the same pattern the cron service already uses (see #28508). Changes: - Add `RunHeartbeatOnceOptions` type and `runHeartbeatOnce` to `PluginRuntimeCore.system` (types-core.ts) - Wire the function through a thin wrapper in runtime-system.ts - Update the test-utils plugin-runtime mock Made-with: Cursor * feat(plugins): expose runHeartbeatOnce in system API (#40299) (thanks @loveyana) --------- Co-authored-by: George Zhang",
+      "title": "fix: apply host-env blocklist to auth-profile env refs in daemon inst…",
+      "link": "https://github.com/openclaw/openclaw/commit/d1bfe084241a141e4cfcd449aa0a42374ae5bbaf",
+      "publishedAt": "2026-03-25T19:57:22Z",
+      "summary": "fix: apply host-env blocklist to auth-profile env refs in daemon install (#54627) * fix: apply host-env blocklist to auth-profile env refs in daemon install Co-Authored-By: Claude Opus 4.6 (1M context) * ci: retrigger checks --------- Co-authored-by: Claude Opus 4.6 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：plugin-runtime: expose runHeartbeatOnce in system API (#40299)",
-      "summaryZh": "重點：plugin-runtime: expose runHeartbeatOnce in system API (#40299) * plugin-runtime: expose runHeartbeatOnce in system API P..."
+      "titleZh": "OpenClaw 程式碼更新：修正: apply host-env blocklist to auth-profile env refs in daemon inst…",
+      "summaryZh": "重點：修正: apply host-env blocklist to auth-profile env refs in daemon install (#54627) * 修正: apply host-env blocklist to auth-..."
     },
     {
       "id": 5,
-      "title": "fix: mid-turn 429 rate limit silent no-reply and context engine regis…",
-      "link": "https://github.com/openclaw/openclaw/commit/4ae4d1fabee2caa23ab200c5480ad164a0f25f62",
-      "publishedAt": "2026-03-25T17:43:08Z",
-      "summary": "fix: mid-turn 429 rate limit silent no-reply and context engine registration failure (#50930) Merged via squash. Prepared head SHA: eea7800df31f30caabfec2aefe8f20008365a8e8 Co-authored-by: infichen Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "fix(talk-voice): enforce operator.admin scope on /voice set config wr…",
+      "link": "https://github.com/openclaw/openclaw/commit/e34694733fc64931ed4a543c73d84ad3435d5df1",
+      "publishedAt": "2026-03-25T19:55:26Z",
+      "summary": "fix(talk-voice): enforce operator.admin scope on /voice set config writes (#54461) * fix(talk-voice): enforce operator.admin scope on /voice set config writes * fix(talk-voice): align scope guard with phone-control pattern Use optional chaining (?.) instead of Array.isArray so webchat callers with undefined scopes are rejected, matching the established pattern in phone-control. Add test for webchat-with-no-scopes case. Co-Authored-By: Claude Opus 4.6 (1M context) --------- Co-authored-by: Claude Opus 4.6 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: mid-turn 429 rate limit silent no-reply and context engine regis…",
-      "summaryZh": "重點：修正: mid-turn 429 rate limit silent no-reply and context engine registration failure (#50930) Merged via squash. Prepared..."
+      "titleZh": "OpenClaw 程式碼更新：修正(talk-voice): enforce operator.admin scope on /voice set config wr…",
+      "summaryZh": "重點：修正(talk-voice): enforce operator.admin scope on /voice set config writes (#54461) * 修正(talk-voice): enforce operator.adm..."
     },
     {
       "id": 6,
