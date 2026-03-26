@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T08:37:49.056Z",
+  "generatedAt": "2026-03-26T11:38:37.290Z",
   "items": [
     {
       "id": 1,
@@ -48,6 +48,17 @@
     },
     {
       "id": 6,
+      "title": "fix(agents): enforce session_status guard after sessionId resolution …",
+      "link": "https://github.com/openclaw/openclaw/commit/d9810811b6c3c9266d7580f00574e5e02f7663de",
+      "publishedAt": "2026-03-26T11:34:22Z",
+      "summary": "fix(agents): enforce session_status guard after sessionId resolution (#55105) * fix(agents): enforce visibility guard after sessionId resolution in session_status When a sessionId (rather than an explicit agent key) is passed to the session_status tool, the sessionId resolution block rewrites requestedKeyRaw to an explicit \"agent:...\" key. The subsequent visibility guard check at line 375 tested `!requestedKeyRaw.startsWith(\"agent:\")`, which was now always false after resolution — skipping the visibility check entirely. This meant a sandboxed agent could bypass visibility restrictions by providing a sessionId instead of an explicit session key. Fix: use the original `isExplicitAgentKey` flag (captured before resolution) instead of re-checking the dynamic requestedKeyRaw. This ensures the visibility guard runs for sessionId inputs while still skipping the redundant check for inputs that were already validated at the earlier explicit-key check (lines 281-286). Co-Authored-By: Claude Opus 4.6 (1M context) * test: cover session status sessionId guard * test: align parent sessionId guard coverage --------- Co-authored-by: Kevin Sheng Co-authored-by: Claude Opus 4.6 (1M context)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): enforce session_status guard after sessionId resolution …",
+      "summaryZh": "重點：修正(agents): enforce session_status guard after sessionId resolution (#55105) * 修正(agents): enforce visibility guard afte..."
+    },
+    {
+      "id": 7,
       "title": "Trivy供應鏈攻擊影響逾1千個SaaS環境",
       "link": "https://www.ithome.com.tw/news/174680",
       "publishedAt": "2026-03-26 11:03:40",
@@ -56,48 +67,37 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "Remove Qwen OAuth integration (qwen-portal-auth) (#52709)",
-      "link": "https://github.com/openclaw/openclaw/commit/dad68d319b190e3d8df2d4a4be73051bfc5280cd",
-      "publishedAt": "2026-03-26T08:32:34Z",
-      "summary": "Remove Qwen OAuth integration (qwen-portal-auth) (#52709) * Remove Qwen OAuth integration (qwen-portal-auth) Qwen OAuth via portal.qwen.ai is being deprecated by the Qwen team due to traffic impact on their primary Qwen Code user base. Users should migrate to the officially supported Model Studio (Alibaba Cloud Coding Plan) provider instead. Ref: https://github.com/openclaw/openclaw/issues/49557 - Delete extensions/qwen-portal-auth/ plugin entirely - Remove qwen-portal from onboarding auth choices, provider aliases, auto-enable list, bundled plugin defaults, and pricing cache - Remove Qwen CLI credential sync (external-cli-sync, cli-credentials) - Remove QWEN_OAUTH_MARKER from model auth markers - Update docs/providers/qwen.md to redirect to Model Studio - Update model-providers docs (EN + zh-CN) to remove Qwen OAuth section - Regenerate config and plugin-sdk baselines - Update all affected tests Co-authored-by: Qwen-Coder * Clean up residual qwen-portal references after OAuth removal * Add migration hint for deprecated qwen-portal OAuth provider * fix: finish qwen oauth removal follow-up --------- Co-authored-by: Qwen-Coder Co-authored-by: Frank Yang",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Remove Qwen OAuth integration (qwen-portal-auth) (#52709)",
-      "summaryZh": "重點：Remove Qwen OAuth integration (qwen-portal-auth) (#52709) * Remove Qwen OAuth integration (qwen-portal-auth) Qwen OAuth ..."
-    },
-    {
       "id": 8,
-      "title": "build: update plugin sdk api baseline",
-      "link": "https://github.com/openclaw/openclaw/commit/83e6c12f15f161955aed37261386098f31f47225",
-      "publishedAt": "2026-03-26T08:22:52Z",
-      "summary": "build: update plugin sdk api baseline",
+      "title": "Feishu: validate webhook signatures before parsing (#55083)",
+      "link": "https://github.com/openclaw/openclaw/commit/5e8cb22176e9235e224be0bc530699261eb60e53",
+      "publishedAt": "2026-03-26T10:29:22Z",
+      "summary": "Feishu: validate webhook signatures before parsing (#55083) * Feishu: validate webhook signatures before parsing * Scripts: allow Feishu raw body guard callsite",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build: update plugin sdk api baseline",
-      "summaryZh": "重點：build: update plugin sdk api baseline..."
+      "titleZh": "OpenClaw 程式碼更新：Feishu: validate webhook signatures before parsing (#55083)",
+      "summaryZh": "重點：Feishu: validate webhook signatures before parsing (#55083) * Feishu: validate webhook signatures before parsing * Scrip..."
     },
     {
       "id": 9,
-      "title": "fix: add slack upload-file action (#54987) (thanks @kevinlin-openai)",
-      "link": "https://github.com/openclaw/openclaw/commit/432d5f863cfd5c3a1cf53b261971379e7bc41c9a",
-      "publishedAt": "2026-03-26T08:07:58Z",
-      "summary": "fix: add slack upload-file action (#54987) (thanks @kevinlin-openai) * feat(slack): add upload-file action Co-authored-by: Codex * fix(slack): guard upload-file routing Co-authored-by: Codex * fix(slack): tighten upload-file validation --------- Co-authored-by: kevinlin-openai Co-authored-by: Codex Co-authored-by: Ayaan Zaidi",
+      "title": "fix(discord): force fresh gateway reconnects (#54697)",
+      "link": "https://github.com/openclaw/openclaw/commit/a3b85e158336c761f98c49b9c36ba9b8e933dfab",
+      "publishedAt": "2026-03-26T10:05:00Z",
+      "summary": "fix(discord): force fresh gateway reconnects (#54697) * fix(discord): force fresh gateway reconnects * fix(discord): harden forced reconnect teardown * fix(discord): retry after socket drain timeouts * fix(discord): guard forced socket teardown * fix(discord): stop cleanly during reconnect drain",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: add slack upload-file action (#54987) (thanks @kevinlin-openai)",
-      "summaryZh": "重點：修正: add slack upload-file action (#54987) (thanks @kevinlin-openai) * 新功能(slack): add upload-file action Co-authored-by:..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): force fresh Gateway reconnects (#54697)",
+      "summaryZh": "重點：修正(Discord): force fresh Gateway reconnects (#54697) * 修正(Discord): force fresh Gateway reconnects * 修正(Discord): harden..."
     },
     {
       "id": 10,
-      "title": "docs: refresh config baseline for microsoft foundry",
-      "link": "https://github.com/openclaw/openclaw/commit/78584413ecc93010053f12375b0f32526c0b3c09",
-      "publishedAt": "2026-03-26T07:15:47Z",
-      "summary": "docs: refresh config baseline for microsoft foundry",
+      "title": "chore: add lockfile entry for `extensions/microsoft-foundry`",
+      "link": "https://github.com/openclaw/openclaw/commit/8564480f3e6fd4a551ada347010d5fb75b5ed60e",
+      "publishedAt": "2026-03-26T09:50:33Z",
+      "summary": "chore: add lockfile entry for `extensions/microsoft-foundry`",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: refresh config baseline for microsoft foundry",
-      "summaryZh": "重點：文件: refresh config baseline for microsoft foundry..."
+      "titleZh": "OpenClaw 程式碼更新：chore: add lockfile entry for `extensions/microsoft-foundry`",
+      "summaryZh": "重點：chore: add lockfile entry for `extensions/microsoft-foundry`..."
     }
   ]
 }
