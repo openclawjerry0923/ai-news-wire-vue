@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T17:05:32.701Z",
+  "generatedAt": "2026-03-28T19:46:37.042Z",
   "items": [
     {
       "id": 1,
@@ -12,39 +12,50 @@
     },
     {
       "id": 2,
-      "title": "refactor: load bundled provider catalogs dynamically",
-      "link": "https://github.com/openclaw/openclaw/commit/5194cf2019f43b9e017f11c8f756ace814581eff",
-      "publishedAt": "2026-03-28T16:57:36Z",
-      "summary": "refactor: load bundled provider catalogs dynamically",
+      "title": "fix(bluebubbles): guard debounce flush against null text (#56573)",
+      "link": "https://github.com/openclaw/openclaw/commit/e69ea1acb35d00e6cf063fb7e91703346b4caabf",
+      "publishedAt": "2026-03-28T19:22:05Z",
+      "summary": "fix(bluebubbles): guard debounce flush against null text (#56573) Sanitize message text at the debounce enqueue boundary and add an independent guard in combineDebounceEntries(). Prevents TypeError when a queued entry has null text that reaches .trim() during flush. Add regression test: enqueue null-text entry alongside valid message, verify flush completes without error and valid message is delivered. Fixes #35777",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: load bundled provider catalogs dynamically",
-      "summaryZh": "重點：refactor: load bundled provider catalogs dynamically..."
+      "titleZh": "OpenClaw 程式碼更新：修正(bluebubbles): guard debounce flush against null text (#56573)",
+      "summaryZh": "重點：修正(bluebubbles): guard debounce flush against null text (#56573) Sanitize message text at the debounce enqueue boundary ..."
     },
     {
       "id": 3,
-      "title": "fix(dev): rebuild dist after HEAD changes (#56510)",
-      "link": "https://github.com/openclaw/openclaw/commit/54313a8730f6c2fa4ebe0d8b3e30fd772aa91c91",
-      "publishedAt": "2026-03-28T16:49:09Z",
-      "summary": "fix(dev): rebuild dist after HEAD changes (#56510)",
+      "title": "test: tune gateway live probe skips",
+      "link": "https://github.com/openclaw/openclaw/commit/756df2e9554da097679e6c4d3c75deff025098b9",
+      "publishedAt": "2026-03-28T19:13:47Z",
+      "summary": "test: tune gateway live probe skips",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(dev): rebuild dist after HEAD changes (#56510)",
-      "summaryZh": "重點：修正(dev): rebuild dist after HEAD changes (#56510)..."
+      "titleZh": "OpenClaw 程式碼更新：test: tune Gateway live probe skips",
+      "summaryZh": "重點：test: tune Gateway live probe skips..."
     },
     {
       "id": 4,
-      "title": "fix(docs): remove broken Xfinity SSL troubleshooting links from FAQ (…",
-      "link": "https://github.com/openclaw/openclaw/commit/840b806c2f7b04f5b76410d75b81459a807809ec",
-      "publishedAt": "2026-03-28T16:18:26Z",
-      "summary": "fix(docs): remove broken Xfinity SSL troubleshooting links from FAQ (#56500) Remove circular self-link in English FAQ and dead anchor reference in zh-CN FAQ. Both FAQ sections already contain the full workaround inline, so the cross-references added no value and were never backed by a valid target in troubleshooting.md. Fixes #36970",
+      "title": "fix: isolate live test home from real config",
+      "link": "https://github.com/openclaw/openclaw/commit/914becee52426127fe4e02b791ad131cbc2b29ac",
+      "publishedAt": "2026-03-28T19:06:59Z",
+      "summary": "fix: isolate live test home from real config",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件): remove broken Xfinity SSL troubleshooting links from FAQ (…",
-      "summaryZh": "重點：修正(文件): remove broken Xfinity SSL troubleshooting links from FAQ (#56500) Remove circular self-link in English FAQ and d..."
+      "titleZh": "OpenClaw 程式碼更新：修正: isolate live test home from real config",
+      "summaryZh": "重點：修正: isolate live test home from real config..."
     },
     {
       "id": 5,
+      "title": "fix: tolerate npm stderr in Windows Parallels update smoke",
+      "link": "https://github.com/openclaw/openclaw/commit/8ea4c4a6badc2e07e7cc6502bb887344e910fa2e",
+      "publishedAt": "2026-03-28T18:59:17Z",
+      "summary": "fix: tolerate npm stderr in Windows Parallels update smoke",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: tolerate npm stderr in Windows Parallels update smoke",
+      "summaryZh": "重點：修正: tolerate npm stderr in Windows Parallels update smoke..."
+    },
+    {
+      "id": 6,
       "title": "AI 讀懂你的夢中腦波，「腦齡」每超齡 10 歲、失智風險增近 40%",
       "link": "https://technews.tw/2026/03/29/this-ai-tool-can-tell-if-your-brain-is-aging-too-fast/",
       "publishedAt": "Sat, 28 Mar 2026 16:00:18 +0000",
@@ -53,24 +64,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "極端氣候改變地貌，澳洲紅土中心因強降雨變「綠」了",
       "link": "https://technews.tw/2026/03/29/australias-red-centre-turns-green/",
       "publishedAt": "Sat, 28 Mar 2026 16:00:07 +0000",
       "summary": "澳洲地理中心的小鎮愛麗斯泉（Alice Springs），因鏽紅色沙漠景觀常被稱為「紅土中心」（Red Cen [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "ci: align bun shard counts with windows (#56429)",
-      "link": "https://github.com/openclaw/openclaw/commit/7a878164b07335c35376f91ffeceef986722465b",
-      "publishedAt": "2026-03-28T14:36:59Z",
-      "summary": "ci: align bun shard counts with windows (#56429) * ci: align bun shard counts with windows * ci: retrigger stuck windows shard",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: align bun shard counts with windows (#56429)",
-      "summaryZh": "重點：ci: align bun shard counts with windows (#56429) * ci: align bun shard counts with windows * ci: retrigger stuck windows..."
     },
     {
       "id": 8,
