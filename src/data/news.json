@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T19:46:37.042Z",
+  "generatedAt": "2026-03-28T21:02:00.384Z",
   "items": [
     {
       "id": 1,
@@ -12,6 +12,28 @@
     },
     {
       "id": 2,
+      "title": "fix(telegram): split long messages at word boundaries instead of mid-…",
+      "link": "https://github.com/openclaw/openclaw/commit/ab2ef7bbfc5c93e2fb7904efb51d10d9cc2fa5a7",
+      "publishedAt": "2026-03-28T20:24:59Z",
+      "summary": "fix(telegram): split long messages at word boundaries instead of mid-word (#56595) Replace proportional text estimate with binary search for the largest text prefix whose rendered Telegram HTML fits the character limit, then split at the last whitespace boundary within that verified prefix. Single words longer than the limit still hard-split (unavoidable). Markdown formatting stays balanced across split points. Fixes #36644",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): split long messages at word boundaries instead of mid-…",
+      "summaryZh": "重點：修正(Telegram): split long messages at word boundaries instead of mid-word (#56595) Replace proportional text estimate wit..."
+    },
+    {
+      "id": 3,
+      "title": "fix(telegram): validate replyToMessageId before sending to Telegram A…",
+      "link": "https://github.com/openclaw/openclaw/commit/865160e57292bfc32082fa885efe1a48e64bb06c",
+      "publishedAt": "2026-03-28T19:47:10Z",
+      "summary": "fix(telegram): validate replyToMessageId before sending to Telegram API (#56587) Add shared normalizeTelegramReplyToMessageId() that rejects non-numeric, NaN, and mixed-content strings before they reach the Telegram Bot API. Apply at all four API sinks: direct send, bot delivery, draft stream, and bot helpers. Prevents GrammyError 400 when non-numeric values from session metadata slip through typed boundaries. Fixes #37222",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): validate replyToMessageId before sending to Telegram A…",
+      "summaryZh": "重點：修正(Telegram): validate replyToMessageId before sending to Telegram API (#56587) Add shared normalizeTelegramReplyToMessa..."
+    },
+    {
+      "id": 4,
       "title": "fix(bluebubbles): guard debounce flush against null text (#56573)",
       "link": "https://github.com/openclaw/openclaw/commit/e69ea1acb35d00e6cf063fb7e91703346b4caabf",
       "publishedAt": "2026-03-28T19:22:05Z",
@@ -22,7 +44,7 @@
       "summaryZh": "重點：修正(bluebubbles): guard debounce flush against null text (#56573) Sanitize message text at the debounce enqueue boundary ..."
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "test: tune gateway live probe skips",
       "link": "https://github.com/openclaw/openclaw/commit/756df2e9554da097679e6c4d3c75deff025098b9",
       "publishedAt": "2026-03-28T19:13:47Z",
@@ -31,28 +53,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：test: tune Gateway live probe skips",
       "summaryZh": "重點：test: tune Gateway live probe skips..."
-    },
-    {
-      "id": 4,
-      "title": "fix: isolate live test home from real config",
-      "link": "https://github.com/openclaw/openclaw/commit/914becee52426127fe4e02b791ad131cbc2b29ac",
-      "publishedAt": "2026-03-28T19:06:59Z",
-      "summary": "fix: isolate live test home from real config",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: isolate live test home from real config",
-      "summaryZh": "重點：修正: isolate live test home from real config..."
-    },
-    {
-      "id": 5,
-      "title": "fix: tolerate npm stderr in Windows Parallels update smoke",
-      "link": "https://github.com/openclaw/openclaw/commit/8ea4c4a6badc2e07e7cc6502bb887344e910fa2e",
-      "publishedAt": "2026-03-28T18:59:17Z",
-      "summary": "fix: tolerate npm stderr in Windows Parallels update smoke",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: tolerate npm stderr in Windows Parallels update smoke",
-      "summaryZh": "重點：修正: tolerate npm stderr in Windows Parallels update smoke..."
     },
     {
       "id": 6,
