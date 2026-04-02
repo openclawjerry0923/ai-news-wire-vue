@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-04-02T12:07:51.375Z",
+  "generatedAt": "2026-04-02T16:14:23.324Z",
   "items": [
     {
       "id": 1,
+      "title": "fix: scope #57584 to shell allowlist changes",
+      "link": "https://github.com/openclaw/openclaw/commit/47dcfc49b8ba064d8a9acfde65babbd9d575a7d9",
+      "publishedAt": "2026-04-02T16:11:20Z",
+      "summary": "fix: scope #57584 to shell allowlist changes",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: scope #57584 to shell allowlist changes",
+      "summaryZh": "重點：修正: scope #57584 to shell allowlist changes..."
+    },
+    {
+      "id": 2,
+      "title": "fix: preserve Android assistant auto-send queue",
+      "link": "https://github.com/openclaw/openclaw/commit/34a5c47351d18d440859287272df3133ce1cfcd0",
+      "publishedAt": "2026-04-02T16:09:24Z",
+      "summary": "fix: preserve Android assistant auto-send queue",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve Android assistant auto-send queue",
+      "summaryZh": "重點：修正: preserve Android assistant auto-send queue..."
+    },
+    {
+      "id": 3,
+      "title": "fix(browser): block SSRF redirect bypass via real-time route intercep…",
+      "link": "https://github.com/openclaw/openclaw/commit/462b4020bc41ca703ad43adb9d34b83ac6be79f9",
+      "publishedAt": "2026-04-02T16:07:57Z",
+      "summary": "fix(browser): block SSRF redirect bypass via real-time route interception (#58771) Install a Playwright route handler before `page.goto()` so navigations to private/internal IPs are intercepted and aborted mid-redirect instead of being checked post-hoc after the request already reached the internal host. Blocked targets are permanently marked and rejected for subsequent tool calls. Thanks @pgondhi987",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): block SSRF redirect bypass via real-time route intercep…",
+      "summaryZh": "重點：修正(browser): block SSRF redirect bypass via real-time route interception (#58771) Install a Playwright route handler bef..."
+    },
+    {
+      "id": 4,
+      "title": "fix: evaluate shell wrapper inline commands against allowlist (#57377…",
+      "link": "https://github.com/openclaw/openclaw/commit/8d81e76f23088b72ff1b1ec2d9182401a1f0df5f",
+      "publishedAt": "2026-04-02T16:06:40Z",
+      "summary": "fix: evaluate shell wrapper inline commands against allowlist (#57377) (#57584) When a skill constructs a compound command via a shell wrapper (e.g. `sh -c \"cat SKILL.md &amp;&amp; gog-wrapper calendar events\"`), the allowlist check was comparing `/bin/sh` instead of the actual target binaries, causing the entire command to be silently rejected. This adds recursive inline command evaluation that: - Detects chain operators (&amp;&amp;, ||, ;) in the -c payload - Parses each sub-command independently via analyzeShellCommand - Evaluates every sub-command against the allowlist - Preserves per-sub-command segmentSatisfiedBy for accurate tracking - Limits recursion depth to 3 to prevent abuse - Skips recursion on Windows (no POSIX shell semantics) Closes #57377 Co-authored-by: WZBbiao",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: evaluate shell wrapper inline commands against allowlist (#57377…",
+      "summaryZh": "重點：修正: evaluate shell wrapper inline commands against allowlist (#57377) (#57584) When a skill constructs a compound comman..."
+    },
+    {
+      "id": 5,
+      "title": "仙后座正中間星星的身分是什麼？科學家藉助都卜勒效應解謎",
+      "link": "https://technews.tw/2026/04/03/the-star-in-the-center-of-cassiopeia/",
+      "publishedAt": "Thu, 02 Apr 2026 16:00:12 +0000",
+      "summary": "仙后座是秋冬季節最容易觀察到的星座之一，尤其是用來指出北極星方向的「W」形外觀令人印象深刻。 不過，在W正中間 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "GLP-1 藥物搭配這幾項好習慣，心血管風險大幅降低 43%",
+      "link": "https://technews.tw/2026/04/03/as-demand-for-glp-1-pills-and-shots-surges-healthy-habits-are-still-key/",
+      "publishedAt": "Thu, 02 Apr 2026 16:00:01 +0000",
+      "summary": "GLP-1 藥物需求未減，越來越多美國人用這類抗肥胖藥物減重和改善健康。健康研究組織 KFF 最新調查，約每八 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "研究人員揭露ChatGPT資料外洩漏洞，攻擊者可竊取用戶對話內容與敏感資訊",
       "link": "https://www.ithome.com.tw/news/174850",
       "publishedAt": "2026-04-02 12:04:11",
@@ -11,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "AI再度立功，Claude找出Vim與GNU Emacs的資安漏洞",
       "link": "https://www.ithome.com.tw/news/174847",
       "publishedAt": "2026-04-02 12:04:09",
@@ -20,18 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(config): sync generated base schema",
-      "link": "https://github.com/openclaw/openclaw/commit/15e6a88c6762a6ce93574d5e1e8dcb9ec65d6645",
-      "publishedAt": "2026-04-02T12:04:06Z",
-      "summary": "fix(config): sync generated base schema",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): sync generated base schema",
-      "summaryZh": "重點：修正(config): sync generated base schema..."
-    },
-    {
-      "id": 4,
+      "id": 9,
       "title": "全球首檔純記憶體 ETF 2 日掛牌，台灣記憶體廠南亞科與華邦電均入名單",
       "link": "https://finance.technews.tw/2026/04/02/the-worlds-first-pure-memory-etf-was-listed-today/",
       "publishedAt": "Thu, 02 Apr 2026 12:00:38 +0000",
@@ -40,62 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "fix(gateway): prune empty node-pending-work state entries to prevent …",
-      "link": "https://github.com/openclaw/openclaw/commit/761cdc967dd44cc6de8b630863b810c2a54e3cbb",
-      "publishedAt": "2026-04-02T12:00:18Z",
-      "summary": "fix(gateway): prune empty node-pending-work state entries to prevent memory leak (#58179) Merged via squash. Prepared head SHA: 1efee3099f20b905e298a96964b4e4a9903779f8 Co-authored-by: gavyngong Co-authored-by: hxy91819 Reviewed-by: @hxy91819",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): prune empty node-pending-work state entries to prevent …",
-      "summaryZh": "重點：修正(Gateway): prune empty node-pending-work state entries to prevent 記憶 leak (#58179) Merged via squash. Prepared head SH..."
-    },
-    {
-      "id": 6,
-      "title": "fix(plugins): preserve activation provenance (#59641)",
-      "link": "https://github.com/openclaw/openclaw/commit/98238333837376a762ccf0b5517e274107385d4c",
-      "publishedAt": "2026-04-02T11:57:14Z",
-      "summary": "fix(plugins): preserve activation provenance (#59641) * fix(plugins): preserve activation provenance * fix(gateway): preserve activation reason metadata * fix(plugins): harden activation state policy",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): preserve activation provenance (#59641)",
-      "summaryZh": "重點：修正(plugins): preserve activation provenance (#59641) * 修正(plugins): preserve activation provenance * 修正(Gateway): preser..."
-    },
-    {
-      "id": 7,
-      "title": "refactor(plugins): tighten web fetch provider boundary (#59646)",
-      "link": "https://github.com/openclaw/openclaw/commit/6eca1949d5d1684df67fa3f6be14f99de6e6da84",
-      "publishedAt": "2026-04-02T11:53:57Z",
-      "summary": "refactor(plugins): tighten web fetch provider boundary (#59646) * refactor(plugins): tighten web fetch provider boundary * fix(config): sync fetch secret parity and baseline * fix(ci): enforce web fetch boundary guard",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): tighten web fetch provider boundary (#59646)",
-      "summaryZh": "重點：refactor(plugins): tighten web fetch provider boundary (#59646) * refactor(plugins): tighten web fetch provider boundary..."
-    },
-    {
-      "id": 8,
+      "id": 10,
       "title": "n8n工作流程自動化平臺修補重大漏洞，未更新可能導致遠端執行任意程式碼攻擊",
       "link": "https://www.ithome.com.tw/news/174843",
       "publishedAt": "2026-04-02 11:04:45",
       "summary": "工作流程自動化平臺n8n近日發布安全公告，修補2個可能導致遠端執行程式碼的重大漏洞。 第1個漏洞的編號為CVE-2026-33660，CVSS嚴重性評分達9.4分。問題是出在n8n用於處理不同來源資料合併的Merge節點，在「Combine by SQL」模式下使用的AlaSQL沙箱，對SQL指令處理存在缺陷，攻擊者可藉此執行任意程式碼或存取主機檔案。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "臺灣主權AI訓練語料庫上線至今滿3個月，語料庫詞元數增1倍至12億",
-      "link": "https://www.ithome.com.tw/news/174846",
-      "publishedAt": "2026-04-02 11:04:25",
-      "summary": "數發部周三指出，隨著生成式AI快速發展，政府資料開放正從過去以行政透明為主，進一步轉型為支撐人工智慧應用的關鍵基礎。以政府推動中的「AI新十大建設」，即將資料與算力、人才培育列為核心，並持續強化跨機關的資料整合和治理。 數發部表示，臺灣推動政府資料開放已逾十年，目前政府資料開放平臺已累積超過5萬筆資料集，涵蓋交通、氣象、能源等多元領域，成為民間創新應用的重要來源。隨著AI技術興起，資料的角色進一步升級為模型訓練的基礎，特別是在語言模型發展上，高品質且具在地特色的語料，已成為影響AI表現的重要關鍵。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "駭客透過WhatsApp散布惡意軟體，試圖繞過UAC防護機制",
-      "link": "https://www.ithome.com.tw/news/174844",
-      "publishedAt": "2026-04-02 11:04:21",
-      "summary": "透過即時通訊軟體或協作平臺散布惡意軟體的活動，最近兩至三年有越來越頻繁的趨勢，其中，濫用WhatsApp的活動相當值得留意，因為攻擊者可能還會搭配合法工具，使得相關活動更難察覺。",
       "source": "iThome",
       "tag": "繁中"
     }
