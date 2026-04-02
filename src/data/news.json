@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-02T16:14:23.324Z",
+  "generatedAt": "2026-04-02T19:38:29.736Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: scope #57584 to shell allowlist changes",
-      "link": "https://github.com/openclaw/openclaw/commit/47dcfc49b8ba064d8a9acfde65babbd9d575a7d9",
-      "publishedAt": "2026-04-02T16:11:20Z",
-      "summary": "fix: scope #57584 to shell allowlist changes",
+      "title": "ci: restore npm token auth for dist-tag promotion",
+      "link": "https://github.com/openclaw/openclaw/commit/6f67347e0057f25b8806d1727c92d63a0b6f0825",
+      "publishedAt": "2026-04-02T19:37:49Z",
+      "summary": "ci: restore npm token auth for dist-tag promotion",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: scope #57584 to shell allowlist changes",
-      "summaryZh": "重點：修正: scope #57584 to shell allowlist changes..."
+      "titleZh": "OpenClaw 程式碼更新：ci: restore npm token auth for dist-tag promotion",
+      "summaryZh": "重點：ci: restore npm token auth for dist-tag promotion..."
     },
     {
       "id": 2,
-      "title": "fix: preserve Android assistant auto-send queue",
-      "link": "https://github.com/openclaw/openclaw/commit/34a5c47351d18d440859287272df3133ce1cfcd0",
-      "publishedAt": "2026-04-02T16:09:24Z",
-      "summary": "fix: preserve Android assistant auto-send queue",
+      "title": "refactor: speed up whatsapp inbound dispatch tests",
+      "link": "https://github.com/openclaw/openclaw/commit/04cf29f6132246d8d7b752e39b3b0e8184aa6c34",
+      "publishedAt": "2026-04-02T19:34:58Z",
+      "summary": "refactor: speed up whatsapp inbound dispatch tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve Android assistant auto-send queue",
-      "summaryZh": "重點：修正: preserve Android assistant auto-send queue..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: speed up whatsapp inbound dispatch tests",
+      "summaryZh": "重點：refactor: speed up whatsapp inbound dispatch tests..."
     },
     {
       "id": 3,
-      "title": "fix(browser): block SSRF redirect bypass via real-time route intercep…",
-      "link": "https://github.com/openclaw/openclaw/commit/462b4020bc41ca703ad43adb9d34b83ac6be79f9",
-      "publishedAt": "2026-04-02T16:07:57Z",
-      "summary": "fix(browser): block SSRF redirect bypass via real-time route interception (#58771) Install a Playwright route handler before `page.goto()` so navigations to private/internal IPs are intercepted and aborted mid-redirect instead of being checked post-hoc after the request already reached the internal host. Blocked targets are permanently marked and rejected for subsequent tool calls. Thanks @pgondhi987",
+      "title": "refactor: apply context visibility across channels",
+      "link": "https://github.com/openclaw/openclaw/commit/694d12a90b4ca4d278c26517e71959efb21bb3c0",
+      "publishedAt": "2026-04-02T19:34:57Z",
+      "summary": "refactor: apply context visibility across channels",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): block SSRF redirect bypass via real-time route intercep…",
-      "summaryZh": "重點：修正(browser): block SSRF redirect bypass via real-time route interception (#58771) Install a Playwright route handler bef..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: apply context visibility across channels",
+      "summaryZh": "重點：refactor: apply context visibility across channels..."
     },
     {
       "id": 4,
-      "title": "fix: evaluate shell wrapper inline commands against allowlist (#57377…",
-      "link": "https://github.com/openclaw/openclaw/commit/8d81e76f23088b72ff1b1ec2d9182401a1f0df5f",
-      "publishedAt": "2026-04-02T16:06:40Z",
-      "summary": "fix: evaluate shell wrapper inline commands against allowlist (#57377) (#57584) When a skill constructs a compound command via a shell wrapper (e.g. `sh -c \"cat SKILL.md &amp;&amp; gog-wrapper calendar events\"`), the allowlist check was comparing `/bin/sh` instead of the actual target binaries, causing the entire command to be silently rejected. This adds recursive inline command evaluation that: - Detects chain operators (&amp;&amp;, ||, ;) in the -c payload - Parses each sub-command independently via analyzeShellCommand - Evaluates every sub-command against the allowlist - Preserves per-sub-command segmentSatisfiedBy for accurate tracking - Limits recursion depth to 3 to prevent abuse - Skips recursion on Windows (no POSIX shell semantics) Closes #57377 Co-authored-by: WZBbiao",
+      "title": "feat: add configurable context visibility",
+      "link": "https://github.com/openclaw/openclaw/commit/35e16051479fe8e06d6824c6d6744858ed9f7f4e",
+      "publishedAt": "2026-04-02T19:34:57Z",
+      "summary": "feat: add configurable context visibility",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: evaluate shell wrapper inline commands against allowlist (#57377…",
-      "summaryZh": "重點：修正: evaluate shell wrapper inline commands against allowlist (#57377) (#57584) When a skill constructs a compound comman..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: add configurable context visibility",
+      "summaryZh": "重點：新功能: add configurable context visibility..."
     },
     {
       "id": 5,
