@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-04-08T12:08:50.109Z",
+  "generatedAt": "2026-04-08T16:44:20.828Z",
   "items": [
     {
       "id": 1,
+      "title": "test: stabilize ci test isolation",
+      "link": "https://github.com/openclaw/openclaw/commit/c945ae7be5b827e456c9ce7e7ef44ee7e53bd977",
+      "publishedAt": "2026-04-08T16:35:54Z",
+      "summary": "test: stabilize ci test isolation",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: stabilize ci test isolation",
+      "summaryZh": "重點：test: stabilize ci test isolation..."
+    },
+    {
+      "id": 2,
+      "title": "fix(gateway): clear auto-fallback model override on session reset (#6…",
+      "link": "https://github.com/openclaw/openclaw/commit/5d46e4dc4f458d3ef2097c881eab3a78f2abee2b",
+      "publishedAt": "2026-04-08T16:31:05Z",
+      "summary": "fix(gateway): clear auto-fallback model override on session reset (#63155) * fix(gateway): clear auto-fallback model override on session reset When `persistFallbackCandidateSelection()` writes a fallback provider override with `authProfileOverrideSource: \"auto\"`, the override was incorrectly preserved across `/reset` and `/new` commands. This caused sessions to keep using the fallback provider even after the user changed the agent config primary provider, because the session store override takes precedence over the config default. Now the override fields (`providerOverride`, `modelOverride`, `authProfileOverride`, `authProfileOverrideSource`, `authProfileOverrideCompactionCount`) are only carried forward when `authProfileOverrideSource === \"user\"` (i.e. explicit `/model` command). System-driven overrides are dropped on reset so the session picks up the current config default. Introduced in cb0a752156 (\"fix: preserve reset session behavior config\") * fix(gateway): preserve explicit reset model selection * fix(gateway): track reset model override source * fix(gateway): preserve legacy reset model overrides * docs(changelog): add session reset merge note --------- Co-authored-by: termtek",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): clear auto-fallback 模型 override on session reset (#6…",
+      "summaryZh": "重點：修正(Gateway): clear auto-fallback 模型 override on session reset (#63155) * 修正(Gateway): clear auto-fallback 模型 override on..."
+    },
+    {
+      "id": 3,
+      "title": "fix(auto-reply): strip leading NO_REPLY tokens to prevent silent-repl…",
+      "link": "https://github.com/openclaw/openclaw/commit/153e3add688521b2b0ead6e257def80d0c2fb58d",
+      "publishedAt": "2026-04-08T16:30:13Z",
+      "summary": "fix(auto-reply): strip leading NO_REPLY tokens to prevent silent-reply leak (#63068) * fix(auto-reply): strip leading NO_REPLY tokens to prevent silent-reply leak * fix(auto-reply): preserve substantive NO_REPLY leading text * fix(agents): preserve ACP silent-prefix cumulative deltas * fix(auto-reply): harden silent-token streaming paths * fix(auto-reply): normalize glued silent tokens consistently --------- Co-authored-by: termtek",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): strip leading NO_REPLY tokens to prevent silent-repl…",
+      "summaryZh": "重點：修正(auto-reply): strip leading NO_REPLY tokens to prevent silent-reply leak (#63068) * 修正(auto-reply): strip leading NO_R..."
+    },
+    {
+      "id": 4,
+      "title": "fix: restore android qr pairing flow (#63199)",
+      "link": "https://github.com/openclaw/openclaw/commit/21d0f7c5f1da878c6ccefcfe99b85490672efede",
+      "publishedAt": "2026-04-08T16:28:56Z",
+      "summary": "fix: restore android qr pairing flow (#63199)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: restore android qr pairing flow (#63199)",
+      "summaryZh": "重點：修正: restore android qr pairing flow (#63199)..."
+    },
+    {
+      "id": 5,
+      "title": "這是怎麼形成的？巨大行星竟環繞小型恆星",
+      "link": "https://technews.tw/2026/04/08/how-did-this-get-made-giant-planet-orbits-small-star/",
+      "publishedAt": "Wed, 08 Apr 2026 14:16:03 +0000",
+      "summary": "天文學家利用詹姆斯‧韋伯太空望遠鏡（JWST）觀測一個在現有理論下較難解釋的系統 TOI-5205，其中一顆大 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "英特爾宣布加入馬斯克的Terafab AI晶片專案",
       "link": "https://www.ithome.com.tw/news/174906",
       "publishedAt": "2026-04-08 12:04:47",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "疑不滿微軟處理態度，研究人員憤而公布Windows零時差漏洞BlueHammer",
       "link": "https://www.ithome.com.tw/news/174902",
       "publishedAt": "2026-04-08 12:04:33",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "研究人員揭露OpenAI Codex指令注入漏洞，攻擊者可藉此取得用戶GitHub存取權杖",
       "link": "https://www.ithome.com.tw/news/174904",
       "publishedAt": "2026-04-08 12:04:15",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "【李建璋觀點】從數位孤島到醫療生態系：台灣 SMART on FHIR 國家級基建的轉型之路",
       "link": "https://www.ithome.com.tw/guest-post/174905",
       "publishedAt": "2026-04-08 12:04:00",
@@ -38,65 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "ci: skip duplicate full extension shard",
-      "link": "https://github.com/openclaw/openclaw/commit/4d2ea434d243c2a1683f3dca3c3ed1a65a648003",
-      "publishedAt": "2026-04-08T12:03:51Z",
-      "summary": "ci: skip duplicate full extension shard",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: skip duplicate full extension shard",
-      "summaryZh": "重點：ci: skip duplicate full extension shard..."
-    },
-    {
-      "id": 6,
-      "title": "test: inline cli metadata channel fixture",
-      "link": "https://github.com/openclaw/openclaw/commit/640d39d48213ca8349a9f4ec8a4f68723204bbed",
-      "publishedAt": "2026-04-08T11:58:48Z",
-      "summary": "test: inline cli metadata channel fixture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: inline cli metadata channel 修正ture",
-      "summaryZh": "重點：test: inline cli metadata channel 修正ture..."
-    },
-    {
-      "id": 7,
-      "title": "plugins: read contract inventory from manifests",
-      "link": "https://github.com/openclaw/openclaw/commit/4e41cf7a6e740a8056857462590aa17beffe52d0",
-      "publishedAt": "2026-04-08T11:58:42Z",
-      "summary": "plugins: read contract inventory from manifests",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：plugins: read contract inventory from manifests",
-      "summaryZh": "重點：plugins: read contract inventory from manifests..."
-    },
-    {
-      "id": 8,
-      "title": "auto-reply: type status auth overrides",
-      "link": "https://github.com/openclaw/openclaw/commit/39cd6f3c767a9994d799aa09460d567265fa7732",
-      "publishedAt": "2026-04-08T11:58:32Z",
-      "summary": "auto-reply: type status auth overrides",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：auto-reply: type status auth overrides",
-      "summaryZh": "重點：auto-reply: type status auth overrides..."
-    },
-    {
-      "id": 9,
+      "id": 10,
       "title": "Progress修補ShareFile重大漏洞，未修補可能導致遠端執行程式碼攻擊",
       "link": "https://www.ithome.com.tw/news/174901",
       "publishedAt": "2026-04-08 11:04:31",
       "summary": "軟體廠商Progress近日發布產品資安公告，修補旗下企業檔案傳輸解決方案ShareFile的兩個重大漏洞，分別涉及繞過身分驗證與遠端執行任意程式碼，而且這兩個漏洞可串聯利用，導致攻擊者控制系統。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "所羅門：擴 AI 視覺模組系統，減人型機器人資料學習量",
-      "link": "https://finance.technews.tw/2026/04/08/solomon-2/",
-      "publishedAt": "Wed, 08 Apr 2026 10:45:10 +0000",
-      "summary": "人工智慧 3D 視覺與機器人技術供應商所羅門今天表示，今年發電機和能源代理事業成長強勁，受惠全球人工智慧 AI [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
