@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-08T16:44:20.828Z",
+  "generatedAt": "2026-04-08T20:03:15.899Z",
   "items": [
     {
       "id": 1,
-      "title": "test: stabilize ci test isolation",
-      "link": "https://github.com/openclaw/openclaw/commit/c945ae7be5b827e456c9ce7e7ef44ee7e53bd977",
-      "publishedAt": "2026-04-08T16:35:54Z",
-      "summary": "test: stabilize ci test isolation",
+      "title": "test: move directive state coverage to pure tests",
+      "link": "https://github.com/openclaw/openclaw/commit/37fb1eb9ad199822df1ad8e2a0ce5f52fcc3ebc6",
+      "publishedAt": "2026-04-08T19:50:56Z",
+      "summary": "test: move directive state coverage to pure tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: stabilize ci test isolation",
-      "summaryZh": "重點：test: stabilize ci test isolation..."
+      "titleZh": "OpenClaw 程式碼更新：test: move directive state coverage to pure tests",
+      "summaryZh": "重點：test: move directive state coverage to pure tests..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): clear auto-fallback model override on session reset (#6…",
-      "link": "https://github.com/openclaw/openclaw/commit/5d46e4dc4f458d3ef2097c881eab3a78f2abee2b",
-      "publishedAt": "2026-04-08T16:31:05Z",
-      "summary": "fix(gateway): clear auto-fallback model override on session reset (#63155) * fix(gateway): clear auto-fallback model override on session reset When `persistFallbackCandidateSelection()` writes a fallback provider override with `authProfileOverrideSource: \"auto\"`, the override was incorrectly preserved across `/reset` and `/new` commands. This caused sessions to keep using the fallback provider even after the user changed the agent config primary provider, because the session store override takes precedence over the config default. Now the override fields (`providerOverride`, `modelOverride`, `authProfileOverride`, `authProfileOverrideSource`, `authProfileOverrideCompactionCount`) are only carried forward when `authProfileOverrideSource === \"user\"` (i.e. explicit `/model` command). System-driven overrides are dropped on reset so the session picks up the current config default. Introduced in cb0a752156 (\"fix: preserve reset session behavior config\") * fix(gateway): preserve explicit reset model selection * fix(gateway): track reset model override source * fix(gateway): preserve legacy reset model overrides * docs(changelog): add session reset merge note --------- Co-authored-by: termtek",
+      "title": "fix(browser): re-check interaction-driven navigations (#63226)",
+      "link": "https://github.com/openclaw/openclaw/commit/5f5b3d733bdd791cb457f838514179e1288b10b3",
+      "publishedAt": "2026-04-08T19:39:07Z",
+      "summary": "fix(browser): re-check interaction-driven navigations (#63226) * fix(browser): guard interaction-driven navigations * fix(browser): avoid rechecking unchanged interaction urls * fix(browser): guard delayed interaction navigations * fix(browser): guard interaction-driven navigations for full action duration * fix(browser): avoid waiting on interaction grace timer * fix(browser): ignore same-document hash-only URL changes in navigation guard * fix(browser): dedupe interaction nav guards * fix(browser): guard same-URL reloads in interaction navigation listeners * docs(changelog): add interaction navigation guard entry * fix(browser): drop duplicate ssrfPolicy props * fix(browser): tighten interaction navigation guards --------- Co-authored-by: Devin Robison",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): clear auto-fallback 模型 override on session reset (#6…",
-      "summaryZh": "重點：修正(Gateway): clear auto-fallback 模型 override on session reset (#63155) * 修正(Gateway): clear auto-fallback 模型 override on..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): re-check interaction-driven navigations (#63226)",
+      "summaryZh": "重點：修正(browser): re-check interaction-driven navigations (#63226) * 修正(browser): guard interaction-driven navigations * 修正(b..."
     },
     {
       "id": 3,
-      "title": "fix(auto-reply): strip leading NO_REPLY tokens to prevent silent-repl…",
-      "link": "https://github.com/openclaw/openclaw/commit/153e3add688521b2b0ead6e257def80d0c2fb58d",
-      "publishedAt": "2026-04-08T16:30:13Z",
-      "summary": "fix(auto-reply): strip leading NO_REPLY tokens to prevent silent-reply leak (#63068) * fix(auto-reply): strip leading NO_REPLY tokens to prevent silent-reply leak * fix(auto-reply): preserve substantive NO_REPLY leading text * fix(agents): preserve ACP silent-prefix cumulative deltas * fix(auto-reply): harden silent-token streaming paths * fix(auto-reply): normalize glued silent tokens consistently --------- Co-authored-by: termtek",
+      "title": "test: reuse verbose directive reply imports",
+      "link": "https://github.com/openclaw/openclaw/commit/ab46010caa29563ff91406be334661186443824e",
+      "publishedAt": "2026-04-08T19:30:59Z",
+      "summary": "test: reuse verbose directive reply imports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): strip leading NO_REPLY tokens to prevent silent-repl…",
-      "summaryZh": "重點：修正(auto-reply): strip leading NO_REPLY tokens to prevent silent-reply leak (#63068) * 修正(auto-reply): strip leading NO_R..."
+      "titleZh": "OpenClaw 程式碼更新：test: reuse verbose directive reply imports",
+      "summaryZh": "重點：test: reuse verbose directive reply imports..."
     },
     {
       "id": 4,
-      "title": "fix: restore android qr pairing flow (#63199)",
-      "link": "https://github.com/openclaw/openclaw/commit/21d0f7c5f1da878c6ccefcfe99b85490672efede",
-      "publishedAt": "2026-04-08T16:28:56Z",
-      "summary": "fix: restore android qr pairing flow (#63199)",
+      "title": "test: reuse exec directive reply imports",
+      "link": "https://github.com/openclaw/openclaw/commit/1d1763caa4b6e6fe9c254b586185ed22ef572bf4",
+      "publishedAt": "2026-04-08T19:25:11Z",
+      "summary": "test: reuse exec directive reply imports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore android qr pairing flow (#63199)",
-      "summaryZh": "重點：修正: restore android qr pairing flow (#63199)..."
+      "titleZh": "OpenClaw 程式碼更新：test: reuse exec directive reply imports",
+      "summaryZh": "重點：test: reuse exec directive reply imports..."
     },
     {
       "id": 5,
