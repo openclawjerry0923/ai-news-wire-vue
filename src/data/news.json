@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-04-10T11:50:31.069Z",
+  "generatedAt": "2026-04-10T13:15:02.561Z",
   "items": [
     {
       "id": 1,
+      "title": "docs(changelog): thank @hanamizuki for #64172",
+      "link": "https://github.com/openclaw/openclaw/commit/d2b9d918af8a12f53bc66705e151e7119c40fefe",
+      "publishedAt": "2026-04-10T13:07:22Z",
+      "summary": "docs(changelog): thank @hanamizuki for #64172",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(changelog): thank @hanamizuki for #64172",
+      "summaryZh": "重點：文件(changelog): thank @hanamizuki for #64172..."
+    },
+    {
+      "id": 2,
+      "title": "test(discord): prefer claude-sonnet-4-6 in thread-title fixture",
+      "link": "https://github.com/openclaw/openclaw/commit/8c876e311f4c9a63490ffd30e5677ff0125a9c3c",
+      "publishedAt": "2026-04-10T13:07:22Z",
+      "summary": "test(discord): prefer claude-sonnet-4-6 in thread-title fixture Follow repo testing guideline to prefer sonnet-4.6 for Anthropic model constants in tests (per CLAUDE.md, flagged by Greptile review on #64172).",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(Discord): prefer claude-sonnet-4-6 in thread-title 修正ture",
+      "summaryZh": "重點：test(Discord): prefer claude-sonnet-4-6 in thread-title 修正ture Follow repo testing guideline to prefer sonnet-4.6 for An..."
+    },
+    {
+      "id": 3,
+      "title": "fix(discord): raise thread title max tokens for reasoning models",
+      "link": "https://github.com/openclaw/openclaw/commit/537479f5b07d417bd36800805b58b223be29ff2b",
+      "publishedAt": "2026-04-10T13:07:22Z",
+      "summary": "fix(discord): raise thread title max tokens for reasoning models When the simple-completion model selected for thread-title generation is a reasoning model (e.g. MiniMax M2, Claude thinking models, OpenAI o-series), the 24-token output budget is entirely consumed by the internal thinking block before any user-visible text is emitted. extractAssistantText then returns an empty string, generateThreadTitle returns null, and the auto-thread rename is silently skipped while the feature appears to do nothing. Raise DISCORD_THREAD_TITLE_MAX_TOKENS to 512 so there is enough headroom for a short thinking pass plus the 3-6 word title output. The generous ceiling only matters when the provider actually reasons; non-reasoning models still emit a short title and stop early at end-of-sequence. Verified live against a MiniMax M2 reasoning model served through an Anthropic-compatible API endpoint: before the fix, the rename never fired; after the fix, the thread is renamed with a concise generated title. Co-Authored-By: Claude Opus 4.6 (1M context)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): raise thread title max tokens for reasoning 模型",
+      "summaryZh": "重點：修正(Discord): raise thread title max tokens for reasoning 模型 When the simple-completion 模型 selected for thread-title gene..."
+    },
+    {
+      "id": 4,
+      "title": "fix(plugins): make service registration idempotent",
+      "link": "https://github.com/openclaw/openclaw/commit/13821fd54b3b98ae6d15dbbafb84bb8895abc19a",
+      "publishedAt": "2026-04-10T13:06:18Z",
+      "summary": "fix(plugins): make service registration idempotent Treat duplicate registerService calls from the same plugin id as idempotent so plugin snapshot and activation loads stop emitting spurious service already registered diagnostics.\\n\\nThanks @ly85206559.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): make service registration idempotent",
+      "summaryZh": "重點：修正(plugins): make service registration idempotent Treat duplicate registerService calls from the same plugin id as idemp..."
+    },
+    {
+      "id": 5,
+      "title": "智冠成立「AI 發展中心」深化生態系！鍾興博喊要用 AI 打破手遊競爭僵局",
+      "link": "https://finance.technews.tw/2026/04/10/ai-development-center/",
+      "publishedAt": "Fri, 10 Apr 2026 12:32:25 +0000",
+      "summary": "智冠今日舉辦「智冠領航·啟動未來」春酒活動，財管中心總經理鍾興博表示，為了加速技術落地，董事會已正式通過成立「 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "AWS的AI年化收入已達150億美元",
       "link": "https://www.ithome.com.tw/news/174969",
       "publishedAt": "2026-04-10 12:04:53",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "Wasabi收購Seagate Lyve Cloud業務，強化雲端儲存服務布局",
       "link": "https://www.ithome.com.tw/news/174968",
       "publishedAt": "2026-04-10 12:04:51",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "Swift藉Open VSX擴大編輯器支援，官方擴充套件可用於Cursor等編輯器",
       "link": "https://www.ithome.com.tw/news/174966",
       "publishedAt": "2026-04-10 12:04:06",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "研究人員揭新手法可繞過Apple Intelligence護欄並誘導模型輸出不當內容",
       "link": "https://www.ithome.com.tw/news/174967",
       "publishedAt": "2026-04-10 12:04:04",
@@ -38,65 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "fix: guard browser control fetches",
-      "link": "https://github.com/openclaw/openclaw/commit/9f864c9adec6b3ecd3fc41f867c28fc07d793f87",
-      "publishedAt": "2026-04-10T11:46:26Z",
-      "summary": "fix: guard browser control fetches",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: guard browser control fetches",
-      "summaryZh": "重點：修正: guard browser control fetches..."
-    },
-    {
-      "id": 6,
-      "title": "fix(gateway): improve websocket auth logging",
-      "link": "https://github.com/openclaw/openclaw/commit/bf40baaa4dfad1f5deb90851d4e3657af84e0799",
-      "publishedAt": "2026-04-10T11:39:08Z",
-      "summary": "fix(gateway): improve websocket auth logging",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): improve websocket auth logging",
-      "summaryZh": "重點：修正(Gateway): improve websocket auth logging..."
-    },
-    {
-      "id": 7,
-      "title": "test: fix latest type and lazy cli gates",
-      "link": "https://github.com/openclaw/openclaw/commit/d350280fc2aa4a5be98c4796c288f5c43ddefaf3",
-      "publishedAt": "2026-04-10T11:37:01Z",
-      "summary": "test: fix latest type and lazy cli gates",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: 修正 latest type and lazy cli gates",
-      "summaryZh": "重點：test: 修正 latest type and lazy cli gates..."
-    },
-    {
-      "id": 8,
-      "title": "test: fix parallel full-suite exposed gates",
-      "link": "https://github.com/openclaw/openclaw/commit/2ad451e91f5455dea0ed3794c499ce7d0d8c27e3",
-      "publishedAt": "2026-04-10T11:34:53Z",
-      "summary": "test: fix parallel full-suite exposed gates",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: 修正 parallel full-suite exposed gates",
-      "summaryZh": "重點：test: 修正 parallel full-suite exposed gates..."
-    },
-    {
-      "id": 9,
+      "id": 10,
       "title": "遠傳3月營收月增1.5%",
       "link": "https://finance.technews.tw/2026/04/10/far-eastone-4904-202603-financial-report/",
       "publishedAt": "Fri, 10 Apr 2026 11:10:02 +0000",
       "summary": "遠傳（4904）公布 3 月合併營收 91.36 億元，較上（2）月成長 1.5%，與去年同期相比為年增 3. [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google發布Chrome瀏覽器更新，修補60個漏洞，含多個重大與高風險漏洞",
-      "link": "https://www.ithome.com.tw/news/174964",
-      "publishedAt": "2026-04-10 11:04:59",
-      "summary": "Google於4月7日發布Chrome瀏覽器的147版，將Windows與Mac平臺穩定版更新至147.0.7727.55與147.0.7727.56，Linux版本更新至147.0.7727.55，同時也修補多個重大與高風險漏洞。 這次Chrome更新一共修補60個漏洞，包括2個重大漏洞、14個高風險漏洞、20個中度風險漏洞，以及24個低風險漏洞。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
