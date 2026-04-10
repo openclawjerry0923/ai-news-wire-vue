@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-10T18:56:14.514Z",
+  "generatedAt": "2026-04-10T19:47:10.269Z",
   "items": [
     {
       "id": 1,
-      "title": "Normalize agent hook system event trust handling (#64372)",
-      "link": "https://github.com/openclaw/openclaw/commit/e3a845bde5b54f4f1e742d0a51ba9860f9619b29",
-      "publishedAt": "2026-04-10T18:56:00Z",
-      "summary": "Normalize agent hook system event trust handling (#64372) * fix(hooks): sanitize agent hook system events Co-authored-by: zsx * chore(changelog): add agent hook trust normalization entry --------- Co-authored-by: zsx Co-authored-by: Devin Robison",
+      "title": "fix: preserve browser cdp ssrf policy",
+      "link": "https://github.com/openclaw/openclaw/commit/d015986265a6f77fc9b530b51b24a0466808c3e9",
+      "publishedAt": "2026-04-10T19:45:45Z",
+      "summary": "fix: preserve browser cdp ssrf policy",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Normalize agent hook system event trust handling (#64372)",
-      "summaryZh": "重點：Normalize agent hook system event trust handling (#64372) * 修正(hooks): sanitize agent hook system events Co-authored-by:..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve browser cdp ssrf policy",
+      "summaryZh": "重點：修正: preserve browser cdp ssrf policy..."
     },
     {
       "id": 2,
-      "title": "Handle subframe document navigations in browser guards (#64371)",
-      "link": "https://github.com/openclaw/openclaw/commit/109267b82aeae9acf649a70ea4bfb6f240e6f2fb",
-      "publishedAt": "2026-04-10T18:51:23Z",
-      "summary": "Handle subframe document navigations in browser guards (#64371) * fix(browser): guard subframe document navigations Co-authored-by: zsx * fix(browser): preserve quarantine on subframe blocks * chore(changelog): add subframe SSRF guard entry * fix(browser): fail closed when subframe frame resolution throws isSubframeDocumentNavigationRequest now returns true (apply SSRF check) instead of false (skip check) when request.frame() throws, so transient renderer churn cannot bypass the subframe navigation policy guard. --------- Co-authored-by: zsx Co-authored-by: Devin Robison",
+      "title": "fix(msteams): handle fileConsent/invoke callback for bot-to-user file…",
+      "link": "https://github.com/openclaw/openclaw/commit/784318799bf051febff091d48be27006b78d1d30",
+      "publishedAt": "2026-04-10T19:42:54Z",
+      "summary": "fix(msteams): handle fileConsent/invoke callback for bot-to-user file upload (#55386) (#64087) * fix(msteams): update FileConsentCard after user accepts upload - Adds consentCardActivityId to PendingUpload so the consent card activity can be replaced in-place after upload succeeds - Uses context.updateActivity() to replace the FileConsentCard with the file info card; falls back to sendActivity if update fails - Adds updateActivity to MSTeamsTurnContext type - Fixes timer leak in pending-uploads: clears TTL setTimeout on explicit removal and on clearPendingUploads() - Adds pending-uploads.test.ts covering all new timer/cleanup paths * msteams: wire consentCardActivityId from send response + add happy-path updateActivity test Co-Authored-By: Claude Opus 4.6 (1M context) * fix(msteams): retry consent uploads end-to-end --------- Co-authored-by: Claude Opus 4.6 (1M context) Co-authored-by: Brad Groux",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：Handle subframe 文件ument navigations in browser guards (#64371)",
-      "summaryZh": "重點：Handle subframe 文件ument navigations in browser guards (#64371) * 修正(browser): guard subframe 文件ument navigations Co-auth..."
+      "titleZh": "OpenClaw 程式碼更新：修正(msteams): handle fileConsent/invoke callback for bot-to-user file…",
+      "summaryZh": "重點：修正(msteams): handle fileConsent/invoke callback for bot-to-user file upload (#55386) (#64087) * 修正(msteams): update File..."
     },
     {
       "id": 3,
-      "title": "fix: align browser ssrf policy typing",
-      "link": "https://github.com/openclaw/openclaw/commit/b2df0ed4b7bc63126d37879facbbf041fcf6604c",
-      "publishedAt": "2026-04-10T18:49:46Z",
-      "summary": "fix: align browser ssrf policy typing",
+      "title": "fix(msteams): keep streaming alive during long tool chains via typing…",
+      "link": "https://github.com/openclaw/openclaw/commit/99f76ec4c6b2d67a17193bab255674c3f6b41adc",
+      "publishedAt": "2026-04-10T19:42:41Z",
+      "summary": "fix(msteams): keep streaming alive during long tool chains via typing indicator (#59731) (#64088) * fix(msteams): keep streaming alive during long tool chains via periodic typing (#59731) * test(msteams): align thread-session store mock with interface * fix(msteams): treat failed streams as inactive --------- Co-authored-by: Brad Groux Co-authored-by: Brad Groux",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: align browser ssrf policy typing",
-      "summaryZh": "重點：修正: align browser ssrf policy typing..."
+      "titleZh": "OpenClaw 程式碼更新：修正(msteams): keep streaming alive during long tool chains via typing…",
+      "summaryZh": "重點：修正(msteams): keep streaming alive during long tool chains via typing indicator (#59731) (#64088) * 修正(msteams): keep str..."
     },
     {
       "id": 4,
-      "title": "fix: preserve cdp guarded fetch dispatchers",
-      "link": "https://github.com/openclaw/openclaw/commit/abc499ec494de3a5846485f5ba87557ed818e6e4",
-      "publishedAt": "2026-04-10T18:49:09Z",
-      "summary": "fix: preserve cdp guarded fetch dispatchers",
+      "title": "feat(msteams): auto-inject parent message context for thread replies …",
+      "link": "https://github.com/openclaw/openclaw/commit/01ea7e49212a244afd35a1dfd2ef8569731dad4f",
+      "publishedAt": "2026-04-10T19:42:02Z",
+      "summary": "feat(msteams): auto-inject parent message context for thread replies (#54932) (#63945) * feat(msteams): auto-inject parent message context for thread replies (#54932) * msteams: use Promise.allSettled for thread context, remove no-op buildInjectedKey * fix(msteams): gate thread parent context by visibility --------- Co-authored-by: Brad Groux",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve cdp guarded fetch dispatchers",
-      "summaryZh": "重點：修正: preserve cdp guarded fetch dispatchers..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(msteams): auto-inject parent message context for thread replies …",
+      "summaryZh": "重點：新功能(msteams): auto-inject parent message context for thread replies (#54932) (#63945) * 新功能(msteams): auto-inject parent..."
     },
     {
       "id": 5,
