@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-04-10T13:15:02.561Z",
+  "generatedAt": "2026-04-10T14:50:05.756Z",
   "items": [
     {
       "id": 1,
-      "title": "docs(changelog): thank @hanamizuki for #64172",
-      "link": "https://github.com/openclaw/openclaw/commit/d2b9d918af8a12f53bc66705e151e7119c40fefe",
-      "publishedAt": "2026-04-10T13:07:22Z",
-      "summary": "docs(changelog): thank @hanamizuki for #64172",
+      "title": "fix(feishu): route /btw through out-of-band lanes (#64324)",
+      "link": "https://github.com/openclaw/openclaw/commit/4b4ec4dbc2985912f4d2e3780dead47937ef7a31",
+      "publishedAt": "2026-04-10T14:48:15Z",
+      "summary": "fix(feishu): route /btw through out-of-band lanes (#64324) * fix(feishu): route /btw through out-of-band lanes * fix(feishu): bound btw out-of-band lanes * fix: route feishu btw out-of-band (#64324) (thanks @ngutman)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): thank @hanamizuki for #64172",
-      "summaryZh": "重點：文件(changelog): thank @hanamizuki for #64172..."
+      "titleZh": "OpenClaw 程式碼更新：修正(feishu): route /btw through out-of-band lanes (#64324)",
+      "summaryZh": "重點：修正(feishu): route /btw through out-of-band lanes (#64324) * 修正(feishu): route /btw through out-of-band lanes * 修正(feishu..."
     },
     {
       "id": 2,
-      "title": "test(discord): prefer claude-sonnet-4-6 in thread-title fixture",
-      "link": "https://github.com/openclaw/openclaw/commit/8c876e311f4c9a63490ffd30e5677ff0125a9c3c",
-      "publishedAt": "2026-04-10T13:07:22Z",
-      "summary": "test(discord): prefer claude-sonnet-4-6 in thread-title fixture Follow repo testing guideline to prefer sonnet-4.6 for Anthropic model constants in tests (per CLAUDE.md, flagged by Greptile review on #64172).",
+      "title": "perf: reduce heartbeat prompt tokens",
+      "link": "https://github.com/openclaw/openclaw/commit/a1262e15a3b5837e4b83d3862d8b459435514be7",
+      "publishedAt": "2026-04-10T14:38:39Z",
+      "summary": "perf: reduce heartbeat prompt tokens",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Discord): prefer claude-sonnet-4-6 in thread-title 修正ture",
-      "summaryZh": "重點：test(Discord): prefer claude-sonnet-4-6 in thread-title 修正ture Follow repo testing guideline to prefer sonnet-4.6 for An..."
+      "titleZh": "OpenClaw 程式碼更新：perf: reduce heartbeat prompt tokens",
+      "summaryZh": "重點：perf: reduce heartbeat prompt tokens..."
     },
     {
       "id": 3,
-      "title": "fix(discord): raise thread title max tokens for reasoning models",
-      "link": "https://github.com/openclaw/openclaw/commit/537479f5b07d417bd36800805b58b223be29ff2b",
-      "publishedAt": "2026-04-10T13:07:22Z",
-      "summary": "fix(discord): raise thread title max tokens for reasoning models When the simple-completion model selected for thread-title generation is a reasoning model (e.g. MiniMax M2, Claude thinking models, OpenAI o-series), the 24-token output budget is entirely consumed by the internal thinking block before any user-visible text is emitted. extractAssistantText then returns an empty string, generateThreadTitle returns null, and the auto-thread rename is silently skipped while the feature appears to do nothing. Raise DISCORD_THREAD_TITLE_MAX_TOKENS to 512 so there is enough headroom for a short thinking pass plus the 3-6 word title output. The generous ceiling only matters when the provider actually reasons; non-reasoning models still emit a short title and stop early at end-of-sequence. Verified live against a MiniMax M2 reasoning model served through an Anthropic-compatible API endpoint: before the fix, the rename never fired; after the fix, the thread is renamed with a concise generated title. Co-Authored-By: Claude Opus 4.6 (1M context)",
+      "title": "test: restore moved Vitest config paths",
+      "link": "https://github.com/openclaw/openclaw/commit/3c0e5f0ea55736a4b96a365f5d7533733ea9bebb",
+      "publishedAt": "2026-04-10T14:38:14Z",
+      "summary": "test: restore moved Vitest config paths",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): raise thread title max tokens for reasoning 模型",
-      "summaryZh": "重點：修正(Discord): raise thread title max tokens for reasoning 模型 When the simple-completion 模型 selected for thread-title gene..."
+      "titleZh": "OpenClaw 程式碼更新：test: restore moved Vitest config paths",
+      "summaryZh": "重點：test: restore moved Vitest config paths..."
     },
     {
       "id": 4,
-      "title": "fix(plugins): make service registration idempotent",
-      "link": "https://github.com/openclaw/openclaw/commit/13821fd54b3b98ae6d15dbbafb84bb8895abc19a",
-      "publishedAt": "2026-04-10T13:06:18Z",
-      "summary": "fix(plugins): make service registration idempotent Treat duplicate registerService calls from the same plugin id as idempotent so plugin snapshot and activation loads stop emitting spurious service already registered diagnostics.\\n\\nThanks @ly85206559.",
+      "title": "test: narrow nodes workspace guard imports",
+      "link": "https://github.com/openclaw/openclaw/commit/a48eb841816d3e7f93c89d86d2bddebdcc2fef15",
+      "publishedAt": "2026-04-10T14:37:48Z",
+      "summary": "test: narrow nodes workspace guard imports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): make service registration idempotent",
-      "summaryZh": "重點：修正(plugins): make service registration idempotent Treat duplicate registerService calls from the same plugin id as idemp..."
+      "titleZh": "OpenClaw 程式碼更新：test: narrow nodes workspace guard imports",
+      "summaryZh": "重點：test: narrow nodes workspace guard imports..."
     },
     {
       "id": 5,
+      "title": "期待中的大彗星沒了？C/2026 A1 在日冕炙烤下碎裂的科學解讀",
+      "link": "https://technews.tw/2026/04/10/c2026-a1/",
+      "publishedAt": "Fri, 10 Apr 2026 14:03:17 +0000",
+      "summary": "自今年初發現以來便備受期待的 C/2026 A1（MAPS）彗星，在接近近日點的過程中疑似遭遇碎裂瓦解。根據 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "高通與博世、Snap 擴大合作，分別瞄準 ADAS 量產、智慧運算體驗",
+      "link": "https://technews.tw/2026/04/10/qualcomm-adas-snap-bosch/",
+      "publishedAt": "Fri, 10 Apr 2026 13:21:17 +0000",
+      "summary": "博世與高通今（10 日）宣布，雙方將擴大策略合作夥伴關係，在原先聚焦於座艙解決方案的車用電腦基礎上，進一步將合 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "智冠成立「AI 發展中心」深化生態系！鍾興博喊要用 AI 打破手遊競爭僵局",
       "link": "https://finance.technews.tw/2026/04/10/ai-development-center/",
       "publishedAt": "Fri, 10 Apr 2026 12:32:25 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "AWS的AI年化收入已達150億美元",
       "link": "https://www.ithome.com.tw/news/174969",
       "publishedAt": "2026-04-10 12:04:53",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "Wasabi收購Seagate Lyve Cloud業務，強化雲端儲存服務布局",
       "link": "https://www.ithome.com.tw/news/174968",
       "publishedAt": "2026-04-10 12:04:51",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Swift藉Open VSX擴大編輯器支援，官方擴充套件可用於Cursor等編輯器",
       "link": "https://www.ithome.com.tw/news/174966",
       "publishedAt": "2026-04-10 12:04:06",
       "summary": "Apple主導的開放原始碼程式語言Swift官方擴充套件已正式上架Open VSX Registry，讓相容VS Code擴充套件機制的編輯器，包括Cursor、VSCodium、AWS Kiro與Google Antigravity，可更直接取得Swift開發支援。這也讓Swift擴充套件透過既有分發機制進入更廣泛的編輯器生態，降低安裝門檻。 Open VSX由Eclipse基金會維護，是中立、開源的擴充套件登錄服務，近來成為不少AI開發平臺共用的基礎設施。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "研究人員揭新手法可繞過Apple Intelligence護欄並誘導模型輸出不當內容",
-      "link": "https://www.ithome.com.tw/news/174967",
-      "publishedAt": "2026-04-10 12:04:04",
-      "summary": "蘋果的Apple Intelligence將大語言模型（LLM）放在本地裝置端，提升大語言模型（LLM）的安全性。但RSA大會（RSA Conference，RSAC）研究人員運用新手法，使其得以繞過蘋果Apple Intelligence護欄進行對模型操弄，使其產出惡意文字。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "遠傳3月營收月增1.5%",
-      "link": "https://finance.technews.tw/2026/04/10/far-eastone-4904-202603-financial-report/",
-      "publishedAt": "Fri, 10 Apr 2026 11:10:02 +0000",
-      "summary": "遠傳（4904）公布 3 月合併營收 91.36 億元，較上（2）月成長 1.5%，與去年同期相比為年增 3. [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
