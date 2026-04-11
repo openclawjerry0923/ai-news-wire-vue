@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-04-11T09:41:55.072Z",
+  "generatedAt": "2026-04-11T10:35:47.697Z",
   "items": [
     {
       "id": 1,
-      "title": "test(gateway): harden tools invoke cron regression harness",
-      "link": "https://github.com/openclaw/openclaw/commit/688327311c5e1ad65a7741512a8912bf1c74ef96",
-      "publishedAt": "2026-04-11T09:39:56Z",
-      "summary": "test(gateway): harden tools invoke cron regression harness",
+      "title": "fix(test): narrow live video asset buffers",
+      "link": "https://github.com/openclaw/openclaw/commit/571483a13dbe996201b361d87c3700eaa1ffbef1",
+      "publishedAt": "2026-04-11T10:19:46Z",
+      "summary": "fix(test): narrow live video asset buffers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): harden tools invoke 排程 regression harness",
-      "summaryZh": "重點：test(Gateway): harden tools invoke 排程 regression harness..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): narrow live video asset buffers",
+      "summaryZh": "重點：修正(test): narrow live video asset buffers..."
     },
     {
       "id": 2,
-      "title": "feat(feishu): improve document comment session, rich parsing, and typ…",
-      "link": "https://github.com/openclaw/openclaw/commit/ebb72baba3cd160b549e1e297577603f04536438",
-      "publishedAt": "2026-04-11T09:26:21Z",
-      "summary": "feat(feishu): improve document comment session, rich parsing, and typing feedback (#63785) * Feishu: upgrade comment session, context parsing, and typing reaction * test(feishu): align comment prompt assertions",
+      "title": "ci(checks): shorten node shard names",
+      "link": "https://github.com/openclaw/openclaw/commit/25c47231bbde20e19d725f877870c743f735cc6a",
+      "publishedAt": "2026-04-11T10:12:33Z",
+      "summary": "ci(checks): shorten node shard names",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：新功能(feishu): improve 文件ument comment session, rich parsing, and typ…",
-      "summaryZh": "重點：新功能(feishu): improve 文件ument comment session, rich parsing, and typing feedback (#63785) * Feishu: upgrade comment sessi..."
+      "titleZh": "OpenClaw 程式碼更新：ci(checks): shorten node shard names",
+      "summaryZh": "重點：ci(checks): shorten node shard names..."
     },
     {
       "id": 3,
-      "title": "video_generate: add providerOptions, inputAudios, and imageRoles (#61…",
-      "link": "https://github.com/openclaw/openclaw/commit/2c57ec7b5ff1b3960ce109805ccbeaa9903a80b6",
-      "publishedAt": "2026-04-11T09:23:14Z",
-      "summary": "video_generate: add providerOptions, inputAudios, and imageRoles (#61987) * video_generate: add providerOptions, inputAudios, and imageRoles - VideoGenerationSourceAsset gains an optional `role` field (e.g. \"first_frame\", \"last_frame\"); core treats it as opaque and forwards it to the provider unchanged. - VideoGenerationRequest gains `inputAudios` (reference audio assets, e.g. background music) and `providerOptions` (arbitrary provider-specific key/value pairs forwarded as-is). - VideoGenerationProviderCapabilities gains `maxInputAudios`. - video_generate tool schema adds: - `imageRoles` array (parallel to `images`, sets role per asset) - `audioRef` / `audioRefs` (single/multi reference audio inputs) - `providerOptions` (JSON object passed through to the provider) - `MAX_INPUT_IMAGES` bumped 5 → 9; `MAX_INPUT_AUDIOS` = 3 - Capability validation extended to gate on `maxInputAudios`. - runtime.ts threads `inputAudios` and `providerOptions` through to `provider.generateVideo`. - Docs and runtime tests updated. Made-with: Cursor * docs: fix BytePlus Seedance capability table — split 1.5 and 2.0 rows 1.5 Pro supports at most 2 input images (first_frame + last_frame); 2.0 supports up to 9 reference images, 3 videos, and 3 audios. Provider notes section updated accordingly. Made-with: Cursor * docs: list all Seedance 1.0 models in video-generation provider table - Default model updated to seedance-1-0-pro-250528 (was the T2V lite) - Provider notes now enumerate all five 1.0 model IDs with T2V/I2V capability notes Made-with: Cursor * video_generate: address review feedback (P1/P2) P1: Add \"adaptive\" to SUPPORTED_ASPECT_RATIOS so provider-specific ratio passthrough (used by Seedance 1.5/2.0) is accepted instead of throwing. Update error message to include \"adaptive\" in the allowed list. P1: Fix audio input capability default — when a provider does not declare maxInputAudios, default to 0 (no audio support) instead of MAX_INPUT_AUDIOS. Providers must explicitly opt in via maxInputAudios to accept audio inputs. P2: Remove unnecessary type cast in imageRoles assignment; VideoGenerationSourceAsset already declares role?: string so a non-null assertion suffices. P2: Add videoRoles and audioRoles tool parameters, parallel to imageRoles, so callers can assign semantic role hints to reference video and audio assets (e.g. \"reference_video\", \"reference_audio\" for Seedance 2.0). Made-with: Cursor * video_generate: fix check-docs formatting and snake_case param reading Made-with: Cursor * video_generate: clarify *Roles are parallel to combined input list (P2) Made-with: Cursor * video_generate: add missing duration import; fix corrupted docs section Made-with: Cursor * video_generate: pass mode inputs to duration resolver; note plugin requirement (P2) Made-with: Cursor * plugin-sdk: sync new video-gen fields — role, inputAudios, providerOptions, maxInputAudios Add fields introduced by core in the PR1 batch to the public plugin-sdk mirror so TypeScript provider plugins can declare and consume them without type assertions: - VideoGenerationSourceAsset.role?: string - VideoGenerationRequest.inputAudios and .providerOptions - VideoGenerationModeCapabilities.maxInputAudios The AssertAssignable bidirectional checks still pass because all new fields are optional; this change makes the SDK surface complete. Made-with: Cursor * video-gen runtime: skip failover candidates lacking audio capability Made-with: Cursor * video-gen: fall back to flat capabilities.maxInputAudios in failover and tool validation Made-with: Cursor * video-gen: defer audio-count check to runtime, enabling fallback for audio-capable candidates Made-with: Cursor * video-gen: defer maxDurationSeconds check to runtime, enabling fallback for higher-cap candidates Made-with: Cursor * video-gen: add VideoGenerationAssetRole union and typed providerOptions capability Introduces a canonical VideoGenerationAssetRole union (first_frame, last_frame, reference_image, reference_video, reference_audio) for the source-asset role hint, and a VideoGenerationProviderOptionType tag ('number' | 'boolean' | 'string') plus a new capabilities.providerOptions schema that providers use to declare which opaque providerOptions keys they accept and with what primitive type. Types are additive and backwards compatible. The role field accepts both canonical union values and arbitrary provider-specific strings via a `VideoGenerationAssetRole | (string &amp; {})` union, so autocomplete works for the common case without blocking provider-specific extensions. Runtime enforcement of providerOptions (skip-in-fallback, unknown key and type mismatch) lands in a follow-up commit. Co-authored-by: yongliang.xie * video-gen: enforce typed providerOptions schema via skip-in-fallback Adds `validateProviderOptionsAgainstDeclaration` in the video-generation runtime and wires it into the `generateVideo` candidate loop alongside the existing audio-count and duration-cap skip guards. Behavior: - Candidates with no declared `capabilities.providerOptions` skip any non-empty providerOptions payload with a clear skip reason, so a provider that would ignore `{seed: 42}` and succeed without the caller's intent never gets reached. - Candidates that declare a schema reject unknown keys with the list of accepted keys in the error. - Candidates that declare a schema reject type mismatches (expected number/boolean/string) with the declared type in the error. - All skip reasons push into `attempts` so the aggregated failure message at the end of the fallback chain explains exactly why each candidate was rejected. Also hardens the tool boundary: `providerOptions` that is not a plain JSON object (including bogus arrays like `[\"seed\", 42]`) now throws a `ToolInputError` up front instead of being cast to `Record` and forwarded with numeric-string keys. Consistent with the audio/duration skip-in-fallback pattern introduced by yongliang.xie in earlier commits on this branch. Co-authored-by: yongliang.xie * video-gen: harden *Roles parity + document canonical role values Replaces the inline `parseRolesArg` lambda with a dedicated `parseRoleArray` helper that throws a ToolInputError when the caller supplies more roles than assets. Off-by-one alignment mistakes in `imageRoles` / `videoRoles` / `audioRoles` now fail loudly at the tool boundary instead of silently dropping trailing roles. Also tightens the schema descriptions to document the canonical VideoGenerationAssetRole values (first_frame, last_frame, reference_*) and the skip-in-fallback contract on providerOptions, and rejects non-array inputs to any `*Roles` field early rather than coercing them to an empty list. Co-authored-by: yongliang.xie * video-gen: surface dropped aspectRatio sentinels in ignoredOverrides \"adaptive\" and other provider-specific sentinel aspect ratios are unparseable as numeric ratios, so when the active provider does not declare the sentinel in caps.aspectRatios, `resolveClosestAspectRatio` returns undefined and the previous code silently nulled out `aspectRatio` without surfacing a warning. Push the dropped value into `ignoredOverrides` so the tool result warning path (\"Ignored unsupported overrides for …\") picks it up, and the caller gets visible feedback that the request was dropped instead of a silent no-op. Also corrects the tool-side comment on SUPPORTED_ASPECT_RATIOS to describe actual behavior. Co-authored-by: yongliang.xie * video-gen: surface declared providerOptions + maxInputAudios in action=list `video_generate action=list` now includes the declared providerOptions schema (key:type) per provider, so agents can discover which opaque keys each provider accepts without trial and error. Both mode-level and flat-provider providerOptions declarations are merged, matching the runtime lookup order in `generateVideo`. Also surfaces `maxInputAudios` alongside the other max-input counts for completeness — previously the list output did not expose the audio cap at all, even though the tool validates against it. Co-authored-by: yongliang.xie * video-gen: warn once per request when runtime skips a fallback candidate The skip-in-fallback guards (audio cap, duration cap, providerOptions) all logged at debug level, which meant operators had no visible signal when the primary provider was silently passed over in favor of a fallback. Add a first-skip log.warn in the runtime loop so the reason for the first rejection is surfaced once per request, and leave the rest of the skip events at debug to avoid flooding on long chains. Co-authored-by: yongliang.xie * video-gen: cover new tool-level behavior with regression tests Adds regression tests for: - providerOptions shape rejection (arrays, strings) - providerOptions happy-path forwarding to runtime - imageRoles length-parity guard - *Roles non-array rejection - positional role attachment to loaded reference images - audio data: URL templated rejection branch - aspectRatio='adaptive' acceptance and forwarding - unsupported aspectRatio rejection (mentions 'adaptive' in the error) All eight new cases run in the existing video-generate-tool suite and use the same provider-mock pattern already established in the file. Co-authored-by: yongliang.xie * video-gen: cover runtime providerOptions skip-in-fallback branches Adds runtime regression tests for the new typed-providerOptions guard: - candidates without a declared providerOptions schema are skipped when any providerOptions is supplied (prevents silent drop) - candidates that declare a schema skip on unknown keys with the accepted-key list surfaced in the error - candidates that declare a schema skip on type mismatches with the declared type surfaced in the error - end-to-end fallback: openai (no providerOptions) is skipped and byteplus (declared schema) accepts the same request, with an attempt entry recording the first skip reason Also updates the existing 'forwards providerOptions to the provider unchanged' case so the destination provider declares the matching typed schema, and wires a `warn` stub into the hoisted logger mock so the new first-skip log.warn call path does not blow up. Co-authored-by: yongliang.xie * changelog: note video_generate providerOptions / inputAudios / role hints Adds an Unreleased Changes entry describing the user-visible surface expansion for video_generate: typed providerOptions capability, inputAudios reference audio, per-asset role hints via the canonical VideoGenerationAssetRole union, the 'adaptive' aspect-ratio sentinel, maxInputAudios capability, and the relaxed 9-image cap. Credits the original PR author. Co-authored-by: yongliang.xie * byteplus: declare providerOptions schema (seed, draft, camerafixed) and forward to API Made-with: Cursor * byteplus: fix camera_fixed body field (API uses underscore, not camerafixed) Made-with: Cursor * fix(byteplus): normalize resolution to lowercase before API call The Seedance API rejects resolution values with uppercase letters — \"480P\", \"720P\" etc return InvalidParameter, while \"480p\", \"720p\" are accepted. This was breaking the video generation live test (resolveLiveVideoResolution returns \"480P\"). Normalize req.resolution to lowercase at the provider layer before setting body.resolution, so any caller-supplied casing is corrected without requiring changes to the VideoGenerationResolution type or live-test helpers. Verified via direct API call: body.resolution = \"480P\" → HTTP 400 InvalidParameter body.resolution = \"480p\" → task created successfully body.resolution = \"720p\" → task created successfully (t2v, i2v, 1.5-pro) body.resolution = \"1080p\" → task created successfully Made-with: Cursor * video-gen/byteplus: auto-select i2v model when input images provided with t2v model Seedance 1.0 uses separate model IDs for T2V (seedance-1-0-lite-t2v-250428) and I2V (seedance-1-0-lite-i2v-250428). When the caller requests a T2V model but also provides inputImages, the API rejects with task_type i2v not supported on t2v model. Fix: when inputImages are present and the requested model contains \"-t2v-\", auto-substitute \"-i2v-\" so the API receives the correct model. Seedance 1.5 Pro uses a single model ID for both modes and is unaffected by this substitution. Verified via live test: both mode=generate and mode=imageToVideo pass for byteplus/seedance-1-0-lite-t2v-250428 with no failures. Co-authored-by: odysseus0 Made-with: Cursor * video-gen: fix duration rounding + align BytePlus (1.0) docs (P2) Made-with: Cursor * video-gen: relax providerOptions gate for undeclared-schema providers (P1) Distinguish undefined (not declared = backward-compat pass-through) from {} (explicitly declared empty = no options accepted) in validateProviderOptionsAgainstDeclaration. Providers without a declared schema receive providerOptions as-is; providers with an explicit empty schema still skip. Typed schemas continue to validate key names and types. Also: restore camera_fixed (underscore) in BytePlus provider schema and body key (regression from earlier rebase), remove duplicate local readBooleanToolParam definition now imported from media-tool-shared, update tests and docs accordingly. Made-with: Cursor * video_generate: add landing follow-up coverage * video_generate: finalize plugin-sdk baseline (#61987) (thanks @xieyongliang) --------- Co-authored-by: yongliang.xie Co-authored-by: George Zhang Co-authored-by: odysseus0",
+      "title": "Fix: Sync asyncCompletion config in zod-schema.ts to resolve \"Unrecog…",
+      "link": "https://github.com/openclaw/openclaw/commit/e339038cc0edea5e8ac8f8d94fafd1d6845a0e50",
+      "publishedAt": "2026-04-11T10:12:09Z",
+      "summary": "Fix: Sync asyncCompletion config in zod-schema.ts to resolve \"Unrecog… (#63618) Merged via squash. Prepared head SHA: dcce839c071c0a40b82611b15be51fdffdedf3e0 Co-authored-by: qiziAI Co-authored-by: altaywtf Reviewed-by: @altaywtf",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：video_generate: add providerOptions, inputAudios, and imageRoles (#61…",
-      "summaryZh": "重點：video_generate: add providerOptions, inputAudios, and imageRoles (#61987) * video_generate: add providerOptions, inputAu..."
+      "titleZh": "OpenClaw 程式碼更新：修正: Sync asyncCompletion config in zod-schema.ts to resolve \"Unrecog…",
+      "summaryZh": "重點：修正: Sync asyncCompletion config in zod-schema.ts to resolve \"Unrecog… (#63618) Merged via squash. Prepared head SHA: dcc..."
     },
     {
       "id": 4,
-      "title": "fix(google): omit unsupported numberOfVideos in Veo requests (#64723)",
-      "link": "https://github.com/openclaw/openclaw/commit/f2a4a5ac21d31ae23356ab42af9570fb029aef4a",
-      "publishedAt": "2026-04-11T09:17:01Z",
-      "summary": "fix(google): omit unsupported numberOfVideos in Veo requests (#64723) Merged via squash. Prepared head SHA: dadfd3351f7b02d09c47c1a4b1a3ef73a9d343a2 Co-authored-by: velvet-shark Co-authored-by: velvet-shark Reviewed-by: @velvet-shark",
+      "title": "video_generate: support url-only delivery (#61988) (thanks @xieyongli…",
+      "link": "https://github.com/openclaw/openclaw/commit/e0a2c568b28efd8b1606bc212d48743d334cbde9",
+      "publishedAt": "2026-04-11T10:08:30Z",
+      "summary": "video_generate: support url-only delivery (#61988) (thanks @xieyongliang) (#61988) Co-authored-by: George Zhang",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google): omit unsupported numberOfVideos in Veo requests (#64723)",
-      "summaryZh": "重點：修正(google): omit unsupported numberOfVideos in Veo requests (#64723) Merged via squash. Prepared head SHA: dadfd3351f7b0..."
+      "titleZh": "OpenClaw 程式碼更新：video_generate: support url-only delivery (#61988) (thanks @xieyongli…",
+      "summaryZh": "重點：video_generate: support url-only delivery (#61988) (thanks @xieyongliang) (#61988) Co-authored-by: George Zhang..."
     },
     {
       "id": 5,
+      "title": "日本政府批准追加 6,315 億日圓補助 Rapidus，力拚 AI 晶片量產",
+      "link": "https://technews.tw/2026/04/11/japan-approves-additional-631-5-billion-for-state-backed-rapidus/",
+      "publishedAt": "Sat, 11 Apr 2026 09:59:23 +0000",
+      "summary": "日本政府批准追加 6,315 億日圓補助，加速半導體製造商 Rapidus 進入競爭激烈的 AI 晶片製造領域 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "企業用戶快看！Claude for Word 跨軟體協作，幫助草擬、編修文件",
       "link": "https://technews.tw/2026/04/11/claude-for-word-is-now-in-beta/",
       "publishedAt": "Sat, 11 Apr 2026 08:29:44 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "爛番茄 40% 又怎樣？〈超級瑪利歐銀河〉首週橫掃 3.7 億美元票房，展現演算法時代的 IP 威力",
       "link": "https://technews.tw/2026/04/11/rotten-tomatoes-at-40-so-what-super-mario-galaxy-pulls-in-370m-opening-week-showing-the-power-of-ip-in-the-algorithm-era/",
       "publishedAt": "Sat, 11 Apr 2026 07:00:11 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "OpenAI 桌面應用程式涉及安全問題，官方呼籲 macOS 用戶快更新",
       "link": "https://infosecu.technews.tw/2026/04/11/macos-users-advised-to-update-openai-apps-to-latest-version/",
       "publishedAt": "Sat, 11 Apr 2026 06:39:43 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "三年 300 店、目標市占第三！印尼獨角獸凱娜克野心對決星巴克與路易莎",
       "link": "https://technews.tw/2026/04/11/kenangan-coffee-a11/",
       "publishedAt": "Sat, 11 Apr 2026 06:00:57 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "台灣萬佛朝宗股份有限公司亮相 Medtec Japan 2026，展示醫用級 TPU 管材注塑解決方案",
       "link": "https://technews.tw/2026/04/11/towards-buddha-debuts-at-medtec-japan-2026/",
       "publishedAt": "Sat, 11 Apr 2026 06:00:47 +0000",
       "summary": "總部位於台灣的醫用級塑膠零部件製造商萬佛朝宗股份有限公司（Towards Buddha Co., Ltd.）將 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "逾半 iPhone 預設鬧鐘讓人愈睡愈累，專家教選這款清醒鈴聲",
-      "link": "https://technews.tw/2026/04/11/iphone-alarm-sencha-nervous-system-sleep-expert/",
-      "publishedAt": "Sat, 11 Apr 2026 05:00:51 +0000",
-      "summary": "英國音樂科技公司分析 140 款 iPhone 及三星手機預設鬧鐘鈴聲後，發現過半 iPhone 預設鬧鐘聲可 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
