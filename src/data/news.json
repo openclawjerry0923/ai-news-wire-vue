@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-11T14:37:18.668Z",
+  "generatedAt": "2026-04-11T15:35:13.884Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: handle codex app-server interrupt shutdown",
-      "link": "https://github.com/openclaw/openclaw/commit/545490c5920da2cf7c812f040ff52ee0ef1dc218",
-      "publishedAt": "2026-04-11T14:20:52Z",
-      "summary": "fix: handle codex app-server interrupt shutdown",
+      "title": "fix(cycles): bypass session binding service type import",
+      "link": "https://github.com/openclaw/openclaw/commit/c37aaf0b60051427d0f3364720bd15b673cfbf5f",
+      "publishedAt": "2026-04-11T15:26:40Z",
+      "summary": "fix(cycles): bypass session binding service type import",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: handle codex app-server interrupt shutdown",
-      "summaryZh": "重點：修正: handle codex app-server interrupt shutdown..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cycles): bypass session binding service type import",
+      "summaryZh": "重點：修正(cycles): bypass session binding service type import..."
     },
     {
       "id": 2,
-      "title": "test: resolve Parallels npm update Python",
-      "link": "https://github.com/openclaw/openclaw/commit/b489c8f55b3709744cf17e98f6aba4f8ca0903d5",
-      "publishedAt": "2026-04-11T13:57:59Z",
-      "summary": "test: resolve Parallels npm update Python",
+      "title": "fix(cycles): bypass channel public session type import",
+      "link": "https://github.com/openclaw/openclaw/commit/715724470851135233f94860e3ceb9a6fcb4ecca",
+      "publishedAt": "2026-04-11T15:17:08Z",
+      "summary": "fix(cycles): bypass channel public session type import",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: resolve Parallels npm update Python",
-      "summaryZh": "重點：test: resolve Parallels npm update Python..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cycles): bypass channel public session type import",
+      "summaryZh": "重點：修正(cycles): bypass channel public session type import..."
     },
     {
       "id": 3,
-      "title": "fix(msteams): remove reaction handler type cycle",
-      "link": "https://github.com/openclaw/openclaw/commit/8a7ad8f0e081fd9ce46262bf9d78682837215022",
-      "publishedAt": "2026-04-11T13:55:25Z",
-      "summary": "fix(msteams): remove reaction handler type cycle",
+      "title": "fix(cycles): split media understanding runtime contracts",
+      "link": "https://github.com/openclaw/openclaw/commit/6e74d77a42e9a682fbbba6644c74e6435491c24f",
+      "publishedAt": "2026-04-11T15:17:08Z",
+      "summary": "fix(cycles): split media understanding runtime contracts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(msteams): remove reaction handler type cycle",
-      "summaryZh": "重點：修正(msteams): remove reaction handler type cycle..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cycles): split media understanding runtime contracts",
+      "summaryZh": "重點：修正(cycles): split media understanding runtime contracts..."
     },
     {
       "id": 4,
-      "title": "fix(cycles): split embedded runner and setup leaf types",
-      "link": "https://github.com/openclaw/openclaw/commit/b9a0052dd018c79ab45a1fdd5cff17d90bc32001",
-      "publishedAt": "2026-04-11T13:49:48Z",
-      "summary": "fix(cycles): split embedded runner and setup leaf types",
-      "source": "OpenClaw Commits",
+      "title": "openclaw 2026.4.11-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.11-beta.1",
+      "publishedAt": "2026-04-11T15:15:03Z",
+      "summary": "Changes Dreaming/memory-wiki: add ChatGPT import ingestion plus new Imported Insights and Memory Palace diary subtabs so Dreaming can inspect imported source chats, compiled wiki pages, and full source pages directly from the UI. (#64505) Control UI/webchat: render assistant media/reply/voice directives as structured chat bubbles, add the [embed ...] rich output tag, and gate external embed URLs behind config. (#64104) Tools/video_generate: add URL-only generated asset delivery, typed providerOptions, reference audio inputs, per-asset role hints, adaptive aspect-ratio support, and a higher image-input cap so video providers can expose richer generation modes without forcing large files into memory. (#61987, #61988) Thanks @xieyongliang. Feishu: improve document comment sessions with richer context parsing, comment reactions, and typing feedback so document-thread conversations behave more like chat conversations. (#63785) Microsoft Teams: add reaction support, reaction listing, Graph pagination, and delegated OAuth setup for sending reactions while preserving application-auth read paths. (#51646) Plugins: allow plugin manifests to declare activation and setup descriptors so plugin setup flows can describe required auth, pairing, and configuration steps without hardcoded core special cases. (#64780) Ollama: cache /api/show context-window and capability metadata during model discovery so repeated picker refreshes stop refetching unchanged models, while still retrying after empty responses and invalidating on digest changes. (#64753) Thanks @ImLukeF. Models/providers: surface how configured OpenAI-compatible endpoints are classified in embedded-agent debug logs, so local and proxy routing issues are easier to diagnose. (#64754) Thanks @ImLukeF. QA/parity: add the GPT-5.4 vs Opus 4.6 agentic parity report gate with shared scenario coverage checks, stricter evidence heuristics, and skipped-scenario accounting for maintainer review. (#64441) Thanks @100yenadmin. Fixes OpenAI/Codex OAuth: stop rewriting the upstream authorize URL scopes so new Codex sign-ins do not fail with invalid_scope before returning an authorization code. (#64713) Thanks @fuller-stack-dev. Audio transcription: disable pinned DNS only for OpenAI-compatible multipart requests, while still validating hostnames, so OpenAI, Groq, and Mistral transcription works again without weakening other request paths. (#64766) Thanks @GodsBoy. macOS/Talk Mode: after granting microphone permission on first enable, continue starting Talk Mode instead of requiring a second toggle. (#62459) Thanks @ggarber. Control UI/webchat: persist agent-run TTS audio replies into webchat history and preserve interleaved tool card pairing so generated audio and mixed tool output stay attached to the right messages. (#63514) Thanks @bittoby. WhatsApp: honor the configured default account when the active listener helper is used without an explicit account id, so named default accounts do not get registered under default. (#53918) Thanks @yhyatt. ACP/agents: suppress commentary-phase child assistant relay text in ACP parent stream updates, so spawned child runs stop leaking internal progress chatter into the parent session. Thanks @vincentkoc. Agents/timeouts: honor explicit run timeouts in the LLM idle watchdog and align default timeout config so slow models can keep working until the configured limit instead of using the wrong idle window. Config: include asyncCompletion in the generated zod schema so documented async completion config no longer fails with an unrecognized-key error. (#63618) Google/Veo: stop sending the unsupported numberOfVideos request field so Gemini Developer API Veo runs do not fail before OpenClaw can complete the intended Google video generation path. (#64723) Thanks @velvet-shark. QA/packaging: stop packaged CLI startup and completion cache generation from reading repo-only QA scenario markdown, ship the bundled QA scenario pack in npm releases, and keep openclaw completion --write-state working even if QA setup is broken. (#64648) Thanks @obviyus. Codex/QA: keep Codex app-server coordination chatter out of visible replies, add a live QA leak scenario, and classify leaked harness meta text as a QA failure instead of a successful reply. Thanks @vincentkoc. WhatsApp: route message react through the gateway-owned action path so reactions use the live WhatsApp listener in both DM and group chats, matching message send and message poll. Thanks @mcaxtr.",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cycles): split embedded runner and setup leaf types",
-      "summaryZh": "重點：修正(cycles): split embedded runner and setup leaf types..."
+      "titleZh": "OpenClaw 版本更新：2026.4.11-beta.1",
+      "summaryZh": "重點：Changes Dreaming/記憶-wiki: add ChatGPT import ingestion plus new Imported Insights and 記憶 Palace diary subtabs so Dreamin..."
     },
     {
       "id": 5,
