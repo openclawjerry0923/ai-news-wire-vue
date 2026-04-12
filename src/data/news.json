@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-12T15:37:43.153Z",
+  "generatedAt": "2026-04-12T16:41:28.334Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(memory-core): wake managed dreaming jobs immediately (#65053)",
-      "link": "https://github.com/openclaw/openclaw/commit/b8c95e582525110234e72ded01882ed25720b396",
-      "publishedAt": "2026-04-12T15:37:21Z",
-      "summary": "fix(memory-core): wake managed dreaming jobs immediately (#65053) * fix(memory-core): wake managed dreaming jobs immediately * docs(changelog): add dreaming wake entry --------- Co-authored-by: Vincent Koc",
+      "title": "fix(memory-core): isolate dreaming narrative sessions per workspace (…",
+      "link": "https://github.com/openclaw/openclaw/commit/346e38e275b373a083297157ce07133a2f130690",
+      "publishedAt": "2026-04-12T16:39:28Z",
+      "summary": "fix(memory-core): isolate dreaming narrative sessions per workspace (#61674) * fix(memory-core): isolate dreaming narrative sessions per workspace * chore(changelog): add narrative isolation note --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): wake managed dreaming jobs immediately (#65053)",
-      "summaryZh": "重點：修正(記憶-core): wake managed dreaming jobs immediately (#65053) * 修正(記憶-core): wake managed dreaming jobs immediately * 文件(..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): isolate dreaming narrative sessions per workspace (…",
+      "summaryZh": "重點：修正(記憶-core): isolate dreaming narrative sessions per workspace (#61674) * 修正(記憶-core): isolate dreaming narrative sessio..."
     },
     {
       "id": 2,
-      "title": "test(agents): share exec preflight race helper",
-      "link": "https://github.com/openclaw/openclaw/commit/d0f090e188df07e1db59dcada4edd7045a140b56",
-      "publishedAt": "2026-04-12T15:36:46Z",
-      "summary": "test(agents): share exec preflight race helper",
+      "title": "feat(skills): WIP-add secret-scanning-maintainer skill (#65417)",
+      "link": "https://github.com/openclaw/openclaw/commit/24d769449d5cb31d4e8d33946d4243866abb98d9",
+      "publishedAt": "2026-04-12T16:39:17Z",
+      "summary": "feat(skills): WIP-add secret-scanning-maintainer skill (#65417) * feat(skills): add secret-scanning-maintainer skill Add a maintainer-only skill for handling GitHub Secret Scanning alerts. Covers issue_comment, issue_body, pull_request_body, and commit leak types with redaction, history purge (delete+recreate for comments), author notification, and alert resolution workflows. * fix(skills): harden secret-scanning-maintainer based on security review - Remove all secret value fragments from redaction markers (type-only) - Remove alert URLs and partial secret previews from public comments - Use temp files with heredoc for all gh api body content (shell injection) - Add rule: never print raw API responses containing secrets to stdout - Notification comments now only reference secret type, no value hints Addresses 4 of 6 security findings from PR review: 1. Over-permissive redaction → type-only markers 3. Public partial preview + alert URL → removed from comments 4. Shell quoting risk → heredoc + temp file pattern 5. Stdout secret exposure → jq-only extraction rule Findings #2 (revoked without rotation) and #6 (public playbook) are accepted as-is with documented rationale. * fix(skills): address all bot review findings on secret-scanning skill Addresses findings from Codex, Greptile, and Aisle bot reviews: - Add pull_request_comment and pull_request_review_comment to location type routing table (was being skipped as unsupported) [Codex P1] - Use hide_secret=true on alert fetch to prevent plaintext in terminal [Codex P1] - Add jq filtering on all fetch commands to avoid printing .body or .secret to stdout [Codex P1, Aisle Medium] - Skip PATCH before DELETE for comments — PATCH creates an unnecessary edit history revision exposing plaintext [Greptile P1] - Use mktemp for all temp files instead of fixed /tmp paths [Aisle Medium] - Branch notification template by location type: comment says \"removed and replaced\", body says \"redacted in place\", commit says \"committed\" [Greptile P1] - Bump userContentEdits(first: 10) to first: 50 to reduce truncation risk [Greptile P2] - Fix batch listing jq query to use .html_url instead of .first_location_detected.html_url [Codex P2] - Use heredoc + temp file for comment recreation (was inline -f) [Codex P1] - Remove alert URLs from public notification templates [Codex P1] * feat(skills): extract secret-scanning operations into reusable script Add scripts/secret-scanning.mjs with subcommands: fetch-alert, fetch-content, redact-body, delete-comment, recreate-comment, notify, resolve, list-open, summary. Security enforcements now live in the script (not agent memory): - hide_secret=true on all alert fetches - mktemp with random UUIDs for all temp files - -F body=@file for all body uploads - .secret and .body never printed to stdout - notification templates branched by location type SKILL.md simplified from ~370 lines to ~170 lines — now a decision guide that references script commands instead of inline gh api calls. * fix(skills): enforce script summary output as final summary Agent was rewriting the summary table without URLs. Make SKILL.md explicit: the script output IS the final summary, do not reformat it. * fix(skills): add summary output markers for verbatim rendering Script summary now outputs ---BEGIN SUMMARY--- / ---END SUMMARY--- markers. SKILL.md instructs agent to output the content between markers verbatim, preventing reformatting that drops URLs. * fix(skills): address latest bot review findings on script - Restrict temp file permissions to 0600 (owner-only) [Codex P1] - Add --slurp to list-open and fetch-alert locations for correct multi-page JSON parsing [Codex P1, Codex P2] - Use commit_url/blob_url fallback for commit location URLs [Codex P2] - Add --paginate to locations fetch [Codex P2]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): share exec preflight race helper",
-      "summaryZh": "重點：test(agents): share exec preflight race helper..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(skills): WIP-add secret-scanning-maintainer skill (#65417)",
+      "summaryZh": "重點：新功能(skills): WIP-add secret-scanning-maintainer skill (#65417) * 新功能(skills): add secret-scanning-maintainer skill Add a..."
     },
     {
       "id": 3,
-      "title": "test(agents): share websocket tool followup helper",
-      "link": "https://github.com/openclaw/openclaw/commit/93abf5ee4dfed42770e168ebc3f52a34a8a88858",
-      "publishedAt": "2026-04-12T15:35:01Z",
-      "summary": "test(agents): share websocket tool followup helper",
+      "title": "fix(ui): hide synthetic transcript-repair history messages (#65458)",
+      "link": "https://github.com/openclaw/openclaw/commit/12d351b79ce12096f187de01197b22fea937aa4b",
+      "publishedAt": "2026-04-12T16:35:30Z",
+      "summary": "fix(ui): hide synthetic transcript-repair history messages (#65458)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): share websocket tool followup helper",
-      "summaryZh": "重點：test(agents): share websocket tool followup helper..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): hide synthetic transcript-repair history messages (#65458)",
+      "summaryZh": "重點：修正(ui): hide synthetic transcript-repair history messages (#65458)..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): reject known-weak example auth credentials at startup (…",
-      "link": "https://github.com/openclaw/openclaw/commit/f3b636481f2a17208fc0ac1671813e549649a5d7",
-      "publishedAt": "2026-04-12T15:33:05Z",
-      "summary": "fix(gateway): reject known-weak example auth credentials at startup (#64586)",
+      "title": "fix: harden dreaming narrative session cleanup (#65320)",
+      "link": "https://github.com/openclaw/openclaw/commit/079eb18bf73bb3649fdb93fd1b731419195e2819",
+      "publishedAt": "2026-04-12T16:33:47Z",
+      "summary": "fix: harden dreaming narrative session cleanup (#65320) * fix: harden dreaming narrative session cleanup * fix(memory-core): harden narrative cleanup * fix(memory-core): preserve fallback narrative sessions --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reject known-weak example auth credentials at startup (…",
-      "summaryZh": "重點：修正(Gateway): reject known-weak example auth credentials at startup (#64586)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: harden dreaming narrative session cleanup (#65320)",
+      "summaryZh": "重點：修正: harden dreaming narrative session cleanup (#65320) * 修正: harden dreaming narrative session cleanup * 修正(記憶-core): ha..."
     },
     {
       "id": 5,
