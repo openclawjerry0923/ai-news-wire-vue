@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-13T22:45:31.969Z",
+  "generatedAt": "2026-04-13T23:43:55.575Z",
   "items": [
     {
       "id": 1,
@@ -21,83 +21,83 @@
     },
     {
       "id": 3,
-      "title": "fix(ci): repair telegram topic cache typing",
-      "link": "https://github.com/openclaw/openclaw/commit/94779b4fb1d2e0c3ea6d271ddb4e55a6d2e7c826",
-      "publishedAt": "2026-04-13T22:33:41Z",
-      "summary": "fix(ci): repair telegram topic cache typing",
+      "title": "fix: sendPolicy deny should suppress delivery, not inbound processing…",
+      "link": "https://github.com/openclaw/openclaw/commit/0362f21784ce8eb2028f7fd1e5d4ad42c6a5e9a3",
+      "publishedAt": "2026-04-13T23:42:25Z",
+      "summary": "fix: sendPolicy deny should suppress delivery, not inbound processing (#53328) (#65461) * fix: sendPolicy deny suppresses delivery, not inbound processing (#53328) Previously, sendPolicy \"deny\" returned early before the agent dispatch, preventing the agent from ever seeing the message. This broke the use case of an agent listening on WhatsApp groups with sendPolicy: deny to read messages without replying — the agent couldn't read them at all. Move the deny gate from before the agent dispatch to after it. The agent now processes inbound messages normally (context, memory, tool calls), but all outbound delivery paths are suppressed: final replies, tool results, block replies, working status, plan updates, typing indicators, and TTS payloads. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: propagate sendPolicy to ACP tail dispatch instead of hardcoded allow The ACP tail dispatch path (ctx.AcpDispatchTailAfterReset) was passing sendPolicy: \"allow\" unconditionally, which would bypass delivery suppression in a /reset turn when the session has sendPolicy deny. Pass through the resolved sendPolicy so the tail dispatch respects it. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: guard before_dispatch hook and ACP tail dispatch under sendPolicy deny before_dispatch handled replies were leaking through sendFinalPayload before the suppressDelivery guard was checked. ACP tail dispatch (from /new ) was being rejected by acp-runtime.ts deny checks instead of proceeding with delivery suppression handled downstream. Co-Authored-By: Claude Opus 4.6 (1M context) * auto-reply: propagate deny suppression to reply_dispatch * fix(acp): suppress onReplyStart when user delivery is denied When sendPolicy resolves to \"deny\", ACP tail dispatch still invoked onReplyStart via startReplyLifecycle before the suppressUserDelivery check. Channels wire onReplyStart to typing indicators, so deny-scoped sessions could still emit outbound typing events on /reset flows and command bypass paths. Gate startReplyLifecycleOnce on suppressUserDelivery so the lifecycle is marked started but the callback is skipped. Payload delivery was already suppressed; this closes the typing-indicator leak flagged by Codex review (PR #65461 P1/P2). * fix(acp): route non-tail deny turns through ACP when suppression is wired tryDispatchAcpReplyHook was returning early for non-tail, non-command ACP turns under sendPolicy: \"deny\", causing ACP-bound sessions to fall back to the embedded reply path instead of flowing through acpManager.runTurn. That diverged ACP session state, tool calls, and memory whenever delivery suppression was active. Now the early-return only fires when sendPolicy is \"deny\" AND the event lacks suppressUserDelivery — i.e., when downstream delivery suppression is not wired up. When suppressUserDelivery is set, dispatch-acp-delivery already drops outbound sends (see onReplyStart / deliver guards), so ACP can safely run the turn with state consistency preserved. Existing behavior preserved: - Command bypass still overrides deny - Tail dispatch still overrides deny - Plain-text deny turns without suppression still short-circuit Addresses Codex bot P1 feedback on #65461. * fix: gate empty-body typing indicator behind suppressTyping (#53328) * fix: guard plugin-binding + fast-abort outbound paths under sendPolicy deny The original PR computed suppressDelivery inside the try block, which was after two outbound paths: 1. The plugin-owned binding block (sendBindingNotice calls for unavailable/declined/error outcomes, plus the plugin's own \"handled\" outcome) ran before the suppressDelivery flag existed, so plugin notices still leaked under deny. 2. The fast-abort path dispatched \"Agent was aborted.\" via routeReplyToOriginating / sendFinalReply before the flag existed. Move resolveSendPolicy() above the plugin-binding block so suppressDelivery covers every outbound path downstream, matching the PR description's claim that \"all outbound paths are guarded by the flag.\" Plugin-bound inbound handling under deny: plugin handlers can emit outbound replies we cannot rewind, so skip the claim hook entirely under deny and fall through to normal (suppressed) agent processing. touchConversationBindingRecord still runs so binding activity stays tracked. Fast-abort under deny: still run the abort and record the completed state, just don't emit the abort reply. Tests: - suppresses the fast-abort reply under sendPolicy deny - delivers the fast-abort reply normally when sendPolicy is allow (regression guard) - skips plugin-bound claim hook under deny and falls through to suppressed agent dispatch Addresses Codex review findings on PR #65461. Co-Authored-By: Claude Opus 4.6 (1M context) --------- Co-authored-by: Lobster Co-authored-by: Claude Opus 4.6 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): repair Telegram topic cache typing",
-      "summaryZh": "重點：修正(ci): repair Telegram topic cache typing..."
+      "titleZh": "OpenClaw 程式碼更新：修正: sendPolicy deny should suppress delivery, not inbound processing…",
+      "summaryZh": "重點：修正: sendPolicy deny should suppress delivery, not inbound processing (#53328) (#65461) * 修正: sendPolicy deny suppresses ..."
     },
     {
       "id": 4,
-      "title": "fix(ci): repair agent test mocks",
-      "link": "https://github.com/openclaw/openclaw/commit/a165f7b063a41e54989607aa78986b834664a95a",
-      "publishedAt": "2026-04-13T22:30:17Z",
-      "summary": "fix(ci): repair agent test mocks",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): repair agent test mocks",
-      "summaryZh": "重點：修正(ci): repair agent test mocks..."
+      "title": "知名致鬱遊戲〈心跳文學社〉遭 Google Play 無預警下架，開發者表示找尋 Android 平台其他發行管道",
+      "link": "https://technews.tw/2026/04/14/google-removes-doki-doki-literature-club-from-the-play-store/",
+      "publishedAt": "Mon, 13 Apr 2026 23:40:58 +0000",
+      "summary": "Google 宣布廣受歡迎的心理恐怖遊戲〈心跳文學社〉（ドキドキ文芸部，Doki Doki Literatur [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "fix(ci): align cron tests with default model",
-      "link": "https://github.com/openclaw/openclaw/commit/9dc4a270e4d503c5734aa92268b6be2344657dee",
-      "publishedAt": "2026-04-13T22:28:28Z",
-      "summary": "fix(ci): align cron tests with default model",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): align 排程 tests with default 模型",
-      "summaryZh": "重點：修正(ci): align 排程 tests with default 模型..."
+      "title": "從「多元族群」出發，精準醫療才能真正走向每個人",
+      "link": "https://technews.tw/2026/04/14/advancing-precision-health-discovery-in-a-genetically-diverse-health-system/",
+      "publishedAt": "Mon, 13 Apr 2026 23:30:54 +0000",
+      "summary": "近年「精準醫療」（precision medicine）已成為醫學重要方向，核心在根據個體基因特性（genet [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "fix(ci): restore plugin-local whatsapp deps",
-      "link": "https://github.com/openclaw/openclaw/commit/8ab89989c210ecf5fd9d3d04fdef29bc28bbfb44",
-      "publishedAt": "2026-04-13T22:26:25Z",
-      "summary": "fix(ci): restore plugin-local whatsapp deps",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore plugin-local whatsapp deps",
-      "summaryZh": "重點：修正(ci): restore plugin-local whatsapp deps..."
+      "title": "三星 2 奈米良率僅 40% 難追台積電，期望多搶訂單以工代訓推一把",
+      "link": "https://finance.technews.tw/2026/04/14/samsungs-2nm-yield-is-the-worst-at-only-40-making-it-difficult-to-catch-up-with-tsmc/",
+      "publishedAt": "Mon, 13 Apr 2026 23:30:42 +0000",
+      "summary": "在市場傳出韓國三星晶圓代工 2 奈米良率不佳，行動處理器大廠高通考慮回頭下單台積電的消息之後，根據韓國媒體報導 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "日本古詩歌搭配樹木標本，解開變幻莫測的太空天氣之謎",
-      "link": "https://technews.tw/2026/04/13/medieval-japanese-poetry-and-buried-trees-help-elucidate-volatile-space-weather/",
-      "publishedAt": "Mon, 13 Apr 2026 14:37:59 +0000",
-      "summary": "現代對極端太陽活動造成的太空天氣活動有較全面紀錄，但過去事件仍有許多尚待填補的空白。近期沖繩科學技術大學院大學 [&#8230;]",
+      "title": "為何英特爾睽違兩年半之後，股價拉出一波連九漲高達 58% 漲勢？",
+      "link": "https://finance.technews.tw/2026/04/14/after-a-two-and-a-half-year-hiatus-intels-stock-price-surged-for-nine-consecutive-days-rising-by-a-staggering-58/",
+      "publishedAt": "Mon, 13 Apr 2026 23:30:30 +0000",
+      "summary": "美國半導體大廠英特爾 （Intel） 近期在資本市場與產業佈局上獲得了史詩級的逆轉。受惠於一系列重大戰略合作與 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "Juniper修補Junos OS網路作業系統多個漏洞，最嚴重漏洞可能導致遠端接管設備",
-      "link": "https://www.ithome.com.tw/news/175009",
-      "publishedAt": "2026-04-13 12:04:35",
-      "summary": "網路設備供應商HPE Juniper Networking近日發布安全公告，修補旗下網路作業系統Junos OS與Junos OS Evolved中近30項漏洞，這些漏洞可能被利用於權限提升、阻斷服務（DoS）及遠端執行指令等攻擊。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test: align failover source model expectation",
+      "link": "https://github.com/openclaw/openclaw/commit/07b839f9b164def1e3bf3ca90efac7dff65febc7",
+      "publishedAt": "2026-04-13T23:16:03Z",
+      "summary": "test: align failover source model expectation",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: align failover source 模型 expectation",
+      "summaryZh": "重點：test: align failover source 模型 expectation..."
     },
     {
       "id": 9,
-      "title": "Amazon調整Luna定位，從遊戲平臺轉向訂閱服務",
-      "link": "https://www.ithome.com.tw/news/175008",
-      "publishedAt": "2026-04-13 12:04:32",
-      "summary": "Amazon近日宣布，旗下雲端遊戲服務Amazon Luna自2026年4月10日起，停止提供第三方遊戲商店、單獨購買遊戲（A-la-carte）以及第三方訂閱服務，全面轉向以訂閱制為核心的內容服務。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "docs(changelog): note perf fixes",
+      "link": "https://github.com/openclaw/openclaw/commit/12246711d800ef3246e2d68c870ae9e9440502e3",
+      "publishedAt": "2026-04-13T23:10:46Z",
+      "summary": "docs(changelog): note perf fixes",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(changelog): note perf 修正",
+      "summaryZh": "重點：文件(changelog): note perf 修正..."
     },
     {
       "id": 10,
-      "title": "硬體監控工具開發公司CPUID網頁遭入侵，駭客用來散布惡意軟體STX RAT",
-      "link": "https://www.ithome.com.tw/news/175007",
-      "publishedAt": "2026-04-13 12:04:10",
-      "summary": "知名的硬體監控工具CPU-Z、HWMonitor的供應商CPUID，傳出網站遭到入侵，駭客藉此散布惡意軟體。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(ci): mirror whatsapp runtime dependency",
+      "link": "https://github.com/openclaw/openclaw/commit/9376f52419bc523a979e8b8b15552f569c92918b",
+      "publishedAt": "2026-04-13T23:01:44Z",
+      "summary": "fix(ci): mirror whatsapp runtime dependency",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): mirror whatsapp runtime dependency",
+      "summaryZh": "重點：修正(ci): mirror whatsapp runtime dependency..."
     }
   ]
 }
