@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-14T21:54:57.911Z",
+  "generatedAt": "2026-04-14T22:49:03.281Z",
   "items": [
     {
       "id": 1,
-      "title": "test(agents): isolate shared subagent state",
-      "link": "https://github.com/openclaw/openclaw/commit/54cf4cd8575b75f654121aee6ea43883e60b1d18",
-      "publishedAt": "2026-04-14T21:49:31Z",
-      "summary": "test(agents): isolate shared subagent state",
+      "title": "fix(bluebubbles): dedupe inbound webhooks across restarts (#19176, #1…",
+      "link": "https://github.com/openclaw/openclaw/commit/58742acaabd5a4da0bdd81b67bae9d856d32b68d",
+      "publishedAt": "2026-04-14T22:45:05Z",
+      "summary": "fix(bluebubbles): dedupe inbound webhooks across restarts (#19176, #12053) (#66816) BlueBubbles MessagePoller replays its ~1-week lookback window as new-message webhooks after BB Server restart or reconnect. Add a persistent file-backed GUID dedupe (TTL=7d) at the top of processMessage using createClaimableDedupe from the Plugin SDK. Claim/finalize/release semantics ensure transient delivery failures release the GUID so a later replay can retry. Fixes #19176, #12053. Co-authored-by: Omar Shahine",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): isolate shared subagent state",
-      "summaryZh": "重點：test(agents): isolate shared subagent state..."
+      "titleZh": "OpenClaw 程式碼更新：修正(bluebubbles): dedupe inbound webhooks across restarts (#19176, #1…",
+      "summaryZh": "重點：修正(bluebubbles): dedupe inbound webhooks across restarts (#19176, #12053) (#66816) BlueBubbles MessagePoller replays its..."
     },
     {
       "id": 2,
-      "title": "fix(infra): resolve opened file paths by identity",
-      "link": "https://github.com/openclaw/openclaw/commit/e7dfc88bfa347c898a39162b117f24bbe8705234",
-      "publishedAt": "2026-04-14T21:49:31Z",
-      "summary": "fix(infra): resolve opened file paths by identity",
+      "title": "test(perf): trim slow gateway, daemon, and command specs",
+      "link": "https://github.com/openclaw/openclaw/commit/59b5db5cbf7d4be104f422b18919153cf80d1201",
+      "publishedAt": "2026-04-14T22:40:03Z",
+      "summary": "test(perf): trim slow gateway, daemon, and command specs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(infra): resolve opened file paths by identity",
-      "summaryZh": "重點：修正(infra): resolve opened file paths by identity..."
+      "titleZh": "OpenClaw 程式碼更新：test(perf): trim slow Gateway, daemon, and command specs",
+      "summaryZh": "重點：test(perf): trim slow Gateway, daemon, and command specs..."
     },
     {
       "id": 3,
-      "title": "perf(tests): trim hot wizard and infra setup work",
-      "link": "https://github.com/openclaw/openclaw/commit/c6c222ba8455c2f5f0b4c411ca75123e2ececbb4",
-      "publishedAt": "2026-04-14T21:42:32Z",
-      "summary": "perf(tests): trim hot wizard and infra setup work",
+      "title": "test(perf): speed up slow launchd and sessions specs",
+      "link": "https://github.com/openclaw/openclaw/commit/d5b1329bf358f797ddd7ad057a7e505f8a107673",
+      "publishedAt": "2026-04-14T22:34:09Z",
+      "summary": "test(perf): speed up slow launchd and sessions specs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(tests): trim hot wizard and infra setup work",
-      "summaryZh": "重點：perf(tests): trim hot wizard and infra setup work..."
+      "titleZh": "OpenClaw 程式碼更新：test(perf): speed up slow launchd and sessions specs",
+      "summaryZh": "重點：test(perf): speed up slow launchd and sessions specs..."
     },
     {
       "id": 4,
-      "title": "QA: remove runner install fallback catalog",
-      "link": "https://github.com/openclaw/openclaw/commit/85eac42d342131e8a31f303ecc37278050d84519",
-      "publishedAt": "2026-04-14T21:37:18Z",
-      "summary": "QA: remove runner install fallback catalog Drop the generated qa-runner catalog and the missing/install placeholder path for repo-private QA runners. The host should discover bundled QA commands from manifest plus runtime surface only. Also trim stale qa-matrix install docs and package metadata so the source-only QA policy stays consistent.",
+      "title": "test(live): skip codex html interruptions in modern sweep",
+      "link": "https://github.com/openclaw/openclaw/commit/e1e0120c0d9cda606fef6bfacaf6285be7d114b3",
+      "publishedAt": "2026-04-14T22:31:07Z",
+      "summary": "test(live): skip codex html interruptions in modern sweep",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：QA: remove runner install fallback catalog",
-      "summaryZh": "重點：QA: remove runner install fallback catalog Drop the generated qa-runner catalog and the missing/install placeholder path..."
+      "titleZh": "OpenClaw 程式碼更新：test(live): skip codex html interruptions in modern sweep",
+      "summaryZh": "重點：test(live): skip codex html interruptions in modern sweep..."
     },
     {
       "id": 5,
