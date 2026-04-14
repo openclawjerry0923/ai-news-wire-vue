@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-04-13T23:43:55.575Z",
+  "generatedAt": "2026-04-14T02:42:26.263Z",
   "items": [
     {
       "id": 1,
+      "title": "OpenAI受Axios供應鏈攻擊影響，已更新憑證，呼籲MacOS用戶更新到最新版",
+      "link": "https://www.ithome.com.tw/news/175030",
+      "publishedAt": "2026-04-14 10:04:22",
+      "summary": "OpenAI昨日表示自己也受到NPM套件Axios供應鏈攻擊影響，不過沒有客戶或自家系統、智財外洩。該公司也更新了macOS憑證，要求Mac用戶在5月8日前儘速升級App。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "紅帽支援RHEL執行SQL Server 2025整合Azure管理延伸模組，強化授權彈性與可視性",
       "link": "https://www.ithome.com.tw/news/175028",
       "publishedAt": "2026-04-14 06:04:00",
@@ -11,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Red Hat發布OpenShift 4.21，整合AI、容器與虛擬化於單一平臺並強化GPU資源調度",
       "link": "https://www.ithome.com.tw/news/175027",
       "publishedAt": "2026-04-14 06:04:00",
@@ -20,84 +29,75 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix: sendPolicy deny should suppress delivery, not inbound processing…",
-      "link": "https://github.com/openclaw/openclaw/commit/0362f21784ce8eb2028f7fd1e5d4ad42c6a5e9a3",
-      "publishedAt": "2026-04-13T23:42:25Z",
-      "summary": "fix: sendPolicy deny should suppress delivery, not inbound processing (#53328) (#65461) * fix: sendPolicy deny suppresses delivery, not inbound processing (#53328) Previously, sendPolicy \"deny\" returned early before the agent dispatch, preventing the agent from ever seeing the message. This broke the use case of an agent listening on WhatsApp groups with sendPolicy: deny to read messages without replying — the agent couldn't read them at all. Move the deny gate from before the agent dispatch to after it. The agent now processes inbound messages normally (context, memory, tool calls), but all outbound delivery paths are suppressed: final replies, tool results, block replies, working status, plan updates, typing indicators, and TTS payloads. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: propagate sendPolicy to ACP tail dispatch instead of hardcoded allow The ACP tail dispatch path (ctx.AcpDispatchTailAfterReset) was passing sendPolicy: \"allow\" unconditionally, which would bypass delivery suppression in a /reset turn when the session has sendPolicy deny. Pass through the resolved sendPolicy so the tail dispatch respects it. Co-Authored-By: Claude Opus 4.6 (1M context) * fix: guard before_dispatch hook and ACP tail dispatch under sendPolicy deny before_dispatch handled replies were leaking through sendFinalPayload before the suppressDelivery guard was checked. ACP tail dispatch (from /new ) was being rejected by acp-runtime.ts deny checks instead of proceeding with delivery suppression handled downstream. Co-Authored-By: Claude Opus 4.6 (1M context) * auto-reply: propagate deny suppression to reply_dispatch * fix(acp): suppress onReplyStart when user delivery is denied When sendPolicy resolves to \"deny\", ACP tail dispatch still invoked onReplyStart via startReplyLifecycle before the suppressUserDelivery check. Channels wire onReplyStart to typing indicators, so deny-scoped sessions could still emit outbound typing events on /reset flows and command bypass paths. Gate startReplyLifecycleOnce on suppressUserDelivery so the lifecycle is marked started but the callback is skipped. Payload delivery was already suppressed; this closes the typing-indicator leak flagged by Codex review (PR #65461 P1/P2). * fix(acp): route non-tail deny turns through ACP when suppression is wired tryDispatchAcpReplyHook was returning early for non-tail, non-command ACP turns under sendPolicy: \"deny\", causing ACP-bound sessions to fall back to the embedded reply path instead of flowing through acpManager.runTurn. That diverged ACP session state, tool calls, and memory whenever delivery suppression was active. Now the early-return only fires when sendPolicy is \"deny\" AND the event lacks suppressUserDelivery — i.e., when downstream delivery suppression is not wired up. When suppressUserDelivery is set, dispatch-acp-delivery already drops outbound sends (see onReplyStart / deliver guards), so ACP can safely run the turn with state consistency preserved. Existing behavior preserved: - Command bypass still overrides deny - Tail dispatch still overrides deny - Plain-text deny turns without suppression still short-circuit Addresses Codex bot P1 feedback on #65461. * fix: gate empty-body typing indicator behind suppressTyping (#53328) * fix: guard plugin-binding + fast-abort outbound paths under sendPolicy deny The original PR computed suppressDelivery inside the try block, which was after two outbound paths: 1. The plugin-owned binding block (sendBindingNotice calls for unavailable/declined/error outcomes, plus the plugin's own \"handled\" outcome) ran before the suppressDelivery flag existed, so plugin notices still leaked under deny. 2. The fast-abort path dispatched \"Agent was aborted.\" via routeReplyToOriginating / sendFinalReply before the flag existed. Move resolveSendPolicy() above the plugin-binding block so suppressDelivery covers every outbound path downstream, matching the PR description's claim that \"all outbound paths are guarded by the flag.\" Plugin-bound inbound handling under deny: plugin handlers can emit outbound replies we cannot rewind, so skip the claim hook entirely under deny and fall through to normal (suppressed) agent processing. touchConversationBindingRecord still runs so binding activity stays tracked. Fast-abort under deny: still run the abort and record the completed state, just don't emit the abort reply. Tests: - suppresses the fast-abort reply under sendPolicy deny - delivers the fast-abort reply normally when sendPolicy is allow (regression guard) - skips plugin-bound claim hook under deny and falls through to suppressed agent dispatch Addresses Codex review findings on PR #65461. Co-Authored-By: Claude Opus 4.6 (1M context) --------- Co-authored-by: Lobster Co-authored-by: Claude Opus 4.6 (1M context)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: sendPolicy deny should suppress delivery, not inbound processing…",
-      "summaryZh": "重點：修正: sendPolicy deny should suppress delivery, not inbound processing (#53328) (#65461) * 修正: sendPolicy deny suppresses ..."
-    },
-    {
       "id": 4,
-      "title": "知名致鬱遊戲〈心跳文學社〉遭 Google Play 無預警下架，開發者表示找尋 Android 平台其他發行管道",
-      "link": "https://technews.tw/2026/04/14/google-removes-doki-doki-literature-club-from-the-play-store/",
-      "publishedAt": "Mon, 13 Apr 2026 23:40:58 +0000",
-      "summary": "Google 宣布廣受歡迎的心理恐怖遊戲〈心跳文學社〉（ドキドキ文芸部，Doki Doki Literatur [&#8230;]",
+      "title": "Netflix 遊戲控制器 App 爆紅，下載量暴增超越多款 AI 應用",
+      "link": "https://technews.tw/2026/04/14/netflix-game-controller/",
+      "publishedAt": "Tue, 14 Apr 2026 02:40:46 +0000",
+      "summary": "Netflix 的 Netflix Game Controller 應用軟體近日意外躍居蘋果（Apple）Ap [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "從「多元族群」出發，精準醫療才能真正走向每個人",
-      "link": "https://technews.tw/2026/04/14/advancing-precision-health-discovery-in-a-genetically-diverse-health-system/",
-      "publishedAt": "Mon, 13 Apr 2026 23:30:54 +0000",
-      "summary": "近年「精準醫療」（precision medicine）已成為醫學重要方向，核心在根據個體基因特性（genet [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(slack): align interaction auth with allowlists (#66028)",
+      "link": "https://github.com/openclaw/openclaw/commit/1c35795fce9acb429a7598633e863d1e312dcf68",
+      "publishedAt": "2026-04-14T02:38:11Z",
+      "summary": "fix(slack): align interaction auth with allowlists (#66028) * fix(slack): align interaction auth with allowlists * fix(slack): address review followups * fix(slack): preserve explicit owners with wildcard * chore: append Claude comments resolution worklog * fix(slack): harden interaction auth with default-deny, mandatory actor binding, and channel type validation - Add interactiveEvent flag to authorizeSlackSystemEventSender for stricter interactive control authorization - Default-deny when no allowFrom or channel users are configured for interactive events (block actions, modals) - Require expectedSenderId for all interactive event types; block actions pass Slack-verified userId, modals pass metadata-embedded userId - Reject ambiguous channel types for interactive events to prevent DM authorization bypass via channel-type fallback - Add comprehensive test coverage for all new behaviors * fix(slack): scope interactive owner/allowFrom enforcement to interactive paths only * fix(slack): preserve no-channel interactive default * Update context-engine-maintenance test * chore: remove USER.md worklog artifact Co-Authored-By: Claude Opus 4.6 (1M context) * changelog: note Slack interactive auth allowlist alignment (#66028) --------- Co-authored-by: Claude Opus 4.6 (1M context) Co-authored-by: Devin Robison",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): align interaction auth with allowlists (#66028)",
+      "summaryZh": "重點：修正(slack): align interaction auth with allowlists (#66028) * 修正(slack): align interaction auth with allowlists * 修正(slac..."
     },
     {
       "id": 6,
-      "title": "三星 2 奈米良率僅 40% 難追台積電，期望多搶訂單以工代訓推一把",
-      "link": "https://finance.technews.tw/2026/04/14/samsungs-2nm-yield-is-the-worst-at-only-40-making-it-difficult-to-catch-up-with-tsmc/",
-      "publishedAt": "Mon, 13 Apr 2026 23:30:42 +0000",
-      "summary": "在市場傳出韓國三星晶圓代工 2 奈米良率不佳，行動處理器大廠高通考慮回頭下單台積電的消息之後，根據韓國媒體報導 [&#8230;]",
+      "title": "搶攻 2 奈米以下 GAA 製程！應材推 2 沉積設備進軍埃米時代",
+      "link": "https://technews.tw/2026/04/14/applied-materials-manufacturing-equipment/",
+      "publishedAt": "Tue, 14 Apr 2026 02:35:23 +0000",
+      "summary": "應材近日推出兩款晶片製造系統，專為打造全球最先進邏輯晶片中的最微小特徵結構而設計。這些技術透過原子級的精度控制 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "為何英特爾睽違兩年半之後，股價拉出一波連九漲高達 58% 漲勢？",
-      "link": "https://finance.technews.tw/2026/04/14/after-a-two-and-a-half-year-hiatus-intels-stock-price-surged-for-nine-consecutive-days-rising-by-a-staggering-58/",
-      "publishedAt": "Mon, 13 Apr 2026 23:30:30 +0000",
-      "summary": "美國半導體大廠英特爾 （Intel） 近期在資本市場與產業佈局上獲得了史詩級的逆轉。受惠於一系列重大戰略合作與 [&#8230;]",
+      "title": "金仁寶車電技術全面升級！金寶智慧座艙、康舒 800V 電源模組亮相",
+      "link": "https://finance.technews.tw/2026/04/14/intelligent-vehicle-ecosystem/",
+      "publishedAt": "Tue, 14 Apr 2026 02:34:25 +0000",
+      "summary": "金仁寶集團今日聯合集團旗下金寶、康舒科技與仁寶參與「台北國際車用電子展」，以「智慧汽車生態系」為主題，展示從車 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "test: align failover source model expectation",
-      "link": "https://github.com/openclaw/openclaw/commit/07b839f9b164def1e3bf3ca90efac7dff65febc7",
-      "publishedAt": "2026-04-13T23:16:03Z",
-      "summary": "test: align failover source model expectation",
+      "title": "fix: include apiKey in codex provider catalog to unblock models.json …",
+      "link": "https://github.com/openclaw/openclaw/commit/49d99c75001407821030a51e804c1ff22c26c2c8",
+      "publishedAt": "2026-04-14T02:22:09Z",
+      "summary": "fix: include apiKey in codex provider catalog to unblock models.json loading (#66180) Merged via squash. Prepared head SHA: ce61934ac9dd0de8702546bc63d9ec7f303b7a4f Co-authored-by: hoyyeva Co-authored-by: BruceMacD Reviewed-by: @BruceMacD",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: align failover source 模型 expectation",
-      "summaryZh": "重點：test: align failover source 模型 expectation..."
+      "titleZh": "OpenClaw 程式碼更新：修正: include apiKey in codex provider catalog to unblock 模型.json …",
+      "summaryZh": "重點：修正: include apiKey in codex provider catalog to unblock 模型.json loading (#66180) Merged via squash. Prepared head SHA: c..."
     },
     {
       "id": 9,
-      "title": "docs(changelog): note perf fixes",
-      "link": "https://github.com/openclaw/openclaw/commit/12246711d800ef3246e2d68c870ae9e9440502e3",
-      "publishedAt": "2026-04-13T23:10:46Z",
-      "summary": "docs(changelog): note perf fixes",
-      "source": "OpenClaw Commits",
+      "title": "openclaw 2026.4.14-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.14-beta.1",
+      "publishedAt": "2026-04-14T02:18:14Z",
+      "summary": "Changes Telegram/forum topics: surface human topic names in agent context, prompt metadata, and plugin hook metadata by learning names from Telegram forum service messages. (#65973) Thanks @ptahdunbar. Fixes UI/chat: replace marked.js with markdown-it so maliciously crafted markdown can no longer freeze the Control UI via ReDoS. (#46707) Thanks @zhangfnf. Auto-reply/send policy: keep sendPolicy: \"deny\" from blocking inbound message processing, so the agent still runs its turn while all outbound delivery is suppressed for observer-style setups. (#65461, #53328) Thanks @omarshahine. BlueBubbles: lazy-refresh the Private API server-info cache on send when reply threading or message effects are requested but status is unknown, so sends no longer silently degrade to plain messages when the 10-minute cache expires. (#65447, #43764) Thanks @omarshahine. Heartbeat/security: force owner downgrade for untrusted hook:wake system events [AI-assisted]. (#66031) Thanks @pgondhi987. Browser/security: enforce SSRF policy on snapshot, screenshot, and tab routes [AI]. (#66040) Thanks @pgondhi987. Microsoft Teams/security: enforce sender allowlist checks on SSO signin invokes [AI]. (#66033) Thanks @pgondhi987. Config/security: redact sourceConfig and runtimeConfig alias fields in redactConfigSnapshot [AI]. (#66030) Thanks @pgondhi987. Agents/context engines: run opt-in turn maintenance as idle-aware background work so the next foreground turn no longer waits on proactive maintenance. (#65233) Thanks @100yenadmin. Plugins/status: report the registered context-engine IDs in plugins inspect instead of the owning plugin ID, so non-matching engine IDs and multi-engine plugins are classified correctly. (#58766) Thanks @zhuisDEV. Context engines: reject resolved plugin engines whose reported info.id does not match their registered slot id, so malformed engines fail fast before id-based runtime branches can misbehave. (#63222) Thanks @fuller-stack-dev. WhatsApp: patch installed Baileys media encryption writes during OpenClaw postinstall so the default npm/install.sh delivery path waits for encrypted media files to finish flushing before readback, avoiding transient ENOENT crashes on image sends. (#65896) Thanks @frankekn. Gateway/update: unify service entrypoint resolution around the canonical bundled gateway entrypoint so update, reinstall, and doctor repair stop drifting between stale dist/entry.js and current dist/index.js paths. (#65984) Thanks @mbelinky. Heartbeat/Telegram topics: keep isolated heartbeat replies on the bound forum topic when target=last, instead of dropping them into the group root chat. (#66035) Thanks @mbelinky. Browser/CDP: let managed local Chrome readiness, status probes, and managed loopback CDP control bypass browser SSRF policy for their own loopback control plane, so OpenClaw no longer misclassifies a healthy child browser as \"not reachable after start\". (#65695, #66043) Thanks @mbelinky. Gateway/sessions: stop heartbeat, cron-event, and exec-event turns from overwriting shared-session routing and origin metadata, preventing synthetic heartbeat targets from poisoning later cron or user delivery. (#66073, #63733, #35300) Thanks @mbelinky. Browser/CDP: let local attach-only manual-cdp profiles reuse the local loopback CDP control plane under strict default policy and remote-class probe timeouts, so tabs/snapshot stop falsely reporting a live local browser session as not running. (#65611, #66080) Thanks @mbelinky. Cron/scheduler: stop inventing short retries when cron next-run calculation returns no valid future slot, and keep a maintenance wake armed so enabled unscheduled jobs recover without entering a refire loop. (#66019, #66083) Thanks @mbelinky. Cron/scheduler: preserve the active error-backoff floor when maintenance repair recomputes a missing cron next-run, so recurring errored jobs do not resume early after a transient next-run resolution failure. (#66019, #66083, #66113) Thanks @mbelinky. Outbound/delivery-queue: persist the originating outbound session context on queued delivery entries and replay it during recovery, so write-ahead-queued sends keep their original outbound media policy context after restart instead of evaluating against a missing session. (#66025) Thanks @eleqtrizit. Auto-reply/queue: split collect-mode followup drains into contiguous groups by per-message authorization context (sender id, owner status, exec/bash-elevated overrides), so queued items from different senders or exec configs no longer execute under the last queued run's owner-only and exec-approval context. (#66024) Thanks @eleqtrizit. Dreaming/memory-core: require a live queued Dreaming cron event before the heartbeat hook runs the sweep, so managed Dreaming no longer replays on later heartbeats after the scheduled run was already consumed. (#66139) Thanks @mbelinky. Control UI/Dreaming: stop Imported Insights and Memory Palace from calling optional memory-wiki gateway methods when the plugin is off, and refresh config before wiki reloads so the Dreaming tab stops showing misleading unknown-method failures. (#66140) Thanks @mbelinky. Agents/tools: only mark streamed unknown-tool retries as counted when a streamed message actually classifies an unavailable tool, and keep incomplete streamed tool names from resetting the retry streak before the final assistant message arrives. (#66145) Thanks @dutifulbob. Memory/active-memory: move recalled memory onto the hidden untrusted prompt-prefix path instead of system prompt injection, label the visible Active Memory status line fields, and include the resolved recall provider/model in gateway debug logs so trace/debug output matches what the model actually saw. (#66144) Thanks @Takhoffman. Memory/QMD: stop treating legacy lowercase memory.md as a second default root collection, so QMD recall no longer searches phantom memory-alt-* collections and builtin/QMD root-memory fallback stays aligned. (#66141) Thanks @mbelinky. Agents/OpenAI: map minimal thinking to OpenAI's supported low reasoning effort for GPT-5.4 requests, so embedded runs stop failing request validation. Thanks @steipete. Voice-call/media-stream: resolve the source IP from trusted forwarding headers for per-IP pending-connection limits when webhookSecurity.trustForwardingHeaders and trustedProxyIPs are configured, and reserve maxConnections capacity for in-flight WebSocket upgrades so concurrent handshakes can no longer momentarily exceed the operator-set cap. (#66027) Thanks @eleqtrizit. Feishu/allowlist: canonicalize allowlist entries by explicit user/chat kind, strip repeated feishu:/lark: provider prefixes, and stop folding opaque Feishu IDs to lowercase, so allowlist matching no longer crosses user/chat namespaces or widens to case-insensitive ID matches the operator did not intend. (#66021) Thanks @eleqtrizit. TTS/reply media: persist OpenClaw temp voice outputs into managed outbound media and allow them through reply-media normalization, so voice-note replies stop silently dropping. (#63511) Thanks @jetd1. Agents/tools: treat Windows drive-letter paths (C:\\\\...) as absolute when resolving sandbox and read-tool paths so workspace root is not prepended under POSIX path rules. (#54039) Thanks @ly85206559 and @vincentkoc. Agents/OpenAI: recover embedded GPT-style runs when reasoning-only or empty turns need bounded continuation, with replay-safe retry gating and incomplete-turn fallback when no visible answer arrives. (#66167) thanks @jalehman Outbound/relay-status: suppress internal relay-status placeholder payloads (No channel reply., Replied in-thread., Replied in #..., wiki-update status variants ending in No channel reply.) before channel delivery so internal housekeeping text does not leak to users. Slack/doctor: add a dedicated doctor-contract sidecar so config warmup paths such as openclaw cron no longer fall back to Slack's broader contract surface, which could trigger Slack-related config-read crashes on affected setups. (#63192) Thanks @shhtheonlyperson. Hooks/session-memory: pass the resolved agent workspace into gateway /new and /reset session-memory hooks so reset snapshots stay scoped to the right agent workspace instead of leaking into the default workspace. (#64735) Thanks @suboss87 and @vincentkoc.",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): note perf 修正",
-      "summaryZh": "重點：文件(changelog): note perf 修正..."
+      "titleZh": "OpenClaw 版本更新：2026.4.14-beta.1",
+      "summaryZh": "重點：Changes Telegram/forum topics: surface human topic names in agent context, prompt metadata, and plugin hook metadata by ..."
     },
     {
       "id": 10,
-      "title": "fix(ci): mirror whatsapp runtime dependency",
-      "link": "https://github.com/openclaw/openclaw/commit/9376f52419bc523a979e8b8b15552f569c92918b",
-      "publishedAt": "2026-04-13T23:01:44Z",
-      "summary": "fix(ci): mirror whatsapp runtime dependency",
+      "title": "build: prune runtime dependency type declarations",
+      "link": "https://github.com/openclaw/openclaw/commit/44da6d2e9067d5ac4464b6e89872701254266694",
+      "publishedAt": "2026-04-14T02:17:46Z",
+      "summary": "build: prune runtime dependency type declarations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): mirror whatsapp runtime dependency",
-      "summaryZh": "重點：修正(ci): mirror whatsapp runtime dependency..."
+      "titleZh": "OpenClaw 程式碼更新：build: prune runtime dependency type declarations",
+      "summaryZh": "重點：build: prune runtime dependency type declarations..."
     }
   ]
 }
