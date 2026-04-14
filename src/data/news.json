@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-14T19:18:36.601Z",
+  "generatedAt": "2026-04-14T20:56:25.933Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(plugin-sdk): fall back from dist facade overrides to source surfaces",
-      "link": "https://github.com/openclaw/openclaw/commit/34f9211e5ccf1d79540b653cded1a47accf9072b",
-      "publishedAt": "2026-04-14T19:06:26Z",
-      "summary": "fix(plugin-sdk): fall back from dist facade overrides to source surfaces",
+      "title": "fix(agents): preserve original prompt on model fallback retry (#65760…",
+      "link": "https://github.com/openclaw/openclaw/commit/70b67b0c68de30677c86c3fc4ef9fe1ce75ff37f",
+      "publishedAt": "2026-04-14T20:47:01Z",
+      "summary": "fix(agents): preserve original prompt on model fallback retry (#65760) (#66029) Merged via squash. Prepared head SHA: ba919d19348f392cec5da8f0bf73c0733061a13b Co-authored-by: WuKongAI-CMU Co-authored-by: altaywtf Reviewed-by: @altaywtf",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugin-sdk): fall back from dist facade overrides to source surfaces",
-      "summaryZh": "重點：修正(plugin-sdk): fall back from dist facade overrides to source surfaces..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve original prompt on 模型 fallback retry (#65760…",
+      "summaryZh": "重點：修正(agents): preserve original prompt on 模型 fallback retry (#65760) (#66029) Merged via squash. Prepared head SHA: ba919d..."
     },
     {
       "id": 2,
-      "title": "test(slack): harden fixture cleanup retries",
-      "link": "https://github.com/openclaw/openclaw/commit/df956f81629fa8c8e96ea2731cfcf2d6bdce2b6f",
-      "publishedAt": "2026-04-14T18:51:21Z",
-      "summary": "test(slack): harden fixture cleanup retries",
+      "title": "tests: fix Feishu card action runtime mock typing",
+      "link": "https://github.com/openclaw/openclaw/commit/f958e311d23da644b94e5278ae22e6d246a5d8a2",
+      "publishedAt": "2026-04-14T20:38:01Z",
+      "summary": "tests: fix Feishu card action runtime mock typing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(slack): harden 修正ture cleanup retries",
-      "summaryZh": "重點：test(slack): harden 修正ture cleanup retries..."
+      "titleZh": "OpenClaw 程式碼更新：tests: 修正 Feishu card action runtime mock typing",
+      "summaryZh": "重點：tests: 修正 Feishu card action runtime mock typing..."
     },
     {
       "id": 3,
-      "title": "test(contracts): fix readonly sentinel matcher types",
-      "link": "https://github.com/openclaw/openclaw/commit/c2a192a48a1d3090365ced05cc3417c608e544f5",
-      "publishedAt": "2026-04-14T18:45:11Z",
-      "summary": "test(contracts): fix readonly sentinel matcher types",
+      "title": "fix(reply): classify billing cooldown summaries (#66363)",
+      "link": "https://github.com/openclaw/openclaw/commit/bb14412e8741ffefe13b119a4c62af12c8c55fee",
+      "publishedAt": "2026-04-14T20:35:04Z",
+      "summary": "fix(reply): classify billing cooldown summaries (#66363) Merged via squash. Prepared head SHA: 8cfc42a7ac31f98501789ac4dbd79f5a962e3611 Co-authored-by: Rohan5commit Co-authored-by: altaywtf Reviewed-by: @altaywtf",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(contracts): 修正 readonly sentinel matcher types",
-      "summaryZh": "重點：test(contracts): 修正 readonly sentinel matcher types..."
+      "titleZh": "OpenClaw 程式碼更新：修正(reply): classify billing cooldown summaries (#66363)",
+      "summaryZh": "重點：修正(reply): classify billing cooldown summaries (#66363) Merged via squash. Prepared head SHA: 8cfc42a7ac31f98501789ac4db..."
     },
     {
       "id": 4,
-      "title": "test(contracts): refresh plugin boundary expectations",
-      "link": "https://github.com/openclaw/openclaw/commit/c7f08d19eaa246213ea9d184889ef49534ae9c20",
-      "publishedAt": "2026-04-14T18:39:33Z",
-      "summary": "test(contracts): refresh plugin boundary expectations",
+      "title": "Harden MCP loopback request validation (#66665)",
+      "link": "https://github.com/openclaw/openclaw/commit/62430d9f3aa4caae13b3b7b988cbd497eb936cf2",
+      "publishedAt": "2026-04-14T20:32:05Z",
+      "summary": "Harden MCP loopback request validation (#66665) * fix(mcp): harden loopback request guards * fix(commit): block staged user log * Revert pre-commit USER.md guard from this PR Out of scope for the MCP loopback hardening — keep this PR focused on the loopback request gate and the bearer-comparison fix. The pre-commit worklog guard can land separately if maintainers want it. * changelog: note MCP loopback constant-time + Origin guard (#66665) * fix(mcp): allow loopback flows that browsers flag as cross-site The previous Sec-Fetch-Site early-return rejected legit local browser callers like a UI hosted on http://localhost: talking to MCP on http://127.0.0.1: — browsers report that host mismatch as cross-site even though both ends are loopback. checkBrowserOrigin already authorizes those via its local-loopback matcher (loopback peer + loopback Origin host), so route every Origin-bearing request through that helper and let it decide. Native MCP clients (no Origin header) continue to short-circuit through to the bearer check unchanged. Adds a regression test asserting that origin: http://localhost:43123, sec-fetch-site: cross-site from a loopback peer is accepted with a valid bearer. --------- Co-authored-by: Devin Robison",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(contracts): refresh plugin boundary expectations",
-      "summaryZh": "重點：test(contracts): refresh plugin boundary expectations..."
+      "titleZh": "OpenClaw 程式碼更新：Harden MCP loopback request validation (#66665)",
+      "summaryZh": "重點：Harden MCP loopback request validation (#66665) * 修正(mcp): harden loopback request guards * 修正(提交): block staged user lo..."
     },
     {
       "id": 5,
