@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-04-14T13:44:37.794Z",
+  "generatedAt": "2026-04-14T15:14:58.439Z",
   "items": [
     {
       "id": 1,
-      "title": "docs: modernize showcase page (#48493) (thanks @jchopard69) (#48493)",
-      "link": "https://github.com/openclaw/openclaw/commit/dae060390b1d17aa949c4a1a0c12fbc3b1eedb79",
-      "publishedAt": "2026-04-14T13:42:04Z",
-      "summary": "docs: modernize showcase page (#48493) (thanks @jchopard69) (#48493) Co-authored-by: Jordan Simon-Chopard",
+      "title": "fix(plugin-sdk): route shared stream helpers through one barrel",
+      "link": "https://github.com/openclaw/openclaw/commit/3487e7f8e266fb38b8b05cf2ec0fde145215d82a",
+      "publishedAt": "2026-04-14T15:12:59Z",
+      "summary": "fix(plugin-sdk): route shared stream helpers through one barrel",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: modernize showcase page (#48493) (thanks @jchopard69) (#48493)",
-      "summaryZh": "重點：文件: modernize showcase page (#48493) (thanks @jchopard69) (#48493) Co-authored-by: Jordan Simon-Chopard..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugin-sdk): route shared stream helpers through one barrel",
+      "summaryZh": "重點：修正(plugin-sdk): route shared stream helpers through one barrel..."
     },
     {
       "id": 2,
-      "title": "fix(whatsapp): harden Baileys media upload hotfix (#65966)",
-      "link": "https://github.com/openclaw/openclaw/commit/d86527d8c6d53113a901abb277b5c9b96326e049",
-      "publishedAt": "2026-04-14T13:34:23Z",
-      "summary": "fix(whatsapp): harden Baileys media upload hotfix (#65966) Merged via squash. Prepared head SHA: b5db59b8feac73eda70f98c360725030c124cba8 Co-authored-by: frankekn Co-authored-by: frankekn Reviewed-by: @frankekn",
+      "title": "fix(plugins): share native anthropic replay hooks",
+      "link": "https://github.com/openclaw/openclaw/commit/e121889a9fedc26823246d1e6cc0d0ffd7d4aefc",
+      "publishedAt": "2026-04-14T15:07:16Z",
+      "summary": "fix(plugins): share native anthropic replay hooks",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): harden Baileys media upload hot修正 (#65966)",
-      "summaryZh": "重點：修正(whatsapp): harden Baileys media upload hot修正 (#65966) Merged via squash. Prepared head SHA: b5db59b8feac73eda70f98c36..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): share native anthropic replay hooks",
+      "summaryZh": "重點：修正(plugins): share native anthropic replay hooks..."
     },
     {
       "id": 3,
-      "title": "openclaw 2026.4.14",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.14",
-      "publishedAt": "2026-04-14T13:03:29Z",
-      "summary": "OpenClaw 2026.4.14 is another broad quality release focused on model provider with explicit turn improvements for GPT-5 family and channel provider issues. Additionally we improved overal performance with refactors to our underlying core codebase. Changes OpenAI Codex/models: add forward-compat support for gpt-5.4-pro, including Codex pricing/limits and list/status visibility before the upstream catalog catches up. (#66453) Thanks @jepson-liu. Telegram/forum topics: surface human topic names in agent context, prompt metadata, and plugin hook metadata by learning names from Telegram forum service messages. (#65973) Thanks @ptahdunbar. Fixes Agents/Ollama: forward the configured embedded-run timeout into the global undici stream timeout tuning so slow local Ollama runs no longer inherit the default stream cutoff instead of the operator-set run timeout. (#63175) Thanks @mindcraftreader and @vincentkoc. Models/Codex: include apiKey in the codex provider catalog output so the Pi ModelRegistry validator no longer rejects the entry and silently drops all custom models from every provider in models.json. (#66180) Thanks @hoyyeva. Tools/image+pdf: normalize configured provider/model refs before media-tool registry lookup so image and PDF tool runs stop rejecting valid Ollama vision models as unknown just because the tool path skipped the usual model-ref normalization step. (#59943) Thanks @yqli2420 and @vincentkoc. Slack/interactions: apply the configured global allowFrom owner allowlist to channel block-action and modal interactive events, require an expected sender id for cross-verification, and reject ambiguous channel types so interactive triggers can no longer bypass the documented allowlist intent in channels without a users list. Open-by-default behavior is preserved when no allowlists are configured. (#66028) Thanks @eleqtrizit. Media-understanding/attachments: fail closed when a local attachment path cannot be canonically resolved via realpath, so a realpath error can no longer downgrade the canonical-roots allowlist check to a non-canonical comparison; attachments that also have a URL still fall back to the network fetch path. (#66022) Thanks @eleqtrizit. Agents/gateway-tool: reject config.patch and config.apply calls from the model-facing gateway tool when they would newly enable any flag enumerated by openclaw security audit (for example dangerouslyDisableDeviceAuth, allowInsecureAuth, dangerouslyAllowHostHeaderOriginFallback, hooks.gmail.allowUnsafeExternalContent, tools.exec.applyPatch.workspaceOnly: false); already-enabled flags pass through unchanged so non-dangerous edits in the same patch still apply, and direct authenticated operator RPC behavior is unchanged. (#62006) Thanks @eleqtrizit. Google image generation: strip a trailing /openai suffix from configured Google base URLs only when calling the native Gemini image API so Gemini image requests stop 404ing without breaking explicit OpenAI-compatible Google endpoints. (#66445) Thanks @dapzthelegend. Telegram/forum topics: persist learned topic names to the Telegram session sidecar store so agent context can keep using human topic names after a restart instead of relearning from future service metadata. (#66107) Thanks @obviyus. Doctor/systemd: keep openclaw doctor --repair and service reinstall from re-embedding dotenv-backed secrets in user systemd units, while preserving newer inline overrides over stale state-dir .env values. (#66249) Thanks @tmimmanuel. Ollama/OpenAI-compat: send stream_options.include_usage for Ollama streaming completions so local Ollama runs report real usage instead of falling back to bogus prompt-token counts that trigger premature compaction. (#64568) Thanks @xchunzhao and @vincentkoc. Doctor/plugins: cache external preferOver catalog lookups within each plugin auto-enable pass so large agents.list configs no longer peg CPU and repeatedly reread plugin catalogs during doctor/plugins resolution. (#66246) Thanks @yfge. GitHub Copilot/thinking: allow github-copilot/gpt-5.4 to use xhigh reasoning so Copilot GPT-5.4 matches the rest of the GPT-5.4 family. (#50168) Thanks @jakepresent and @vincentkoc. Memory/embeddings: preserve non-OpenAI provider prefixes when normalizing OpenAI-compatible embedding model refs so proxy-backed memory providers stop failing with Unknown memory embedding provider. (#66452) Thanks @jlapenna. Agents/local models: clarify low-context preflight hints for self-hosted models, point config-backed caps at the relevant OpenClaw setting, and stop suggesting larger models when agents.defaults.contextTokens is the real limit. (#66236) Thanks @ImLukeF. Browser/SSRF: restore hostname navigation under the default browser SSRF policy while keeping explicit strict mode reachable from config, and keep managed loopback CDP /json/new fallback requests on the local CDP control policy so browser follow-up fixes stop regressing normal navigation or self-blocking local CDP control. (#66386) Thanks @obviyus. Models/Codex: canonicalize the legacy openai-codex/gpt-5.4-codex runtime alias to openai-codex/gpt-5.4 while still honoring alias-specific and canonical per-model overrides. (#43060) Thanks @Sapientropic and @vincentkoc. Browser/SSRF: preserve explicit strict browser navigation mode for legacy browser.ssrfPolicy.allowPrivateNetwork: false configs by normalizing the legacy alias to the canonical strict marker instead of silently widening those installs to the default non-strict hostname-navigation path. Onboarding/custom providers: use max_tokens=16 for OpenAI-compatible verification probes so stricter custom endpoints stop rejecting onboarding checks that only need a tiny completion. (#66450) Thanks @WuKongAI-CMU. Agents/subagents: emit the subagent registry lazy-runtime stub on the stable dist path that both source and bundled runtime imports resolve, so the follow-up dist fix no longer still fails with ERR_MODULE_NOT_FOUND at runtime. (#66420) Thanks @obviyus. Media-understanding/proxy env: auto-upgrade provider HTTP helper requests to trusted env-proxy mode only when HTTP_PROXY/HTTPS_PROXY is active and the target is not bypassed by NO_PROXY, so remote media-understanding and transcription requests stop failing local DNS pre-resolution in proxy-only environments without widening SSRF bypasses. (#52162) Thanks @mjamiv and @vincentkoc. Telegram/media downloads: let Telegram media fetches trust an operator-configured explicit proxy for target DNS resolution after hostname-policy checks, so proxy-backed installs stop failing could not download media on Bot API file downloads after the DNS-pinning regression. (#66245) Thanks @dawei41468 and @vincentkoc. Browser: keep loopback CDP readiness checks reachable under strict SSRF defaults so OpenClaw can reconnect to locally started managed Chrome. (#66354) Thanks @hxy91819. Agents/context engine: compact engine-owned sessions from the first tool-loop delta and preserve ingest fallback when afterTurn is absent, so long-running tool loops can stay bounded without dropping engine state. (#63555) Thanks @Bikkies. OpenAI Codex/auth: keep malformed Codex CLI auth-file diagnostics on the debug logger instead of stdout so interactive command output stays clean while auth read failures remain traceable. (#66451) Thanks @SimbaKingjoe. Discord/native commands: return the real status card for native /status interactions instead of falling through to the synthetic ✅ Done. ack when the generic dispatcher produces no visible reply. (#54629) Thanks @tkozzer and @vincentkoc. Hooks/Ollama: let LLM-backed session-memory slug generation honor an explicit agents.defaults.timeoutSeconds override instead of always aborting after 15 seconds, so slow local Ollama runs stop silently dropping back to generic filenames. (#66237) Thanks @dmak and @vincentkoc. Media/transcription: remap .aac filenames to .m4a for OpenAI-compatible audio uploads so AAC voice notes stop failing MIME-sensitive transcription endpoints. (#66446) Thanks @ben-z. UI/chat: replace marked.js with markdown-it so maliciously crafted markdown can no longer freeze the Control UI via ReDoS. (#46707) Thanks @zhangfnf. Auto-reply/send policy: keep sendPolicy: \"deny\" from blocking inbound message processing, so the agent still runs its turn while all outbound delivery is suppressed for observer-style setups. (#65461, #53328) Thanks @omarshahine. BlueBubbles: lazy-refresh the Private API server-info cache on send when reply threading or message effects are requested but status is unknown, so sends no longer silently degrade to plain messages when the 10-minute cache expires. (#65447, #43764) Thanks @omarshahine. Heartbeat/security: force owner downgrade for untrusted hook:wake system events [AI-assisted]. (#66031) Thanks @pgondhi987. Browser/security: enforce SSRF policy on snapshot, screenshot, and tab routes [AI]. (#66040) Thanks @pgondhi987. Microsoft Teams/security: enforce sender allowlist checks on SSO signin invokes [AI]. (#66033) Thanks @pgondhi987. Config/security: redact sourceConfig and runtimeConfig alias fields in redactConfigSnapshot [AI]. (#66030) Thanks @pgondhi987. Agents/context engines: run opt-in turn maintenance as idle-aware background work so the next foreground turn no longer waits on proactive maintenance. (#65233) Thanks @100yenadmin. Plugins/status: report the registered context-engine IDs in plugins inspect instead of the owning plugin ID, so non-matching engine IDs and multi-engine plugins are classified correctly. (#58766) Thanks @zhuisDEV. Context engines: reject resolved plugin engines whose reported info.id does not match their registered slot id, so malformed engines fail fast before id-based runtime branches can misbehave. (#63222) Thanks @fuller-stack-dev. WhatsApp: patch installed Baileys media encryption writes during OpenClaw postinstall so the default npm/install.sh delivery path waits for encrypted media files to finish flushing before readback, avoiding transient ENOENT crashes on image sends. (#65896) Thanks @frankekn. Gateway/update: unify service entrypoint resolution around the canonical bundled gateway entrypoint so update, reinstall, and doctor repair stop drifting between stale dist/entry.js and current dist/index.js paths. (#65984) Thanks @mbelinky. Heartbeat/Telegram topics: keep isolated heartbeat replies on the bound forum topic when target=last, instead of dropping them into the group root chat. (#66035) Thanks @mbelinky. Browser/CDP: let managed local Chrome readiness, status probes, and managed loopback CDP control bypass browser SSRF policy for their own loopback control plane, so OpenClaw no longer misclassifies a healthy child browser as \"not reachable after start\". (#65695, #66043) Thanks @mbelinky. Gateway/sessions: stop heartbeat, cron-event, and exec-event turns from overwriting shared-session routing and origin metadata, preventing synthetic heartbeat targets from poisoning later cron or user delivery. (#66073, #63733, #35300) Thanks @mbelinky. Browser/CDP: let local attach-only manual-cdp profiles reuse the local loopback CDP control plane under strict default policy and remote-class probe timeouts, so tabs/snapshot stop falsely reporting a live local browser session as not running. (#65611, #66080) Thanks @mbelinky. Cron/scheduler: stop inventing short retries when cron next-run calculation returns no valid future slot, and keep a maintenance wake armed so enabled unscheduled jobs recover without entering a refire loop. (#66019, #66083) Thanks @mbelinky. Cron/scheduler: preserve the active error-backoff floor when maintenance repair recomputes a missing cron next-run, so recurring errored jobs do not resume early after a transient next-run resolution failure. (#66019, #66083, #66113) Thanks @mbelinky. Outbound/delivery-queue: persist the originating outbound session context on queued delivery entries and replay it during recovery, so write-ahead-queued sends keep their original outbound media policy context after restart instead of evaluating against a missing session. (#66025) Thanks @eleqtrizit. Memory/Ollama: restore the built-in ollama embedding adapter in memory-core so explicit memorySearch.provider: \"ollama\" works again, and include endpoint-aware cache keys so different Ollama hosts do not reuse each other's embeddings. (#63429, #66078, #66163) Thanks @nnish16 and @vincentkoc. Auto-reply/queue: split collect-mode followup drains into contiguous groups by per-message authorization context (sender id, owner status, exec/bash-elevated overrides), so queued items from different senders or exec configs no longer execute under the last queued run's owner-only and exec-approval context. (#66024) Thanks @eleqtrizit. Dreaming/memory-core: require a live queued Dreaming cron event before the heartbeat hook runs the sweep, so managed Dreaming no longer replays on later heartbeats after the scheduled run was already consumed. (#66139) Thanks @mbelinky. Control UI/Dreaming: stop Imported Insights and Memory Palace from calling optional memory-wiki gateway methods when the plugin is off, and refresh config before wiki reloads so the Dreaming tab stops showing misleading unknown-method failures. (#66140) Thanks @mbelinky. Agents/tools: only mark streamed unknown-tool retries as counted when a streamed message actually classifies an unavailable tool, and keep incomplete streamed tool names from resetting the retry streak before the final assistant message arrives. (#66145) Thanks @dutifulbob. Memory/active-memory: move recalled memory onto the hidden untrusted prompt-prefix path instead of system prompt injection, label the visible Active Memory status line fields, and include the resolved recall provider/model in gateway debug logs so trace/debug output matches what the model actually saw. (#66144) Thanks @Takhoffman. Memory/QMD: stop treating legacy lowercase memory.md as a second default root collection, so QMD recall no longer searches phantom memory-alt-* collections and builtin/QMD root-memory fallback stays aligned. (#66141) Thanks @mbelinky. Agents/subagents: ship dist/agents/subagent-registry.runtime.js in npm builds so runtime: \"subagent\" runs stop stalling in queued after the registry import fails. (#66189) Thanks @yqli2420 and @vincentkoc. Agents/OpenAI: map minimal thinking to OpenAI's supported low reasoning effort for GPT-5.4 requests, so embedded runs stop failing request validation. Thanks @steipete. Voice-call/media-stream: resolve the source IP from trusted forwarding headers for per-IP pending-connection limits when webhookSecurity.trustForwardingHeaders and trustedProxyIPs are configured, and reserve maxConnections capacity for in-flight WebSocket upgrades so concurrent handshakes can no longer momentarily exceed the operator-set cap. (#66027) Thanks @eleqtrizit. Feishu/allowlist: canonicalize allowlist entries by explicit user/chat kind, strip repeated feishu:/lark: provider prefixes, and stop folding opaque Feishu IDs to lowercase, so allowlist matching no longer crosses user/chat namespaces or widens to case-insensitive ID matches the operator did not intend. (#66021) Thanks @eleqtrizit. Telegram/status commands: let read-only status slash commands bypass busy topic turns, while keeping /export-session on the normal lane so it cannot interleave with an in-flight session mutation. (#66226) Thanks @VACInc and @vincentkoc. TTS/reply media: persist OpenClaw temp voice outputs into managed outbound media and allow them through reply-media normalization, so voice-note replies stop silently dropping. (#63511) Thanks @jetd1. Agents/tools: treat Windows drive-letter paths (C:\\\\...) as absolute when resolving sandbox and read-tool paths so workspace root is not prepended under POSIX path rules. (#54039) Thanks @ly85206559 and @vincentkoc. Agents/OpenAI: recover embedded GPT-style runs when reasoning-only or empty turns need bounded continuation, with replay-safe retry gating and incomplete-turn fallback when no visible answer arrives. (#66167) thanks @jalehman Outbound/relay-status: suppress internal relay-status placeholder payloads (No channel reply., Replied in-thread., Replied in #..., wiki-update status variants ending in No channel reply.) before channel delivery so internal housekeeping text does not leak to users. Slack/doctor: add a dedicated doctor-contract sidecar so config warmup paths such as openclaw cron no longer fall back to Slack's broader contract surface, which could trigger Slack-related config-read crashes on affected setups. (#63192) Thanks @shhtheonlyperson. Hooks/session-memory: pass the resolved agent workspace into gateway /new and /reset session-memory hooks so reset snapshots stay scoped to the right agent workspace instead of leaking into the default workspace. (#64735) Thanks @suboss87 and @vincentkoc. CLI/approvals: raise the default openclaw approvals get gateway timeout and report config-load timeouts explicitly, so slow hosts stop showing a misleading Config unavailable. note when the approvals snapshot succeeds but the follow-up config RPC needs more time. (#66239) Thanks @neeravmakwana. Media/store: honor configured agent media limits when saving generated media and persisting outbound reply media, so the store no longer hard-stops those flows at 5 MB before the configured limit applies. (#66229) Thanks @neeravmakwana and @vincentkoc.",
-      "source": "OpenClaw Releases",
+      "title": "fix(plugin-sdk): share provider stream wrapper composer",
+      "link": "https://github.com/openclaw/openclaw/commit/135c3848b90b5faf445973bb00b794d0be131fb5",
+      "publishedAt": "2026-04-14T15:05:58Z",
+      "summary": "fix(plugin-sdk): share provider stream wrapper composer",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.4.14",
-      "summaryZh": "重點：OpenClaw 2026.4.14 is another broad quality 版本發布 focused on 模型 provider with explicit turn improvements for GPT-5 family..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugin-sdk): share provider stream wrapper composer",
+      "summaryZh": "重點：修正(plugin-sdk): share provider stream wrapper composer..."
     },
     {
       "id": 4,
-      "title": "test: refresh release verification baselines",
-      "link": "https://github.com/openclaw/openclaw/commit/323493fa1b6adc1e10b9954a68d5eaa5a6ef1170",
-      "publishedAt": "2026-04-14T12:42:03Z",
-      "summary": "test: refresh release verification baselines",
+      "title": "fix(release): verify packaged workspace templates",
+      "link": "https://github.com/openclaw/openclaw/commit/e3c58e04c96a5f00bc9081e4dbf80a31d7adf53d",
+      "publishedAt": "2026-04-14T14:53:36Z",
+      "summary": "fix(release): verify packaged workspace templates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: refresh 版本發布 verification baselines",
-      "summaryZh": "重點：test: refresh 版本發布 verification baselines..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): verify packaged workspace templates",
+      "summaryZh": "重點：修正(版本發布): verify packaged workspace templates..."
     },
     {
       "id": 5,
+      "title": "從活躍星系核看見紅超巨星的命運",
+      "link": "https://technews.tw/2026/04/14/red-supergiant-fate-revealed-through-active-galactic-nuclei/",
+      "publishedAt": "Tue, 14 Apr 2026 14:30:39 +0000",
+      "summary": "宇宙中眾多的化學元素的來源與恆星演化相關，而一個恆星的「出生率」又受到星系中心大質量黑洞的影響。近期，日本 X [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "生成式AI現身3年的普及率為53%，超越PC及網路",
       "link": "https://www.ithome.com.tw/news/175035",
       "publishedAt": "2026-04-14 12:04:59",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "臺灣為何需要首批50款SMART on FHIR App？李建璋：從標準走向應用生態的關鍵一步",
       "link": "https://www.ithome.com.tw/news/175036",
       "publishedAt": "2026-04-14 12:04:08",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "蠕蟲程式GlassWorm透過程式語言Zig打造的載入工具，滲透多款IDE",
       "link": "https://www.ithome.com.tw/news/175034",
       "publishedAt": "2026-04-14 11:04:43",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Booking.com外洩用戶訂房資料、個資",
       "link": "https://www.ithome.com.tw/news/175032",
       "publishedAt": "2026-04-14 11:04:40",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "特斯拉 2026 春季更新：全自駕訂閱制及語音助理 Grok 重磅登場",
       "link": "https://technews.tw/2026/04/14/tesla-spring-update-2026/",
       "publishedAt": "Tue, 14 Apr 2026 10:10:25 +0000",
       "summary": "特斯拉即將推出 2026 年春季更新，含多項令人期待的新功能，特別是全新自駕應用程式，用戶可一次訂閱全自駕（S [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "曝露在網際網路的AI影像生成管理平臺ComfyUI遭到鎖定，駭客試圖用於挖礦、部署殭屍網路",
-      "link": "https://www.ithome.com.tw/news/175031",
-      "publishedAt": "2026-04-14 10:04:42",
-      "summary": "威脅情報公司Censys指出，近期駭客鎖定曝露於網際網路的AI影像生成管理平臺ComfyUI，透過專屬的Python掃描工具於公有雲尋找下手目標，一旦成功入侵，他們就會將受害主機組成殭屍網路，用於挖礦或是架設非法代理伺服器，藉此獲取不法利益。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
