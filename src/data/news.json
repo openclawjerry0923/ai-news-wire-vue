@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-04-14T20:56:25.933Z",
+  "generatedAt": "2026-04-14T21:54:57.911Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): preserve original prompt on model fallback retry (#65760…",
-      "link": "https://github.com/openclaw/openclaw/commit/70b67b0c68de30677c86c3fc4ef9fe1ce75ff37f",
-      "publishedAt": "2026-04-14T20:47:01Z",
-      "summary": "fix(agents): preserve original prompt on model fallback retry (#65760) (#66029) Merged via squash. Prepared head SHA: ba919d19348f392cec5da8f0bf73c0733061a13b Co-authored-by: WuKongAI-CMU Co-authored-by: altaywtf Reviewed-by: @altaywtf",
+      "title": "test(agents): isolate shared subagent state",
+      "link": "https://github.com/openclaw/openclaw/commit/54cf4cd8575b75f654121aee6ea43883e60b1d18",
+      "publishedAt": "2026-04-14T21:49:31Z",
+      "summary": "test(agents): isolate shared subagent state",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve original prompt on 模型 fallback retry (#65760…",
-      "summaryZh": "重點：修正(agents): preserve original prompt on 模型 fallback retry (#65760) (#66029) Merged via squash. Prepared head SHA: ba919d..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): isolate shared subagent state",
+      "summaryZh": "重點：test(agents): isolate shared subagent state..."
     },
     {
       "id": 2,
-      "title": "tests: fix Feishu card action runtime mock typing",
-      "link": "https://github.com/openclaw/openclaw/commit/f958e311d23da644b94e5278ae22e6d246a5d8a2",
-      "publishedAt": "2026-04-14T20:38:01Z",
-      "summary": "tests: fix Feishu card action runtime mock typing",
+      "title": "fix(infra): resolve opened file paths by identity",
+      "link": "https://github.com/openclaw/openclaw/commit/e7dfc88bfa347c898a39162b117f24bbe8705234",
+      "publishedAt": "2026-04-14T21:49:31Z",
+      "summary": "fix(infra): resolve opened file paths by identity",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：tests: 修正 Feishu card action runtime mock typing",
-      "summaryZh": "重點：tests: 修正 Feishu card action runtime mock typing..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): resolve opened file paths by identity",
+      "summaryZh": "重點：修正(infra): resolve opened file paths by identity..."
     },
     {
       "id": 3,
-      "title": "fix(reply): classify billing cooldown summaries (#66363)",
-      "link": "https://github.com/openclaw/openclaw/commit/bb14412e8741ffefe13b119a4c62af12c8c55fee",
-      "publishedAt": "2026-04-14T20:35:04Z",
-      "summary": "fix(reply): classify billing cooldown summaries (#66363) Merged via squash. Prepared head SHA: 8cfc42a7ac31f98501789ac4dbd79f5a962e3611 Co-authored-by: Rohan5commit Co-authored-by: altaywtf Reviewed-by: @altaywtf",
+      "title": "perf(tests): trim hot wizard and infra setup work",
+      "link": "https://github.com/openclaw/openclaw/commit/c6c222ba8455c2f5f0b4c411ca75123e2ececbb4",
+      "publishedAt": "2026-04-14T21:42:32Z",
+      "summary": "perf(tests): trim hot wizard and infra setup work",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): classify billing cooldown summaries (#66363)",
-      "summaryZh": "重點：修正(reply): classify billing cooldown summaries (#66363) Merged via squash. Prepared head SHA: 8cfc42a7ac31f98501789ac4db..."
+      "titleZh": "OpenClaw 程式碼更新：perf(tests): trim hot wizard and infra setup work",
+      "summaryZh": "重點：perf(tests): trim hot wizard and infra setup work..."
     },
     {
       "id": 4,
-      "title": "Harden MCP loopback request validation (#66665)",
-      "link": "https://github.com/openclaw/openclaw/commit/62430d9f3aa4caae13b3b7b988cbd497eb936cf2",
-      "publishedAt": "2026-04-14T20:32:05Z",
-      "summary": "Harden MCP loopback request validation (#66665) * fix(mcp): harden loopback request guards * fix(commit): block staged user log * Revert pre-commit USER.md guard from this PR Out of scope for the MCP loopback hardening — keep this PR focused on the loopback request gate and the bearer-comparison fix. The pre-commit worklog guard can land separately if maintainers want it. * changelog: note MCP loopback constant-time + Origin guard (#66665) * fix(mcp): allow loopback flows that browsers flag as cross-site The previous Sec-Fetch-Site early-return rejected legit local browser callers like a UI hosted on http://localhost: talking to MCP on http://127.0.0.1: — browsers report that host mismatch as cross-site even though both ends are loopback. checkBrowserOrigin already authorizes those via its local-loopback matcher (loopback peer + loopback Origin host), so route every Origin-bearing request through that helper and let it decide. Native MCP clients (no Origin header) continue to short-circuit through to the bearer check unchanged. Adds a regression test asserting that origin: http://localhost:43123, sec-fetch-site: cross-site from a loopback peer is accepted with a valid bearer. --------- Co-authored-by: Devin Robison",
+      "title": "QA: remove runner install fallback catalog",
+      "link": "https://github.com/openclaw/openclaw/commit/85eac42d342131e8a31f303ecc37278050d84519",
+      "publishedAt": "2026-04-14T21:37:18Z",
+      "summary": "QA: remove runner install fallback catalog Drop the generated qa-runner catalog and the missing/install placeholder path for repo-private QA runners. The host should discover bundled QA commands from manifest plus runtime surface only. Also trim stale qa-matrix install docs and package metadata so the source-only QA policy stays consistent.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Harden MCP loopback request validation (#66665)",
-      "summaryZh": "重點：Harden MCP loopback request validation (#66665) * 修正(mcp): harden loopback request guards * 修正(提交): block staged user lo..."
+      "titleZh": "OpenClaw 程式碼更新：QA: remove runner install fallback catalog",
+      "summaryZh": "重點：QA: remove runner install fallback catalog Drop the generated qa-runner catalog and the missing/install placeholder path..."
     },
     {
       "id": 5,
+      "title": "搶攻終端 AI 商機！智原推出 28 奈米平台 IP 方案",
+      "link": "https://technews.tw/2026/04/15/faraday-delivers-ip-solutions-to-enable-endpoint-ai-based-on-umcs-28nm-sst-eflash/",
+      "publishedAt": "Tue, 14 Apr 2026 21:19:29 +0000",
+      "summary": "智原科技今（14 日）宣布推出支援 SST-ESF4 eNVM 的聯電 28 奈米平台 IP 解決方案，專為新 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "從活躍星系核看見紅超巨星的命運",
       "link": "https://technews.tw/2026/04/14/red-supergiant-fate-revealed-through-active-galactic-nuclei/",
       "publishedAt": "Tue, 14 Apr 2026 14:30:39 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "生成式AI現身3年的普及率為53%，超越PC及網路",
       "link": "https://www.ithome.com.tw/news/175035",
       "publishedAt": "2026-04-14 12:04:59",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "臺灣為何需要首批50款SMART on FHIR App？李建璋：從標準走向應用生態的關鍵一步",
       "link": "https://www.ithome.com.tw/news/175036",
       "publishedAt": "2026-04-14 12:04:08",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "蠕蟲程式GlassWorm透過程式語言Zig打造的載入工具，滲透多款IDE",
       "link": "https://www.ithome.com.tw/news/175034",
       "publishedAt": "2026-04-14 11:04:43",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Booking.com外洩用戶訂房資料、個資",
       "link": "https://www.ithome.com.tw/news/175032",
       "publishedAt": "2026-04-14 11:04:40",
       "summary": "訂房網站Booking.com上週以電子郵件通知用戶資料外洩，包括姓名、電子郵件以及訂房資訊。 多名用戶在Reddit反映接到Booking.com的通知。Booking.com告知，一個未授權人士存取了一定用戶的訂房資訊，根據調查，外洩的資訊包括用戶姓名、電子郵件、住址、電話和任何「用戶分享給住宿機構的資訊」。為確保用戶資訊安全，該網站已經更新了預約的PIN碼。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "特斯拉 2026 春季更新：全自駕訂閱制及語音助理 Grok 重磅登場",
-      "link": "https://technews.tw/2026/04/14/tesla-spring-update-2026/",
-      "publishedAt": "Tue, 14 Apr 2026 10:10:25 +0000",
-      "summary": "特斯拉即將推出 2026 年春季更新，含多項令人期待的新功能，特別是全新自駕應用程式，用戶可一次訂閱全自駕（S [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
