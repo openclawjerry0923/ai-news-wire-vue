@@ -1,8 +1,35 @@
 {
-  "generatedAt": "2026-04-15T02:39:47.726Z",
+  "generatedAt": "2026-04-15T05:25:48.705Z",
   "items": [
     {
       "id": 1,
+      "title": "Meta攜手博通打造自研AI算力體系",
+      "link": "https://www.ithome.com.tw/news/175069",
+      "publishedAt": "2026-04-15 11:04:39",
+      "summary": "Meta週二（4/14）宣布與博通（Broadcom）擴大合作，雙方將共同開發多個世代的自研AI晶片MTIA（Meta Training and Inference Accelerator），並整合晶片設計、先進封裝與高速網路技術，打造可擴展至多GW等級的AI算力基礎設施，顯示Meta正將自研晶片提升為核心算力戰略，並逐步降低對外部GPU的依賴。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "SAP修補商業規畫與合併財務報表系統、企業資料倉儲系統重大漏洞",
+      "link": "https://www.ithome.com.tw/news/175067",
+      "publishedAt": "2026-04-15 11:04:24",
+      "summary": "4月14日SAP發布本月例行更新（Security Patch Day），總共揭露19個資安漏洞，其中有1個重大等級、1個高風險等級，其餘為中低風險等級。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "微軟發布4月例行更新，修補SharePoint、Defender零時差漏洞",
+      "link": "https://www.ithome.com.tw/news/175055",
+      "publishedAt": "2026-04-15 10:04:38",
+      "summary": "一週前Anthropic發布通用語言模型Claude Mythos預覽版本，聲稱該模型已在常見的作業系統、瀏覽器、開源軟體找出數千個零時差漏洞，並設立Project Glasswing專案號召科技、金融公司、關鍵基礎設施加入，使得4月份的各大IT廠商的安全性例行更新格外受到關注，因為外界預期，廠商將會公布大量的資安漏洞，果不其然，單就今天微軟發布的公告而言，就涵蓋超過200個漏洞。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
       "title": "Amazon收購蘋果衛星服務供應商Globalstar，瞄準全球衛星直連與緊急通訊市場",
       "link": "https://www.ithome.com.tw/news/175056",
       "publishedAt": "2026-04-15 10:04:29",
@@ -11,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 5,
       "title": "OpenAI公布GPT 5.4-Cyber，開放更多資安人員使用",
       "link": "https://www.ithome.com.tw/news/175058",
       "publishedAt": "2026-04-15 10:04:21",
@@ -20,84 +47,57 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix: restore allowPrivateNetwork for self-hosted STT endpoints (#6669…",
-      "link": "https://github.com/openclaw/openclaw/commit/0c0463b2b70f76aa46bdd860efd8ba16c3834711",
-      "publishedAt": "2026-04-15T02:35:37Z",
-      "summary": "fix: restore allowPrivateNetwork for self-hosted STT endpoints (#66692) (thanks @jhsmith409) * fix(audio): restore allowPrivateNetwork for self-hosted STT endpoints resolveProviderExecutionContext built the request object passed to transcribeAudio using only sanitizeConfiguredProviderRequest on the tool-level config and entry — which strips allowPrivateNetwork. The provider-level request config (models.providers.*.request) was never included in the merge, so allowPrivateNetwork:true was silently dropped. Additionally, resolveProviderRequestPolicyConfig only read allowPrivate Network from params.allowPrivateNetwork (a direct parameter) and ignored params.request?.allowPrivateNetwork even when it was present. Fix both gaps: - runner.entries.ts: use mergeModelProviderRequestOverrides with sanitizeConfiguredModelProviderRequest(providerConfig?.request) so models.providers.*.request.allowPrivateNetwork flows through to the media execution context - provider-request-config.ts: fall back to params.request?.allowPrivate Network when params.allowPrivateNetwork is undefined Fixes #66691. Regression introduced in v2026.4.14. Co-Authored-By: Claude Sonnet 4.6 * test(media-understanding): assert allowPrivateNetwork flows through resolveProviderExecutionContext Regression test for the bug where providerConfig.request.allowPrivateNetwork was dropped when building the AudioTranscriptionRequest passed to media providers. Verifies that setting allowPrivateNetwork in the provider config reaches the provider's request object after the fix to use mergeModelProviderRequestOverrides + sanitizeConfiguredModelProviderRequest. Co-Authored-By: Claude Sonnet 4.6 * test(media-understanding): tighten allowPrivateNetwork regression types * fix: restore allowPrivateNetwork for self-hosted STT endpoints (#66692) (thanks @jhsmith409) --------- Co-authored-by: Jim Smith Co-authored-by: Claude Sonnet 4.6 Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore allowPrivateNetwork for self-hosted STT endpoints (#6669…",
-      "summaryZh": "重點：修正: restore allowPrivateNetwork for self-hosted STT endpoints (#66692) (thanks @jhsmith409) * 修正(audio): restore allowPr..."
-    },
-    {
-      "id": 4,
-      "title": "fix: keep Telegram command sync process-local (#66730) (thanks @nightq)",
-      "link": "https://github.com/openclaw/openclaw/commit/b1d03b4057f811ed3c867a5f4575c96fca1b71c8",
-      "publishedAt": "2026-04-15T02:32:23Z",
-      "summary": "fix: keep Telegram command sync process-local (#66730) (thanks @nightq) * fix: use process-scoped cache for Telegram command sync to fix missing menu after restart Fixes openclaw#66714, openclaw#66682 Root cause: The command hash cache was persisted to disk across gateway restarts. When the hash matched (commands unchanged), setMyCommands was skipped entirely. But Telegram bot commands can be cleared by external factors, so the cached state becomes stale after restart. Fix: Replace file-based hash cache with a process-scoped Map. This preserves the rapid-restart rate-limit protection within a single process, but ensures commands are always re-registered after a gateway restart. * fix(telegram): drop stale async command cache calls * fix: keep Telegram command sync process-local (#66730) (thanks @nightq) --------- Co-authored-by: nightq Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep Telegram command sync process-local (#66730) (thanks @nightq)",
-      "summaryZh": "重點：修正: keep Telegram command sync process-local (#66730) (thanks @nightq) * 修正: use process-scoped cache for Telegram comma..."
-    },
-    {
-      "id": 5,
-      "title": "Analog bag 是什麼？包包裝滿非數位用品取代滑手機，年輕世代新生活趨勢",
-      "link": "https://technews.tw/2026/04/15/analog-bag/",
-      "publishedAt": "Wed, 15 Apr 2026 02:30:55 +0000",
-      "summary": "歐美千禧世代與 Z 世代近期掀起 analog bag 風潮，試圖在被手機綁架的生活中重新掌控時間。Analo [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
       "id": 6,
-      "title": "AI 代理發展帶動資料中心 GPU 與 CPU 需求再平衡，台灣供應鏈商機大增",
-      "link": "https://technews.tw/2026/04/15/the-rise-of-ai-agents-is-driving-a-rebalancing-of-gpu-and-cpu-demand-in-data-centers/",
-      "publishedAt": "Wed, 15 Apr 2026 02:30:23 +0000",
-      "summary": "根據全球市場情報機構 TrendForce 的最新報告指出，人工智慧代理（Agentic AI）的快速發展正深 [&#8230;]",
-      "source": "TechNews",
+      "title": "OpenAI收購AI個人金融App新創公司Hiro",
+      "link": "https://www.ithome.com.tw/news/175060",
+      "publishedAt": "2026-04-15 10:04:02",
+      "summary": "個人金融AI平臺供應商Hiro昨日表示將加入OpenAI，消息也獲得OpenAI證實。 Hiro成立於2023年，根據其LinkedIn公司檔案，公司員工數不到50人。Hiro定位為平價個人AI CFO，扮演消費者的AI財務規劃師角色。使用者輸入財務資訊如薪水、債務和每月支出等，Hiro AI模型會做出多個模擬情境，協助消費者執行財務決策。Hiro創辦人之一為執行長Ethan Bloch表示，該平臺迄今已為客戶管理10億美元資產。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "iPhone 18 Pro 有望凍漲！但消費者顏色選擇變少了",
-      "link": "https://technews.tw/2026/04/15/iphone-18-pro-colors/",
-      "publishedAt": "Wed, 15 Apr 2026 02:28:12 +0000",
-      "summary": "在記憶體成本持續高檔之際，許多消費者不免擔心蘋果今年秋季將推出的 iPhone 18 Pro 系列機款售價是否 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "CLI/plugins: stop forced-unsafe installs from falling back to hook pa…",
+      "link": "https://github.com/openclaw/openclaw/commit/3d2f51c0a44265e69e2744e4541a589c7bd2dc95",
+      "publishedAt": "2026-04-15T05:23:17Z",
+      "summary": "CLI/plugins: stop forced-unsafe installs from falling back to hook packs (#58909) Merged via squash. Prepared head SHA: 7cf146efb6d141625613225dc4d9d0b0a55af127 Co-authored-by: hxy91819 Co-authored-by: hxy91819 Reviewed-by: @hxy91819",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：CLI/plugins: stop forced-unsafe installs from falling back to hook pa…",
+      "summaryZh": "重點：CLI/plugins: stop forced-unsafe installs from falling back to hook packs (#58909) Merged via squash. Prepared head SHA: ..."
     },
     {
       "id": 8,
-      "title": "台股飛躍 37,000 點大關！盤點 11 檔 TISA 級別基金淨值跟著創高",
-      "link": "https://finance.technews.tw/2026/04/15/tisa-level-funds/",
-      "publishedAt": "Wed, 15 Apr 2026 02:26:49 +0000",
-      "summary": "台積電今日盤中飆 2095 元新天價，台股加權指數盤中大漲 723.75 點，最高衝至 37,019.87 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test(qa-matrix): isolate flaky beta scenarios",
+      "link": "https://github.com/openclaw/openclaw/commit/7fc5a18d8913c4e7570a3403e5060aabad3f091e",
+      "publishedAt": "2026-04-15T05:10:37Z",
+      "summary": "test(qa-matrix): isolate flaky beta scenarios",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(qa-matrix): isolate flaky beta scenarios",
+      "summaryZh": "重點：test(qa-matrix): isolate flaky beta scenarios..."
     },
     {
       "id": 9,
-      "title": "feat(bluebubbles): replay missed webhook messages after gateway resta…",
-      "link": "https://github.com/openclaw/openclaw/commit/6f1d321aababd96e7b67e4b8dc7fdd5d9c1a554b",
-      "publishedAt": "2026-04-15T02:20:42Z",
-      "summary": "feat(bluebubbles): replay missed webhook messages after gateway restart (#66857) Adds an in-process startup catchup pass to the BlueBubbles channel that queries BB Server for messages delivered since a persisted per-account cursor and re-feeds each through the existing processMessage pipeline. Fixes the missed-message hole documented in #66721: BB's WebhookService is fire-and-forget on POST failure, and MessagePoller only re-fires webhooks on BB-side reconnection events, not on webhook-receiver recovery. - New extensions/bluebubbles/src/catchup.ts with singleflight per accountId, cursor persistence via the canonical state-paths resolver, bounded query (perRunLimit + maxAgeMinutes), failure-held cursor, truncation-aware page-boundary advancement, future-cursor recovery, isFromMe filter (pre- and post-normalization). - monitor.ts fires catchup as a background task after the webhook target registers. - config-schema.ts adds optional catchup block; accounts.ts adds catchup to nestedObjectKeys for deep-merge per-account overrides. - Dedupes against #66816's persistent inbound GUID cache. - 22 scoped tests; full BB suite 411/411; pnpm check green; live E2E on macOS 26.3 / BB Server 1.9.x recovered 3/3 missed messages. Closes #66721. Co-authored-by: Omar Shahine",
+      "title": "style: use non-capturing pnpm regex group",
+      "link": "https://github.com/openclaw/openclaw/commit/2cc97989d33b57c0396731c28d5cdc841a5710b2",
+      "publishedAt": "2026-04-15T05:05:43Z",
+      "summary": "style: use non-capturing pnpm regex group",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(bluebubbles): replay missed webhook messages after Gateway resta…",
-      "summaryZh": "重點：新功能(bluebubbles): replay missed webhook messages after Gateway restart (#66857) Adds an in-process startup catchup pass ..."
+      "titleZh": "OpenClaw 程式碼更新：style: use non-capturing pnpm regex group",
+      "summaryZh": "重點：style: use non-capturing pnpm regex group..."
     },
     {
       "id": 10,
-      "title": "fix: restore Telegram native auto defaults (#66843) (thanks @kashevk0)",
-      "link": "https://github.com/openclaw/openclaw/commit/ff4edd055918b9f8655dceeff05c7ad5a7c42552",
-      "publishedAt": "2026-04-15T02:16:35Z",
-      "summary": "fix: restore Telegram native auto defaults (#66843) (thanks @kashevk0) * fix(config): restore Telegram native commands under auto defaults * chore: trigger CI rerun * test(config): split native auto-default regressions * fix: restore Telegram native auto defaults (#66843) (thanks @kashevk0) --------- Co-authored-by: Ayaan Zaidi",
+      "title": "fix: handle native pnpm execpath",
+      "link": "https://github.com/openclaw/openclaw/commit/ccedc506a5c82a62babee73c944bcdaa6a4337d3",
+      "publishedAt": "2026-04-15T05:05:43Z",
+      "summary": "fix: handle native pnpm execpath",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore Telegram native auto defaults (#66843) (thanks @kashevk0)",
-      "summaryZh": "重點：修正: restore Telegram native auto defaults (#66843) (thanks @kashevk0) * 修正(config): restore Telegram native commands und..."
+      "titleZh": "OpenClaw 程式碼更新：修正: handle native pnpm execpath",
+      "summaryZh": "重點：修正: handle native pnpm execpath..."
     }
   ]
 }
