@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-15T17:05:49.520Z",
+  "generatedAt": "2026-04-15T19:20:58.709Z",
   "items": [
     {
       "id": 1,
-      "title": "build: exclude private QA from npm package",
-      "link": "https://github.com/openclaw/openclaw/commit/229eb72cf6bfa010f4b120bf55d9c477c54d9ed7",
-      "publishedAt": "2026-04-15T16:39:51Z",
-      "summary": "build: exclude private QA from npm package",
+      "title": "test: harden gateway live docker flake handling",
+      "link": "https://github.com/openclaw/openclaw/commit/4caa8824764b8974908a86d36fdb66c7d59f92b2",
+      "publishedAt": "2026-04-15T19:13:28Z",
+      "summary": "test: harden gateway live docker flake handling",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build: exclude private QA from npm package",
-      "summaryZh": "重點：build: exclude private QA from npm package..."
+      "titleZh": "OpenClaw 文件更新：test: harden Gateway live 文件ker flake handling",
+      "summaryZh": "重點：test: harden Gateway live 文件ker flake handling..."
     },
     {
       "id": 2,
-      "title": "fix(plugins): stabilize bundled setup runtimes (#67200)",
-      "link": "https://github.com/openclaw/openclaw/commit/78ac1184274ee9f2c501446d893a1000d6c54860",
-      "publishedAt": "2026-04-15T16:35:18Z",
-      "summary": "fix(plugins): stabilize bundled setup runtimes (#67200) Merged via squash. Prepared head SHA: e8d6738fd08d850f1685c8f14d4c6df39ba2d34e Co-authored-by: gumadeiras Co-authored-by: gumadeiras Reviewed-by: @gumadeiras",
+      "title": "fix: tighten trusted tool media passthrough (#67303)",
+      "link": "https://github.com/openclaw/openclaw/commit/52ef42302ead9e183e6c8810e0a04ee4ef8ae9fc",
+      "publishedAt": "2026-04-15T19:12:44Z",
+      "summary": "fix: tighten trusted tool media passthrough (#67303) * fix: tighten trusted tool media passthrough * changelog: tighten trusted tool media passthrough (#67303) * address review: thread rawToolName into emitToolResultOutput and keep plugin-tool media passthrough - Pass rawToolName through emitToolResultOutput params so the emit and collect calls no longer reference an out-of-scope identifier (ReferenceError on any verbose tool-output path). - Widen builtinToolNames to all effective tool raw names for this run (core + bundled/trusted plugin tools), so plugin tools on the trusted media list still receive local MEDIA: passthrough. Admission-time client-tool conflict check keeps using the core-only set so unrelated plugin names do not spuriously reject client definitions; MEDIA passthrough is still gated by the raw-name set, so a client tool that normalize-collides with a plugin name cannot inherit its media trust. - Add unit coverage for bundled-plugin raw-name passthrough and for case-variant plugin-name collisions. * drop redundant String() casts flagged by oxlint no-useless-cast The names from effectiveTools, client tool function names, and the existingToolNames iterable are already typed as string, so wrapping them in String(...) adds nothing and trips oxlint's no-useless-cast rule.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): stabilize bundled setup runtimes (#67200)",
-      "summaryZh": "重點：修正(plugins): stabilize bundled setup runtimes (#67200) Merged via squash. Prepared head SHA: e8d6738fd08d850f1685c8f14d4..."
+      "titleZh": "OpenClaw 程式碼更新：修正: tighten trusted tool media passthrough (#67303)",
+      "summaryZh": "重點：修正: tighten trusted tool media passthrough (#67303) * 修正: tighten trusted tool media passthrough * changelog: tighten tr..."
     },
     {
       "id": 3,
-      "title": "fix(cron): suppress trailing NO_REPLY in announce delivery path [AI-a…",
-      "link": "https://github.com/openclaw/openclaw/commit/ee6b7daca37d98270143c74ca0feec0241fa0046",
-      "publishedAt": "2026-04-15T16:31:35Z",
-      "summary": "fix(cron): suppress trailing NO_REPLY in announce delivery path [AI-assisted] (#65004) Merged via squash. Prepared head SHA: b7f1996d60ef60c3533db679bea504125c359b60 Co-authored-by: neo1027144-creator Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "fix(dreaming): use ingestion date for dayBucket instead of file date …",
+      "link": "https://github.com/openclaw/openclaw/commit/4de56b18badaf7347c11ae71d2f035336fd389cc",
+      "publishedAt": "2026-04-15T18:56:10Z",
+      "summary": "fix(dreaming): use ingestion date for dayBucket instead of file date (#67091) Merged via squash. Prepared head SHA: 2df44e4d50094ba43d06ea2ba10e24ac73d56bd8 Co-authored-by: Bartok9 Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): suppress trailing NO_REPLY in announce delivery path [AI-a…",
-      "summaryZh": "重點：修正(排程): suppress trailing NO_REPLY in announce delivery path [AI-assisted] (#65004) Merged via squash. Prepared head SHA..."
+      "titleZh": "OpenClaw 程式碼更新：修正(dreaming): use ingestion date for dayBucket instead of file date …",
+      "summaryZh": "重點：修正(dreaming): use ingestion date for dayBucket instead of file date (#67091) Merged via squash. Prepared head SHA: 2df44..."
     },
     {
       "id": 4,
-      "title": "Revise contribution process for new features",
-      "link": "https://github.com/openclaw/openclaw/commit/32222812ea4f9c352386741314f4f4163f1c7eae",
-      "publishedAt": "2026-04-15T16:04:30Z",
-      "summary": "Revise contribution process for new features",
+      "title": "build: refresh release baselines",
+      "link": "https://github.com/openclaw/openclaw/commit/a177d8d454376bbd5acd8f88a7a4adceffdb63fa",
+      "publishedAt": "2026-04-15T18:41:32Z",
+      "summary": "build: refresh release baselines",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Revise contribution process for new 新功能s",
-      "summaryZh": "重點：Revise contribution process for new 新功能s..."
+      "titleZh": "OpenClaw 程式碼更新：build: refresh 版本發布 baselines",
+      "summaryZh": "重點：build: refresh 版本發布 baselines..."
     },
     {
       "id": 5,
