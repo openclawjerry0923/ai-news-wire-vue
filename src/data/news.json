@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-15T19:20:58.709Z",
+  "generatedAt": "2026-04-15T20:52:16.581Z",
   "items": [
     {
       "id": 1,
-      "title": "test: harden gateway live docker flake handling",
-      "link": "https://github.com/openclaw/openclaw/commit/4caa8824764b8974908a86d36fdb66c7d59f92b2",
-      "publishedAt": "2026-04-15T19:13:28Z",
-      "summary": "test: harden gateway live docker flake handling",
+      "title": "fix(dreaming): default storage.mode to \"separate\" so phase blocks sto…",
+      "link": "https://github.com/openclaw/openclaw/commit/8c392f0019b0c2666cd3bcf739c3cd990a79383c",
+      "publishedAt": "2026-04-15T20:49:18Z",
+      "summary": "fix(dreaming): default storage.mode to \"separate\" so phase blocks stop polluting daily memory files (#66412) Merged via squash. Prepared head SHA: 4b1c8ac4ec8171b0ff7e11b0367cf11304c205e2 Co-authored-by: mjamiv Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：test: harden Gateway live 文件ker flake handling",
-      "summaryZh": "重點：test: harden Gateway live 文件ker flake handling..."
+      "titleZh": "OpenClaw 程式碼更新：修正(dreaming): default storage.mode to \"separate\" so phase blocks sto…",
+      "summaryZh": "重點：修正(dreaming): default storage.mode to \"separate\" so phase blocks stop polluting daily 記憶 files (#66412) Merged via squas..."
     },
     {
       "id": 2,
-      "title": "fix: tighten trusted tool media passthrough (#67303)",
-      "link": "https://github.com/openclaw/openclaw/commit/52ef42302ead9e183e6c8810e0a04ee4ef8ae9fc",
-      "publishedAt": "2026-04-15T19:12:44Z",
-      "summary": "fix: tighten trusted tool media passthrough (#67303) * fix: tighten trusted tool media passthrough * changelog: tighten trusted tool media passthrough (#67303) * address review: thread rawToolName into emitToolResultOutput and keep plugin-tool media passthrough - Pass rawToolName through emitToolResultOutput params so the emit and collect calls no longer reference an out-of-scope identifier (ReferenceError on any verbose tool-output path). - Widen builtinToolNames to all effective tool raw names for this run (core + bundled/trusted plugin tools), so plugin tools on the trusted media list still receive local MEDIA: passthrough. Admission-time client-tool conflict check keeps using the core-only set so unrelated plugin names do not spuriously reject client definitions; MEDIA passthrough is still gated by the raw-name set, so a client tool that normalize-collides with a plugin name cannot inherit its media trust. - Add unit coverage for bundled-plugin raw-name passthrough and for case-variant plugin-name collisions. * drop redundant String() casts flagged by oxlint no-useless-cast The names from effectiveTools, client tool function names, and the existingToolNames iterable are already typed as string, so wrapping them in String(...) adds nothing and trips oxlint's no-useless-cast rule.",
+      "title": "fix(memory-core): skip dreaming transcript ingestion via session stor…",
+      "link": "https://github.com/openclaw/openclaw/commit/a1b01f0281d00d6b716d92fc3b7389b765750941",
+      "publishedAt": "2026-04-15T20:09:07Z",
+      "summary": "fix(memory-core): skip dreaming transcript ingestion via session store (#67315) Merged via squash. Prepared head SHA: 87c09b2a7544ba9349d437cca767d6a6be30b35a Co-authored-by: jalehman Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: tighten trusted tool media passthrough (#67303)",
-      "summaryZh": "重點：修正: tighten trusted tool media passthrough (#67303) * 修正: tighten trusted tool media passthrough * changelog: tighten tr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): skip dreaming transcript ingestion via session stor…",
+      "summaryZh": "重點：修正(記憶-core): skip dreaming transcript ingestion via session store (#67315) Merged via squash. Prepared head SHA: 87c09b2..."
     },
     {
       "id": 3,
-      "title": "fix(dreaming): use ingestion date for dayBucket instead of file date …",
-      "link": "https://github.com/openclaw/openclaw/commit/4de56b18badaf7347c11ae71d2f035336fd389cc",
-      "publishedAt": "2026-04-15T18:56:10Z",
-      "summary": "fix(dreaming): use ingestion date for dayBucket instead of file date (#67091) Merged via squash. Prepared head SHA: 2df44e4d50094ba43d06ea2ba10e24ac73d56bd8 Co-authored-by: Bartok9 Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "fix: dedupe replayed exec.finished node events (#67281)",
+      "link": "https://github.com/openclaw/openclaw/commit/5dcf526a4344340220d2d8e91a3c59b92391b0ce",
+      "publishedAt": "2026-04-15T20:06:18Z",
+      "summary": "fix: dedupe replayed exec.finished node events (#67281) * docs: add async exec duplicate completion investigation Add an internal refactor note tracing the node exec completion to system event to heartbeat to transcript path for duplicate async exec injections. Document the most likely gateway-side gap as missing idempotency for replayed exec.finished events, and note why plain outbound delivery retry is a weaker fit for duplicate user turns. Regeneration-Prompt: | Investigate a live duplicate async exec completion that appeared as two identical user turns in an OpenClaw session. Trace the completion path from exec producers into enqueueSystemEvent, heartbeat wake scheduling, prompt assembly, and embedded transcript persistence. Decide whether duplicate wake handling, outbound delivery retry, or duplicate completion event ingestion is the more likely cause, cite the exact code locations, and capture the smallest plausible fix seam without making runtime changes. * fix: dedupe replayed exec finished node events Add a narrow idempotency guard in the gateway node-event handler for repeated exec.finished events with the same canonical session key and runId. This blocks replayed async exec completions from being enqueued and heartbeated twice into the parent session. Also only request a heartbeat when the system event was actually queued, and add a regression test for duplicate runId injection. Regeneration-Prompt: | Prevent duplicate async exec completion events from being injected twice into the parent session. Keep the scope tight around the highest-confidence path: node exec.finished events entering gateway server-node-events and becoming system-event-driven heartbeat prompts. Add a small idempotency guard keyed by canonical session plus exec runId, avoid broader delivery or retry changes unless needed, and add regression coverage that fails if the same exec.finished replay is enqueued and woken twice. * fix: note exec finished replay dedupe",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(dreaming): use ingestion date for dayBucket instead of file date …",
-      "summaryZh": "重點：修正(dreaming): use ingestion date for dayBucket instead of file date (#67091) Merged via squash. Prepared head SHA: 2df44..."
+      "titleZh": "OpenClaw 程式碼更新：修正: dedupe replayed exec.finished node events (#67281)",
+      "summaryZh": "重點：修正: dedupe replayed exec.finished node events (#67281) * 文件: add async exec duplicate completion investigation Add an in..."
     },
     {
       "id": 4,
-      "title": "build: refresh release baselines",
-      "link": "https://github.com/openclaw/openclaw/commit/a177d8d454376bbd5acd8f88a7a4adceffdb63fa",
-      "publishedAt": "2026-04-15T18:41:32Z",
-      "summary": "build: refresh release baselines",
+      "title": "fix(release): allow legacy qa sidecar verification",
+      "link": "https://github.com/openclaw/openclaw/commit/a5dafa27b6b1f079697a4185d1de605fc48fdd73",
+      "publishedAt": "2026-04-15T19:49:30Z",
+      "summary": "fix(release): allow legacy qa sidecar verification",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build: refresh 版本發布 baselines",
-      "summaryZh": "重點：build: refresh 版本發布 baselines..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): allow legacy qa sidecar verification",
+      "summaryZh": "重點：修正(版本發布): allow legacy qa sidecar verification..."
     },
     {
       "id": 5,
