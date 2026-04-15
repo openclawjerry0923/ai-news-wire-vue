@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-04-15T20:52:16.581Z",
+  "generatedAt": "2026-04-15T21:53:56.289Z",
   "items": [
     {
       "id": 1,
+      "title": "test(parallels): clean up npm update guard jobs",
+      "link": "https://github.com/openclaw/openclaw/commit/045ea7bf6a94a90cca91c6bd0bb2733cdea7e253",
+      "publishedAt": "2026-04-15T21:43:28Z",
+      "summary": "test(parallels): clean up npm update guard jobs",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(parallels): clean up npm update guard jobs",
+      "summaryZh": "重點：test(parallels): clean up npm update guard jobs..."
+    },
+    {
+      "id": 2,
+      "title": "Plugins: prefer scanDir override paths",
+      "link": "https://github.com/openclaw/openclaw/commit/b2974da33a7e4a8f067db22d6c01021e99a9cf41",
+      "publishedAt": "2026-04-15T21:24:31Z",
+      "summary": "Plugins: prefer scanDir override paths",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：Plugins: prefer scanDir override paths",
+      "summaryZh": "重點：Plugins: prefer scanDir override paths..."
+    },
+    {
+      "id": 3,
       "title": "fix(dreaming): default storage.mode to \"separate\" so phase blocks sto…",
       "link": "https://github.com/openclaw/openclaw/commit/8c392f0019b0c2666cd3bcf739c3cd990a79383c",
       "publishedAt": "2026-04-15T20:49:18Z",
@@ -13,7 +35,7 @@
       "summaryZh": "重點：修正(dreaming): default storage.mode to \"separate\" so phase blocks stop polluting daily 記憶 files (#66412) Merged via squas..."
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "fix(memory-core): skip dreaming transcript ingestion via session stor…",
       "link": "https://github.com/openclaw/openclaw/commit/a1b01f0281d00d6b716d92fc3b7389b765750941",
       "publishedAt": "2026-04-15T20:09:07Z",
@@ -22,28 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): skip dreaming transcript ingestion via session stor…",
       "summaryZh": "重點：修正(記憶-core): skip dreaming transcript ingestion via session store (#67315) Merged via squash. Prepared head SHA: 87c09b2..."
-    },
-    {
-      "id": 3,
-      "title": "fix: dedupe replayed exec.finished node events (#67281)",
-      "link": "https://github.com/openclaw/openclaw/commit/5dcf526a4344340220d2d8e91a3c59b92391b0ce",
-      "publishedAt": "2026-04-15T20:06:18Z",
-      "summary": "fix: dedupe replayed exec.finished node events (#67281) * docs: add async exec duplicate completion investigation Add an internal refactor note tracing the node exec completion to system event to heartbeat to transcript path for duplicate async exec injections. Document the most likely gateway-side gap as missing idempotency for replayed exec.finished events, and note why plain outbound delivery retry is a weaker fit for duplicate user turns. Regeneration-Prompt: | Investigate a live duplicate async exec completion that appeared as two identical user turns in an OpenClaw session. Trace the completion path from exec producers into enqueueSystemEvent, heartbeat wake scheduling, prompt assembly, and embedded transcript persistence. Decide whether duplicate wake handling, outbound delivery retry, or duplicate completion event ingestion is the more likely cause, cite the exact code locations, and capture the smallest plausible fix seam without making runtime changes. * fix: dedupe replayed exec finished node events Add a narrow idempotency guard in the gateway node-event handler for repeated exec.finished events with the same canonical session key and runId. This blocks replayed async exec completions from being enqueued and heartbeated twice into the parent session. Also only request a heartbeat when the system event was actually queued, and add a regression test for duplicate runId injection. Regeneration-Prompt: | Prevent duplicate async exec completion events from being injected twice into the parent session. Keep the scope tight around the highest-confidence path: node exec.finished events entering gateway server-node-events and becoming system-event-driven heartbeat prompts. Add a small idempotency guard keyed by canonical session plus exec runId, avoid broader delivery or retry changes unless needed, and add regression coverage that fails if the same exec.finished replay is enqueued and woken twice. * fix: note exec finished replay dedupe",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: dedupe replayed exec.finished node events (#67281)",
-      "summaryZh": "重點：修正: dedupe replayed exec.finished node events (#67281) * 文件: add async exec duplicate completion investigation Add an in..."
-    },
-    {
-      "id": 4,
-      "title": "fix(release): allow legacy qa sidecar verification",
-      "link": "https://github.com/openclaw/openclaw/commit/a5dafa27b6b1f079697a4185d1de605fc48fdd73",
-      "publishedAt": "2026-04-15T19:49:30Z",
-      "summary": "fix(release): allow legacy qa sidecar verification",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): allow legacy qa sidecar verification",
-      "summaryZh": "重點：修正(版本發布): allow legacy qa sidecar verification..."
     },
     {
       "id": 5,
