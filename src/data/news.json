@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-16T09:21:28.923Z",
+  "generatedAt": "2026-04-16T11:05:09.016Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix: align host tilde paths with OS home (#62804) (thanks @stainlu)",
-      "link": "https://github.com/openclaw/openclaw/commit/ecfaf64526a71391d403a2299a698efd06cdd4be",
-      "publishedAt": "2026-04-16T09:07:55Z",
-      "summary": "fix: align host tilde paths with OS home (#62804) (thanks @stainlu) * fix(tools): expand tilde in host edit/write paths (non-workspace mode) * test: use it.runIf for visible skip when tmpdir is not under home * fix(tools): address Codex P2 review on tilde host edit/write Responds to two P2 findings from chatgpt-codex-connector on #62804: 1. Tests never ran in CI. The it.runIf(tmpdirUnderHome) guard always skipped on Linux runners where os.tmpdir() is /tmp, outside $HOME, so the regression tests reported green without executing. Tmpdirs now use the test-isolated HOME (process.env.HOME from test/test-env.ts) so tests run in every environment and match what expandHomePrefix resolves, keeping them hermetic. 2. Edit recovery path resolution was inconsistent. resolveEditPath inlined os.homedir() for tilde expansion, bypassing OPENCLAW_HOME, while the write/edit operations use expandHomePrefix. Under a custom OPENCLAW_HOME, wrapEditToolWithRecovery's readback targeted a different file than the edit actually touched, so successful edits could be reported as failures. resolveEditPath now uses the same expandHomePrefix helper. * test(tools): verify tilde expansion honors OPENCLAW_HOME override The prior tests covered tilde expansion but only under the default test home, which matches os.homedir(). That passed whether the production code used expandHomePrefix() or inlined os.homedir() — the behaviors only diverge when OPENCLAW_HOME is set to a path outside $HOME. Adds four tests that set OPENCLAW_HOME to a temp dir explicitly outside $HOME and verify that write/mkdir/read/access tilde operations resolve against OPENCLAW_HOME, not os.homedir(). These would fail if pi-tools.read.ts or pi-tools.host-edit.ts reverted to os.homedir(), directly covering the Codex P2 feedback about OPENCLAW_HOME consistency. Uses the same env snapshot/restore pattern as test/helpers/temp-home.ts. * Agents: resolve host tilde paths against OS home * fix: align host tilde paths with OS home (#62804) (thanks @stainlu) * fix: keep the changelog entry in the active block (#62804) (thanks @stainlu) --------- Co-authored-by: Ayaan Zaidi",
+      "title": "fix(deps): bump hono to 4.12.14 and @hono/node-server to 1.19.14 (GHS…",
+      "link": "https://github.com/openclaw/openclaw/commit/fbccc18e745e2cf7477936cb8ad7dec1973a4e49",
+      "publishedAt": "2026-04-16T10:23:53Z",
+      "summary": "fix(deps): bump hono to 4.12.14 and @hono/node-server to 1.19.14 (GHSA-458j-xx4x-4375) (#67613)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: align host tilde paths with OS home (#62804) (thanks @stainlu)",
-      "summaryZh": "重點：修正: align host tilde paths with OS home (#62804) (thanks @stainlu) * 修正(tools): expand tilde in host edit/write paths (n..."
+      "titleZh": "OpenClaw 程式碼更新：修正(deps): bump hono to 4.12.14 and @hono/node-server to 1.19.14 (GHS…",
+      "summaryZh": "重點：修正(deps): bump hono to 4.12.14 and @hono/node-server to 1.19.14 (GHSA-458j-xx4x-4375) (#67613)..."
     },
     {
       "id": 8,
-      "title": "QA: fix private dist freshness check",
-      "link": "https://github.com/openclaw/openclaw/commit/05cac5b980f60f2de9f27332c3bc55f6ff9f64e0",
-      "publishedAt": "2026-04-16T07:44:40Z",
-      "summary": "QA: fix private dist freshness check",
+      "title": "fix(deps): bump dompurify to 3.4.0 (#67614)",
+      "link": "https://github.com/openclaw/openclaw/commit/2c2dc00fb4d9fd227600177d4e0bbd569f7ce477",
+      "publishedAt": "2026-04-16T10:18:55Z",
+      "summary": "fix(deps): bump dompurify to 3.4.0 (#67614)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：QA: 修正 private dist freshness check",
-      "summaryZh": "重點：QA: 修正 private dist freshness check..."
+      "titleZh": "OpenClaw 程式碼更新：修正(deps): bump dompurify to 3.4.0 (#67614)",
+      "summaryZh": "重點：修正(deps): bump dompurify to 3.4.0 (#67614)..."
     },
     {
       "id": 9,
-      "title": "QA: split lab runtime and extend Matrix coverage (#67430)",
-      "link": "https://github.com/openclaw/openclaw/commit/4db162db7f3ef6754ad5433ee74cf6d8ba3da7b3",
-      "publishedAt": "2026-04-16T07:08:39Z",
-      "summary": "QA: split lab runtime and extend Matrix coverage (#67430) Merged via squash. Prepared head SHA: 790418b93b81f1297a3407f08a756cd0118f01b4 Co-authored-by: gumadeiras Co-authored-by: gumadeiras Reviewed-by: @gumadeiras",
+      "title": "CI: add explicit permissions to all workflow jobs (fixes code-scannin…",
+      "link": "https://github.com/openclaw/openclaw/commit/01b7516a95882cccb0dba9d84b2e869bdb97ade3",
+      "publishedAt": "2026-04-16T10:18:35Z",
+      "summary": "CI: add explicit permissions to all workflow jobs (fixes code-scanning #40-#57) (#67612)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：QA: split lab runtime and extend Matrix coverage (#67430)",
-      "summaryZh": "重點：QA: split lab runtime and extend Matrix coverage (#67430) Merged via squash. Prepared head SHA: 790418b93b81f1297a3407f0..."
+      "titleZh": "OpenClaw 程式碼更新：CI: add explicit permissions to all workflow jobs (修正 code-scannin…",
+      "summaryZh": "重點：CI: add explicit permissions to all workflow jobs (修正 code-scanning #40-#57) (#67612)..."
     },
     {
       "id": 10,
-      "title": "QA: accept nodejs as Node runtime",
-      "link": "https://github.com/openclaw/openclaw/commit/8ecb6bbb12dab0d1d3367d8092511de10acbc875",
-      "publishedAt": "2026-04-16T06:39:52Z",
-      "summary": "QA: accept nodejs as Node runtime",
+      "title": "fix: register bundled TTS providers and route overrides correctly (#6…",
+      "link": "https://github.com/openclaw/openclaw/commit/6ea3cddf0d5025cf6caf1eb8aed109cefc82bed4",
+      "publishedAt": "2026-04-16T09:56:38Z",
+      "summary": "fix: register bundled TTS providers and route overrides correctly (#62846) (thanks @stainlu) * fix(microsoft,elevenlabs): add enabledByDefault so speech providers register at runtime * fix(tts): route generic directive tokens to the explicitly declared provider Addresses the P2 Codex review on #62846 that flagged auto-enabling ElevenLabs as a product regression for MiniMax users. Both providers claim the generic `speed` token, and parseTtsDirectives walked providers in autoSelectOrder with first-match-wins, so inputs like `[[tts:provider=minimax speed=1.2]]` silently routed speed to providerOverrides.elevenlabs once elevenlabs participated in every parse pass. The parser now pre-scans for `provider=` (honoring legacy last-wins semantics) and routes generic tokens with the declared provider tried first, falling back to autoSelectOrder when it doesn't handle the key. Token order inside the directive no longer matters: `speed=1.2` before or after `provider=minimax` both resolve to MiniMax. Adds a regression test suite covering the exact ElevenLabs/MiniMax speed collision plus fallback, mixed-token, last-wins, and allowProvider-disabled cases. parseTtsDirectives had no prior test coverage. * fix(tts): prefer active provider for generic directives * fix: register bundled TTS providers safely (#62846) (thanks @stainlu) * fix: use exported TTS SDK seam (#62846) (thanks @stainlu) --------- Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：QA: accept nodejs as Node runtime",
-      "summaryZh": "重點：QA: accept nodejs as Node runtime..."
+      "titleZh": "OpenClaw 程式碼更新：修正: register bundled TTS providers and route overrides correctly (#6…",
+      "summaryZh": "重點：修正: register bundled TTS providers and route overrides correctly (#62846) (thanks @stainlu) * 修正(microsoft,elevenlabs): ..."
     }
   ]
 }
