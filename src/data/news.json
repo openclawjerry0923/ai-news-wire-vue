@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-16T07:50:05.332Z",
+  "generatedAt": "2026-04-16T09:21:28.923Z",
   "items": [
     {
       "id": 1,
@@ -12,6 +12,15 @@
     },
     {
       "id": 2,
+      "title": "群暉修補SSL VPN Client工具程式兩個漏洞，未更新可能導致敏感資料外洩",
+      "link": "https://www.ithome.com.tw/news/175110",
+      "publishedAt": "2026-04-16 12:04:52",
+      "summary": "儲存與網路設備供應商群暉（Synology）近日發布安全公告，修補旗下SSL VPN Client工具程式的兩個漏洞，攻擊者可透過誘導用戶開啟惡意網頁從而觸發攻擊，進而取得用戶敏感資料、竄改VPN設定或攔截流量，解決辦法是升級到1.4.5-0684以上版本，建議用戶儘速更新。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
       "title": "Cal.com要閉源了",
       "link": "https://www.ithome.com.tw/news/175107",
       "publishedAt": "2026-04-16 12:04:45",
@@ -20,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Google六月起將處罰使用返回鍵劫持手法的網站",
       "link": "https://www.ithome.com.tw/news/175106",
       "publishedAt": "2026-04-16 12:04:03",
@@ -29,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Google發布Chrome瀏覽器更新，修補31個漏洞，含多個重大與高風險漏洞",
       "link": "https://www.ithome.com.tw/news/175104",
       "publishedAt": "2026-04-16 11:04:54",
@@ -38,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "瑞典稱親俄駭客去年試圖攻擊供熱廠",
       "link": "https://www.ithome.com.tw/news/175103",
       "publishedAt": "2026-04-16 11:04:04",
@@ -47,16 +56,18 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "CISA警告，駭客正在利用17年前的Excel漏洞展開攻擊",
-      "link": "https://www.ithome.com.tw/news/175102",
-      "publishedAt": "2026-04-16 11:04:04",
-      "summary": "美國網路安全與基礎設施安全局（CISA）本週二（4/14）將兩個安全漏洞列入已知遭利用漏洞清單（ Known Exploited Vulnerability，KEV），要求美國聯邦機構於兩週內修補，一個是微軟甫於同一天修補的SharePoint Server漏洞CVE-2026-32201",
-      "source": "iThome",
-      "tag": "繁中"
+      "id": 7,
+      "title": "fix: align host tilde paths with OS home (#62804) (thanks @stainlu)",
+      "link": "https://github.com/openclaw/openclaw/commit/ecfaf64526a71391d403a2299a698efd06cdd4be",
+      "publishedAt": "2026-04-16T09:07:55Z",
+      "summary": "fix: align host tilde paths with OS home (#62804) (thanks @stainlu) * fix(tools): expand tilde in host edit/write paths (non-workspace mode) * test: use it.runIf for visible skip when tmpdir is not under home * fix(tools): address Codex P2 review on tilde host edit/write Responds to two P2 findings from chatgpt-codex-connector on #62804: 1. Tests never ran in CI. The it.runIf(tmpdirUnderHome) guard always skipped on Linux runners where os.tmpdir() is /tmp, outside $HOME, so the regression tests reported green without executing. Tmpdirs now use the test-isolated HOME (process.env.HOME from test/test-env.ts) so tests run in every environment and match what expandHomePrefix resolves, keeping them hermetic. 2. Edit recovery path resolution was inconsistent. resolveEditPath inlined os.homedir() for tilde expansion, bypassing OPENCLAW_HOME, while the write/edit operations use expandHomePrefix. Under a custom OPENCLAW_HOME, wrapEditToolWithRecovery's readback targeted a different file than the edit actually touched, so successful edits could be reported as failures. resolveEditPath now uses the same expandHomePrefix helper. * test(tools): verify tilde expansion honors OPENCLAW_HOME override The prior tests covered tilde expansion but only under the default test home, which matches os.homedir(). That passed whether the production code used expandHomePrefix() or inlined os.homedir() — the behaviors only diverge when OPENCLAW_HOME is set to a path outside $HOME. Adds four tests that set OPENCLAW_HOME to a temp dir explicitly outside $HOME and verify that write/mkdir/read/access tilde operations resolve against OPENCLAW_HOME, not os.homedir(). These would fail if pi-tools.read.ts or pi-tools.host-edit.ts reverted to os.homedir(), directly covering the Codex P2 feedback about OPENCLAW_HOME consistency. Uses the same env snapshot/restore pattern as test/helpers/temp-home.ts. * Agents: resolve host tilde paths against OS home * fix: align host tilde paths with OS home (#62804) (thanks @stainlu) * fix: keep the changelog entry in the active block (#62804) (thanks @stainlu) --------- Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: align host tilde paths with OS home (#62804) (thanks @stainlu)",
+      "summaryZh": "重點：修正: align host tilde paths with OS home (#62804) (thanks @stainlu) * 修正(tools): expand tilde in host edit/write paths (n..."
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "QA: fix private dist freshness check",
       "link": "https://github.com/openclaw/openclaw/commit/05cac5b980f60f2de9f27332c3bc55f6ff9f64e0",
       "publishedAt": "2026-04-16T07:44:40Z",
@@ -67,7 +78,7 @@
       "summaryZh": "重點：QA: 修正 private dist freshness check..."
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "QA: split lab runtime and extend Matrix coverage (#67430)",
       "link": "https://github.com/openclaw/openclaw/commit/4db162db7f3ef6754ad5433ee74cf6d8ba3da7b3",
       "publishedAt": "2026-04-16T07:08:39Z",
@@ -78,7 +89,7 @@
       "summaryZh": "重點：QA: split lab runtime and extend Matrix coverage (#67430) Merged via squash. Prepared head SHA: 790418b93b81f1297a3407f0..."
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "QA: accept nodejs as Node runtime",
       "link": "https://github.com/openclaw/openclaw/commit/8ecb6bbb12dab0d1d3367d8092511de10acbc875",
       "publishedAt": "2026-04-16T06:39:52Z",
@@ -87,17 +98,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：QA: accept nodejs as Node runtime",
       "summaryZh": "重點：QA: accept nodejs as Node runtime..."
-    },
-    {
-      "id": 10,
-      "title": "CI: cap parity gate concurrency",
-      "link": "https://github.com/openclaw/openclaw/commit/51b5d16faf7255007041bd7f2e197b08bd9fab4f",
-      "publishedAt": "2026-04-16T06:27:44Z",
-      "summary": "CI: cap parity gate concurrency",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：CI: cap parity gate concurrency",
-      "summaryZh": "重點：CI: cap parity gate concurrency..."
     }
   ]
 }
