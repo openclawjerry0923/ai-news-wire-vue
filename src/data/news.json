@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-04-16T15:27:29.948Z",
+  "generatedAt": "2026-04-16T17:17:15.053Z",
   "items": [
     {
       "id": 1,
-      "title": "test: harden Parallels update smoke",
-      "link": "https://github.com/openclaw/openclaw/commit/1a98090bf3792e3529daa4d85c36435cc13d6faa",
-      "publishedAt": "2026-04-16T15:19:30Z",
-      "summary": "test: harden Parallels update smoke",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: harden Parallels update smoke",
-      "summaryZh": "重點：test: harden Parallels update smoke..."
+      "title": "攻半導體量測商機！Wooptix 擴建無塵室盼年底啟用，拚歐洲技術自主",
+      "link": "https://technews.tw/2026/04/17/wooptix-breaks-ground-on-new-semiconductor-cleanroom-facility-in-spain/",
+      "publishedAt": "Thu, 16 Apr 2026 17:13:47 +0000",
+      "summary": "半導體波前相位影像量測業者 Wooptix 今（16 日）宣布，將擴大其研發與製造布局，在西班牙特內里費（Te [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat: default Anthropic to Opus 4.7",
-      "link": "https://github.com/openclaw/openclaw/commit/628b454eff6ecc240398728dfed11af61b11e202",
-      "publishedAt": "2026-04-16T15:12:06Z",
-      "summary": "feat: default Anthropic to Opus 4.7",
+      "title": "fix(bluebubbles): restore inbound image attachments and accept update…",
+      "link": "https://github.com/openclaw/openclaw/commit/77d9fd693f189d65b4317e826544d902de932b9e",
+      "publishedAt": "2026-04-16T17:04:20Z",
+      "summary": "fix(bluebubbles): restore inbound image attachments and accept updated-message events (#67510) * fix(bluebubbles): restore inbound image attachments and accept updated-message events Four interconnected fixes for BlueBubbles inbound media: 1. Strip bundled-undici dispatcher from non-SSRF fetch path so attachment downloads no longer silently fail on Node 22+ (#64105, #61861) 2. Accept updated-message webhook events that carry attachments instead of filtering them as non-reaction events (#65430) 3. Include eventType in the persistent GUID dedup key so updated-message follow-ups are not rejected as duplicates of the original new-message (#52277) 4. Retry attachment fetch from BB API (2s delay) when the initial webhook arrives with an empty attachments array — image-only messages and updated-message events only (#67437) Closes #64105, closes #61861, closes #65430. * fix(bluebubbles): resolve review findings — SSRF policy, reuse extractAttachments, add tests - F1 (BLOCKER): pass undefined instead of {} for SSRF policy when allowPrivateNetwork is false, so localhost BB servers are not blocked. - F2 (IMPORTANT): reuse exported extractAttachments() from monitor-normalize instead of duplicating field extraction logic. - F3 (IMPORTANT): simplify asRecord(asRecord(payload)?.data) to asRecord(payload.data) since payload is already Record. - F4 (NIT): bind retryMessageId before the guard to eliminate non-null assertion. - F5 (IMPORTANT): add 4 tests for fetchBlueBubblesMessageAttachments covering success, non-ok HTTP, empty data, and guid-less entries. - Add CHANGELOG entry for the user-facing fix. * fix(ci): update raw-fetch allowlist line number after dispatcher strip * fix(bluebubbles): resolve PR review findings (#67510) - monitor-processing: move attachment retry into the !rawBody guard so image-only new-message events that arrive with empty attachments and empty text are recovered via a BB API refetch before being dropped. The existing retry block at the end of processMessageAfterDedupe was unreachable for this case because the !rawBody early-return fired first. (Greptile) - monitor: derive isAttachmentUpdate from the normalized message shape instead of raw payload.data.attachments so updated-message webhooks with attachments under wrapper formats (payload.message, JSON-string payloads) are correctly routed through for processing instead of silently filtered. (Codex) - types: use bundled-undici fetch when init.dispatcher is present so the SSRF guard's DNS-pinning dispatcher is preserved when this function is called as fetchImpl from guarded callers (e.g. the attachment download path via fetchRemoteMedia). Falls back to globalThis.fetch when no dispatcher is present so tests that stub globalThis.fetch keep working. (Codex) - attachments: blueBubblesPolicy returns undefined for the non-private case (matching monitor-processing's helper) so sendBlueBubblesAttachment stops routing localhost BB through the SSRF guard. (Greptile) - scripts/check-no-raw-channel-fetch: bump the types.ts allowlist line to match the restructured non-SSRF branch. * fix(bluebubbles): move attachment retry before rawBody guard, fix stale log Move the attachment retry block (2s BB API refetch for empty attachments) before the !rawBody early-return guard. Previously, image-only messages with text='' and attachments=[] would be dropped by the !rawBody check before the retry could fire, making fix #4 dead code for its primary use-case. Now the retry runs first and recomputes the placeholder from resolved attachments so rawBody becomes non-empty when media is found. Also fix stale log message that still said 'without reaction' after the filter was expanded to pass through attachment updates. * fix(bluebubbles): revert undici import, restore dispatcher-strip approach Revert the @claude bot's undici import in types.ts — it introduced a direct 'undici' dependency that is not declared in the BB extension's package.json and would break isolated plugin installs. Restore the original dispatcher-strip approach which is correct: the SSRF guard already completed validation upstream before calling this function as fetchImpl, so stripping the dispatcher does not weaken security. * fix(bluebubbles): remove dead empty-body recovery block in !rawBody guard The empty-body attachment-recovery block added in the earlier PR revision is now redundant because the main retry block was moved above the rawBody computation in 0d7d1c4208. Worse, that leftover block reassigned the (now-const) placeholder variable, throwing `TypeError: Assignment to constant variable` at runtime for image-only messages — breaking the very recovery path it was meant to protect (flagged by Codex on 4bfc2777). Remove the dead block; the up-front retry already handles the image-only case by recovering attachments before the rawBody computation, so once we reach the !rawBody guard with an empty body it is genuinely empty and should drop as before. * fix(ci): update raw-fetch allowlist line after dispatcher-strip revert 279dba17d2 reverted types.ts back to the dispatcher-strip approach, which put the `fetch(url, ...)` call at line 189 instead of line 198. Bump the allowlist entry to match so `lint:tmp:no-raw-channel-fetch` stops failing check-additional. * test(pdf-tool): update stale opus-4-6 constant to opus-4-7 `628b454eff feat: default Anthropic to Opus 4.7` bumped the bundled anthropic image default to `claude-opus-4-7` but missed updating the `ANTHROPIC_PDF_MODEL` constant in pdf-tool.model-config.test.ts. The tests now fail on any PR that runs the `checks-node-agentic-agents-plugins` shard because the resolver returns 4-7 while the test asserts 4-6. Bump the constant to 4-7 to match the bundled default. --------- Co-authored-by: Lobster",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: default Anthropic to Opus 4.7",
-      "summaryZh": "重點：新功能: default Anthropic to Opus 4.7..."
+      "titleZh": "OpenClaw 程式碼更新：修正(bluebubbles): restore inbound image attachments and accept update…",
+      "summaryZh": "重點：修正(bluebubbles): restore inbound image attachments and accept updated-message events (#67510) * 修正(bluebubbles): restore..."
     },
     {
       "id": 3,
-      "title": "fix: harden node-host shell payload mutability checks",
-      "link": "https://github.com/openclaw/openclaw/commit/75c551e89e67d4af596f533c4b6b4e123cc8f0bd",
-      "publishedAt": "2026-04-16T15:04:17Z",
-      "summary": "fix: harden node-host shell payload mutability checks",
+      "title": "test: keep prompt cache PR gate green",
+      "link": "https://github.com/openclaw/openclaw/commit/6429fa0a7f5ed029bbb5eca2a18e2af1e5cdd286",
+      "publishedAt": "2026-04-16T16:41:26Z",
+      "summary": "test: keep prompt cache PR gate green",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: harden node-host shell payload mutability checks",
-      "summaryZh": "重點：修正: harden node-host shell payload mutability checks..."
+      "titleZh": "OpenClaw 程式碼更新：test: keep prompt cache PR gate green",
+      "summaryZh": "重點：test: keep prompt cache PR gate green..."
     },
     {
       "id": 4,
-      "title": "fix: land node-host approval binding for native binaries (#66731) (th…",
-      "link": "https://github.com/openclaw/openclaw/commit/29919bb6e4bc05a97f6b5e8f26c40d0204e05b02",
-      "publishedAt": "2026-04-16T15:00:09Z",
-      "summary": "fix: land node-host approval binding for native binaries (#66731) (thanks @tmimmanuel) * fix(node-host): allow absolute-path native binaries through approval binder * test(node-host): cover binary binder edge cases * test(node-host): use stable native binary fixture * fix(ci): restore fail-closed race handling * refactor(node-host): distill approval binding regressions * fix(node-host): fail closed on unknown shell payload headers * fix: land node-host approval binding for native binaries (#66731) (thanks @tmimmanuel) * fix: keep relative shell binary payloads fail-closed (#66731) (thanks @tmimmanuel) * fix: keep shell binary bypass on stable paths only (#66731) (thanks @tmimmanuel) * fix: fail closed on symlinked shell binary targets (#66731) (thanks @tmimmanuel) --------- Co-authored-by: Ayaan Zaidi",
+      "title": "fix(prompt): keep inbound chat ids out of system prefix",
+      "link": "https://github.com/openclaw/openclaw/commit/eb1080369165408eb4cf5b4eedbed2ffc07994fa",
+      "publishedAt": "2026-04-16T16:41:26Z",
+      "summary": "fix(prompt): keep inbound chat ids out of system prefix",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: land node-host approval binding for native binaries (#66731) (th…",
-      "summaryZh": "重點：修正: land node-host approval binding for native binaries (#66731) (thanks @tmimmanuel) * 修正(node-host): allow absolute-pa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(prompt): keep inbound chat ids out of system pre修正",
+      "summaryZh": "重點：修正(prompt): keep inbound chat ids out of system pre修正..."
     },
     {
       "id": 5,
+      "title": "fix: pin codex resume sandbox override",
+      "link": "https://github.com/openclaw/openclaw/commit/1183832d4f397b60ae65e1d5d9d4f396847571f5",
+      "publishedAt": "2026-04-16T16:31:41Z",
+      "summary": "fix: pin codex resume sandbox override",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: pin codex resume sandbox override",
+      "summaryZh": "重點：修正: pin codex resume sandbox override..."
+    },
+    {
+      "id": 6,
       "title": "MacBook Neo 回收材質占六成，蘋果 ESG 再押產品減碳",
       "link": "https://finance.technews.tw/2026/04/16/macbook-neo-apple-esg/",
       "publishedAt": "Thu, 16 Apr 2026 13:35:08 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Nginx網頁管理介面元件Nginx UI存在重大漏洞，有資安公司警告已遭積極利用",
       "link": "https://www.ithome.com.tw/news/175108",
       "publishedAt": "2026-04-16 12:04:55",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "群暉修補SSL VPN Client工具程式兩個漏洞，未更新可能導致敏感資料外洩",
       "link": "https://www.ithome.com.tw/news/175110",
       "publishedAt": "2026-04-16 12:04:52",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Cal.com要閉源了",
       "link": "https://www.ithome.com.tw/news/175107",
       "publishedAt": "2026-04-16 12:04:45",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Google六月起將處罰使用返回鍵劫持手法的網站",
       "link": "https://www.ithome.com.tw/news/175106",
       "publishedAt": "2026-04-16 12:04:03",
       "summary": "Google宣布六月起將對以返回鍵劫持（back button hijacking）阻撓用戶的網站開罰，可能導致Google搜尋排序調降。 返回鍵劫持是網站阻止用戶按返回鍵離開目前網頁，回到前頁的手法。網站可能將使用者導向他們未曾造訪過的網頁，擅自發送推薦或廣告、或是其他行為。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google發布Chrome瀏覽器更新，修補31個漏洞，含多個重大與高風險漏洞",
-      "link": "https://www.ithome.com.tw/news/175104",
-      "publishedAt": "2026-04-16 11:04:54",
-      "summary": "臺灣時間今天Google發布Chrome瀏覽器新版本，將Windows與Mac平臺穩定版更新至147.0.7727.101與147.0.7727.102，Linux版本更新至147.0.7727.101，此次改版修補多個重大與高風險漏洞。 這次Chrome更新一共修補31個漏洞，包括5個重大漏洞、22個高風險漏洞，以及4個中度風險漏洞。",
       "source": "iThome",
       "tag": "繁中"
     }
