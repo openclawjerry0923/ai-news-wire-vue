@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-17T19:03:16.215Z",
+  "generatedAt": "2026-04-17T20:48:16.277Z",
   "items": [
     {
       "id": 1,
-      "title": "test: merge shell payload plan checks",
-      "link": "https://github.com/openclaw/openclaw/commit/e9d052d728b43439269811e343ce2e5ccb0f70c0",
-      "publishedAt": "2026-04-17T19:01:58Z",
-      "summary": "test: merge shell payload plan checks",
+      "title": "fix(agents): filter bundled tools through final policy (#68195)",
+      "link": "https://github.com/openclaw/openclaw/commit/0e7a992d3f3155199c1acc2dd9a53c5b3a4d3ada",
+      "publishedAt": "2026-04-17T20:45:12Z",
+      "summary": "fix(agents): filter bundled tools through final policy (#68195) * fix(agents): filter bundled tools through final policy * changelog: filter bundled tools through final policy (#68195) * forward agentId into compaction tool-policy filter Pass effectiveSkillAgentId to applyFinalEffectiveToolPolicy in the compaction path so per-agent tool policies apply to bundled tools during compaction the same way they do during normal runs. * scope final tool-policy filter to bundled tools only Running the full tool-policy pipeline on the merged core + bundled tool list re-filters core tools whose plugin WeakMap metadata no longer survives the normalize/hook wrappers applied by createOpenClawCodingTools(). Narrow the helper to only the newly-appended bundled MCP/LSP tools so plugin-provided core tools keep matching group:plugins and plugin-id allowlist entries. * harden authorization signals on final tool policy - message.action gateway handler now server-derives senderIsOwner from the authenticated gateway client scopes (ADMIN_SCOPE on client.connect.scopes) and ignores any senderIsOwner value on the wire, so a non-admin scoped caller cannot spoof owner status to unlock owner-only channel actions or owner-only tool policy. Schema keeps the field optional for wire compat but documents that it is ignored. - applyFinalEffectiveToolPolicy now cross-checks caller-provided groupId against the session-derived group context resolved from sessionKey (and spawnedBy). When they disagree, the caller groupId plus its adjacent groupChannel/groupSpace are dropped and a warn is emitted, so a caller that fabricates a different group id cannot reach a more permissive group-scoped tool policy during the final bundled-tool filter. Added a JSDoc trust invariant on the helper input describing the required server-verified identity contract. * align compact agentId resolution with core tools Drop the explicit agentId on applyFinalEffectiveToolPolicy during compaction. The core tool set produced just above via createOpenClawCodingTools(...) also omits agentId, so resolveEffectiveToolPolicy falls back to resolveAgentIdFromSessionKey(sessionKey) in both places. Passing effectiveSkillAgentId only to the final filter made the two policy lookups diverge on legacy/non-agent session keys where the sessionKey path resolves to main but effectiveSkillAgentId follows the configured default-agent path, which could deny or allow bundled tools under a different per-agent policy than the already-created core tools. * tighten trusted propagation for owner and group signals - message.action gateway handler: full-operator callers (shared-secret bearer or operator.admin scope) now propagate the request-provided senderIsOwner through to channel action handlers instead of having it hard-coded off. Previously the hardened path force-derived ownership from ADMIN_SCOPE alone, which broke owner-gated actions when the trusted runtime forwards them via the least-privilege gateway path (callGatewayLeastPrivilege requests only the method scope, so even legitimate owner senders were downgraded to senderIsOwner=false). Narrowly-scoped callers (e.g. operator.write-only) still have the wire value forced to false so a non-admin caller cannot assert ownership. - applyFinalEffectiveToolPolicy: fail-closed when the session key and spawnedBy encode no group context. Previously the helper only dropped a caller-provided groupId that conflicted with a non-empty set of session-derived group ids, which left an accept-caller fallback open when the session had no group context at all (direct/cron/subagent session keys). An attacker who could run without a group-bound session could then supply an arbitrary groupId and reach a more permissive group-scoped tool policy. Now: no session-derived group context plus any caller-provided groupId drops the caller value and warns. * suppress unavailable-core-tool warnings in bundled-only pass applyToolPolicyPipeline infers its coreToolNames reference set from the tools array it is filtering. The bundled-only second pass only sees the MCP/LSP subset, so normal core allowlist entries (for example tools.allow: ['read', 'exec']) would look \"unknown\" during this pass and emit misleading warnings even when the config is valid for the full effective tool set — polluting logs and potentially evicting real diagnostics from the shared warning cache. Set suppressUnavailableCoreToolWarning on every step of this pass so known core-tool allowlist entries stay silent; genuinely unknown entries still surface through the otherEntries warning path.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: merge shell payload plan checks",
-      "summaryZh": "重點：test: merge shell payload plan checks..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): filter bundled tools through final policy (#68195)",
+      "summaryZh": "重點：修正(agents): filter bundled tools through final policy (#68195) * 修正(agents): filter bundled tools through final policy *..."
     },
     {
       "id": 2,
-      "title": "test: narrow chat attachment rendering",
-      "link": "https://github.com/openclaw/openclaw/commit/f897025d9b7d2d7725cf9037469e804b892c0368",
-      "publishedAt": "2026-04-17T19:00:46Z",
-      "summary": "test: narrow chat attachment rendering",
+      "title": "test: avoid bundled session normalizer fallback",
+      "link": "https://github.com/openclaw/openclaw/commit/77e588ebc303dec232dc440f655d2a731ca2bf91",
+      "publishedAt": "2026-04-17T20:41:46Z",
+      "summary": "test: avoid bundled session normalizer fallback Keep explicit session-key normalization on loaded channel plugins so unknown provider contexts pass through without cold-loading bundled channel runtimes. This preserves active plugin behavior and removes the slow unknown-provider test path.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: narrow chat attachment rendering",
-      "summaryZh": "重點：test: narrow chat attachment rendering..."
+      "titleZh": "OpenClaw 程式碼更新：test: avoid bundled session normalizer fallback",
+      "summaryZh": "重點：test: avoid bundled session normalizer fallback Keep explicit session-key normalization on loaded channel plugins so unk..."
     },
     {
       "id": 3,
-      "title": "test: reuse session file fixture root",
-      "link": "https://github.com/openclaw/openclaw/commit/5f075d3d491b987ee0340e84a489648c30547002",
-      "publishedAt": "2026-04-17T18:57:19Z",
-      "summary": "test: reuse session file fixture root",
+      "title": "test: speed legacy state migration discovery",
+      "link": "https://github.com/openclaw/openclaw/commit/5ae059db16c690841c63151424135cb6659dbbf0",
+      "publishedAt": "2026-04-17T20:41:43Z",
+      "summary": "test: speed legacy state migration discovery Keep bundled legacy migration discovery on narrow setup-entry surfaces so state-migration tests and doctor cold paths avoid unrelated channel runtime loads. Add targeted setup feature metadata, narrow Telegram/WhatsApp legacy contracts, and a path-only pairing SDK helper.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: reuse session file 修正ture root",
-      "summaryZh": "重點：test: reuse session file 修正ture root..."
+      "titleZh": "OpenClaw 程式碼更新：test: speed legacy state migration discovery",
+      "summaryZh": "重點：test: speed legacy state migration discovery Keep bundled legacy migration discovery on narrow setup-entry surfaces so s..."
     },
     {
       "id": 4,
-      "title": "Media: keep inbound roots on media contracts",
-      "link": "https://github.com/openclaw/openclaw/commit/8747351383d9bfa4fc0d58959b2d536093006e99",
-      "publishedAt": "2026-04-17T18:56:47Z",
-      "summary": "Media: keep inbound roots on media contracts",
+      "title": "refactor(auth): drop persisted external oauth ownership metadata",
+      "link": "https://github.com/openclaw/openclaw/commit/a8a701291bea06b3c47cbda78ccc9ddb2aeb4fb7",
+      "publishedAt": "2026-04-17T20:28:54Z",
+      "summary": "refactor(auth): drop persisted external oauth ownership metadata",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Media: keep inbound roots on media contracts",
-      "summaryZh": "重點：Media: keep inbound roots on media contracts..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(auth): drop persisted external oauth ownership metadata",
+      "summaryZh": "重點：refactor(auth): drop persisted external oauth ownership metadata..."
     },
     {
       "id": 5,
