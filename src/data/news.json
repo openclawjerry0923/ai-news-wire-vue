@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-04-18T05:07:59.383Z",
+  "generatedAt": "2026-04-18T07:11:07.604Z",
   "items": [
     {
       "id": 1,
+      "title": "docs(changelog): deduplicate #67679 entry (#68439)",
+      "link": "https://github.com/openclaw/openclaw/commit/3b9e0da02d8279c68a2bd024dd24027de1093e7b",
+      "publishedAt": "2026-04-18T06:40:07Z",
+      "summary": "docs(changelog): deduplicate #67679 entry (#68439) PR #67679 landed a duplicate line under ### Changes in the Unreleased block in addition to the detailed entry that was already present under ### Fixes. The short ### Changes line (auto-generated from the PR title during merge) is a duplicate of the same PR's ### Fixes line and also mis-categorizes a security redaction fix as a feature change. Remove the duplicate and keep the ### Fixes entry, which is the right section and carries the descriptive text.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(changelog): deduplicate #67679 entry (#68439)",
+      "summaryZh": "重點：文件(changelog): deduplicate #67679 entry (#68439) PR #67679 landed a duplicate line under ### Changes in the Un版本發布d bloc..."
+    },
+    {
+      "id": 2,
+      "title": "沃爾瑪靠「開放系」AI 管家逆襲！亞馬遜 2.5 億用戶帝國出現裂縫",
+      "link": "https://finance.technews.tw/2026/04/18/walmart-vs-amazon/",
+      "publishedAt": "Sat, 18 Apr 2026 06:30:25 +0000",
+      "summary": "過去十年，亞馬遜憑著強大演算法與 Prime 會員生態圈，定義了現代電商的樣貌。然而，進入 AI Agent（ [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "fix: redact credentials in browser.cdpUrl config paths (#67679)",
+      "link": "https://github.com/openclaw/openclaw/commit/4b5987829d0f82ea44ae50f2f418ffe5ea445e7f",
+      "publishedAt": "2026-04-18T06:22:58Z",
+      "summary": "fix: redact credentials in browser.cdpUrl config paths (#67679) Merged via squash. Prepared head SHA: 77bc2c50ce4bbd10c925fcd9162dc139e05e8a9f Co-authored-by: Ziy1-Tan Co-authored-by: hxy91819 Reviewed-by: @hxy91819",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: redact credentials in browser.cdpUrl config paths (#67679)",
+      "summaryZh": "重點：修正: redact credentials in browser.cdpUrl config paths (#67679) Merged via squash. Prepared head SHA: 77bc2c50ce4bbd10c92..."
+    },
+    {
+      "id": 4,
+      "title": "ci(security): harden workflow steps against template-injection (#68431)",
+      "link": "https://github.com/openclaw/openclaw/commit/c778562379d6abca1983e33cf4888cd1bfc7c6de",
+      "publishedAt": "2026-04-18T06:04:55Z",
+      "summary": "ci(security): harden workflow steps against template-injection (#68431) zizmor v1.24.1 reports 8 template-injection findings across three workflow files where GitHub Actions ${{ ... }} expressions are interpolated directly into shell run: blocks. Applies the canonical fix pattern: hoist every dynamic value into a step-level env: block and reference it as a shell variable (\"${VAR}\") from the script. Files changed: - control-ui-locale-refresh.yml: move matrix.locale into env as LOCALE (1 site) - docker-release.yml: hoist steps.tags.outputs.{value,slim} plus the four needs.build-{amd64,arm64}.outputs.{digest,slim-digest} values into env for both manifest-creation steps (6 sites) - openclaw-npm-release.yml: hoist steps.publish_tarball.outputs.path into env as PUBLISH_TARBALL_PATH in the Publish step (1 site) Verified locally with zizmor --persona regular on the three files: 'No findings to report. Good job!'. pnpm format:check and pnpm lint pass. Refs #68428. Complements #66884, which covers the remaining 12 sites in openclaw-cross-os-release-checks-reusable.yml.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：ci(安全): harden workflow steps against template-injection (#68431)",
+      "summaryZh": "重點：ci(安全): harden workflow steps against template-injection (#68431) zizmor v1.24.1 reports 8 template-injection findings a..."
+    },
+    {
+      "id": 5,
+      "title": "[codex] fix(auth): harden OAuth refresh and Codex CLI bootstrap flows…",
+      "link": "https://github.com/openclaw/openclaw/commit/f45bc09206625adfd596417e8d03c0567466527a",
+      "publishedAt": "2026-04-18T06:02:29Z",
+      "summary": "[codex] fix(auth): harden OAuth refresh and Codex CLI bootstrap flows (#68396) * Harden OAuth refresh and Codex CLI bootstrap flows - Treat near-expiry OAuth credentials as unusable for bootstrap and refresh - Add clearer timeout and callback validation handling for OpenAI Codex OAuth - Tighten file lock retry behavior for stale OAuth refresh contention * fix(auth): address PR review threads * fix(auth): adopt fresher imported refresh tokens * test(auth): align oauth expiry fixtures with refresh margin * fix(auth): tighten Codex OAuth bootstrap and local fallback * Keep explicit local auth over CLI bootstrap - Preserve existing non-OAuth local profiles during external CLI OAuth sync - Add regression coverage for OpenAI Codex and generic external OAuth overlays * fix(auth): distinguish oauth lock timeout sources * fix(auth): reject cross-account external oauth bootstrap * fix(auth): narrow refresh contention classification",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：[codex] 修正(auth): harden OAuth refresh and Codex CLI bootstrap flows…",
+      "summaryZh": "重點：[codex] 修正(auth): harden OAuth refresh and Codex CLI bootstrap flows (#68396) * Harden OAuth refresh and Codex CLI boots..."
+    },
+    {
+      "id": 6,
+      "title": "沃特世推出業界首款適用於 UHPLC/UPLC 的寬範圍 MALS 分析系統，助力大分子快速表徵",
+      "link": "https://technews.tw/2026/04/18/waters-omnidawn-mals/",
+      "publishedAt": "Sat, 18 Apr 2026 06:00:33 +0000",
+      "summary": "沃特世公司 15 日重磅推出 Waters omniDAWN 多角度光散射（MALS）分析系統，隸屬於旗下 W [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "6,600 萬美國人用 AI 尋求健康建議，ChatGPT 成看醫生前的「第一道關卡」",
       "link": "https://technews.tw/2026/04/18/millions-of-americans-are-talking-to-ai-about-health-and-some-are-dangerously-skipping-real-doctors/",
       "publishedAt": "Sat, 18 Apr 2026 05:00:49 +0000",
@@ -11,51 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "Matrix: forward dangerouslyAllowPrivateNetwork config to client SSRF …",
-      "link": "https://github.com/openclaw/openclaw/commit/c2fb4007c24a0d8ead011a83a4e814630f73f052",
-      "publishedAt": "2026-04-18T04:50:50Z",
-      "summary": "Matrix: forward dangerouslyAllowPrivateNetwork config to client SSRF policy (#68332) Merged via squash. Prepared head SHA: d8733928eb6baf743554f7ccc9e73d742c6c6efb Co-authored-by: kagura-agent Co-authored-by: gumadeiras Reviewed-by: @gumadeiras",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Matrix: forward dangerouslyAllowPrivateNetwork config to client SSRF …",
-      "summaryZh": "重點：Matrix: forward dangerouslyAllowPrivateNetwork config to client SSRF policy (#68332) Merged via squash. Prepared head SH..."
-    },
-    {
-      "id": 3,
-      "title": "fix(telegram): require authorized abort supersede",
-      "link": "https://github.com/openclaw/openclaw/commit/dc3b10285db8d358729834a30887a70b60bf1c5a",
-      "publishedAt": "2026-04-18T04:44:08Z",
-      "summary": "fix(telegram): require authorized abort supersede",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): require authorized abort supersede",
-      "summaryZh": "重點：修正(Telegram): require authorized abort supersede..."
-    },
-    {
-      "id": 4,
-      "title": "fix(whatsapp): isolate multi-account inbound state and align shared d…",
-      "link": "https://github.com/openclaw/openclaw/commit/458a52610a4deb7f7bc7ce29d55c6bcf9ae3a7c9",
-      "publishedAt": "2026-04-18T04:37:38Z",
-      "summary": "fix(whatsapp): isolate multi-account inbound state and align shared defaults (#65700) * refactor(whatsapp): centralize inbound policy resolution * fix(whatsapp): scope named-account group session keys * fix(whatsapp): preserve legacy group activation during scoped-key migration * fix(whatsapp): wire shared defaults through accounts.default * fix(whatsapp): align schema, helpers, and monitor behavior * fix(whatsapp): restore verbose inbound diagnostics * chore(config): refresh whatsapp changelog and baseline hashes",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): isolate multi-account inbound state and align shared d…",
-      "summaryZh": "重點：修正(whatsapp): isolate multi-account inbound state and align shared defaults (#65700) * refactor(whatsapp): centralize in..."
-    },
-    {
-      "id": 5,
-      "title": "fix: fence Telegram stale reply delivery after abort (#68100) (thanks…",
-      "link": "https://github.com/openclaw/openclaw/commit/996eb9a024d03ad68cc2a34f7f1df423aa47e652",
-      "publishedAt": "2026-04-18T04:32:38Z",
-      "summary": "fix: fence Telegram stale reply delivery after abort (#68100) (thanks @rubencu) * fix(telegram): fence stale reply delivery after abort * refactor(telegram): narrow abort fence scope * fix(telegram): ignore stale reply finalization after abort * fix(telegram): close abort supersession races * fix(telegram): release abort fences on setup errors * fix(telegram): discard superseded draft cleanup * refactor(telegram): distill abort fence cleanup * fix: fence Telegram stale reply delivery after abort (#68100) (thanks @rubencu) --------- Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: fence Telegram stale reply delivery after abort (#68100) (thanks…",
-      "summaryZh": "重點：修正: fence Telegram stale reply delivery after abort (#68100) (thanks @rubencu) * 修正(Telegram): fence stale reply deliver..."
-    },
-    {
-      "id": 6,
+      "id": 8,
       "title": "高股息 ETF 大洗牌！0056 豪配 1 元淨申購達 72 億狠甩 00919、00878",
       "link": "https://finance.technews.tw/2026/04/18/high-dividend-etfs-undergo-a-major-reshuffle/",
       "publishedAt": "Sat, 18 Apr 2026 03:20:38 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "韓國泡麵要「沒衣服穿」了！中東戰爭使韓石腦油供應告急，食品業拉警報",
       "link": "https://technews.tw/2026/04/18/shin-ramyun-packaging-shortage-south-korean-food-industry-inventory-crisis-price-hike-pressure/",
       "publishedAt": "Sat, 18 Apr 2026 03:00:45 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "不到一分鐘揪出早期徵兆，AI 語音分析技術有望提前數年偵測阿茲海默症",
       "link": "https://technews.tw/2026/04/18/ai-could-detect-early-signs-of-alzheimers-in-under-a-minute/",
       "publishedAt": "Sat, 18 Apr 2026 02:30:56 +0000",
       "summary": "科學家們正在利用人工智慧（AI）和語音分析技術，來發現阿茲海默症的早期徵兆，這些徵兆往往是傳統方法所忽略的。根 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Telegram 官方繁體中文版突擊上線！雲端儲存與隱私優勢能否帶動轉移潮？",
-      "link": "https://ccc.technews.tw/2026/04/18/telegram-official-traditional-chinese-version/",
-      "publishedAt": "Sat, 18 Apr 2026 02:10:41 +0000",
-      "summary": "全球知名通訊軟體 Telegram 近日無預警釋出重大更新，官方正式將「繁體中文」納入內建語言選項，終結過去使 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "一天燒 10 億美元打持久戰，川普選情壓力全繫於美中談判成果",
-      "link": "https://technews.tw/2026/04/18/us-iran-tensions-cloud-trump-midterm-prospects/",
-      "publishedAt": "Sat, 18 Apr 2026 02:00:19 +0000",
-      "summary": "根據《財訊》雙週刊報導，美國和伊朗自 2 月底爆發軍事衝突以來，中東緊繃情勢迄今仍未明顯降溫，戰事引發美國民眾 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
