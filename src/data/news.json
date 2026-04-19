@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-04-19T08:56:18.271Z",
+  "generatedAt": "2026-04-19T09:51:32.752Z",
   "items": [
     {
       "id": 1,
-      "title": "test: make OpenWebUI smoke deterministic",
-      "link": "https://github.com/openclaw/openclaw/commit/2ecea9395bf2b5d91583ec7fdf2e8eb20f703a0e",
-      "publishedAt": "2026-04-19T08:22:20Z",
-      "summary": "test: make OpenWebUI smoke deterministic",
+      "title": "test(tasks): align detached runtime mock return types",
+      "link": "https://github.com/openclaw/openclaw/commit/d83215084f3446c1212c79ce0fcddba0c07320a5",
+      "publishedAt": "2026-04-19T09:51:03Z",
+      "summary": "test(tasks): align detached runtime mock return types",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: make OpenWebUI smoke deterministic",
-      "summaryZh": "重點：test: make OpenWebUI smoke deterministic..."
+      "titleZh": "OpenClaw 程式碼更新：test(tasks): align detached runtime mock return types",
+      "summaryZh": "重點：test(tasks): align detached runtime mock return types..."
     },
     {
       "id": 2,
-      "title": "test: tolerate empty fireworks live responses",
-      "link": "https://github.com/openclaw/openclaw/commit/ec193a2b822f9367117c57254e9c3cf11ebfff21",
-      "publishedAt": "2026-04-19T08:09:53Z",
-      "summary": "test: tolerate empty fireworks live responses",
+      "title": "fix(browser): discover CDP websocket from bare ws:// URL before attac…",
+      "link": "https://github.com/openclaw/openclaw/commit/4cfc8cd5beb218b2e47cd823a9d4ddc50045bc57",
+      "publishedAt": "2026-04-19T09:43:39Z",
+      "summary": "fix(browser): discover CDP websocket from bare ws:// URL before attach (#68715) * fix(browser): discover CDP websocket from bare ws:// URL before attach When browser.cdpUrl is set to a bare ws://host:port (no /devtools/ path), ensureBrowserAvailable would call isChromeReachable -> canOpenWebSocket against the URL verbatim. Chrome only accepts WebSocket upgrades at the specific path returned by /json/version, so the handshake failed immediately with HTTP 400. With attachOnly: true, that surfaced as: Browser attachOnly is enabled and profile \"openclaw\" is not running. even though the CDP endpoint was reachable and the profile was healthy. Reproduced by the new tests in chrome.test.ts and cdp.test.ts (#68027). Fix: introduce isDirectCdpWebSocketEndpoint(url) — true only when a ws/wss URL has a /devtools// handshake path. Route any other ws/wss cdpUrl (including the bare ws://host:port shape) through HTTP /json/version discovery by normalising the scheme via the existing normalizeCdpHttpBaseForJsonEndpoints helper. Apply this in isChromeReachable, getChromeWebSocketUrl, and createTargetViaCdp. Direct WS endpoints with a /devtools/ path are still opened without an extra discovery round-trip. Fixes #68027 * test(browser): add seeded fuzz coverage for CDP URL helpers Adds property-based / seeded-fuzz tests for the URL helpers the attachOnly CDP fix depends on (#68027): - isWebSocketUrl - isDirectCdpWebSocketEndpoint - normalizeCdpHttpBaseForJsonEndpoints - parseBrowserHttpUrl - redactCdpUrl - appendCdpPath - getHeadersWithAuth Follows the existing repo convention (see src/gateway/http-common.fuzz.test.ts): no fast-check dep, small mulberry32 PRNG + hand-rolled generators, deterministic per-describe seeds so failures are reproducible. Lifts cdp.helpers.ts coverage from 77.77% -> 89.54% statements, 67.9% -> 80.24% branches, 78% -> 90% lines. Remaining uncovered lines are inside the WS sender internals (createCdpSender, withCdpSocket, fetchCdpChecked rate-limit branch), which require integration-style mocks and are unrelated to the attachOnly fix. * test(browser): drive cdp.helpers/cdp/chrome to 100% coverage Lifts the three files touched by the #68027 attachOnly fix to 100% statements/branches/functions/lines across the extensions test suite. Adds cdp.helpers.internal.test.ts, cdp.internal.test.ts, and chrome.internal.test.ts covering error paths, branch matrices, CDP session helpers, Chrome spawn/launch/stop flows, and canRunCdpHealthCommand. Defensively unreachable guards are annotated with c8 ignore + inline justifications. * fix(browser): restore WS fallback for non-/devtools ws:// CDP URLs When /json/version discovery is unavailable (or returns no webSocketDebuggerUrl), fall back to treating the original bare ws/wss URL as a direct WebSocket endpoint. This preserves the #68027 fix for Chrome's debug port while restoring compatibility with Browserless/ Browserbase-style providers that expose a direct WebSocket root without a /json/version endpoint. Priority order for bare ws/wss cdpUrl inputs: 1. /devtools// URL \\u2192 direct handshake, no discovery (unchanged) 2. bare ws/wss root \\u2192 try HTTP discovery first; if discovery returns a webSocketDebuggerUrl use it; otherwise fall back to the original URL as a direct WS endpoint 3. HTTP/HTTPS URL \\u2192 HTTP discovery only, no fallback (unchanged) Affected call sites: isChromeReachable, getChromeWebSocketUrl, createTargetViaCdp. Also renames a misleading test ('still enforces SSRF policy for direct WebSocket URLs') to accurately describe what it tests: SSRF enforcement on the navigation target URL, not on the CDP endpoint. New tests added for all three fallback paths. Coverage remains 100% on all three touched files (238 tests). * fix: browser attachOnly bare ws CDP follow-ups (#68715) (thanks @visionik)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: tolerate empty fireworks live responses",
-      "summaryZh": "重點：test: tolerate empty fireworks live responses..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): discover CDP websocket from bare ws:// URL before attac…",
+      "summaryZh": "重點：修正(browser): discover CDP websocket from bare ws:// URL before attach (#68715) * 修正(browser): discover CDP websocket fro..."
     },
     {
       "id": 3,
-      "title": "fix: stabilize release smoke reruns",
-      "link": "https://github.com/openclaw/openclaw/commit/8c4ecf42dfcf8f0265081e2801d221a70dc96886",
-      "publishedAt": "2026-04-19T08:05:33Z",
-      "summary": "fix: stabilize release smoke reruns",
+      "title": "fix: parse PowerShell cron tools allow-list (#68858) (thanks @chen-zh…",
+      "link": "https://github.com/openclaw/openclaw/commit/25e51bba5245d79677a37de6a6db280e55ae96f1",
+      "publishedAt": "2026-04-19T09:41:14Z",
+      "summary": "fix: parse PowerShell cron tools allow-list (#68858) (thanks @chen-zhang-cs-code) * fix(cron): parse PowerShell tools allow list * fix(cron): clarify tools allow-list help * fix: parse PowerShell cron tools allow-list (#68858) (thanks @chen-zhang-cs-code) --------- Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: stabilize 版本發布 smoke reruns",
-      "summaryZh": "重點：修正: stabilize 版本發布 smoke reruns..."
+      "titleZh": "OpenClaw 程式碼更新：修正: parse PowerShell 排程 tools allow-list (#68858) (thanks @chen-zh…",
+      "summaryZh": "重點：修正: parse PowerShell 排程 tools allow-list (#68858) (thanks @chen-zhang-cs-code) * 修正(排程): parse PowerShell tools allow li..."
     },
     {
       "id": 4,
-      "title": "fix: strip orphaned OpenAI reasoning blocks before responses API call…",
-      "link": "https://github.com/openclaw/openclaw/commit/6682b12563a74bcad336b1441d46eeedfad8e1ac",
-      "publishedAt": "2026-04-19T07:57:03Z",
-      "summary": "fix: strip orphaned OpenAI reasoning blocks before responses API call (#55787) Merged via squash. Prepared head SHA: 263b952d88919dfd41e61510e60a5fea5e98cf82 Co-authored-by: suboss87 Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "test: complete workspace setup in update smokes",
+      "link": "https://github.com/openclaw/openclaw/commit/53495f5136f88dc790c80fc8857065bd88dff5df",
+      "publishedAt": "2026-04-19T09:28:10Z",
+      "summary": "test: complete workspace setup in update smokes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: strip orphaned OpenAI reasoning blocks before responses API call…",
-      "summaryZh": "重點：修正: strip orphaned OpenAI reasoning blocks before responses API call (#55787) Merged via squash. Prepared head SHA: 263b..."
+      "titleZh": "OpenClaw 程式碼更新：test: complete workspace setup in update smokes",
+      "summaryZh": "重點：test: complete workspace setup in update smokes..."
     },
     {
       "id": 5,
+      "title": "微軟 Fairwater 資料中心提前上線，數十萬顆輝達 GB200 投入運算",
+      "link": "https://technews.tw/2026/04/19/microsoft-fairwater-gb200/",
+      "publishedAt": "Sun, 19 Apr 2026 09:11:53 +0000",
+      "summary": "Microsoft 宣布其位於美國威斯康辛州的 Fairwater AI 資料中心已提前上線，該設施採用數十萬 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "全美最大陸上風電專案邁向商轉， 規模上看 3.5GW 結合 HVDC 輸電系統",
       "link": "https://technews.tw/2026/04/19/usa-most-big-wind-farm/",
       "publishedAt": "Sun, 19 Apr 2026 07:14:47 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "BeReal、Locket、Retro 比一比：為真朋友而生的社群 App，誰能走得最遠？",
       "link": "https://technews.tw/2026/04/19/social-posting-fatigue-drives-rise-of-three-real-friends-apps/",
       "publishedAt": "Sun, 19 Apr 2026 06:30:56 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Supermicro 推出緊湊型高能效系統，加速智慧化邊緣 AI 應用落地",
       "link": "https://technews.tw/2026/04/19/supermicro-launches-compact-high-efficiency-systems/",
       "publishedAt": "Sun, 19 Apr 2026 06:00:58 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "最像人類語言的動物溝通，抹香鯨叫聲暗藏複雜音素與語法結構",
       "link": "https://technews.tw/2026/04/19/sperm-whales-speak-with-a-complex-alphabet-and-even-have-vowels/",
       "publishedAt": "Sun, 19 Apr 2026 05:00:37 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "AMD 傳搶下 Anthropic 訂單，導入 MI450",
       "link": "https://technews.tw/2026/04/19/amd-anthropic-mi450/",
       "publishedAt": "Sun, 19 Apr 2026 03:37:20 +0000",
       "summary": "市場傳出，AMD 有望拿下 Anthropic 訂單，將由其下一代 Instinct MI450 GPU 加速 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "被 120 萬天價安裝費嚇到！蘋果前工程師出手整頓空調業，打造「隨插即用」微型熱泵",
-      "link": "https://technews.tw/2026/04/19/these-heat-pumps-can-be-installed-in-an-hour/",
-      "publishedAt": "Sun, 19 Apr 2026 03:00:40 +0000",
-      "summary": "為了響應環保、讓自家實現完全電氣化，蘋果 AirPods 韌體前工程師 Mary-Ann Rau 特地裝了太陽 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
