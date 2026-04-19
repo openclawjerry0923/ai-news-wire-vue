@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-04-19T07:22:21.435Z",
+  "generatedAt": "2026-04-19T08:56:18.271Z",
   "items": [
     {
       "id": 1,
+      "title": "test: make OpenWebUI smoke deterministic",
+      "link": "https://github.com/openclaw/openclaw/commit/2ecea9395bf2b5d91583ec7fdf2e8eb20f703a0e",
+      "publishedAt": "2026-04-19T08:22:20Z",
+      "summary": "test: make OpenWebUI smoke deterministic",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: make OpenWebUI smoke deterministic",
+      "summaryZh": "重點：test: make OpenWebUI smoke deterministic..."
+    },
+    {
+      "id": 2,
+      "title": "test: tolerate empty fireworks live responses",
+      "link": "https://github.com/openclaw/openclaw/commit/ec193a2b822f9367117c57254e9c3cf11ebfff21",
+      "publishedAt": "2026-04-19T08:09:53Z",
+      "summary": "test: tolerate empty fireworks live responses",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: tolerate empty fireworks live responses",
+      "summaryZh": "重點：test: tolerate empty fireworks live responses..."
+    },
+    {
+      "id": 3,
+      "title": "fix: stabilize release smoke reruns",
+      "link": "https://github.com/openclaw/openclaw/commit/8c4ecf42dfcf8f0265081e2801d221a70dc96886",
+      "publishedAt": "2026-04-19T08:05:33Z",
+      "summary": "fix: stabilize release smoke reruns",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: stabilize 版本發布 smoke reruns",
+      "summaryZh": "重點：修正: stabilize 版本發布 smoke reruns..."
+    },
+    {
+      "id": 4,
+      "title": "fix: strip orphaned OpenAI reasoning blocks before responses API call…",
+      "link": "https://github.com/openclaw/openclaw/commit/6682b12563a74bcad336b1441d46eeedfad8e1ac",
+      "publishedAt": "2026-04-19T07:57:03Z",
+      "summary": "fix: strip orphaned OpenAI reasoning blocks before responses API call (#55787) Merged via squash. Prepared head SHA: 263b952d88919dfd41e61510e60a5fea5e98cf82 Co-authored-by: suboss87 Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: strip orphaned OpenAI reasoning blocks before responses API call…",
+      "summaryZh": "重點：修正: strip orphaned OpenAI reasoning blocks before responses API call (#55787) Merged via squash. Prepared head SHA: 263b..."
+    },
+    {
+      "id": 5,
       "title": "全美最大陸上風電專案邁向商轉， 規模上看 3.5GW 結合 HVDC 輸電系統",
       "link": "https://technews.tw/2026/04/19/usa-most-big-wind-farm/",
       "publishedAt": "Sun, 19 Apr 2026 07:14:47 +0000",
@@ -11,57 +55,13 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(ui): stop unsupported wiki RPC probes during startup (#67905)",
-      "link": "https://github.com/openclaw/openclaw/commit/a1f277e30e50ac2c537fc838265309506acdde9c",
-      "publishedAt": "2026-04-19T07:06:30Z",
-      "summary": "fix(ui): stop unsupported wiki RPC probes during startup (#67905) * UI: gate wiki method probes by advertised methods * test(ui): cover legacy wiki method fallback",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop unsupported wiki RPC probes during startup (#67905)",
-      "summaryZh": "重點：修正(ui): stop unsupported wiki RPC probes during startup (#67905) * UI: gate wiki method probes by advertised methods * t..."
-    },
-    {
-      "id": 3,
-      "title": "docs: clarify source control-ui dev/build flow (#68814)",
-      "link": "https://github.com/openclaw/openclaw/commit/6d427f8c2ac068308435dab61109d05abbeb0f01",
-      "publishedAt": "2026-04-19T06:48:32Z",
-      "summary": "docs: clarify source control-ui dev/build flow (#68814)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: clarify source control-ui dev/build flow (#68814)",
-      "summaryZh": "重點：文件: clarify source control-ui dev/build flow (#68814)..."
-    },
-    {
-      "id": 4,
-      "title": "fix: keep cron last delivery sentinel runtime-only (#68829) (thanks @…",
-      "link": "https://github.com/openclaw/openclaw/commit/39cb6ecbb983c5e64c5745cd8ca63d55861a7176",
-      "publishedAt": "2026-04-19T06:39:16Z",
-      "summary": "fix: keep cron last delivery sentinel runtime-only (#68829) (thanks @tianhaocui) * fix(cron): stop persisting \"last\" as literal delivery channel value The UI controller writes the sentinel value \"last\" into jobs.json when the delivery channel field is empty. This overwrites user-configured channels (e.g. \"telegram\") because the form populates with \"last\" as the default fallback, and saving the form materializes it as a literal persisted value. \"last\" is a runtime-only sentinel meaning \"use whatever channel was last used in the session\" and should never be written to jobs.json. When the channel field is empty, write `undefined` instead so the runtime delivery plan resolver applies the \"last\" fallback at execution time without polluting the persisted state. Fixes #68760 * fix(cron): keep last delivery sentinel runtime-only * fix: keep cron last delivery sentinel runtime-only (#68829) (thanks @tianhaocui) * fix: preserve clear-to-last cron updates (#68829) (thanks @tianhaocui) --------- Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep 排程 last delivery sentinel runtime-only (#68829) (thanks @…",
-      "summaryZh": "重點：修正: keep 排程 last delivery sentinel runtime-only (#68829) (thanks @tianhaocui) * 修正(排程): stop persisting \"last\" as litera..."
-    },
-    {
-      "id": 5,
+      "id": 6,
       "title": "BeReal、Locket、Retro 比一比：為真朋友而生的社群 App，誰能走得最遠？",
       "link": "https://technews.tw/2026/04/19/social-posting-fatigue-drives-rise-of-three-real-friends-apps/",
       "publishedAt": "Sun, 19 Apr 2026 06:30:56 +0000",
       "summary": "還記得那個社群媒體剛起步的年代嗎？那時，發文只是為了跟同學分享今天的午餐，隨手一拍、直接上傳，好友們陸續在照片 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "openclaw 2026.4.19-beta.2",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.19-beta.2",
-      "publishedAt": "2026-04-19T06:30:41Z",
-      "summary": "2026.4.19-beta.2 Fixes Agents/openai-completions: always send stream_options.include_usage on streaming requests, so local and custom OpenAI-compatible backends report real context usage instead of showing 0%. (#68746) Thanks @kagura-agent. Agents/nested lanes: scope nested agent work per target session so a long-running nested run on one session no longer head-of-line blocks unrelated sessions across the gateway. (#67785) Thanks @stainlu. Agents/status: preserve carried-forward session token totals for providers that omit usage metadata, so /status and openclaw sessions keep showing the last known context usage instead of dropping back to unknown/0%. (#67695) Thanks @stainlu. Install/update: keep legacy update verification compatible with the QA Lab runtime shim, so updating older global installs to beta no longer fails after npm installs the package successfully.",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.4.19-beta.2",
-      "summaryZh": "重點：2026.4.19-beta.2 修正 Agents/openai-completions: always send stream_options.include_usage on streaming requests, so local ..."
     },
     {
       "id": 7,
