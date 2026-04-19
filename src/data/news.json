@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-19T10:40:46.054Z",
+  "generatedAt": "2026-04-19T11:35:56.360Z",
   "items": [
     {
       "id": 1,
-      "title": "browser: route existing-session user profile through browser nodes (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/8cb73844c8005b8db9008dcc69a33ce7b4d3482d",
-      "publishedAt": "2026-04-19T10:21:23Z",
-      "summary": "browser: route existing-session user profile through browser nodes (#68891) * browser: route user profile through browser nodes * browser: align existing-session node docs * browser: preserve host fallback on node discovery errors * browser: preserve configured node pin errors * browser: widen config mock in node pin test",
+      "title": "tasks: add detached runtime plugin registration contract (#68915)",
+      "link": "https://github.com/openclaw/openclaw/commit/bd3ad3436efde3ed2834c4d20ed80765f4b2cd9e",
+      "publishedAt": "2026-04-19T11:13:11Z",
+      "summary": "tasks: add detached runtime plugin registration contract (#68915) * tasks: register detached runtime plugins * tasks: harden detached runtime ownership * tasks: extract detached runtime contract types * changelog: note detached runtime contract * changelog: attribute detached runtime contract",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：browser: route existing-session user profile through browser nodes (#…",
-      "summaryZh": "重點：browser: route existing-session user profile through browser nodes (#68891) * browser: route user profile through browse..."
+      "titleZh": "OpenClaw 程式碼更新：tasks: add detached runtime plugin registration contract (#68915)",
+      "summaryZh": "重點：tasks: add detached runtime plugin registration contract (#68915) * tasks: register detached runtime plugins * tasks: ha..."
     },
     {
       "id": 2,
-      "title": "test(tasks): align detached runtime mock return types",
-      "link": "https://github.com/openclaw/openclaw/commit/d83215084f3446c1212c79ce0fcddba0c07320a5",
-      "publishedAt": "2026-04-19T09:51:03Z",
-      "summary": "test(tasks): align detached runtime mock return types",
+      "title": "docs(changelog): add thanks for kimi fix",
+      "link": "https://github.com/openclaw/openclaw/commit/c67a9c5259074eab1b58b86a30f492d463f0955e",
+      "publishedAt": "2026-04-19T11:09:29Z",
+      "summary": "docs(changelog): add thanks for kimi fix",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(tasks): align detached runtime mock return types",
-      "summaryZh": "重點：test(tasks): align detached runtime mock return types..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): add thanks for kimi 修正",
+      "summaryZh": "重點：文件(changelog): add thanks for kimi 修正..."
     },
     {
       "id": 3,
-      "title": "fix(browser): discover CDP websocket from bare ws:// URL before attac…",
-      "link": "https://github.com/openclaw/openclaw/commit/4cfc8cd5beb218b2e47cd823a9d4ddc50045bc57",
-      "publishedAt": "2026-04-19T09:43:39Z",
-      "summary": "fix(browser): discover CDP websocket from bare ws:// URL before attach (#68715) * fix(browser): discover CDP websocket from bare ws:// URL before attach When browser.cdpUrl is set to a bare ws://host:port (no /devtools/ path), ensureBrowserAvailable would call isChromeReachable -> canOpenWebSocket against the URL verbatim. Chrome only accepts WebSocket upgrades at the specific path returned by /json/version, so the handshake failed immediately with HTTP 400. With attachOnly: true, that surfaced as: Browser attachOnly is enabled and profile \"openclaw\" is not running. even though the CDP endpoint was reachable and the profile was healthy. Reproduced by the new tests in chrome.test.ts and cdp.test.ts (#68027). Fix: introduce isDirectCdpWebSocketEndpoint(url) — true only when a ws/wss URL has a /devtools// handshake path. Route any other ws/wss cdpUrl (including the bare ws://host:port shape) through HTTP /json/version discovery by normalising the scheme via the existing normalizeCdpHttpBaseForJsonEndpoints helper. Apply this in isChromeReachable, getChromeWebSocketUrl, and createTargetViaCdp. Direct WS endpoints with a /devtools/ path are still opened without an extra discovery round-trip. Fixes #68027 * test(browser): add seeded fuzz coverage for CDP URL helpers Adds property-based / seeded-fuzz tests for the URL helpers the attachOnly CDP fix depends on (#68027): - isWebSocketUrl - isDirectCdpWebSocketEndpoint - normalizeCdpHttpBaseForJsonEndpoints - parseBrowserHttpUrl - redactCdpUrl - appendCdpPath - getHeadersWithAuth Follows the existing repo convention (see src/gateway/http-common.fuzz.test.ts): no fast-check dep, small mulberry32 PRNG + hand-rolled generators, deterministic per-describe seeds so failures are reproducible. Lifts cdp.helpers.ts coverage from 77.77% -> 89.54% statements, 67.9% -> 80.24% branches, 78% -> 90% lines. Remaining uncovered lines are inside the WS sender internals (createCdpSender, withCdpSocket, fetchCdpChecked rate-limit branch), which require integration-style mocks and are unrelated to the attachOnly fix. * test(browser): drive cdp.helpers/cdp/chrome to 100% coverage Lifts the three files touched by the #68027 attachOnly fix to 100% statements/branches/functions/lines across the extensions test suite. Adds cdp.helpers.internal.test.ts, cdp.internal.test.ts, and chrome.internal.test.ts covering error paths, branch matrices, CDP session helpers, Chrome spawn/launch/stop flows, and canRunCdpHealthCommand. Defensively unreachable guards are annotated with c8 ignore + inline justifications. * fix(browser): restore WS fallback for non-/devtools ws:// CDP URLs When /json/version discovery is unavailable (or returns no webSocketDebuggerUrl), fall back to treating the original bare ws/wss URL as a direct WebSocket endpoint. This preserves the #68027 fix for Chrome's debug port while restoring compatibility with Browserless/ Browserbase-style providers that expose a direct WebSocket root without a /json/version endpoint. Priority order for bare ws/wss cdpUrl inputs: 1. /devtools// URL \\u2192 direct handshake, no discovery (unchanged) 2. bare ws/wss root \\u2192 try HTTP discovery first; if discovery returns a webSocketDebuggerUrl use it; otherwise fall back to the original URL as a direct WS endpoint 3. HTTP/HTTPS URL \\u2192 HTTP discovery only, no fallback (unchanged) Affected call sites: isChromeReachable, getChromeWebSocketUrl, createTargetViaCdp. Also renames a misleading test ('still enforces SSRF policy for direct WebSocket URLs') to accurately describe what it tests: SSRF enforcement on the navigation target URL, not on the CDP endpoint. New tests added for all three fallback paths. Coverage remains 100% on all three touched files (238 tests). * fix: browser attachOnly bare ws CDP follow-ups (#68715) (thanks @visionik)",
+      "title": "docs(changelog): note kimi thinking default fix",
+      "link": "https://github.com/openclaw/openclaw/commit/28ee477930dfb33ab354a9d4076bfedbd942a110",
+      "publishedAt": "2026-04-19T11:07:42Z",
+      "summary": "docs(changelog): note kimi thinking default fix",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): discover CDP websocket from bare ws:// URL before attac…",
-      "summaryZh": "重點：修正(browser): discover CDP websocket from bare ws:// URL before attach (#68715) * 修正(browser): discover CDP websocket fro..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): note kimi thinking default 修正",
+      "summaryZh": "重點：文件(changelog): note kimi thinking default 修正..."
     },
     {
       "id": 4,
-      "title": "fix: parse PowerShell cron tools allow-list (#68858) (thanks @chen-zh…",
-      "link": "https://github.com/openclaw/openclaw/commit/25e51bba5245d79677a37de6a6db280e55ae96f1",
-      "publishedAt": "2026-04-19T09:41:14Z",
-      "summary": "fix: parse PowerShell cron tools allow-list (#68858) (thanks @chen-zhang-cs-code) * fix(cron): parse PowerShell tools allow list * fix(cron): clarify tools allow-list help * fix: parse PowerShell cron tools allow-list (#68858) (thanks @chen-zhang-cs-code) --------- Co-authored-by: Ayaan Zaidi",
+      "title": "fix: default kimi thinking to off (#68907)",
+      "link": "https://github.com/openclaw/openclaw/commit/4ca5f51430d74d7abb30aea6b0c192b42bd31e06",
+      "publishedAt": "2026-04-19T10:50:54Z",
+      "summary": "fix: default kimi thinking to off (#68907) Co-authored-by: termtek",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: parse PowerShell 排程 tools allow-list (#68858) (thanks @chen-zh…",
-      "summaryZh": "重點：修正: parse PowerShell 排程 tools allow-list (#68858) (thanks @chen-zhang-cs-code) * 修正(排程): parse PowerShell tools allow li..."
+      "titleZh": "OpenClaw 程式碼更新：修正: default kimi thinking to off (#68907)",
+      "summaryZh": "重點：修正: default kimi thinking to off (#68907) Co-authored-by: termtek..."
     },
     {
       "id": 5,
