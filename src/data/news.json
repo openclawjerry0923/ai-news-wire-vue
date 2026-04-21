@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-21T21:47:31.599Z",
+  "generatedAt": "2026-04-21T22:39:02.716Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(install): mirror node-domexception override for npm (#69819)",
-      "link": "https://github.com/openclaw/openclaw/commit/b5c4aaf2a70b0ffcf0e752667ab28f703c8cd83b",
-      "publishedAt": "2026-04-21T21:45:05Z",
-      "summary": "fix(install): mirror node-domexception override for npm (#69819) * fix(install): mirror node-domexception override for npm * docs(changelog): credit npm install override fix * fix(install): pin domexception override exactly * docs(changelog): drop leftover npm fix merge markers * Update CHANGELOG.md",
+      "title": "test: lazy-load openai provider catalog contract",
+      "link": "https://github.com/openclaw/openclaw/commit/df3fcbd716f58663e6b2c03886cff8ab5b633c64",
+      "publishedAt": "2026-04-21T22:35:37Z",
+      "summary": "test: lazy-load openai provider catalog contract",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(install): mirror node-domexception override for npm (#69819)",
-      "summaryZh": "重點：修正(install): mirror node-domexception override for npm (#69819) * 修正(install): mirror node-domexception override for npm..."
+      "titleZh": "OpenClaw 程式碼更新：test: lazy-load openai provider catalog contract",
+      "summaryZh": "重點：test: lazy-load openai provider catalog contract..."
     },
     {
       "id": 2,
-      "title": "test: optimize slow test hotspots",
-      "link": "https://github.com/openclaw/openclaw/commit/d1e3789e158c9c6921552408581612b16eb25c2a",
-      "publishedAt": "2026-04-21T21:42:08Z",
-      "summary": "test: optimize slow test hotspots",
+      "title": "fix(slack): narrow first turn context seeding to remove redundant thr…",
+      "link": "https://github.com/openclaw/openclaw/commit/70683179a0fc720e63151f6ac9f9a6c46528969a",
+      "publishedAt": "2026-04-21T22:28:34Z",
+      "summary": "fix(slack): narrow first turn context seeding to remove redundant thread-starter content (#68402) Fix Slack thread bootstrap replaying the bot's own prior turns into new sessions and duplicating the thread-starter prompt block. Narrows first-turn context seeding to exclude only the current Slack bot's own starter/history entries, so self-authored turns no longer pollute new session prompts while preserving human and third-party bot context Removes the redundant plain-text starter prelude in runPreparedReply() that doubled thread-starter content when no ThreadHistoryBody was present",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: optimize slow test hotspots",
-      "summaryZh": "重點：test: optimize slow test hotspots..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): narrow first turn context seeding to remove redundant thr…",
+      "summaryZh": "重點：修正(slack): narrow first turn context seeding to remove redundant thread-starter content (#68402) 修正 Slack thread bootstr..."
     },
     {
       "id": 3,
-      "title": "fix(slack): preserve thread aliases in runtime outbound sends (#62947)",
-      "link": "https://github.com/openclaw/openclaw/commit/49b233caa1cdac805a5899717ef12d7134739560",
-      "publishedAt": "2026-04-21T21:40:47Z",
-      "summary": "fix(slack): preserve thread aliases in runtime outbound sends (#62947) Slack-threaded direct sends that go through the generic runtime wrapper now stay in the intended thread when the caller supplies threadTs.",
+      "title": "docs: tighten optimizetests skill",
+      "link": "https://github.com/openclaw/openclaw/commit/acf67c1a4211f2aa0c6c0d6019c55aa5e9edadd9",
+      "publishedAt": "2026-04-21T22:24:51Z",
+      "summary": "docs: tighten optimizetests skill",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): preserve thread aliases in runtime outbound sends (#62947)",
-      "summaryZh": "重點：修正(slack): preserve thread aliases in runtime outbound sends (#62947) Slack-threaded direct sends that go through the ge..."
+      "titleZh": "OpenClaw 文件更新：文件: tighten optimizetests skill",
+      "summaryZh": "重點：文件: tighten optimizetests skill..."
     },
     {
       "id": 4,
-      "title": "docs(gateway): replace user-facing 'extension' references with 'plugi…",
-      "link": "https://github.com/openclaw/openclaw/commit/475e6ff1d15f401e7aae336c47e6451b1bb2570f",
-      "publishedAt": "2026-04-21T21:39:10Z",
-      "summary": "docs(gateway): replace user-facing 'extension' references with 'plugin' per terminology rules",
+      "title": "fix(qmd): Dedup in-flight manager creation so only one full QMD manag…",
+      "link": "https://github.com/openclaw/openclaw/commit/dfe0e49c8a3f4c860231fc2bee7a5736c72985c4",
+      "publishedAt": "2026-04-21T22:22:21Z",
+      "summary": "fix(qmd): Dedup in-flight manager creation so only one full QMD manager arms per agent/config at a time, eliminating the concurrent exportSessions() collisions that triggered path changed during write errors (#65226) Fixes concurrent manager creation races that caused SafeOpenErrors during session export. Deduplicates in-flight manager creation so only one full QMD manager arms per agent/config at a time, eliminating the concurrent exportSessions() collisions that triggered path changed during write errors Resolves and snapshots runtime inputs before cache reuse, replacing stale managers atomically when workspace/config changes, and aborting queued export work promptly on close()",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(Gateway): replace user-facing 'extension' references with 'plugi…",
-      "summaryZh": "重點：文件(Gateway): replace user-facing 'extension' references with 'plugin' per terminology rules..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qmd): Dedup in-flight manager creation so only one full QMD manag…",
+      "summaryZh": "重點：修正(qmd): Dedup in-flight manager creation so only one full QMD manager arms per agent/config at a time, eliminating the ..."
     },
     {
       "id": 5,
