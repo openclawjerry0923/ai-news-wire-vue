@@ -1,8 +1,50 @@
 {
-  "generatedAt": "2026-04-21T13:44:56.782Z",
+  "generatedAt": "2026-04-21T15:15:08.022Z",
   "items": [
     {
       "id": 1,
+      "title": "有機會見到台股史上首檔兩萬金股票！高盛給股王信驊目標價 20,000 元",
+      "link": "https://finance.technews.tw/2026/04/21/goldman-sachs-gives-its-top-stock-pick-hsin-hua-a-target-price-of-nt20000/",
+      "publishedAt": "Tue, 21 Apr 2026 14:30:55 +0000",
+      "summary": "外資高盛券（Goldman Sachs）發布最新個股研究報告表示，對台股股王及全球伺服器管理晶片（BMC）大廠 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "test(zalo): use preferred tmp dir in outbound media test",
+      "link": "https://github.com/openclaw/openclaw/commit/68fd946e6d4c7f8f882bd30de2d26d1f4edc0927",
+      "publishedAt": "2026-04-21T14:28:52Z",
+      "summary": "test(zalo): use preferred tmp dir in outbound media test",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(zalo): use preferred tmp dir in outbound media test",
+      "summaryZh": "重點：test(zalo): use preferred tmp dir in outbound media test..."
+    },
+    {
+      "id": 3,
+      "title": "fix(zalo): use managed temp dir for outbound media",
+      "link": "https://github.com/openclaw/openclaw/commit/ce0e191ae071ec1b6b33691378e20aee5e3f0ed7",
+      "publishedAt": "2026-04-21T13:57:03Z",
+      "summary": "fix(zalo): use managed temp dir for outbound media",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(zalo): use managed temp dir for outbound media",
+      "summaryZh": "重點：修正(zalo): use managed temp dir for outbound media..."
+    },
+    {
+      "id": 4,
+      "title": "fix(zalo): add SSRF guard on outbound photo URLs [AI-assisted] (#69593)",
+      "link": "https://github.com/openclaw/openclaw/commit/a65eb1b864b7630c1242a82de9e5799b80583c3f",
+      "publishedAt": "2026-04-21T13:50:26Z",
+      "summary": "fix(zalo): add SSRF guard on outbound photo URLs [AI-assisted] (#69593) * fix: address issue * fix: address review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address build failures * fix: address PR review feedback * fix: address review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address review feedback * fix: address build feedback",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(zalo): add SSRF guard on outbound photo URLs [AI-assisted] (#69593)",
+      "summaryZh": "重點：修正(zalo): add SSRF guard on outbound photo URLs [AI-assisted] (#69593) * 修正: address issue * 修正: address review feedback..."
+    },
+    {
+      "id": 5,
       "title": "openclaw 2026.4.20-beta.1",
       "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.20-beta.1",
       "publishedAt": "2026-04-21T13:34:18Z",
@@ -13,7 +55,7 @@
       "summaryZh": "重點：Changes Onboard/wizard: restyle the setup 安全 disclaimer with a single yellow warning banner, section headings and bullet..."
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "OPPO Find X9 Ultra 挾 10 倍光學長焦、雙 2 億畫素鏡頭來襲",
       "link": "https://technews.tw/2026/04/21/oppo-find-x9-ultra/",
       "publishedAt": "Tue, 21 Apr 2026 12:30:43 +0000",
@@ -22,18 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "perf(plugin-sdk): per-phase + per-jiti-call probes for bundled channe…",
-      "link": "https://github.com/openclaw/openclaw/commit/4407df6c03048cfba697a6e1b01d7325626893d8",
-      "publishedAt": "2026-04-21T12:06:13Z",
-      "summary": "perf(plugin-sdk): per-phase + per-jiti-call probes for bundled channel entries (#69537) * perf(plugin-sdk): per-phase + per-jiti-call probes for bundled channel entries Extends the existing OPENCLAW_PLUGIN_LOAD_PROFILE infrastructure (see src/plugins/loader.ts `profilePluginLoaderSync` and src/plugins/source-loader.ts) with two new probe sites inside src/plugin-sdk/channel-entry-contract.ts: 1. `bundled-register:` — wraps each phase of `defineBundledChannelEntry`'s register() callback (`setChannelRuntime`, `loadChannelPlugin`, `registerChannel`, `registerCliMetadata`, `registerFull`). Lets us pinpoint which phase of plugin registration is responsible for cold-start cost on a per-plugin basis. 2. `bundled-entry-module-load` — instruments `loadBundledEntryModuleSync` and reports `getJitiMs` (jiti loader factory) vs `jitiCallMs` (actual graph walk + transpile + ESM linking) separately. Lets us distinguish alias-map / loader setup overhead from import-graph traversal cost on a per-module basis. Both probes are gated on OPENCLAW_PLUGIN_LOAD_PROFILE=1 and have zero overhead when the env flag is unset (early return before any `performance.now()` call). Log format matches the existing `[plugin-load-profile]` line shape so existing log scrapers continue to work. The helper is a file-local mirror of `profilePluginLoaderSync` rather than a new SDK export — keeps the SDK boundary narrow per src/plugin-sdk/AGENTS.md and avoids cross-importing host internals. Used to validate PR #69317 (slack startup perf) — measurements showed slack `setChannelRuntime` dropping from 13183ms to 67ms after barrel narrowing, which would have been undiagnosable without these per-phase probes. * perf(plugins): per-plugin register() probe in plugin loader Adds a `phase=${registrationMode}:register` probe wrapping each call to `runPluginRegisterSync(register, api)` in src/plugins/loader.ts. Emits the established `[plugin-load-profile]` line shape via `profilePluginLoaderSync`, gated on OPENCLAW_PLUGIN_LOAD_PROFILE=1. Two call sites are wrapped: - The main load path (registrationMode is dynamic: \"snapshot\", \"validate\", \"full\") at the post-snapshot register block. Emits e.g. `phase=full:register plugin=slack elapsedMs=14102.1 source=...` - The cli-metadata-only path (registrationMode hardcoded to \"cli-metadata\") for fast `--metadata` boot flows. Together with the existing `phase=full` (entire load) and `phase=source-loader` probes plus the `bundled-register:*` and `bundled-entry-module-load` probes added in the previous commit, this gives a full breakdown: - `phase=full plugin=slack` — total cost from import through register return - `phase=full:register plugin=slack` — just the register() callback (NEW) - `phase=bundled-register:setChannelRuntime plugin=slack` — sub-phase - `phase=bundled-register:loadChannelPlugin plugin=slack` — sub-phase - `phase=bundled-entry-module-load plugin=(bundled-entry)` — per-module load Lets you `sort -k4 -n -r` the log output to find the slowest plugin's register() call across all bundled+third-party plugins, then drill in via the sub-phase probes for bundled entries. * perf(plugins): consolidate plugin-load-profile primitives in shared module Extracts the previously duplicated `shouldProfilePluginLoader` / `profilePluginLoaderSync` helpers into a new `src/plugins/plugin-load-profile.ts` module. Removes 3 file-local copies of the same env-flag check and 2 near-duplicate `try { run() } finally { console.error(...) }` wrappers. Files updated: - NEW src/plugins/plugin-load-profile.ts — sole owner of: shouldProfilePluginLoader() profilePluginLoaderSync({phase, pluginId?, source, run, extras?}) formatPluginLoadProfileLine({phase, pluginId?, source, elapsedMs, extras?}) - src/plugins/loader.ts — drop file-local copies, import shared helper (existing 4 + new 2 call sites unchanged in shape) - src/plugins/source-loader.ts — drop renamed local copy (`shouldProfilePluginSourceLoader`), use shared helper with `pluginId: \"(direct)\"` to preserve the existing `plugin=(direct)` field - src/plugin-sdk/channel-entry-contract.ts — drop file-local copies and inline `profileStep` closure; use shared `profilePluginLoaderSync` directly at all 5 `bundled-register:*` call sites; dual-timing `bundled-entry-module-load` probe uses `formatPluginLoadProfileLine` with ordered `extras` for `getJitiMs`/`jitiCallMs` Log line format is byte-for-byte identical to before (validated against 3 cases: standard, with pluginId, dual-timing). The `extras` API is intentionally an ordered tuple list (not a record) so that scrapers see deterministic field order between `elapsedMs=` and `source=`. Net: +155/-87 lines across 4 files, removing ~60 lines of duplication while exposing a stable, documented probe surface. Verified: - pnpm tsgo (core) — 0 errors - pnpm lint on all 4 files — 0 warnings, 0 errors - pnpm test src/plugins/loader.test.ts — 102/102 - pnpm test src/plugins/contracts/plugin-entry-guardrails.test.ts — 7/7 - pnpm test src/plugin-sdk/channel-entry-contract.test.ts — 4/4 - Standalone formatter smoke test — output matches existing format byte-for-byte * refactor(plugins): rename profilePluginLoaderSync to withProfile and bind scope at register sites * fix(plugin-sdk): zero jiti sub-step timings on Win32 nodeRequire fast-path",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugin-sdk): per-phase + per-jiti-call probes for bundled channe…",
-      "summaryZh": "重點：perf(plugin-sdk): per-phase + per-jiti-call probes for bundled channel entries (#69537) * perf(plugin-sdk): per-phase + ..."
-    },
-    {
-      "id": 4,
+      "id": 7,
       "title": "思科修補網路存取控制平臺ISE重大漏洞，未更新可能導致遠端執行任意程式碼攻擊",
       "link": "https://www.ithome.com.tw/news/175207",
       "publishedAt": "2026-04-21 12:04:32",
@@ -42,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 8,
       "title": "雲端開發平臺Vercel資料外洩，起因是員工使用的第三方AI工具遭駭",
       "link": "https://www.ithome.com.tw/news/175209",
       "publishedAt": "2026-04-21 12:04:29",
@@ -51,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "看好基於ePBF的執行期防護與韌體分析市場，義大利商Exein豋臺設立亞太營運中心",
       "link": "https://www.ithome.com.tw/news/175206",
       "publishedAt": "2026-04-21 12:04:03",
@@ -60,43 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "fix: preload slugged startup memory files (#69600)",
-      "link": "https://github.com/openclaw/openclaw/commit/06ff594a3e9910f8144c9a389331068d1f46e90f",
-      "publishedAt": "2026-04-21T12:03:44Z",
-      "summary": "fix: preload slugged startup memory files (#69600) * fix: load slugged startup memory files * fix: harden slugged startup memory loading * fix: prefer recent startup memory artifacts * fix: tolerate startup memory stat races * fix: include utc startup memory dates * fix: prioritize recent startup memory dates * fix: cap merged startup memory dates * fix: preserve local startup memory window * fix: order startup memory compatibility dates * fix startup memory directory rescans",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preload slugged startup 記憶 files (#69600)",
-      "summaryZh": "重點：修正: preload slugged startup 記憶 files (#69600) * 修正: load slugged startup 記憶 files * 修正: harden slugged startup 記憶 loadin..."
-    },
-    {
-      "id": 8,
-      "title": "fix(agents): enforce subagent envelope inheritance on ACP child sessi…",
-      "link": "https://github.com/openclaw/openclaw/commit/31160dc069b7cc5d833b39c53736a41ad3befda2",
-      "publishedAt": "2026-04-21T11:55:25Z",
-      "summary": "fix(agents): enforce subagent envelope inheritance on ACP child sessions [AI-assisted] (#69383) * fix: address issue * fix: address review feedback * fix: finalize issue changes * fix: address PR review feedback * address build faiure * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback * fix: address PR review feedback",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): enforce subagent envelope inheritance on ACP child sessi…",
-      "summaryZh": "重點：修正(agents): enforce subagent envelope inheritance on ACP child sessions [AI-assisted] (#69383) * 修正: address issue * 修正:..."
-    },
-    {
-      "id": 9,
+      "id": 10,
       "title": "少子化、寵物經濟崛起，恆隆行首度跨足寵物家電市場",
       "link": "https://finance.technews.tw/2026/04/21/hengstyle-pet/",
       "publishedAt": "Tue, 21 Apr 2026 11:40:05 +0000",
       "summary": "知名家電代理商恆隆行宣布進一步擴大智慧家電版圖，但這次瞄準的不是傳統清潔或廚房設備，而是成長速度更快的寵物家電 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "CISA警告Apache ActiveMQ重大漏洞已被用於攻擊，要求儘速修補",
-      "link": "https://www.ithome.com.tw/news/175204",
-      "publishedAt": "2026-04-21 11:04:51",
-      "summary": "美國網路安全與基礎設施安全局（CISA）近日警告，4月初揭露的重大漏洞CVE-2026-34197已被實際利用，未修補此弱點的開源訊息中介軟體Apache ActiveMQ風險大增，CISA將其納入",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
