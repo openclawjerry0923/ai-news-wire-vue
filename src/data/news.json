@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-22T17:03:54.254Z",
+  "generatedAt": "2026-04-22T19:16:28.072Z",
   "items": [
     {
       "id": 1,
-      "title": "feat: Add /models add hot-reload model registration (#70211)",
-      "link": "https://github.com/openclaw/openclaw/commit/f328c21046758f85d52993f9e112c82585b4d012",
-      "publishedAt": "2026-04-22T17:00:30Z",
-      "summary": "feat: Add /models add hot-reload model registration (#70211) * feat(models): add chat model registration with hot reload * docs(changelog): add models entry for pr 70211 * fix(models): harden add flow follow-ups * fix models add review follow-ups * harden models add config writes * tighten plugin boundary invariant * move models add adapters behind sdk facades * avoid ollama-specific core facade",
+      "title": "test: tighten Telegram polling conflict coverage (#69873) (thanks @hc…",
+      "link": "https://github.com/openclaw/openclaw/commit/67e5cca7a465720c281c1d6c0b176b69f2c3688d",
+      "publishedAt": "2026-04-22T19:16:14Z",
+      "summary": "test: tighten Telegram polling conflict coverage (#69873) (thanks @hclsys)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: Add /模型 add hot-reload 模型 registration (#70211)",
-      "summaryZh": "重點：新功能: Add /模型 add hot-reload 模型 registration (#70211) * 新功能(模型): add chat 模型 registration with hot reload * 文件(changelog)..."
+      "titleZh": "OpenClaw 程式碼更新：test: tighten Telegram polling conflict coverage (#69873) (thanks @hc…",
+      "summaryZh": "重點：test: tighten Telegram polling conflict coverage (#69873) (thanks @hclsys)..."
     },
     {
       "id": 2,
-      "title": "fix(dotenv): block connector endpoint workspace overrides (#70240)",
-      "link": "https://github.com/openclaw/openclaw/commit/0623079e98abf7202591f1b04a89755eb7ec9272",
-      "publishedAt": "2026-04-22T16:58:32Z",
-      "summary": "fix(dotenv): block connector endpoint workspace overrides (#70240) * fix(dotenv): block connector endpoint workspace overrides * docs(changelog): note dotenv endpoint blocklist * fix(dotenv): block Matrix per-account scoped homeserver overrides",
+      "title": "test(telegram): update monitor test for #69787 transport rebuild on 409",
+      "link": "https://github.com/openclaw/openclaw/commit/3a11435c7d9754e632227f7eeb654ba3d7b43fa8",
+      "publishedAt": "2026-04-22T19:16:14Z",
+      "summary": "test(telegram): update monitor test for #69787 transport rebuild on 409 Sibling test in monitor.test.ts asserted the pre-fix behavior (single transport reused across cycles on 409). My #69787 change rebuilds the transport on 409 so Telegram sees a fresh TCP socket — update the assertion to match. Two transports are now expected: the initial one plus the rebuild after the conflict.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(dotenv): block connector endpoint workspace overrides (#70240)",
-      "summaryZh": "重點：修正(dotenv): block connector endpoint workspace overrides (#70240) * 修正(dotenv): block connector endpoint workspace overr..."
+      "titleZh": "OpenClaw 程式碼更新：test(Telegram): update monitor test for #69787 transport rebuild on 409",
+      "summaryZh": "重點：test(Telegram): update monitor test for #69787 transport rebuild on 409 Sibling test in monitor.test.ts asserted the pre..."
     },
     {
       "id": 3,
-      "title": "ci: keep native lanes native scoped",
-      "link": "https://github.com/openclaw/openclaw/commit/8b8df813d07bffd26f24fdb9601ef1ff2d3c48f1",
-      "publishedAt": "2026-04-22T16:53:38Z",
-      "summary": "ci: keep native lanes native scoped",
+      "title": "fix(telegram): mark polling transport dirty on 409 conflict (#69787)",
+      "link": "https://github.com/openclaw/openclaw/commit/83a906c95c69175565a04ae5d560154afd52366a",
+      "publishedAt": "2026-04-22T19:16:14Z",
+      "summary": "fix(telegram): mark polling transport dirty on 409 conflict (#69787) When getUpdates returns 409 Conflict (e.g. 'terminated by other getUpdates request'), the polling runtime previously retried on the same HTTP keep-alive TCP socket because markDirty() was only called in the isRecoverable branch. Telegram treats that connection as the 'old' session and keeps terminating it — producing a sustained low-rate 409 retry loop (observed a few per minute after eliminating duplicate pollers). Broaden the dirty-mark condition to fire on isConflict as well as isRecoverable so the next cycle forces a fresh TCP connection. Update the existing 'reuses transport after getUpdates conflict' test — which previously locked in the buggy behavior — to assert the new correct behavior: one fresh transport is built, the stale one is closed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: keep native lanes native scoped",
-      "summaryZh": "重點：ci: keep native lanes native scoped..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): mark polling transport dirty on 409 conflict (#69787)",
+      "summaryZh": "重點：修正(Telegram): mark polling transport dirty on 409 conflict (#69787) When getUpdates returns 409 Conflict (e.g. 'terminat..."
     },
     {
       "id": 4,
-      "title": "ci: consolidate short test workers",
-      "link": "https://github.com/openclaw/openclaw/commit/03cf97a33e01746695e52c47eb41d676cd5ed158",
-      "publishedAt": "2026-04-22T16:49:06Z",
-      "summary": "ci: consolidate short test workers",
+      "title": "fix: preserve Slack download cfg token fallback (#70160) (thanks @mar…",
+      "link": "https://github.com/openclaw/openclaw/commit/8f38691e799acfdef632fb9d2704cace041aec8f",
+      "publishedAt": "2026-04-22T19:14:00Z",
+      "summary": "fix: preserve Slack download cfg token fallback (#70160) (thanks @martingarramon)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: consolidate short test workers",
-      "summaryZh": "重點：ci: consolidate short test workers..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve Slack download cfg token fallback (#70160) (thanks @mar…",
+      "summaryZh": "重點：修正: preserve Slack download cfg token fallback (#70160) (thanks @martingarramon)..."
     },
     {
       "id": 5,
