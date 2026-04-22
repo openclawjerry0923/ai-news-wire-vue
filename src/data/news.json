@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-22T07:50:38.566Z",
+  "generatedAt": "2026-04-22T09:22:28.974Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "feat(openai): add codex device-code auth and fix login options in men…",
-      "link": "https://github.com/openclaw/openclaw/commit/da86ce788778015320f14c7adf237eb461b99ef9",
-      "publishedAt": "2026-04-22T07:47:20Z",
-      "summary": "feat(openai): add codex device-code auth and fix login options in menu (#69557) Merged via squash. Prepared head SHA: 4918ed69f1f843b80f2d7fdfa68f4e4cb5299f26 Co-authored-by: vincentkoc Co-authored-by: BunsDev Reviewed-by: @BunsDev",
+      "title": "fix(codex): unchain app-server defaults (#70082)",
+      "link": "https://github.com/openclaw/openclaw/commit/abf940db61876ff3bca1d51b777cfc9a55e6d726",
+      "publishedAt": "2026-04-22T08:53:49Z",
+      "summary": "fix(codex): unchain app-server defaults (#70082)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(openai): add codex device-code auth and 修正 login options in men…",
-      "summaryZh": "重點：新功能(openai): add codex device-code auth and 修正 login options in menu (#69557) Merged via squash. Prepared head SHA: 4918..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): unchain app-server defaults (#70082)",
+      "summaryZh": "重點：修正(codex): unchain app-server defaults (#70082)..."
     },
     {
       "id": 8,
-      "title": "fix(release-check): assert bundled plugin runtime deps after packed p…",
-      "link": "https://github.com/openclaw/openclaw/commit/d4eb23652362a1b7d3fbcebd633a1c6f2a43c16f",
-      "publishedAt": "2026-04-22T07:31:40Z",
-      "summary": "fix(release-check): assert bundled plugin runtime deps after packed postinstall (#70035) * fix(release-check): assert bundled plugin runtime deps after packed postinstall Release-check already validates source dist/extensions runtime deps are staged, but runPackedBundledChannelEntrySmoke never re-validates after the packed postinstall runs against the installed tarball. That gap is how 2026.4.21 shipped without @whiskeysockets/baileys in dist/extensions/whatsapp/node_modules, because the source staging passed while the installed layout was left broken. Re-use collectBuiltBundledPluginStagedRuntimeDependencyErrors against the installed packageRoot right after runPackedBundledPluginPostinstall and fail release-check if any declared runtime dependency is missing from the plugin-local node_modules. * fix(release-check): check postinstalled dep sentinels at packageRoot/node_modules Codex review on #70035 caught that collectInstalledBundledPluginRuntimeDepErrors was pointing at dist/extensions//node_modules, but packed postinstall installs and probes sentinels at packageRoot/node_modules (see dependencySentinelPath in scripts/postinstall-bundled-plugins.mjs). The previous implementation would have falsely failed release-check on healthy packed installs while still missing the original WhatsApp regression. Reuse discoverBundledPluginRuntimeDeps from postinstall-bundled-plugins.mjs so the release guard uses the exact same dep discovery and sentinel paths the packed postinstall uses. Update the test fixtures accordingly so they model the real install layout.",
+      "title": "fix(pair): render /pair qr as media (#70047)",
+      "link": "https://github.com/openclaw/openclaw/commit/43a941b51c16e32246314a905864e188865d5d1a",
+      "publishedAt": "2026-04-22T08:31:09Z",
+      "summary": "fix(pair): render /pair qr as media (#70047) * fix(pair): render pair qr as media * fix(gateway): preserve media reply threading * fix(gateway): harden webchat media replies * fix(plugin-sdk): keep trustedLocalMedia internal * docs(changelog): note pair qr media fix * Update CHANGELOG with recent fixes and enhancements Updated changelog to include recent fixes and enhancements.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布-check): assert bundled plugin runtime deps after packed p…",
-      "summaryZh": "重點：修正(版本發布-check): assert bundled plugin runtime deps after packed postinstall (#70035) * 修正(版本發布-check): assert bundled pl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(pair): render /pair qr as media (#70047)",
+      "summaryZh": "重點：修正(pair): render /pair qr as media (#70047) * 修正(pair): render pair qr as media * 修正(Gateway): preserve media reply thre..."
     },
     {
       "id": 9,
-      "title": "fix(agents): keep mocked OpenAI Responses on HTTP (#69815)",
-      "link": "https://github.com/openclaw/openclaw/commit/55b297ef15db86139aedf1f000170517858fbb2c",
-      "publishedAt": "2026-04-22T07:25:02Z",
-      "summary": "fix(agents): keep mocked OpenAI Responses on HTTP (#69815) * fix(agents): keep mocked OpenAI responses on HTTP * docs(changelog): add entry for mocked responses fix",
+      "title": "fix: keep claude cli sessions warm (#69679)",
+      "link": "https://github.com/openclaw/openclaw/commit/81ca7bc40b09dbb6386fc5c1cecf237c5f11004a",
+      "publishedAt": "2026-04-22T08:14:18Z",
+      "summary": "fix: keep claude cli sessions warm (#69679) * feat(cli): keep claude cli sessions warm * test(cli): cover claude live session reuse * fix(cli): harden claude live session reuse * fix(cli): redact mcp session key logs * fix(cli): bound claude live session turns * fix(cli): reuse claude live sessions on resume * refactor(cli): canonicalize claude live argv * fix(cli): preserve claude live resume state * fix(cli): close dead claude live sessions * fix(cli): serialize claude live session creates * fix(cli): count pending claude live sessions * fix(cli): tighten claude live resume abort * fix(cli): reject closed claude live sessions * fix(cli): refresh claude live fingerprints * fix(cli): stabilize MCP resume hash * fix: preserve claude live inline resume (#69679) --------- Co-authored-by: Frank Yang",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep mocked OpenAI Responses on HTTP (#69815)",
-      "summaryZh": "重點：修正(agents): keep mocked OpenAI Responses on HTTP (#69815) * 修正(agents): keep mocked OpenAI responses on HTTP * 文件(change..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep claude cli sessions warm (#69679)",
+      "summaryZh": "重點：修正: keep claude cli sessions warm (#69679) * 新功能(cli): keep claude cli sessions warm * test(cli): cover claude live sess..."
     },
     {
       "id": 10,
-      "title": "Fix Codex auth handoff for the app-server harness (#69990)",
-      "link": "https://github.com/openclaw/openclaw/commit/1dd3fb1611cd2eb6e523ebe4f474540b65da523a",
-      "publishedAt": "2026-04-22T07:22:29Z",
-      "summary": "Fix Codex auth handoff for the app-server harness (#69990) * Codex: fix auth bridge token shape * Codex: preserve selected auth tokens * Codex: prefer selected profile id token * Codex: honor inherited Codex home --------- Co-authored-by: Val Alexander",
+      "title": "qa: harden parity gate execution (#70045)",
+      "link": "https://github.com/openclaw/openclaw/commit/dab46a7e98d377a88af2b0fd3bb779ed59c9ea00",
+      "publishedAt": "2026-04-22T08:08:25Z",
+      "summary": "qa: harden parity gate execution (#70045)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 Codex auth handoff for the app-server harness (#69990)",
-      "summaryZh": "重點：修正 Codex auth handoff for the app-server harness (#69990) * Codex: 修正 auth bridge token shape * Codex: preserve selected..."
+      "titleZh": "OpenClaw 程式碼更新：qa: harden parity gate execution (#70045)",
+      "summaryZh": "重點：qa: harden parity gate execution (#70045)..."
     }
   ]
 }
