@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-22T19:16:28.072Z",
+  "generatedAt": "2026-04-22T20:56:52.553Z",
   "items": [
     {
       "id": 1,
-      "title": "test: tighten Telegram polling conflict coverage (#69873) (thanks @hc…",
-      "link": "https://github.com/openclaw/openclaw/commit/67e5cca7a465720c281c1d6c0b176b69f2c3688d",
-      "publishedAt": "2026-04-22T19:16:14Z",
-      "summary": "test: tighten Telegram polling conflict coverage (#69873) (thanks @hclsys)",
+      "title": "build: harden tsdown wrapper",
+      "link": "https://github.com/openclaw/openclaw/commit/4cb4aad7b12a455114aa7ce61abc1c5eea616ba9",
+      "publishedAt": "2026-04-22T20:54:56Z",
+      "summary": "build: harden tsdown wrapper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: tighten Telegram polling conflict coverage (#69873) (thanks @hc…",
-      "summaryZh": "重點：test: tighten Telegram polling conflict coverage (#69873) (thanks @hclsys)..."
+      "titleZh": "OpenClaw 程式碼更新：build: harden tsdown wrapper",
+      "summaryZh": "重點：build: harden tsdown wrapper..."
     },
     {
       "id": 2,
-      "title": "test(telegram): update monitor test for #69787 transport rebuild on 409",
-      "link": "https://github.com/openclaw/openclaw/commit/3a11435c7d9754e632227f7eeb654ba3d7b43fa8",
-      "publishedAt": "2026-04-22T19:16:14Z",
-      "summary": "test(telegram): update monitor test for #69787 transport rebuild on 409 Sibling test in monitor.test.ts asserted the pre-fix behavior (single transport reused across cycles on 409). My #69787 change rebuilds the transport on 409 so Telegram sees a fresh TCP socket — update the assertion to match. Two transports are now expected: the initial one plus the rebuild after the conflict.",
+      "title": "docs(changelog): note pi session tool activation fix",
+      "link": "https://github.com/openclaw/openclaw/commit/d25ff59c8b65d9ce69294cdfa4491affd7eab906",
+      "publishedAt": "2026-04-22T20:54:04Z",
+      "summary": "docs(changelog): note pi session tool activation fix",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Telegram): update monitor test for #69787 transport rebuild on 409",
-      "summaryZh": "重點：test(Telegram): update monitor test for #69787 transport rebuild on 409 Sibling test in monitor.test.ts asserted the pre..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): note pi session tool activation 修正",
+      "summaryZh": "重點：文件(changelog): note pi session tool activation 修正..."
     },
     {
       "id": 3,
-      "title": "fix(telegram): mark polling transport dirty on 409 conflict (#69787)",
-      "link": "https://github.com/openclaw/openclaw/commit/83a906c95c69175565a04ae5d560154afd52366a",
-      "publishedAt": "2026-04-22T19:16:14Z",
-      "summary": "fix(telegram): mark polling transport dirty on 409 conflict (#69787) When getUpdates returns 409 Conflict (e.g. 'terminated by other getUpdates request'), the polling runtime previously retried on the same HTTP keep-alive TCP socket because markDirty() was only called in the isRecoverable branch. Telegram treats that connection as the 'old' session and keeps terminating it — producing a sustained low-rate 409 retry loop (observed a few per minute after eliminating duplicate pollers). Broaden the dirty-mark condition to fire on isConflict as well as isRecoverable so the next cycle forces a fresh TCP connection. Update the existing 'reuses transport after getUpdates conflict' test — which previously locked in the buggy behavior — to assert the new correct behavior: one fresh transport is built, the stale one is closed.",
+      "title": "fix(agents): restore pi session tool activation",
+      "link": "https://github.com/openclaw/openclaw/commit/fc07b234376fb000f75b7abad7bacd84df596deb",
+      "publishedAt": "2026-04-22T20:54:04Z",
+      "summary": "fix(agents): restore pi session tool activation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): mark polling transport dirty on 409 conflict (#69787)",
-      "summaryZh": "重點：修正(Telegram): mark polling transport dirty on 409 conflict (#69787) When getUpdates returns 409 Conflict (e.g. 'terminat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): restore pi session tool activation",
+      "summaryZh": "重點：修正(agents): restore pi session tool activation..."
     },
     {
       "id": 4,
-      "title": "fix: preserve Slack download cfg token fallback (#70160) (thanks @mar…",
-      "link": "https://github.com/openclaw/openclaw/commit/8f38691e799acfdef632fb9d2704cace041aec8f",
-      "publishedAt": "2026-04-22T19:14:00Z",
-      "summary": "fix: preserve Slack download cfg token fallback (#70160) (thanks @martingarramon)",
+      "title": "test(plugins): pin live config hook guards",
+      "link": "https://github.com/openclaw/openclaw/commit/42400813a7c1e54cf9a2ea65c91ce0d9323ee358",
+      "publishedAt": "2026-04-22T20:50:51Z",
+      "summary": "test(plugins): pin live config hook guards",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve Slack download cfg token fallback (#70160) (thanks @mar…",
-      "summaryZh": "重點：修正: preserve Slack download cfg token fallback (#70160) (thanks @martingarramon)..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): pin live config hook guards",
+      "summaryZh": "重點：test(plugins): pin live config hook guards..."
     },
     {
       "id": 5,
