@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T05:36:56.255Z",
+  "generatedAt": "2026-04-24T08:06:46.821Z",
   "items": [
     {
       "id": 1,
@@ -39,65 +39,65 @@
     },
     {
       "id": 5,
-      "title": "韋伯望遠鏡重探存在巴克球的 Tc 1 星雲，發現無法解釋「倒立問號」結構",
-      "link": "https://technews.tw/2026/04/24/carbon-sphere-buckyball-planetary-nebula-tc-1/",
-      "publishedAt": "Fri, 24 Apr 2026 05:29:21 +0000",
-      "summary": "15 年前，科學家首次從距離地球 1 萬光年的白矮星周圍發現被稱為「巴克球」（Buckyballs）的奇妙分子 [&#8230;]",
+      "title": "AI 帶動台股飆漲，台經院：非泡沫、留意資金退潮風險",
+      "link": "https://finance.technews.tw/2026/04/24/ai-drives-taiwan-stocks-surge/",
+      "publishedAt": "Fri, 24 Apr 2026 08:00:14 +0000",
+      "summary": "台股無畏中東戰事紛擾，4 月以來氣勢如虹，挑戰 39000 點關卡。台經院院長張建一認為，這波台股漲勢主要靠 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "perf: trim control ui auth tests",
-      "link": "https://github.com/openclaw/openclaw/commit/e94c0bf51542fe518e49ad4e2ee29882891b5603",
-      "publishedAt": "2026-04-24T05:29:12Z",
-      "summary": "perf: trim control ui auth tests",
+      "title": "perf: trim sandbox context tests",
+      "link": "https://github.com/openclaw/openclaw/commit/028b6c9b13c960b6f59a7643aff4f6de04e07f71",
+      "publishedAt": "2026-04-24T07:56:32Z",
+      "summary": "perf: trim sandbox context tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: trim control ui auth tests",
-      "summaryZh": "重點：perf: trim control ui auth tests..."
+      "titleZh": "OpenClaw 程式碼更新：perf: trim sandbox context tests",
+      "summaryZh": "重點：perf: trim sandbox context tests..."
     },
     {
       "id": 7,
-      "title": "memory/dreaming: decouple managed cron from heartbeat (#70737)",
-      "link": "https://github.com/openclaw/openclaw/commit/aca92b29065fef29b187e1303f0c5beec42f9c0f",
-      "publishedAt": "2026-04-24T05:23:19Z",
-      "summary": "memory/dreaming: decouple managed cron from heartbeat (#70737) * Revert \"fix(memory/dreaming): surface blocked status when heartbeat is disabled for main (#69875)\" This reverts commit 529577e0457b575a741d0c35dff8c5b03c63a3b3. Making way for the dreaming-vs-heartbeat decoupling from Josh's josh/dreaming-isolated-cron-fix branch, which moves the managed dreaming cron to isolated agent turns (sessionTarget: \"isolated\") so dreaming no longer requires heartbeat to fire. Once the cron no longer rides the heartbeat path, the blocked-reason observability has nothing left to report — removing it cleanly here before the cherry-picks land. * openclaw-3ba.1: move managed dreaming cron to isolated agent turns * openclaw-46d: claim cron runs before embedded attempts * openclaw-575: disable managed dreaming cron delivery * openclaw-575: accept wrapped dreaming cron tokens * openclaw-ccd: filter cron and wrapper transcript noise from dreaming corpus * openclaw-cd9: filter archived, cron, and heartbeat transcript noise from dreaming corpus * openclaw-cd9: suppress role-label reflection tags in rem dreaming * openclaw-b49: stop narrative timeouts from blocking dreaming cron * openclaw-b49: keep managed dreaming cron out of diary subagents * openclaw-ff9: restore cron dream diary generation without serial waits * openclaw-ff9: run dreaming narratives with lightweight isolated subagent lanes * openclaw-ff9: detach cron dream diary generation from run completion * openclaw-ff9: defer cron diary task startup until after cron completion * doctor/cron: migrate stale managed dreaming jobs to isolated agent turns After the dreaming cron moved off the heartbeat path to sessionTarget: \"isolated\" + payload.kind: \"agentTurn\" (see the preceding memory-core changes), users with existing ~/.openclaw/cron/jobs.json entries in the old sessionTarget: \"main\" + payload.kind: \"systemEvent\" shape still carry stale jobs until the gateway restart reconcile rewrites them. Add a dreaming-specific cron migration to the existing maybeRepairLegacyCronStore doctor path so \"openclaw doctor\" (and \"openclaw doctor --fix\") rewrites those jobs without needing a gateway restart. Match lives in a new doctor-cron-dreaming-payload-migration helper alongside the existing legacy-delivery and store-migration files. The matching uses the memory-core managed-job name and description tag plus the short-term-promotion payload token. Constants are mirrored from extensions/memory-core/src/dreaming.ts and commented so a future rename in memory-core is a visible drift point here too. * memory/dreaming: tighten cron-token match to known wrapper, not substring The previous match relaxed the line check from 'trimmed line equals token' to 'line contains token anywhere as a substring' to accept the `[cron:] ` wrapper that isolated-cron turns add. Substring matching also let any user message embedding the token mid-sentence trigger the dream-promotion hook, and was flagged by both Greptile and Aisle on PR #70737. Replace it with strip-the-known-prefix-then-exact-match: keep the `[cron:]` wrapper case working, reject every other variant. Add focused unit coverage that the bare token, the wrapped token, and bare multiline cases match while embedded / code-fenced / arbitrarily-wrapped variants do not. * memory/dreaming: drop assistant followup only on assistant-side signals Per PR #70737 review (aisle-research-bot, Medium): the previous logic suppressed the next assistant message whenever the prior user message matched a 'generated prompt' pattern (`[cron:...]`, `System (untrusted): ...`, heartbeat prompts, exec-completion events). Real users can type those same patterns, which let a user exfiltrate real assistant replies from the dreaming corpus by prefixing their own prompt — the assistant's reply would be silently dropped. Remove the cross-message coupling. Assistant-side machinery (silent replies, system wrappers) is already dropped by sanitizeSessionText, which is the right layer for that filter. Add an explicit assistant-side HEARTBEAT_TOKEN check to keep the legitimate `HEARTBEAT_OK` ack drop working without depending on the prior user message. Add a regression test exercising the spoofing scenario. * doctor/cron: assert mirrored dreaming constants stay in sync Per PR #70737 review (greptile-apps): the doctor migration mirrors three constants (MANAGED_DREAMING_CRON_NAME, MANAGED_DREAMING_CRON_TAG, DREAMING_SYSTEM_EVENT_TEXT) from extensions/memory-core/src/dreaming.ts. A future rename in either file would silently break the migration. Add a vitest unit that reads both files and asserts the literals match. Manually verified the assertion fires with a clear error when one side diverges. Adds no runtime cost; sits in the regular test pipeline. * fix(memory): stabilize dreaming CI checks * memory/dreaming: skip eager narrative session cleanup when detached Per PR #70737 review (chatgpt-codex-connector, P2): runDreamingSweepPhases called deleteNarrativeSessionBestEffort synchronously right after each phase. Once narrative generation moved to detached mode (queued via queueMicrotask), the eager cleanup races the writer: the session is deleted before the queued subagent run reads it, silently dropping cron diary entries. Skip the eager cleanup branch when params.detachNarratives is true. generateAndAppendDreamNarrative still runs its own deleteSession in the finally{} block, so the cleanup intent is preserved without the race. Heartbeat-driven (non-detached) runs keep the original eager-cleanup behavior. * fix(plugin-sdk): restore heartbeat-summary re-export Per PR #70737 review (chatgpt-codex-connector, P1): the revert of PR #69875 dropped the `heartbeat-summary` re-export from `openclaw/plugin-sdk/infra-runtime`. That subpath shipped publicly two days earlier, so removing it is technically a breaking change to a public SDK surface — third-party plugins importing `isHeartbeatEnabledForAgent` / `resolveHeartbeatIntervalMs` from this path would fail with no replacement contract introduced. Restore the re-export. Costs nothing to keep; the helpers are already public via `../infra/heartbeat-summary.ts`. SDK additions are by default backwards-compatible (CLAUDE.md), so removing within days of introduction violates that intent. * changelog: note dreaming decoupling from heartbeat Refs PR #70737. --------- Co-authored-by: Josh Lehman",
+      "title": "fix: harden GPT-5 runtime paths",
+      "link": "https://github.com/openclaw/openclaw/commit/40be5ad58187fd20b8defe5fc30e649190c131a8",
+      "publishedAt": "2026-04-24T07:55:52Z",
+      "summary": "fix: harden GPT-5 runtime paths Co-authored-by: EVA",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：記憶/dreaming: decouple managed 排程 from heartbeat (#70737)",
-      "summaryZh": "重點：記憶/dreaming: decouple managed 排程 from heartbeat (#70737) * Revert \"修正(記憶/dreaming): surface blocked status when heartbea..."
+      "titleZh": "OpenClaw 程式碼更新：修正: harden GPT-5 runtime paths",
+      "summaryZh": "重點：修正: harden GPT-5 runtime paths Co-authored-by: EVA..."
     },
     {
       "id": 8,
-      "title": "docs(qa): record convex telegram live testing notes",
-      "link": "https://github.com/openclaw/openclaw/commit/acbceb8a7673ded81e895848c3c496f8de5922f9",
-      "publishedAt": "2026-04-24T05:22:30Z",
-      "summary": "docs(qa): record convex telegram live testing notes",
+      "title": "fix(diagnostics): make otel service restart safe",
+      "link": "https://github.com/openclaw/openclaw/commit/4630ce3d9e2f089062ccd386b0ae241325961d1a",
+      "publishedAt": "2026-04-24T07:53:04Z",
+      "summary": "fix(diagnostics): make otel service restart safe Make diagnostics-otel startup restart-safe by tearing down stale SDK, log transport, and diagnostic-event listener handles before reinitializing or disabling the service. Adds regression coverage for repeated start and disabled restart paths.\\n\\nThanks @vincentkoc.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(qa): record convex Telegram live testing notes",
-      "summaryZh": "重點：文件(qa): record convex Telegram live testing notes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): make otel service restart safe",
+      "summaryZh": "重點：修正(diagnostics): make otel service restart safe Make diagnostics-otel startup restart-safe by tearing down stale SDK, lo..."
     },
     {
       "id": 9,
-      "title": "英特爾秀 Wildcat Lake 參考機，外型到內在都致敬 MacBook Neo",
-      "link": "https://technews.tw/2026/04/24/intel-wildcat-lake/",
-      "publishedAt": "Fri, 24 Apr 2026 05:21:28 +0000",
-      "summary": "英特爾新一代 Core Series 3「Wildcat Lake」筆電尚未正式上市，但英特爾已先端出自家參考 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: guard openai tts fetch",
+      "link": "https://github.com/openclaw/openclaw/commit/cc92699ff722e957ac37227be507f071af983758",
+      "publishedAt": "2026-04-24T07:50:35Z",
+      "summary": "fix: guard openai tts fetch",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: guard openai tts fetch",
+      "summaryZh": "重點：修正: guard openai tts fetch..."
     },
     {
       "id": 10,
-      "title": "docs: document Meet node command allowlist",
-      "link": "https://github.com/openclaw/openclaw/commit/b0d2003fe65bd7a9812f7c7f5ad9f608a7fd1503",
-      "publishedAt": "2026-04-24T05:19:12Z",
-      "summary": "docs: document Meet node command allowlist",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: 文件ument Meet node command allowlist",
-      "summaryZh": "重點：文件: 文件ument Meet node command allowlist..."
+      "title": "應對無人機蜂群威脅，美軍緊急幫航艦打擊群部署地獄火與郊狼飛彈",
+      "link": "https://technews.tw/2026/04/24/us-navy-installed-hellfires-and-coyotes-on-carrier-strike-group-ships/",
+      "publishedAt": "Fri, 24 Apr 2026 07:43:07 +0000",
+      "summary": "根據美國海軍最新公布的預算文件，為因應紅海實戰經驗與日益嚴峻的無人機威脅，美軍已動用補充資金，為福特號與羅斯福 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
