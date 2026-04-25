@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-25T11:39:23.287Z",
+  "generatedAt": "2026-04-25T13:07:45.434Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: sync Claude CLI OAuth credentials (#70902) (thanks @starvex)",
-      "link": "https://github.com/openclaw/openclaw/commit/150f3e472b1b4e328e1ce4d9d0455ecea38ebd0a",
-      "publishedAt": "2026-04-25T11:37:27Z",
-      "summary": "fix: sync Claude CLI OAuth credentials (#70902) (thanks @starvex)",
+      "title": "docs(browser): document Chrome MCP per-profile mcpCommand/mcpArgs and…",
+      "link": "https://github.com/openclaw/openclaw/commit/9b1dd9e5738d547a97fa66d4b0741f6d6ead46e1",
+      "publishedAt": "2026-04-25T12:54:54Z",
+      "summary": "docs(browser): document Chrome MCP per-profile mcpCommand/mcpArgs and cdpUrl mapping Vincent's commit ab1d1a5c9e (#71560) added user-facing config keys to existing-session profiles for the Chrome DevTools MCP launch path: - browser.profiles..mcpCommand - browser.profiles..mcpArgs Plus runtime behavior changes: - cdpUrl http(s) -> --browserUrl, cdpUrl ws(s) -> --wsEndpoint - endpoint flags and userDataDir are mutually exclusive The CHANGELOG entry covered the change, but docs/tools/browser.md existing-session reference did not. Add a 'Custom Chrome MCP launch' subsection describing the new fields and the cdpUrl endpoint mapping rules.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: sync Claude CLI OAuth credentials (#70902) (thanks @starvex)",
-      "summaryZh": "重點：修正: sync Claude CLI OAuth credentials (#70902) (thanks @starvex)..."
+      "titleZh": "OpenClaw 文件更新：文件(browser): 文件ument Chrome MCP per-profile mcpCommand/mcpArgs and…",
+      "summaryZh": "重點：文件(browser): 文件ument Chrome MCP per-profile mcpCommand/mcpArgs and cdpUrl mapping Vincent's 提交 ab1d1a5c9e (#71560) added..."
     },
     {
       "id": 2,
-      "title": "test(agents): cover single image generation media delivery",
-      "link": "https://github.com/openclaw/openclaw/commit/84dc9f12f1b9e36f7bfc9bea438bce3852ed9dd5",
-      "publishedAt": "2026-04-25T11:32:43Z",
-      "summary": "test(agents): cover single image generation media delivery",
+      "title": "fix(cli): key gemini cli auth epoch on google account identity (#71076)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc73141e8284c219933970dbd4f6aeacb05bbb77",
+      "publishedAt": "2026-04-25T12:47:58Z",
+      "summary": "fix(cli): key gemini cli auth epoch on google account identity (#71076) Fixes openclaw#70973. Adds a \\`google-gemini-cli\\` branch to \\`getLocalCliCredentialFingerprint\\` that lifts OpenID \\`id_token\\` \\`sub\\`/\\`email\\` claims from \\`~/.gemini/oauth_creds.json\\` onto \\`GeminiCliCredential\\` so the shared \\`encodeOAuthIdentity\\` produces an identity-keyed auth-epoch matching the Claude/Codex contract, plus bumps \\`CLI_AUTH_EPOCH_VERSION\\` from 3 to 4 so existing v3 Gemini bindings without an \\`authEpoch\\` ride the existing \\`cli-session.ts\\` version-gate instead of forcing a one-time invalidation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): cover single image generation media delivery",
-      "summaryZh": "重點：test(agents): cover single image generation media delivery..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): key gemini cli auth epoch on google account identity (#71076)",
+      "summaryZh": "重點：修正(cli): key gemini cli auth epoch on google account identity (#71076) 修正 OpenClaw#70973. Adds a \\`google-gemini-cli\\` b..."
     },
     {
       "id": 3,
-      "title": "refactor(media): move sharp image ops into media runtime (#71519)",
-      "link": "https://github.com/openclaw/openclaw/commit/e174d96cc0b2bb665e754316e261fad00dc068e7",
-      "publishedAt": "2026-04-25T11:31:10Z",
-      "summary": "refactor(media): move sharp image ops into media runtime (#71519) * refactor(media): move sharp image ops into plugin * fix(media): pass image pixel budget to sharp plugin * refactor(media): reuse media understanding sharp runtime * test(build): allow staged runtime core graphs",
+      "title": "fix(browser): configure Chrome MCP existing-session launch (#71560)",
+      "link": "https://github.com/openclaw/openclaw/commit/ab1d1a5c9eb60d24b1e90ca3b844b1c5d31b815e",
+      "publishedAt": "2026-04-25T12:46:39Z",
+      "summary": "fix(browser): configure Chrome MCP existing-session launch (#71560)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(media): move sharp image ops into media runtime (#71519)",
-      "summaryZh": "重點：refactor(media): move sharp image ops into media runtime (#71519) * refactor(media): move sharp image ops into plugin * ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): configure Chrome MCP existing-session launch (#71560)",
+      "summaryZh": "重點：修正(browser): configure Chrome MCP existing-session launch (#71560)..."
     },
     {
       "id": 4,
-      "title": "feat(browser): configure local startup timeouts",
-      "link": "https://github.com/openclaw/openclaw/commit/b2b898c2a8bce33a91f31403832eff1aa5f0b55e",
-      "publishedAt": "2026-04-25T11:30:35Z",
-      "summary": "feat(browser): configure local startup timeouts",
+      "title": "fix: harden OpenCode ACP bind dispatch",
+      "link": "https://github.com/openclaw/openclaw/commit/dd78b7f773fcd9477000e1eb4ae71cccc5846c00",
+      "publishedAt": "2026-04-25T12:38:58Z",
+      "summary": "fix: harden OpenCode ACP bind dispatch",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(browser): configure local startup timeouts",
-      "summaryZh": "重點：新功能(browser): configure local startup timeouts..."
+      "titleZh": "OpenClaw 程式碼更新：修正: harden OpenCode ACP bind dispatch",
+      "summaryZh": "重點：修正: harden OpenCode ACP bind dispatch..."
     },
     {
       "id": 5,
