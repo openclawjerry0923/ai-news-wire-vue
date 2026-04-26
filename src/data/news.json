@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-04-26T16:45:40.283Z",
+  "generatedAt": "2026-04-26T17:40:02.808Z",
   "items": [
     {
       "id": 1,
+      "title": "v2026.4.25-beta.7",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.25-beta.7",
+      "publishedAt": "2026-04-26T17:17:30Z",
+      "summary": "v2026.4.25-beta.7",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：v2026.4.25-beta.7",
+      "summaryZh": "重點：v2026.4.25-beta.7..."
+    },
+    {
+      "id": 2,
+      "title": "fix(whatsapp): stop reconnecting quiet sockets",
+      "link": "https://github.com/openclaw/openclaw/commit/e672b61417af5c45b0431df6d9109a1f4b618ef5",
+      "publishedAt": "2026-04-26T16:51:41Z",
+      "summary": "fix(whatsapp): stop reconnecting quiet sockets Fixes #70678.\\n\\nKeeps quiet but healthy WhatsApp linked-device sessions connected by tracking WhatsApp Web transport activity, while retaining a longer app-silence cap so frame activity cannot mask a stuck session forever. Also cleans up transport activity listeners on failed connection-open paths.\\n\\nCarries forward the focused #71466 approach and keeps #63939 as related configurable-timeout follow-up. Thanks @vincentkoc and @oromeis.\\n\\nValidation:\\n- pnpm test:serial extensions/whatsapp/src/auto-reply.web-auto-reply.connection-and-logging.e2e.test.ts extensions/whatsapp/src/connection-controller.test.ts\\n- pnpm check:changed\\n- codex review --base origin/main",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): stop reconnecting quiet sockets",
+      "summaryZh": "重點：修正(whatsapp): stop reconnecting quiet sockets 修正 #70678.\\n\\nKeeps quiet but healthy WhatsApp linked-device sessions conn..."
+    },
+    {
+      "id": 3,
       "title": "v2026.4.25-beta.6",
       "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.25-beta.6",
       "publishedAt": "2026-04-26T16:26:43Z",
@@ -13,7 +35,7 @@
       "summaryZh": "重點：OpenClaw 2026.4.25-beta.6..."
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "v2026.4.25-beta.5",
       "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.4.25-beta.5",
       "publishedAt": "2026-04-26T16:00:11Z",
@@ -22,28 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 最新動態：v2026.4.25-beta.5",
       "summaryZh": "重點：OpenClaw 2026.4.25-beta.5..."
-    },
-    {
-      "id": 3,
-      "title": "fix: avoid PowerShell error variable collision",
-      "link": "https://github.com/openclaw/openclaw/commit/4a3030df9efa72c44bab567a4390ac0c4876a73f",
-      "publishedAt": "2026-04-26T15:26:31Z",
-      "summary": "fix: avoid PowerShell error variable collision",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid PowerShell error variable collision",
-      "summaryZh": "重點：修正: avoid PowerShell error variable collision..."
-    },
-    {
-      "id": 4,
-      "title": "fix(release): stabilize beta validation lanes",
-      "link": "https://github.com/openclaw/openclaw/commit/30aa1b522326b20d408ccb70e774f665e58d8519",
-      "publishedAt": "2026-04-26T15:22:12Z",
-      "summary": "fix(release): stabilize beta validation lanes",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): stabilize beta validation lanes",
-      "summaryZh": "重點：修正(版本發布): stabilize beta validation lanes..."
     },
     {
       "id": 5,
