@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T09:22:46.090Z",
+  "generatedAt": "2026-04-28T11:46:26.054Z",
   "items": [
     {
       "id": 1,
@@ -39,6 +39,50 @@
     },
     {
       "id": 5,
+      "title": "fix: Discord read/search timeout, session-key fallback, and gateway e…",
+      "link": "https://github.com/openclaw/openclaw/commit/e4ff7c162044afca5aef76fa92a53e7a91bd021a",
+      "publishedAt": "2026-04-28T11:46:05Z",
+      "summary": "fix: Discord read/search timeout, session-key fallback, and gateway execution mode (#73521) * fix: Discord read/search timeout, session-key fallback, and gateway execution mode - Add 15s timeout to readMessagesDiscord and searchMessagesDiscord so they fail fast instead of hanging indefinitely (#73431) - Fall back to CommandTargetSessionKey in dispatchReplyFromConfig when SessionKey is empty, so Discord inbound message:received hooks fire reliably (#73431, refs #33038) - Add resolveExecutionMode to Discord channel actions routing read/search through gateway timeout path, matching Telegram's pattern (#73431) * fix: move timeout to fetch layer, drop send.messages wrapper Inject AbortSignal.timeout into the Discord proxy-request-client fetch wrapper so every Discord REST call gets a 15s timeout at the HTTP level. This replaces the Promise.race wrapper in send.messages.ts — cleaner, covers all calls, and actually aborts the TCP connection. * fix: remove unused callerController variable in proxy-request-client test * fix: remove unnecessary mergeAbortSignal helper",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: Discord read/search timeout, session-key fallback, and Gateway e…",
+      "summaryZh": "重點：修正: Discord read/search timeout, session-key fallback, and Gateway execution mode (#73521) * 修正: Discord read/search tim..."
+    },
+    {
+      "id": 6,
+      "title": "docs: cover cron_changed plugin hook and legacy env-var deprecation",
+      "link": "https://github.com/openclaw/openclaw/commit/c478aeca5a7fcfc9bfbeb088a59e3605d4dae5e1",
+      "publishedAt": "2026-04-28T11:40:38Z",
+      "summary": "docs: cover cron_changed plugin hook and legacy env-var deprecation - docs/plugins/hooks.md: add `cron_changed` to the Lifecycle hook catalog and a Gateway lifecycle paragraph describing its typed event payload, run status, delivery status, and removed-event job snapshot, so plugin authors picking up f155a5f955 (#72773) have a canonical reference beyond the sdk-overview bullet that already shipped in the same SHA. - docs/help/environment.md: add a \"Legacy environment variables\" section for aa1834a3ff so users see that `CLAWDBOT_*` and `MOLTBOT_*` prefixes are now ignored and trigger an `OPENCLAW_LEGACY_ENV_VARS` deprecation warning, with a rename example to `OPENCLAW_*`.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: cover 排程_changed plugin hook and legacy env-var deprecation",
+      "summaryZh": "重點：文件: cover 排程_changed plugin hook and legacy env-var deprecation - 文件/plugins/hooks.md: add `排程_changed` to the Lifecycle..."
+    },
+    {
+      "id": 7,
+      "title": "Add cron changed plugin hook (#72773)",
+      "link": "https://github.com/openclaw/openclaw/commit/f155a5f95593380077e3e77f93d3dfa95ebe7e23",
+      "publishedAt": "2026-04-28T11:34:42Z",
+      "summary": "Add cron changed plugin hook (#72773) * feat: add cron changed plugin hook * fix: improve cron_changed hook correctness and code quality - Fix PluginHookGatewayCronDeliveryStatus: replace 'error' with 'unknown' to match internal CronDeliveryStatus enum - Add job snapshot to CronEvent so removed events carry the deleted job - Extract pickDefined helper, replace 14-field verbose spread mapping - Add toPluginCronJob mapper for explicit internal→public type boundary - Fix schedule union: use literal-only kind discriminants for TS narrowing - Use loadConfig() (runtime) instead of params.cfg (startup) in hook ctx - Use formatErrorMessage instead of String(err) for stack preservation - Fix pre-existing getCron TS2322 with explicit cast (matches gateway_start) - Re-export supporting types from hooks.ts for plugin consumers - Add tests: removed events with job, finished with full fields, runtime cfg",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：Add 排程 changed plugin hook (#72773)",
+      "summaryZh": "重點：Add 排程 changed plugin hook (#72773) * 新功能: add 排程 changed plugin hook * 修正: improve 排程_changed hook correctness and code..."
+    },
+    {
+      "id": 8,
+      "title": "fix(memory-core): retry dreaming cron startup reconciliation (#73493)",
+      "link": "https://github.com/openclaw/openclaw/commit/e84ebeafbd67a420faf22c516562c67dc66b8e7c",
+      "publishedAt": "2026-04-28T11:15:23Z",
+      "summary": "fix(memory-core): retry dreaming cron startup reconciliation (#73493) Co-authored-by: Alex Knight",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): retry dreaming 排程 startup reconciliation (#73493)",
+      "summaryZh": "重點：修正(記憶-core): retry dreaming 排程 startup reconciliation (#73493) Co-authored-by: Alex Knight..."
+    },
+    {
+      "id": 9,
       "title": "Tenable修補Nessus弱點掃描代理程式漏洞，未更新可能導致攻擊者取得SYSTEM權限",
       "link": "https://www.ithome.com.tw/news/175352",
       "publishedAt": "2026-04-28 11:04:45",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Linux作業系統套件管理器存在資安漏洞Pack2TheRoot，攻擊者能取得root權限",
       "link": "https://www.ithome.com.tw/news/175353",
       "publishedAt": "2026-04-28 11:04:37",
       "summary": "德國電信公司Deutsche Telekom紅隊團隊近日公布高風險資安漏洞Pack2TheRoot，此漏洞存在於套件管理工具PackageKit的處理程序，影響Ubuntu、Debian、Fedora等多個Linux發行版，非特權攻擊者可在未經授權的情況下，安裝或移除系統套件，而有機會取得受害主機的root權限，或是透過其他管道入侵受害電腦。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(mattermost): keep inspector capture quiet",
-      "link": "https://github.com/openclaw/openclaw/commit/aa2f964bda07128c5593f8306bdb2798bd5dff4c",
-      "publishedAt": "2026-04-28T09:19:57Z",
-      "summary": "fix(mattermost): keep inspector capture quiet",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mattermost): keep inspector capture quiet",
-      "summaryZh": "重點：修正(mattermost): keep inspector capture quiet..."
-    },
-    {
-      "id": 8,
-      "title": "test(plugins): fix codex inspector capture regression",
-      "link": "https://github.com/openclaw/openclaw/commit/ad954dd1ca61c7ead0c5ce116c9c2da188531567",
-      "publishedAt": "2026-04-28T09:19:56Z",
-      "summary": "test(plugins): fix codex inspector capture regression",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(plugins): 修正 codex inspector capture regression",
-      "summaryZh": "重點：test(plugins): 修正 codex inspector capture regression..."
-    },
-    {
-      "id": 9,
-      "title": "fix(plugins): harden inspector runtime capture",
-      "link": "https://github.com/openclaw/openclaw/commit/5f3b8b41004c02d92230a639af0ca2dbd44a17ae",
-      "publishedAt": "2026-04-28T09:19:56Z",
-      "summary": "fix(plugins): harden inspector runtime capture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): harden inspector runtime capture",
-      "summaryZh": "重點：修正(plugins): harden inspector runtime capture..."
-    },
-    {
-      "id": 10,
-      "title": "test: isolate gateway prewarm scheduling",
-      "link": "https://github.com/openclaw/openclaw/commit/0f24a8d8e18bd4d3e9383c86f064ee33067f1be8",
-      "publishedAt": "2026-04-28T09:18:42Z",
-      "summary": "test: isolate gateway prewarm scheduling",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: isolate Gateway prewarm scheduling",
-      "summaryZh": "重點：test: isolate Gateway prewarm scheduling..."
     }
   ]
 }
