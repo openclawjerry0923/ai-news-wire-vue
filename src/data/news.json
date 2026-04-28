@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-04-28T11:46:26.054Z",
+  "generatedAt": "2026-04-28T14:18:58.000Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(active-memory): use bundled recall tool",
+      "link": "https://github.com/openclaw/openclaw/commit/f256eeba431b5f59e6085b7c11c9c0a309e408b7",
+      "publishedAt": "2026-04-28T14:03:47Z",
+      "summary": "fix(active-memory): use bundled recall tool Fixes #73502. Active Memory now allows its hidden recall sub-agent to use both bundled memory tool contracts: memory_recall for memory-lancedb and memory_search/memory_get for memory-core. The prompt prefers memory_recall when available and falls back to the legacy tool pair when that is the active backend surface. Also updates Active Memory docs, QA mock fixtures, and debug parsing compatibility for the two recall paths.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(active-記憶): use bundled recall tool",
+      "summaryZh": "重點：修正(active-記憶): use bundled recall tool 修正 #73502. Active 記憶 now allows its hidden recall sub-agent to use both bundled 記..."
+    },
+    {
+      "id": 2,
+      "title": "fix(whatsapp): expose Baileys socket timing (#73580)",
+      "link": "https://github.com/openclaw/openclaw/commit/dd643c82b55efef49787568e946816ecabb6215e",
+      "publishedAt": "2026-04-28T13:46:47Z",
+      "summary": "fix(whatsapp): expose Baileys socket timing (#73580) Merged via squash. Prepared head SHA: d34755262f8e543cc50a88acb48391a9bda2c42a Co-authored-by: velvet-shark Co-authored-by: velvet-shark Reviewed-by: @velvet-shark",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): expose Baileys socket timing (#73580)",
+      "summaryZh": "重點：修正(whatsapp): expose Baileys socket timing (#73580) Merged via squash. Prepared head SHA: d34755262f8e543cc50a88acb48391..."
+    },
+    {
+      "id": 3,
+      "title": "feat(active-memory): return partial transcript on timeout (openclaw#7…",
+      "link": "https://github.com/openclaw/openclaw/commit/16906780fd2c481308ec4b80f96eb3b93d0add46",
+      "publishedAt": "2026-04-28T13:44:46Z",
+      "summary": "feat(active-memory): return partial transcript on timeout (openclaw#73219) Verified: - pnpm test extensions/active-memory/index.test.ts - pnpm exec oxfmt --check --threads=1 extensions/active-memory/index.ts extensions/active-memory/index.test.ts CHANGELOG.md - git diff --check Co-authored-by: joeykrug Co-authored-by: Tak Hoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(active-記憶): return partial transcript on timeout (OpenClaw#7…",
+      "summaryZh": "重點：新功能(active-記憶): return partial transcript on timeout (OpenClaw#73219) Verified: - pnpm test extensions/active-記憶/index.t..."
+    },
+    {
+      "id": 4,
+      "title": "fix: support explicit active-memory chat types (openclaw#66285)",
+      "link": "https://github.com/openclaw/openclaw/commit/6d539db011e43dfb21712290ec24eb3e9ab53b4b",
+      "publishedAt": "2026-04-28T13:43:06Z",
+      "summary": "fix: support explicit active-memory chat types (openclaw#66285) Verified: - pnpm install --frozen-lockfile - pnpm test extensions/active-memory/config.test.ts extensions/active-memory/index.test.ts - pnpm exec oxfmt --check --threads=1 CHANGELOG.md extensions/active-memory/index.ts extensions/active-memory/index.test.ts extensions/active-memory/config.test.ts extensions/active-memory/openclaw.plugin.json - git diff --check Co-authored-by: Lidang-Jiang Co-authored-by: Tak Hoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: support explicit active-記憶 chat types (OpenClaw#66285)",
+      "summaryZh": "重點：修正: support explicit active-記憶 chat types (OpenClaw#66285) Verified: - pnpm install --frozen-lockfile - pnpm test extens..."
+    },
+    {
+      "id": 5,
       "title": "醫療設備製造商美敦力資料外洩，駭客聲稱竊取逾900萬筆個資",
       "link": "https://www.ithome.com.tw/news/175360",
       "publishedAt": "2026-04-28 12:04:40",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Google DeepMind分拆公司Isomorphic Labs推動AI藥物設計，新藥將進入臨床測試",
       "link": "https://www.ithome.com.tw/news/175364",
       "publishedAt": "2026-04-28 12:04:36",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "Notepad++修補字串輸入漏洞，未更新可能導致資訊洩漏或程式當機",
       "link": "https://www.ithome.com.tw/news/175362",
       "publishedAt": "2026-04-28 12:04:31",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "歐盟要求Google鬆綁Android平臺上的AI服務",
       "link": "https://www.ithome.com.tw/news/175366",
       "publishedAt": "2026-04-28 12:04:29",
@@ -38,64 +82,20 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "fix: Discord read/search timeout, session-key fallback, and gateway e…",
-      "link": "https://github.com/openclaw/openclaw/commit/e4ff7c162044afca5aef76fa92a53e7a91bd021a",
-      "publishedAt": "2026-04-28T11:46:05Z",
-      "summary": "fix: Discord read/search timeout, session-key fallback, and gateway execution mode (#73521) * fix: Discord read/search timeout, session-key fallback, and gateway execution mode - Add 15s timeout to readMessagesDiscord and searchMessagesDiscord so they fail fast instead of hanging indefinitely (#73431) - Fall back to CommandTargetSessionKey in dispatchReplyFromConfig when SessionKey is empty, so Discord inbound message:received hooks fire reliably (#73431, refs #33038) - Add resolveExecutionMode to Discord channel actions routing read/search through gateway timeout path, matching Telegram's pattern (#73431) * fix: move timeout to fetch layer, drop send.messages wrapper Inject AbortSignal.timeout into the Discord proxy-request-client fetch wrapper so every Discord REST call gets a 15s timeout at the HTTP level. This replaces the Promise.race wrapper in send.messages.ts — cleaner, covers all calls, and actually aborts the TCP connection. * fix: remove unused callerController variable in proxy-request-client test * fix: remove unnecessary mergeAbortSignal helper",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Discord read/search timeout, session-key fallback, and Gateway e…",
-      "summaryZh": "重點：修正: Discord read/search timeout, session-key fallback, and Gateway execution mode (#73521) * 修正: Discord read/search tim..."
-    },
-    {
-      "id": 6,
-      "title": "docs: cover cron_changed plugin hook and legacy env-var deprecation",
-      "link": "https://github.com/openclaw/openclaw/commit/c478aeca5a7fcfc9bfbeb088a59e3605d4dae5e1",
-      "publishedAt": "2026-04-28T11:40:38Z",
-      "summary": "docs: cover cron_changed plugin hook and legacy env-var deprecation - docs/plugins/hooks.md: add `cron_changed` to the Lifecycle hook catalog and a Gateway lifecycle paragraph describing its typed event payload, run status, delivery status, and removed-event job snapshot, so plugin authors picking up f155a5f955 (#72773) have a canonical reference beyond the sdk-overview bullet that already shipped in the same SHA. - docs/help/environment.md: add a \"Legacy environment variables\" section for aa1834a3ff so users see that `CLAWDBOT_*` and `MOLTBOT_*` prefixes are now ignored and trigger an `OPENCLAW_LEGACY_ENV_VARS` deprecation warning, with a rename example to `OPENCLAW_*`.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: cover 排程_changed plugin hook and legacy env-var deprecation",
-      "summaryZh": "重點：文件: cover 排程_changed plugin hook and legacy env-var deprecation - 文件/plugins/hooks.md: add `排程_changed` to the Lifecycle..."
-    },
-    {
-      "id": 7,
-      "title": "Add cron changed plugin hook (#72773)",
-      "link": "https://github.com/openclaw/openclaw/commit/f155a5f95593380077e3e77f93d3dfa95ebe7e23",
-      "publishedAt": "2026-04-28T11:34:42Z",
-      "summary": "Add cron changed plugin hook (#72773) * feat: add cron changed plugin hook * fix: improve cron_changed hook correctness and code quality - Fix PluginHookGatewayCronDeliveryStatus: replace 'error' with 'unknown' to match internal CronDeliveryStatus enum - Add job snapshot to CronEvent so removed events carry the deleted job - Extract pickDefined helper, replace 14-field verbose spread mapping - Add toPluginCronJob mapper for explicit internal→public type boundary - Fix schedule union: use literal-only kind discriminants for TS narrowing - Use loadConfig() (runtime) instead of params.cfg (startup) in hook ctx - Use formatErrorMessage instead of String(err) for stack preservation - Fix pre-existing getCron TS2322 with explicit cast (matches gateway_start) - Re-export supporting types from hooks.ts for plugin consumers - Add tests: removed events with job, finished with full fields, runtime cfg",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Add 排程 changed plugin hook (#72773)",
-      "summaryZh": "重點：Add 排程 changed plugin hook (#72773) * 新功能: add 排程 changed plugin hook * 修正: improve 排程_changed hook correctness and code..."
-    },
-    {
-      "id": 8,
-      "title": "fix(memory-core): retry dreaming cron startup reconciliation (#73493)",
-      "link": "https://github.com/openclaw/openclaw/commit/e84ebeafbd67a420faf22c516562c67dc66b8e7c",
-      "publishedAt": "2026-04-28T11:15:23Z",
-      "summary": "fix(memory-core): retry dreaming cron startup reconciliation (#73493) Co-authored-by: Alex Knight",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): retry dreaming 排程 startup reconciliation (#73493)",
-      "summaryZh": "重點：修正(記憶-core): retry dreaming 排程 startup reconciliation (#73493) Co-authored-by: Alex Knight..."
-    },
-    {
       "id": 9,
-      "title": "Tenable修補Nessus弱點掃描代理程式漏洞，未更新可能導致攻擊者取得SYSTEM權限",
-      "link": "https://www.ithome.com.tw/news/175352",
-      "publishedAt": "2026-04-28 11:04:45",
-      "summary": "資安廠商Tenable近日發布公告，揭露旗下弱點掃描工具Nessus的Windows版代理程式存在高風險漏洞，攻擊者可能藉此取得SYSTEM權限，進而在受害電腦上執行任意程式碼，建議使用者儘速更新至已修補的版本。",
-      "source": "iThome",
+      "title": "力積電擬再辦 GDR 增資，強化設備投資、布局先進產能",
+      "link": "https://technews.tw/2026/04/28/psmc-2026-0428-stock/",
+      "publishedAt": "Tue, 28 Apr 2026 11:52:29 +0000",
+      "summary": "力積電今（28 日）發布重訊，公告董事會決議辦理現金增資發行普通股參與發行海外存託憑證，以因應未來營運發展所需 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "Linux作業系統套件管理器存在資安漏洞Pack2TheRoot，攻擊者能取得root權限",
-      "link": "https://www.ithome.com.tw/news/175353",
-      "publishedAt": "2026-04-28 11:04:37",
-      "summary": "德國電信公司Deutsche Telekom紅隊團隊近日公布高風險資安漏洞Pack2TheRoot，此漏洞存在於套件管理工具PackageKit的處理程序，影響Ubuntu、Debian、Fedora等多個Linux發行版，非特權攻擊者可在未經授權的情況下，安裝或移除系統套件，而有機會取得受害主機的root權限，或是透過其他管道入侵受害電腦。",
+      "title": "Tenable修補Nessus弱點掃描代理程式漏洞，未更新可能導致攻擊者取得SYSTEM權限",
+      "link": "https://www.ithome.com.tw/news/175352",
+      "publishedAt": "2026-04-28 11:04:45",
+      "summary": "資安廠商Tenable近日發布公告，揭露旗下弱點掃描工具Nessus的Windows版代理程式存在高風險漏洞，攻擊者可能藉此取得SYSTEM權限，進而在受害電腦上執行任意程式碼，建議使用者儘速更新至已修補的版本。",
       "source": "iThome",
       "tag": "繁中"
     }
