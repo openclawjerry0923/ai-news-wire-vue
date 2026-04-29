@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-29T14:00:47.730Z",
+  "generatedAt": "2026-04-29T16:28:18.199Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: suppress raw JSON parse errors from leaking to Discord channels …",
-      "link": "https://github.com/openclaw/openclaw/commit/0544c6d493ff89887b3480aaf9fa7e326d9357fc",
-      "publishedAt": "2026-04-29T13:59:46Z",
-      "summary": "fix: suppress raw JSON parse errors from leaking to Discord channels (#59076) [AI-assisted] (#59118) Merged via squash. Prepared head SHA: b8b3686445b2f7f2bce9e29974b3089873190c73 Co-authored-by: singleGanghood Co-authored-by: hxy91819 Reviewed-by: @hxy91819",
+      "title": "fix(exec): reject invalid host targets (#74468)",
+      "link": "https://github.com/openclaw/openclaw/commit/df0074768c97326b582b3431655e047dd65fe9e5",
+      "publishedAt": "2026-04-29T16:25:45Z",
+      "summary": "fix(exec): reject invalid host targets (#74468) * fix(exec): reject invalid host targets * docs(changelog): credit exec host validation contributor --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: suppress raw JSON parse errors from leaking to Discord channels …",
-      "summaryZh": "重點：修正: suppress raw JSON parse errors from leaking to Discord channels (#59076) [AI-assisted] (#59118) Merged via squash. P..."
+      "titleZh": "OpenClaw 程式碼更新：修正(exec): reject invalid host targets (#74468)",
+      "summaryZh": "重點：修正(exec): reject invalid host targets (#74468) * 修正(exec): reject invalid host targets * 文件(changelog): credit exec host..."
     },
     {
       "id": 2,
-      "title": "test(plugins): avoid map spread in provider fixture",
-      "link": "https://github.com/openclaw/openclaw/commit/03e17d19e9dd4c2a803ef7215634334aded4e385",
-      "publishedAt": "2026-04-29T13:55:25Z",
-      "summary": "test(plugins): avoid map spread in provider fixture",
+      "title": "feat(nvidia): add NVIDIA provider with onboarding flow (#71204)",
+      "link": "https://github.com/openclaw/openclaw/commit/9a0b43c47e30d33a97b530140d487f52c2696ff2",
+      "publishedAt": "2026-04-29T16:25:12Z",
+      "summary": "feat(nvidia): add NVIDIA provider with onboarding flow (#71204) * feat(nvidia): add NVIDIA provider with onboarding flow Add the NVIDIA build.nvidia.com API as a bundled provider. Default model is nvidia/nvidia/nemotron-3-super-120b-a12b: first segment is the provider id, remaining \"nvidia/nemotron-3-super-120b-a12b\" is the literal upstream model id (which happens to start with \"nvidia/\" because NVIDIA is also the model maker). Supporting core change: introduce a provider capability flag nativeIdsIncludeProviderPrefix so providers whose native catalog ids intentionally include their provider prefix (OpenRouter) opt into self-prefix dedupe in modelKey, without hardcoding provider names in core. Providers whose ids merely happen to start with their own name (NVIDIA) leave the flag unset and get the full / concatenation. - extensions/nvidia/*: new plugin, catalog, onboarding, tests, docs - extensions/openrouter/index.ts: declare nativeIdsIncludeProviderPrefix - src/plugins/types.ts: add field to ProviderPlugin - src/plugins/registry.ts: populate self-prefix set on registration - src/agents/provider-self-prefix.ts: sync accessor used by modelKey - src/agents/model-ref-shared.ts: modelKey consults the flag - test updates for affected surfaces Co-Authored-By: Claude Opus 4.7 (1M context) * refactor(model-picker): simplify literal-prefix display to label-only * fix(model-picker): pass workspaceDir/env to allowlist literal-prefix resolution * chore: untrack generated baseline JSON artifacts (gitignored) * fix(nvidia): show literal model ref in picker and onboarding notes * fix(nvidia): show hint whenever display label differs from stored config * fix(nvidia): drop redundant hint from Keep current label * fix(nvidia): restore literal double-prefix display labels * fix(picker): handle literal-prefix fast path * fix(picker): show literal keep label * fix(docs): update nvidia provider docs * fix(nvidia): update test helper imports * fix(changelog): add nvidia provider entry --------- Co-authored-by: Claude Opus 4.7 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(plugins): avoid map spread in provider 修正ture",
-      "summaryZh": "重點：test(plugins): avoid map spread in provider 修正ture..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(nvidia): add NVIDIA provider with onboarding flow (#71204)",
+      "summaryZh": "重點：新功能(nvidia): add NVIDIA provider with onboarding flow (#71204) * 新功能(nvidia): add NVIDIA provider with onboarding flow A..."
     },
     {
       "id": 3,
-      "title": "fix(agents): demote embedded run stage logs to trace",
-      "link": "https://github.com/openclaw/openclaw/commit/66cdbccc8a2a74e62ee2e8a7043b7507d1c5ccc4",
-      "publishedAt": "2026-04-29T13:52:14Z",
-      "summary": "fix(agents): demote embedded run stage logs to trace",
+      "title": "fix(sandbox): gracefully handle Docker daemon unavailability when san…",
+      "link": "https://github.com/openclaw/openclaw/commit/2dadc82cf4537a3bfb3b8d4b9930a5eb9eef2369",
+      "publishedAt": "2026-04-29T16:23:30Z",
+      "summary": "fix(sandbox): gracefully handle Docker daemon unavailability when sandbox mode is off (#73671) Merged via squash. Prepared head SHA: 378851cf405314137aa5d3c0d68193af7cf94f88 Co-authored-by: kaseonedge Co-authored-by: sallyom Reviewed-by: @sallyom",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): demote embedded run stage logs to trace",
-      "summaryZh": "重點：修正(agents): demote embedded run stage logs to trace..."
+      "titleZh": "OpenClaw 文件更新：修正(sandbox): gracefully handle 文件ker daemon unavailability when san…",
+      "summaryZh": "重點：修正(sandbox): gracefully handle 文件ker daemon unavailability when sandbox mode is off (#73671) Merged via squash. Prepared..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): wait for event loop before client start",
-      "link": "https://github.com/openclaw/openclaw/commit/6bbacd14a36684dcddf42e1b6db8453771ef6663",
-      "publishedAt": "2026-04-29T13:50:44Z",
-      "summary": "fix(gateway): wait for event loop before client start",
+      "title": "fix(discord): clarify command deploy rate-limit logs",
+      "link": "https://github.com/openclaw/openclaw/commit/e46dccb353744ab5340b3b66999cc06bd4b5397a",
+      "publishedAt": "2026-04-29T16:19:40Z",
+      "summary": "fix(discord): clarify command deploy rate-limit logs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): wait for event loop before client start",
-      "summaryZh": "重點：修正(Gateway): wait for event loop before client start..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): clarify command deploy rate-limit logs",
+      "summaryZh": "重點：修正(Discord): clarify command deploy rate-limit logs..."
     },
     {
       "id": 5,
