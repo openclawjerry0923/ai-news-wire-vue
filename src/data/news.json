@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-04-29T16:28:18.199Z",
+  "generatedAt": "2026-04-29T18:12:04.371Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(exec): reject invalid host targets (#74468)",
-      "link": "https://github.com/openclaw/openclaw/commit/df0074768c97326b582b3431655e047dd65fe9e5",
-      "publishedAt": "2026-04-29T16:25:45Z",
-      "summary": "fix(exec): reject invalid host targets (#74468) * fix(exec): reject invalid host targets * docs(changelog): credit exec host validation contributor --------- Co-authored-by: Peter Steinberger",
+      "title": "test(gateway): complete reload model config fixture",
+      "link": "https://github.com/openclaw/openclaw/commit/39ecedb3000882132577974bf548c0401e3465b9",
+      "publishedAt": "2026-04-29T18:09:38Z",
+      "summary": "test(gateway): complete reload model config fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): reject invalid host targets (#74468)",
-      "summaryZh": "重點：修正(exec): reject invalid host targets (#74468) * 修正(exec): reject invalid host targets * 文件(changelog): credit exec host..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): complete reload 模型 config 修正ture",
+      "summaryZh": "重點：test(Gateway): complete reload 模型 config 修正ture..."
     },
     {
       "id": 2,
-      "title": "feat(nvidia): add NVIDIA provider with onboarding flow (#71204)",
-      "link": "https://github.com/openclaw/openclaw/commit/9a0b43c47e30d33a97b530140d487f52c2696ff2",
-      "publishedAt": "2026-04-29T16:25:12Z",
-      "summary": "feat(nvidia): add NVIDIA provider with onboarding flow (#71204) * feat(nvidia): add NVIDIA provider with onboarding flow Add the NVIDIA build.nvidia.com API as a bundled provider. Default model is nvidia/nvidia/nemotron-3-super-120b-a12b: first segment is the provider id, remaining \"nvidia/nemotron-3-super-120b-a12b\" is the literal upstream model id (which happens to start with \"nvidia/\" because NVIDIA is also the model maker). Supporting core change: introduce a provider capability flag nativeIdsIncludeProviderPrefix so providers whose native catalog ids intentionally include their provider prefix (OpenRouter) opt into self-prefix dedupe in modelKey, without hardcoding provider names in core. Providers whose ids merely happen to start with their own name (NVIDIA) leave the flag unset and get the full / concatenation. - extensions/nvidia/*: new plugin, catalog, onboarding, tests, docs - extensions/openrouter/index.ts: declare nativeIdsIncludeProviderPrefix - src/plugins/types.ts: add field to ProviderPlugin - src/plugins/registry.ts: populate self-prefix set on registration - src/agents/provider-self-prefix.ts: sync accessor used by modelKey - src/agents/model-ref-shared.ts: modelKey consults the flag - test updates for affected surfaces Co-Authored-By: Claude Opus 4.7 (1M context) * refactor(model-picker): simplify literal-prefix display to label-only * fix(model-picker): pass workspaceDir/env to allowlist literal-prefix resolution * chore: untrack generated baseline JSON artifacts (gitignored) * fix(nvidia): show literal model ref in picker and onboarding notes * fix(nvidia): show hint whenever display label differs from stored config * fix(nvidia): drop redundant hint from Keep current label * fix(nvidia): restore literal double-prefix display labels * fix(picker): handle literal-prefix fast path * fix(picker): show literal keep label * fix(docs): update nvidia provider docs * fix(nvidia): update test helper imports * fix(changelog): add nvidia provider entry --------- Co-authored-by: Claude Opus 4.7 (1M context)",
+      "title": "refactor(discord): split threading and voice segment helpers",
+      "link": "https://github.com/openclaw/openclaw/commit/7e1acf2f1ee5a653d35f32504f225a7b8399f2a6",
+      "publishedAt": "2026-04-29T18:09:17Z",
+      "summary": "refactor(discord): split threading and voice segment helpers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(nvidia): add NVIDIA provider with onboarding flow (#71204)",
-      "summaryZh": "重點：新功能(nvidia): add NVIDIA provider with onboarding flow (#71204) * 新功能(nvidia): add NVIDIA provider with onboarding flow A..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): split threading and voice segment helpers",
+      "summaryZh": "重點：refactor(Discord): split threading and voice segment helpers..."
     },
     {
       "id": 3,
-      "title": "fix(sandbox): gracefully handle Docker daemon unavailability when san…",
-      "link": "https://github.com/openclaw/openclaw/commit/2dadc82cf4537a3bfb3b8d4b9930a5eb9eef2369",
-      "publishedAt": "2026-04-29T16:23:30Z",
-      "summary": "fix(sandbox): gracefully handle Docker daemon unavailability when sandbox mode is off (#73671) Merged via squash. Prepared head SHA: 378851cf405314137aa5d3c0d68193af7cf94f88 Co-authored-by: kaseonedge Co-authored-by: sallyom Reviewed-by: @sallyom",
+      "title": "fix(slack): ignore duplicate reaction adds",
+      "link": "https://github.com/openclaw/openclaw/commit/6470a23504be41c54239babceeeb4673ab751306",
+      "publishedAt": "2026-04-29T18:07:08Z",
+      "summary": "fix(slack): ignore duplicate reaction adds",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(sandbox): gracefully handle 文件ker daemon unavailability when san…",
-      "summaryZh": "重點：修正(sandbox): gracefully handle 文件ker daemon unavailability when sandbox mode is off (#73671) Merged via squash. Prepared..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): ignore duplicate reaction adds",
+      "summaryZh": "重點：修正(slack): ignore duplicate reaction adds..."
     },
     {
       "id": 4,
-      "title": "fix(discord): clarify command deploy rate-limit logs",
-      "link": "https://github.com/openclaw/openclaw/commit/e46dccb353744ab5340b3b66999cc06bd4b5397a",
-      "publishedAt": "2026-04-29T16:19:40Z",
-      "summary": "fix(discord): clarify command deploy rate-limit logs",
+      "title": "test(infra): assert dotenv structured warning",
+      "link": "https://github.com/openclaw/openclaw/commit/b54c642bd66ad0a80a2dec301e8994d493a52108",
+      "publishedAt": "2026-04-29T18:04:45Z",
+      "summary": "test(infra): assert dotenv structured warning",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): clarify command deploy rate-limit logs",
-      "summaryZh": "重點：修正(Discord): clarify command deploy rate-limit logs..."
+      "titleZh": "OpenClaw 程式碼更新：test(infra): assert dotenv structured warning",
+      "summaryZh": "重點：test(infra): assert dotenv structured warning..."
     },
     {
       "id": 5,
