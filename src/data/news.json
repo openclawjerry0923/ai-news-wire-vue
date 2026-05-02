@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-05-02T11:47:04.428Z",
+  "generatedAt": "2026-05-02T13:15:35.916Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(sessions): hydrate agent-command skill snapshots",
-      "link": "https://github.com/openclaw/openclaw/commit/05a5fa81a0e612430afd9f3b61cc9a4851a84253",
-      "publishedAt": "2026-05-02T11:44:39Z",
-      "summary": "fix(sessions): hydrate agent-command skill snapshots",
+      "title": "test(release): stabilize live codex gates",
+      "link": "https://github.com/openclaw/openclaw/commit/7a100021d3c65a0613e2c55d8ff8d91f82d06070",
+      "publishedAt": "2026-05-02T13:08:47Z",
+      "summary": "test(release): stabilize live codex gates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): hydrate agent-command skill snapshots",
-      "summaryZh": "重點：修正(sessions): hydrate agent-command skill snapshots..."
+      "titleZh": "OpenClaw 程式碼更新：test(版本發布): stabilize live codex gates",
+      "summaryZh": "重點：test(版本發布): stabilize live codex gates..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): hydrate skillsSnapshot.resolvedSkills on resume",
-      "link": "https://github.com/openclaw/openclaw/commit/479ed596bdb5c9dbc8254c52648241ea65e06dbf",
-      "publishedAt": "2026-05-02T11:44:39Z",
-      "summary": "fix(sessions): hydrate skillsSnapshot.resolvedSkills on resume Codex review on PR #75960 flagged that prepareClaudeCliSkillsPlugin and the claude-live-session fingerprint read skillsSnapshot.resolvedSkills directly without a disk fallback. After the persistence-layer strip, those consumers would see an empty Skill[] on cold session resume, breaking the documented Claude Code skills integration. Add a hydration helper in ensureSkillSnapshot that rebuilds resolvedSkills from a fresh workspace scan when the loaded snapshot lacks it, while keeping the persisted prompt/skills/skillFilter/version fields untouched so the model's prompt-cache key stays stable across resume. The embedded runner's existing consumer-level fallback in src/agents/pi-embedded-runner/skills-runtime.ts is now a redundant safety net rather than the only fallback path. Co-Authored-By: Claude Opus 4.7 (1M context)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): hydrate skillsSnapshot.resolvedSkills on resume",
-      "summaryZh": "重點：修正(sessions): hydrate skillsSnapshot.resolvedSkills on resume Codex review on PR #75960 flagged that prepareClaudeCliSki..."
+      "title": "深入人形機器人領域，Meta 收購新創公司 ARI",
+      "link": "https://finance.technews.tw/2026/05/02/assured-robot-intelligence-has-joined-meta-to-help-build-the-future-of-humanoid-intelligence/",
+      "publishedAt": "Sat, 02 May 2026 12:59:02 +0000",
+      "summary": "Meta 已收購人形機器人新創公司 Assured Robot Intelligence（ARI），交易金額未 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "docs(changelog): note sessions skillsSnapshot.resolvedSkills strip",
-      "link": "https://github.com/openclaw/openclaw/commit/643ff4d7788a9444ab02167081352281c3ae8d2d",
-      "publishedAt": "2026-05-02T11:44:39Z",
-      "summary": "docs(changelog): note sessions skillsSnapshot.resolvedSkills strip Co-Authored-By: Claude Opus 4.7 (1M context)",
+      "title": "fix(control-ui): improve text selection contrast",
+      "link": "https://github.com/openclaw/openclaw/commit/d919281fa86469c321fdecb54dc401e9024b4156",
+      "publishedAt": "2026-05-02T12:56:08Z",
+      "summary": "fix(control-ui): improve text selection contrast Use dedicated high-contrast selection tokens for Control UI/WebChat text selection and add the user-facing changelog entry.\\n\\nFixes #60850.\\nSupersedes #60854.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): note sessions skillsSnapshot.resolvedSkills strip",
-      "summaryZh": "重點：文件(changelog): note sessions skillsSnapshot.resolvedSkills strip Co-Authored-By: Claude Opus 4.7 (1M context)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): improve text selection contrast",
+      "summaryZh": "重點：修正(control-ui): improve text selection contrast Use dedicated high-contrast selection tokens for Control UI/WebChat text..."
     },
     {
       "id": 4,
-      "title": "perf(sessions): stop persisting skillsSnapshot.resolvedSkills",
-      "link": "https://github.com/openclaw/openclaw/commit/a3cacf3b6770576bb9aeac40723a6351b1254f16",
-      "publishedAt": "2026-05-02T11:44:39Z",
-      "summary": "perf(sessions): stop persisting skillsSnapshot.resolvedSkills Each SessionEntry carried the fully parsed Skill[] (including each SKILL.md body) inside skillsSnapshot.resolvedSkills, multiplied across every active session. Strip the field at the persistence chokepoint — normalizeSessionStore in store-load.ts — so every load and every save naturally drops it. The runtime already falls back to a workspace skill scan when resolvedSkills is absent (see src/agents/pi-embedded-runner/skills-runtime.ts:14), so prompts and session resume behavior are unchanged. Legacy sessions.json files self-heal on first load: normalize strips the in-memory store, the next write rewrites the file in stripped form. Test fixture (100 sessions × 50 skills × ~3KB body) goes from ~32MB to under 2MB on disk. Co-Authored-By: Claude Opus 4.7 (1M context)",
+      "title": "ci: use gpt-5.4 for cross-os release smoke",
+      "link": "https://github.com/openclaw/openclaw/commit/f523620abe7f14bcf53ddd938d12aac2da3d4332",
+      "publishedAt": "2026-05-02T12:47:51Z",
+      "summary": "ci: use gpt-5.4 for cross-os release smoke",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): stop persisting skillsSnapshot.resolvedSkills",
-      "summaryZh": "重點：perf(sessions): stop persisting skillsSnapshot.resolvedSkills Each SessionEntry carried the fully parsed Skill[] (includ..."
+      "titleZh": "OpenClaw 程式碼更新：ci: use gpt-5.4 for cross-os 版本發布 smoke",
+      "summaryZh": "重點：ci: use gpt-5.4 for cross-os 版本發布 smoke..."
     },
     {
       "id": 5,
+      "title": "fix: cache stable system prompt prep",
+      "link": "https://github.com/openclaw/openclaw/commit/0f16edf329a979767b805568375d0fd07c14fb56",
+      "publishedAt": "2026-05-02T12:47:40Z",
+      "summary": "fix: cache stable system prompt prep",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: cache stable system prompt prep",
+      "summaryZh": "重點：修正: cache stable system prompt prep..."
+    },
+    {
+      "id": 6,
       "title": "獨家 OLED 面板供應、記憶體短缺推升成本，iPhone 20 價格看漲",
       "link": "https://technews.tw/2026/05/02/samsung-display-tipped-to-win-exclusive-iphone-20-oled-deal/",
       "publishedAt": "Sat, 02 May 2026 09:24:35 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "記憶體短缺衝擊！蘋果下架 Mac mini 256GB 版本，售價改為 799 美元起跳",
       "link": "https://technews.tw/2026/05/02/apple-stops-selling-mac-mini-with-256gb-of-storage/",
       "publishedAt": "Sat, 02 May 2026 07:04:04 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "美國發現大型鋰礦夠用 328 年，可生產 1.3 億台車與 5 千億支手機",
       "link": "https://finance.technews.tw/2026/05/02/lithium-in-eastern-states-could-replace-imports-for-a-century-or-more/",
       "publishedAt": "Sat, 02 May 2026 07:00:48 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "聯發科：余振華擔任非全職顧問，未來將持續投資台積電先進封裝",
       "link": "https://finance.technews.tw/2026/05/02/mediatek-yu-zhenhua-serves-as-a-part-time-advisor-and-will-continue-to-invest-in-tsmcs-advanced-packaging/",
       "publishedAt": "Sat, 02 May 2026 06:00:59 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "「SBTI」爆紅背後的真相，中國年輕人為何寧可當「廢物」也不願再聽成功學",
       "link": "https://technews.tw/2026/05/02/sbti-2/",
       "publishedAt": "Sat, 02 May 2026 06:00:40 +0000",
       "summary": "「你的 SBTI 是什麼？」就在今年春天的某個深夜，這句話悄悄變成了熱門社交暗號。消息發酵不到 24 小時，相 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "IBM Bob報到！專為企業設計與培養的軟體開發人員",
-      "link": "https://technews.tw/2026/05/02/ibm-bob/",
-      "publishedAt": "Sat, 02 May 2026 06:00:07 +0000",
-      "summary": "IBM 宣布在全球推出 IBM Bob — 專為企業「培養」的軟體開發數位員工。Bob 不僅能協助軟體開發團隊 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
