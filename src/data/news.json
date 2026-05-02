@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-02T10:54:00.400Z",
+  "generatedAt": "2026-05-02T11:47:04.428Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: drop stale service PATH entries (#75440) (thanks @leonaIee)",
-      "link": "https://github.com/openclaw/openclaw/commit/7edac014e5e79ab047c6511ca5ea996edc899ace",
-      "publishedAt": "2026-05-02T10:50:50Z",
-      "summary": "fix: drop stale service PATH entries (#75440) (thanks @leonaIee)",
+      "title": "fix(sessions): hydrate agent-command skill snapshots",
+      "link": "https://github.com/openclaw/openclaw/commit/05a5fa81a0e612430afd9f3b61cc9a4851a84253",
+      "publishedAt": "2026-05-02T11:44:39Z",
+      "summary": "fix(sessions): hydrate agent-command skill snapshots",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: drop stale service PATH entries (#75440) (thanks @leonaIee)",
-      "summaryZh": "重點：修正: drop stale service PATH entries (#75440) (thanks @leonaIee)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): hydrate agent-command skill snapshots",
+      "summaryZh": "重點：修正(sessions): hydrate agent-command skill snapshots..."
     },
     {
       "id": 2,
-      "title": "refactor(daemon): reuse shared path normalizer",
-      "link": "https://github.com/openclaw/openclaw/commit/626a22decb9b21f0db024a23588db9e6634692f8",
-      "publishedAt": "2026-05-02T10:50:50Z",
-      "summary": "refactor(daemon): reuse shared path normalizer",
+      "title": "fix(sessions): hydrate skillsSnapshot.resolvedSkills on resume",
+      "link": "https://github.com/openclaw/openclaw/commit/479ed596bdb5c9dbc8254c52648241ea65e06dbf",
+      "publishedAt": "2026-05-02T11:44:39Z",
+      "summary": "fix(sessions): hydrate skillsSnapshot.resolvedSkills on resume Codex review on PR #75960 flagged that prepareClaudeCliSkillsPlugin and the claude-live-session fingerprint read skillsSnapshot.resolvedSkills directly without a disk fallback. After the persistence-layer strip, those consumers would see an empty Skill[] on cold session resume, breaking the documented Claude Code skills integration. Add a hydration helper in ensureSkillSnapshot that rebuilds resolvedSkills from a fresh workspace scan when the loaded snapshot lacks it, while keeping the persisted prompt/skills/skillFilter/version fields untouched so the model's prompt-cache key stays stable across resume. The embedded runner's existing consumer-level fallback in src/agents/pi-embedded-runner/skills-runtime.ts is now a redundant safety net rather than the only fallback path. Co-Authored-By: Claude Opus 4.7 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(daemon): reuse shared path normalizer",
-      "summaryZh": "重點：refactor(daemon): reuse shared path normalizer..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): hydrate skillsSnapshot.resolvedSkills on resume",
+      "summaryZh": "重點：修正(sessions): hydrate skillsSnapshot.resolvedSkills on resume Codex review on PR #75960 flagged that prepareClaudeCliSki..."
     },
     {
       "id": 3,
-      "title": "docs: add service path changelog",
-      "link": "https://github.com/openclaw/openclaw/commit/0d747536de1d6840b589ba2f71c557b39db6fea6",
-      "publishedAt": "2026-05-02T10:50:50Z",
-      "summary": "docs: add service path changelog",
+      "title": "docs(changelog): note sessions skillsSnapshot.resolvedSkills strip",
+      "link": "https://github.com/openclaw/openclaw/commit/643ff4d7788a9444ab02167081352281c3ae8d2d",
+      "publishedAt": "2026-05-02T11:44:39Z",
+      "summary": "docs(changelog): note sessions skillsSnapshot.resolvedSkills strip Co-Authored-By: Claude Opus 4.7 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: add service path changelog",
-      "summaryZh": "重點：文件: add service path changelog..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): note sessions skillsSnapshot.resolvedSkills strip",
+      "summaryZh": "重點：文件(changelog): note sessions skillsSnapshot.resolvedSkills strip Co-Authored-By: Claude Opus 4.7 (1M context)..."
     },
     {
       "id": 4,
-      "title": "fix: drop stale service PATH entries",
-      "link": "https://github.com/openclaw/openclaw/commit/49b1b084448be49708383e9bab8e32ea95b17442",
-      "publishedAt": "2026-05-02T10:50:50Z",
-      "summary": "fix: drop stale service PATH entries",
+      "title": "perf(sessions): stop persisting skillsSnapshot.resolvedSkills",
+      "link": "https://github.com/openclaw/openclaw/commit/a3cacf3b6770576bb9aeac40723a6351b1254f16",
+      "publishedAt": "2026-05-02T11:44:39Z",
+      "summary": "perf(sessions): stop persisting skillsSnapshot.resolvedSkills Each SessionEntry carried the fully parsed Skill[] (including each SKILL.md body) inside skillsSnapshot.resolvedSkills, multiplied across every active session. Strip the field at the persistence chokepoint — normalizeSessionStore in store-load.ts — so every load and every save naturally drops it. The runtime already falls back to a workspace skill scan when resolvedSkills is absent (see src/agents/pi-embedded-runner/skills-runtime.ts:14), so prompts and session resume behavior are unchanged. Legacy sessions.json files self-heal on first load: normalize strips the in-memory store, the next write rewrites the file in stripped form. Test fixture (100 sessions × 50 skills × ~3KB body) goes from ~32MB to under 2MB on disk. Co-Authored-By: Claude Opus 4.7 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: drop stale service PATH entries",
-      "summaryZh": "重點：修正: drop stale service PATH entries..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): stop persisting skillsSnapshot.resolvedSkills",
+      "summaryZh": "重點：perf(sessions): stop persisting skillsSnapshot.resolvedSkills Each SessionEntry carried the fully parsed Skill[] (includ..."
     },
     {
       "id": 5,
