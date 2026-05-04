@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-04T16:47:23.781Z",
+  "generatedAt": "2026-05-04T18:15:47.806Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(device-pair): require pairing scope for pair command [AI] (#76377)",
-      "link": "https://github.com/openclaw/openclaw/commit/37c0520a0b9c23105340838147096702a8b02c03",
-      "publishedAt": "2026-05-04T16:42:06Z",
-      "summary": "fix(device-pair): require pairing scope for pair command [AI] (#76377) * fix: restrict device pairing command access * addressing review-skill * addressing review-skill * addressing codex review * address codex review feedback * addressing codex review * addressing codex review * addressing codex review * addressing codex review * docs: add changelog entry for PR merge",
+      "title": "fix: pass claude cli thinking effort (#77410)",
+      "link": "https://github.com/openclaw/openclaw/commit/74ab62c6a297e2f92607c7f165a82598516f7fbb",
+      "publishedAt": "2026-05-04T18:13:53Z",
+      "summary": "fix: pass claude cli thinking effort (#77410) Summary: - Adds a plugin-owned CLI backend argument rewrite hook and wires Anthropic `claude-cli` to translate non-off `/think` levels into Claude Code `--effort`, with docs, changelog, API baseline, and tests. - Reproducibility: yes. Current main has a high-confidence source reproduction: choose `claude-cli`, set a non ... builds argv from backend args that contain no `--effort` even though `thinkLevel` exists on the run params. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head be17754009e5651ec9df6472f46fbffdfe3346e7. - Required merge gates passed before the squash merge. Prepared head SHA: be17754009e5651ec9df6472f46fbffdfe3346e7 Review: https://github.com/openclaw/openclaw/pull/77410#issuecomment-4372812685 Co-authored-by: stainlu",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(device-pair): require pairing scope for pair command [AI] (#76377)",
-      "summaryZh": "重點：修正(device-pair): require pairing scope for pair command [AI] (#76377) * 修正: restrict device pairing command access * add..."
+      "titleZh": "OpenClaw 程式碼更新：修正: pass claude cli thinking effort (#77410)",
+      "summaryZh": "重點：修正: pass claude cli thinking effort (#77410) Summary: - Adds a plugin-owned CLI backend argument rewrite hook and wires ..."
     },
     {
       "id": 2,
-      "title": "test(qa-lab): accept native Windows paths",
-      "link": "https://github.com/openclaw/openclaw/commit/30e259b9c565bfb57ed51ced07fb4e19cd312b3d",
-      "publishedAt": "2026-05-04T16:20:03Z",
-      "summary": "test(qa-lab): accept native Windows paths",
+      "title": "fix(gateway): add safe restart coordinator (#76923)",
+      "link": "https://github.com/openclaw/openclaw/commit/103cdd9d96f8f916742a6420b71583abd2f47732",
+      "publishedAt": "2026-05-04T17:58:36Z",
+      "summary": "fix(gateway): add safe restart coordinator (#76923) Add a safe restart coordinator that preflights active Gateway work before restart. - expose gateway.restart.preflight and gateway.restart.request RPC methods - add explicit openclaw gateway restart --safe / openclaw daemon restart --safe path - narrow restart blockers to running non-ended tasks so queued records no longer block indefinitely - keep existing restart behavior unchanged; --force remains the immediate override Co-authored-by: NikolaFC Co-authored-by: galiniliev",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa-lab): accept native Windows paths",
-      "summaryZh": "重點：test(qa-lab): accept native Windows paths..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): add safe restart coordinator (#76923)",
+      "summaryZh": "重點：修正(Gateway): add safe restart coordinator (#76923) Add a safe restart coordinator that preflights active Gateway work be..."
     },
     {
       "id": 3,
-      "title": "fix(qa-channel): settle aborted bus polls",
-      "link": "https://github.com/openclaw/openclaw/commit/9008031e96e3bdd04ec6d2bf8bf240ba96011a3a",
-      "publishedAt": "2026-05-04T16:20:03Z",
-      "summary": "fix(qa-channel): settle aborted bus polls",
+      "title": "fix(gateway): clamp unbound websocket auth scopes [AI] (#77413)",
+      "link": "https://github.com/openclaw/openclaw/commit/0e702f106313c1c63a32a6e7b3dbb5e96e620656",
+      "publishedAt": "2026-05-04T17:46:07Z",
+      "summary": "fix(gateway): clamp unbound websocket auth scopes [AI] (#77413) * fix: clamp unapproved trusted proxy websocket scopes * addressing claude review * addressing claude review * addressing ci * addressing ci * docs: add changelog entry for PR merge",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa-channel): settle aborted bus polls",
-      "summaryZh": "重點：修正(qa-channel): settle aborted bus polls..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): clamp unbound websocket auth scopes [AI] (#77413)",
+      "summaryZh": "重點：修正(Gateway): clamp unbound websocket auth scopes [AI] (#77413) * 修正: clamp unapproved trusted proxy websocket scopes * a..."
     },
     {
       "id": 4,
-      "title": "test(anthropic-vertex): accept native ADC home paths",
-      "link": "https://github.com/openclaw/openclaw/commit/6c2573e37a4cce0de9f5009deed42d7839c210fb",
-      "publishedAt": "2026-05-04T16:20:03Z",
-      "summary": "test(anthropic-vertex): accept native ADC home paths",
+      "title": "Feat/main session durable delivery pr (#75280)",
+      "link": "https://github.com/openclaw/openclaw/commit/c240e718e91e8ddb2590c25cb6cf9b815cfaf6fe",
+      "publishedAt": "2026-05-04T17:44:11Z",
+      "summary": "Feat/main session durable delivery pr (#75280) * feat: generalize pending-final-delivery for subagents and main session (cherry picked from commit 677fcbfaf87c8cd6de8b5bd02099b29b7d49e916) * feat(agents): implement Phase 2 durable final delivery for main sessions (cherry picked from commit b4e39f0ddf6dbd3f0d3b9226df8e714ad722f751) * fix(agents): narrow heartbeat deferral to pending final delivery * fix(agents): clear final delivery after dispatch * fix(agents): gate durable delivery retry capture --------- Co-authored-by: Mert Basar",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(anthropic-vertex): accept native ADC home paths",
-      "summaryZh": "重點：test(anthropic-vertex): accept native ADC home paths..."
+      "titleZh": "OpenClaw 程式碼更新：新功能/main session durable delivery pr (#75280)",
+      "summaryZh": "重點：新功能/main session durable delivery pr (#75280) * 新功能: generalize pending-final-delivery for subagents and main session (c..."
     },
     {
       "id": 5,
