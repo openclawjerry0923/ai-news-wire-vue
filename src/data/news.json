@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-04T20:16:37.210Z",
+  "generatedAt": "2026-05-04T22:02:33.896Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(update): finish post-core package updates",
-      "link": "https://github.com/openclaw/openclaw/commit/3fb8c405eda48af76bb8b8d7d3f8e5b0ee3c049c",
-      "publishedAt": "2026-05-04T20:10:24Z",
-      "summary": "fix(update): finish post-core package updates",
+      "title": "fix(secretrefs): resolve external channel contracts in dist/ sidecars…",
+      "link": "https://github.com/openclaw/openclaw/commit/43b5df729593376d733364057b77f030634f85d3",
+      "publishedAt": "2026-05-04T21:57:28Z",
+      "summary": "fix(secretrefs): resolve external channel contracts in dist/ sidecars (#77421) * fix(secretrefs): resolve external channel contracts in dist/ sidecars Externalized channel plugins published to npm (e.g. @openclaw/discord since 2026.5.2) keep their compiled secret-contract-api artifact under /dist/, per the package.json `openclaw.runtimeExtensions` convention. The runtime contract loader added in #76449 only searched the rootDir, so npm-installed plugins silently dropped their channel SecretRef contracts: the runtime snapshot left `channels..token` as an unresolved SecretRef, the plugin's `isConfigured` check then returned false, and the gateway recorded `error: not configured` without firing the usual channel startup logs. Look in `/dist/` as well as `/`, preferring dist when running from a built openclaw artifact and rootDir when running from source. The new `loads dist/ secret-contract-api sidecars …` test in channel-contract-api.external.test.ts mirrors the real npm-package layout and fails without this change. Refs #76371. Fixes #77416. * docs: credit changelog contributor --------- Co-authored-by: Magpie Co-authored-by: joshavant",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): finish post-core package updates",
-      "summaryZh": "重點：修正(update): finish post-core package updates..."
+      "titleZh": "OpenClaw 程式碼更新：修正(secretrefs): resolve external channel contracts in dist/ sidecars…",
+      "summaryZh": "重點：修正(secretrefs): resolve external channel contracts in dist/ sidecars (#77421) * 修正(secretrefs): resolve external channel..."
     },
     {
       "id": 2,
-      "title": "Guard current browser tab exports (#75731)",
-      "link": "https://github.com/openclaw/openclaw/commit/ef0dbcf49d858763a73d2ce5996dc541a45f78e0",
-      "publishedAt": "2026-05-04T20:07:17Z",
-      "summary": "Guard current browser tab exports (#75731) * fix(browser): guard current tab exports * fix(browser): expand tab guard coverage * fix(browser): guard tab reads * fix(browser): guard screenshot route * changelog: PR #75731 --------- Co-authored-by: Devin Robison",
+      "title": "fix(telegram): honor topic requireMention precedence",
+      "link": "https://github.com/openclaw/openclaw/commit/a7b665cfed3455d0ed67129289e25ea61f0b4c89",
+      "publishedAt": "2026-05-04T21:53:06Z",
+      "summary": "fix(telegram): honor topic requireMention precedence Telegram forum-topic requireMention config now takes precedence over persisted activation state, with focused regression coverage.\\n\\nFixes #49864.\\nThanks @Panniantong.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Guard current browser tab exports (#75731)",
-      "summaryZh": "重點：Guard current browser tab exports (#75731) * 修正(browser): guard current tab exports * 修正(browser): expand tab guard cove..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): honor topic requireMention precedence",
+      "summaryZh": "重點：修正(Telegram): honor topic requireMention precedence Telegram forum-topic requireMention config now takes precedence over..."
     },
     {
       "id": 3,
-      "title": "Fix Active Memory memory-only recall latency (#75200)",
-      "link": "https://github.com/openclaw/openclaw/commit/f2efe33afc5d27f583e5520c4db9e311c33f087c",
-      "publishedAt": "2026-05-04T20:05:15Z",
-      "summary": "Fix Active Memory memory-only recall latency (#75200) Summary: - The PR adds a bounded latest-message search-query section to Active Memory recall prompts, regression coverage for metadata stripping, a changelog entry, and pending-final-delivery session slot reservations. - Reproducibility: yes. for a source-level reproduction path: an eligible interactive turn reaches Active Memo ... om current releases, but I did not run a live gateway/provider reproduction under the read-only constraint. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(plugins): reserve final delivery session slots Validation: - ClawSweeper review passed for head 24bf408e75d87081c8736f1df7fd06bc3b4f887e. - Required merge gates passed before the squash merge. Prepared head SHA: 24bf408e75d87081c8736f1df7fd06bc3b4f887e Review: https://github.com/openclaw/openclaw/pull/75200#issuecomment-4354978044 Co-authored-by: SYU8384",
+      "title": "fix(active-memory): skip sub-agent gracefully when no memory tools re…",
+      "link": "https://github.com/openclaw/openclaw/commit/d0cae0d9500edc207eb66683320abbfc6018f166",
+      "publishedAt": "2026-05-04T21:47:38Z",
+      "summary": "fix(active-memory): skip sub-agent gracefully when no memory tools registered (#77506) (#77515) * fix(active-memory): skip sub-agent gracefully when no memory tools registered (#77506) When memory-core and memory-lancedb are both absent, the embedded memory sub-agent would throw 'No callable tools remain after resolving explicit tool allowlist', which propagated as a noisy warning through the before_prompt_build hook. Catch this specific error in runActiveMemorySubAgent and return an empty NONE result so the gateway log stays clean and the sub-agent run is skipped without disrupting the parent session. * fix(active-memory): skip missing memory-tool subagent runs * fix(active-memory): match inherited missing memory tool errors * fix(active-memory): preserve policy-filtered memory errors --------- Co-authored-by: clawsweeper Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 Active 記憶 記憶-only recall latency (#75200)",
-      "summaryZh": "重點：修正 Active 記憶 記憶-only recall latency (#75200) Summary: - The PR adds a bounded latest-message search-query section to Act..."
+      "titleZh": "OpenClaw 程式碼更新：修正(active-記憶): skip sub-agent gracefully when no 記憶 tools re…",
+      "summaryZh": "重點：修正(active-記憶): skip sub-agent gracefully when no 記憶 tools registered (#77506) (#77515) * 修正(active-記憶): skip sub-agent g..."
     },
     {
       "id": 4,
-      "title": "Harden update environment path resolution (#77470)",
-      "link": "https://github.com/openclaw/openclaw/commit/8b2bf7b2e9fd3a25dd578601cf9d6c529b3ad680",
-      "publishedAt": "2026-05-04T19:51:09Z",
-      "summary": "Harden update environment path resolution (#77470) * Harden update environment path resolution * docs(changelog): credit windows update env path hardening Adds the user-facing Unreleased Fixes entry for the workspace LOCALAPPDATA blocklist + portable Git path-prepend hardening change in this PR.",
+      "title": "fix(plugins): treat CalVer correction versions as compatible with plu…",
+      "link": "https://github.com/openclaw/openclaw/commit/1c52447f0bd52fba7e4c7165e2d5f50b6309b20c",
+      "publishedAt": "2026-05-04T21:46:29Z",
+      "summary": "fix(plugins): treat CalVer correction versions as compatible with plugin API ranges (#77450) * fix(plugins): accept CalVer correction plugin API hosts Fixes #77293 * docs(changelog): credit plugin api calver fix pr --------- Co-authored-by: pingu",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Harden update environment path resolution (#77470)",
-      "summaryZh": "重點：Harden update environment path resolution (#77470) * Harden update environment path resolution * 文件(changelog): credit w..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): treat CalVer correction versions as compatible with plu…",
+      "summaryZh": "重點：修正(plugins): treat CalVer correction versions as compatible with plugin API ranges (#77450) * 修正(plugins): accept CalVer..."
     },
     {
       "id": 5,
