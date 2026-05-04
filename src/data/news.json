@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-04T18:15:47.806Z",
+  "generatedAt": "2026-05-04T20:16:37.210Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: pass claude cli thinking effort (#77410)",
-      "link": "https://github.com/openclaw/openclaw/commit/74ab62c6a297e2f92607c7f165a82598516f7fbb",
-      "publishedAt": "2026-05-04T18:13:53Z",
-      "summary": "fix: pass claude cli thinking effort (#77410) Summary: - Adds a plugin-owned CLI backend argument rewrite hook and wires Anthropic `claude-cli` to translate non-off `/think` levels into Claude Code `--effort`, with docs, changelog, API baseline, and tests. - Reproducibility: yes. Current main has a high-confidence source reproduction: choose `claude-cli`, set a non ... builds argv from backend args that contain no `--effort` even though `thinkLevel` exists on the run params. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head be17754009e5651ec9df6472f46fbffdfe3346e7. - Required merge gates passed before the squash merge. Prepared head SHA: be17754009e5651ec9df6472f46fbffdfe3346e7 Review: https://github.com/openclaw/openclaw/pull/77410#issuecomment-4372812685 Co-authored-by: stainlu",
+      "title": "fix(update): finish post-core package updates",
+      "link": "https://github.com/openclaw/openclaw/commit/3fb8c405eda48af76bb8b8d7d3f8e5b0ee3c049c",
+      "publishedAt": "2026-05-04T20:10:24Z",
+      "summary": "fix(update): finish post-core package updates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: pass claude cli thinking effort (#77410)",
-      "summaryZh": "重點：修正: pass claude cli thinking effort (#77410) Summary: - Adds a plugin-owned CLI backend argument rewrite hook and wires ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): finish post-core package updates",
+      "summaryZh": "重點：修正(update): finish post-core package updates..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): add safe restart coordinator (#76923)",
-      "link": "https://github.com/openclaw/openclaw/commit/103cdd9d96f8f916742a6420b71583abd2f47732",
-      "publishedAt": "2026-05-04T17:58:36Z",
-      "summary": "fix(gateway): add safe restart coordinator (#76923) Add a safe restart coordinator that preflights active Gateway work before restart. - expose gateway.restart.preflight and gateway.restart.request RPC methods - add explicit openclaw gateway restart --safe / openclaw daemon restart --safe path - narrow restart blockers to running non-ended tasks so queued records no longer block indefinitely - keep existing restart behavior unchanged; --force remains the immediate override Co-authored-by: NikolaFC Co-authored-by: galiniliev",
+      "title": "Guard current browser tab exports (#75731)",
+      "link": "https://github.com/openclaw/openclaw/commit/ef0dbcf49d858763a73d2ce5996dc541a45f78e0",
+      "publishedAt": "2026-05-04T20:07:17Z",
+      "summary": "Guard current browser tab exports (#75731) * fix(browser): guard current tab exports * fix(browser): expand tab guard coverage * fix(browser): guard tab reads * fix(browser): guard screenshot route * changelog: PR #75731 --------- Co-authored-by: Devin Robison",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): add safe restart coordinator (#76923)",
-      "summaryZh": "重點：修正(Gateway): add safe restart coordinator (#76923) Add a safe restart coordinator that preflights active Gateway work be..."
+      "titleZh": "OpenClaw 程式碼更新：Guard current browser tab exports (#75731)",
+      "summaryZh": "重點：Guard current browser tab exports (#75731) * 修正(browser): guard current tab exports * 修正(browser): expand tab guard cove..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): clamp unbound websocket auth scopes [AI] (#77413)",
-      "link": "https://github.com/openclaw/openclaw/commit/0e702f106313c1c63a32a6e7b3dbb5e96e620656",
-      "publishedAt": "2026-05-04T17:46:07Z",
-      "summary": "fix(gateway): clamp unbound websocket auth scopes [AI] (#77413) * fix: clamp unapproved trusted proxy websocket scopes * addressing claude review * addressing claude review * addressing ci * addressing ci * docs: add changelog entry for PR merge",
+      "title": "Fix Active Memory memory-only recall latency (#75200)",
+      "link": "https://github.com/openclaw/openclaw/commit/f2efe33afc5d27f583e5520c4db9e311c33f087c",
+      "publishedAt": "2026-05-04T20:05:15Z",
+      "summary": "Fix Active Memory memory-only recall latency (#75200) Summary: - The PR adds a bounded latest-message search-query section to Active Memory recall prompts, regression coverage for metadata stripping, a changelog entry, and pending-final-delivery session slot reservations. - Reproducibility: yes. for a source-level reproduction path: an eligible interactive turn reaches Active Memo ... om current releases, but I did not run a live gateway/provider reproduction under the read-only constraint. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(plugins): reserve final delivery session slots Validation: - ClawSweeper review passed for head 24bf408e75d87081c8736f1df7fd06bc3b4f887e. - Required merge gates passed before the squash merge. Prepared head SHA: 24bf408e75d87081c8736f1df7fd06bc3b4f887e Review: https://github.com/openclaw/openclaw/pull/75200#issuecomment-4354978044 Co-authored-by: SYU8384",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): clamp unbound websocket auth scopes [AI] (#77413)",
-      "summaryZh": "重點：修正(Gateway): clamp unbound websocket auth scopes [AI] (#77413) * 修正: clamp unapproved trusted proxy websocket scopes * a..."
+      "titleZh": "OpenClaw 程式碼更新：修正 Active 記憶 記憶-only recall latency (#75200)",
+      "summaryZh": "重點：修正 Active 記憶 記憶-only recall latency (#75200) Summary: - The PR adds a bounded latest-message search-query section to Act..."
     },
     {
       "id": 4,
-      "title": "Feat/main session durable delivery pr (#75280)",
-      "link": "https://github.com/openclaw/openclaw/commit/c240e718e91e8ddb2590c25cb6cf9b815cfaf6fe",
-      "publishedAt": "2026-05-04T17:44:11Z",
-      "summary": "Feat/main session durable delivery pr (#75280) * feat: generalize pending-final-delivery for subagents and main session (cherry picked from commit 677fcbfaf87c8cd6de8b5bd02099b29b7d49e916) * feat(agents): implement Phase 2 durable final delivery for main sessions (cherry picked from commit b4e39f0ddf6dbd3f0d3b9226df8e714ad722f751) * fix(agents): narrow heartbeat deferral to pending final delivery * fix(agents): clear final delivery after dispatch * fix(agents): gate durable delivery retry capture --------- Co-authored-by: Mert Basar",
+      "title": "Harden update environment path resolution (#77470)",
+      "link": "https://github.com/openclaw/openclaw/commit/8b2bf7b2e9fd3a25dd578601cf9d6c529b3ad680",
+      "publishedAt": "2026-05-04T19:51:09Z",
+      "summary": "Harden update environment path resolution (#77470) * Harden update environment path resolution * docs(changelog): credit windows update env path hardening Adds the user-facing Unreleased Fixes entry for the workspace LOCALAPPDATA blocklist + portable Git path-prepend hardening change in this PR.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能/main session durable delivery pr (#75280)",
-      "summaryZh": "重點：新功能/main session durable delivery pr (#75280) * 新功能: generalize pending-final-delivery for subagents and main session (c..."
+      "titleZh": "OpenClaw 程式碼更新：Harden update environment path resolution (#77470)",
+      "summaryZh": "重點：Harden update environment path resolution (#77470) * Harden update environment path resolution * 文件(changelog): credit w..."
     },
     {
       "id": 5,
