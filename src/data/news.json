@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-04T09:21:38.564Z",
+  "generatedAt": "2026-05-04T11:49:51.572Z",
   "items": [
     {
       "id": 1,
@@ -48,6 +48,28 @@
     },
     {
       "id": 6,
+      "title": "v2026.5.4-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.4-beta.1",
+      "publishedAt": "2026-05-04T11:45:30Z",
+      "summary": "openclaw 2026.5.4-beta.1",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：v2026.5.4-beta.1",
+      "summaryZh": "重點：OpenClaw 2026.5.4-beta.1..."
+    },
+    {
+      "id": 7,
+      "title": "test: stabilize full crabbox sweep",
+      "link": "https://github.com/openclaw/openclaw/commit/a7c5a0425988853b4d57b73949f3449a6bf4720a",
+      "publishedAt": "2026-05-04T11:07:33Z",
+      "summary": "test: stabilize full crabbox sweep",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: stabilize full crabbox sweep",
+      "summaryZh": "重點：test: stabilize full crabbox sweep..."
+    },
+    {
+      "id": 8,
       "title": "中國駭客鎖定亞洲政府機關與北約國家，利用Exchange與IIS主機弱點進行滲透",
       "link": "https://www.ithome.com.tw/news/175493",
       "publishedAt": "2026-05-04 11:05:59",
@@ -56,48 +78,26 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "Gate QQBot streaming command auth [AI] (#76375)",
-      "link": "https://github.com/openclaw/openclaw/commit/1f724bc50b4d9b4990b3e22497e3dc5ddc91eb7d",
-      "publishedAt": "2026-05-04T09:20:58Z",
-      "summary": "Gate QQBot streaming command auth [AI] (#76375) * fix: gate QQBot streaming command * addressing codex review * addressing review-skill * addressing review-skill * addressing codex review * addressing claude review * docs: add changelog entry for PR merge",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Gate QQBot streaming command auth [AI] (#76375)",
-      "summaryZh": "重點：Gate QQBot streaming command auth [AI] (#76375) * 修正: gate QQBot streaming command * addressing codex review * addressin..."
-    },
-    {
-      "id": 8,
-      "title": "build(release): refresh base config schema",
-      "link": "https://github.com/openclaw/openclaw/commit/5d9752ba18b72bacf52ce84247ed3f0334dfcdf1",
-      "publishedAt": "2026-05-04T09:19:59Z",
-      "summary": "build(release): refresh base config schema",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build(版本發布): refresh base config schema",
-      "summaryZh": "重點：build(版本發布): refresh base config schema..."
-    },
-    {
       "id": 9,
-      "title": "fix(release): reject blank plugin runtime entries",
-      "link": "https://github.com/openclaw/openclaw/commit/05d6c62152c8d236dcf2c0d98ac9c06d151c08ef",
-      "publishedAt": "2026-05-04T09:18:11Z",
-      "summary": "fix(release): reject blank plugin runtime entries",
+      "title": "fix: proxy direct APNs HTTP2 sessions (#74905)",
+      "link": "https://github.com/openclaw/openclaw/commit/d5b0083300a61d31d4a57864bfd394f825120592",
+      "publishedAt": "2026-05-04T11:04:17Z",
+      "summary": "fix: proxy direct APNs HTTP2 sessions (#74905) Summary: - This PR routes direct APNs HTTP/2 sends through an APNs allowlisted managed-proxy CONNECT wrapper, adds APNs proxy validation/docs/guardrails, and expands regression and live-test coverage. - Reproducibility: yes. source-reproducible: current main `sendApnsRequest()` still uses raw `http2.connect(au ... nly covers HTTP/global-agent/Undici hooks. I did not run a live APNs reproduction in this read-only review. Automerge notes: - PR branch already contained follow-up commit before automerge: test: guard raw HTTP2 APNs connections - PR branch already contained follow-up commit before automerge: test: guard raw HTTP2 with OpenGrep - PR branch already contained follow-up commit before automerge: lint: ban raw HTTP2 imports - PR branch already contained follow-up commit before automerge: fix: use managed proxy state for APNs - PR branch already contained follow-up commit before automerge: test: exercise APNs active proxy state - PR branch already contained follow-up commit before automerge: fix: reject conflicting managed proxy activation Validation: - ClawSweeper review passed for head dab7c86a7595a01b09c32395578e7c26a03f938d. - Required merge gates passed before the squash merge. Prepared head SHA: dab7c86a7595a01b09c32395578e7c26a03f938d Review: https://github.com/openclaw/openclaw/pull/74905#issuecomment-4350181159 Co-authored-by: jesse-merhi Co-authored-by: clawsweeper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): reject blank plugin runtime entries",
-      "summaryZh": "重點：修正(版本發布): reject blank plugin runtime entries..."
+      "titleZh": "OpenClaw 程式碼更新：修正: proxy direct APNs HTTP2 sessions (#74905)",
+      "summaryZh": "重點：修正: proxy direct APNs HTTP2 sessions (#74905) Summary: - This PR routes direct APNs HTTP/2 sends through an APNs allowli..."
     },
     {
       "id": 10,
-      "title": "fix: repair bundled plugin shadow cleanup",
-      "link": "https://github.com/openclaw/openclaw/commit/b7ce9439e7f3fc3bd13b0bef31a920a20789f678",
-      "publishedAt": "2026-05-04T09:17:50Z",
-      "summary": "fix: repair bundled plugin shadow cleanup",
+      "title": "docs(changelog): credit recent plugin fixes",
+      "link": "https://github.com/openclaw/openclaw/commit/5efbb3078a1534ce2cdbd478f8bed50bb749bfce",
+      "publishedAt": "2026-05-04T10:48:05Z",
+      "summary": "docs(changelog): credit recent plugin fixes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: repair bundled plugin shadow cleanup",
-      "summaryZh": "重點：修正: repair bundled plugin shadow cleanup..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): credit recent plugin 修正",
+      "summaryZh": "重點：文件(changelog): credit recent plugin 修正..."
     }
   ]
 }
