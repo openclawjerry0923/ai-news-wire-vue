@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-05-04T11:49:51.572Z",
+  "generatedAt": "2026-05-04T14:04:41.235Z",
   "items": [
     {
       "id": 1,
+      "title": "[plugin sdk] Harden finalize retry and run context cleanup (#75600)",
+      "link": "https://github.com/openclaw/openclaw/commit/8afc9ef73cb5ad1353151d04ef2d6191219c8f53",
+      "publishedAt": "2026-05-04T14:04:22Z",
+      "summary": "[plugin sdk] Harden finalize retry and run context cleanup (#75600) Merged via squash. Prepared head SHA: ec58a6212b0aa239bf23d339d825eeff0777b611 Co-authored-by: 100yenadmin Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：[plugin sdk] Harden finalize retry and run context cleanup (#75600)",
+      "summaryZh": "重點：[plugin sdk] Harden finalize retry and run context cleanup (#75600) Merged via squash. Prepared head SHA: ec58a6212b0aa2..."
+    },
+    {
+      "id": 2,
+      "title": "fix(telegram): clean up tool-only previews",
+      "link": "https://github.com/openclaw/openclaw/commit/042d7b88230b3f27d0beefb11c6ed657d4fd6740",
+      "publishedAt": "2026-05-04T13:55:41Z",
+      "summary": "fix(telegram): clean up tool-only previews",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): clean up tool-only previews",
+      "summaryZh": "重點：修正(Telegram): clean up tool-only previews..."
+    },
+    {
+      "id": 3,
+      "title": "fix(tui): preserve code spans, code blocks, and dotted/hyphenated ide…",
+      "link": "https://github.com/openclaw/openclaw/commit/fc1f1f4fdfce779441acf6c6dd841aedf5d16a99",
+      "publishedAt": "2026-05-04T13:50:40Z",
+      "summary": "fix(tui): preserve code spans, code blocks, and dotted/hyphenated identifiers from long-token sanitizer (#77335) The display sanitizer's long-token chunker (`\\S{33,}` -> 32-char chunks joined by spaces) was injecting literal spaces inside inline code spans, fenced code blocks, and bare identifiers it didn't recognize. Tokens like `requireConfirmationForMutatingActions`, `ubuntu-budgie-desktop-environment`, and `binary_sensor.sense_energy_monitor_power` rendered with mid-word spaces, contaminating copy/paste of package names, entity IDs, and shell line-continuations. Fix: - Make sanitizer code-aware: split text into fenced/inline-code segments and prose, and only run the chunker on prose segments. Code regions pass through verbatim. - Widen `isCopySensitiveToken` to use the punctuation-stripped candidate for all classification, and accept any `FILE_LIKE_RE` token that contains `_`, `-`, or `.` (covers package names, dotted IDs, kebab flags). Picks up the goals of #69340 and #39565. - Skip chunking for symbol-only runs (box-drawing rows, dashes, equals) so table borders aren't corrupted. - Preserve the original goal of narrow-terminal protection: long unidentifiable prose tokens (e.g. accidental base64 dumps) are still chunked so they don't blow out terminal layout. Security ordering preserved: ANSI strip / control-char strip / binary redaction still run on the whole string before segmentation, so code regions cannot smuggle escapes, control characters, or binary garbage past the sanitizer. 16 new regression tests cover: camelCase config keys in inline code, hyphenated package names (bare and in code), dotted entity IDs (bare and in code), backtick and tilde fenced blocks, base64-like blobs in code, prose-token chunking unchanged, prose-around-code mixed content, box-drawing horizontal rules, multi-line shell `\\\\` continuations, plus three explicit security-ordering tests asserting ANSI/control/ binary stripping still runs inside code segments. Fixes #48432, #39505. Supersedes #69340, #39565 (carries forward both ideas in a more general fix). Carries forward the code-fence-aware approach from the closed #48445.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): preserve code spans, code blocks, and dotted/hyphenated ide…",
+      "summaryZh": "重點：修正(tui): preserve code spans, code blocks, and dotted/hyphenated identifiers from long-token sanitizer (#77335) The disp..."
+    },
+    {
+      "id": 4,
+      "title": "docs(changelog): restore 2026.5.3 release notes",
+      "link": "https://github.com/openclaw/openclaw/commit/0b3a86cab01e51eb208c9444ddcb3c711f3db1cd",
+      "publishedAt": "2026-05-04T13:49:27Z",
+      "summary": "docs(changelog): restore 2026.5.3 release notes",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(changelog): restore 2026.5.3 版本發布 notes",
+      "summaryZh": "重點：文件(changelog): restore 2026.5.3 版本發布 notes..."
+    },
+    {
+      "id": 5,
+      "title": "DeepMind 揭祕 Gemma 4 開放模型，多模態能力搭 Apache 2.0 授權易採用",
+      "link": "https://technews.tw/2026/05/04/omar-sanseviero-introduces-gemma-4/",
+      "publishedAt": "Mon, 04 May 2026 12:14:39 +0000",
+      "summary": "Gemma 是 Google 旗下一系列輕量級開放模型（open model），已經來到第四代 Gemma 4 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "中國駭客Shadow-Earth-053傳利用React2Shell滲透Linux主機",
       "link": "https://www.ithome.com.tw/news/175506",
       "publishedAt": "2026-05-04 12:05:49",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "紅帽釋出Tank OS，打造代理式作業系統原型強化OpenClaw企業部署安全",
       "link": "https://www.ithome.com.tw/news/175509",
       "publishedAt": "2026-05-04 12:05:30",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "Snowflake發布Datometry資料平臺遷移工具，免重寫SQL加速Teradata遷移",
       "link": "https://www.ithome.com.tw/news/175521",
       "publishedAt": "2026-05-04 12:05:28",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "思科開源AI模型溯源工具，提供辨識模型血緣",
       "link": "https://www.ithome.com.tw/news/175502",
       "publishedAt": "2026-05-04 12:05:22",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "Fortinet資安平臺邁入8.0，擴增AI控管與量子安全防護特色",
       "link": "https://www.ithome.com.tw/review/175388",
       "publishedAt": "2026-05-04 12:05:17",
       "summary": "在2026年上半舉行的全球與臺灣年度用戶大會期間，資安廠商Fortinet針對支撐其安全織網架構（Fortinet Security Fabric）的作業系統平臺FortiOS，宣布推",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "v2026.5.4-beta.1",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.4-beta.1",
-      "publishedAt": "2026-05-04T11:45:30Z",
-      "summary": "openclaw 2026.5.4-beta.1",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.5.4-beta.1",
-      "summaryZh": "重點：OpenClaw 2026.5.4-beta.1..."
-    },
-    {
-      "id": 7,
-      "title": "test: stabilize full crabbox sweep",
-      "link": "https://github.com/openclaw/openclaw/commit/a7c5a0425988853b4d57b73949f3449a6bf4720a",
-      "publishedAt": "2026-05-04T11:07:33Z",
-      "summary": "test: stabilize full crabbox sweep",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: stabilize full crabbox sweep",
-      "summaryZh": "重點：test: stabilize full crabbox sweep..."
-    },
-    {
-      "id": 8,
-      "title": "中國駭客鎖定亞洲政府機關與北約國家，利用Exchange與IIS主機弱點進行滲透",
-      "link": "https://www.ithome.com.tw/news/175493",
-      "publishedAt": "2026-05-04 11:05:59",
-      "summary": "微軟Exchange伺服器於2021年被揭露的資安漏洞ProxyLogon（CVE-2021-26855、CVE-2021-26857、CVE-2021-26858及CVE-2021-27065）曾引發全球高度關注，駭客利用的情況最早可追溯到2020年底，當時駭客組織ToddyCat用於攻擊歐洲與亞洲知名企業組織、政府機關、軍事機關與承包商，不過事隔數年，這些漏洞再傳遭到利用的跡象。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "fix: proxy direct APNs HTTP2 sessions (#74905)",
-      "link": "https://github.com/openclaw/openclaw/commit/d5b0083300a61d31d4a57864bfd394f825120592",
-      "publishedAt": "2026-05-04T11:04:17Z",
-      "summary": "fix: proxy direct APNs HTTP2 sessions (#74905) Summary: - This PR routes direct APNs HTTP/2 sends through an APNs allowlisted managed-proxy CONNECT wrapper, adds APNs proxy validation/docs/guardrails, and expands regression and live-test coverage. - Reproducibility: yes. source-reproducible: current main `sendApnsRequest()` still uses raw `http2.connect(au ... nly covers HTTP/global-agent/Undici hooks. I did not run a live APNs reproduction in this read-only review. Automerge notes: - PR branch already contained follow-up commit before automerge: test: guard raw HTTP2 APNs connections - PR branch already contained follow-up commit before automerge: test: guard raw HTTP2 with OpenGrep - PR branch already contained follow-up commit before automerge: lint: ban raw HTTP2 imports - PR branch already contained follow-up commit before automerge: fix: use managed proxy state for APNs - PR branch already contained follow-up commit before automerge: test: exercise APNs active proxy state - PR branch already contained follow-up commit before automerge: fix: reject conflicting managed proxy activation Validation: - ClawSweeper review passed for head dab7c86a7595a01b09c32395578e7c26a03f938d. - Required merge gates passed before the squash merge. Prepared head SHA: dab7c86a7595a01b09c32395578e7c26a03f938d Review: https://github.com/openclaw/openclaw/pull/74905#issuecomment-4350181159 Co-authored-by: jesse-merhi Co-authored-by: clawsweeper",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: proxy direct APNs HTTP2 sessions (#74905)",
-      "summaryZh": "重點：修正: proxy direct APNs HTTP2 sessions (#74905) Summary: - This PR routes direct APNs HTTP/2 sends through an APNs allowli..."
-    },
-    {
-      "id": 10,
-      "title": "docs(changelog): credit recent plugin fixes",
-      "link": "https://github.com/openclaw/openclaw/commit/5efbb3078a1534ce2cdbd478f8bed50bb749bfce",
-      "publishedAt": "2026-05-04T10:48:05Z",
-      "summary": "docs(changelog): credit recent plugin fixes",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): credit recent plugin 修正",
-      "summaryZh": "重點：文件(changelog): credit recent plugin 修正..."
     }
   ]
 }
