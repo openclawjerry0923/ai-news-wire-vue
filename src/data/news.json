@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-06T18:17:42.265Z",
+  "generatedAt": "2026-05-06T20:23:53.620Z",
   "items": [
     {
       "id": 1,
-      "title": "openclaw 2026.5.6",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.6",
-      "publishedAt": "2026-05-06T18:10:04Z",
-      "summary": "2026.5.6 Fixes Doctor/OpenAI Codex: revert the 2026.5.5 doctor --fix repair that rewrote valid openai-codex/* ChatGPT/Codex OAuth routes to openai/*, which could break OAuth-only GPT-5.5 setups or accidentally move users onto the OpenAI API-key route. If 2026.5.5 already changed your default model, run openclaw models set openai-codex/gpt-5.5 &amp;&amp; openclaw config validate to switch the default agent back to the Codex OAuth PI route. Fixes #78407. Plugins/runtime fetch: drop third-party symbol metadata from plain request header dictionaries before passing them into native fetch or Headers, so SDK and guarded/proxy fetch paths do not reject otherwise valid plugin requests. Fixes #77846. Thanks @shakkernerd. Debug proxy: normalize captured fetch header dictionaries before replaying requests so symbol metadata from caller-owned header objects cannot make debug-proxy fetches fail. Web fetch: bound guarded dispatcher cleanup after request timeouts so timed-out fetches return tool errors instead of leaving Gateway tool lanes active. (#78439) Thanks @obviyus. Recovery docs: https://docs.openclaw.ai/providers/openai#check-and-recover-codex-oauth-routing",
-      "source": "OpenClaw Releases",
+      "title": "perf(infra): skip usage auth discovery on default path",
+      "link": "https://github.com/openclaw/openclaw/commit/0f9f956bbd046ec162d2e5b6a25aff03126e7ebe",
+      "publishedAt": "2026-05-06T20:16:28Z",
+      "summary": "perf(infra): skip usage auth discovery on default path",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.5.6",
-      "summaryZh": "重點：2026.5.6 修正 文件tor/OpenAI Codex: revert the 2026.5.5 文件tor --修正 repair that rewrote valid openai-codex/* ChatGPT/Codex OA..."
+      "titleZh": "OpenClaw 程式碼更新：perf(infra): skip usage auth discovery on default path",
+      "summaryZh": "重點：perf(infra): skip usage auth discovery on default path..."
     },
     {
       "id": 2,
-      "title": "perf(config): skip bootstrap for false env channel probes",
-      "link": "https://github.com/openclaw/openclaw/commit/2d97dcebb5fca0bdba6a6792a52258cf8c4a6225",
-      "publishedAt": "2026-05-06T18:06:02Z",
-      "summary": "perf(config): skip bootstrap for false env channel probes",
+      "title": "test(plugins): cache bundled metadata fixture scans",
+      "link": "https://github.com/openclaw/openclaw/commit/4f73cd23b7438950eaf92114ab4cd8c13e24947d",
+      "publishedAt": "2026-05-06T20:11:09Z",
+      "summary": "test(plugins): cache bundled metadata fixture scans",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(config): skip bootstrap for false env channel probes",
-      "summaryZh": "重點：perf(config): skip bootstrap for false env channel probes..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): cache bundled metadata 修正ture scans",
+      "summaryZh": "重點：test(plugins): cache bundled metadata 修正ture scans..."
     },
     {
       "id": 3,
-      "title": "docs: clarify Codex OAuth hotfix recovery",
-      "link": "https://github.com/openclaw/openclaw/commit/11a0b1248d3a4b48345118b1e0133f69471da580",
-      "publishedAt": "2026-05-06T18:01:41Z",
-      "summary": "docs: clarify Codex OAuth hotfix recovery",
+      "title": "docs: document hourly translation debounce",
+      "link": "https://github.com/openclaw/openclaw/commit/5d3d1f8718574f09c88900aad371fe67a8493951",
+      "publishedAt": "2026-05-06T20:10:21Z",
+      "summary": "docs: document hourly translation debounce",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: clarify Codex OAuth hot修正 recovery",
-      "summaryZh": "重點：文件: clarify Codex OAuth hot修正 recovery..."
+      "titleZh": "OpenClaw 文件更新：文件: 文件ument hourly translation debounce",
+      "summaryZh": "重點：文件: 文件ument hourly translation debounce..."
     },
     {
       "id": 4,
-      "title": "fix(infra): avoid redundant usage summary refresh",
-      "link": "https://github.com/openclaw/openclaw/commit/2daf3d332ff0bb951cc89d968dc5f60869ab7f3d",
-      "publishedAt": "2026-05-06T17:42:32Z",
-      "summary": "fix(infra): avoid redundant usage summary refresh",
+      "title": "test(plugins): reuse conversation binding imports",
+      "link": "https://github.com/openclaw/openclaw/commit/a74b459f7a74a950bd12a5e7529ec6520da4c8d3",
+      "publishedAt": "2026-05-06T20:06:03Z",
+      "summary": "test(plugins): reuse conversation binding imports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(infra): avoid redundant usage summary refresh",
-      "summaryZh": "重點：修正(infra): avoid redundant usage summary refresh..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): reuse conversation binding imports",
+      "summaryZh": "重點：test(plugins): reuse conversation binding imports..."
     },
     {
       "id": 5,
