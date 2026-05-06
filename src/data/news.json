@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-06T16:40:52.547Z",
+  "generatedAt": "2026-05-06T18:17:42.265Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: preserve provider auth alias scope",
-      "link": "https://github.com/openclaw/openclaw/commit/bc97182d71cd15c13e821c23e1af6095f468999e",
-      "publishedAt": "2026-05-06T16:33:46Z",
-      "summary": "fix: preserve provider auth alias scope",
-      "source": "OpenClaw Commits",
+      "title": "openclaw 2026.5.6",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.6",
+      "publishedAt": "2026-05-06T18:10:04Z",
+      "summary": "2026.5.6 Fixes Doctor/OpenAI Codex: revert the 2026.5.5 doctor --fix repair that rewrote valid openai-codex/* ChatGPT/Codex OAuth routes to openai/*, which could break OAuth-only GPT-5.5 setups or accidentally move users onto the OpenAI API-key route. If 2026.5.5 already changed your default model, run openclaw models set openai-codex/gpt-5.5 &amp;&amp; openclaw config validate to switch the default agent back to the Codex OAuth PI route. Fixes #78407. Plugins/runtime fetch: drop third-party symbol metadata from plain request header dictionaries before passing them into native fetch or Headers, so SDK and guarded/proxy fetch paths do not reject otherwise valid plugin requests. Fixes #77846. Thanks @shakkernerd. Debug proxy: normalize captured fetch header dictionaries before replaying requests so symbol metadata from caller-owned header objects cannot make debug-proxy fetches fail. Web fetch: bound guarded dispatcher cleanup after request timeouts so timed-out fetches return tool errors instead of leaving Gateway tool lanes active. (#78439) Thanks @obviyus. Recovery docs: https://docs.openclaw.ai/providers/openai#check-and-recover-codex-oauth-routing",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve provider auth alias scope",
-      "summaryZh": "重點：修正: preserve provider auth alias scope..."
+      "titleZh": "OpenClaw 版本更新：2026.5.6",
+      "summaryZh": "重點：2026.5.6 修正 文件tor/OpenAI Codex: revert the 2026.5.5 文件tor --修正 repair that rewrote valid openai-codex/* ChatGPT/Codex OA..."
     },
     {
       "id": 2,
-      "title": "fix: reuse turn plugin metadata snapshot",
-      "link": "https://github.com/openclaw/openclaw/commit/3dffef651b87004413a1833da0b3534d570dbe61",
-      "publishedAt": "2026-05-06T16:33:46Z",
-      "summary": "fix: reuse turn plugin metadata snapshot",
+      "title": "perf(config): skip bootstrap for false env channel probes",
+      "link": "https://github.com/openclaw/openclaw/commit/2d97dcebb5fca0bdba6a6792a52258cf8c4a6225",
+      "publishedAt": "2026-05-06T18:06:02Z",
+      "summary": "perf(config): skip bootstrap for false env channel probes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: reuse turn plugin metadata snapshot",
-      "summaryZh": "重點：修正: reuse turn plugin metadata snapshot..."
+      "titleZh": "OpenClaw 程式碼更新：perf(config): skip bootstrap for false env channel probes",
+      "summaryZh": "重點：perf(config): skip bootstrap for false env channel probes..."
     },
     {
       "id": 3,
-      "title": "fix: propagate diagnostics timeline phase",
-      "link": "https://github.com/openclaw/openclaw/commit/c795a1a8ef19a5eb464fde5e0153f07505f33e7e",
-      "publishedAt": "2026-05-06T16:33:46Z",
-      "summary": "fix: propagate diagnostics timeline phase",
+      "title": "docs: clarify Codex OAuth hotfix recovery",
+      "link": "https://github.com/openclaw/openclaw/commit/11a0b1248d3a4b48345118b1e0133f69471da580",
+      "publishedAt": "2026-05-06T18:01:41Z",
+      "summary": "docs: clarify Codex OAuth hotfix recovery",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: propagate diagnostics timeline phase",
-      "summaryZh": "重點：修正: propagate diagnostics timeline phase..."
+      "titleZh": "OpenClaw 文件更新：文件: clarify Codex OAuth hot修正 recovery",
+      "summaryZh": "重點：文件: clarify Codex OAuth hot修正 recovery..."
     },
     {
       "id": 4,
-      "title": "chore: add coarse agent turn timeline spans",
-      "link": "https://github.com/openclaw/openclaw/commit/61223a74a43fd8768c426d5b22f1633dbad37477",
-      "publishedAt": "2026-05-06T16:33:46Z",
-      "summary": "chore: add coarse agent turn timeline spans",
+      "title": "fix(infra): avoid redundant usage summary refresh",
+      "link": "https://github.com/openclaw/openclaw/commit/2daf3d332ff0bb951cc89d968dc5f60869ab7f3d",
+      "publishedAt": "2026-05-06T17:42:32Z",
+      "summary": "fix(infra): avoid redundant usage summary refresh",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore: add coarse agent turn timeline spans",
-      "summaryZh": "重點：chore: add coarse agent turn timeline spans..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): avoid redundant usage summary refresh",
+      "summaryZh": "重點：修正(infra): avoid redundant usage summary refresh..."
     },
     {
       "id": 5,
