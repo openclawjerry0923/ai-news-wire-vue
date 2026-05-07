@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T06:35:47.826Z",
+  "generatedAt": "2026-05-07T09:33:41.725Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(acpx): harden session lifecycle cleanup",
-      "link": "https://github.com/openclaw/openclaw/commit/42ecd5d95eae8b9fbe155a2e5bb20f32080826e3",
-      "publishedAt": "2026-05-07T06:30:37Z",
-      "summary": "fix(acpx): harden session lifecycle cleanup Harden ACPX process cleanup with lease-backed ownership verification, startup orphan reaping, reusable cancel semantics, and spawned-session visibility fixes.",
+      "title": "ci: use explicit channel contract runner",
+      "link": "https://github.com/openclaw/openclaw/commit/129b9dad9e65d7791194ec989b96a1dad6ff343a",
+      "publishedAt": "2026-05-07T09:28:34Z",
+      "summary": "ci: use explicit channel contract runner",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(acpx): harden session lifecycle cleanup",
-      "summaryZh": "重點：修正(acpx): harden session lifecycle cleanup Harden ACPX process cleanup with lease-backed ownership verification, startup..."
+      "titleZh": "OpenClaw 程式碼更新：ci: use explicit channel contract runner",
+      "summaryZh": "重點：ci: use explicit channel contract runner..."
     },
     {
       "id": 8,
-      "title": "fix: surface cron model rejection diagnostics",
-      "link": "https://github.com/openclaw/openclaw/commit/5b9672b4bbfb5698418847941cacea19752f7f1b",
-      "publishedAt": "2026-05-07T06:28:02Z",
-      "summary": "fix: surface cron model rejection diagnostics Fixes #78597",
+      "title": "Feat/channels list show all and drop auth (#78456)",
+      "link": "https://github.com/openclaw/openclaw/commit/9170243f9246814aeb90f8b4bd157c47f8e7e5cc",
+      "publishedAt": "2026-05-07T09:28:03Z",
+      "summary": "Feat/channels list show all and drop auth (#78456) * feat(channels list): drop auth providers, add --all, surface installed/configured/enabled `openclaw channels list` used to conflate two very different surfaces: chat channels and OAuth/API-key auth providers for model routing. The auth section was the first and most visible block in the output even for operators who only cared about chat channels, and its JSON `auth` key leaked model-provider identities into a command whose top-level help describes it as channel management. Worse, the command silently hid every channel that had no configured account, so users could not tell from `channels list` which bundled or catalog channels were even available to configure. Split the surface cleanly around channels only: 1. Remove the `Auth providers (OAuth + API keys)` text section and the `auth` field from the JSON payload. Model-provider auth profiles remain reachable via `openclaw models auth list`, which is where they conceptually belong. 2. Add a `--all` flag to surface every channel an operator could configure: bundled channel plugins that have no account yet and catalog-listed external channels whose plugin package is not even installed on disk. Without `--all` the output still shows only channels with at least one configured account, matching the previous default behavior so existing scripts keep working. The \"empty\" default path now prints a hint pointing at `--all`. 3. Render three explicit status tags per row — `installed` / `not installed`, `configured` / `not configured`, `enabled` / `disabled` — so bundled-but-unconfigured plugins and installable catalog channels both render with accurate state instead of being invisible. Installed state comes from the same `isCatalogChannelInstalled` probe the setup flow uses, so it stays consistent with `openclaw onboard` and `channels add`. 4. JSON payload now carries an `origin` per channel (`configured`, `available`, `installable`) alongside `installed: boolean`, which lets tooling distinguish \"user has set this up\" from \"user could set this up\" without second-guessing. Register `--all` on both the Commander CLI and the fast-path route-arg parser so the flag works in both code paths, update the one routes test that asserted the parsed args shape, and rewrite the old auth profiles surface test as a broader `channels list` behavior spec covering default output, `--all` output, JSON shape (no `auth`), and the bundled-unconfigured + catalog-not-installed cases. Docs: call out that `channels list` is chat-channel only now, mention `--all`, and point at `openclaw models auth list` for what used to be the auth providers block. * fix(channels list): surface catalog channels that are installed on disk but not yet configured The previous `--all` path filtered catalog entries with `!installedByChannelId.get(entry.id)` before rendering them as catalog-only rows. That assumed \"catalog entry not already rendered as a plugin row\" implied \"not installed\", which is wrong: an external channel plugin package can be installed on disk (`isCatalogChannelInstalled` returns true) while the read-only channel loader still declines to surface a plugin object for it — the loader only activates channels that appear in user config, so a plugin that is installed but never configured ended up in neither bucket and silently dropped out of `channels list --all`. Operator-facing symptom: `pnpm openclaw channels list --all` omitted WeCom (and any other catalog channel in the same state) even though its npm package was present on disk and its catalog entry existed, while rendering every other uninstalled catalog channel as expected. Fix: drop the `installed` filter from `catalogOnlyLines` so every catalog entry that is not already represented by a plugin row is rendered, and let the row itself carry the real installed/not-installed tag. Two renderings now land in the catalog-only bucket: - Not installed — rendered as `not installed, not configured, disabled` (installable row). - Installed but unconfigured — rendered as `installed, not configured, disabled` (ready-to-configure row). The JSON `origin` for this case becomes `available`, matching the existing origin for bundled plugins that are installed but unconfigured, so downstream tooling sees a consistent \"you could configure this now\" signal regardless of whether the plugin came from bundled sources or from the catalog. Regression test added under the WeCom scenario. * refactor(channels list): drop model-provider usage surface, make the command channel-only `openclaw channels list` used to append a model-provider usage/quota snapshot (Anthropic, OpenRouter, OpenAI Codex, Gemini, Zai, Minimax, etc.) under every invocation. That was a leftover from the days when `channels list` was the only \"operator overview\" command; the same data is now owned by `openclaw status` (overview) and `openclaw models list` (per-provider), which handle timeouts, probe errors, and output shape consistently for that class of data. Keeping the snapshot wired into `channels list` meant: - Every default invocation made one blocking `loadProviderUsageSummary` call that fanned out to every configured provider billing/auth endpoint, adding seconds of latency to a command that otherwise just reads local config. - `channels list --no-usage` was the escape hatch, but the flag was itself a self-sustaining bug: it only existed because the command did work that did not belong to it. - JSON consumers had an optional `usage` key whose shape was owned by the provider-usage module, not by the channels module, so any change upstream silently reshaped `channels list --json` output. - Failed provider fetches printed provider-side errors on a command that never advertised itself as a provider-health surface. Scope this PR tightens, in one move: 1. Remove `loadProviderUsageSummary` / `formatUsageReportLines` usage from `src/commands/channels/list.ts`. The command now only reads config, the read-only channel plugin registry, and the trusted catalog — matching its name. 2. Drop `--no-usage` from the Commander CLI registration, from the fast-path route-arg parser (`parseChannelsListRouteArgs`), and from `ChannelsListOptions`. The flag is gone, not silently ignored, so anyone depending on it will get a clear \"unknown option\" from Commander and from the fast-path router. 3. Drop the `usage` key from `channels list --json` payloads. Shape of the `chat` record and the new `origin` / `installed` tags introduced earlier in this branch are unchanged. 4. Print a single-line migration pointer at the bottom of the text output so operators who expected usage know where it went (`openclaw status` / `openclaw models list`). This replaces what used to be a block of fetched provider data with one static line, so it cannot fail or add latency. 5. Update `docs/cli/channels.md` troubleshooting to remove the `--no-usage` mention and point at the two new entry points. 6. Update tests: drop the `loadProviderUsageSummary` mock and the `\"keeps JSON output valid when usage loading fails\"` case, replace it with a positive assertion that `payload.usage` is undefined (locking in the narrower contract), and remove `usage` from every `channelsListCommand(...)` call to match the narrowed `ChannelsListOptions` type. The route-args test is updated to expect `{ json, all }` without `usage`. No other command changes. `openclaw status` and `openclaw models list` already render usage; they are the documented replacements. Breaking-ish surface: - CLI: `channels list --no-usage` now fails with \"unknown option\". Tooling should drop the flag — there is nothing left to opt out of. - JSON: `channels list --json` no longer carries a top-level `usage` key. Tooling that read it must migrate to `openclaw status --json` or `openclaw models list --json`. * fix(channels.list.test): widen isCatalogChannelInstalled mock signature to accept entry param CI typecheck failed because the mock was declared with a zero-arg signature while one test called mockImplementation(({ entry }) => …). Tighten the generic so vitest's mock accepts the same params the real helper does. * changelog: record channels list channel-only rework (#78456)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: surface 排程 模型 rejection diagnostics",
-      "summaryZh": "重點：修正: surface 排程 模型 rejection diagnostics 修正 #78597..."
+      "titleZh": "OpenClaw 程式碼更新：新功能/channels list show all and drop auth (#78456)",
+      "summaryZh": "重點：新功能/channels list show all and drop auth (#78456) * 新功能(channels list): drop auth providers, add --all, surface installe..."
     },
     {
       "id": 9,
-      "title": "docs: refresh plugin sdk api baseline hash",
-      "link": "https://github.com/openclaw/openclaw/commit/a4b8cc307cd43e2ba945b0826188c43592495192",
-      "publishedAt": "2026-05-07T06:16:24Z",
-      "summary": "docs: refresh plugin sdk api baseline hash",
+      "title": "docs(cli): document cron list/show --json status field",
+      "link": "https://github.com/openclaw/openclaw/commit/45778c66f4cad28db58c54bf22bf1f8a4467354b",
+      "publishedAt": "2026-05-07T09:25:09Z",
+      "summary": "docs(cli): document cron list/show --json status field",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: refresh plugin sdk api baseline hash",
-      "summaryZh": "重點：文件: refresh plugin sdk api baseline hash..."
+      "titleZh": "OpenClaw 文件更新：文件(cli): 文件ument 排程 list/show --json status field",
+      "summaryZh": "重點：文件(cli): 文件ument 排程 list/show --json status field..."
     },
     {
       "id": 10,
-      "title": "fix(whatsapp): dedupe captioned MEDIA auto-replies (#78770)",
-      "link": "https://github.com/openclaw/openclaw/commit/a2efabf4c93baf23b9be0d161d8672f71cccdb21",
-      "publishedAt": "2026-05-07T06:15:19Z",
-      "summary": "fix(whatsapp): dedupe captioned MEDIA auto-replies (#78770) * fix(whatsapp): dedupe captioned MEDIA auto-replies * docs: note whatsapp media directive dedupe --------- Co-authored-by: Marcus Castro",
+      "title": "fix: treat aws sdk auth profiles as config metadata",
+      "link": "https://github.com/openclaw/openclaw/commit/8e179101914eb7966fa68e611a5cd3b62e9cb5bb",
+      "publishedAt": "2026-05-07T09:24:19Z",
+      "summary": "fix: treat aws sdk auth profiles as config metadata",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): dedupe captioned MEDIA auto-replies (#78770)",
-      "summaryZh": "重點：修正(whatsapp): dedupe captioned MEDIA auto-replies (#78770) * 修正(whatsapp): dedupe captioned MEDIA auto-replies * 文件: not..."
+      "titleZh": "OpenClaw 程式碼更新：修正: treat aws sdk auth profiles as config metadata",
+      "summaryZh": "重點：修正: treat aws sdk auth profiles as config metadata..."
     }
   ]
 }
