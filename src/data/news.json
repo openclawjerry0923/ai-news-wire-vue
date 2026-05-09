@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-09T13:20:49.724Z",
+  "generatedAt": "2026-05-09T14:52:12.500Z",
   "items": [
     {
       "id": 1,
-      "title": "test: tighten attempt cache ttl assertion",
-      "link": "https://github.com/openclaw/openclaw/commit/b766b8e846f8d317371624d12d41d25d38016b05",
-      "publishedAt": "2026-05-09T13:18:51Z",
-      "summary": "test: tighten attempt cache ttl assertion",
+      "title": "test: tighten agent tool log assertions",
+      "link": "https://github.com/openclaw/openclaw/commit/565e71da98ab0f97b4a90de1560ec6db379eb2c7",
+      "publishedAt": "2026-05-09T14:52:03Z",
+      "summary": "test: tighten agent tool log assertions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: tighten attempt cache ttl assertion",
-      "summaryZh": "重點：test: tighten attempt cache ttl assertion..."
+      "titleZh": "OpenClaw 程式碼更新：test: tighten agent tool log assertions",
+      "summaryZh": "重點：test: tighten agent tool log assertions..."
     },
     {
       "id": 2,
-      "title": "test: tighten incomplete turn meta assertion",
-      "link": "https://github.com/openclaw/openclaw/commit/fa87c91531492df678c10ca0e06dc87c0175aee7",
-      "publishedAt": "2026-05-09T13:16:55Z",
-      "summary": "test: tighten incomplete turn meta assertion",
+      "title": "fix(feishu): keep group_topic message-tool replies inside the topic (…",
+      "link": "https://github.com/openclaw/openclaw/commit/aecd4fba7e8d08f06495c3fd5bf73615dac4c17b",
+      "publishedAt": "2026-05-09T14:51:36Z",
+      "summary": "fix(feishu): keep group_topic message-tool replies inside the topic (#77151) Merged via squash. Prepared head SHA: 3a47a09da10ffb5fe96efa5a2ff154321664087d Co-authored-by: ai-hpc Co-authored-by: hxy91819 Reviewed-by: @hxy91819",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: tighten incomplete turn meta assertion",
-      "summaryZh": "重點：test: tighten incomplete turn meta assertion..."
+      "titleZh": "OpenClaw 程式碼更新：修正(feishu): keep group_topic message-tool replies inside the topic (…",
+      "summaryZh": "重點：修正(feishu): keep group_topic message-tool replies inside the topic (#77151) Merged via squash. Prepared head SHA: 3a47a0..."
     },
     {
       "id": 3,
-      "title": "test: tighten fallback error context assertion",
-      "link": "https://github.com/openclaw/openclaw/commit/cb5fdcf52cf8186bf747286e17d06de09852f946",
-      "publishedAt": "2026-05-09T13:15:00Z",
-      "summary": "test: tighten fallback error context assertion",
+      "title": "fix(telegram): mirror outbound replies to session transcript",
+      "link": "https://github.com/openclaw/openclaw/commit/d44aeb6901b55d48b1b9edf701069d3e66530741",
+      "publishedAt": "2026-05-09T14:50:25Z",
+      "summary": "fix(telegram): mirror outbound replies to session transcript Telegram's deliverReplies dispatches via Grammy SDK directly, bypassing deliverOutboundPayloads where the channel-mirror writer runs. Outbound assistant replies were never appended to the session transcript, leaving Telegram .jsonl files empty (the sessions.json sessionFile path was populated but the file was never created on disk). Add an optional transcriptMirror callback param to deliverReplies and populate it from bot-message-dispatch's deliveryBaseOptions. Reuses the existing appendAssistantMessageToSessionTranscript helper that deliverOutboundPayloads already calls. Also mirrors preview-finalized replies so the transcript captures all final assistant output. Plugin SDK boundary expansion: re-export appendAssistantMessageToSessionTranscript from plugin-sdk/agent-harness-runtime so extension code can call it without reaching into core src/. API baseline regenerated. Addresses openclaw#75991 for telegram + CLI runtime combinations. Supersedes openclaw#77484 (incorporates reviewer feedback: preview- finalized mirror + changelog entry).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: tighten fallback error context assertion",
-      "summaryZh": "重點：test: tighten fallback error context assertion..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): mirror outbound replies to session transcript",
+      "summaryZh": "重點：修正(Telegram): mirror outbound replies to session transcript Telegram's deliverReplies dispatches via Grammy SDK directly..."
     },
     {
       "id": 4,
-      "title": "test: stub trajectory metadata in attempt harness",
-      "link": "https://github.com/openclaw/openclaw/commit/4473a588efdef4ab9a0d99f05eb121da21473d64",
-      "publishedAt": "2026-05-09T13:13:45Z",
-      "summary": "test: stub trajectory metadata in attempt harness",
+      "title": "test: tighten subagent policy assertions",
+      "link": "https://github.com/openclaw/openclaw/commit/5dfb052f9ff5d99860a6b19a06ba04ce2e1077d1",
+      "publishedAt": "2026-05-09T14:49:17Z",
+      "summary": "test: tighten subagent policy assertions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: stub trajectory metadata in attempt harness",
-      "summaryZh": "重點：test: stub trajectory metadata in attempt harness..."
+      "titleZh": "OpenClaw 程式碼更新：test: tighten subagent policy assertions",
+      "summaryZh": "重點：test: tighten subagent policy assertions..."
     },
     {
       "id": 5,
