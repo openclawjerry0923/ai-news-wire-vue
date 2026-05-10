@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T06:33:42.425Z",
+  "generatedAt": "2026-05-10T08:54:58.274Z",
   "items": [
     {
       "id": 1,
@@ -12,50 +12,68 @@
     },
     {
       "id": 2,
-      "title": "test: clear talk server method broad matchers",
-      "link": "https://github.com/openclaw/openclaw/commit/b2bc1e9a56619fad1c2d4000fcc7fc54542b2494",
-      "publishedAt": "2026-05-10T06:27:47Z",
-      "summary": "test: clear talk server method broad matchers",
+      "title": "fix: allow tweakcn theme imports in Control UI CSP",
+      "link": "https://github.com/openclaw/openclaw/commit/2e48b1f3bb07d84a273832d9c3e49f991633fb4c",
+      "publishedAt": "2026-05-10T08:54:39Z",
+      "summary": "fix: allow tweakcn theme imports in Control UI CSP Allow the documented Control UI Appearance tweakcn theme import to fetch https://tweakcn.com/r/themes/{id} through the served CSP without broadening browser egress beyond the exact tweakcn origin. This preserves the existing OpenAI realtime origin, adds focused CSP/header regression coverage, and keeps the custom-theme importer/storage behavior unchanged. Fixes #78504.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: clear talk server method broad matchers",
-      "summaryZh": "重點：test: clear talk server method broad matchers..."
+      "titleZh": "OpenClaw 程式碼更新：修正: allow tweakcn theme imports in Control UI CSP",
+      "summaryZh": "重點：修正: allow tweakcn theme imports in Control UI CSP Allow the 文件umented Control UI Appearance tweakcn theme import to fetc..."
     },
     {
       "id": 3,
-      "title": "Merge branch 'main' of https://github.com/openclaw/openclaw",
-      "link": "https://github.com/openclaw/openclaw/commit/5c844bea8807c9768ff9a40c44abcc8b81ae8c15",
-      "publishedAt": "2026-05-10T06:26:55Z",
-      "summary": "Merge branch 'main' of https://github.com/openclaw/openclaw * 'main' of https://github.com/openclaw/openclaw: fix(config): persist explicit default values fix(google): default gemini onboarding to 3.1 pro",
+      "title": "fix: preserve Codex auth during route repair",
+      "link": "https://github.com/openclaw/openclaw/commit/a39c05559ba7611b3f6855b2a26f1b4b483b3d8d",
+      "publishedAt": "2026-05-10T08:53:44Z",
+      "summary": "fix: preserve Codex auth during route repair Summary: - repair legacy openai-codex model refs to canonical openai refs without losing Codex auth intent - keep scoped repairs from broadening runtime policy to unrelated agent/channel routes - preserve explicit concrete model runtime pins and shield listed-agent canonical refs from default policy spillover Verification: - pnpm test src/commands/doctor/shared/codex-route-warnings.test.ts src/config/plugin-auto-enable.core.test.ts src/commands/doctor/shared/missing-configured-plugin-install.test.ts - env -u OPENCLAW_TESTBOX -u OPENCLAW_TESTBOX_ID pnpm check:changed - GitHub checks for 81b29342406484a2b74885bfe978f3789d6236c5",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Merge branch 'main' of https://github.com/OpenClaw/OpenClaw",
-      "summaryZh": "重點：Merge branch 'main' of https://github.com/OpenClaw/OpenClaw * 'main' of https://github.com/OpenClaw/OpenClaw: 修正(config)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve Codex auth during route repair",
+      "summaryZh": "重點：修正: preserve Codex auth during route repair Summary: - repair legacy openai-codex 模型 refs to canonical openai refs witho..."
     },
     {
       "id": 4,
-      "title": "fix(config): persist explicit default values",
-      "link": "https://github.com/openclaw/openclaw/commit/2e400c5b76db99afca16b8e65b71900032059160",
-      "publishedAt": "2026-05-10T06:24:39Z",
-      "summary": "fix(config): persist explicit default values Fixes #79856. Preserves explicitly set config values that equal runtime defaults across CLI set/patch, exported config writes, object paths, array-index paths, and normalized model paths. Rejects default-equal explicit writes under include-owned config instead of reporting a no-op success. Co-authored-by: hclsys",
+      "title": "test: clear gateway server cron broad matchers",
+      "link": "https://github.com/openclaw/openclaw/commit/8c158efa6d3f077a874cbaf33f10ce9c4177be4a",
+      "publishedAt": "2026-05-10T08:52:53Z",
+      "summary": "test: clear gateway server cron broad matchers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): persist explicit default values",
-      "summaryZh": "重點：修正(config): persist explicit default values 修正 #79856. Preserves explicitly set config values that equal runtime default..."
+      "titleZh": "OpenClaw 程式碼更新：test: clear Gateway server 排程 broad matchers",
+      "summaryZh": "重點：test: clear Gateway server 排程 broad matchers..."
     },
     {
       "id": 5,
-      "title": "fix(google): default gemini onboarding to 3.1 pro",
-      "link": "https://github.com/openclaw/openclaw/commit/b27bae3a73b9c020406295e06807a0edf1ca6912",
-      "publishedAt": "2026-05-10T06:24:03Z",
-      "summary": "fix(google): default gemini onboarding to 3.1 pro",
+      "title": "fix: preserve custom provider context limits (#79911)",
+      "link": "https://github.com/openclaw/openclaw/commit/faa1c6f9728f3f8aef38f82241861199db7d4ac9",
+      "publishedAt": "2026-05-10T08:51:45Z",
+      "summary": "fix: preserve custom provider context limits (#79911)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google): default gemini onboarding to 3.1 pro",
-      "summaryZh": "重點：修正(google): default gemini onboarding to 3.1 pro..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve custom provider context limits (#79911)",
+      "summaryZh": "重點：修正: preserve custom provider context limits (#79911)..."
     },
     {
       "id": 6,
+      "title": "NASA 下一代火星直升機轉子技術突破，旋翼葉片突破音速未解體",
+      "link": "https://technews.tw/2026/05/10/nasa-aerovironment-skyfall-mars-helicopter/",
+      "publishedAt": "Sun, 10 May 2026 08:24:21 +0000",
+      "summary": "為了讓直升機在大氣稀薄的火星飛得更高、載得更重，NASA 噴射推進實驗室剛完成一項新技術挑戰：將火星直升機旋翼 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "金星 6,000 公里巨型雲牆之謎解開，由最大規模水躍現象引起",
+      "link": "https://technews.tw/2026/05/10/hydraulic-jumpatmospheric-wave-venus-cloud/",
+      "publishedAt": "Sun, 10 May 2026 07:31:52 +0000",
+      "summary": "金星每天都是陰天，可能還會落下硫酸陣雨，過去探測器曾發現金星赤道有巨型大氣波反覆掃過，但原因不明。現在日本科學 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "Netflix 雖不靠遊戲賺錢，但做遊戲要幹麼腦袋還很清楚",
       "link": "https://finance.technews.tw/2026/05/10/netflix-isnt-making-money-from-games-but-it-knows-exactly-why-its-making-them/",
       "publishedAt": "Sun, 10 May 2026 06:00:55 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "美國戰爭部釋出首批 UAP 機密報告，四大事件人類現有科技辦不到",
       "link": "https://technews.tw/2026/05/10/uap-pursue-unidentified-aerial-phenomena/",
       "publishedAt": "Sun, 10 May 2026 04:34:54 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "AI 會消滅白領？黃仁勳批：那只是老闆的「上帝情結」又犯了！",
       "link": "https://technews.tw/2026/05/10/jensen-huang-dismisses-ai-white-collar-threat-as-boss-god-complex/",
       "publishedAt": "Sun, 10 May 2026 03:00:51 +0000",
       "summary": "「AI 即將取代各種職業，企業應該裁員、讓機器接手員工現有的工作！」是近年 AI 浪潮最常反覆引用的預言。 多 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "a16z 駁斥 AI 摧毀就業論：歷史與數據顯示整體就業仍穩定",
-      "link": "https://technews.tw/2026/05/10/the-ai-job-apocalypse-is-a-complete-fantasy/",
-      "publishedAt": "Sun, 10 May 2026 02:30:00 +0000",
-      "summary": "矽谷創投公司 Andreessen Horowitz（a16z）近日發文，罕見反駁「AI 會摧毀就業市場」悲觀 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "6 月限制期解禁前夕的重量級布局！統一超投資 LOPIA，家樂福「大改造計畫」呼之欲出？",
-      "link": "https://finance.technews.tw/2026/05/10/june-restriction-lifting-major-moves-uni-president-lopia-investment-carrefour-transformation-plan/",
-      "publishedAt": "Sun, 10 May 2026 02:00:14 +0000",
-      "summary": "4 月 30 日下午，統一超突然發布一則重訊：「本公司董事會決議通過向 Lopia Co., Ltd. 取得其 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
