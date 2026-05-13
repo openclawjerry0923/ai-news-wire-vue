@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-05-13T12:06:08.356Z",
+  "generatedAt": "2026-05-13T15:44:29.758Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(imessage): make inbound image attachments readable by agents (#78…",
+      "link": "https://github.com/openclaw/openclaw/commit/1d6e5f7a3e424b3d2595c54f01b5418839be99df",
+      "publishedAt": "2026-05-13T15:35:52Z",
+      "summary": "fix(imessage): make inbound image attachments readable by agents (#78580) Stage native iMessage inbound attachments into managed media and convert HEIC/HEIF images to JPEG before dispatch. Thanks @homer-byte.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): make inbound image attachments readable by agents (#78…",
+      "summaryZh": "重點：修正(imessage): make inbound image attachments readable by agents (#78580) Stage native iMessage inbound attachments into ..."
+    },
+    {
+      "id": 2,
+      "title": "v2026.5.12-beta.5",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.12-beta.5",
+      "publishedAt": "2026-05-13T15:34:04Z",
+      "summary": "openclaw 2026.5.12-beta.5",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：v2026.5.12-beta.5",
+      "summaryZh": "重點：OpenClaw 2026.5.12-beta.5..."
+    },
+    {
+      "id": 3,
+      "title": "fix(tui): emit v4 embedded chat deltas",
+      "link": "https://github.com/openclaw/openclaw/commit/58591c37a48ee4439fc8c7c2d138b003c2df2dae",
+      "publishedAt": "2026-05-13T15:28:12Z",
+      "summary": "fix(tui): emit v4 embedded chat deltas (cherry picked from commit a6d878376b15a4d6f6f63cb4093816b4c20c0b4b)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): emit v4 embedded chat deltas",
+      "summaryZh": "重點：修正(tui): emit v4 embedded chat deltas (cherry picked from 提交 a6d878376b15a4d6f6f63cb4093816b4c20c0b4b)..."
+    },
+    {
+      "id": 4,
+      "title": "docs: add inline comment guidance",
+      "link": "https://github.com/openclaw/openclaw/commit/64ba5e2ae394e5041851d5d4e22cd9d8fd92719f",
+      "publishedAt": "2026-05-13T15:13:49Z",
+      "summary": "docs: add inline comment guidance",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: add inline comment guidance",
+      "summaryZh": "重點：文件: add inline comment guidance..."
+    },
+    {
+      "id": 5,
+      "title": "群聯 4 月份 EPS 達 34.56 元，累計前四個月 EPS 超過百元賺逾 10 個股本",
+      "link": "https://finance.technews.tw/2026/05/13/phisons-cumulative-eps-for-the-first-four-months-exceeded-nt100-earning-more-than-10-times-its-share-capital/",
+      "publishedAt": "Wed, 13 May 2026 13:45:53 +0000",
+      "summary": "記憶體大廠群聯電子依監管機構台北證券交易所的要求，於13日公布2026年4月自結財務報告，繳出極為亮眼的成績單 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "DMTF的SPDM硬體安全驗證標準被納入FIPS 140-3規範，可望成為美國官方硬體安全參考標準",
       "link": "https://www.ithome.com.tw/news/175762",
       "publishedAt": "2026-05-13 12:05:26",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "Claude瀏覽器延伸套件存在設計缺陷，攻擊者恐透過惡意套件挾持AI",
       "link": "https://www.ithome.com.tw/news/175761",
       "publishedAt": "2026-05-13 12:05:15",
@@ -20,51 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(agents): surface memory-flush errors safely",
-      "link": "https://github.com/openclaw/openclaw/commit/0a9f7afb66db907475690ae0629aad8c6b927ea1",
-      "publishedAt": "2026-05-13T11:56:09Z",
-      "summary": "fix(agents): surface memory-flush errors safely Refs #80755. Replaces #80884. Verification: - pnpm test src/plugins/contracts/extension-runtime-dependencies.contract.test.ts src/auto-reply/reply/agent-runner-memory.test.ts - pnpm changed:lanes --json - git diff --check - node scripts/run-oxlint.mjs --tsconfig config/tsconfig/oxlint.scripts.json scripts/generate-plugin-inventory-doc.mjs scripts/deadcode-unused-files.allowlist.mjs - pnpm deadcode:unused-files - pnpm check:changed via Blacksmith Testbox tbx_01krgjhyx965k8ew4qg9nxq8yn - GitHub CI on PR #81387 head 695f694b70f5ad618eb4abd4e9d6344d11450d2d Co-authored-by: kinjitakabe",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): surface 記憶-flush errors safely",
-      "summaryZh": "重點：修正(agents): surface 記憶-flush errors safely Refs #80755. Replaces #80884. Verification: - pnpm test src/plugins/contracts..."
-    },
-    {
-      "id": 4,
-      "title": "docs: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)",
-      "link": "https://github.com/openclaw/openclaw/commit/c796b96d346e699c4b1b851750eec84410cae0e6",
-      "publishedAt": "2026-05-13T11:54:40Z",
-      "summary": "docs: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)",
-      "summaryZh": "重點：文件: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)..."
-    },
-    {
-      "id": 5,
-      "title": "fix: reseed Claude CLI session context on rotation closes #80905",
-      "link": "https://github.com/openclaw/openclaw/commit/dd8aa1dcced99dc1b90868f2bba1b79eb9636093",
-      "publishedAt": "2026-05-13T11:54:40Z",
-      "summary": "fix: reseed Claude CLI session context on rotation closes #80905",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: reseed Claude CLI session context on rotation closes #80905",
-      "summaryZh": "重點：修正: reseed Claude CLI session context on rotation closes #80905..."
-    },
-    {
-      "id": 6,
-      "title": "Allow pnpm source updates to build OpenClaw (#81294)",
-      "link": "https://github.com/openclaw/openclaw/commit/ce31fc91e15d3ec6bc48700f12400d728a8ca808",
-      "publishedAt": "2026-05-13T11:30:08Z",
-      "summary": "Allow pnpm source updates to build OpenClaw (#81294) Merged via squash. Prepared head SHA: 4815d5a8c9ac5917933296ca30f690a350cc4599 Co-authored-by: fuller-stack-dev Co-authored-by: altaywtf Reviewed-by: @altaywtf",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Allow pnpm source updates to build OpenClaw (#81294)",
-      "summaryZh": "重點：Allow pnpm source updates to build OpenClaw (#81294) Merged via squash. Prepared head SHA: 4815d5a8c9ac5917933296ca30f69..."
-    },
-    {
-      "id": 7,
+      "id": 8,
       "title": "Google揭露Gemini Intelligence品牌，將Gemini深度整合至Android裝置",
       "link": "https://www.ithome.com.tw/news/175756",
       "publishedAt": "2026-05-13 11:05:15",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Best Western Hotel遭駭訂房資料外洩長達6個月",
       "link": "https://www.ithome.com.tw/news/175757",
       "publishedAt": "2026-05-13 11:05:11",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "蘋果針對旗下電腦、行動裝置、穿戴裝置發布作業系統26.5版更新，並為更多行動裝置修補通知服務漏洞",
       "link": "https://www.ithome.com.tw/news/175755",
       "publishedAt": "2026-05-13 11:05:05",
       "summary": "5月11日蘋果發布iOS 26.5與iPadOS 26.5、macOS Tahoe 26.5、tvOS 26.5、watchOS 26.5",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "OpenAI 推出 Daybreak 安全計畫，挑戰 Project Glasswing",
-      "link": "https://infosecu.technews.tw/2026/05/13/openai-introduces-daybreak/",
-      "publishedAt": "Wed, 13 May 2026 10:29:48 +0000",
-      "summary": "OpenAI 發表 Daybreak，這是一項聚焦在攻擊者發現之前便偵測並修補漏洞的 AI 計畫。 Daybr [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
