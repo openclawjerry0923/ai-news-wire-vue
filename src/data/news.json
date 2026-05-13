@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T09:46:24.072Z",
+  "generatedAt": "2026-05-13T12:06:08.356Z",
   "items": [
     {
       "id": 1,
@@ -21,6 +21,50 @@
     },
     {
       "id": 3,
+      "title": "fix(agents): surface memory-flush errors safely",
+      "link": "https://github.com/openclaw/openclaw/commit/0a9f7afb66db907475690ae0629aad8c6b927ea1",
+      "publishedAt": "2026-05-13T11:56:09Z",
+      "summary": "fix(agents): surface memory-flush errors safely Refs #80755. Replaces #80884. Verification: - pnpm test src/plugins/contracts/extension-runtime-dependencies.contract.test.ts src/auto-reply/reply/agent-runner-memory.test.ts - pnpm changed:lanes --json - git diff --check - node scripts/run-oxlint.mjs --tsconfig config/tsconfig/oxlint.scripts.json scripts/generate-plugin-inventory-doc.mjs scripts/deadcode-unused-files.allowlist.mjs - pnpm deadcode:unused-files - pnpm check:changed via Blacksmith Testbox tbx_01krgjhyx965k8ew4qg9nxq8yn - GitHub CI on PR #81387 head 695f694b70f5ad618eb4abd4e9d6344d11450d2d Co-authored-by: kinjitakabe",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): surface 記憶-flush errors safely",
+      "summaryZh": "重點：修正(agents): surface 記憶-flush errors safely Refs #80755. Replaces #80884. Verification: - pnpm test src/plugins/contracts..."
+    },
+    {
+      "id": 4,
+      "title": "docs: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)",
+      "link": "https://github.com/openclaw/openclaw/commit/c796b96d346e699c4b1b851750eec84410cae0e6",
+      "publishedAt": "2026-05-13T11:54:40Z",
+      "summary": "docs: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)",
+      "summaryZh": "重點：文件: add changelog for Claude CLI reseed (#80934) (thanks @bitloi)..."
+    },
+    {
+      "id": 5,
+      "title": "fix: reseed Claude CLI session context on rotation closes #80905",
+      "link": "https://github.com/openclaw/openclaw/commit/dd8aa1dcced99dc1b90868f2bba1b79eb9636093",
+      "publishedAt": "2026-05-13T11:54:40Z",
+      "summary": "fix: reseed Claude CLI session context on rotation closes #80905",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: reseed Claude CLI session context on rotation closes #80905",
+      "summaryZh": "重點：修正: reseed Claude CLI session context on rotation closes #80905..."
+    },
+    {
+      "id": 6,
+      "title": "Allow pnpm source updates to build OpenClaw (#81294)",
+      "link": "https://github.com/openclaw/openclaw/commit/ce31fc91e15d3ec6bc48700f12400d728a8ca808",
+      "publishedAt": "2026-05-13T11:30:08Z",
+      "summary": "Allow pnpm source updates to build OpenClaw (#81294) Merged via squash. Prepared head SHA: 4815d5a8c9ac5917933296ca30f690a350cc4599 Co-authored-by: fuller-stack-dev Co-authored-by: altaywtf Reviewed-by: @altaywtf",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：Allow pnpm source updates to build OpenClaw (#81294)",
+      "summaryZh": "重點：Allow pnpm source updates to build OpenClaw (#81294) Merged via squash. Prepared head SHA: 4815d5a8c9ac5917933296ca30f69..."
+    },
+    {
+      "id": 7,
       "title": "Google揭露Gemini Intelligence品牌，將Gemini深度整合至Android裝置",
       "link": "https://www.ithome.com.tw/news/175756",
       "publishedAt": "2026-05-13 11:05:15",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Best Western Hotel遭駭訂房資料外洩長達6個月",
       "link": "https://www.ithome.com.tw/news/175757",
       "publishedAt": "2026-05-13 11:05:11",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "蘋果針對旗下電腦、行動裝置、穿戴裝置發布作業系統26.5版更新，並為更多行動裝置修補通知服務漏洞",
       "link": "https://www.ithome.com.tw/news/175755",
       "publishedAt": "2026-05-13 11:05:05",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "Fortinet修補FortiSandbox、FortiAuthenticator重大RCE漏洞",
-      "link": "https://www.ithome.com.tw/news/175749",
-      "publishedAt": "2026-05-13 10:05:37",
-      "summary": "防火牆業者Fortinet本週發布軟體更新，分別修補旗下產品FortiSandbox和FortiAuthenticator的遠端程式碼執行（RCE）漏洞。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test: dedupe codex binding mock helper",
-      "link": "https://github.com/openclaw/openclaw/commit/62adbe0b8047c57d8ae52436b4b3a347304847b3",
-      "publishedAt": "2026-05-13T09:45:51Z",
-      "summary": "test: dedupe codex binding mock helper",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: dedupe codex binding mock helper",
-      "summaryZh": "重點：test: dedupe codex binding mock helper..."
-    },
-    {
-      "id": 8,
-      "title": "test: dedupe nostr mock call helper",
-      "link": "https://github.com/openclaw/openclaw/commit/80190249ec41469ba3b20923bd6f0547ae59356e",
-      "publishedAt": "2026-05-13T09:44:22Z",
-      "summary": "test: dedupe nostr mock call helper",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: dedupe nostr mock call helper",
-      "summaryZh": "重點：test: dedupe nostr mock call helper..."
-    },
-    {
-      "id": 9,
-      "title": "fix(config): normalize gemini subagent model writes",
-      "link": "https://github.com/openclaw/openclaw/commit/95901042d4ff2ea4335cf8677aee3d51ab784ae2",
-      "publishedAt": "2026-05-13T09:42:08Z",
-      "summary": "fix(config): normalize gemini subagent model writes",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): normalize gemini subagent 模型 writes",
-      "summaryZh": "重點：修正(config): normalize gemini subagent 模型 writes..."
-    },
-    {
       "id": 10,
-      "title": "Revert \"Check ClawHub trust before plugin installs (#81307)\" (#81363)",
-      "link": "https://github.com/openclaw/openclaw/commit/6c92324c5fb233102427075d9a2c0aafaeb5dd50",
-      "publishedAt": "2026-05-13T09:34:18Z",
-      "summary": "Revert \"Check ClawHub trust before plugin installs (#81307)\" (#81363) This reverts commit 87eb450047a98e281da55d2555df81dd87ee7f55.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Revert \"Check ClawHub trust before plugin installs (#81307)\" (#81363)",
-      "summaryZh": "重點：Revert \"Check ClawHub trust before plugin installs (#81307)\" (#81363) This reverts 提交 87eb450047a98e281da55d2555df81dd87..."
+      "title": "OpenAI 推出 Daybreak 安全計畫，挑戰 Project Glasswing",
+      "link": "https://infosecu.technews.tw/2026/05/13/openai-introduces-daybreak/",
+      "publishedAt": "Wed, 13 May 2026 10:29:48 +0000",
+      "summary": "OpenAI 發表 Daybreak，這是一項聚焦在攻擊者發現之前便偵測並修補漏洞的 AI 計畫。 Daybr [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
