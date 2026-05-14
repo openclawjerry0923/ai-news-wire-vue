@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-05-14T04:43:16.624Z",
+  "generatedAt": "2026-05-14T07:42:50.661Z",
   "items": [
     {
       "id": 1,
+      "title": "微軟修補Android版Teams漏洞，未更新可能導致偽造攻擊",
+      "link": "https://www.ithome.com.tw/news/175795",
+      "publishedAt": "2026-05-14 12:05:55",
+      "summary": "微軟近日揭露協作平臺Teams的漏洞CVE-2026-32185，可能被攻擊者用於假冒通訊內容，誘騙用戶並進一步發動社交工程攻擊，此漏洞會影響Android版Teams，微軟已在5月份例行更新（Patch Tuesday）中釋出修補，建議用戶儘速更新。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "教育平臺Canvas背後的母公司宣稱已與駭客達成協議，取回遭竊資料",
       "link": "https://www.ithome.com.tw/news/175788",
       "publishedAt": "2026-05-14 12:05:45",
@@ -11,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Meta推出Incognito Chat，主打AI對話完全私密",
       "link": "https://www.ithome.com.tw/news/175792",
       "publishedAt": "2026-05-14 12:05:44",
@@ -20,8 +29,8 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "Windows BitLocker與CTFMON存在零時差漏洞YellowKey、GreenPlasma",
+      "id": 4,
+      "title": "資安研究員揭露Windows BitLocker與CTFMON的零時差漏洞",
       "link": "https://www.ithome.com.tw/news/175782",
       "publishedAt": "2026-05-14 12:05:32",
       "summary": "日前因對微軟漏洞通報流程不滿的研究人員Chaotic Eclipse（Nightmare-Eclipse），上個月在微軟發布4月例行更新（Patch Tuesday）前後，公開Microsoft Defender一系列資安漏洞，包括BlueHammer（CVE-2026-33825）、RedSun、UnDefend，後續皆傳出已用於攻擊行動。這次該研究員在微軟發布5月例行更新之後，再度公布新的零時差漏洞，引起資安媒體的注意。",
@@ -29,7 +38,16 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
+      "title": "微軟將透過Windows Update遠端復原問題驅動程式，減少手動排除故障負擔",
+      "link": "https://www.ithome.com.tw/news/175801",
+      "publishedAt": "2026-05-14 12:05:30",
+      "summary": "Windows Update不只負責提供Windows系統更新，也常被用來發布硬體驅動程式；但若驅動程式更新存在品質問題，可能造成裝置異常，使用者甚至需要自行解除安裝或回復驅動程式。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "AWS與紅帽深化AI平臺合作，將代理式AI開發環境與AI晶片支援納入OpenShift生態系",
       "link": "https://www.ithome.com.tw/news/175793",
       "publishedAt": "2026-05-14 12:05:19",
@@ -38,66 +56,48 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "郵件傳輸代理伺服器Exim存在重大漏洞，影響採用程式庫GnuTLS進行通訊的環境",
-      "link": "https://www.ithome.com.tw/news/175781",
-      "publishedAt": "2026-05-14 12:05:13",
-      "summary": "郵件傳輸代理軟體系統Exim開發團隊5月12日發布資安公告，他們發布4.99.3版Exim，修補遠端的記憶體釋收後再存取使用（Use After Free）弱點，此漏洞存在於Exim的GnuTLS後端，攻擊者可遠端觸發，並造成記憶體資料損毀。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "AI自主網攻能力加速，資安任務長度每4.7個月翻倍",
-      "link": "https://www.ithome.com.tw/news/175789",
-      "publishedAt": "2026-05-14 11:05:59",
-      "summary": "英國AI安全研究所（AI Security Institute，AISI）週三（5/13）發布最新研究報告，利用名為Cyber Time Horizons的指標，衡量AI可自主完成多長時間的資安任務，並以人類資安專家的完成時間作為基準。AISI指出，自2024年底以來，先進AI模型可自主完成的資安任務長度大約每4.7個月翻倍，而最新的Claude Mythos Preview與GPT-5.5甚至已超出原本的成長趨勢。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "fix(agents): suppress aborted assistant output",
-      "link": "https://github.com/openclaw/openclaw/commit/dd4c68b5252d06e71af73d76b5548a6ef316548e",
-      "publishedAt": "2026-05-14T04:41:59Z",
-      "summary": "fix(agents): suppress aborted assistant output Summary: - Suppress aborted embedded-run assistant partials, reasoning text, reply directives, and stale previous-assistant fallback output. - Preserve clean timeout/error payloads, tool/media payloads, and compaction bookkeeping for non-aborted delivery paths. - Add focused regressions for aborted partial text, reasoning text, stale fallback, and timeout delivery. Verification: - git diff --check HEAD~1..HEAD - PATH=/Users/buns/.nvm/versions/node/v22.22.2/bin:$PATH pnpm exec oxfmt --check --threads=1 CHANGELOG.md src/agents/pi-embedded-runner/run.ts src/agents/pi-embedded-runner/run/payloads.errors.test.ts src/agents/pi-embedded-runner/run/payloads.ts - PATH=/Users/buns/.nvm/versions/node/v22.22.2/bin:$PATH pnpm test src/agents/pi-embedded-runner/run/payloads.errors.test.ts src/agents/pi-embedded-runner/run/payloads.test.ts -- --reporter=verbose - PATH=/Users/buns/.nvm/versions/node/v22.22.2/bin:$PATH pnpm test src/agents/pi-embedded-runner/run.overflow-compaction.loop.test.ts src/auto-reply/reply/agent-runner-execution.test.ts src/auto-reply/reply/agent-runner.misc.runreplyagent.test.ts src/auto-reply/reply/get-reply-run-queue.test.ts src/auto-reply/reply/abort.test.ts -- --reporter=verbose - PATH=/Users/buns/.nvm/versions/node/v22.22.2/bin:$PATH pnpm test src/auto-reply/inbound.test.ts -- --reporter=verbose - PATH=/Users/buns/.nvm/versions/node/v22.22.2/bin:$PATH pnpm check:changed - GitHub CI run 25841945093 passed, including checks-node-auto-reply-core-top-level, checks-node-core, and build-artifacts. - Real behavior proof run 25841947282 passed. Fixes #48241 Thanks @BunsDev",
+      "title": "fix(ci): restore main build",
+      "link": "https://github.com/openclaw/openclaw/commit/bfc798bd0b2aba02985f1aa0403b5903c5f6c096",
+      "publishedAt": "2026-05-14T07:38:49Z",
+      "summary": "fix(ci): restore main build",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): suppress aborted assistant output",
-      "summaryZh": "重點：修正(agents): suppress aborted assistant output Summary: - Suppress aborted embedded-run assistant partials, reasoning tex..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore main build",
+      "summaryZh": "重點：修正(ci): restore main build..."
     },
     {
       "id": 8,
-      "title": "test(matrix): guard externalized runtime deps",
-      "link": "https://github.com/openclaw/openclaw/commit/89987df3d5310851a900e4d29eca583e4bb3625e",
-      "publishedAt": "2026-05-14T04:38:17Z",
-      "summary": "test(matrix): guard externalized runtime deps",
+      "title": "docs: clarify landing recap requirement",
+      "link": "https://github.com/openclaw/openclaw/commit/32f89760e38cb7d192f100dbb46d16163a454ae5",
+      "publishedAt": "2026-05-14T07:37:30Z",
+      "summary": "docs: clarify landing recap requirement",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(matrix): guard externalized runtime deps",
-      "summaryZh": "重點：test(matrix): guard externalized runtime deps..."
+      "titleZh": "OpenClaw 文件更新：文件: clarify landing recap requirement",
+      "summaryZh": "重點：文件: clarify landing recap requirement..."
     },
     {
       "id": 9,
-      "title": "changelog: cover three @sjf codex-migrate UX fixes",
-      "link": "https://github.com/openclaw/openclaw/commit/b97b5d6f229e3c3e4080609ad22f45b04a748393",
-      "publishedAt": "2026-05-14T04:36:45Z",
-      "summary": "changelog: cover three @sjf codex-migrate UX fixes - humanize MIGRATION_REASON_* codes in conflict-status messaging - swap migrate glyphs for manual-review (🔍) and archive (📖) items - split codex-migrate output into preview + result phases",
+      "title": "build: keep external provider deps out of core dist",
+      "link": "https://github.com/openclaw/openclaw/commit/11017c93cf14293e9a5ab6db4ad147d9be648026",
+      "publishedAt": "2026-05-14T07:29:10Z",
+      "summary": "build: keep external provider deps out of core dist",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：changelog: cover three @sjf codex-migrate UX 修正",
-      "summaryZh": "重點：changelog: cover three @sjf codex-migrate UX 修正 - humanize MIGRATION_REASON_* codes in conflict-status messaging - swap ..."
+      "titleZh": "OpenClaw 程式碼更新：build: keep external provider deps out of core dist",
+      "summaryZh": "重點：build: keep external provider deps out of core dist..."
     },
     {
       "id": 10,
-      "title": "docs: align Slack docs for socket mode and troubleshooting (#81647)",
-      "link": "https://github.com/openclaw/openclaw/commit/aa39107261dd395a369a4a65dfd9bbae2badafe4",
-      "publishedAt": "2026-05-14T04:34:30Z",
-      "summary": "docs: align Slack docs for socket mode and troubleshooting (#81647)",
+      "title": "fix(mattermost): gate delivery success log",
+      "link": "https://github.com/openclaw/openclaw/commit/643dea2455ec1e9794adfc4681a707ffecdeea50",
+      "publishedAt": "2026-05-14T07:29:07Z",
+      "summary": "fix(mattermost): gate delivery success log",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: align Slack 文件 for socket mode and troubleshooting (#81647)",
-      "summaryZh": "重點：文件: align Slack 文件 for socket mode and troubleshooting (#81647)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mattermost): gate delivery success log",
+      "summaryZh": "重點：修正(mattermost): gate delivery success log..."
     }
   ]
 }
