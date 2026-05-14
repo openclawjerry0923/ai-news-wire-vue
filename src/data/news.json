@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-14T21:11:13.243Z",
+  "generatedAt": "2026-05-14T22:57:52.151Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(skills): sync managed symlink skills as directories",
-      "link": "https://github.com/openclaw/openclaw/commit/926bf66ee3369ba538f92d63ac8cbc9ee9fe3416",
-      "publishedAt": "2026-05-14T21:11:01Z",
-      "summary": "fix(skills): sync managed symlink skills as directories",
+      "title": "fix(plugins): expose effective context budget in hooks",
+      "link": "https://github.com/openclaw/openclaw/commit/eb4e20ca1da2a2e667137bd1724d76ef91b483c7",
+      "publishedAt": "2026-05-14T22:51:53Z",
+      "summary": "fix(plugins): expose effective context budget in hooks Add optional context budget/source/reference metadata to plugin hook contexts plus llm_output and sanitized model_call_* hook events. Thread the existing resolved context-window info through Pi embedded runs, CLI harness runs, and Codex app-server hook emission so plugins can observe the effective budget after agent/model/config caps. Document the metadata and cover the CLI, Pi, Codex app-server, and model-call paths with focused tests. Fixes #64327.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): sync managed symlink skills as directories",
-      "summaryZh": "重點：修正(skills): sync managed symlink skills as directories..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): expose effective context budget in hooks",
+      "summaryZh": "重點：修正(plugins): expose effective context budget in hooks Add optional context budget/source/reference metadata to plugin ho..."
     },
     {
       "id": 2,
-      "title": "fix(skills): trust managed skill symlink roots",
-      "link": "https://github.com/openclaw/openclaw/commit/cca4f3c63cc198a3fe3ef5e44042110e4ae8a0b1",
-      "publishedAt": "2026-05-14T21:11:01Z",
-      "summary": "fix(skills): trust managed skill symlink roots",
+      "title": "fix: use Codex context windows for OpenAI runtime (#81906)",
+      "link": "https://github.com/openclaw/openclaw/commit/4004c9342d7dcc78fd33a94b248d5420f3b92f3f",
+      "publishedAt": "2026-05-14T22:38:50Z",
+      "summary": "fix: use Codex context windows for OpenAI runtime (#81906) * fix: use Codex context windows for OpenAI runtime * test: satisfy status model fixture types * fix: note Codex context window budget fix",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): trust managed skill symlink roots",
-      "summaryZh": "重點：修正(skills): trust managed skill symlink roots..."
+      "titleZh": "OpenClaw 程式碼更新：修正: use Codex context windows for OpenAI runtime (#81906)",
+      "summaryZh": "重點：修正: use Codex context windows for OpenAI runtime (#81906) * 修正: use Codex context windows for OpenAI runtime * test: sat..."
     },
     {
       "id": 3,
-      "title": "v2026.5.14-beta.1",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.14-beta.1",
-      "publishedAt": "2026-05-14T21:07:42Z",
-      "summary": "OpenClaw 2026.5.14 beta 1",
-      "source": "OpenClaw Releases",
+      "title": "docs: restore 2026.5.12 changelog section (#81943)",
+      "link": "https://github.com/openclaw/openclaw/commit/9cfb4c747a035e00dfd2f1ba1ff448d984e744d4",
+      "publishedAt": "2026-05-14T22:36:04Z",
+      "summary": "docs: restore 2026.5.12 changelog section (#81943)",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.5.14-beta.1",
-      "summaryZh": "重點：OpenClaw 2026.5.14 beta 1..."
+      "titleZh": "OpenClaw 文件更新：文件: restore 2026.5.12 changelog section (#81943)",
+      "summaryZh": "重點：文件: restore 2026.5.12 changelog section (#81943)..."
     },
     {
       "id": 4,
-      "title": "fix: narrow ACP timeout config suppression (#81603)",
-      "link": "https://github.com/openclaw/openclaw/commit/f8ae0fb1c4ff47d6e2693653e1a9d2757ef43fd3",
-      "publishedAt": "2026-05-14T21:01:40Z",
-      "summary": "fix: narrow ACP timeout config suppression (#81603)",
+      "title": "fix(control-ui): make log stream height responsive",
+      "link": "https://github.com/openclaw/openclaw/commit/70ed7c987370435715e445ee2236a815cda96fd0",
+      "publishedAt": "2026-05-14T22:21:23Z",
+      "summary": "fix(control-ui): make log stream height responsive Summary: - Replace the fixed 500px Control UI Logs stream cap with a viewport-responsive max-height plus a 200px floor. - Keep the offset documented inline and add the changelog entry for #53916. Verification: - git diff --check origin/main...HEAD - git merge-tree --name-only origin/main HEAD - node assertion confirmed `.log-stream` has `max-height: calc(100vh - 280px)`, `min-height: 200px`, and no `max-height: 500px` - Source path check confirmed `renderLogs` renders the affected `.log-stream` container Maintainer note: - Real behavior proof requirement intentionally overridden by maintainer proof comment: https://github.com/openclaw/openclaw/pull/53916#issuecomment-4455196712",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: narrow ACP timeout config suppression (#81603)",
-      "summaryZh": "重點：修正: narrow ACP timeout config suppression (#81603)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): make log stream height responsive",
+      "summaryZh": "重點：修正(control-ui): make log stream height responsive Summary: - Replace the 修正 500px Control UI Logs stream cap with a view..."
     },
     {
       "id": 5,
