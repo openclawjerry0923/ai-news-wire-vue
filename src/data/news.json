@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-15T12:54:21.599Z",
+  "generatedAt": "2026-05-15T15:14:57.309Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(slack): clarify finalized draft guard",
-      "link": "https://github.com/openclaw/openclaw/commit/56303b96d0774a0dfc1d7bbe80cdbb017b1eac36",
-      "publishedAt": "2026-05-15T12:48:55Z",
-      "summary": "fix(slack): clarify finalized draft guard",
+      "title": "fix: keep Discord prompt metadata structured (#82168)",
+      "link": "https://github.com/openclaw/openclaw/commit/bbf50a406eeeba3637e2dc8349657c12620aab07",
+      "publishedAt": "2026-05-15T15:12:11Z",
+      "summary": "fix: keep Discord prompt metadata structured (#82168)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): clarify finalized draft guard",
-      "summaryZh": "重點：修正(slack): clarify finalized draft guard..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep Discord prompt metadata structured (#82168)",
+      "summaryZh": "重點：修正: keep Discord prompt metadata structured (#82168)..."
     },
     {
       "id": 2,
-      "title": "fix(slack): preserve finalized draft after tool warning",
-      "link": "https://github.com/openclaw/openclaw/commit/2b7c150de39c17c3687b489ec30d12ca13b04cb4",
-      "publishedAt": "2026-05-15T12:48:55Z",
-      "summary": "fix(slack): preserve finalized draft after tool warning",
-      "source": "OpenClaw Commits",
+      "title": "v2026.5.14-beta.3",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.14-beta.3",
+      "publishedAt": "2026-05-15T15:07:17Z",
+      "summary": "openclaw 2026.5.14-beta.3",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): preserve finalized draft after tool warning",
-      "summaryZh": "重點：修正(slack): preserve finalized draft after tool warning..."
+      "titleZh": "OpenClaw 最新動態：v2026.5.14-beta.3",
+      "summaryZh": "重點：OpenClaw 2026.5.14-beta.3..."
     },
     {
       "id": 3,
-      "title": "fix(twitch): keep account monitor alive until abort (#81853)",
-      "link": "https://github.com/openclaw/openclaw/commit/b67bcd93cc9ea94e6798d0809e3b7d6e98d71c42",
-      "publishedAt": "2026-05-15T12:47:10Z",
-      "summary": "fix(twitch): keep account monitor alive until abort (#81853) Summary: - Keep Twitch startAccount alive until abort via runStoppablePassiveMonitor. - Add lifecycle regression coverage and env-gated live Twitch IRC proof. - Add changelog credit for #60071 / #81853. Verification: - pnpm test extensions/twitch/src/plugin.lifecycle.test.ts extensions/twitch/src/plugin.test.ts extensions/twitch/src/twitch-client.test.ts src/gateway/server-channels.test.ts - pnpm exec oxfmt --check --threads=1 extensions/twitch/src/plugin.ts extensions/twitch/src/plugin.lifecycle.test.ts extensions/twitch/src/plugin.live.test.ts CHANGELOG.md - pnpm test:live -- extensions/twitch/src/plugin.live.test.ts (skipped without Twitch live credentials) - codex-review --mode branch --parallel-tests targeted Twitch/gateway tests - GitHub checks on aea52056c6d7b487a86c6f3b9c6b69fe86e44413 green Fixes #60071. Co-authored-by: 許元豪",
+      "title": "refactor: run prepared Discord and Slack turns",
+      "link": "https://github.com/openclaw/openclaw/commit/2eee70e0a64b4dcef7de908abcd52d6cd5e51d87",
+      "publishedAt": "2026-05-15T15:06:22Z",
+      "summary": "refactor: run prepared Discord and Slack turns Route Discord and Slack prepared message turns through the core prepared-turn runner directly. Local proof before landing: - node scripts/run-vitest.mjs src/channels/turn/kernel.test.ts extensions/discord/src/monitor/message-handler.process.test.ts extensions/slack/src/monitor/message-handler/prepare.test.ts extensions/slack/src/monitor/message-handler/dispatch.preview-fallback.test.ts - node scripts/run-tsgo.mjs -p tsconfig.core.json --incremental false - node scripts/run-tsgo.mjs -p tsconfig.extensions.json --incremental false - OPENCLAW_TESTBOX_REMOTE_RUN=1 OPENCLAW_VITEST_MAX_WORKERS=1 pnpm check:changed - codex-review clean after accepted Slack bot-loop history cleanup finding was fixed in core GitHub checks had no failures; Blacksmith/GitHub runner jobs were still queued when maintainer approved landing based on local proof.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(twitch): keep account monitor alive until abort (#81853)",
-      "summaryZh": "重點：修正(twitch): keep account monitor alive until abort (#81853) Summary: - Keep Twitch startAccount alive until abort via ru..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: run prepared Discord and Slack turns",
+      "summaryZh": "重點：refactor: run prepared Discord and Slack turns Route Discord and Slack prepared message turns through the core prepared-..."
     },
     {
       "id": 4,
-      "title": "docs: require codex review before landing",
-      "link": "https://github.com/openclaw/openclaw/commit/e0f7dafcea7dd623b79ddb778f84fb2c53bb8f85",
-      "publishedAt": "2026-05-15T12:41:34Z",
-      "summary": "docs: require codex review before landing",
+      "title": "fix: surface cron model override diagnostics",
+      "link": "https://github.com/openclaw/openclaw/commit/369917ff79d6153f15a0accd6926aa1f00fc9ef2",
+      "publishedAt": "2026-05-15T15:04:49Z",
+      "summary": "fix: surface cron model override diagnostics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: require codex review before landing",
-      "summaryZh": "重點：文件: require codex review before landing..."
+      "titleZh": "OpenClaw 程式碼更新：修正: surface 排程 模型 override diagnostics",
+      "summaryZh": "重點：修正: surface 排程 模型 override diagnostics..."
     },
     {
       "id": 5,
@@ -92,10 +92,10 @@
     },
     {
       "id": 10,
-      "title": "Red Hat擴展主權雲與私有雲能力，強化資料駐留、區域支援與AI模型生命週期控管",
-      "link": "https://www.ithome.com.tw/news/175829",
-      "publishedAt": "2026-05-15 10:05:42",
-      "summary": "開源解決方案供應商Red Hat（紅帽）宣布擴展主權雲（sovereign cloud）與私有雲（private cloud）功能，更新項目涵蓋合規自動化、隔離式部署、區域內支援與AI服務部署，回應企業在資料駐留（data residency）、法規遵循與關鍵工作負載控管等議題的需求。",
+      "title": "VS Code改進代理式開發介面，Agents Window可跨多專案管理代理工作階段",
+      "link": "https://www.ithome.com.tw/news/175862",
+      "publishedAt": "2026-05-15 10:05:48",
+      "summary": "微軟發布VS Code 1.120，主要變更之一是代理視窗（Agents Window）進入VS Code Stable預覽階段。Agents Window讓開發者能在VS Code中以獨立視窗管理代理式開發工作，而原本主要編輯器視窗中的AI聊天介面仍可使用，但Agents Window更強調多專案、多代理工作階段的管理。",
       "source": "iThome",
       "tag": "繁中"
     }
