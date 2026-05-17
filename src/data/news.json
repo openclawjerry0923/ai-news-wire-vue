@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-17T17:58:22.901Z",
+  "generatedAt": "2026-05-17T19:21:22.812Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "test: stabilize live subagent steering",
-      "link": "https://github.com/openclaw/openclaw/commit/800a0d316636d426feb237476f3e006336f609db",
-      "publishedAt": "2026-05-17T17:45:44Z",
-      "summary": "test: stabilize live subagent steering",
+      "title": "fix(doctor): detect stale session snapshot paths (#82867)",
+      "link": "https://github.com/openclaw/openclaw/commit/fb53c2d610924e78b308765ece0dc4f1c7f8002a",
+      "publishedAt": "2026-05-17T19:12:25Z",
+      "summary": "fix(doctor): detect stale session snapshot paths (#82867) * fix(doctor): detect stale session snapshot paths Warn when cached session snapshot metadata still references bundled skill paths from inactive OpenClaw runtime roots, while keeping workspace skill roots and current runtime paths quiet. * fix(doctor): honor configured session stores * fix(doctor): scan raw snapshot paths Expand home-relative cached snapshot paths before stale bundled-skill classification and scan raw session-store JSON so persisted resolvedSkills are inspected before normal session-store normalization strips them.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: stabilize live subagent steering",
-      "summaryZh": "重點：test: stabilize live subagent steering..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): detect stale session snapshot paths (#82867)",
+      "summaryZh": "重點：修正(文件tor): detect stale session snapshot paths (#82867) * 修正(文件tor): detect stale session snapshot paths Warn when cache..."
     },
     {
       "id": 3,
-      "title": "Fix clipped usage chart tooltip (#82846)",
-      "link": "https://github.com/openclaw/openclaw/commit/a5a5df67da358dc571b4d25a2ad270995b82d9dd",
-      "publishedAt": "2026-05-17T17:25:23Z",
-      "summary": "Fix clipped usage chart tooltip (#82846) Summary: - The PR replaces per-bar absolute Usage chart tooltips with one viewport-fixed floating tooltip and adds focus/keyboard handling plus focused jsdom coverage. - Reproducibility: yes. at source level. Current main renders an absolute `.daily-bar-tooltip` inside `.daily- ... ` overflow contexts, and the linked issue plus PR before screenshot demonstrate the tall-bar clipping case. Automerge notes: - PR branch already contained follow-up commit before automerge: Merge branch 'main' into fix-usage-tooltip-clipping Validation: - ClawSweeper review passed for head edbb26a5be49bb3d459cb2517267926667eb3ed2. - Required merge gates passed before the squash merge. Prepared head SHA: edbb26a5be49bb3d459cb2517267926667eb3ed2 Review: https://github.com/openclaw/openclaw/pull/82846#issuecomment-4468967811 Co-authored-by: sandypockets Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "fix(agents): persist subagent registry before returning accepted (#83…",
+      "link": "https://github.com/openclaw/openclaw/commit/214f718be7b36c2853e81c4a6a7350be99989895",
+      "publishedAt": "2026-05-17T19:11:01Z",
+      "summary": "fix(agents): persist subagent registry before returning accepted (#83132) (#83238) Summary: - This PR adds a strict initial subagent registry persistence path, rolls back failed registrations, updates affected test seams, adds a regression test, and records the fix in the changelog. - Reproducibility: yes. Source inspection on current main shows registry save failures are swallowed after the ... s added, and the linked source PR provides an ENOSPC-style after-fix terminal proof for the corrected path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(agents): persist subagent registry before returning accepted (#83… Validation: - ClawSweeper review passed for head d564ef051d37595b08e08bd47f81e11b388909b4. - Required merge gates passed before the squash merge. Prepared head SHA: d564ef051d37595b08e08bd47f81e11b388909b4 Review: https://github.com/openclaw/openclaw/pull/83238#issuecomment-4472173642 Co-authored-by: yetval Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 clipped usage chart tooltip (#82846)",
-      "summaryZh": "重點：修正 clipped usage chart tooltip (#82846) Summary: - The PR replaces per-bar absolute Usage chart tooltips with one viewpo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): persist subagent registry before returning accepted (#83…",
+      "summaryZh": "重點：修正(agents): persist subagent registry before returning accepted (#83132) (#83238) Summary: - This PR adds a strict initi..."
     },
     {
       "id": 4,
-      "title": "fix(ci): clear Mantis command reactions (#83194)",
-      "link": "https://github.com/openclaw/openclaw/commit/0f1f9525f32a806d7925d737c63d0647e51757f6",
-      "publishedAt": "2026-05-17T17:22:01Z",
-      "summary": "fix(ci): clear Mantis command reactions (#83194) * fix(ci): clear mantis command reactions * fix(ci): clear Mantis command reactions --------- Co-authored-by: clawsweeper",
+      "title": "fix(codex): preserve streamed command output (#83222)",
+      "link": "https://github.com/openclaw/openclaw/commit/f36a1b0c8120c8d6c5a691daf405a9a1e188ca2d",
+      "publishedAt": "2026-05-17T18:41:00Z",
+      "summary": "fix(codex): preserve streamed command output (#83222) Summary: - The PR buffers Codex command-output deltas per command item and uses them as a fallback for transcripts, trajectory output, final tool output, and after-tool-call errors when `aggregatedOutput` is empty. - Reproducibility: yes. A source-level reproduction is clear: send current-turn command-output delta notificat ... aggregatedOutput: null`; current main has no final transcript or trajectory fallback for the streamed text. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(codex): preserve streamed command output Validation: - ClawSweeper review passed for head 07393a304f26c589d125516a7269120dc14ec0ca. - Required merge gates passed before the squash merge. Prepared head SHA: 07393a304f26c589d125516a7269120dc14ec0ca Review: https://github.com/openclaw/openclaw/pull/83222#issuecomment-4472054629 Co-authored-by: 0x505badc0de Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): clear Mantis command reactions (#83194)",
-      "summaryZh": "重點：修正(ci): clear Mantis command reactions (#83194) * 修正(ci): clear mantis command reactions * 修正(ci): clear Mantis command ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve streamed command output (#83222)",
+      "summaryZh": "重點：修正(codex): preserve streamed command output (#83222) Summary: - The PR buffers Codex command-output deltas per command i..."
     },
     {
       "id": 5,
-      "title": "test: keep matrix subagent spawn opt-in",
-      "link": "https://github.com/openclaw/openclaw/commit/c3308b919557ce0d3f27916c9a70f289af97bf56",
-      "publishedAt": "2026-05-17T17:20:54Z",
-      "summary": "test: keep matrix subagent spawn opt-in",
+      "title": "fix(agents): preserve run-mode keep subagents past session sweep TTL …",
+      "link": "https://github.com/openclaw/openclaw/commit/3e765263dd6ab3182f78e6e0f758a791a4b2b7c9",
+      "publishedAt": "2026-05-17T18:27:53Z",
+      "summary": "fix(agents): preserve run-mode keep subagents past session sweep TTL (#83132) (#83226) Summary: - The PR exempts run-mode `cleanup: \"keep\"` subagent registry entries from the session-mode sweep TTL, adds focused regression coverage, and records the fix in the changelog. - Reproducibility: yes. Current main source shows a run-mode keep entry has no `archiveAtMs` and then matches ... ; the linked source PR also provides before/after terminal proof against a real persisted `runs.json` path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(agents): preserve run-mode keep subagents past session sweep TTL … Validation: - ClawSweeper review passed for head 32faf5cf329f41a5aa00bff25eda8904dfca231b. - Required merge gates passed before the squash merge. Prepared head SHA: 32faf5cf329f41a5aa00bff25eda8904dfca231b Review: https://github.com/openclaw/openclaw/pull/83226#issuecomment-4472073823 Co-authored-by: yetval Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: keep matrix subagent spawn opt-in",
-      "summaryZh": "重點：test: keep matrix subagent spawn opt-in..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve run-mode keep subagents past session sweep TTL …",
+      "summaryZh": "重點：修正(agents): preserve run-mode keep subagents past session sweep TTL (#83132) (#83226) Summary: - The PR exempts run-mode..."
     },
     {
       "id": 6,
