@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-17T20:54:23.455Z",
+  "generatedAt": "2026-05-17T21:56:53.815Z",
   "items": [
     {
       "id": 1,
@@ -12,6 +12,28 @@
     },
     {
       "id": 2,
+      "title": "fix(gateway): keep unmanaged restarts in-process (#83138)",
+      "link": "https://github.com/openclaw/openclaw/commit/c93d6d8daa37fadbbd98611f08c7489b3dc14097",
+      "publishedAt": "2026-05-17T21:19:05Z",
+      "summary": "fix(gateway): keep unmanaged restarts in-process (#83138) Summary: - The PR changes ordinary unmanaged gateway restarts to return the existing in-process fallback instead of detached-spawning a replacement child, with focused tests, docs wording, and a changelog entry. - Reproducibility: yes. at source level: current main and v2026.5.12 detach-spawn unmanaged ordinary restarts, ... e PR body also supplies after-fix terminal proof that the patched helper returns disabled without spawning. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 8c82df6c776f746cf4fd99ccccfb366cb34e25c6. - Required merge gates passed before the squash merge. Prepared head SHA: 8c82df6c776f746cf4fd99ccccfb366cb34e25c6 Review: https://github.com/openclaw/openclaw/pull/83138#issuecomment-4471071848 Co-authored-by: mjamiv Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep unmanaged restarts in-process (#83138)",
+      "summaryZh": "重點：修正(Gateway): keep unmanaged restarts in-process (#83138) Summary: - The PR changes ordinary unmanaged Gateway restarts t..."
+    },
+    {
+      "id": 3,
+      "title": "Fix Telegram stop debounce bypass (#83248)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa71f7fe15685a00b76fd088e33cab8d5a9066ab",
+      "publishedAt": "2026-05-17T21:10:53Z",
+      "summary": "Fix Telegram stop debounce bypass (#83248) Summary: - The PR adds a generic inbound debounce `cancelKey`, uses Telegram stop-like controls to cancel same-chat pen ... buffers and bypass debounce, and adds focused Telegram regression coverage plus updated channel test mocks. - Reproducibility: yes. by source inspection: current main enqueues Telegram text through inbound debounce bef ... nly has flush semantics for pending keyed work. I did not run a live Telegram repro in this read-only pass. Automerge notes: - PR branch already contained follow-up commit before automerge: Fix Telegram stop debounce bypass Validation: - ClawSweeper review passed for head 19245a341de7ff7d8664a7e738179dfef6574822. - Required merge gates passed before the squash merge. Prepared head SHA: 19245a341de7ff7d8664a7e738179dfef6574822 Review: https://github.com/openclaw/openclaw/pull/83248#issuecomment-4472300906 Co-authored-by: VACInc Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正 Telegram stop debounce bypass (#83248)",
+      "summaryZh": "重點：修正 Telegram stop debounce bypass (#83248) Summary: - The PR adds a generic inbound debounce `cancelKey`, uses Telegram s..."
+    },
+    {
+      "id": 4,
       "title": "docs: fix building plugin typebox import",
       "link": "https://github.com/openclaw/openclaw/commit/d85a7c6b67bd34550fcbe4047b28c78b1db09e59",
       "publishedAt": "2026-05-17T20:36:09Z",
@@ -22,7 +44,7 @@
       "summaryZh": "重點：文件: 修正 building plugin typebox import..."
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "docs: clean up building plugins guide",
       "link": "https://github.com/openclaw/openclaw/commit/d0736919aa2518dbb582b0617df568b58bf7b235",
       "publishedAt": "2026-05-17T20:32:15Z",
@@ -31,28 +53,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 文件更新：文件: clean up building plugins guide",
       "summaryZh": "重點：文件: clean up building plugins guide Refactor 文件/plugins/building-plugins.md into the scoped plugin-author guide, preserv..."
-    },
-    {
-      "id": 4,
-      "title": "Log Telegram outbound delivery success (#83247)",
-      "link": "https://github.com/openclaw/openclaw/commit/bacc18a575ebbd12d83dd68d25e5b660c6045d26",
-      "publishedAt": "2026-05-17T19:46:31Z",
-      "summary": "Log Telegram outbound delivery success (#83247) Summary: - The PR adds info-level Telegram outbound send success logs for text/media sends, tracks accepted threadless ... s, and loads the OpenAI Codex external auth overlay for Codex plugin-harness runs with regression coverage. - Reproducibility: yes. there is a source-level reproduction path: the branch adds focused tests for Telegram ... mission/privacy and Codex auth overlay selection. I did not execute those tests in this read-only checkout. Automerge notes: - PR branch already contained follow-up commit before automerge: Use Codex auth overlay for scoped Codex runs - PR branch already contained follow-up commit before automerge: Add regression tests for Codex auth and Telegram send logs - PR branch already contained follow-up commit before automerge: Log Telegram outbound delivery success Validation: - ClawSweeper review passed for head b860487aef2f7970a853ba22cc9d250d1fffa8a0. - Required merge gates passed before the squash merge. Prepared head SHA: b860487aef2f7970a853ba22cc9d250d1fffa8a0 Review: https://github.com/openclaw/openclaw/pull/83247#issuecomment-4472287527 Co-authored-by: jrwrest Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Log Telegram outbound delivery success (#83247)",
-      "summaryZh": "重點：Log Telegram outbound delivery success (#83247) Summary: - The PR adds info-level Telegram outbound send success logs fo..."
-    },
-    {
-      "id": 5,
-      "title": "Doctor: add health-check contract and --lint validation (#80055)",
-      "link": "https://github.com/openclaw/openclaw/commit/9a5f2f61e76fcc66e5f5039236a7a0bd29bdf517",
-      "publishedAt": "2026-05-17T19:29:57Z",
-      "summary": "Doctor: add health-check contract and --lint validation (#80055) * feat(doctor): add --lint mode + structured HealthFinding shape Adds the core machinery for `openclaw doctor --lint` per the doctor-lint-and-oc-rules upstream proposal. PR-1 of the proposal: no new top-level verb, no public plugin SDK; everything internal. Files: - src/flows/checks.ts ? HealthFinding / HealthCheck / HealthCheckContext types. Findings carry severity per-finding; checks return readonly HealthFinding[]. Mode tag (doctor/lint/fix) lets a check distinguish the calling posture. - src/flows/health-check-registry.ts ? module-level registry with duplicate-id rejection + test reset helper. - src/flows/doctor-lint-flow.ts ? runner over registered checks. Catches throws into synthetic error findings (anchored at check id; message scrubbed of control chars, capped at 256 bytes). Sorts findings by severity desc, check id, path. Exports exitCodeFromFindings (1 if any warning/error, 0 otherwise). - src/flows/doctor-core-checks.ts ? 4 modern HealthChecks rewriting logic from existing legacy run*Health functions: core/doctor/gateway-config (warning) core/doctor/command-owner (info) core/doctor/workspace-status (info) core/doctor/final-config-validation (error) Each was audited safe per the proposal's adapter constraints (no writes, no repair calls, no prompts, no probes incl. local-bind). Legacy run*Health contributions in doctor-health-contributions.ts are unchanged ? doctor mode (no --lint) still runs the existing 35. - src/commands/doctor-lint.ts ? CLI dispatch for --lint. Reads config snapshot, builds HealthCheckContext (mode: \"lint\"), runs the registry, filters by --severity-min, emits human or JSON output, returns exit code from unfiltered set so --severity-min hides info findings without changing CI signal. - src/cli/program/register.maintenance.ts ? adds --lint, --json, --severity-min, --skip, --only flags to existing doctor command. --lint branches to runDoctorLintCli; without --lint, doctor runs unchanged. LoC: 382 src across 6 files. Tests + doc + oc-path-side rule packs follow as separate commits on this branch. * fix: avoid string spread in doctor errors * chore: refresh plugin SDK API baseline * docs: clarify doctor lint usage * feat(doctor): prepare repairs for dry-run reporting",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件tor: add health-check contract and --lint validation (#80055)",
-      "summaryZh": "重點：文件tor: add health-check contract and --lint validation (#80055) * 新功能(文件tor): add --lint mode + structured HealthFinding..."
     },
     {
       "id": 6,
