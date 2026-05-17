@@ -1,8 +1,79 @@
 {
-  "generatedAt": "2026-05-16T23:54:26.314Z",
+  "generatedAt": "2026-05-17T03:35:26.812Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(discord): recover truncated progress finals",
+      "link": "https://github.com/openclaw/openclaw/commit/549a0ea313104d213bbe90e924acd6027bbd84c7",
+      "publishedAt": "2026-05-17T03:26:35Z",
+      "summary": "fix(discord): recover truncated progress finals Summary: - Add shared SDK helpers for transcript-backed recovery of ellipsis-truncated final text. - Use the helper in Discord progress preview delivery so long answers fall through to normal chunked delivery with the full transcript text. - Refactor Telegram to reuse the shared helper. Verification: - node scripts/run-vitest.mjs src/plugin-sdk/channel-streaming.test.ts extensions/discord/src/monitor/message-handler.process.test.ts - pnpm exec oxfmt --check --threads=1 src/plugin-sdk/channel-streaming.ts src/plugin-sdk/channel-streaming.test.ts extensions/telegram/src/lane-delivery-text-deliverer.ts extensions/telegram/src/lane-delivery.ts extensions/telegram/src/bot-message-dispatch.ts extensions/discord/src/monitor/message-handler.process.ts extensions/discord/src/monitor/message-handler.process.test.ts - node scripts/run-tsgo.mjs -p test/tsconfig/tsconfig.extensions.test.json --incremental --tsBuildInfoFile .artifacts/tsgo-cache/extensions-test.tsbuildinfo - git diff --check - pnpm check:changed via Blacksmith Testbox tbx_01krsy80a5qgfw790nm45770xt - GitHub PR checks green on #82862 - codex-review --mode local: clean, no accepted/actionable findings Fixes #82807.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): recover truncated progress finals",
+      "summaryZh": "重點：修正(Discord): recover truncated progress finals Summary: - Add shared SDK helpers for transcript-backed recovery of ellip..."
+    },
+    {
+      "id": 2,
+      "title": "Fix heartbeat runner failure copy (#82848)",
+      "link": "https://github.com/openclaw/openclaw/commit/39a9a3478f1189b32fe0b72f5c2b2db224745663",
+      "publishedAt": "2026-05-17T03:23:22Z",
+      "summary": "Fix heartbeat runner failure copy (#82848) * fix: scope heartbeat runner failures * chore: add heartbeat failure changelog",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正 heartbeat runner failure copy (#82848)",
+      "summaryZh": "重點：修正 heartbeat runner failure copy (#82848) * 修正: scope heartbeat runner failures * chore: add heartbeat failure changelog..."
+    },
+    {
+      "id": 3,
+      "title": "fix: preserve Signal group session IDs (#82853)",
+      "link": "https://github.com/openclaw/openclaw/commit/45d9a09485716c831c1963d1b2de1ec4dc9db4be",
+      "publishedAt": "2026-05-17T03:20:51Z",
+      "summary": "fix: preserve Signal group session IDs (#82853)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve Signal group session IDs (#82853)",
+      "summaryZh": "重點：修正: preserve Signal group session IDs (#82853)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(sessions): prune malformed missing transcript rows (#82745)",
+      "link": "https://github.com/openclaw/openclaw/commit/f562690612608134d9c47121a5f276fc165e5960",
+      "publishedAt": "2026-05-17T03:19:56Z",
+      "summary": "fix(sessions): prune malformed missing transcript rows (#82745) Fix sessions cleanup pruning for malformed missing transcript rows and preserve metadata-only session rows. Thanks @IWhatsskill. Co-authored-by: JARVIS-Glasses",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): prune malformed missing transcript rows (#82745)",
+      "summaryZh": "重點：修正(sessions): prune malformed missing transcript rows (#82745) 修正 sessions cleanup pruning for malformed missing transcr..."
+    },
+    {
+      "id": 5,
+      "title": "重電、線纜族群業績強強滾，兩大關鍵推進器使「老產業」變 AI 時代新寵",
+      "link": "https://finance.technews.tw/2026/05/17/heavy-electrical-equipment-cable-sectors-booming-performance/",
+      "publishedAt": "Sun, 17 May 2026 03:00:42 +0000",
+      "summary": "「電力安全」絕對是今年各國最重要的戰略議題之一。中東衝突持續延燒，市場憂心能源運輸命脈荷莫茲海峽一旦受影響，恐 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "少子化逼出高科技國防，韓國攜手現代汽車用機器人填補 20% 的兵力斷層",
+      "link": "https://technews.tw/2026/05/17/south-korea-looks-to-hyundai-robots-as-army-numbers-shrink/",
+      "publishedAt": "Sun, 17 May 2026 02:30:23 +0000",
+      "summary": "面對全球最低出生率引發的人口結構危機，韓國維持了 70 年的兵役制度正遭遇前所未有的挑戰。過去六年間，韓國常備 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Apple Watch S12 外觀幾乎沒升級，且 Touch ID 可能不會現身",
+      "link": "https://technews.tw/2026/05/17/apple-watch-s12-touch-id/",
+      "publishedAt": "Sun, 17 May 2026 02:14:16 +0000",
+      "summary": "蘋果預計今年 9 月發表新一代 Apple Watch，而目前流出的消息顯示，Apple Watch Seri [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "微軟揭露Exchange Server存在8.1分重大漏洞，並已偵測到漏洞利用活動",
       "link": "https://www.ithome.com.tw/news/175877",
       "publishedAt": "2026-05-17 02:05:00",
@@ -11,91 +82,20 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix: simplify talk options panel",
-      "link": "https://github.com/openclaw/openclaw/commit/c2e90914b73519c4e7b578adb00623b7f8a33f14",
-      "publishedAt": "2026-05-16T23:42:54Z",
-      "summary": "fix: simplify talk options panel",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: simplify talk options panel",
-      "summaryZh": "重點：修正: simplify talk options panel..."
-    },
-    {
-      "id": 3,
-      "title": "fix(cli): improve config startup progress",
-      "link": "https://github.com/openclaw/openclaw/commit/12debcb05e60f3428d438198be7f1e1f36bd7c02",
-      "publishedAt": "2026-05-16T23:37:39Z",
-      "summary": "fix(cli): improve config startup progress",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): improve config startup progress",
-      "summaryZh": "重點：修正(cli): improve config startup progress..."
-    },
-    {
-      "id": 4,
-      "title": "fix(feishu): reject numeric wiki space ids (#82769) (thanks @hyspacex)",
-      "link": "https://github.com/openclaw/openclaw/commit/c528f3650775fdae616b4d76e6b5124f39d024e7",
-      "publishedAt": "2026-05-16T23:34:58Z",
-      "summary": "fix(feishu): reject numeric wiki space ids (#82769) (thanks @hyspacex)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): reject numeric wiki space ids (#82769) (thanks @hyspacex)",
-      "summaryZh": "重點：修正(feishu): reject numeric wiki space ids (#82769) (thanks @hyspacex)..."
-    },
-    {
-      "id": 5,
-      "title": "fix(feishu): reject numeric wiki space ids",
-      "link": "https://github.com/openclaw/openclaw/commit/3411a481f703928efbe0e8b505676167baea0084",
-      "publishedAt": "2026-05-16T23:34:58Z",
-      "summary": "fix(feishu): reject numeric wiki space ids",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): reject numeric wiki space ids",
-      "summaryZh": "重點：修正(feishu): reject numeric wiki space ids..."
-    },
-    {
-      "id": 6,
-      "title": "大型恆星級黑洞究竟如何產生？或為緻密星團黑洞碰撞產物",
-      "link": "https://technews.tw/2026/05/17/biggest-black-holes-built-up-in-busy-star-clusters-after-series-of-violent-merging-events/",
-      "publishedAt": "Sat, 16 May 2026 16:00:59 +0000",
-      "summary": "天文學家普遍認為一定質量以上的大質量恆星歷經超新星爆炸，最終會塌縮成恆星級黑洞，但某些恆星級黑洞質量卻有點太大 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "AI 分析游離 DNA，提早揪出無症狀肝病",
-      "link": "https://technews.tw/2026/05/17/new-ai-blood-test-detects-silent-liver-disease-before-symptoms-appear/",
-      "publishedAt": "Sat, 16 May 2026 16:00:42 +0000",
-      "summary": "約翰霍普金斯大學 Kimmel Cancer Center 的研究團隊開發出一種結合人工智慧的血液檢測，可透過 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "微軟聽進使用者心聲，將開放工作列自由移動和開始功能表大改版",
-      "link": "https://technews.tw/2026/05/16/windows-11-will-have-more-freedom-to-customize-taskbar-and-start-menu/",
-      "publishedAt": "Sat, 16 May 2026 07:41:31 +0000",
-      "summary": "微軟為了挽回使用者信任，近期終於在 Windows 11 放寬了備受討論的介面限制。 從近日測試人員釋出的版本 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
       "id": 9,
-      "title": "黃仁勳出席也沒用，川普證實中國拒買輝達 H200",
-      "link": "https://finance.technews.tw/2026/05/16/trump-said-china-refuses-to-buy-nvidia-h200/",
-      "publishedAt": "Sat, 16 May 2026 07:28:29 +0000",
-      "summary": "美國總統川普結束與中國國家主席習近平的雙邊峰會後證實，北京正拒絕讓中企購買輝達的 H200 AI 晶片，川普向 [&#8230;]",
+      "title": "Z 世代擠爆紐約教堂！短影音助攻，年輕人為何重新擁抱傳統信仰",
+      "link": "https://technews.tw/2026/05/17/weekend-church-visits-become-new-social-trend-among-young-new-yorkers/",
+      "publishedAt": "Sun, 17 May 2026 02:00:18 +0000",
+      "summary": "位在紐約的聖若瑟堂（St. Joseph’s Church），每週日晚上六點的彌撒，如今就像是一場門票供不應求 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "中國用 AI 自習室盯孩子坐姿、回傳學習進度，真能把孩子教育交給 AI 嗎？",
-      "link": "https://technews.tw/2026/05/16/china-to-rely-on-artificial-intelligence-in-education-reform-bid/",
-      "publishedAt": "Sat, 16 May 2026 07:00:56 +0000",
-      "summary": "2023 年 ChatGPT 開啟 AI 元年後，人工智慧逐漸改變多數人的生活，這股「AI 瘋」也逐漸吹向中國 [&#8230;]",
+      "title": "印度晶片夢玩真的！ASML 攜塔塔集團蓋 12 吋晶圓廠",
+      "link": "https://finance.technews.tw/2026/05/17/made-in-india-asml-tata/",
+      "publishedAt": "Sun, 17 May 2026 01:53:32 +0000",
+      "summary": "全球半導體供應鏈正在出現新變數，繼 AI 熱潮推升晶片需求後，印度如今也正式加速搶進半導體製造市場。 據《彭博 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
