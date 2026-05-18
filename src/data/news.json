@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-18T17:29:47.648Z",
+  "generatedAt": "2026-05-18T19:45:54.154Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): prevent reading indicator from sticking after assistant resp…",
-      "link": "https://github.com/openclaw/openclaw/commit/a4f80f905d94f58f78f201cfbec650c6780be675",
-      "publishedAt": "2026-05-18T17:28:26Z",
-      "summary": "fix(ui): prevent reading indicator from sticking after assistant response (#83711) Summary: - The PR removes the Control UI chat fallback that converts a null stream into an empty stream for abortable runs, adds null-vs-empty stream regression tests, and updates the changelog. - Reproducibility: yes. source-level reproduction is high confidence: current main converts null stream plus c ... ading indicator. The linked source PR also reports live Control UI verification after the equivalent patch. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(ui): prevent reading indicator from sticking after assistant resp… Validation: - ClawSweeper review passed for head 44bea55110f3b0b3a267d080e9da293d3fd21147. - Required merge gates passed before the squash merge. Prepared head SHA: 44bea55110f3b0b3a267d080e9da293d3fd21147 Review: https://github.com/openclaw/openclaw/pull/83711#issuecomment-4480128171 Co-authored-by: 二狗子 Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "fix(ci): preserve Barnacle proof labels (#83735)",
+      "link": "https://github.com/openclaw/openclaw/commit/c92ebd6a4104af7805ecd9eca9f694985fe8913e",
+      "publishedAt": "2026-05-18T19:37:20Z",
+      "summary": "fix(ci): preserve Barnacle proof labels (#83735) * fix(ci): preserve sufficient proof override * fix(ci): keep sufficient proof on label churn",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent reading indicator from sticking after assistant resp…",
-      "summaryZh": "重點：修正(ui): prevent reading indicator from sticking after assistant response (#83711) Summary: - The PR removes the Control ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): preserve Barnacle proof labels (#83735)",
+      "summaryZh": "重點：修正(ci): preserve Barnacle proof labels (#83735) * 修正(ci): preserve sufficient proof override * 修正(ci): keep sufficient p..."
     },
     {
       "id": 2,
-      "title": "feat(cli): support installing skills to shared global directory via -…",
-      "link": "https://github.com/openclaw/openclaw/commit/57028585538cbed45944093248552e4d7233e5fc",
-      "publishedAt": "2026-05-18T17:22:00Z",
-      "summary": "feat(cli): support installing skills to shared global directory via --global (#83705) Summary: - Adds `--global` to `openclaw skills install` and `openclaw skills update`, routing ClawHub installs and updates to the shared managed skills root with docs, changelog, and CLI command tests. - Reproducibility: not applicable. as a bug reproduction; this is a new CLI feature request. Source inspection confirms current `main` lacks `--global`, and the source PR includes after-fix terminal proof for the new path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(cli): address skills global review - PR branch already contained follow-up commit before automerge: feat(cli): support installing skills to shared global directory via -… Validation: - ClawSweeper review passed for head 6eb7187fc16d6e4419a3b3b44213935e7f32f663. - Required merge gates passed before the squash merge. Prepared head SHA: 6eb7187fc16d6e4419a3b3b44213935e7f32f663 Review: https://github.com/openclaw/openclaw/pull/83705#issuecomment-4480023577 Co-authored-by: Hongwei Ma Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "fix(doctor): anchor WhatsApp TUI process matching (#83313)",
+      "link": "https://github.com/openclaw/openclaw/commit/1fb09069c3425f9e092fe7356c3a3d7e9a571d5f",
+      "publishedAt": "2026-05-18T19:04:32Z",
+      "summary": "fix(doctor): anchor WhatsApp TUI process matching (#83313)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(cli): support installing skills to shared global directory via -…",
-      "summaryZh": "重點：新功能(cli): support installing skills to shared global directory via --global (#83705) Summary: - Adds `--global` to `Open..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): anchor WhatsApp TUI process matching (#83313)",
+      "summaryZh": "重點：修正(文件tor): anchor WhatsApp TUI process matching (#83313)..."
     },
     {
       "id": 3,
-      "title": "fix(skill-creator): reject empty name and description in skill valida…",
-      "link": "https://github.com/openclaw/openclaw/commit/3631af81076fe71f766c2c14200a8abcc9248b5c",
-      "publishedAt": "2026-05-18T17:10:19Z",
-      "summary": "fix(skill-creator): reject empty name and description in skill valida… (#83704) Summary: - The PR makes skill-creator quick validation reject empty or whitespace-only `name` and `description` fields, adds regression tests, and records the fix in the changelog. - Reproducibility: yes. Source inspection on current main shows empty or whitespace-only values skip validation after `.strip()`, and the source PR includes before/after terminal output for the same path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(skill-creator): reject empty name and description in skill valida… Validation: - ClawSweeper review passed for head 0fb4555cb21d0a4d225a8ace587e1ed04beaa7e3. - Required merge gates passed before the squash merge. Prepared head SHA: 0fb4555cb21d0a4d225a8ace587e1ed04beaa7e3 Review: https://github.com/openclaw/openclaw/pull/83704#issuecomment-4479984760 Co-authored-by: jay Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "test(qa-lab): add personal share-safe diagnostics scenario (#83717)",
+      "link": "https://github.com/openclaw/openclaw/commit/70f580041f8499c56032331b12496e561fe015b1",
+      "publishedAt": "2026-05-18T18:56:25Z",
+      "summary": "test(qa-lab): add personal share-safe diagnostics scenario (#83717) Summary: - Adds a personal-agent QA-Lab share-safe diagnostics scenario with mock-openai support, pack registration/tests, docs, and changelog coverage. - Reproducibility: not applicable. This PR adds a new QA-Lab scenario rather than fixing a current-main bug. T ... ce PR provides a clear after-patch validation path using qa-channel, a real gateway child, and mock-openai. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 46eb0af9e42e6099f3fd953a5cd5e15a106af8f5. - Required merge gates passed before the squash merge. Prepared head SHA: 46eb0af9e42e6099f3fd953a5cd5e15a106af8f5 Review: https://github.com/openclaw/openclaw/pull/83717#issuecomment-4480393933 Co-authored-by: Firas Alswihry Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skill-creator): reject empty name and description in skill valida…",
-      "summaryZh": "重點：修正(skill-creator): reject empty name and description in skill valida… (#83704) Summary: - The PR makes skill-creator qui..."
+      "titleZh": "OpenClaw 程式碼更新：test(qa-lab): add personal share-safe diagnostics scenario (#83717)",
+      "summaryZh": "重點：test(qa-lab): add personal share-safe diagnostics scenario (#83717) Summary: - Adds a personal-agent QA-Lab share-safe d..."
     },
     {
       "id": 4,
-      "title": "docs(changelog): add Telegram delivery log entry",
-      "link": "https://github.com/openclaw/openclaw/commit/57854219d0ea6b27bef253d69abced396ae75bff",
-      "publishedAt": "2026-05-18T17:08:59Z",
-      "summary": "docs(changelog): add Telegram delivery log entry",
+      "title": "fix(nextcloud-talk): dispatch react action so agents can send reactio…",
+      "link": "https://github.com/openclaw/openclaw/commit/9995e1b4d542473dbf092fc134b1edeed6346a82",
+      "publishedAt": "2026-05-18T18:54:44Z",
+      "summary": "fix(nextcloud-talk): dispatch react action so agents can send reactions (#70110) (#72348) Summary: - This PR adds and registers a Nextcloud Talk message action adapter for add-only reactions, updates reaction docs, and adds adapter plus sender tests. - Reproducibility: yes. Source inspection on current main shows Nextcloud Talk advertises reactions and has a ... ion sender, but the plugin lacks `actions.handleAction`, so shared `react` dispatch has no channel handler. Automerge notes: - PR branch already contained follow-up commit before automerge: test(nextcloud-talk): cover reaction sender request path - PR branch already contained follow-up commit before automerge: fix(nextcloud-talk): harden react null-guard; fix disabled-account te… - PR branch already contained follow-up commit before automerge: fix(nextcloud-talk): reject react remove requests instead of silently… - PR branch already contained follow-up commit before automerge: fix(nextcloud-talk): inline listEnabledAccounts helper after main cle… - PR branch already contained follow-up commit before automerge: docs(nextcloud-talk): note add-only react support in reactions and me… Validation: - ClawSweeper review passed for head 9817fed842c69afe55562ab6a3388301582c3fc3. - Required merge gates passed before the squash merge. Prepared head SHA: 9817fed842c69afe55562ab6a3388301582c3fc3 Review: https://github.com/openclaw/openclaw/pull/72348#issuecomment-4323046928 Co-authored-by: NW Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): add Telegram delivery log entry",
-      "summaryZh": "重點：文件(changelog): add Telegram delivery log entry..."
+      "titleZh": "OpenClaw 程式碼更新：修正(nextcloud-talk): dispatch react action so agents can send reactio…",
+      "summaryZh": "重點：修正(nextcloud-talk): dispatch react action so agents can send reactions (#70110) (#72348) Summary: - This PR adds and reg..."
     },
     {
       "id": 5,
