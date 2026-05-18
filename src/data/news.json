@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-18T14:30:28.063Z",
+  "generatedAt": "2026-05-18T17:29:47.648Z",
   "items": [
     {
       "id": 1,
-      "title": "v2026.5.18-beta.1",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.18-beta.1",
-      "publishedAt": "2026-05-18T14:30:02Z",
-      "summary": "openclaw 2026.5.18-beta.1",
-      "source": "OpenClaw Releases",
+      "title": "fix(ui): prevent reading indicator from sticking after assistant resp…",
+      "link": "https://github.com/openclaw/openclaw/commit/a4f80f905d94f58f78f201cfbec650c6780be675",
+      "publishedAt": "2026-05-18T17:28:26Z",
+      "summary": "fix(ui): prevent reading indicator from sticking after assistant response (#83711) Summary: - The PR removes the Control UI chat fallback that converts a null stream into an empty stream for abortable runs, adds null-vs-empty stream regression tests, and updates the changelog. - Reproducibility: yes. source-level reproduction is high confidence: current main converts null stream plus c ... ading indicator. The linked source PR also reports live Control UI verification after the equivalent patch. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(ui): prevent reading indicator from sticking after assistant resp… Validation: - ClawSweeper review passed for head 44bea55110f3b0b3a267d080e9da293d3fd21147. - Required merge gates passed before the squash merge. Prepared head SHA: 44bea55110f3b0b3a267d080e9da293d3fd21147 Review: https://github.com/openclaw/openclaw/pull/83711#issuecomment-4480128171 Co-authored-by: 二狗子 Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.5.18-beta.1",
-      "summaryZh": "重點：OpenClaw 2026.5.18-beta.1..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent reading indicator from sticking after assistant resp…",
+      "summaryZh": "重點：修正(ui): prevent reading indicator from sticking after assistant response (#83711) Summary: - The PR removes the Control ..."
     },
     {
       "id": 2,
-      "title": "fix(slack): persist inbound delivery dedupe",
-      "link": "https://github.com/openclaw/openclaw/commit/c49d909b60a68999a3df28b56524a00c6e7cbbb2",
-      "publishedAt": "2026-05-18T14:28:07Z",
-      "summary": "fix(slack): persist inbound delivery dedupe",
+      "title": "feat(cli): support installing skills to shared global directory via -…",
+      "link": "https://github.com/openclaw/openclaw/commit/57028585538cbed45944093248552e4d7233e5fc",
+      "publishedAt": "2026-05-18T17:22:00Z",
+      "summary": "feat(cli): support installing skills to shared global directory via --global (#83705) Summary: - Adds `--global` to `openclaw skills install` and `openclaw skills update`, routing ClawHub installs and updates to the shared managed skills root with docs, changelog, and CLI command tests. - Reproducibility: not applicable. as a bug reproduction; this is a new CLI feature request. Source inspection confirms current `main` lacks `--global`, and the source PR includes after-fix terminal proof for the new path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(cli): address skills global review - PR branch already contained follow-up commit before automerge: feat(cli): support installing skills to shared global directory via -… Validation: - ClawSweeper review passed for head 6eb7187fc16d6e4419a3b3b44213935e7f32f663. - Required merge gates passed before the squash merge. Prepared head SHA: 6eb7187fc16d6e4419a3b3b44213935e7f32f663 Review: https://github.com/openclaw/openclaw/pull/83705#issuecomment-4480023577 Co-authored-by: Hongwei Ma Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): persist inbound delivery dedupe",
-      "summaryZh": "重點：修正(slack): persist inbound delivery dedupe..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(cli): support installing skills to shared global directory via -…",
+      "summaryZh": "重點：新功能(cli): support installing skills to shared global directory via --global (#83705) Summary: - Adds `--global` to `Open..."
     },
     {
       "id": 3,
-      "title": "fix(ci): restore release e2e checks",
-      "link": "https://github.com/openclaw/openclaw/commit/f0b43bfd34c42398d3825315e4fabff7c0ab60c4",
-      "publishedAt": "2026-05-18T14:20:27Z",
-      "summary": "fix(ci): restore release e2e checks",
+      "title": "fix(skill-creator): reject empty name and description in skill valida…",
+      "link": "https://github.com/openclaw/openclaw/commit/3631af81076fe71f766c2c14200a8abcc9248b5c",
+      "publishedAt": "2026-05-18T17:10:19Z",
+      "summary": "fix(skill-creator): reject empty name and description in skill valida… (#83704) Summary: - The PR makes skill-creator quick validation reject empty or whitespace-only `name` and `description` fields, adds regression tests, and records the fix in the changelog. - Reproducibility: yes. Source inspection on current main shows empty or whitespace-only values skip validation after `.strip()`, and the source PR includes before/after terminal output for the same path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(skill-creator): reject empty name and description in skill valida… Validation: - ClawSweeper review passed for head 0fb4555cb21d0a4d225a8ace587e1ed04beaa7e3. - Required merge gates passed before the squash merge. Prepared head SHA: 0fb4555cb21d0a4d225a8ace587e1ed04beaa7e3 Review: https://github.com/openclaw/openclaw/pull/83704#issuecomment-4479984760 Co-authored-by: jay Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore 版本發布 e2e checks",
-      "summaryZh": "重點：修正(ci): restore 版本發布 e2e checks..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skill-creator): reject empty name and description in skill valida…",
+      "summaryZh": "重點：修正(skill-creator): reject empty name and description in skill valida… (#83704) Summary: - The PR makes skill-creator qui..."
     },
     {
       "id": 4,
-      "title": "fix(followup,reply): stop model-fallback retries duplicating session …",
-      "link": "https://github.com/openclaw/openclaw/commit/1b82c0e3d9b44a22793ddf14a404e6829f710c97",
-      "publishedAt": "2026-05-18T14:01:46Z",
-      "summary": "fix(followup,reply): stop model-fallback retries duplicating session entries Follow-up and main reply paths re-entered each embedded fallback candidate with the same queued transcript prompt. After the first candidate persisted that queued user message, later candidates appended it again. Failed embedded candidates could also persist an assistant error stub on each retry, leaving same-role transcript runs that downstream providers reject. The fallback callers now keep two persistence latches for one fallback run: queuedUserMessagePersistedAcrossFallback flips from onUserMessagePersisted, and assistantErrorPersistedAcrossFallback flips only after the session guard actually persists an assistant stopReason=\"error\" message. Later candidates suppress only the entries that were already written, so CLI or otherwise non-persisting failures do not hide the first embedded error separator. Plumb the assistant-error persistence callback through the embedded runner, attempt params, and session guard wrapper. Add guard and runner regression tests for all-embedded fallback retries and CLI-to-embedded fallback. Closes #83404",
+      "title": "docs(changelog): add Telegram delivery log entry",
+      "link": "https://github.com/openclaw/openclaw/commit/57854219d0ea6b27bef253d69abced396ae75bff",
+      "publishedAt": "2026-05-18T17:08:59Z",
+      "summary": "docs(changelog): add Telegram delivery log entry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(followup,reply): stop 模型-fallback retries duplicating session …",
-      "summaryZh": "重點：修正(followup,reply): stop 模型-fallback retries duplicating session entries Follow-up and main reply paths re-entered each ..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): add Telegram delivery log entry",
+      "summaryZh": "重點：文件(changelog): add Telegram delivery log entry..."
     },
     {
       "id": 5,
