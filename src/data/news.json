@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-05-18T10:06:40.485Z",
+  "generatedAt": "2026-05-18T14:30:28.063Z",
   "items": [
     {
       "id": 1,
+      "title": "v2026.5.18-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.18-beta.1",
+      "publishedAt": "2026-05-18T14:30:02Z",
+      "summary": "openclaw 2026.5.18-beta.1",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：v2026.5.18-beta.1",
+      "summaryZh": "重點：OpenClaw 2026.5.18-beta.1..."
+    },
+    {
+      "id": 2,
+      "title": "fix(slack): persist inbound delivery dedupe",
+      "link": "https://github.com/openclaw/openclaw/commit/c49d909b60a68999a3df28b56524a00c6e7cbbb2",
+      "publishedAt": "2026-05-18T14:28:07Z",
+      "summary": "fix(slack): persist inbound delivery dedupe",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): persist inbound delivery dedupe",
+      "summaryZh": "重點：修正(slack): persist inbound delivery dedupe..."
+    },
+    {
+      "id": 3,
+      "title": "fix(ci): restore release e2e checks",
+      "link": "https://github.com/openclaw/openclaw/commit/f0b43bfd34c42398d3825315e4fabff7c0ab60c4",
+      "publishedAt": "2026-05-18T14:20:27Z",
+      "summary": "fix(ci): restore release e2e checks",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore 版本發布 e2e checks",
+      "summaryZh": "重點：修正(ci): restore 版本發布 e2e checks..."
+    },
+    {
+      "id": 4,
+      "title": "fix(followup,reply): stop model-fallback retries duplicating session …",
+      "link": "https://github.com/openclaw/openclaw/commit/1b82c0e3d9b44a22793ddf14a404e6829f710c97",
+      "publishedAt": "2026-05-18T14:01:46Z",
+      "summary": "fix(followup,reply): stop model-fallback retries duplicating session entries Follow-up and main reply paths re-entered each embedded fallback candidate with the same queued transcript prompt. After the first candidate persisted that queued user message, later candidates appended it again. Failed embedded candidates could also persist an assistant error stub on each retry, leaving same-role transcript runs that downstream providers reject. The fallback callers now keep two persistence latches for one fallback run: queuedUserMessagePersistedAcrossFallback flips from onUserMessagePersisted, and assistantErrorPersistedAcrossFallback flips only after the session guard actually persists an assistant stopReason=\"error\" message. Later candidates suppress only the entries that were already written, so CLI or otherwise non-persisting failures do not hide the first embedded error separator. Plumb the assistant-error persistence callback through the embedded runner, attempt params, and session guard wrapper. Add guard and runner regression tests for all-embedded fallback retries and CLI-to-embedded fallback. Closes #83404",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(followup,reply): stop 模型-fallback retries duplicating session …",
+      "summaryZh": "重點：修正(followup,reply): stop 模型-fallback retries duplicating session entries Follow-up and main reply paths re-entered each ..."
+    },
+    {
+      "id": 5,
       "title": "Windows存在零時差漏洞MiniPlasma，攻擊者可取得SYSTEM權限",
       "link": "https://www.ithome.com.tw/news/175888",
       "publishedAt": "2026-05-18 12:05:27",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "駭客濫用Langflow漏洞與NATS訊息中介系統，竊取AI與雲端環境存取金鑰",
       "link": "https://www.ithome.com.tw/news/175893",
       "publishedAt": "2026-05-18 12:05:21",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "OpenClaw存在漏洞攻擊鏈Claw Chain，攻擊者可用於竄改組態並植入後門",
       "link": "https://www.ithome.com.tw/news/175889",
       "publishedAt": "2026-05-18 12:05:20",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Nginx重大漏洞已被用於攻擊",
       "link": "https://www.ithome.com.tw/news/175882",
       "publishedAt": "2026-05-18 11:05:52",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Raindrop AI推出開放原始碼工具Workshop，支援AI代理本機除錯與評估",
       "link": "https://www.ithome.com.tw/news/175887",
       "publishedAt": "2026-05-18 11:05:51",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "xAI推出Grok Build，加入AI程式代理工具戰局",
       "link": "https://www.ithome.com.tw/news/175886",
       "publishedAt": "2026-05-18 11:05:26",
       "summary": "xAI週四（5/14）宣布推出Grok Build早期測試版，這是一款專為專業開發者設計的AI程式代理工具，可於終端機中操作，協助處理複雜的程式開發工作。目前Grok Build率先開放給SuperGrok Heavy訂閱者使用，使用者可透過單一指令安裝，並以SuperGrok Heavy帳號登入。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "chore: dedupe non-interactive setup prompters",
-      "link": "https://github.com/openclaw/openclaw/commit/d831b8e7bdb9cb192d3f30c7b8505a295f272c85",
-      "publishedAt": "2026-05-18T10:02:56Z",
-      "summary": "chore: dedupe non-interactive setup prompters",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore: dedupe non-interactive setup prompters",
-      "summaryZh": "重點：chore: dedupe non-interactive setup prompters..."
-    },
-    {
-      "id": 8,
-      "title": "fix(messages): apply tts before message-tool sends (#83543)",
-      "link": "https://github.com/openclaw/openclaw/commit/8e9d5c43d227287814f360f4ac5c72014669c49c",
-      "publishedAt": "2026-05-18T09:51:46Z",
-      "summary": "fix(messages): apply tts before message-tool sends (#83543)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(messages): apply tts before message-tool sends (#83543)",
-      "summaryZh": "重點：修正(messages): apply tts before message-tool sends (#83543)..."
-    },
-    {
-      "id": 9,
-      "title": "fix: hide unsupported video audio refs",
-      "link": "https://github.com/openclaw/openclaw/commit/957d50ad496c9a4b56856bee746e25f37590da9d",
-      "publishedAt": "2026-05-18T09:48:39Z",
-      "summary": "fix: hide unsupported video audio refs",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: hide unsupported video audio refs",
-      "summaryZh": "重點：修正: hide unsupported video audio refs..."
-    },
-    {
-      "id": 10,
-      "title": "fix(qqbot): shorten typing keepalive window (#83469)",
-      "link": "https://github.com/openclaw/openclaw/commit/e6e1696c28b2a2f5c1ad01579d0c74bc11027a56",
-      "publishedAt": "2026-05-18T09:48:02Z",
-      "summary": "fix(qqbot): shorten typing keepalive window (#83469) * fix(qqbot): shorten typing keepalive window * docs: note qqbot typing keepalive fix * fix(qqbot): shorten typing keepalive window --------- Co-authored-by: clawsweeper",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qqbot): shorten typing keepalive window (#83469)",
-      "summaryZh": "重點：修正(qqbot): shorten typing keepalive window (#83469) * 修正(qqbot): shorten typing keepalive window * 文件: note qqbot typing..."
     }
   ]
 }
