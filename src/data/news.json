@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-19T18:06:33.976Z",
+  "generatedAt": "2026-05-19T20:44:53.325Z",
   "items": [
     {
       "id": 1,
-      "title": "[codex] restore QR bootstrap operator handoff (#83684)",
-      "link": "https://github.com/openclaw/openclaw/commit/94d8391c0323b10b3ae14e9b940d184a0a5ffdc2",
-      "publishedAt": "2026-05-19T17:59:09Z",
-      "summary": "[codex] restore QR bootstrap operator handoff (#83684) Merged via squash. Prepared head SHA: 2dc955cfb787f7c5904730b2267e6ad972fc417b Co-authored-by: ngutman Co-authored-by: ngutman Reviewed-by: @ngutman",
+      "title": "Fix managed Gateway updates across CLI and service Node skew (#84043)",
+      "link": "https://github.com/openclaw/openclaw/commit/c81271ee6e3a78e961ff4db7b26ff206b61653a8",
+      "publishedAt": "2026-05-19T20:44:29Z",
+      "summary": "Fix managed Gateway updates across CLI and service Node skew (#84043) Summary: - The PR pins managed Gateway package updates, runtime preflight, post-install doctor, post-core update, service refresh, and restart follow-ups to the Node binary and package root baked into the Gateway service. - Reproducibility: yes. source-level. Current main validates and follows up with the shell process Node in the ... body provides a concrete two-Node Docker reproduction, though I did not execute it in this read-only pass. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(update): detect service node mismatch even when package roots match - PR branch already contained follow-up commit before automerge: fix(update): pin package install to service root when nodes differ wi… Validation: - ClawSweeper review passed for head 5607e441f642483bf662f51b581a9bb8b1e31db7. - Required merge gates passed before the squash merge. Prepared head SHA: 5607e441f642483bf662f51b581a9bb8b1e31db7 Review: https://github.com/openclaw/openclaw/pull/84043#issuecomment-4485613931 Co-authored-by: Alex Knight Co-authored-by: Alex Knight Co-authored-by: clawsweeper[bot] Approved-by: amknight Co-authored-by: amknight",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：[codex] restore QR bootstrap operator handoff (#83684)",
-      "summaryZh": "重點：[codex] restore QR bootstrap operator handoff (#83684) Merged via squash. Prepared head SHA: 2dc955cfb787f7c5904730b2267..."
+      "titleZh": "OpenClaw 程式碼更新：修正 managed Gateway updates across CLI and service Node skew (#84043)",
+      "summaryZh": "重點：修正 managed Gateway updates across CLI and service Node skew (#84043) Summary: - The PR pins managed Gateway package upda..."
     },
     {
       "id": 2,
-      "title": "docs: clarify /new vs /reset semantics in slash-commands (#81073)",
-      "link": "https://github.com/openclaw/openclaw/commit/e00cb664ad4bd346866dfb1ad863e7b6c72dd7e6",
-      "publishedAt": "2026-05-19T17:51:48Z",
-      "summary": "docs: clarify /new vs /reset semantics in slash-commands (#81073) Summary: - The PR changes one bullet in `docs/tools/slash-commands.md` to distinguish `/new` from `/reset` and remove the misleading alias wording. - Reproducibility: yes. Reading current main reproduces the misleading docs line at `docs/tools/slash-commands.md:127`, and adjacent source/tests show `/new` and `/reset` take different paths in the Control UI. Automerge notes: - PR branch already contained follow-up commit before automerge: docs/slash-commands: drop inaccurate Control UI/ACP cross-reference (… - PR branch already contained follow-up commit before automerge: Merge branch 'main' into docs/fix-reset-alias-misleading Validation: - ClawSweeper review passed for head bb92b6050aab85335061028404d59c762cee3125. - Required merge gates passed before the squash merge. Prepared head SHA: bb92b6050aab85335061028404d59c762cee3125 Review: https://github.com/openclaw/openclaw/pull/81073#issuecomment-4432165259 Co-authored-by: Md. Al-Mosabbir Rakib Co-authored-by: Md. Al-Mosabbir Rakib Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "Revert \"perf(plugins): extend discovery threading to loader, manifest…",
+      "link": "https://github.com/openclaw/openclaw/commit/3d96111a5afe377b529c9bb5a9db510d74607344",
+      "publishedAt": "2026-05-19T19:35:27Z",
+      "summary": "Revert \"perf(plugins): extend discovery threading to loader, manifest registr…\" (#84278) This reverts commit f5f0b2c7c9e072975dc6e8206b79944a5342dfc6.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: clarify /new vs /reset semantics in slash-commands (#81073)",
-      "summaryZh": "重點：文件: clarify /new vs /reset semantics in slash-commands (#81073) Summary: - The PR changes one bullet in `文件/tools/slash-..."
+      "titleZh": "OpenClaw 程式碼更新：Revert \"perf(plugins): extend discovery threading to loader, manifest…",
+      "summaryZh": "重點：Revert \"perf(plugins): extend discovery threading to loader, manifest registr…\" (#84278) This reverts 提交 f5f0b2c7c9e0729..."
     },
     {
       "id": 3,
-      "title": "[Docs] Document gateway benchmark probes (#83866)",
-      "link": "https://github.com/openclaw/openclaw/commit/323c9760d32780276abefb2020cea85da426da11",
-      "publishedAt": "2026-05-19T17:50:36Z",
-      "summary": "[Docs] Document gateway benchmark probes (#83866) Summary: - The PR updates `docs/cli/gateway.md` and `docs/reference/test.md` to document Gateway startup/restart benchmark prerequisites, commands, case IDs, probes, output semantics, and platform limits. - Reproducibility: not applicable. as a runtime bug; docs correctness is source-checkable against the benchmar ... ipts, and readiness source. The current PR head corrected the earlier startup-hook readiness wording issue. Automerge notes: - PR branch already contained follow-up commit before automerge: docs(gateway): correct benchmark readiness wording Validation: - ClawSweeper review passed for head 5bd0f6c46305f04635555c93df61e7e2b80f44fa. - Required merge gates passed before the squash merge. Prepared head SHA: 5bd0f6c46305f04635555c93df61e7e2b80f44fa Review: https://github.com/openclaw/openclaw/pull/83866#issuecomment-4483820005 Co-authored-by: samzong Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "perf(plugins): extend discovery threading to loader, manifest registr…",
+      "link": "https://github.com/openclaw/openclaw/commit/f5f0b2c7c9e072975dc6e8206b79944a5342dfc6",
+      "publishedAt": "2026-05-19T19:35:01Z",
+      "summary": "perf(plugins): extend discovery threading to loader, manifest registry, installed-index, and config contracts (#84258) Follow-up to #75451. Threads optional discovery?: PluginDiscoveryResult through the remaining helpers that still call discoverOpenClawPlugins internally during startup: - loadOpenClawPlugins / loadOpenClawPluginCliRegistry (src/plugins/loader.ts): add discovery? to PluginLoadOptions and consult it before falling back to an internal scan at both call sites. - loadPluginManifestRegistry (src/plugins/manifest-registry.ts): accept discovery? as a more ergonomic alternative to the existing candidates? / diagnostics? pair; candidates? still wins when both are supplied. - resolveInstalledPluginIndexRegistry (src/plugins/installed-plugin-index-registry.ts): add discovery? to LoadInstalledPluginIndexParams and use it when candidates aren't supplied. - resolvePluginConfigContractsById (src/plugins/config-contracts.ts): add discovery? and thread it into the bundled-fallback discovery call. Add discovery-threading.test.ts asserting each entry point skips its internal discoverOpenClawPlugins call when discovery is supplied, calls it when nothing is supplied, and prefers explicit candidates over discovery when both are present (6 tests, all pass). discoverOpenClawPlugins remains stateless; sharing is function-scoped per src/plugins/CLAUDE.md guidance. Backward compatible: every change is additive (new optional param).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：[文件] 文件ument Gateway benchmark probes (#83866)",
-      "summaryZh": "重點：[文件] 文件ument Gateway benchmark probes (#83866) Summary: - The PR updates `文件/cli/Gateway.md` and `文件/reference/test.md` ..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): extend discovery threading to loader, manifest registr…",
+      "summaryZh": "重點：perf(plugins): extend discovery threading to loader, manifest registry, installed-index, and config contracts (#84258) F..."
     },
     {
       "id": 4,
-      "title": "fix(mantis): finish interrupted telegram proof sessions",
-      "link": "https://github.com/openclaw/openclaw/commit/edcf862da5d02d484678935f5be36115317eda09",
-      "publishedAt": "2026-05-19T17:29:50Z",
-      "summary": "fix(mantis): finish interrupted telegram proof sessions",
+      "title": "perf(plugins): thread explicit discovery to avoid redundant filesyste…",
+      "link": "https://github.com/openclaw/openclaw/commit/28beea9e881ce3be7497f60c221e3fe51ba34d99",
+      "publishedAt": "2026-05-19T19:15:33Z",
+      "summary": "perf(plugins): thread explicit discovery to avoid redundant filesystem walks (#75451) Add optional discovery parameter to loadBundledCapabilityRuntimeRegistry, resolveBundledPluginSources, and listChannelCatalogEntries so callers that already hold a PluginDiscoveryResult can skip redundant filesystem walks. In contracts/registry.ts, the retry loop in loadScopedCapabilityRuntimeRegistryEntries computes discovery once and shares it across retry attempts (function-scoped, not module-scoped). discoverOpenClawPlugins() itself remains stateless with no hidden cache. Closes #82308 Signed-off-by: Sebastien Tardif",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): finish interrupted Telegram proof sessions",
-      "summaryZh": "重點：修正(mantis): finish interrupted Telegram proof sessions..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): thread explicit discovery to avoid redundant filesyste…",
+      "summaryZh": "重點：perf(plugins): thread explicit discovery to avoid redundant filesystem walks (#75451) Add optional discovery parameter t..."
     },
     {
       "id": 5,
