@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-05-19T11:19:30.080Z",
+  "generatedAt": "2026-05-19T15:26:26.968Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(docker): keep codex plugin in release images",
+      "link": "https://github.com/openclaw/openclaw/commit/d0f7c8fa280534c3be786fd1ec69b569bbd72200",
+      "publishedAt": "2026-05-19T14:36:50Z",
+      "summary": "fix(docker): keep codex plugin in release images",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正(文件ker): keep codex plugin in 版本發布 images",
+      "summaryZh": "重點：修正(文件ker): keep codex plugin in 版本發布 images..."
+    },
+    {
+      "id": 2,
+      "title": "fix(cli): format acp client errors with formatErrorMessage (#83904) (…",
+      "link": "https://github.com/openclaw/openclaw/commit/5d19beb547e1c538bff2c3402015799e57e429f9",
+      "publishedAt": "2026-05-19T14:34:51Z",
+      "summary": "fix(cli): format acp client errors with formatErrorMessage (#83904) (#84080) Summary: - The PR changes `openclaw acp client` error handling to use `formatErrorMessage`, adds a plain-object rejection regression test, and adds a changelog entry. - Reproducibility: yes. Current main visibly sends `openclaw acp client` caught errors through `String(err)`, ... catch already uses `formatErrorMessage`; I did not run a live failing ACP server in this read-only review. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(cli): format acp client errors with formatErrorMessage (#83904) Validation: - ClawSweeper review passed for head 69ef0e7270e2f5f1063dc5b05c56d77142eddd89. - Required merge gates passed before the squash merge. Prepared head SHA: 69ef0e7270e2f5f1063dc5b05c56d77142eddd89 Review: https://github.com/openclaw/openclaw/pull/84080#issuecomment-4486666922 Co-authored-by: HCL Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): format acp client errors with formatErrorMessage (#83904) (…",
+      "summaryZh": "重點：修正(cli): format acp client errors with formatErrorMessage (#83904) (#84080) Summary: - The PR changes `OpenClaw acp clie..."
+    },
+    {
+      "id": 3,
+      "title": "feat(agents): support per-agent local model lean mode (#84073)",
+      "link": "https://github.com/openclaw/openclaw/commit/13c97c5a8d04897c84cbb4a82eeac502330cdee8",
+      "publishedAt": "2026-05-19T14:11:38Z",
+      "summary": "feat(agents): support per-agent local model lean mode (#84073) Summary: - The branch adds per-agent `agents.list[].experimental.localModelLean` config and applies lean tool filtering through agent, session, and default-agent resolution. - Reproducibility: not applicable. this is a feature/config PR rather than a current-main bug report. The chan ... or is supported by source review, focused tests in the branch, and the PR body's redacted live runtime log. Automerge notes: - PR branch already contained follow-up commit before automerge: feat(agents): support per-agent local model lean mode - PR branch already contained follow-up commit before automerge: fix(clawsweeper): address review for automerge-openclaw-openclaw-8407… Validation: - ClawSweeper review passed for head 1f9a9554da521f35d6127f729e41401a272b68c0. - Required merge gates passed before the squash merge. Prepared head SHA: 1f9a9554da521f35d6127f729e41401a272b68c0 Review: https://github.com/openclaw/openclaw/pull/84073#issuecomment-4486397570 Co-authored-by: Bob Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: osolmaz Co-authored-by: osolmaz",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(agents): support per-agent local 模型 lean mode (#84073)",
+      "summaryZh": "重點：新功能(agents): support per-agent local 模型 lean mode (#84073) Summary: - The branch adds per-agent `agents.list[].experimen..."
+    },
+    {
+      "id": 4,
+      "title": "表面平靜的宇宙巨獸，錢卓拉望遠鏡揭開 Abell 2029 星系團的驚天碰撞",
+      "link": "https://technews.tw/2026/05/19/abell-2029-once-experienced-a-massive-collision-event/",
+      "publishedAt": "Tue, 19 May 2026 13:51:05 +0000",
+      "summary": "星系團是宇宙中由重力聚集而成的大型構造，內部包含數百甚至數千個星系、大量暗物質，以及充滿星系之間的高溫氣體。這 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 5,
+      "title": "fix(cli): preserve first line of channels logs at window boundary (#8…",
+      "link": "https://github.com/openclaw/openclaw/commit/b7ba7c3f2a1e0c8bfead084596911aa7a0ef9852",
+      "publishedAt": "2026-05-19T13:27:43Z",
+      "summary": "fix(cli): preserve first line of channels logs at window boundary (#84106) Summary: - The PR updates `openclaw channels logs` tail-window reading to keep a complete first line when the 1 MB window starts on a newline boundary, adds a regression test, and adds a changelog entry. - Reproducibility: yes. Source inspection on current main shows the unconditional first-line drop, and the PR ... s provide terminal before/after CLI output for a 2 MB log whose tail window starts exactly after a newline. Automerge notes: - PR branch already contained follow-up commit before automerge: Merge remote-tracking branch 'origin/main' into fix/channels-logs-dro… - PR branch already contained follow-up commit before automerge: fix(cli): preserve first line of channels logs at window boundary Validation: - ClawSweeper review passed for head 284b312b315e087b501b55cfcc99d20f42ee1173. - Required merge gates passed before the squash merge. Prepared head SHA: 284b312b315e087b501b55cfcc99d20f42ee1173 Review: https://github.com/openclaw/openclaw/pull/84106#issuecomment-4487313048 Co-authored-by: BSG2000 Co-authored-by: Copilot Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): preserve first line of channels logs at window boundary (#8…",
+      "summaryZh": "重點：修正(cli): preserve first line of channels logs at window boundary (#84106) Summary: - The PR updates `OpenClaw channels l..."
+    },
+    {
+      "id": 6,
       "title": "【臺灣資安大會直擊】電信流量揭臺灣企業AI風險：7成大型企業封鎖中國模型，6萬家陷資安隱憂",
       "link": "https://www.ithome.com.tw/news/175926",
       "publishedAt": "2026-05-19 12:05:53",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "WD為硬碟韌體保護導入後量子數位簽章技術，硬碟安全進入抗量子時代",
       "link": "https://www.ithome.com.tw/news/175925",
       "publishedAt": "2026-05-19 12:05:47",
@@ -20,18 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "chore: move Motivation section above Change Type in PR template (#84098)",
-      "link": "https://github.com/openclaw/openclaw/commit/d7083bab4c6eda82d600461940ddb549caf6fe1a",
-      "publishedAt": "2026-05-19T11:05:57Z",
-      "summary": "chore: move Motivation section above Change Type in PR template (#84098) Summary: - This PR moves the existing Motivation section in `.github/pull_request_template.md` from below Linked Issue/PR to immediately after Summary without changing the section text. - Reproducibility: not applicable. this is a PR-template ordering cleanup, not a runtime bug. Source inspection of current main and the PR head verifies the before/after section order. Automerge notes: - PR branch already contained follow-up commit before automerge: chore: move Motivation section above Change Type in PR template Validation: - ClawSweeper review passed for head 6c68583faccb029c44eb2dd216a0782817a642de. - Required merge gates passed before the squash merge. Prepared head SHA: 6c68583faccb029c44eb2dd216a0782817a642de Review: https://github.com/openclaw/openclaw/pull/84098#issuecomment-4487082864 Co-authored-by: Huan Jiang Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore: move Motivation section above Change Type in PR template (#84098)",
-      "summaryZh": "重點：chore: move Motivation section above Change Type in PR template (#84098) Summary: - This PR moves the existing Motivatio..."
-    },
-    {
-      "id": 4,
+      "id": 8,
       "title": "Linux核心再傳新的權限提升漏洞DirtyDecrypt",
       "link": "https://www.ithome.com.tw/news/175919",
       "publishedAt": "2026-05-19 11:05:50",
@@ -40,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Reaper竊資程式混合冒充蘋果、微軟、Google，攻擊macOS用戶並建立後門",
       "link": "https://www.ithome.com.tw/news/175921",
       "publishedAt": "2026-05-19 11:05:28",
@@ -49,55 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "研究人員警告PAN-OS身分驗證繞過漏洞的危險程度恐被低估",
       "link": "https://www.ithome.com.tw/news/175918",
       "publishedAt": "2026-05-19 11:05:13",
       "summary": "上週Palo Alto Networks公布防火牆作業系統PAN-OS身分驗證繞過漏洞CVE-2026-0265，並指出雖然尚未發現遭到利用的跡象，不過他們呼籲用戶應以最高優先順序採取因應措施，罕見的是，該公司特別提及在特定配置下，該漏洞的危險程度會從高風險等級降至低風險。通報此事的研究人員透過社群網站發聲，認為該資安公告可能讓用戶低估漏洞造成的風險。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "馬斯克提告OpenAI敗訴，OpenAI上市路障排除",
-      "link": "https://www.ithome.com.tw/news/175917",
-      "publishedAt": "2026-05-19 11:05:11",
-      "summary": "馬斯克（Elon Musk）以OpenAI早期共同創辦人及捐助者的角色，在2024年控告OpenAI與Sam Altman違背創立時的初衷，指控它們違反慈善信託及不當得利，同時控告微軟藉由合作、投資及商業協議協助OpenAI營利化的行為是違法的。週一（5/18）陪審團不到兩小時就作出一致裁決，指出馬斯克太晚提告，超過訴訟時效，因而裁定馬斯克敗訴。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "fix(ollama): default unknown capabilities to tools (#84075)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e0850fc548ceab82af7244938b833024e485834",
-      "publishedAt": "2026-05-19T09:51:24Z",
-      "summary": "fix(ollama): default unknown capabilities to tools (#84075) Summary: - The branch makes unknown-capabilities Ollama model definitions explicitly tool-capable, adds regression assertions and changelog text, and guards the issue-labeler job to run only on issue events. - Reproducibility: yes. for the metadata gap: current main builds unknown-capabilities Ollama models without a ... er-fix live provider output with `supportsTools: true`. I did not run local tests in this read-only review. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(ollama): default unknown capabilities to tools Validation: - ClawSweeper review passed for head 27527716c09e44ecb1b0c9fa2cf0854222d2be0f. - Required merge gates passed before the squash merge. Prepared head SHA: 27527716c09e44ecb1b0c9fa2cf0854222d2be0f Review: https://github.com/openclaw/openclaw/pull/84075#issuecomment-4486492661 Co-authored-by: Bob Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: osolmaz Co-authored-by: osolmaz",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ollama): default unknown capabilities to tools (#84075)",
-      "summaryZh": "重點：修正(ollama): default unknown capabilities to tools (#84075) Summary: - The branch makes unknown-capabilities Ollama 模型 de..."
-    },
-    {
-      "id": 9,
-      "title": "fix(memory): close local embedding providers on timeout (#84048)",
-      "link": "https://github.com/openclaw/openclaw/commit/1c1c75df72783007eeff6f3f647f7b95c24c6dbd",
-      "publishedAt": "2026-05-19T09:19:09Z",
-      "summary": "fix(memory): close local embedding providers on timeout (#84048) Summary: - The branch adds a close lifecycle for local memory embedding providers, scoped memory search/index teardown for one agent, Active Memory timeout cleanup, focused tests, and a changelog entry. - Reproducibility: yes. The linked issue gives a concrete OpenClaw 2026.5.18 Telegram Active Memory timeout pa ... current-main source inspection confirms there is no timeout cleanup for that local embedding provider path. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(memory): close local embedding providers on timeout Validation: - ClawSweeper review passed for head 8e2e369b5cfd8081876b2b2b5d86b2c1cc6036bf. - Required merge gates passed before the squash merge. Prepared head SHA: 8e2e369b5cfd8081876b2b2b5d86b2c1cc6036bf Review: https://github.com/openclaw/openclaw/pull/84048#issuecomment-4485705481 Co-authored-by: brokemac79 Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: hxy91819 Co-authored-by: hxy91819",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): close local embedding providers on timeout (#84048)",
-      "summaryZh": "重點：修正(記憶): close local embedding providers on timeout (#84048) Summary: - The branch adds a close lifecycle for local 記憶 em..."
-    },
-    {
-      "id": 10,
-      "title": "fix(installer): preserve windows onboarding tui (#84044)",
-      "link": "https://github.com/openclaw/openclaw/commit/aef93881af5f2a9fd96481f902238d42bd1b5c68",
-      "publishedAt": "2026-05-19T08:12:26Z",
-      "summary": "fix(installer): preserve windows onboarding tui (#84044) Co-authored-by: sjf-oa",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(installer): preserve windows onboarding tui (#84044)",
-      "summaryZh": "重點：修正(installer): preserve windows onboarding tui (#84044) Co-authored-by: sjf-oa..."
     }
   ]
 }
