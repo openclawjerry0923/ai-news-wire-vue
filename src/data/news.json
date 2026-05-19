@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-05-19T15:26:26.968Z",
+  "generatedAt": "2026-05-19T18:06:33.976Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(docker): keep codex plugin in release images",
-      "link": "https://github.com/openclaw/openclaw/commit/d0f7c8fa280534c3be786fd1ec69b569bbd72200",
-      "publishedAt": "2026-05-19T14:36:50Z",
-      "summary": "fix(docker): keep codex plugin in release images",
+      "title": "[codex] restore QR bootstrap operator handoff (#83684)",
+      "link": "https://github.com/openclaw/openclaw/commit/94d8391c0323b10b3ae14e9b940d184a0a5ffdc2",
+      "publishedAt": "2026-05-19T17:59:09Z",
+      "summary": "[codex] restore QR bootstrap operator handoff (#83684) Merged via squash. Prepared head SHA: 2dc955cfb787f7c5904730b2267e6ad972fc417b Co-authored-by: ngutman Co-authored-by: ngutman Reviewed-by: @ngutman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件ker): keep codex plugin in 版本發布 images",
-      "summaryZh": "重點：修正(文件ker): keep codex plugin in 版本發布 images..."
+      "titleZh": "OpenClaw 程式碼更新：[codex] restore QR bootstrap operator handoff (#83684)",
+      "summaryZh": "重點：[codex] restore QR bootstrap operator handoff (#83684) Merged via squash. Prepared head SHA: 2dc955cfb787f7c5904730b2267..."
     },
     {
       "id": 2,
-      "title": "fix(cli): format acp client errors with formatErrorMessage (#83904) (…",
-      "link": "https://github.com/openclaw/openclaw/commit/5d19beb547e1c538bff2c3402015799e57e429f9",
-      "publishedAt": "2026-05-19T14:34:51Z",
-      "summary": "fix(cli): format acp client errors with formatErrorMessage (#83904) (#84080) Summary: - The PR changes `openclaw acp client` error handling to use `formatErrorMessage`, adds a plain-object rejection regression test, and adds a changelog entry. - Reproducibility: yes. Current main visibly sends `openclaw acp client` caught errors through `String(err)`, ... catch already uses `formatErrorMessage`; I did not run a live failing ACP server in this read-only review. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(cli): format acp client errors with formatErrorMessage (#83904) Validation: - ClawSweeper review passed for head 69ef0e7270e2f5f1063dc5b05c56d77142eddd89. - Required merge gates passed before the squash merge. Prepared head SHA: 69ef0e7270e2f5f1063dc5b05c56d77142eddd89 Review: https://github.com/openclaw/openclaw/pull/84080#issuecomment-4486666922 Co-authored-by: HCL Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "docs: clarify /new vs /reset semantics in slash-commands (#81073)",
+      "link": "https://github.com/openclaw/openclaw/commit/e00cb664ad4bd346866dfb1ad863e7b6c72dd7e6",
+      "publishedAt": "2026-05-19T17:51:48Z",
+      "summary": "docs: clarify /new vs /reset semantics in slash-commands (#81073) Summary: - The PR changes one bullet in `docs/tools/slash-commands.md` to distinguish `/new` from `/reset` and remove the misleading alias wording. - Reproducibility: yes. Reading current main reproduces the misleading docs line at `docs/tools/slash-commands.md:127`, and adjacent source/tests show `/new` and `/reset` take different paths in the Control UI. Automerge notes: - PR branch already contained follow-up commit before automerge: docs/slash-commands: drop inaccurate Control UI/ACP cross-reference (… - PR branch already contained follow-up commit before automerge: Merge branch 'main' into docs/fix-reset-alias-misleading Validation: - ClawSweeper review passed for head bb92b6050aab85335061028404d59c762cee3125. - Required merge gates passed before the squash merge. Prepared head SHA: bb92b6050aab85335061028404d59c762cee3125 Review: https://github.com/openclaw/openclaw/pull/81073#issuecomment-4432165259 Co-authored-by: Md. Al-Mosabbir Rakib Co-authored-by: Md. Al-Mosabbir Rakib Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): format acp client errors with formatErrorMessage (#83904) (…",
-      "summaryZh": "重點：修正(cli): format acp client errors with formatErrorMessage (#83904) (#84080) Summary: - The PR changes `OpenClaw acp clie..."
+      "titleZh": "OpenClaw 文件更新：文件: clarify /new vs /reset semantics in slash-commands (#81073)",
+      "summaryZh": "重點：文件: clarify /new vs /reset semantics in slash-commands (#81073) Summary: - The PR changes one bullet in `文件/tools/slash-..."
     },
     {
       "id": 3,
-      "title": "feat(agents): support per-agent local model lean mode (#84073)",
-      "link": "https://github.com/openclaw/openclaw/commit/13c97c5a8d04897c84cbb4a82eeac502330cdee8",
-      "publishedAt": "2026-05-19T14:11:38Z",
-      "summary": "feat(agents): support per-agent local model lean mode (#84073) Summary: - The branch adds per-agent `agents.list[].experimental.localModelLean` config and applies lean tool filtering through agent, session, and default-agent resolution. - Reproducibility: not applicable. this is a feature/config PR rather than a current-main bug report. The chan ... or is supported by source review, focused tests in the branch, and the PR body's redacted live runtime log. Automerge notes: - PR branch already contained follow-up commit before automerge: feat(agents): support per-agent local model lean mode - PR branch already contained follow-up commit before automerge: fix(clawsweeper): address review for automerge-openclaw-openclaw-8407… Validation: - ClawSweeper review passed for head 1f9a9554da521f35d6127f729e41401a272b68c0. - Required merge gates passed before the squash merge. Prepared head SHA: 1f9a9554da521f35d6127f729e41401a272b68c0 Review: https://github.com/openclaw/openclaw/pull/84073#issuecomment-4486397570 Co-authored-by: Bob Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: osolmaz Co-authored-by: osolmaz",
+      "title": "[Docs] Document gateway benchmark probes (#83866)",
+      "link": "https://github.com/openclaw/openclaw/commit/323c9760d32780276abefb2020cea85da426da11",
+      "publishedAt": "2026-05-19T17:50:36Z",
+      "summary": "[Docs] Document gateway benchmark probes (#83866) Summary: - The PR updates `docs/cli/gateway.md` and `docs/reference/test.md` to document Gateway startup/restart benchmark prerequisites, commands, case IDs, probes, output semantics, and platform limits. - Reproducibility: not applicable. as a runtime bug; docs correctness is source-checkable against the benchmar ... ipts, and readiness source. The current PR head corrected the earlier startup-hook readiness wording issue. Automerge notes: - PR branch already contained follow-up commit before automerge: docs(gateway): correct benchmark readiness wording Validation: - ClawSweeper review passed for head 5bd0f6c46305f04635555c93df61e7e2b80f44fa. - Required merge gates passed before the squash merge. Prepared head SHA: 5bd0f6c46305f04635555c93df61e7e2b80f44fa Review: https://github.com/openclaw/openclaw/pull/83866#issuecomment-4483820005 Co-authored-by: samzong Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(agents): support per-agent local 模型 lean mode (#84073)",
-      "summaryZh": "重點：新功能(agents): support per-agent local 模型 lean mode (#84073) Summary: - The branch adds per-agent `agents.list[].experimen..."
+      "titleZh": "OpenClaw 文件更新：[文件] 文件ument Gateway benchmark probes (#83866)",
+      "summaryZh": "重點：[文件] 文件ument Gateway benchmark probes (#83866) Summary: - The PR updates `文件/cli/Gateway.md` and `文件/reference/test.md` ..."
     },
     {
       "id": 4,
+      "title": "fix(mantis): finish interrupted telegram proof sessions",
+      "link": "https://github.com/openclaw/openclaw/commit/edcf862da5d02d484678935f5be36115317eda09",
+      "publishedAt": "2026-05-19T17:29:50Z",
+      "summary": "fix(mantis): finish interrupted telegram proof sessions",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mantis): finish interrupted Telegram proof sessions",
+      "summaryZh": "重點：修正(mantis): finish interrupted Telegram proof sessions..."
+    },
+    {
+      "id": 5,
       "title": "表面平靜的宇宙巨獸，錢卓拉望遠鏡揭開 Abell 2029 星系團的驚天碰撞",
       "link": "https://technews.tw/2026/05/19/abell-2029-once-experienced-a-massive-collision-event/",
       "publishedAt": "Tue, 19 May 2026 13:51:05 +0000",
       "summary": "星系團是宇宙中由重力聚集而成的大型構造，內部包含數百甚至數千個星系、大量暗物質，以及充滿星系之間的高溫氣體。這 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "fix(cli): preserve first line of channels logs at window boundary (#8…",
-      "link": "https://github.com/openclaw/openclaw/commit/b7ba7c3f2a1e0c8bfead084596911aa7a0ef9852",
-      "publishedAt": "2026-05-19T13:27:43Z",
-      "summary": "fix(cli): preserve first line of channels logs at window boundary (#84106) Summary: - The PR updates `openclaw channels logs` tail-window reading to keep a complete first line when the 1 MB window starts on a newline boundary, adds a regression test, and adds a changelog entry. - Reproducibility: yes. Source inspection on current main shows the unconditional first-line drop, and the PR ... s provide terminal before/after CLI output for a 2 MB log whose tail window starts exactly after a newline. Automerge notes: - PR branch already contained follow-up commit before automerge: Merge remote-tracking branch 'origin/main' into fix/channels-logs-dro… - PR branch already contained follow-up commit before automerge: fix(cli): preserve first line of channels logs at window boundary Validation: - ClawSweeper review passed for head 284b312b315e087b501b55cfcc99d20f42ee1173. - Required merge gates passed before the squash merge. Prepared head SHA: 284b312b315e087b501b55cfcc99d20f42ee1173 Review: https://github.com/openclaw/openclaw/pull/84106#issuecomment-4487313048 Co-authored-by: BSG2000 Co-authored-by: Copilot Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): preserve first line of channels logs at window boundary (#8…",
-      "summaryZh": "重點：修正(cli): preserve first line of channels logs at window boundary (#84106) Summary: - The PR updates `OpenClaw channels l..."
     },
     {
       "id": 6,
