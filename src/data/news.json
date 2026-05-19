@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-05-19T20:44:53.325Z",
+  "generatedAt": "2026-05-19T22:17:06.120Z",
   "items": [
     {
       "id": 1,
-      "title": "Fix managed Gateway updates across CLI and service Node skew (#84043)",
-      "link": "https://github.com/openclaw/openclaw/commit/c81271ee6e3a78e961ff4db7b26ff206b61653a8",
-      "publishedAt": "2026-05-19T20:44:29Z",
-      "summary": "Fix managed Gateway updates across CLI and service Node skew (#84043) Summary: - The PR pins managed Gateway package updates, runtime preflight, post-install doctor, post-core update, service refresh, and restart follow-ups to the Node binary and package root baked into the Gateway service. - Reproducibility: yes. source-level. Current main validates and follows up with the shell process Node in the ... body provides a concrete two-Node Docker reproduction, though I did not execute it in this read-only pass. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(update): detect service node mismatch even when package roots match - PR branch already contained follow-up commit before automerge: fix(update): pin package install to service root when nodes differ wi… Validation: - ClawSweeper review passed for head 5607e441f642483bf662f51b581a9bb8b1e31db7. - Required merge gates passed before the squash merge. Prepared head SHA: 5607e441f642483bf662f51b581a9bb8b1e31db7 Review: https://github.com/openclaw/openclaw/pull/84043#issuecomment-4485613931 Co-authored-by: Alex Knight Co-authored-by: Alex Knight Co-authored-by: clawsweeper[bot] Approved-by: amknight Co-authored-by: amknight",
+      "title": "fix(plugins): add default timeout for before_compaction/after_compact…",
+      "link": "https://github.com/openclaw/openclaw/commit/5c9a8f33b312f2a0e3428fcb1e43d22f4141b3d9",
+      "publishedAt": "2026-05-19T22:14:15Z",
+      "summary": "fix(plugins): add default timeout for before_compaction/after_compaction hooks (#84153) Merged via squash. Prepared head SHA: 41fa5fed376734e4e96e942f8dc44a3cd4acc58a Co-authored-by: 100yenadmin Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 managed Gateway updates across CLI and service Node skew (#84043)",
-      "summaryZh": "重點：修正 managed Gateway updates across CLI and service Node skew (#84043) Summary: - The PR pins managed Gateway package upda..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): add default timeout for before_compaction/after_compact…",
+      "summaryZh": "重點：修正(plugins): add default timeout for before_compaction/after_compaction hooks (#84153) Merged via squash. Prepared head ..."
     },
     {
       "id": 2,
-      "title": "Revert \"perf(plugins): extend discovery threading to loader, manifest…",
-      "link": "https://github.com/openclaw/openclaw/commit/3d96111a5afe377b529c9bb5a9db510d74607344",
-      "publishedAt": "2026-05-19T19:35:27Z",
-      "summary": "Revert \"perf(plugins): extend discovery threading to loader, manifest registr…\" (#84278) This reverts commit f5f0b2c7c9e072975dc6e8206b79944a5342dfc6.",
+      "title": "fix(cli): honor --no-prefix-cwd in acp",
+      "link": "https://github.com/openclaw/openclaw/commit/d7b23d5bcab9ac85d082d5bcb6a60b16f89570d0",
+      "publishedAt": "2026-05-19T22:10:17Z",
+      "summary": "fix(cli): honor --no-prefix-cwd in acp Fixes #83901. Honors Commander negated option handling for ACP prompt-prefix forwarding and adds focused CLI regression coverage. Verified with Crabbox AWS cbx_1689d0ad78e9 run run_a406418db6fe and Real behavior proof run 26127392365.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Revert \"perf(plugins): extend discovery threading to loader, manifest…",
-      "summaryZh": "重點：Revert \"perf(plugins): extend discovery threading to loader, manifest registr…\" (#84278) This reverts 提交 f5f0b2c7c9e0729..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): honor --no-pre修正-cwd in acp",
+      "summaryZh": "重點：修正(cli): honor --no-pre修正-cwd in acp 修正 #83901. Honors Commander negated option handling for ACP prompt-pre修正 forwarding..."
     },
     {
       "id": 3,
-      "title": "perf(plugins): extend discovery threading to loader, manifest registr…",
-      "link": "https://github.com/openclaw/openclaw/commit/f5f0b2c7c9e072975dc6e8206b79944a5342dfc6",
-      "publishedAt": "2026-05-19T19:35:01Z",
-      "summary": "perf(plugins): extend discovery threading to loader, manifest registry, installed-index, and config contracts (#84258) Follow-up to #75451. Threads optional discovery?: PluginDiscoveryResult through the remaining helpers that still call discoverOpenClawPlugins internally during startup: - loadOpenClawPlugins / loadOpenClawPluginCliRegistry (src/plugins/loader.ts): add discovery? to PluginLoadOptions and consult it before falling back to an internal scan at both call sites. - loadPluginManifestRegistry (src/plugins/manifest-registry.ts): accept discovery? as a more ergonomic alternative to the existing candidates? / diagnostics? pair; candidates? still wins when both are supplied. - resolveInstalledPluginIndexRegistry (src/plugins/installed-plugin-index-registry.ts): add discovery? to LoadInstalledPluginIndexParams and use it when candidates aren't supplied. - resolvePluginConfigContractsById (src/plugins/config-contracts.ts): add discovery? and thread it into the bundled-fallback discovery call. Add discovery-threading.test.ts asserting each entry point skips its internal discoverOpenClawPlugins call when discovery is supplied, calls it when nothing is supplied, and prefers explicit candidates over discovery when both are present (6 tests, all pass). discoverOpenClawPlugins remains stateless; sharing is function-scoped per src/plugins/CLAUDE.md guidance. Backward compatible: every change is additive (new optional param).",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins): extend discovery threading to loader, manifest registr…",
-      "summaryZh": "重點：perf(plugins): extend discovery threading to loader, manifest registry, installed-index, and config contracts (#84258) F..."
+      "title": "Google 重新設計智慧搜尋框、多模態更直覺，力推「搜尋代理」",
+      "link": "https://technews.tw/2026/05/20/google-adds-advanced-ai-model-features-to-search/",
+      "publishedAt": "Tue, 19 May 2026 22:09:04 +0000",
+      "summary": "Google 不斷透過 AI 來重新想像搜尋服務的可能性，在 19 日登場的 Google I/O 2026 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "perf(plugins): thread explicit discovery to avoid redundant filesyste…",
-      "link": "https://github.com/openclaw/openclaw/commit/28beea9e881ce3be7497f60c221e3fe51ba34d99",
-      "publishedAt": "2026-05-19T19:15:33Z",
-      "summary": "perf(plugins): thread explicit discovery to avoid redundant filesystem walks (#75451) Add optional discovery parameter to loadBundledCapabilityRuntimeRegistry, resolveBundledPluginSources, and listChannelCatalogEntries so callers that already hold a PluginDiscoveryResult can skip redundant filesystem walks. In contracts/registry.ts, the retry loop in loadScopedCapabilityRuntimeRegistryEntries computes discovery once and shares it across retry attempts (function-scoped, not module-scoped). discoverOpenClawPlugins() itself remains stateless with no hidden cache. Closes #82308 Signed-off-by: Sebastien Tardif",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins): thread explicit discovery to avoid redundant filesyste…",
-      "summaryZh": "重點：perf(plugins): thread explicit discovery to avoid redundant filesystem walks (#75451) Add optional discovery parameter t..."
+      "title": "Google 新模型出招，用全新 Gemini Spark「養龍蝦」",
+      "link": "https://technews.tw/2026/05/20/google-introduces-gemini-3-5-and-gemini-spark/",
+      "publishedAt": "Tue, 19 May 2026 22:04:55 +0000",
+      "summary": "Google I/O 2026 開發者大會正式登場，其中 Google 發表全新 Gemini 3.5 系列模 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "AI 需求爆衝，Google 執行長：每月處理 3,200 兆 token，年成長七倍",
+      "link": "https://technews.tw/2026/05/20/sundar-pichai-says-google-is-now-processing-3-2-quadrillion-tokens-per-month/",
+      "publishedAt": "Tue, 19 May 2026 21:59:07 +0000",
+      "summary": "Google 執行長皮查伊（Sundar Pichai）在 Google I/O 2026 開發者大會，分享 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix(agents): bound plugin-owned context-engine compaction with a safe…",
+      "link": "https://github.com/openclaw/openclaw/commit/a059309a9f9a7aeab9f476b6debe68674f60d631",
+      "publishedAt": "2026-05-19T21:49:00Z",
+      "summary": "fix(agents): bound plugin-owned context-engine compaction with a safety timeout (#84083) Merged via squash. Prepared head SHA: 9121a1a5ea3a782da1a0346265e25c907a76519c Co-authored-by: 100yenadmin Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): bound plugin-owned context-engine compaction with a safe…",
+      "summaryZh": "重點：修正(agents): bound plugin-owned context-engine compaction with a safety timeout (#84083) Merged via squash. Prepared head..."
+    },
+    {
+      "id": 7,
+      "title": "openclaw 2026.5.19-beta.2",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.19-beta.2",
+      "publishedAt": "2026-05-19T21:44:14Z",
+      "summary": "2026.5.19 Changes Agents: clarify that fixes should default to clean bounded refactors, lean internals, and explicit plugin SDK/API deprecation paths. Dependencies: update @openclaw/proxyline to 0.3.3. Dependencies: update Pi packages to 0.75.1 and raise the minimum supported Node.js 22 line to 22.19. Docker/Podman: add OPENCLAW_IMAGE_APT_PACKAGES as the runtime-neutral image build arg for extra apt packages while keeping OPENCLAW_DOCKER_APT_PACKAGES as a legacy fallback. (#62431) Thanks @urtabajev. Gateway/ACPX: attribute startup probe, config, runtime, and resource-count costs in restart traces without changing readiness behavior. (#83300) Thanks @sam",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 版本更新：2026.5.19-beta.2",
+      "summaryZh": "重點：2026.5.19 Changes Agents: clarify that 修正 should default to clean bounded refactors, lean internals, and explicit plugin..."
+    },
+    {
+      "id": 8,
       "title": "表面平靜的宇宙巨獸，錢卓拉望遠鏡揭開 Abell 2029 星系團的驚天碰撞",
       "link": "https://technews.tw/2026/05/19/abell-2029-once-experienced-a-massive-collision-event/",
       "publishedAt": "Tue, 19 May 2026 13:51:05 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "【臺灣資安大會直擊】電信流量揭臺灣企業AI風險：7成大型企業封鎖中國模型，6萬家陷資安隱憂",
       "link": "https://www.ithome.com.tw/news/175926",
       "publishedAt": "2026-05-19 12:05:53",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "WD為硬碟韌體保護導入後量子數位簽章技術，硬碟安全進入抗量子時代",
       "link": "https://www.ithome.com.tw/news/175925",
       "publishedAt": "2026-05-19 12:05:47",
       "summary": "為對抗量子運算的威脅，繼雲端服務平臺、伺服器與商用電腦等領域先後導入後量子密碼學技術（PQC）後，現在硬碟產品領域也出現採用案例 。WD近日宣布推出業界首款支援PQC的硬碟Ultrastar DC HC6100 UltraSMR，針對硬碟的安全開機程序（secure boot）與韌體層級，引進基於PQC演算法的數位簽章，強化硬碟底層的安全。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Linux核心再傳新的權限提升漏洞DirtyDecrypt",
-      "link": "https://www.ithome.com.tw/news/175919",
-      "publishedAt": "2026-05-19 11:05:50",
-      "summary": "繼4月底至5月上旬，陸續有資安廠商與研究人員揭露Linux核心的本機權限提升（LPE）漏洞，而引起廣泛討論，最早出現的是命名為Copy Fail（CVE-2026-31431）的弱點，後續又出現該漏洞的變種Dirty Frag（CVE-2026-43284與CVE-2026-43500",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Reaper竊資程式混合冒充蘋果、微軟、Google，攻擊macOS用戶並建立後門",
-      "link": "https://www.ithome.com.tw/news/175921",
-      "publishedAt": "2026-05-19 11:05:28",
-      "summary": "資安業者SentinelOne研究人員發現一隻竊資程式Reaper，冒充蘋果、微軟和Google以攻擊macOS裝置用戶，並竊取其瀏覽器、擴充程式、電子錢包、機密文件。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "研究人員警告PAN-OS身分驗證繞過漏洞的危險程度恐被低估",
-      "link": "https://www.ithome.com.tw/news/175918",
-      "publishedAt": "2026-05-19 11:05:13",
-      "summary": "上週Palo Alto Networks公布防火牆作業系統PAN-OS身分驗證繞過漏洞CVE-2026-0265，並指出雖然尚未發現遭到利用的跡象，不過他們呼籲用戶應以最高優先順序採取因應措施，罕見的是，該公司特別提及在特定配置下，該漏洞的危險程度會從高風險等級降至低風險。通報此事的研究人員透過社群網站發聲，認為該資安公告可能讓用戶低估漏洞造成的風險。",
       "source": "iThome",
       "tag": "繁中"
     }
