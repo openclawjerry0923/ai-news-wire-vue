@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-05-22T05:01:25.938Z",
+  "generatedAt": "2026-05-22T09:28:01.383Z",
   "items": [
     {
       "id": 1,
+      "title": "Anthropic悄悄修補已存在近半年的Claude Code沙箱漏洞，未公開揭露引發研究人員批評",
+      "link": "https://www.ithome.com.tw/news/176045",
+      "publishedAt": "2026-05-22 12:05:35",
+      "summary": "資安研究人員Aonan Guan近日發布報告，揭露Anthropic旗下AI輔助程式開發工具Claude Code，其網路沙箱（Network Sandbox）機制存在漏洞，可能導致原始碼與憑證洩漏，Anthropic雖已在",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "因應軟體供應鏈攻擊，NPM新增套件暫存發布機制，降低惡意版本散布風險",
       "link": "https://www.ithome.com.tw/news/176043",
       "publishedAt": "2026-05-22 12:05:01",
@@ -11,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "外界擔憂Mythos恐助長大規模網路攻擊，部分資安專家認為風險被高估",
       "link": "https://www.ithome.com.tw/news/176040",
       "publishedAt": "2026-05-22 11:05:56",
@@ -20,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "GraphWorm惡意程式濫用微軟OneDrive作為C2通道，利用雲端服務隱藏攻擊流量",
       "link": "https://www.ithome.com.tw/news/176028",
       "publishedAt": "2026-05-22 11:05:55",
@@ -29,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Google發布Chrome 148更新，修補16個資安漏洞",
       "link": "https://www.ithome.com.tw/news/176039",
       "publishedAt": "2026-05-22 11:05:52",
@@ -38,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "微軟新版Edge for Business加入代理式上網",
       "link": "https://www.ithome.com.tw/news/176041",
       "publishedAt": "2026-05-22 11:05:44",
@@ -47,57 +56,48 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "CISA將趨勢科技端點防護系統Apex One路徑遍歷漏洞列入KEV",
-      "link": "https://www.ithome.com.tw/news/176038",
-      "publishedAt": "2026-05-22 11:05:36",
-      "summary": "趨勢科技於5月21日修補端點防護平臺Apex One多項資安漏洞，並指出中度風險的路徑遍歷漏洞CVE-2026-34926已遭到利用，同一天美國網路安全暨基礎設施安全局（CISA）將其列入已遭利用的漏洞名冊（KEV），要求聯邦機構於6月4日以前完成修補。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "fix(models): handle watcher errors, close on shutdown, rewarm after i…",
-      "link": "https://github.com/openclaw/openclaw/commit/55cfe00a3a403a86015ca59140e857508481f70d",
-      "publishedAt": "2026-05-22T04:52:21Z",
-      "summary": "fix(models): handle watcher errors, close on shutdown, rewarm after invalidate Addresses three ClawSweeper findings on the fs-watcher commit: - [P1] auth-profile watcher now handles chokidar 'error' events (logs + closes once) mirroring the gateway config-reload pattern. Without this, an unhandled error from chokidar can crash the gateway. - [P2] auth-profile watcher handle is pushed into postReadySidecars so stopPostReadySidecarsAfterCloseStarted closes it on gateway shutdown. - [P2] auth-failure and file-change invalidation paths now schedule a background rewarm (with a 'reason=' log line). Without this, the next /models call after an invalidation paid the slow per-provider path until the next reload. The warmer's existing generation counter handles concurrent rewarms safely.",
+      "title": "test(plugins): retry bundled smoke health probes",
+      "link": "https://github.com/openclaw/openclaw/commit/d24cfcfa214c8ad357f46e5d7bfa6b866ebaf482",
+      "publishedAt": "2026-05-22T09:21:48Z",
+      "summary": "test(plugins): retry bundled smoke health probes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): handle watcher errors, close on shutdown, rewarm after i…",
-      "summaryZh": "重點：修正(模型): handle watcher errors, close on shutdown, rewarm after invalidate Addresses three ClawSweeper findings on the fs..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): retry bundled smoke health probes",
+      "summaryZh": "重點：test(plugins): retry bundled smoke health probes..."
     },
     {
       "id": 8,
-      "title": "fix(models): watch auth-profiles.json so externally added creds becom…",
-      "link": "https://github.com/openclaw/openclaw/commit/06a6d2b5c9f485359ac6b5eb7a1cc857d6d03827",
-      "publishedAt": "2026-05-22T04:52:21Z",
-      "summary": "fix(models): watch auth-profiles.json so externally added creds become visible Adds a chokidar watcher on every configured agent's auth-profiles.json. Any change fires clearCurrentProviderAuthState so the next model-listing call recomputes against the on-disk auth state. Closes the stale-FALSE direction (user adds auth via codex login, hand-edit, etc.) that the auth-failure hook can't catch on its own.",
+      "title": "test(gateway): bind auth-free websocket harness to loopback",
+      "link": "https://github.com/openclaw/openclaw/commit/2b1c01f769a898964c6937564864c947f1541746",
+      "publishedAt": "2026-05-22T09:17:22Z",
+      "summary": "test(gateway): bind auth-free websocket harness to loopback",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): watch auth-profiles.json so externally added creds becom…",
-      "summaryZh": "重點：修正(模型): watch auth-profiles.json so externally added creds become visible Adds a chokidar watcher on every configured ag..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): bind auth-free websocket harness to loopback",
+      "summaryZh": "重點：test(Gateway): bind auth-free websocket harness to loopback..."
     },
     {
       "id": 9,
-      "title": "test(auth-profiles): cover self-heal hook firing + survives hook errors",
-      "link": "https://github.com/openclaw/openclaw/commit/a1bdffc2129f3ebbf64b57eecdac728555b40175",
-      "publishedAt": "2026-05-22T04:52:21Z",
-      "summary": "test(auth-profiles): cover self-heal hook firing + survives hook errors",
+      "title": "test(plugins): keep npm peer prune mock directory-safe",
+      "link": "https://github.com/openclaw/openclaw/commit/a12e3022db9cf9e704d6b88f875d3467c1a340fa",
+      "publishedAt": "2026-05-22T09:12:17Z",
+      "summary": "test(plugins): keep npm peer prune mock directory-safe",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(auth-profiles): cover self-heal hook firing + survives hook errors",
-      "summaryZh": "重點：test(auth-profiles): cover self-heal hook firing + survives hook errors..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): keep npm peer prune mock directory-safe",
+      "summaryZh": "重點：test(plugins): keep npm peer prune mock directory-safe..."
     },
     {
       "id": 10,
-      "title": "fix(models): log auth-profile failure hook errors instead of swallowi…",
-      "link": "https://github.com/openclaw/openclaw/commit/ab265dbce9426d8fdddfd9067ff86080606274cd",
-      "publishedAt": "2026-05-22T04:52:21Z",
-      "summary": "fix(models): log auth-profile failure hook errors instead of swallowing them",
+      "title": "chore(ui): refresh fa control ui locale",
+      "link": "https://github.com/openclaw/openclaw/commit/40b8dd88d8d4167f4766a3b3c09c86fadef780bf",
+      "publishedAt": "2026-05-22T09:11:58Z",
+      "summary": "chore(ui): refresh fa control ui locale",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): log auth-profile failure hook errors instead of swallowi…",
-      "summaryZh": "重點：修正(模型): log auth-profile failure hook errors instead of swallowing them..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh fa control ui locale",
+      "summaryZh": "重點：chore(ui): refresh fa control ui locale..."
     }
   ]
 }
