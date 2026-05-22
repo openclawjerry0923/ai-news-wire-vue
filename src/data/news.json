@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-22T19:47:57.318Z",
+  "generatedAt": "2026-05-22T21:11:57.624Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(delivery): log failDelivery errors instead of silently swallowing…",
-      "link": "https://github.com/openclaw/openclaw/commit/f75789f803f5d0c0cef67f097aee7bd220af295a",
-      "publishedAt": "2026-05-22T19:45:26Z",
-      "summary": "fix(delivery): log failDelivery errors instead of silently swallowing (#84449) Replace empty .catch(() => {}) on two failDelivery calls with log.warn() so delivery queue mark-failed errors leave a diagnostic trail instead of being silently discarded. Signed-off-by: Sebastien Tardif",
+      "title": "ci: unblock advisory Tideclaw alpha release checks",
+      "link": "https://github.com/openclaw/openclaw/commit/dcfc7e58fafa0b25fc7d71a61e611367b855acaf",
+      "publishedAt": "2026-05-22T21:09:18Z",
+      "summary": "ci: unblock advisory Tideclaw alpha release checks",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(delivery): log failDelivery errors instead of silently swallowing…",
-      "summaryZh": "重點：修正(delivery): log failDelivery errors instead of silently swallowing (#84449) Replace empty .catch(() => {}) on two fail..."
+      "titleZh": "OpenClaw 程式碼更新：ci: unblock advisory Tideclaw alpha 版本發布 checks",
+      "summaryZh": "重點：ci: unblock advisory Tideclaw alpha 版本發布 checks..."
     },
     {
       "id": 2,
-      "title": "fix(cli): validate debug proxy numeric options (#84260)",
-      "link": "https://github.com/openclaw/openclaw/commit/5c866a17d78da8754550daeaac5d9dec81c24038",
-      "publishedAt": "2026-05-22T19:45:17Z",
-      "summary": "fix(cli): validate debug proxy numeric options (#84260)",
+      "title": "fix(installer): tolerate WSL UNC launch cwd",
+      "link": "https://github.com/openclaw/openclaw/commit/684a9b2e6edb5ab0fcdccb8ce3abe93614b95bca",
+      "publishedAt": "2026-05-22T20:59:08Z",
+      "summary": "fix(installer): tolerate WSL UNC launch cwd",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): validate debug proxy numeric options (#84260)",
-      "summaryZh": "重點：修正(cli): validate debug proxy numeric options (#84260)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(installer): tolerate WSL UNC launch cwd",
+      "summaryZh": "重點：修正(installer): tolerate WSL UNC launch cwd..."
     },
     {
       "id": 3,
-      "title": "fix(daemon): use exit code instead of localized text for schtasks fal…",
-      "link": "https://github.com/openclaw/openclaw/commit/501e74ddf34fabfceb14a3bd77069036590ff457",
-      "publishedAt": "2026-05-22T19:43:40Z",
-      "summary": "fix(daemon): use exit code instead of localized text for schtasks fallback (#85347) * fix(daemon): use exit code instead of localized text for schtasks fallback Problem: - shouldFallbackToStartupEntry() only matched English/Spanish error messages (\"access is denied\" / \"acceso denegado\"), causing silent fallback failure on non-English Windows systems (Chinese, Japanese, French, German, etc.) Fix: - Replace regex matching with exit code check (params.code === 1) - schtasks returns exit code 1 for access denied / generic failure regardless of system locale Fixes: #85255 * test(daemon): cover localized schtasks fallback --------- Co-authored-by: Peter Steinberger",
+      "title": "docs: absorb docs sweep",
+      "link": "https://github.com/openclaw/openclaw/commit/bb5010b89a5a2b1dfe03e15e03f7d648ce21daa1",
+      "publishedAt": "2026-05-22T20:52:01Z",
+      "summary": "docs: absorb docs sweep Co-authored-by: Kai Co-authored-by: Weihang Co-authored-by: Scott Long Co-authored-by: moejaberr Co-authored-by: huihui0822",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(daemon): use exit code instead of localized text for schtasks fal…",
-      "summaryZh": "重點：修正(daemon): use exit code instead of localized text for schtasks fallback (#85347) * 修正(daemon): use exit code instead o..."
+      "titleZh": "OpenClaw 文件更新：文件: absorb 文件 sweep",
+      "summaryZh": "重點：文件: absorb 文件 sweep Co-authored-by: Kai Co-authored-by: Weihang Co-authored-by: Scott Long Co-authored-by: moejaberr Co-..."
     },
     {
       "id": 4,
-      "title": "fix(auto-reply): enforce word boundary in slash command prefix match …",
-      "link": "https://github.com/openclaw/openclaw/commit/5c614de29a13e2f583a3c183cc8c6ac216e0e627",
-      "publishedAt": "2026-05-22T19:42:22Z",
-      "summary": "fix(auto-reply): enforce word boundary in slash command prefix match (#84634) `parseSlashCommandActionArgs` used a naive `startsWith` against the configured slash prefix. When a skill name shares a prefix with a built-in command (e.g. a skill named `config-check` vs the built-in `/config`), the longer name was captured by the shorter built-in handler and surfaced as an invalid action: ⚠️ /config is disabled. Set commands.config=true to enable. Any skill whose name starts with a built-in command prefix (`config-*`, `debug-*`, `models-*`, etc.) was unreachable via slash invocation from any channel. Fix: after the prefix match, require that the next character is whitespace, a colon, or end-of-string. Otherwise the prefix collided with a longer command name and we return `no-match` so the longer handler — or the skill router — gets a chance to claim it. Adds a regression test file `commands-slash-parse.test.ts` covering: - `/config-check ` returns null (the reported case) - `/configfoo` (no separator) returns null - `/modelsy` returns null for the `/models` prefix - `/config:json` still matches (colon is a valid boundary) - `/config show enabled` still parses cleanly (whitespace boundary) - empty body still returns the default action Fixes #84572. Co-authored-by: infracore",
+      "title": "fix: cancel stale provider auth prewarms (#85503)",
+      "link": "https://github.com/openclaw/openclaw/commit/60e3749de339e8fd942be9e278222d5aa3cec0e2",
+      "publishedAt": "2026-05-22T20:51:43Z",
+      "summary": "fix: cancel stale provider auth prewarms (#85503)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): enforce word boundary in slash command pre修正 match …",
-      "summaryZh": "重點：修正(auto-reply): enforce word boundary in slash command pre修正 match (#84634) `parseSlashCommandActionArgs` used a naive `..."
+      "titleZh": "OpenClaw 程式碼更新：修正: cancel stale provider auth prewarms (#85503)",
+      "summaryZh": "重點：修正: cancel stale provider auth prewarms (#85503)..."
     },
     {
       "id": 5,
