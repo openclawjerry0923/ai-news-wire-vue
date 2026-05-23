@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-05-23T13:28:04.730Z",
+  "generatedAt": "2026-05-23T15:01:37.668Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(whatsapp): persist inbound delivery in plugin state (#85506)",
-      "link": "https://github.com/openclaw/openclaw/commit/b47bace014238839e188aafee03904dac2679b9a",
-      "publishedAt": "2026-05-23T13:20:53Z",
-      "summary": "fix(whatsapp): persist inbound delivery in plugin state (#85506) * fix(whatsapp): persist inbound delivery in plugin state * fix(whatsapp): type durable inbound payload * fix(channels): close durable receive insert race * fix(whatsapp): skip owned durable pending duplicates",
+      "title": "refactor: simplify doctor repair checks (#83753)",
+      "link": "https://github.com/openclaw/openclaw/commit/056378efd5823a164d995f9719980f47dcefb70b",
+      "publishedAt": "2026-05-23T14:55:12Z",
+      "summary": "refactor: simplify doctor repair checks (#83753)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): persist inbound delivery in plugin state (#85506)",
-      "summaryZh": "重點：修正(whatsapp): persist inbound delivery in plugin state (#85506) * 修正(whatsapp): persist inbound delivery in plugin state..."
+      "titleZh": "OpenClaw 文件更新：refactor: simplify 文件tor repair checks (#83753)",
+      "summaryZh": "重點：refactor: simplify 文件tor repair checks (#83753)..."
     },
     {
       "id": 2,
-      "title": "test(codex): make sandbox cleanup proof deterministic",
-      "link": "https://github.com/openclaw/openclaw/commit/b4b2ef192da30158d009f3d34677127093f5c0a9",
-      "publishedAt": "2026-05-23T13:04:12Z",
-      "summary": "test(codex): make sandbox cleanup proof deterministic",
+      "title": "docs(changelog): credit landed bug sweep PRs",
+      "link": "https://github.com/openclaw/openclaw/commit/24de3047e5f8f6ec9619f205482f37fcbb0052f8",
+      "publishedAt": "2026-05-23T14:50:38Z",
+      "summary": "docs(changelog): credit landed bug sweep PRs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(codex): make sandbox cleanup proof deterministic",
-      "summaryZh": "重點：test(codex): make sandbox cleanup proof deterministic..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): credit landed bug sweep PRs",
+      "summaryZh": "重點：文件(changelog): credit landed bug sweep PRs..."
     },
     {
       "id": 3,
-      "title": "fix(cron): route topic targets through channel plugins",
-      "link": "https://github.com/openclaw/openclaw/commit/917549190624adaf42e9e6351564e450871de2bb",
-      "publishedAt": "2026-05-23T12:52:06Z",
-      "summary": "fix(cron): route topic targets through channel plugins Route cron announce topic target parsing through channel plugin target parsers instead of Telegram-specific cron core code. Keep supported Telegram topic forms in the Telegram plugin and document the channel-owned shorthand.",
+      "title": "perf(utils): preserve message identity in stripInlineDirectiveTagsFro…",
+      "link": "https://github.com/openclaw/openclaw/commit/bf84b3089d01228f729155a861693b94650c7956",
+      "publishedAt": "2026-05-23T14:50:06Z",
+      "summary": "perf(utils): preserve message identity in stripInlineDirectiveTagsFromMessageForDisplay (#85682) Consume the existing { text, changed } signal from stripInlineDirectiveTagsForDisplay so unchanged text-parts keep their references and the original message is returned when nothing was stripped. Avoids spurious downstream rerenders/diff churn for consumers relying on reference equality, and keeps the public SDK helper's text output and message shape stable. Fixes #37589. Co-authored-by: Claude Opus 4.7 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): route topic targets through channel plugins",
-      "summaryZh": "重點：修正(排程): route topic targets through channel plugins Route 排程 announce topic target parsing through channel plugin target..."
+      "titleZh": "OpenClaw 程式碼更新：perf(utils): preserve message identity in stripInlineDirectiveTagsFro…",
+      "summaryZh": "重點：perf(utils): preserve message identity in stripInlineDirectiveTagsFromMessageForDisplay (#85682) Consume the existing { ..."
     },
     {
       "id": 4,
-      "title": "fix(agents): simplify subagent completion handoff",
-      "link": "https://github.com/openclaw/openclaw/commit/f4b92f5e6c70aa33964d38c82b249661d767d530",
-      "publishedAt": "2026-05-23T12:50:08Z",
-      "summary": "fix(agents): simplify subagent completion handoff Simplify native subagent completion handoff and remove manual subagent control surfaces. Co-authored-by: brokemac79",
+      "title": "fix(agents): add openai-responses family to non-visible turn retry gu…",
+      "link": "https://github.com/openclaw/openclaw/commit/49e9c3eb13e4a24cfd3fca9546d71a079056e0c2",
+      "publishedAt": "2026-05-23T14:50:01Z",
+      "summary": "fix(agents): add openai-responses family to non-visible turn retry guard (#85603) openai-codex-responses can return turns where usage.output > 0 but assistantTexts is empty (hidden reasoning tokens only). The empty response retry guard only covered openai-completions, anthropic-messages, and Ollama, so these turns passed through as successful completions with no content delivered to the user. Add the full openai-responses API family (openai-responses, openai-codex-responses, azure-openai-responses, and their transport variants) to RETRY_GUARD_MODEL_APIS so the empty response and reasoning-only retry paths can fire for these providers. Closes #85364 Signed-off-by: Sebastien Tardif",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): simplify subagent completion handoff",
-      "summaryZh": "重點：修正(agents): simplify subagent completion handoff Simplify native subagent completion handoff and remove manual subagent ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): add openai-responses family to non-visible turn retry gu…",
+      "summaryZh": "重點：修正(agents): add openai-responses family to non-visible turn retry guard (#85603) openai-codex-responses can return turns..."
     },
     {
       "id": 5,
+      "title": "黃仁勳：Vera Rubin 量產，台灣供應鏈下半年會很忙碌",
+      "link": "https://technews.tw/2026/05/23/jensen-huang-vera-rubin-mass-production-taiwan-supply-chain-h2-busy/",
+      "publishedAt": "Sat, 23 May 2026 14:40:07 +0000",
+      "summary": "AI 晶片龍頭廠輝達執行長黃仁勳今天表示，Vera Rubin 將成為電腦產業歷史上規模最大、運作速度最快的晶 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "CISA宣布提供研究人員通報漏洞已遭利用的管道",
       "link": "https://www.ithome.com.tw/news/176065",
       "publishedAt": "2026-05-23 12:05:19",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "比業界預期提早近 4 天，黃仁勳今閃電抵台",
       "link": "https://finance.technews.tw/2026/05/23/jensen-huang-ai/",
       "publishedAt": "Sat, 23 May 2026 09:30:50 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "打破近 70 年太空非軍事化禁忌，美智庫呼籲太空軍應派兵登月防堵中國",
       "link": "https://technews.tw/2026/05/23/mitchell-institute-calls-for-us-space-force-to-deploy-on-the-moon-asap/",
       "publishedAt": "Sat, 23 May 2026 08:38:29 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "正確時機再出手，美國貿易代表：不急著現在課半導體關稅",
       "link": "https://finance.technews.tw/2026/05/23/tariff-semiconductor-chip-jamieson-greer/",
       "publishedAt": "Sat, 23 May 2026 08:22:10 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "溫度相對親民的巨行星 TOI-199b，可成為地球 2.0 嗎？",
       "link": "https://technews.tw/2026/05/23/toi-199b-exoplanet-methane-atmosphere/",
       "publishedAt": "Sat, 23 May 2026 07:43:52 +0000",
       "summary": "打破氣態巨行星極端常態，科學家首利用韋伯太空望遠鏡解密罕見溫和巨行星大氣成分，發現一顆大小與土星相當、但溫度更 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "ICANN 宣布下一項重大網際網路安全更新",
-      "link": "https://infosecu.technews.tw/2026/05/23/icann-announces-next-major-internet-security-update/",
-      "publishedAt": "Sat, 23 May 2026 06:00:09 +0000",
-      "summary": "網際網路名稱與數位位址分配機構（Internet Corporation for Assigned Names [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
