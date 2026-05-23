@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-05-23T15:01:37.668Z",
+  "generatedAt": "2026-05-23T17:00:41.266Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: simplify doctor repair checks (#83753)",
-      "link": "https://github.com/openclaw/openclaw/commit/056378efd5823a164d995f9719980f47dcefb70b",
-      "publishedAt": "2026-05-23T14:55:12Z",
-      "summary": "refactor: simplify doctor repair checks (#83753)",
+      "title": "test: avoid codex heartbeat lifecycle timeout",
+      "link": "https://github.com/openclaw/openclaw/commit/85664f8e7113da317465e7d9ef4d1784967aa0ab",
+      "publishedAt": "2026-05-23T16:56:26Z",
+      "summary": "test: avoid codex heartbeat lifecycle timeout",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor: simplify 文件tor repair checks (#83753)",
-      "summaryZh": "重點：refactor: simplify 文件tor repair checks (#83753)..."
+      "titleZh": "OpenClaw 程式碼更新：test: avoid codex heartbeat lifecycle timeout",
+      "summaryZh": "重點：test: avoid codex heartbeat lifecycle timeout..."
     },
     {
       "id": 2,
-      "title": "docs(changelog): credit landed bug sweep PRs",
-      "link": "https://github.com/openclaw/openclaw/commit/24de3047e5f8f6ec9619f205482f37fcbb0052f8",
-      "publishedAt": "2026-05-23T14:50:38Z",
-      "summary": "docs(changelog): credit landed bug sweep PRs",
+      "title": "fix(scripts): run Windows check commands through shims",
+      "link": "https://github.com/openclaw/openclaw/commit/8a94e825cd5fe2babe1308d722710e06950fc448",
+      "publishedAt": "2026-05-23T16:30:14Z",
+      "summary": "fix(scripts): run Windows check commands through shims",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): credit landed bug sweep PRs",
-      "summaryZh": "重點：文件(changelog): credit landed bug sweep PRs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): run Windows check commands through shims",
+      "summaryZh": "重點：修正(scripts): run Windows check commands through shims..."
     },
     {
       "id": 3,
-      "title": "perf(utils): preserve message identity in stripInlineDirectiveTagsFro…",
-      "link": "https://github.com/openclaw/openclaw/commit/bf84b3089d01228f729155a861693b94650c7956",
-      "publishedAt": "2026-05-23T14:50:06Z",
-      "summary": "perf(utils): preserve message identity in stripInlineDirectiveTagsFromMessageForDisplay (#85682) Consume the existing { text, changed } signal from stripInlineDirectiveTagsForDisplay so unchanged text-parts keep their references and the original message is returned when nothing was stripped. Avoids spurious downstream rerenders/diff churn for consumers relying on reference equality, and keeps the public SDK helper's text output and message shape stable. Fixes #37589. Co-authored-by: Claude Opus 4.7 (1M context)",
+      "title": "fix: aggressively prune retired model catalogs",
+      "link": "https://github.com/openclaw/openclaw/commit/f4b5e58231c7bfd3176b7d757f0ea5bf5818be4a",
+      "publishedAt": "2026-05-23T16:29:50Z",
+      "summary": "fix: aggressively prune retired model catalogs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(utils): preserve message identity in stripInlineDirectiveTagsFro…",
-      "summaryZh": "重點：perf(utils): preserve message identity in stripInlineDirectiveTagsFromMessageForDisplay (#85682) Consume the existing { ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: aggressively prune retired 模型 catalogs",
+      "summaryZh": "重點：修正: aggressively prune retired 模型 catalogs..."
     },
     {
       "id": 4,
-      "title": "fix(agents): add openai-responses family to non-visible turn retry gu…",
-      "link": "https://github.com/openclaw/openclaw/commit/49e9c3eb13e4a24cfd3fca9546d71a079056e0c2",
-      "publishedAt": "2026-05-23T14:50:01Z",
-      "summary": "fix(agents): add openai-responses family to non-visible turn retry guard (#85603) openai-codex-responses can return turns where usage.output > 0 but assistantTexts is empty (hidden reasoning tokens only). The empty response retry guard only covered openai-completions, anthropic-messages, and Ollama, so these turns passed through as successful completions with no content delivered to the user. Add the full openai-responses API family (openai-responses, openai-codex-responses, azure-openai-responses, and their transport variants) to RETRY_GUARD_MODEL_APIS so the empty response and reasoning-only retry paths can fire for these providers. Closes #85364 Signed-off-by: Sebastien Tardif",
+      "title": "fix: harden package URL downloads (#85578)",
+      "link": "https://github.com/openclaw/openclaw/commit/7fffbf60b07171c2b745d545463c0099420f8991",
+      "publishedAt": "2026-05-23T16:28:29Z",
+      "summary": "fix: harden package URL downloads (#85578) * fix: harden package URL downloads Guard package acceptance URL downloads with HTTPS-only validation, no embedded credentials, private/special-use DNS and IP rejection, manual redirect checks, bounded timeout/size limits, pinned lookup, and atomic temp-file writes. Add tooling tests for unsafe URLs, redirect validation, size limits, and successful writes. * fix: cancel redirect response bodies before closing dispatcher ClawSweeper P2: the redirect branch in openPackageDownloadResponse cleared the timeout and awaited dispatcher.close() without first cancelling response.body. Undici's close() is graceful — it waits for in-flight requests to complete — so a malicious redirect with a slow/never-ending body could hang the hardened downloader. Fix: call response.body?.cancel() before dispatcher.close() to abort the redirect body immediately. Test: add a regression test that uses a ReadableStream with an indefinite interval to simulate a hanging body, and asserts cancel() was called. Refs: clawsweeper review on PR #85512 * test: harden redirect body cancellation race in regression test Guard the ReadableStream controller.enqueue() call with a cancelled flag and try/catch to prevent ERR_INVALID_STATE when the interval fires after cancel() closes the controller. * fix: cancel final response body before closing dispatcher in downloadUrl ClawSweeper P2: the HTTP-error and declared-oversize early-exit paths in downloadUrl threw before consuming or canceling response.body. The finally block then cleared the timeout and awaited graceful dispatcher.close() with the body still open, allowing a slow/never-ending response to hang release tooling. Fix: add response.body?.cancel() in the finally block before dispatcher.close(). Tests: add two regressions: - HTTP 500 with slow body: asserts cancel() called before dispatcher close - Declared content-length oversize with slow body: same assertion * fix: add trusted package URL source policy * fix: keep package URL resolver dependency-free * test: cover encoded IPv6 package URL bypasses * docs: sync package acceptance source overview * docs: restore release doc formatting * docs: sync package acceptance trusted-url source * test: cover dotted IPv4 embedded IPv6 package URLs * fix: parse dotted IPv4 embedded in IPv6 package URLs * test: isolate anthropic pruning defaults * test: move anthropic dated model coverage --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): add openai-responses family to non-visible turn retry gu…",
-      "summaryZh": "重點：修正(agents): add openai-responses family to non-visible turn retry guard (#85603) openai-codex-responses can return turns..."
+      "titleZh": "OpenClaw 程式碼更新：修正: harden package URL downloads (#85578)",
+      "summaryZh": "重點：修正: harden package URL downloads (#85578) * 修正: harden package URL downloads Guard package acceptance URL downloads with..."
     },
     {
       "id": 5,
+      "title": "NASA 費米伽瑪射線太空望遠鏡首度偵測高能伽瑪射線，揭開「超亮超新星」能量之謎",
+      "link": "https://technews.tw/2026/05/24/fermi-telescope-captures-energy-source-of-slsn/",
+      "publishedAt": "Sat, 23 May 2026 16:00:53 +0000",
+      "summary": "美國 NASA「費米伽瑪射線太空望遠鏡」（Fermi Gamma-ray Space Telescope）近期 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "人型機器人搭機引爭議，西南航空隨即封殺同類登機",
+      "link": "https://technews.tw/2026/05/24/southwest-airlines-bans-taking-human-animal-robots-on-board/",
+      "publishedAt": "Sat, 23 May 2026 16:00:15 +0000",
+      "summary": "美國西南航空公司（Southwest Airlines）最近更新政策，禁止人型或動物外型機器人進入客艙，也不准 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "黃仁勳：Vera Rubin 量產，台灣供應鏈下半年會很忙碌",
       "link": "https://technews.tw/2026/05/23/jensen-huang-vera-rubin-mass-production-taiwan-supply-chain-h2-busy/",
       "publishedAt": "Sat, 23 May 2026 14:40:07 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "CISA宣布提供研究人員通報漏洞已遭利用的管道",
       "link": "https://www.ithome.com.tw/news/176065",
       "publishedAt": "2026-05-23 12:05:19",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "比業界預期提早近 4 天，黃仁勳今閃電抵台",
       "link": "https://finance.technews.tw/2026/05/23/jensen-huang-ai/",
       "publishedAt": "Sat, 23 May 2026 09:30:50 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "打破近 70 年太空非軍事化禁忌，美智庫呼籲太空軍應派兵登月防堵中國",
       "link": "https://technews.tw/2026/05/23/mitchell-institute-calls-for-us-space-force-to-deploy-on-the-moon-asap/",
       "publishedAt": "Sat, 23 May 2026 08:38:29 +0000",
       "summary": "為了防止中國主導外太空，美國現在就應該準備將軍隊送上月球，美國知名軍事智庫「米契爾航太研究所」（Mitchel [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "正確時機再出手，美國貿易代表：不急著現在課半導體關稅",
-      "link": "https://finance.technews.tw/2026/05/23/tariff-semiconductor-chip-jamieson-greer/",
-      "publishedAt": "Sat, 23 May 2026 08:22:10 +0000",
-      "summary": "川普政府正在評估是否對進口半導體課徵關稅以促進美國國內晶片製造，但據《彭博社》最新消息，美國貿易代表 Jami [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "溫度相對親民的巨行星 TOI-199b，可成為地球 2.0 嗎？",
-      "link": "https://technews.tw/2026/05/23/toi-199b-exoplanet-methane-atmosphere/",
-      "publishedAt": "Sat, 23 May 2026 07:43:52 +0000",
-      "summary": "打破氣態巨行星極端常態，科學家首利用韋伯太空望遠鏡解密罕見溫和巨行星大氣成分，發現一顆大小與土星相當、但溫度更 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
