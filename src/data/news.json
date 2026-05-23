@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-23T20:54:20.879Z",
+  "generatedAt": "2026-05-23T21:56:22.597Z",
   "items": [
     {
       "id": 1,
-      "title": "Adapt image compression quality by model (#85742)",
-      "link": "https://github.com/openclaw/openclaw/commit/4c210e22fa973068134c0544d0c6ff0f14a683d4",
-      "publishedAt": "2026-05-23T20:45:55Z",
-      "summary": "Adapt image compression quality by model (#85742) * feat: adapt image compression quality * refactor: move image limits into model metadata * test: cover adaptive image downscaling * test: cover image tool live providers * fix: apply media metadata to all image paths * fix: align providerless image compression * fix: add chutes runtime image limits * fix: optimize image data urls with model limits * fix: type media metadata merge * fix: optimize data url byte limits after decode * fix: preserve data url optimizer fallback * fix: keep low-side image compression fallbacks * fix: enforce data url image compression policy * fix: preserve gif data url media policy * fix: satisfy adaptive image type checks * test: keep cron provider-runtime mock current",
+      "title": "test: isolate Codex hook channel context",
+      "link": "https://github.com/openclaw/openclaw/commit/32a80d995404c1e3207a6f1519574760596b763e",
+      "publishedAt": "2026-05-23T21:55:52Z",
+      "summary": "test: isolate Codex hook channel context",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Adapt image compression quality by 模型 (#85742)",
-      "summaryZh": "重點：Adapt image compression quality by 模型 (#85742) * 新功能: adapt image compression quality * refactor: move image limits into..."
+      "titleZh": "OpenClaw 程式碼更新：test: isolate Codex hook channel context",
+      "summaryZh": "重點：test: isolate Codex hook channel context..."
     },
     {
       "id": 2,
-      "title": "test: isolate Codex terminal release decision",
-      "link": "https://github.com/openclaw/openclaw/commit/00388134c4ed9b5e70929a5a50b29efda2f2aef1",
-      "publishedAt": "2026-05-23T20:31:17Z",
-      "summary": "test: isolate Codex terminal release decision",
+      "title": "test: isolate Codex duplicate terminal diagnostics",
+      "link": "https://github.com/openclaw/openclaw/commit/f6204d081fc35574c86c0df36fed0cced43db8ef",
+      "publishedAt": "2026-05-23T21:45:19Z",
+      "summary": "test: isolate Codex duplicate terminal diagnostics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: isolate Codex terminal 版本發布 decision",
-      "summaryZh": "重點：test: isolate Codex terminal 版本發布 decision..."
+      "titleZh": "OpenClaw 程式碼更新：test: isolate Codex duplicate terminal diagnostics",
+      "summaryZh": "重點：test: isolate Codex duplicate terminal diagnostics..."
     },
     {
       "id": 3,
-      "title": "refactor: use channel target resolution APIs (#85814)",
-      "link": "https://github.com/openclaw/openclaw/commit/c4f0da00a9fec2db072b1e398c16fe5032f0614d",
-      "publishedAt": "2026-05-23T20:26:55Z",
-      "summary": "refactor: use channel target resolution APIs (#85814) * refactor: use channel target resolution apis * refactor: satisfy delivery lint * refactor: remove unused target parsing shim * fix: preserve routed cron topic targets",
+      "title": "test: isolate Codex terminal diagnostic fallback",
+      "link": "https://github.com/openclaw/openclaw/commit/fa5c8345f38b2ee41dad0f3df432321657de280b",
+      "publishedAt": "2026-05-23T21:34:39Z",
+      "summary": "test: isolate Codex terminal diagnostic fallback",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: use channel target resolution APIs (#85814)",
-      "summaryZh": "重點：refactor: use channel target resolution APIs (#85814) * refactor: use channel target resolution apis * refactor: satisfy..."
+      "titleZh": "OpenClaw 程式碼更新：test: isolate Codex terminal diagnostic fallback",
+      "summaryZh": "重點：test: isolate Codex terminal diagnostic fallback..."
     },
     {
       "id": 4,
-      "title": "fix(ollama): bypass managed proxy for loopback embeddings (#85707)",
-      "link": "https://github.com/openclaw/openclaw/commit/fd2a9adbe6b0a38cd2eb348376e58d237d40df3c",
-      "publishedAt": "2026-05-23T20:17:55Z",
-      "summary": "fix(ollama): bypass managed proxy for loopback embeddings (#85707) * fix(ollama): bypass proxy for local embeddings * fix(ollama): keep managed proxy bypass loopback-only * fix(ollama): keep proxy bypass internal * fix(ollama): keep proxy bypass private * fix(ollama): harden internal proxy bypass * chore(plugin-sdk): refresh api baseline * fix(ollama): keep internal bypass out of qa aliases * test(ollama): keep ssrf runtime mock complete * fix(ollama): keep dist sdk aliases public-only * fix(ollama): keep fetch bypass out of infra runtime * fix(ollama): preserve packaged private sdk alias * test(ollama): harden private ssrf alias coverage * test(ollama): cover private ssrf resolver edges * fix(ollama): scope private sdk native aliases * test(ollama): audit blocked loopback bypasses * fix(plugins): keep staged sdk aliases public-only * test(ollama): harden proxy bypass proof * test(ollama): cover origin mismatch proxy path * test(ollama): cover ipv6 and batch bypass paths * fix lint findings in Ollama proxy tests * refactor: tighten Ollama proxy bypass * fix: widen private sdk owner registry type * test: stabilize Ollama proxy PR checks --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(discord): keep forced voice consult diagnostics private (#84411)",
+      "link": "https://github.com/openclaw/openclaw/commit/f603fa58fec7f4b0cd4d50255d34d759a8e39861",
+      "publishedAt": "2026-05-23T21:33:23Z",
+      "summary": "fix(discord): keep forced voice consult diagnostics private (#84411) Summary: - The PR removes forced consult diagnostics from Discord and phone-call realtime consult payloads, adds private debug logs and regression tests, and records the fix in the changelog. - Reproducibility: yes. by source inspection. Current main builds the forced Discord consult message with the ... gent_consult` diagnostic string, and the phone-call fallback passes the same diagnostic as consult context. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(discord): log forced consult fallback reason - PR branch already contained follow-up commit before automerge: fix(discord): keep forced voice consult diagnostics private Validation: - ClawSweeper review passed for head c1592530c67cd4b63d9444a1eb97fe6f787946db. - Required merge gates passed before the squash merge. Prepared head SHA: c1592530c67cd4b63d9444a1eb97fe6f787946db Review: https://github.com/openclaw/openclaw/pull/84411#issuecomment-4494164784 Co-authored-by: FullerStackDev Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ollama): bypass managed proxy for loopback embeddings (#85707)",
-      "summaryZh": "重點：修正(ollama): bypass managed proxy for loopback embeddings (#85707) * 修正(ollama): bypass proxy for local embeddings * 修正(o..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): keep forced voice consult diagnostics private (#84411)",
+      "summaryZh": "重點：修正(Discord): keep forced voice consult diagnostics private (#84411) Summary: - The PR removes forced consult diagnostics..."
     },
     {
       "id": 5,
