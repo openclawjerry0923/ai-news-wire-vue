@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-23T17:00:41.266Z",
+  "generatedAt": "2026-05-23T19:12:00.095Z",
   "items": [
     {
       "id": 1,
-      "title": "test: avoid codex heartbeat lifecycle timeout",
-      "link": "https://github.com/openclaw/openclaw/commit/85664f8e7113da317465e7d9ef4d1784967aa0ab",
-      "publishedAt": "2026-05-23T16:56:26Z",
-      "summary": "test: avoid codex heartbeat lifecycle timeout",
+      "title": "ci: retry release child workflow dispatch",
+      "link": "https://github.com/openclaw/openclaw/commit/ee61f79b901d48e585c0d377ef893ac98898c33f",
+      "publishedAt": "2026-05-23T18:56:23Z",
+      "summary": "ci: retry release child workflow dispatch",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: avoid codex heartbeat lifecycle timeout",
-      "summaryZh": "重點：test: avoid codex heartbeat lifecycle timeout..."
+      "titleZh": "OpenClaw 程式碼更新：ci: retry 版本發布 child workflow dispatch",
+      "summaryZh": "重點：ci: retry 版本發布 child workflow dispatch..."
     },
     {
       "id": 2,
-      "title": "fix(scripts): run Windows check commands through shims",
-      "link": "https://github.com/openclaw/openclaw/commit/8a94e825cd5fe2babe1308d722710e06950fc448",
-      "publishedAt": "2026-05-23T16:30:14Z",
-      "summary": "fix(scripts): run Windows check commands through shims",
+      "title": "test: isolate Codex report snapshot tests",
+      "link": "https://github.com/openclaw/openclaw/commit/071c3e364b77183a50b834f5ee94a566fac3cdf4",
+      "publishedAt": "2026-05-23T18:48:06Z",
+      "summary": "test: isolate Codex report snapshot tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(scripts): run Windows check commands through shims",
-      "summaryZh": "重點：修正(scripts): run Windows check commands through shims..."
+      "titleZh": "OpenClaw 程式碼更新：test: isolate Codex report snapshot tests",
+      "summaryZh": "重點：test: isolate Codex report snapshot tests..."
     },
     {
       "id": 3,
-      "title": "fix: aggressively prune retired model catalogs",
-      "link": "https://github.com/openclaw/openclaw/commit/f4b5e58231c7bfd3176b7d757f0ea5bf5818be4a",
-      "publishedAt": "2026-05-23T16:29:50Z",
-      "summary": "fix: aggressively prune retired model catalogs",
+      "title": "perf(gateway): reduce startup filesystem probes",
+      "link": "https://github.com/openclaw/openclaw/commit/edbd8333511cc0f32a9750f655450913adb92338",
+      "publishedAt": "2026-05-23T18:38:53Z",
+      "summary": "perf(gateway): reduce startup filesystem probes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: aggressively prune retired 模型 catalogs",
-      "summaryZh": "重點：修正: aggressively prune retired 模型 catalogs..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): reduce startup filesystem probes",
+      "summaryZh": "重點：perf(Gateway): reduce startup filesystem probes..."
     },
     {
       "id": 4,
-      "title": "fix: harden package URL downloads (#85578)",
-      "link": "https://github.com/openclaw/openclaw/commit/7fffbf60b07171c2b745d545463c0099420f8991",
-      "publishedAt": "2026-05-23T16:28:29Z",
-      "summary": "fix: harden package URL downloads (#85578) * fix: harden package URL downloads Guard package acceptance URL downloads with HTTPS-only validation, no embedded credentials, private/special-use DNS and IP rejection, manual redirect checks, bounded timeout/size limits, pinned lookup, and atomic temp-file writes. Add tooling tests for unsafe URLs, redirect validation, size limits, and successful writes. * fix: cancel redirect response bodies before closing dispatcher ClawSweeper P2: the redirect branch in openPackageDownloadResponse cleared the timeout and awaited dispatcher.close() without first cancelling response.body. Undici's close() is graceful — it waits for in-flight requests to complete — so a malicious redirect with a slow/never-ending body could hang the hardened downloader. Fix: call response.body?.cancel() before dispatcher.close() to abort the redirect body immediately. Test: add a regression test that uses a ReadableStream with an indefinite interval to simulate a hanging body, and asserts cancel() was called. Refs: clawsweeper review on PR #85512 * test: harden redirect body cancellation race in regression test Guard the ReadableStream controller.enqueue() call with a cancelled flag and try/catch to prevent ERR_INVALID_STATE when the interval fires after cancel() closes the controller. * fix: cancel final response body before closing dispatcher in downloadUrl ClawSweeper P2: the HTTP-error and declared-oversize early-exit paths in downloadUrl threw before consuming or canceling response.body. The finally block then cleared the timeout and awaited graceful dispatcher.close() with the body still open, allowing a slow/never-ending response to hang release tooling. Fix: add response.body?.cancel() in the finally block before dispatcher.close(). Tests: add two regressions: - HTTP 500 with slow body: asserts cancel() called before dispatcher close - Declared content-length oversize with slow body: same assertion * fix: add trusted package URL source policy * fix: keep package URL resolver dependency-free * test: cover encoded IPv6 package URL bypasses * docs: sync package acceptance source overview * docs: restore release doc formatting * docs: sync package acceptance trusted-url source * test: cover dotted IPv4 embedded IPv6 package URLs * fix: parse dotted IPv4 embedded in IPv6 package URLs * test: isolate anthropic pruning defaults * test: move anthropic dated model coverage --------- Co-authored-by: Peter Steinberger",
+      "title": "ci: retry GHCR docker login",
+      "link": "https://github.com/openclaw/openclaw/commit/fcb9c46af020156219d70ec8c070725cba790f7a",
+      "publishedAt": "2026-05-23T18:28:03Z",
+      "summary": "ci: retry GHCR docker login",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: harden package URL downloads (#85578)",
-      "summaryZh": "重點：修正: harden package URL downloads (#85578) * 修正: harden package URL downloads Guard package acceptance URL downloads with..."
+      "titleZh": "OpenClaw 文件更新：ci: retry GHCR 文件ker login",
+      "summaryZh": "重點：ci: retry GHCR 文件ker login..."
     },
     {
       "id": 5,
