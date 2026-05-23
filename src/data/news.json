@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-23T09:01:53.886Z",
+  "generatedAt": "2026-05-23T11:12:33.331Z",
   "items": [
     {
       "id": 1,
@@ -12,39 +12,59 @@
     },
     {
       "id": 2,
-      "title": "test: refresh Codex prompt snapshots",
-      "link": "https://github.com/openclaw/openclaw/commit/492d656d7485db3bca726d6da3c510d3919d18c5",
-      "publishedAt": "2026-05-23T08:56:44Z",
-      "summary": "test: refresh Codex prompt snapshots",
+      "title": "fix(status): bound deep docker audit probes (#85476)",
+      "link": "https://github.com/openclaw/openclaw/commit/f7c05dcc9e51e6e60d16a8a205b4fa6e85f9ec0e",
+      "publishedAt": "2026-05-23T11:08:48Z",
+      "summary": "fix(status): bound deep docker audit probes (#85476) * fix(status): bound deep docker audit probes * chore(status): defer changelog entry to landing * docs(changelog): note status docker probe timeout * fix(status): surface Docker probe timeouts --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: refresh Codex prompt snapshots",
-      "summaryZh": "重點：test: refresh Codex prompt snapshots..."
+      "titleZh": "OpenClaw 文件更新：修正(status): bound deep 文件ker audit probes (#85476)",
+      "summaryZh": "重點：修正(status): bound deep 文件ker audit probes (#85476) * 修正(status): bound deep 文件ker audit probes * chore(status): defer ch..."
     },
     {
       "id": 3,
-      "title": "docs: absorb hook and subagent guidance PRs",
-      "link": "https://github.com/openclaw/openclaw/commit/99a1107b61915bc28f226f2192359574c23e18e8",
-      "publishedAt": "2026-05-23T08:47:37Z",
-      "summary": "docs: absorb hook and subagent guidance PRs",
+      "title": "docs: expand meeting notes docs",
+      "link": "https://github.com/openclaw/openclaw/commit/a7e0fa08e70bd261c944fc1b84f103a24ef40bfc",
+      "publishedAt": "2026-05-23T10:58:29Z",
+      "summary": "docs: expand meeting notes docs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: absorb hook and subagent guidance PRs",
-      "summaryZh": "重點：文件: absorb hook and subagent guidance PRs..."
+      "titleZh": "OpenClaw 文件更新：文件: expand meeting notes 文件",
+      "summaryZh": "重點：文件: expand meeting notes 文件..."
     },
     {
       "id": 4,
-      "title": "fix(agents): audit tool policy blocks (#85673)",
-      "link": "https://github.com/openclaw/openclaw/commit/09dd051e7813bba65cec77bb35545181a9af2503",
-      "publishedAt": "2026-05-23T08:43:29Z",
-      "summary": "fix(agents): audit tool policy blocks (#85673) * fix(agents): audit tool policy blocks * fix(agents): sanitize tool policy audit fields * fix(agents): include matched tool policy rule * fix(agents): bound matched tool policy rules",
+      "title": "fix(cli): validate tasks audit limit (#84901)",
+      "link": "https://github.com/openclaw/openclaw/commit/44d470f7ebb70802523b49ab0ea245dc552ac730",
+      "publishedAt": "2026-05-23T10:56:42Z",
+      "summary": "fix(cli): validate tasks audit limit (#84901) * fix(cli): validate tasks audit limit * docs(changelog): note tasks audit limit validation --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): audit tool policy blocks (#85673)",
-      "summaryZh": "重點：修正(agents): audit tool policy blocks (#85673) * 修正(agents): audit tool policy blocks * 修正(agents): sanitize tool policy ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): validate tasks audit limit (#84901)",
+      "summaryZh": "重點：修正(cli): validate tasks audit limit (#84901) * 修正(cli): validate tasks audit limit * 文件(changelog): note tasks audit lim..."
     },
     {
       "id": 5,
+      "title": "fix(twitch): preserve newer message handler during cleanup (#85425)",
+      "link": "https://github.com/openclaw/openclaw/commit/71ddc016a804176a36ba4797c4070656ce8c6f82",
+      "publishedAt": "2026-05-23T10:49:01Z",
+      "summary": "fix(twitch): preserve newer message handler during cleanup (#85425) * fix(twitch): preserve newer message handler during cleanup Fixes #83888. `TwitchClientManager.onMessage` returns a cleanup closure that called `messageHandlers.delete(key)` unconditionally. When a second onMessage() for the same account replaced the handler, running the earlier cleanup deleted the newer handler, leaving the account with no handler and silently dropping all inbound messages. Guard the delete with a referential check so the cleanup only removes the handler it registered. Adds regression tests covering both the stale-cleanup case (newer handler must survive) and the normal case (current handler is still removed). * fix(twitch): distinguish handler registrations * fix(signal): avoid dangling test export name * test(meeting-notes): use public sdk imports * test(sdk): classify meeting-notes subpath * fix(discord): keep channel entrypoint imports narrow --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(twitch): preserve newer message handler during cleanup (#85425)",
+      "summaryZh": "重點：修正(twitch): preserve newer message handler during cleanup (#85425) * 修正(twitch): preserve newer message handler during c..."
+    },
+    {
+      "id": 6,
+      "title": "比業界預期提早近 4 天，黃仁勳今閃電抵台",
+      "link": "https://finance.technews.tw/2026/05/23/jensen-huang-ai/",
+      "publishedAt": "Sat, 23 May 2026 09:30:50 +0000",
+      "summary": "輝達（NVIDIA）執行長黃仁勳原預計 5 月 27 日抵台參與輝達 GTC TAIPEI、台北國際電腦展（C [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "打破近 70 年太空非軍事化禁忌，美智庫呼籲太空軍應派兵登月防堵中國",
       "link": "https://technews.tw/2026/05/23/mitchell-institute-calls-for-us-space-force-to-deploy-on-the-moon-asap/",
       "publishedAt": "Sat, 23 May 2026 08:38:29 +0000",
@@ -53,18 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "v2026.5.22-beta.1",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.22-beta.1",
-      "publishedAt": "2026-05-23T08:29:18Z",
-      "summary": "openclaw 2026.5.22-beta.1",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.5.22-beta.1",
-      "summaryZh": "重點：OpenClaw 2026.5.22-beta.1..."
-    },
-    {
-      "id": 7,
+      "id": 8,
       "title": "正確時機再出手，美國貿易代表：不急著現在課半導體關稅",
       "link": "https://finance.technews.tw/2026/05/23/tariff-semiconductor-chip-jamieson-greer/",
       "publishedAt": "Sat, 23 May 2026 08:22:10 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "溫度相對親民的巨行星 TOI-199b，可成為地球 2.0 嗎？",
       "link": "https://technews.tw/2026/05/23/toi-199b-exoplanet-methane-atmosphere/",
       "publishedAt": "Sat, 23 May 2026 07:43:52 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "ICANN 宣布下一項重大網際網路安全更新",
       "link": "https://infosecu.technews.tw/2026/05/23/icann-announces-next-major-internet-security-update/",
       "publishedAt": "Sat, 23 May 2026 06:00:09 +0000",
       "summary": "網際網路名稱與數位位址分配機構（Internet Corporation for Assigned Names [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google 前執行長理解年輕世代對 AI 的恐懼，鼓勵新鮮人掌握主動權塑造 AI 而非被塑造",
-      "link": "https://technews.tw/2026/05/23/schmidt-ai-fear-young-generation-encourages-newcomers-shape-ai/",
-      "publishedAt": "Sat, 23 May 2026 05:30:15 +0000",
-      "summary": "日前 Google 前執行長施密特在美國亞利桑那大學畢典演說談到 AI 衝擊，遭現場上萬名畢業生報以噓聲。面對 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
