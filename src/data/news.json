@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-24T20:57:39.888Z",
+  "generatedAt": "2026-05-24T22:02:50.255Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(installer): detect musl linux shells",
-      "link": "https://github.com/openclaw/openclaw/commit/acfed375eed17b3b42d43647c10edbb8dd39894f",
-      "publishedAt": "2026-05-24T20:47:05Z",
-      "summary": "fix(installer): detect musl linux shells",
+      "title": "fix(test): make max Vitest scripts Windows-safe",
+      "link": "https://github.com/openclaw/openclaw/commit/b681d5d5a6267e8cd84f94d66ed2534f69aaae7a",
+      "publishedAt": "2026-05-24T21:54:29Z",
+      "summary": "fix(test): make max Vitest scripts Windows-safe",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(installer): detect musl linux shells",
-      "summaryZh": "重點：修正(installer): detect musl linux shells..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): make max Vitest scripts Windows-safe",
+      "summaryZh": "重點：修正(test): make max Vitest scripts Windows-safe..."
     },
     {
       "id": 2,
-      "title": "perf(plugins,gateway): thread metadata snapshot + discovery through h…",
-      "link": "https://github.com/openclaw/openclaw/commit/8ccb11cbfca7ff3cd03c6e857f3e883e0531b115",
-      "publishedAt": "2026-05-24T20:44:03Z",
-      "summary": "perf(plugins,gateway): thread metadata snapshot + discovery through hot paths + plugin owner fixes (#84649) * perf(plugins): thread metadata snapshot and discovery through hot paths With the snapshot memo now actually hitting, route the snapshot's manifestRegistry and discovery through the helper chains that already had fast paths for them. Eliminates redundant per-call rebuilds at two big amplifiers. - Provider resolve paths (resolvePluginProviders / isPluginProvidersLoadInFlight / resolveOwningPluginIdsForProvider / resolveExternalAuthProfilesWithPlugins) self-service a snapshot once at the public entry, then thread it as a separate required arg through resolvePluginProviderLoadBase, resolveExplicitProviderOwnerPluginIds, and the setup/runtime load state helpers. Inner reads change from 'params.pluginMetadataSnapshot?.x' to 'snapshot.x', no more enrichedParams clone. loadPluginManifestRegistryForInstalledIndex fires drop ~685 -> ~10 per cold start. - Bundled-channel / auto-enable chain accepts an optional PluginDiscoveryResult. discoverOpenClawPlugins is fired once during snapshot building (resolveInstalledPluginIndexRegistry already produced it internally; now bubbled up through loadInstalledPluginIndexWithDiscovery, PluginRegistrySnapshotResult, and onto PluginMetadataSnapshot.discovery). load-context reads metadataSnapshot.discovery and passes it through applyPluginAutoEnable, so the bundled-channel cascade (collectConfiguredChannelIds, listBundledChannelIdsWith*, listPotentialConfiguredChannelPresenceSignals) short-circuits instead of each leaf re-firing discovery. Persisted-cache path is unchanged: no discovery on the snapshot, downstream chain handles its own fallback (pre-PR behavior on that path). * test(plugins): isolate snapshot memo across tests that mock manifest registry The snapshot memo is now process-scoped and effective (~98% hit rate). Three test files were depending on cache misses (because the broken cache returned them) — each test would set up its own loadPluginManifestRegistry mock and expect a fresh derive. With the cache fixed, an earlier test's mocked registry now leaks into later tests in the same file. - io.write-config.test.ts: afterEach now clears the snapshot memo so the 'demo' plugin mocked in the first test does not survive into 'keeps shipped plugin install config records when index migration fails', which expects an empty registry to surface the 'plugin not found: demo' warning. - gateway/model-pricing-cache.ts: resetGatewayModelPricingCacheForTest also clears the memo. Tests in model-pricing-cache.test.ts assert loadPluginManifestRegistryForInstalledIndex was called; the memo hit otherwise skips the call. - providers.test.ts: vi.doMock loadPluginMetadataSnapshot to wrap the existing loadPluginManifestRegistryMock fixture. The plumbing commit added an auto-fetch fall-through in resolveOwningPluginIdsForProvider; without the mock, providers tests hit real disk reads and return empty registries (which is what surfaced as 9 unrelated-looking failures in the prior CI run). * fix(plugins): preserve setup.cliBackends owner matching in provider scan resolveOwningPluginIdsForProvider now also checks plugin.setup?.cliBackends. The pre-PR no-registry fallback used resolvePluginContributionOwners which includes both top-level cliBackends and setup.cliBackends; the PR's manifest scan replacement was missing the setup case. * fix(plugins): inherit active registry workspaceDir before loading metadata snapshot isPluginProvidersLoadInFlight and resolvePluginProviders now resolve env and workspaceDir once at the entry point (falling back to getActivePluginRegistryWorkspaceDir) and pass them into both loadPluginMetadataSnapshot and resolvePluginProviderLoadBase. Pre-fix the snapshot used params.workspaceDir raw while the load base inherited the active workspace, so workspace-scoped provider plugins could be absent from the snapshot manifest registry even though owner resolution expected them. Regression test asserts the snapshot mock receives the active workspaceDir when the caller omits it. * perf(gateway): thread discovery into applyPluginAutoEnable call sites Every gateway applyPluginAutoEnable call now passes the snapshot's PluginDiscoveryResult so the bundled-channel cascade (collectConfiguredChannelIds → listBundledChannelIdsWith* → listPotentialConfiguredChannelPresenceSignals) short-circuits instead of each leaf re-firing discovery. Startup-time sites pull discovery from the snapshot/lookup-table they already hold: - server-plugin-bootstrap.ts (pluginLookUpTable) - server-startup-plugins.ts (pluginMetadataSnapshot) - server-startup-config.ts (pluginMetadataSnapshot) - server-plugins.ts (pluginLookUpTable, both call sites) Per-RPC sites (server.impl getRuntimeConfig callback, server-methods/channels status + start handlers, server-methods/send) source discovery via getCurrentPluginMetadataSnapshot using the runtime config to validate compatibility. Falls through to the original slow path when the snapshot is absent or incompatible.",
+      "title": "fix(doctor): migrate Feishu account bot names (#86081)",
+      "link": "https://github.com/openclaw/openclaw/commit/9e8cc7e07757cf9b8d17602ca20d0a135cbe501c",
+      "publishedAt": "2026-05-24T21:40:16Z",
+      "summary": "fix(doctor): migrate Feishu account bot names (#86081)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins,Gateway): thread metadata snapshot + discovery through h…",
-      "summaryZh": "重點：perf(plugins,Gateway): thread metadata snapshot + discovery through hot paths + plugin owner 修正 (#84649) * perf(plugins)..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): migrate Feishu account bot names (#86081)",
+      "summaryZh": "重點：修正(文件tor): migrate Feishu account bot names (#86081)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): split control ui runtime chunks",
-      "link": "https://github.com/openclaw/openclaw/commit/8bf4f7d4a88d2e370787aa77b6c0558ceb62cfb2",
-      "publishedAt": "2026-05-24T20:20:33Z",
-      "summary": "fix(ui): split control ui runtime chunks",
+      "title": "fix(scripts): prefilter conflict marker scans",
+      "link": "https://github.com/openclaw/openclaw/commit/500c95b1ba8a7cae365fa3caa0700663a19aa619",
+      "publishedAt": "2026-05-24T21:25:05Z",
+      "summary": "fix(scripts): prefilter conflict marker scans",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): split control ui runtime chunks",
-      "summaryZh": "重點：修正(ui): split control ui runtime chunks..."
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): prefilter conflict marker scans",
+      "summaryZh": "重點：修正(scripts): prefilter conflict marker scans..."
     },
     {
       "id": 4,
-      "title": "refactor(config): extract GoogleChat schema into zod-schema.providers…",
-      "link": "https://github.com/openclaw/openclaw/commit/fe34141a3d23cbf45174f1a420a4c44765438af8",
-      "publishedAt": "2026-05-24T20:03:35Z",
-      "summary": "refactor(config): extract GoogleChat schema into zod-schema.providers-googlechat.ts (#82100) Merged via squash. Prepared head SHA: 755527265627159d088b3a41b084064ac5dc8ffd Co-authored-by: tanshanshan Co-authored-by: altaywtf Reviewed-by: @altaywtf",
+      "title": "docs: add ClawSweeper review policy to AGENTS (#86197)",
+      "link": "https://github.com/openclaw/openclaw/commit/242e8767e7a74a2ab486a1db2f3c5dcf6075a33d",
+      "publishedAt": "2026-05-24T21:22:16Z",
+      "summary": "docs: add ClawSweeper review policy to AGENTS (#86197) * docs: add ClawSweeper review policy to AGENTS Co-authored-by: clawsweeper[bot] * docs: add ClawSweeper review policy to AGENTS * docs: move ClawSweeper review policy into AGENTS.md Co-authored-by: clawsweeper[bot] --------- Co-authored-by: clawsweeper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): extract GoogleChat schema into zod-schema.providers…",
-      "summaryZh": "重點：refactor(config): extract GoogleChat schema into zod-schema.providers-googlechat.ts (#82100) Merged via squash. Prepared..."
+      "titleZh": "OpenClaw 文件更新：文件: add ClawSweeper review policy to AGENTS (#86197)",
+      "summaryZh": "重點：文件: add ClawSweeper review policy to AGENTS (#86197) * 文件: add ClawSweeper review policy to AGENTS Co-authored-by: claws..."
     },
     {
       "id": 5,
