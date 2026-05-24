@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-05-24T04:23:25.866Z",
+  "generatedAt": "2026-05-24T07:50:07.173Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(minimax): normalize OAuth token expiry to absolute millisecond ti…",
-      "link": "https://github.com/openclaw/openclaw/commit/d4e42d61c93a36656bb73ccef4203212e8c8d68f",
-      "publishedAt": "2026-05-24T04:21:22Z",
-      "summary": "fix(minimax): normalize OAuth token expiry to absolute millisecond timestamp (#83480) * fix(minimax): normalize OAuth token expiry to absolute millisecond timestamp MiniMax returns expired_in from the token endpoint as a relative duration in seconds (standard OAuth expires_in semantics), but the auth profile store's hasUsableOAuthCredential() expects an absolute millisecond timestamp. Without conversion the token appears perpetually expired, triggering a slow OAuth refresh network call to api.minimaxi.com on every request — the root cause of the 30-50s auth-stage delay. Fixes #83449. Co-Authored-By: Claude Opus 4.6 * fix(minimax): cover oauth expiry normalization * fix: polish minimax oauth expiry normalization (#83480) (thanks @NianJiuZst) * fix: update minimax raw fetch allowlist (#83480) --------- Co-authored-by: Claude Opus 4.6 Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
+      "title": "v2026.5.24-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.24-beta.1",
+      "publishedAt": "2026-05-24T07:41:30Z",
+      "summary": "openclaw 2026.5.24-beta.1",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(minimax): normalize OAuth token expiry to absolute millisecond ti…",
-      "summaryZh": "重點：修正(minimax): normalize OAuth token expiry to absolute millisecond timestamp (#83480) * 修正(minimax): normalize OAuth toke..."
+      "titleZh": "OpenClaw 最新動態：v2026.5.24-beta.1",
+      "summaryZh": "重點：OpenClaw 2026.5.24-beta.1..."
     },
     {
       "id": 2,
-      "title": "fix(memory-wiki): show vault totals in palace summary (#85824)",
-      "link": "https://github.com/openclaw/openclaw/commit/55f994a8d0cdd06ab7c012e17763c7a8d5bd456e",
-      "publishedAt": "2026-05-24T04:11:12Z",
-      "summary": "fix(memory-wiki): show vault totals in palace summary (#85824) * fix(memory-wiki): show vault totals in palace summary * fix(memory-wiki): avoid zero-page legacy question label --------- Co-authored-by: nxmxbbd",
+      "title": "test(codex): avoid full sandbox run in thread-start test",
+      "link": "https://github.com/openclaw/openclaw/commit/11bf6424caa77eaffe2f9635f832a0fab1a7a939",
+      "publishedAt": "2026-05-24T07:40:58Z",
+      "summary": "test(codex): avoid full sandbox run in thread-start test",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): show vault totals in palace summary (#85824)",
-      "summaryZh": "重點：修正(記憶-wiki): show vault totals in palace summary (#85824) * 修正(記憶-wiki): show vault totals in palace summary * 修正(記憶-wik..."
+      "titleZh": "OpenClaw 程式碼更新：test(codex): avoid full sandbox run in thread-start test",
+      "summaryZh": "重點：test(codex): avoid full sandbox run in thread-start test..."
     },
     {
       "id": 3,
-      "title": "Isolate boot-md startup sessions (#85919)",
-      "link": "https://github.com/openclaw/openclaw/commit/8deb1ef7db7f8deb5ddb4ed0151c68a1b2477eb9",
-      "publishedAt": "2026-05-24T04:05:45Z",
-      "summary": "Isolate boot-md startup sessions (#85919) Summary: - The branch updates gateway boot startup handling to use an `agent::boot` session, suppress prompt persis ... that boot mapping after the run, and adds focused gateway boot regression coverage plus a changelog entry. - Reproducibility: yes. there is a high-confidence source reproduction path: current main passes the generated ... idence of repeated persisted boot prompts. I did not execute the gateway scenario in this read-only review. Automerge notes: - PR branch already contained follow-up commit before automerge: Fix boot-md test lint - PR branch already contained follow-up commit before automerge: Isolate boot-md startup sessions Validation: - ClawSweeper review passed for head 5d5338c2d9d257bec676e340230b1ad796ebcb5e. - Required merge gates passed before the squash merge. Prepared head SHA: 5d5338c2d9d257bec676e340230b1ad796ebcb5e Review: https://github.com/openclaw/openclaw/pull/85919#issuecomment-4527318708 Co-authored-by: Andy Ye Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "fix(plugins): harden Windows npm package staging",
+      "link": "https://github.com/openclaw/openclaw/commit/abdd8a40ccee5cc19a8a0fd11de39646457d8a12",
+      "publishedAt": "2026-05-24T07:32:17Z",
+      "summary": "fix(plugins): harden Windows npm package staging",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Isolate boot-md startup sessions (#85919)",
-      "summaryZh": "重點：Isolate boot-md startup sessions (#85919) Summary: - The branch updates Gateway boot startup handling to use an `agent::..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): harden Windows npm package staging",
+      "summaryZh": "重點：修正(plugins): harden Windows npm package staging..."
     },
     {
       "id": 4,
-      "title": "Guard OpenAI image compression for PNG outputs (#85776)",
-      "link": "https://github.com/openclaw/openclaw/commit/d0751111a47202245956b597507cc47fd5cc1bce",
-      "publishedAt": "2026-05-24T04:01:55Z",
-      "summary": "Guard OpenAI image compression for PNG outputs (#85776) * Guard OpenAI image compression for PNG outputs * Fix OpenAI image compression type narrowing * docs(changelog): note OpenAI PNG compression fix * Revert \"docs(changelog): note OpenAI PNG compression fix\" This reverts commit b11e4bff01bb061e086e20341595f09710d8b63f. --------- Co-authored-by: airlin Co-authored-by: Peter Steinberger",
+      "title": "test(codex): complete sandbox turn inline",
+      "link": "https://github.com/openclaw/openclaw/commit/c14a0c6d63f7b7ce58e813ab9eb279ea0694779c",
+      "publishedAt": "2026-05-24T07:19:01Z",
+      "summary": "test(codex): complete sandbox turn inline",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Guard OpenAI image compression for PNG outputs (#85776)",
-      "summaryZh": "重點：Guard OpenAI image compression for PNG outputs (#85776) * Guard OpenAI image compression for PNG outputs * 修正 OpenAI ima..."
+      "titleZh": "OpenClaw 程式碼更新：test(codex): complete sandbox turn inline",
+      "summaryZh": "重點：test(codex): complete sandbox turn inline..."
     },
     {
       "id": 5,
+      "title": "當中國校園變成「楚門的教室」，學生表情與視線都是數據",
+      "link": "https://technews.tw/2026/05/24/china-students-stressed-by-dozens-of-surveillance-cameras-in-university-class-told-devices-are-digital-media-teaching-aids/",
+      "publishedAt": "Sun, 24 May 2026 07:00:40 +0000",
+      "summary": "當學校引進 AI 臉部辨識監控與扣分系統，學生一舉一動都將受即時監控。一旦系統偵測到儀容不整、比中指，或與異性 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "旭化成開發出面向先進半導體封裝的「感光性聚醯亞胺薄膜」",
+      "link": "https://technews.tw/2026/05/24/asahi-kasei_novel-photosensitive-polyimide-film/",
+      "publishedAt": "Sun, 24 May 2026 06:00:37 +0000",
+      "summary": "旭化成株式會社宣布，為滿足面向 AI 半導體的先進半導體封裝不斷升級的需求，公司新開發出「感光性聚醯亞胺薄膜」 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "WeMo 找上 Gogoro 買車，添 3 千輛白牌車布局「十萬台」大計",
+      "link": "https://technews.tw/2026/05/24/wemo-seeks-vehicle-supply-partnership-with-gogoro/",
+      "publishedAt": "Sun, 24 May 2026 05:30:57 +0000",
+      "summary": "共享機車品牌威摩科技（WeMo Scooter）宣布與 Gogoro 合作，導入白牌新車 WeMo GO，正式 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "美超微 AI 伺服器涉走私疑雲！輝達黃仁勳籲「應強化法規遵循管理」",
+      "link": "https://finance.technews.tw/2026/05/24/regulations-should-be-strengthened/",
+      "publishedAt": "Sun, 24 May 2026 05:29:12 +0000",
+      "summary": "針對台灣檢方偵辦 AI 伺服器疑似不實申報出口案，輝達（NVIDIA）執行長黃仁勳罕見點名其重要合作夥伴「美超 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "「煎魚神器」不再需要代購！3COINS 首店落腳台北西門町，同步推台灣限定商品",
       "link": "https://finance.technews.tw/2026/05/24/3coins-coming-soon/",
       "publishedAt": "Sun, 24 May 2026 03:00:15 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "南韓三星、SK 海力士 2 倍槓桿 ETF 將上市！引發監管與波動隱憂",
       "link": "https://finance.technews.tw/2026/05/24/2x-leveraged-etfs/",
       "publishedAt": "Sun, 24 May 2026 02:46:59 +0000",
       "summary": "南韓股市即將迎來首批「個股槓桿交易所交易基金（ETF）」，專門追蹤南韓兩大半導體巨頭三星電子（Samsung [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "別再笑暴龍手短！最新研究揭密：為換取「致命巨顎」，前肢才走向退化",
-      "link": "https://technews.tw/2026/05/24/why-were-t-rexs-arms-so-tiny/",
-      "publishedAt": "Sun, 24 May 2026 02:30:50 +0000",
-      "summary": "一項最新研究指出，暴龍等大型肉食性恐龍之所以演化出極短的前肢，關鍵可能不在於「手臂退化」，而是「頭部武器化」。 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "玩 3 分鐘手遊就能辨識憂鬱症，準確度媲美傳統測驗",
-      "link": "https://technews.tw/2026/05/24/this-3-minute-video-game-is-surprisingly-good-at-spotting-depression/",
-      "publishedAt": "Sun, 24 May 2026 02:30:44 +0000",
-      "summary": "紐約大學朗格尼醫療中心（NYU Langone Health）開發 3 分鐘智慧手機遊戲，能根據「快感缺乏」（ [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "標普 500 新創高還能追？巴菲特：每月投 200 美元，退休時變成 100 萬美元",
-      "link": "https://finance.technews.tw/2026/05/24/s-p-500-new-highs-invest-buffett-200-monthly-1-million-retirement/",
-      "publishedAt": "Sun, 24 May 2026 02:00:56 +0000",
-      "summary": "在台股、美股屢創新高的 2026 年，投資市場瀰漫著一種既期待又怕受傷害的氣氛。「現在還能買嗎？」成為所有投資 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "黑得深邃還是亮到刺眼？外媒最新評測 OLED vs. QLED 電視",
-      "link": "https://technews.tw/2026/05/24/qled-vs-oled-which-tv-display-type-is-better/",
-      "publishedAt": "Sun, 24 May 2026 01:30:34 +0000",
-      "summary": "外媒 Business Insider 19 日報導，測試發現 QLED 與 OLED 電視仍沒有絕對勝負，真 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
