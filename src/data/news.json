@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-23T22:56:13.026Z",
+  "generatedAt": "2026-05-24T00:00:19.277Z",
   "items": [
     {
       "id": 1,
-      "title": "docs: add changelog for webchat tool result fix (#84773)",
-      "link": "https://github.com/openclaw/openclaw/commit/bb947eed6ceb155a3b083dc9ca3e7b10e5d1b0f3",
-      "publishedAt": "2026-05-23T22:55:10Z",
-      "summary": "docs: add changelog for webchat tool result fix (#84773)",
+      "title": "docs(policy): add policy rule reference tables (#85795)",
+      "link": "https://github.com/openclaw/openclaw/commit/4ffbd07c06a8b2fa5d8a5b8bf10363dbbf37ce72",
+      "publishedAt": "2026-05-23T23:59:33Z",
+      "summary": "docs(policy): add policy rule reference tables (#85795)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: add changelog for webchat tool result 修正 (#84773)",
-      "summaryZh": "重點：文件: add changelog for webchat tool result 修正 (#84773)..."
+      "titleZh": "OpenClaw 文件更新：文件(policy): add policy rule reference tables (#85795)",
+      "summaryZh": "重點：文件(policy): add policy rule reference tables (#85795)..."
     },
     {
       "id": 2,
-      "title": "fix: summarize internal webchat message tool results",
-      "link": "https://github.com/openclaw/openclaw/commit/83c2e96a16e8635106ae783322a10a67b318644d",
-      "publishedAt": "2026-05-23T22:55:10Z",
-      "summary": "fix: summarize internal webchat message tool results",
+      "title": "Policy: add tool posture conformance checks (#85482)",
+      "link": "https://github.com/openclaw/openclaw/commit/1e2e6147480cfd24bd23e7ada99f9186e6be1fc8",
+      "publishedAt": "2026-05-23T23:44:42Z",
+      "summary": "Policy: add tool posture conformance checks (#85482) * feat(policy): add tool posture conformance * fix(policy): attest tool alsoAllow posture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: summarize internal webchat message tool results",
-      "summaryZh": "重點：修正: summarize internal webchat message tool results..."
+      "titleZh": "OpenClaw 程式碼更新：Policy: add tool posture conformance checks (#85482)",
+      "summaryZh": "重點：Policy: add tool posture conformance checks (#85482) * 新功能(policy): add tool posture conformance * 修正(policy): attest to..."
     },
     {
       "id": 3,
-      "title": "fix(browser): bypass managed proxy for loopback CDP",
-      "link": "https://github.com/openclaw/openclaw/commit/a37ebb2d496c8effed2626078a04867d4b67d5b1",
-      "publishedAt": "2026-05-23T22:53:27Z",
-      "summary": "fix(browser): bypass managed proxy for loopback CDP Keep browser CDP managed-proxy bypasses on the private bundled-plugin SSRF helper, strip WebSocket URL credentials before registering exact bypass URLs, and document the managed-browser loopback proxy behavior. Co-authored-by: Matthew Kern",
+      "title": "fix(session-lock): enforce maxHoldMs in shouldReclaim during lock acq…",
+      "link": "https://github.com/openclaw/openclaw/commit/a1eb765f0a322d291d9b8ddc62840801af5d8cbc",
+      "publishedAt": "2026-05-23T23:38:01Z",
+      "summary": "fix(session-lock): enforce maxHoldMs in shouldReclaim during lock acquisition (#85764) * fix(session-lock): enforce maxHoldMs in shouldReclaim during lock acquisition - Adds optional maxHoldMs parameter to inspectLockPayload - Inspect now marks locks as stale when held longer than maxHoldMs - Passes maxHoldMs through inspectLockPayloadForSession - acquireSessionWriteLock's shouldReclaim callback now passes maxHoldMs This ensures that when a live process holds a lock for longer than maxHoldMs (default 5min), other processes can reclaim it during acquisition — matching the watchdog's existing enforcement. Previously shouldReclaim only used staleMs (30min default), meaning a lock held for 10+ minutes by a live PID would never be reclaimable, causing 60s timeout failures and gateway freezes. Closes #85762 * fix(session-lock): add dead-PID fast-path before retry loop Adds a fast-path check at the top of acquireSessionWriteLock: if the lock file's owner PID is dead, remove it immediately before entering the retry loop. This saves up to timeoutMs (60s) of futile waiting when the previous lock holder has died. The shouldReclaim callback already handles this case, but only iteratively through the retry loop. The fast-path eliminates that unnecessary delay. * fix(session-lock): enforce max hold during acquisition * fix(session-lock): revalidate max hold safely * fix(session-lock): honor holder max-hold policy * fix(session-lock): keep cleanup from reclaiming live holders * fix(session-lock): remove stale locks only when unchanged * fix(session-lock): skip self-held max-hold reclaim * fix(ci): refresh gateway protocol checks --------- Co-authored-by: njuboy11 Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): bypass managed proxy for loopback CDP",
-      "summaryZh": "重點：修正(browser): bypass managed proxy for loopback CDP Keep browser CDP managed-proxy bypasses on the private bundled-plugin..."
+      "titleZh": "OpenClaw 程式碼更新：修正(session-lock): enforce maxHoldMs in shouldReclaim during lock acq…",
+      "summaryZh": "重點：修正(session-lock): enforce maxHoldMs in shouldReclaim during lock acquisition (#85764) * 修正(session-lock): enforce maxHol..."
     },
     {
       "id": 4,
-      "title": "fix: omit empty proxy tools (#85835)",
-      "link": "https://github.com/openclaw/openclaw/commit/69e8039f9ad7450de0c2292aa5a8335e4b1a3fba",
-      "publishedAt": "2026-05-23T22:52:02Z",
-      "summary": "fix: omit empty proxy tools (#85835)",
+      "title": "refactor: simplify channel catalog cache",
+      "link": "https://github.com/openclaw/openclaw/commit/a1c2d093c2f93ee5850f15bd76eb643d3de54dba",
+      "publishedAt": "2026-05-23T23:31:01Z",
+      "summary": "refactor: simplify channel catalog cache",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: omit empty proxy tools (#85835)",
-      "summaryZh": "重點：修正: omit empty proxy tools (#85835)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: simplify channel catalog cache",
+      "summaryZh": "重點：refactor: simplify channel catalog cache..."
     },
     {
       "id": 5,
