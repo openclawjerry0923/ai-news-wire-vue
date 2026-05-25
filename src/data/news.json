@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-05-25T21:08:40.264Z",
+  "generatedAt": "2026-05-25T23:04:33.138Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: share realtime forced consult coordination",
-      "link": "https://github.com/openclaw/openclaw/commit/5dccba7405c4ba553c68631c996b98e6a3c0b068",
-      "publishedAt": "2026-05-25T21:02:19Z",
-      "summary": "refactor: share realtime forced consult coordination",
+      "title": "fix(gateway): cap retained compaction checkpoint bytes",
+      "link": "https://github.com/openclaw/openclaw/commit/d7361eff662db64820839cc3fdcb772a58acbcda",
+      "publishedAt": "2026-05-25T23:04:04Z",
+      "summary": "fix(gateway): cap retained compaction checkpoint bytes Cap retained compaction checkpoint snapshots by total bytes per session while preserving the existing count cap. The gateway now stats retained checkpoint snapshots inside the session-store writer before trimming, deletes older trimmed checkpoint files, and keeps the newest checkpoint available. Regression coverage uses real sparse checkpoint files to prove byte-budget cleanup. Closes #84822.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: share realtime forced consult coordination",
-      "summaryZh": "重點：refactor: share realtime forced consult coordination..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): cap retained compaction checkpoint bytes",
+      "summaryZh": "重點：修正(Gateway): cap retained compaction checkpoint bytes Cap retained compaction checkpoint snapshots by total bytes per se..."
     },
     {
       "id": 2,
-      "title": "test(qa-lab): add runtime confidence reports",
-      "link": "https://github.com/openclaw/openclaw/commit/f6a49a4e8a134e9129600e775995ad890268eeb9",
-      "publishedAt": "2026-05-25T21:00:21Z",
-      "summary": "test(qa-lab): add runtime confidence reports",
+      "title": "fix: stabilize tests and reduce plugin memory churn",
+      "link": "https://github.com/openclaw/openclaw/commit/c1a026a976f75b6ad282f59fb973ff418908ccd5",
+      "publishedAt": "2026-05-25T23:01:30Z",
+      "summary": "fix: stabilize tests and reduce plugin memory churn",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa-lab): add runtime confidence reports",
-      "summaryZh": "重點：test(qa-lab): add runtime confidence reports..."
+      "titleZh": "OpenClaw 程式碼更新：修正: stabilize tests and reduce plugin 記憶 churn",
+      "summaryZh": "重點：修正: stabilize tests and reduce plugin 記憶 churn..."
     },
     {
       "id": 3,
-      "title": "build: refresh dependency pins (#86628)",
-      "link": "https://github.com/openclaw/openclaw/commit/cda7c301506891929fb2ef6cec749d9cef7ca24c",
-      "publishedAt": "2026-05-25T20:55:46Z",
-      "summary": "build: refresh dependency pins (#86628) * build: refresh dependencies * build: align pi fallback version",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build: refresh dependency pins (#86628)",
-      "summaryZh": "重點：build: refresh dependency pins (#86628) * build: refresh dependencies * build: align pi fallback version..."
+      "title": "AI 算力與電力雙向賦能，定義 HVDC、SMR 與長時儲能新基準",
+      "link": "https://technews.tw/2026/05/26/ai-computing-power-electricity-two-way-empowerment-defines-new-benchmarks-hvdc-smr-long-duration-energy-storage/",
+      "publishedAt": "Mon, 25 May 2026 23:00:16 +0000",
+      "summary": "生成式 AI 推升高密度算力需求，全球電力系統開始導入「彈性算力調度」與需求響應機制，讓 AI 不再只是被動耗 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "test: port release validation stabilizers",
-      "link": "https://github.com/openclaw/openclaw/commit/9f7485e18254f0f2a2134414a844a35b2e80d972",
-      "publishedAt": "2026-05-25T20:50:49Z",
-      "summary": "test: port release validation stabilizers",
+      "title": "perf: reduce runtime metadata hotpath churn",
+      "link": "https://github.com/openclaw/openclaw/commit/1d21224de3f6959bc48ae4b2393e688182d5e47e",
+      "publishedAt": "2026-05-25T22:59:45Z",
+      "summary": "perf: reduce runtime metadata hotpath churn Reduce runtime metadata hotpath churn by freezing loaded plugin metadata snapshots once and returning the memoized object without clone-on-hit. Reuse persisted package file signatures while preserving realpath containment, cache normalized Jiti alias maps by identity, and defer Discord realtime turn retention/logging until audio starts. Verification: - node scripts/run-vitest.mjs src/talk/turn-context-tracker.test.ts src/plugins/plugin-metadata-snapshot.memo.test.ts src/plugins/manifest-registry-installed.test.ts src/plugins/sdk-alias.test.ts src/plugins/installed-plugin-index-records.test.ts - node scripts/run-vitest.mjs src/plugins/plugin-metadata-snapshot.memo.test.ts - pnpm test extensions/discord/src/voice/manager.e2e.test.ts --testNamePattern \"keeps realtime playback alive|interrupts realtime playback|does not interrupt realtime provider state\" - pnpm lint --threads=8 - pnpm exec oxfmt --check src/plugins/plugin-metadata-snapshot.ts src/plugins/plugin-metadata-snapshot.memo.test.ts src/plugins/manifest-registry-installed.ts src/plugins/installed-plugin-index-record-builder.ts src/plugins/sdk-alias.ts extensions/discord/src/voice/realtime.ts - pnpm tsgo:core - pnpm tsgo:extensions - pnpm build - autoreview --mode commit --commit HEAD - PR CI green on head 7dd3e44a7800c07d202244acfc41bd1f9f339cf3",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: port 版本發布 validation stabilizers",
-      "summaryZh": "重點：test: port 版本發布 validation stabilizers..."
+      "titleZh": "OpenClaw 程式碼更新：perf: reduce runtime metadata hotpath churn",
+      "summaryZh": "重點：perf: reduce runtime metadata hotpath churn Reduce runtime metadata hotpath churn by freezing loaded plugin metadata sna..."
     },
     {
       "id": 5,
+      "title": "refactor: share realtime output activity tracking (#86661)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4f12699cf5076beb8c44e0f53bebc41ab34149d",
+      "publishedAt": "2026-05-25T22:51:34Z",
+      "summary": "refactor: share realtime output activity tracking (#86661)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: share realtime output activity tracking (#86661)",
+      "summaryZh": "重點：refactor: share realtime output activity tracking (#86661)..."
+    },
+    {
+      "id": 6,
       "title": "Underminr濫用共享CDN架構，讓惡意連線偽裝成可信網域流量",
       "link": "https://www.ithome.com.tw/news/176088",
       "publishedAt": "2026-05-25 12:05:45",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "macOS版Gemini App全球上線，即將增加Gemini Spark、AI語音聽寫",
       "link": "https://www.ithome.com.tw/news/176086",
       "publishedAt": "2026-05-25 12:05:43",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "CIS推出支援AI與HPC的強化映像檔，協助企業在AWS部署安全雲端環境",
       "link": "https://www.ithome.com.tw/news/176089",
       "publishedAt": "2026-05-25 12:05:31",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Gemini 3.5刪除近3萬行程式碼，修改設定，導致用戶系統斷線半小時",
       "link": "https://www.ithome.com.tw/news/176087",
       "publishedAt": "2026-05-25 12:05:29",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "秘魯國家級緊急預警系統遭駭，破口是供應商帳號遭入侵",
       "link": "https://www.ithome.com.tw/news/176081",
       "publishedAt": "2026-05-25 11:05:53",
       "summary": "國家級緊急預警系統是政府傳遞警報的工具，若被不肖分子駭入並用於散布社會恐慌，將帶來動盪。近日秘魯的「緊急早期預警訊息系統」（SISMATE）便發生嚴重資安事故，因供應商帳號遭未經授權存取，導致大量民眾收到虛假預警，引發國際對關鍵CI供應鏈安全的高度關注。 秘魯交通與通訊部（MTC）於5月20日晚間發布聲明，指出當日晚間7時至8時之間，有攻擊者透過系統供應商Consorcio Everbridge的帳號非法存取SISMATE系統，發送虛假地震、海嘯警報，並夾帶與緊急應變無關的內容。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "美加聯手逮捕KimWolf殭屍網路23歲管理者",
-      "link": "https://www.ithome.com.tw/news/176078",
-      "publishedAt": "2026-05-25 11:05:28",
-      "summary": "美國司法部上周宣布，加拿大警方已於5月20日在渥太華逮捕涉嫌管理KimWolf殭屍網路的23歲男子Jacob Butler。Butler已遭美方刑事指控，被控協助及教唆他人入侵電腦。",
       "source": "iThome",
       "tag": "繁中"
     }
