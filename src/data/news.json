@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-05-25T00:00:15.639Z",
+  "generatedAt": "2026-05-25T04:45:51.997Z",
   "items": [
     {
       "id": 1,
-      "title": "test(e2e): harden multi-node update smoke",
-      "link": "https://github.com/openclaw/openclaw/commit/ec168fa2bdda15be7430f41cb7ef0b610b6e68bf",
-      "publishedAt": "2026-05-24T23:59:32Z",
-      "summary": "test(e2e): harden multi-node update smoke",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(e2e): harden multi-node update smoke",
-      "summaryZh": "重點：test(e2e): harden multi-node update smoke..."
+      "title": "Underminr濫用共享CDN架構，讓惡意連線偽裝成可信網域流量",
+      "link": "https://www.ithome.com.tw/news/176088",
+      "publishedAt": "2026-05-25 12:05:45",
+      "summary": "資安業者ADAMnetworks上周揭露了一個藏匿在內容傳遞網路（Content Delivery Network，CDN）基礎架構中的安全漏洞Underminr，宣稱駭客可利用該漏洞繞過安全偵測，估計影響全球約8,800萬個網域。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "Clean up browser MCP subprocess tree (#85832)",
-      "link": "https://github.com/openclaw/openclaw/commit/8dc6b4d330834edec6b19c58b49cf657909056f8",
-      "publishedAt": "2026-05-24T23:57:34Z",
-      "summary": "Clean up browser MCP subprocess tree (#85832) * fix: clean up browser MCP subprocess tree * fix: clean up windows browser mcp tree before close * fix(browser): repair chrome mcp cleanup rebase --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Clean up browser MCP subprocess tree (#85832)",
-      "summaryZh": "重點：Clean up browser MCP subprocess tree (#85832) * 修正: clean up browser MCP subprocess tree * 修正: clean up windows browser ..."
+      "title": "macOS版Gemini App全球上線，即將增加Gemini Spark、AI語音聽寫",
+      "link": "https://www.ithome.com.tw/news/176086",
+      "publishedAt": "2026-05-25 12:05:43",
+      "summary": "Google繼4月發表macOS版Gemini App後，上周五公佈將在今年夏天將最新AI功能包括Gemini Spark及更強的語音辨識功能部署給macOS用戶。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(agents): log warnings instead of swallowing subagent errors (#82943)",
-      "link": "https://github.com/openclaw/openclaw/commit/907bc0371c3abda0964bfa455d8ccea54f93cd26",
-      "publishedAt": "2026-05-24T23:57:29Z",
-      "summary": "fix(agents): log warnings instead of swallowing subagent errors (#82943) * fix: log subagent swallowed errors in hook emission and restore paths Wire createSubsystemLogger into the two silent catch blocks that discard errors during subagent lifecycle: 1. emitSubagentEndedHookOnce (subagent-registry-completion.ts): catch { return false } -> catch (err) { log.warn(...); return false } 2. restoreSubagentRunsOnce (subagent-registry.ts): catch { /* ignore */ } -> catch (err) { log.warn(...) } Both paths now log the error message before continuing, providing a diagnostic trail when hook emission or disk restore fails silently. Signed-off-by: Sebastien Tardif * test(agents): keep provider test mocks current --------- Signed-off-by: Sebastien Tardif Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): log warnings instead of swallowing subagent errors (#82943)",
-      "summaryZh": "重點：修正(agents): log warnings instead of swallowing subagent errors (#82943) * 修正: log subagent swallowed errors in hook emis..."
+      "title": "CIS推出支援AI與HPC的強化映像檔，協助企業在AWS部署安全雲端環境",
+      "link": "https://www.ithome.com.tw/news/176089",
+      "publishedAt": "2026-05-25 12:05:31",
+      "summary": "企業導入AI工作負載時，對於所採用的雲端基礎架構，不僅須注意是否能充分支援GPU執行個體與分散式運算，也要關切是否能銜接模型訓練、推論與生產環境部署流程，同時維持一致的安全組態。 非營利資安組織網際網路安全中心（CIS）指出，許多組織準備的AI執行環境所採用的組態標準不一，甚至等系統部署後才回頭補強安全措施，不僅增加風險，也讓安全與營運團隊更難維持一致的防護狀態。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(compaction): preserve partial summary on mid-chain chunk failure …",
-      "link": "https://github.com/openclaw/openclaw/commit/f0061ddc54c93f1655437450845e1326685a76dd",
-      "publishedAt": "2026-05-24T23:57:25Z",
-      "summary": "fix(compaction): preserve partial summary on mid-chain chunk failure (#82952) * fix(compaction): preserve partial summary on mid-chain chunk failure When summarizing multiple chunks, if a chunk fails after at least one chunk has already succeeded, return the partial summary instead of propagating the error and losing all summarization progress. Abort and timeout errors still propagate immediately. First-chunk failures still rethrow so the existing fallback path runs. Signed-off-by: Sebastien Tardif * fix(compaction): use content array for assistant messages to match updated AgentMessage type * fix(compaction): use as-unknown-as-AgentMessage cast for assistant test fixtures --------- Signed-off-by: Sebastien Tardif",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(compaction): preserve partial summary on mid-chain chunk failure …",
-      "summaryZh": "重點：修正(compaction): preserve partial summary on mid-chain chunk failure (#82952) * 修正(compaction): preserve partial summary ..."
+      "title": "Gemini 3.5刪除近3萬行程式碼，修改設定，導致用戶系統斷線半小時",
+      "link": "https://www.ithome.com.tw/news/176087",
+      "publishedAt": "2026-05-25 12:05:29",
+      "summary": "Google上周發表最新版AI模型系列Gemini 3.5，主打開發代理人。不過開發人員卻自曝慘遭Gemini 3.5刪除將近3萬行程式碼、新增錯誤配置及擅自修改設定，導致營運系統斷線超過半小時。而且Gemini還虛構復原網站的記錄。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "淺談 Wildcat Lake：反攻 MacBook Neo 就靠它了？",
-      "link": "https://technews.tw/2026/05/25/wildcat-lake-counterattacks-macbook-neo/",
-      "publishedAt": "Sun, 24 May 2026 23:50:44 +0000",
-      "summary": "蘋果 3 月剛發表的 MacBook Neo 著實大大震撼了 PC 市場，但有別以往是以晶片震撼，這次蘋果改用 [&#8230;]",
-      "source": "TechNews",
+      "title": "秘魯緊急預警訊息系統遭駭，破口是供應商帳號遭入侵",
+      "link": "https://www.ithome.com.tw/news/176081",
+      "publishedAt": "2026-05-25 11:05:53",
+      "summary": "國家級緊急預警系統是政府傳遞警報的工具，若被不肖分子駭入並用於散布社會恐慌，將帶來動盪。近日秘魯的「緊急早期預警訊息系統」（SISMATE）便發生嚴重資安事故，因供應商帳號遭未經授權存取，導致大量民眾收到虛假預警，引發國際對關鍵CI供應鏈安全的高度關注。 秘魯交通與通訊部（MTC）於5月20日晚間發布聲明，指出當日晚間7時至8時之間，有攻擊者透過系統供應商Consorcio Everbridge的帳號非法存取SISMATE系統，發送虛假地震、海嘯警報，並夾帶與緊急應變無關的內容。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "荷莫茲海峽仍未解除封鎖，川普稱無須急簽伊朗協議",
-      "link": "https://technews.tw/2026/05/25/trump-says-there-is-no-rush-for-iran-deal/",
-      "publishedAt": "Sun, 24 May 2026 23:49:44 +0000",
-      "summary": "美國總統川普（Donald Trump）24 日表示，他已告訴自己的代表，不要急於與伊朗達成任何協議，淡化了前 [&#8230;]",
-      "source": "TechNews",
+      "title": "美加聯手逮捕KimWolf殭屍網路23歲管理者",
+      "link": "https://www.ithome.com.tw/news/176078",
+      "publishedAt": "2026-05-25 11:05:28",
+      "summary": "美國司法部上周宣布，加拿大警方已於5月20日在渥太華逮捕涉嫌管理KimWolf殭屍網路的23歲男子Jacob Butler。Butler已遭美方刑事指控，被控協助及教唆他人入侵電腦。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "Google Health 5.0 推出全新「六合一」小工具，關鍵健康指標一眼掌握",
-      "link": "https://technews.tw/2026/05/25/google-health-5-0-rolling-out-with-new-stats-widget-on-android/",
-      "publishedAt": "Sun, 24 May 2026 23:40:14 +0000",
-      "summary": "Google 於 5 月 19 日開始向 Fitbit 應用程式使用者推送 Google Health 5.0 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(scripts): budget restart benchmark timeouts",
+      "link": "https://github.com/openclaw/openclaw/commit/5bd5509e06efaf602f75296ffd6082a5b8684b80",
+      "publishedAt": "2026-05-25T04:38:43Z",
+      "summary": "fix(scripts): budget restart benchmark timeouts",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): budget restart benchmark timeouts",
+      "summaryZh": "重點：修正(scripts): budget restart benchmark timeouts..."
     },
     {
       "id": 8,
-      "title": "平台應納管負責！電商違法賣瘦瘦針、壯陽藥到輪椅，價格減半但風險倍增",
-      "link": "https://technews.tw/2026/05/25/selling-medicine-online-is-illegal/",
-      "publishedAt": "Sun, 24 May 2026 23:30:33 +0000",
-      "summary": "從瘦瘦針到壯陽藥，各種違法禁藥與醫材，憑藉業界行話、假冒許可證攻占電商平台。 法規只罰賣家、平台不必負責，《藥 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: align ui vitest config assertion",
+      "link": "https://github.com/openclaw/openclaw/commit/730fd1907fba037f02b6d80c9beb9b3ea7583d87",
+      "publishedAt": "2026-05-25T04:17:45Z",
+      "summary": "fix: align ui vitest config assertion",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: align ui vitest config assertion",
+      "summaryZh": "重點：修正: align ui vitest config assertion..."
     },
     {
       "id": 9,
-      "title": "輝達軟體架構主管：AI 也會「物以類聚」！同模型寫履歷更易通過篩選系統",
-      "link": "https://technews.tw/2026/05/25/an-nvidia-exec-said-ai-likes-to-use-ai-and-it-impacts-your-resumes/",
-      "publishedAt": "Sun, 24 May 2026 23:20:18 +0000",
-      "summary": "輝達（Nvidia）首席軟體架構師 Jonathan Ross 近日於 Sohn Investment Con [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: route explicit ui vitest targets narrowly",
+      "link": "https://github.com/openclaw/openclaw/commit/56a383cdfa3a3710d395ef297605ae3032b80e40",
+      "publishedAt": "2026-05-25T04:17:45Z",
+      "summary": "fix: route explicit ui vitest targets narrowly",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: route explicit ui vitest targets narrowly",
+      "summaryZh": "重點：修正: route explicit ui vitest targets narrowly..."
     },
     {
       "id": 10,
-      "title": "都是體重過重，疾病風險卻不同：如何重新定義肥胖者的健康風險",
-      "link": "https://technews.tw/2026/05/25/data-driven-prioritization-of-high-risk-individuals-for-weight-loss-interventions/",
-      "publishedAt": "Sun, 24 May 2026 23:10:56 +0000",
-      "summary": "肥胖（obesity）是多種慢性病的共同風險來源，但有些人長期體重超標卻能維持健康，另一些人則在短時間內就罹患 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: route unit ui vitest targets narrowly",
+      "link": "https://github.com/openclaw/openclaw/commit/777402eeb5720c01f5793144fcc09b7ef0473a1b",
+      "publishedAt": "2026-05-25T04:17:45Z",
+      "summary": "fix: route unit ui vitest targets narrowly",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: route unit ui vitest targets narrowly",
+      "summaryZh": "重點：修正: route unit ui vitest targets narrowly..."
     }
   ]
 }
