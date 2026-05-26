@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T18:27:10.024Z",
+  "generatedAt": "2026-05-26T20:54:14.572Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "ci: use supported codex mini live target",
-      "link": "https://github.com/openclaw/openclaw/commit/b56ddcc6ffdfc5be78c1c9c93926518367b876eb",
-      "publishedAt": "2026-05-26T18:04:43Z",
-      "summary": "ci: use supported codex mini live target",
+      "title": "fix(agents): repair legacy tool results before replay",
+      "link": "https://github.com/openclaw/openclaw/commit/4e45b11983c8f20a9264821fe2dfa03c121a752f",
+      "publishedAt": "2026-05-26T20:53:32Z",
+      "summary": "fix(agents): repair legacy tool results before replay",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: use supported codex mini live target",
-      "summaryZh": "重點：ci: use supported codex mini live target..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): repair legacy tool results before replay",
+      "summaryZh": "重點：修正(agents): repair legacy tool results before replay..."
     },
     {
       "id": 3,
-      "title": "fix(ci): kill wedged bun smoke commands",
-      "link": "https://github.com/openclaw/openclaw/commit/8c6537b8c13f5cbe3ad9bd793eb2a6aaafd820d2",
-      "publishedAt": "2026-05-26T18:04:12Z",
-      "summary": "fix(ci): kill wedged bun smoke commands",
+      "title": "fix(config): narrow profiled tool section doctor repair (#87030)",
+      "link": "https://github.com/openclaw/openclaw/commit/3c16648ad72927111e4162beebc04db0d850946c",
+      "publishedAt": "2026-05-26T20:50:22Z",
+      "summary": "fix(config): narrow profiled tool section doctor repair (#87030) * fix(config): repair profiled tool section grants * fix(config): narrow profiled tool section doctor repair * fix(config): satisfy doctor warning lint --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): kill wedged bun smoke commands",
-      "summaryZh": "重點：修正(ci): kill wedged bun smoke commands..."
+      "titleZh": "OpenClaw 文件更新：修正(config): narrow profiled tool section 文件tor repair (#87030)",
+      "summaryZh": "重點：修正(config): narrow profiled tool section 文件tor repair (#87030) * 修正(config): repair profiled tool section grants * 修正(co..."
     },
     {
       "id": 4,
-      "title": "fix(e2e): bound corrupt plugin update runs",
-      "link": "https://github.com/openclaw/openclaw/commit/2b63eb2825f9134474b9e1699eb0af9e3a8a0d6a",
-      "publishedAt": "2026-05-26T17:54:05Z",
-      "summary": "fix(e2e): bound corrupt plugin update runs",
+      "title": "test: fix current suite drift",
+      "link": "https://github.com/openclaw/openclaw/commit/80655fe9552f1c3ec19805a6797c203059c6bc26",
+      "publishedAt": "2026-05-26T20:40:08Z",
+      "summary": "test: fix current suite drift",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound corrupt plugin update runs",
-      "summaryZh": "重點：修正(e2e): bound corrupt plugin update runs..."
+      "titleZh": "OpenClaw 程式碼更新：test: 修正 current suite drift",
+      "summaryZh": "重點：test: 修正 current suite drift..."
     },
     {
       "id": 5,
-      "title": "ci: require codex profiles for live probes",
-      "link": "https://github.com/openclaw/openclaw/commit/6930538500edbae0fb6ef19164a67edbfa62c900",
-      "publishedAt": "2026-05-26T17:51:43Z",
-      "summary": "ci: require codex profiles for live probes",
+      "title": "fix(lock): require owner identity proof before stale removal",
+      "link": "https://github.com/openclaw/openclaw/commit/daa7b1d06ba09c4e8a82804826119e556edcbe2d",
+      "publishedAt": "2026-05-26T20:38:35Z",
+      "summary": "fix(lock): require owner identity proof before stale removal Fixes #86814. Reclaims stale plugin lock files only when the previous owner is provably gone or the recorded process start time proves PID reuse. Timestamp age alone now stays fail-closed for PID-owned locks, preserving mutual exclusion for long-running writers while still allowing pidless expired locks to expire. Verification: - pnpm test src/infra/stale-lock-file.test.ts src/plugin-sdk/file-lock.test.ts - pnpm tool-display:check - git diff --check - autoreview --mode branch --base origin/main Known CI note: check-guards failed in deps:shrinkwrap:check because npm resolved newer AWS transitive versions than pnpm-lock.yaml contains; no package or lock files are changed in this PR. Co-authored-by: Alix-007",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: require codex profiles for live probes",
-      "summaryZh": "重點：ci: require codex profiles for live probes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(lock): require owner identity proof before stale removal",
+      "summaryZh": "重點：修正(lock): require owner identity proof before stale removal 修正 #86814. Reclaims stale plugin lock files only when the pr..."
     },
     {
       "id": 6,
