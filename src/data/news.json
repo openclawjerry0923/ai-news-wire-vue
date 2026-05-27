@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T05:16:20.735Z",
+  "generatedAt": "2026-05-27T09:53:18.224Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "perf(gateway): avoid cloning live switch store reads",
-      "link": "https://github.com/openclaw/openclaw/commit/b75f70bc04427a60e89347ecd1a904c77adbbd69",
-      "publishedAt": "2026-05-27T05:15:18Z",
-      "summary": "perf(gateway): avoid cloning live switch store reads",
+      "title": "fix(test): fail startup bench on bad samples",
+      "link": "https://github.com/openclaw/openclaw/commit/8c6da93fdf7cf709cb694f4e5c93e7eee8b90abb",
+      "publishedAt": "2026-05-27T09:46:02Z",
+      "summary": "fix(test): fail startup bench on bad samples",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): avoid cloning live switch store reads",
-      "summaryZh": "重點：perf(Gateway): avoid cloning live switch store reads..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): fail startup bench on bad samples",
+      "summaryZh": "重點：修正(test): fail startup bench on bad samples..."
     },
     {
       "id": 8,
-      "title": "fix(crabbox): use host-visible local work roots",
-      "link": "https://github.com/openclaw/openclaw/commit/586a6ce03bfc7d29c1e87336faffed1be2c0b1f2",
-      "publishedAt": "2026-05-27T05:06:19Z",
-      "summary": "fix(crabbox): use host-visible local work roots",
+      "title": "fix(onboard): preserve agents.list and bindings on rerun",
+      "link": "https://github.com/openclaw/openclaw/commit/bbdff39b6a3f210c9dafa3eaf7ed10b835060279",
+      "publishedAt": "2026-05-27T09:45:14Z",
+      "summary": "fix(onboard): preserve agents.list and bindings on rerun Preserve existing `agents.list` and top-level `bindings` during ordinary onboarding reruns so rerunning `openclaw onboard` cannot silently wipe configured agents or routing bindings. Keep config size-drop allowances scoped to explicit reset/import/plugin-install migration flows, validate binding agent ids with normalized agent ids, and add doctor repair coverage for dangling bindings that is still best-effort around malformed agent lists. Closes #84692. Co-authored-by: yetval Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): use host-visible local work roots",
-      "summaryZh": "重點：修正(crabbox): use host-visible local work roots..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): preserve agents.list and bindings on rerun",
+      "summaryZh": "重點：修正(onboard): preserve agents.list and bindings on rerun Preserve existing `agents.list` and top-level `bindings` during ..."
     },
     {
       "id": 9,
-      "title": "v2026.5.26-beta.2",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.26-beta.2",
-      "publishedAt": "2026-05-27T05:03:06Z",
-      "summary": "openclaw 2026.5.26-beta.2",
-      "source": "OpenClaw Releases",
+      "title": "fix: send bare direct Anthropic model ids",
+      "link": "https://github.com/openclaw/openclaw/commit/aa0a29099fc593c86cab2507a3b47b0141e65408",
+      "publishedAt": "2026-05-27T09:44:20Z",
+      "summary": "fix: send bare direct Anthropic model ids Closes #87181. Direct Anthropic Messages requests now send bare Claude model ids even when OpenClaw stores them with the `anthropic/` provider prefix. Anthropic-compatible proxy and custom endpoint routes keep slash-bearing model ids unchanged so configured proxy models do not regress. Also preserves the original parse error as `cause` in the JSONL request tail helper to keep the current CI lint gate green. Co-authored-by: Andy Ye",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.5.26-beta.2",
-      "summaryZh": "重點：OpenClaw 2026.5.26-beta.2..."
+      "titleZh": "OpenClaw 程式碼更新：修正: send bare direct Anthropic 模型 ids",
+      "summaryZh": "重點：修正: send bare direct Anthropic 模型 ids Closes #87181. Direct Anthropic Messages requests now send bare Claude 模型 ids even..."
     },
     {
       "id": 10,
-      "title": "docs(changelog): refresh 2026.5.26 notes",
-      "link": "https://github.com/openclaw/openclaw/commit/15c0dfa61be1867f13901437f54e3e5988b2f967",
-      "publishedAt": "2026-05-27T04:59:20Z",
-      "summary": "docs(changelog): refresh 2026.5.26 notes",
+      "title": "fix(deepinfra): load all DeepInfra models when user wants to browse t…",
+      "link": "https://github.com/openclaw/openclaw/commit/9e7c2b356bace3b3226ee019d51f308fad07af6e",
+      "publishedAt": "2026-05-27T09:43:37Z",
+      "summary": "fix(deepinfra): load all DeepInfra models when user wants to browse t… (#84549) * fix(deepinfra): load all DeepInfra models when user wants to browse them during onboarding * docs(deepinfra): align TTS default * fix(deepinfra): refresh video fallbacks * fix(deepinfra): share credential-aware catalog discovery * test(deepinfra): narrow catalog regression types * test(deepinfra): keep catalog narrowing across callback * fix(deepinfra): preserve default model in live catalog * fix(deepinfra): align default model pricing * fix(deepinfra): keep pixverse as video default * docs(deepinfra): match video fallback default * fix(deepinfra): honor config api keys for live catalog * test(e2e): wait for watchdog stdio close * test(media): align live harness provider expectation * fix(deepinfra): always augment custom catalogs * test(e2e): resolve watchdog commands before spawning --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): refresh 2026.5.26 notes",
-      "summaryZh": "重點：文件(changelog): refresh 2026.5.26 notes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(deepinfra): load all DeepInfra 模型 when user wants to browse t…",
+      "summaryZh": "重點：修正(deepinfra): load all DeepInfra 模型 when user wants to browse t… (#84549) * 修正(deepinfra): load all DeepInfra 模型 when u..."
     }
   ]
 }
