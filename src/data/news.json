@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T19:25:44.082Z",
+  "generatedAt": "2026-05-27T21:56:46.855Z",
   "items": [
     {
       "id": 1,
@@ -21,47 +21,47 @@
     },
     {
       "id": 3,
-      "title": "Add ClawHub skill verification and trust surfaces (#86699)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee57f341f05663f7dd9da2b6e051371f4d6339b4",
-      "publishedAt": "2026-05-27T19:23:24Z",
-      "summary": "Add ClawHub skill verification and trust surfaces (#86699) * feat(skills): fetch ClawHub skill verification * feat(skills): resolve ClawHub verification targets * feat(skills): add ClawHub verify command * docs(skills): document ClawHub verification * test(skills): type verify CLI fixture * fix(skills): fetch verified skill card URL * fix(skills): bound verified card downloads * fix(skills): fail closed on malformed verification * fix(skills): corroborate ClawHub install origins * feat(skills): surface ClawHub trust in control UI * chore(protocol): refresh generated gateway models * chore(ui): refresh i18n raw copy baseline * docs: clarify skills verify wording * fix: fail closed on skill trust mismatches * fix: reject incomplete clawhub provenance * fix: satisfy trust verdict lint * fix: restore ci checks after main merge",
+      "title": "Fix sub-agent cwd/workspace separation (#87218)",
+      "link": "https://github.com/openclaw/openclaw/commit/7299c5695317f74ddbe4a1a68efafd723a38c6c1",
+      "publishedAt": "2026-05-27T21:55:24Z",
+      "summary": "Fix sub-agent cwd/workspace separation (#87218) Merged via squash. Prepared head SHA: f47b073830f5f158153ad472eb09286b971f89fb Co-authored-by: mbelinky Co-authored-by: mbelinky Reviewed-by: @mbelinky",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Add ClawHub skill verification and trust surfaces (#86699)",
-      "summaryZh": "重點：Add ClawHub skill verification and trust surfaces (#86699) * 新功能(skills): fetch ClawHub skill verification * 新功能(skills)..."
+      "titleZh": "OpenClaw 程式碼更新：修正 sub-agent cwd/workspace separation (#87218)",
+      "summaryZh": "重點：修正 sub-agent cwd/workspace separation (#87218) Merged via squash. Prepared head SHA: f47b073830f5f158153ad472eb09286b971..."
     },
     {
       "id": 4,
-      "title": "perf(sessions): skip unchanged store serialization",
-      "link": "https://github.com/openclaw/openclaw/commit/431eb9cda4d92fe5b3668fb0228174bae1f67f3a",
-      "publishedAt": "2026-05-27T19:22:22Z",
-      "summary": "perf(sessions): skip unchanged store serialization",
+      "title": "fix(agent-job): preserve grace for pending error diagnostics",
+      "link": "https://github.com/openclaw/openclaw/commit/039fcbaa4c76f36847c1b79744e7ffea90c90f7c",
+      "publishedAt": "2026-05-27T21:51:11Z",
+      "summary": "fix(agent-job): preserve grace for pending error diagnostics Preserve pending agent-job error diagnostics as non-terminal timeout snapshots so the retry grace path can still recover when the lifecycle later starts and completes. Local proof: - node scripts/run-vitest.mjs packages/sdk/src/index.test.ts src/gateway/server-methods/server-methods.test.ts src/gateway/server.chat.gateway-server-chat.test.ts src/agents/run-wait.test.ts src/agents/openclaw-tools.sessions.test.ts - node scripts/run-oxlint.mjs packages/sdk/src/client.ts packages/sdk/src/index.test.ts src/gateway/server-methods/agent-job.ts src/gateway/server-methods/agent.ts src/gateway/server-methods/agent-wait-dedupe.ts src/agents/run-wait.ts src/agents/tools/sessions-send-tool.ts src/gateway/server-methods/server-methods.test.ts src/gateway/server.chat.gateway-server-chat.test.ts src/agents/run-wait.test.ts src/agents/openclaw-tools.sessions.test.ts - autoreview --mode local: no accepted/actionable findings - CI run 26536599850: success Co-authored-by: Martin Garramon",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): skip unchanged store serialization",
-      "summaryZh": "重點：perf(sessions): skip unchanged store serialization..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agent-job): preserve grace for pending error diagnostics",
+      "summaryZh": "重點：修正(agent-job): preserve grace for pending error diagnostics Preserve pending agent-job error diagnostics as non-terminal..."
     },
     {
       "id": 5,
-      "title": "fix(gateway): bound webchat image data scans",
-      "link": "https://github.com/openclaw/openclaw/commit/bde1bad2c1798afdaaacabfdd3ec42feff4537cd",
-      "publishedAt": "2026-05-27T19:00:38Z",
-      "summary": "fix(gateway): bound webchat image data scans",
+      "title": "Revert \"feat: expose plugin approval action metadata\" (#87419)",
+      "link": "https://github.com/openclaw/openclaw/commit/bb752c2b4701f6742550c1e8d56303d9b04e87ab",
+      "publishedAt": "2026-05-27T21:48:06Z",
+      "summary": "Revert \"feat: expose plugin approval action metadata\" (#87419) This reverts commit 0c867eef756eca3e3c0c37cc5fa2453556831f4d. # Conflicts: # docs/.generated/plugin-sdk-api-baseline.sha256",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): bound webchat image data scans",
-      "summaryZh": "重點：修正(Gateway): bound webchat image data scans..."
+      "titleZh": "OpenClaw 程式碼更新：Revert \"新功能: expose plugin approval action metadata\" (#87419)",
+      "summaryZh": "重點：Revert \"新功能: expose plugin approval action metadata\" (#87419) This reverts 提交 0c867eef756eca3e3c0c37cc5fa2453556831f4d. ..."
     },
     {
       "id": 6,
-      "title": "fix(ci): avoid deprecated sdk import in canvas cli",
-      "link": "https://github.com/openclaw/openclaw/commit/2f710f560450c70e194c6b1a3d3a5d1ef38a5bc5",
-      "publishedAt": "2026-05-27T18:57:00Z",
-      "summary": "fix(ci): avoid deprecated sdk import in canvas cli",
+      "title": "test(agents): clarify live subagent steering prompt",
+      "link": "https://github.com/openclaw/openclaw/commit/dfcf2112324655c25756e5ca99d411ff43b2014e",
+      "publishedAt": "2026-05-27T21:45:35Z",
+      "summary": "test(agents): clarify live subagent steering prompt",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): avoid deprecated sdk import in canvas cli",
-      "summaryZh": "重點：修正(ci): avoid deprecated sdk import in canvas cli..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): clarify live subagent steering prompt",
+      "summaryZh": "重點：test(agents): clarify live subagent steering prompt..."
     },
     {
       "id": 7,
