@@ -1,8 +1,88 @@
 {
-  "generatedAt": "2026-05-28T12:27:19.061Z",
+  "generatedAt": "2026-05-28T16:53:41.741Z",
   "items": [
     {
       "id": 1,
+      "title": "fix: honor ipv6 no_proxy entries",
+      "link": "https://github.com/openclaw/openclaw/commit/e205888fa7a3d875c331ae4d5c172990f318902a",
+      "publishedAt": "2026-05-28T16:50:59Z",
+      "summary": "fix: honor ipv6 no_proxy entries",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: honor ipv6 no_proxy entries",
+      "summaryZh": "重點：修正: honor ipv6 no_proxy entries..."
+    },
+    {
+      "id": 2,
+      "title": "perf: reduce latency across async I/O hot paths",
+      "link": "https://github.com/openclaw/openclaw/commit/53475c21b8f4f1e5d95f52a106df318d3d165760",
+      "publishedAt": "2026-05-28T16:47:26Z",
+      "summary": "perf: reduce latency across async I/O hot paths Improves gateway/device-auth/session discovery latency by caching unchanged device-auth reads, deduping session root realpaths, cleaning temp dirs in parallel, and bulk-loading APNs registrations for iOS exec approval delivery. The maintainer fixup replaces per-device APNs registration reads with a single canonical store snapshot, preserving empty-target skip behavior and requested target ordering while avoiding delayed read failures from the bounded queue path. Verification: - node scripts/run-vitest.mjs src/gateway/exec-approval-ios-push.test.ts src/infra/push-apns.store.test.ts src/infra/device-auth-store.test.ts src/config/sessions/targets.test.ts src/test-utils/tracked-temp-dirs.test.ts src/utils/run-with-concurrency.test.ts - env -u OPENCLAW_TESTBOX pnpm check:changed - env -u OPENCLAW_TESTBOX pnpm test:changed - pnpm exec oxfmt --check --threads=1 on touched files - autoreview clean: no accepted/actionable findings - before/after 500-device APNs discovery benchmark: p50 189.89 ms -> 2.03 ms - GitHub Actions CI 26588266247 green after rerun; Real behavior proof 26588276271 green Co-authored-by: Nachiket Torwekar",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf: reduce latency across async I/O hot paths",
+      "summaryZh": "重點：perf: reduce latency across async I/O hot paths Improves Gateway/device-auth/session discovery latency by caching unchan..."
+    },
+    {
+      "id": 3,
+      "title": "fix: count qmd output caps by code point",
+      "link": "https://github.com/openclaw/openclaw/commit/9e1faf81abf15c84971362cabe040df54c4b22cb",
+      "publishedAt": "2026-05-28T16:47:08Z",
+      "summary": "fix: count qmd output caps by code point",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: count qmd output caps by code point",
+      "summaryZh": "重點：修正: count qmd output caps by code point..."
+    },
+    {
+      "id": 4,
+      "title": "fix: cap chrome mcp stderr by utf8 bytes",
+      "link": "https://github.com/openclaw/openclaw/commit/f4f059ef94c9e3855b05eaa4dc2efc7773b94851",
+      "publishedAt": "2026-05-28T16:42:18Z",
+      "summary": "fix: cap chrome mcp stderr by utf8 bytes",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: cap chrome mcp stderr by utf8 bytes",
+      "summaryZh": "重點：修正: cap chrome mcp stderr by utf8 bytes..."
+    },
+    {
+      "id": 5,
+      "title": "黃仁勳示警台灣 AI 下一關卡，不是晶片、是電力",
+      "link": "https://finance.technews.tw/2026/05/28/jensen-huang-talk-about-taiwan-ai/",
+      "publishedAt": "Thu, 28 May 2026 14:02:38 +0000",
+      "summary": "AI 熱潮持續推升全球半導體與資料中心需求，不過 NVIDIA 執行長黃仁勳認為，卻將焦點指向另一項更關鍵的基 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "談華為「韜定律」，黃仁勳：是突破非威脅、台積電領先十年",
+      "link": "https://finance.technews.tw/2026/05/28/jensen-h-hauwei-tao/",
+      "publishedAt": "Thu, 28 May 2026 13:48:08 +0000",
+      "summary": "NVIDIA 執行長黃仁勳今日舉辦兆元宴，他在受訪時首度回應華為提出的半導體新定律「韜」（Tao），直言這對華 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "雙星系統公轉只有 8.5 分鐘！代表白矮星遭伴星劇烈撕裂吸積",
+      "link": "https://technews.tw/2026/05/28/extreme-8-5-minute-orbit-reveals-white-dwarf-being-torn-apart-by-its-binary-companion/",
+      "publishedAt": "Thu, 28 May 2026 13:40:27 +0000",
+      "summary": "美國麻省理工學院（MIT）Emma Chickles 團隊發表於《The Astrophysical Jour [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "全新可插拔架構！合聖科技 COMPUTEX 2026 大秀次世代矽光子實力",
+      "link": "https://technews.tw/2026/05/28/authenx-computex-2026/",
+      "publishedAt": "Thu, 28 May 2026 12:31:46 +0000",
+      "summary": "高速光學互連解決方案領導廠商合聖科技（AuthenX）將在 COMPUTEX 2026 展示一系列尖端光學互連 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "擷發科 COMPUTEX 2026 聚焦邊緣 AI，首亮相 AI 載具系統事業群",
       "link": "https://technews.tw/2026/05/28/microip-computex-2026/",
       "publishedAt": "Thu, 28 May 2026 12:26:01 +0000",
@@ -11,91 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(test): bound startup build helpers",
-      "link": "https://github.com/openclaw/openclaw/commit/bda3531560a045d3902b5eb276bf8cfef52178ed",
-      "publishedAt": "2026-05-28T12:25:06Z",
-      "summary": "fix(test): bound startup build helpers",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): bound startup build helpers",
-      "summaryZh": "重點：修正(test): bound startup build helpers..."
-    },
-    {
-      "id": 3,
-      "title": "openclaw 2026.5.27",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.27",
-      "publishedAt": "2026-05-28T12:24:35Z",
-      "summary": "Highlights Stronger security and content boundaries: group prompt text is kept out of the system prompt, repeated-dot hostnames are normalized, side-effecting command wrappers and unsafe Node runtime env overrides are blocked, no-auth Tailscale exposure is rejected, and node/device-role approvals now require admin authority. (#87144, #87305, #87292, #87308, #87146) Thanks @eleqtrizit and @pgondhi987. More reliable Codex app-server runs: Codex runtime models resolve first, workspace memory is routed through tools, shared app-server clients survive startup and spawned-helper failures, native hook relay generations survive restarts and rotate on fresh fallbacks, and false runtime live switches are avoided. (#87383, #87403, #87375, #72574, #87428) Thanks @yetval. Faster Gateway and reply paths: session reads, plugin metadata fingerprints, auth env snapshots, auto-enabled plugin config, tool-search catalogs, and stable metadata caches do less hot-path rediscovery while visible replies no longer inherit hidden cleanup timeouts. (#86439, #87044) Thanks @keshavbotagent. Better provider and model coverage: OpenAI-compatible embedding providers are core, DeepInfra catalog browsing loads the full credential-aware model set, Pixverse adds video generation and API region selection, VLLM thinking params are wired, Claude CLI OAuth overlays load for PI auth profiles, and bare direct Anthropic model ids work. (#85269, #84549, #87167) Thanks @dutifulbob, @ats3v, and @joshavant. Channel delivery is steadier: Telegram sendMessage actions use durable outbound delivery, iMessage suppresses duplicate native exec approval prompts and sends, Slack keeps delivered final replies during late cleanup, Matrix mention previews/finals are stricter, QQBot fallback approval buttons honor slash-command auth, Discord guild requester checks are tighter, recovered Discord tool-warning artifacts stay out of successful replies, and Google Chat stops thread sends in DMs. (#87261, #87154) Thanks @mbelinky and @eleqtrizit. Release, package, and CI proof paths are harder to wedge: npm/package inventory honors dist exclusions, shrinkwrap override pins merge correctly, Docker runtime workspace templates are packaged and smoked, release postpublish checks are stricter, beta smoke rejects empty runs, and E2E log/probe waits are bounded. Changes Memory: add a core OpenAI-compatible embedding provider for local and hosted OpenAI-style endpoints, with config, doctor, and docs support. (#85269) Thanks @dutifulbob. Plugin SDK: mark memory-specific embedding provider registration as deprecated compatibility and surface non-bundled usage in plugin compatibility diagnostics. (#85072) Thanks @mbelinky. Providers: add the Pixverse video generation provider, API region selection, docs, and external plugin packaging support. DeepInfra: load the full model catalog when users browse models during onboarding, preserve configured API-key catalogs, refresh media/video defaults, and keep pricing/default model metadata aligned. (#84549) Thanks @ats3v. Plugin SDK: expose plugin approval action metadata and stop exporting Vitest test helpers from the public SDK surface. (#87120) Thanks @RomneyDa. Channel SDK: move channel message compatibility into core, remove old channel turn runtime aliases, and preserve runtime catalog markdown metadata for plugins. ClawHub: add plugin display metadata so catalog/package listings use cleaner names. (#87354) Thanks @thewilloftheshadow. Agents: split the heartbeat runtime template out of docs assets and add compatibility repair for legacy heartbeat template content. (#85416) Thanks @hxy91819. Fixes Security/content boundaries: route untrusted group prompt metadata outside system prompts, normalize repeated trailing hostname dots, block side-effecting command wrappers, reject unsafe Node runtime env overrides, reject no-auth Tailscale exposure, block untrusted Microsoft Teams service URLs, enforce /allowlist configWrites origin policy, gate QQBot fallback approval buttons, and require admin for node/device-role approvals. (#87144, #87305, #87292, #87308, #87146, #87154, #87334) Thanks @eleqtrizit and @pgondhi987. Codex: resolve Codex runtime models before generic routing, route workspace memory through tools, preserve shared app-server clients after startup and spawned-helper failures, preserve native hook relay generations across restarts and fresh fallbacks, keep raw reasoning/source-reply guards intact, report quarantined dynamic tools, keep the attempt watchdog armed for queued terminal turns, and route Codex OAuth compaction through OpenAI-Codex. (#87383, #87403, #87375, #72574, #87428) Thanks @yetval. Agents/runtime: avoid session event queue self-waits, bound compaction wake and steering retries, preserve grace for pending error diagnostics, avoid false Codex runtime live switches, avoid stale restart continuation reuse, preserve session fallback errors, suppress duplicate Claude CLI skill prompts, keep runtime context before active user turns, strip stale Anthropic thinking, quarantine unsupported tool schemas, recover completed write timeouts safely, release retained session write locks on timeout abort, and validate forced plugin harness support before pinning. (#86123, #55424, #86855, #74341, #87278) Thanks @luoyanglang, @cathrynlavery, and @openperf. Reply/session delivery: keep visible turn admission unbounded, keep visible fallback delivery on latest targets, preserve bridge hook context, classify direct fallback targets by channel grammar, report approval resolutions in bridge mode, and avoid stale source-reply artifacts. (#87044) Thanks @keshavbotagent. Channels: make Telegram sendMessage action replies durable and preserve SecretRef prompt config, suppress duplicate iMessage native exec approval prompts and sends, keep iMessage approval polling alive after denied reactions, keep Slack delivered final replies during late cleanup, keep Matrix mention previews/finals mention-inert and normally delivered, ignore filename-embedded Matrix IDs, suppress recovered Discord tool-warning artifacts from successful replies, suppress Google Chat thread sends in DMs, and harden Discord guild requester checks. (#87261, #87452) Thanks @mbelinky. Memory: salvage QMD search JSON after nonzero exits and keep workspace memory routing through the Codex tool path where possible. (#87225, #87383, #87403) Thanks @osolmaz. Providers/models: forward cached token usage in OpenAI-compatible chat completions, load Claude CLI OAuth overlays for PI auth profiles, send bare direct Anthropic model ids, wire configured VLLM thinking params, honor OpenAI-compatible cache retention, normalize OpenAI Responses replay tool ids, resolve OpenAI gpt-5.5 without a cached catalog, preserve retry-after fallback handling, bound GitHub Copilot auth requests, and load DeepInfra custom/live catalogs consistently. (#82062, #87167, #84549) Thanks @caz0075, @joshavant, and @ats3v. Gateway/performance: borrow read-only session metadata and active session working stores, cache current/stable plugin metadata fingerprints, cache auto-enabled plugin config, slim metadata identity caches, trust current metadata lifecycle caches, stabilize isolated cron prompt-cache affinity, persist model auth profile suffixes, drain probe client closes, expire browser tokens after auth rotation, and keep default status fast paths bounded. Thanks @ferminquant. CLI/help/config: reject loose or malformed numeric options for gateway timeouts, model limits, directory limits, message options, webhooks, and partial values; respect subcommand version options; route generated/root/plugin help targets correctly; keep skills JSON output flushing naturally; and keep plugin descriptor loading quiet in root help. (#87398) Thanks @Patrick-Erichsen. Plugin state/tool search: evict the current namespace when plugin rows hit caps, reuse unchanged tool-search catalogs, align the release catalog reuse wrapper, and keep fallback tool warnings mention-inert. Install/package/release: match npm globstar exclusions, honor dist package exclusions in inventory, omit unpacked test helpers, skip Homebrew until macOS packages need it, package Docker runtime workspace templates, smoke Docker runtime templates during full validation, merge nested shrinkwrap override pins, preserve forked shrinkwrap pins, pin aged lru-cache, harden postpublish verification, accept main full-validation proof, and reject empty beta smoke runs. E2E/QA/Crabbox: bound Telegram, Open WebUI, ClawHub, Matrix, Tool Search, MCP, gateway network, bundled runtime, kitchen-sink, codex media, config reload, and agent-turn assertion waits; prefer Azure for Windows targets; reinitialize invalid changed-gate git dirs; full-sync sparse container runs; and fail empty explicit test requests. (#87186) Release verification npm package: https://www.npmjs.com/package/openclaw/v/2026.5.27 registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.5.27.tgz integrity: sha512-2N93zhdAo88KAbHt6T7KvYXf4s7XIkYXBgv1npYpn7e1Y9FvrtgtpsA38my9rtFW+70uXEojRPX5/OqnuDqJPw== full release CI report: https://github.com/openclaw/releases-private/blob/main/evidence/2026.5.27/release-evidence.md release publish: https://github.com/openclaw/openclaw/actions/runs/26571393853 npm preflight: https://github.com/openclaw/openclaw/actions/runs/26569630056 full release validation: https://github.com/openclaw/openclaw/actions/runs/26569544553 plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/26571646739 plugin ClawHub publish: https://github.com/openclaw/openclaw/actions/runs/26571650967 OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/26572175549 npm Telegram beta E2E: not supplied",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.5.27",
-      "summaryZh": "重點：Highlights Stronger 安全 and content boundaries: group prompt text is kept out of the system prompt, repeated-dot hostname..."
-    },
-    {
-      "id": 4,
-      "title": "test: speed up slow test suite (#87611)",
-      "link": "https://github.com/openclaw/openclaw/commit/aab5410bd5525d0f1fd929f23e1d976f77b50014",
-      "publishedAt": "2026-05-28T12:20:19Z",
-      "summary": "test: speed up slow test suite (#87611) * test: speed up slow test suite * test: preserve fake timer cleanup hooks * test: avoid timeout readiness race * test: satisfy reply test types * test: restore runner and image coverage * test: restore final media runner path * test: make cli auth status fixture deterministic * test: repair runtime alias fixtures",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: speed up slow test suite (#87611)",
-      "summaryZh": "重點：test: speed up slow test suite (#87611) * test: speed up slow test suite * test: preserve fake timer cleanup hooks * tes..."
-    },
-    {
-      "id": 5,
-      "title": "fix(release): bound npm release checks",
-      "link": "https://github.com/openclaw/openclaw/commit/e0635eb6fd8a1add08bd83a9d6df5f22112762c1",
-      "publishedAt": "2026-05-28T12:20:01Z",
-      "summary": "fix(release): bound npm release checks",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): bound npm 版本發布 checks",
-      "summaryZh": "重點：修正(版本發布): bound npm 版本發布 checks..."
-    },
-    {
-      "id": 6,
+      "id": 10,
       "title": "Meta發表全新訂閱服務品牌Meta One，推出需要付費訂閱的Facebook、IG及WhatsApp服務",
       "link": "https://www.ithome.com.tw/news/176179",
       "publishedAt": "2026-05-28 12:05:42",
       "summary": "Meta產品主管Naomi Gleit周三（5/27）透過Instagram及Threads發表全新的服務品牌Meta One，準備集結Meta旗下各種付費訂閱服務，首波已開始於全球市場推出的是Instagram Plus、WhatsApp Plus與Facebook Plus。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "Google Cloud正式推出GKE Agent Sandbox，發表Agent Substrate開源專案",
-      "link": "https://www.ithome.com.tw/news/176182",
-      "publishedAt": "2026-05-28 12:05:41",
-      "summary": "AI代理自動執行程式碼與工具呼叫的應用升溫，Google Cloud宣布，專為這類任務設計、可部署於Google Kubernetes Engine（GKE）的沙箱環境GKE Agent Sandbox正式開放使用，並同步提出開源基礎架構專案Agent Substrate，以因應超大規模AI代理在執行與排程上的需求。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "GitHub釋出Enterprise Server 3.20.3修補多項重大漏洞",
-      "link": "https://www.ithome.com.tw/news/176180",
-      "publishedAt": "2026-05-28 12:05:31",
-      "summary": "開發社群平臺GitHub本周釋出GitHub Enterprise Server（GHES）3.20.3，修補多項重大及高風險漏洞，包括2個SSRF漏洞，以及和上周資安事件與Linux Dirty Frag有關的問題。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "AI技術三個月一轉，南山人壽怎麼解決人才問題？",
-      "link": "https://www.ithome.com.tw/news/176181",
-      "publishedAt": "2026-05-28 12:05:21",
-      "summary": "在所有數位轉型的挑戰中，人才問題是南山人壽副總經理兼數位長呂新科最坦誠、也談得最深入的議題。 南山人壽數轉聯隊目前約500人，其中AI核心人才約20餘名。面對這樣人才是否夠用的疑問，他笑著說：「人才當然越多越好，但人又不好找。」 在呂新科看來，AI人才的市場競爭，已不只是保險業的問題，而是整個產業都面臨的共同困局。「AI的迭代真的太快了，不是一年一轉，是三個月一轉。」他表示，這種速度帶來的不只是技術挑戰，也是招募與留才的壓力──因為在這個市場，臺積電等半導體巨頭以更高的薪資待遇與更受矚目的技術光環，成為AI人才的首選，保險業的吸引力相對有限。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "中國駭客利用新式惡意程式Showboat、JFMBackdoor攻擊電信業者，鎖定Linux與Windows系統展開滲透",
-      "link": "https://www.ithome.com.tw/news/176171",
-      "publishedAt": "2026-05-28 12:05:01",
-      "summary": "自2022年起，亞太與中東地區的電信業者，特別是哈薩克、阿富汗與印度等地，便持續受到疑似中國駭客組織的攻擊。",
       "source": "iThome",
       "tag": "繁中"
     }
