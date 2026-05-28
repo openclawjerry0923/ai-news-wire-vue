@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-28T16:53:41.741Z",
+  "generatedAt": "2026-05-28T19:35:32.156Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: honor ipv6 no_proxy entries",
-      "link": "https://github.com/openclaw/openclaw/commit/e205888fa7a3d875c331ae4d5c172990f318902a",
-      "publishedAt": "2026-05-28T16:50:59Z",
-      "summary": "fix: honor ipv6 no_proxy entries",
+      "title": "fix: validate browser geolocation numbers",
+      "link": "https://github.com/openclaw/openclaw/commit/8fbdfc0a764bc8e28910799d9bdfed644ed67b1f",
+      "publishedAt": "2026-05-28T19:35:14Z",
+      "summary": "fix: validate browser geolocation numbers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: honor ipv6 no_proxy entries",
-      "summaryZh": "重點：修正: honor ipv6 no_proxy entries..."
+      "titleZh": "OpenClaw 程式碼更新：修正: validate browser geolocation numbers",
+      "summaryZh": "重點：修正: validate browser geolocation numbers..."
     },
     {
       "id": 2,
-      "title": "perf: reduce latency across async I/O hot paths",
-      "link": "https://github.com/openclaw/openclaw/commit/53475c21b8f4f1e5d95f52a106df318d3d165760",
-      "publishedAt": "2026-05-28T16:47:26Z",
-      "summary": "perf: reduce latency across async I/O hot paths Improves gateway/device-auth/session discovery latency by caching unchanged device-auth reads, deduping session root realpaths, cleaning temp dirs in parallel, and bulk-loading APNs registrations for iOS exec approval delivery. The maintainer fixup replaces per-device APNs registration reads with a single canonical store snapshot, preserving empty-target skip behavior and requested target ordering while avoiding delayed read failures from the bounded queue path. Verification: - node scripts/run-vitest.mjs src/gateway/exec-approval-ios-push.test.ts src/infra/push-apns.store.test.ts src/infra/device-auth-store.test.ts src/config/sessions/targets.test.ts src/test-utils/tracked-temp-dirs.test.ts src/utils/run-with-concurrency.test.ts - env -u OPENCLAW_TESTBOX pnpm check:changed - env -u OPENCLAW_TESTBOX pnpm test:changed - pnpm exec oxfmt --check --threads=1 on touched files - autoreview clean: no accepted/actionable findings - before/after 500-device APNs discovery benchmark: p50 189.89 ms -> 2.03 ms - GitHub Actions CI 26588266247 green after rerun; Real behavior proof 26588276271 green Co-authored-by: Nachiket Torwekar",
+      "title": "fix: validate browser snapshot numbers",
+      "link": "https://github.com/openclaw/openclaw/commit/503d8d554270e54f02eb0e24c7faef4bda9fedc6",
+      "publishedAt": "2026-05-28T19:32:25Z",
+      "summary": "fix: validate browser snapshot numbers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: reduce latency across async I/O hot paths",
-      "summaryZh": "重點：perf: reduce latency across async I/O hot paths Improves Gateway/device-auth/session discovery latency by caching unchan..."
+      "titleZh": "OpenClaw 程式碼更新：修正: validate browser snapshot numbers",
+      "summaryZh": "重點：修正: validate browser snapshot numbers..."
     },
     {
       "id": 3,
-      "title": "fix: count qmd output caps by code point",
-      "link": "https://github.com/openclaw/openclaw/commit/9e1faf81abf15c84971362cabe040df54c4b22cb",
-      "publishedAt": "2026-05-28T16:47:08Z",
-      "summary": "fix: count qmd output caps by code point",
+      "title": "fix(perf): preserve gateway health benchmark auth",
+      "link": "https://github.com/openclaw/openclaw/commit/f99259d25cb8e5b0b36e08f5df25ec0939fcdf71",
+      "publishedAt": "2026-05-28T19:29:24Z",
+      "summary": "fix(perf): preserve gateway health benchmark auth",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: count qmd output caps by code point",
-      "summaryZh": "重點：修正: count qmd output caps by code point..."
+      "titleZh": "OpenClaw 程式碼更新：修正(perf): preserve Gateway health benchmark auth",
+      "summaryZh": "重點：修正(perf): preserve Gateway health benchmark auth..."
     },
     {
       "id": 4,
-      "title": "fix: cap chrome mcp stderr by utf8 bytes",
-      "link": "https://github.com/openclaw/openclaw/commit/f4f059ef94c9e3855b05eaa4dc2efc7773b94851",
-      "publishedAt": "2026-05-28T16:42:18Z",
-      "summary": "fix: cap chrome mcp stderr by utf8 bytes",
+      "title": "fix: validate browser viewport dimensions",
+      "link": "https://github.com/openclaw/openclaw/commit/ec8ff27803646c4d4713e8bc6437a0830f235c32",
+      "publishedAt": "2026-05-28T19:29:12Z",
+      "summary": "fix: validate browser viewport dimensions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: cap chrome mcp stderr by utf8 bytes",
-      "summaryZh": "重點：修正: cap chrome mcp stderr by utf8 bytes..."
+      "titleZh": "OpenClaw 程式碼更新：修正: validate browser viewport dimensions",
+      "summaryZh": "重點：修正: validate browser viewport dimensions..."
     },
     {
       "id": 5,
