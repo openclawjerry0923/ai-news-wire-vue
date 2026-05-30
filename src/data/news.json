@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-30T20:59:18.619Z",
+  "generatedAt": "2026-05-30T22:08:37.841Z",
   "items": [
     {
       "id": 1,
-      "title": "perf: cache manifest model suppression resolver",
-      "link": "https://github.com/openclaw/openclaw/commit/3f50485156dc732727fef467aa7513830f6c7fca",
-      "publishedAt": "2026-05-30T20:56:38Z",
-      "summary": "perf: cache manifest model suppression resolver",
+      "title": "docs(changelog): refresh 2026.5.30 notes",
+      "link": "https://github.com/openclaw/openclaw/commit/31099ccb1fc1bff1171289e6c4bc806f81b1cda7",
+      "publishedAt": "2026-05-30T22:04:23Z",
+      "summary": "docs(changelog): refresh 2026.5.30 notes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: cache manifest 模型 suppression resolver",
-      "summaryZh": "重點：perf: cache manifest 模型 suppression resolver..."
+      "titleZh": "OpenClaw 文件更新：文件(changelog): refresh 2026.5.30 notes",
+      "summaryZh": "重點：文件(changelog): refresh 2026.5.30 notes..."
     },
     {
       "id": 2,
-      "title": "test(scripts): require usable memory search in fd repro",
-      "link": "https://github.com/openclaw/openclaw/commit/9c2744f1e12b8f6d9dc4a395f298961a60a97383",
-      "publishedAt": "2026-05-30T20:48:50Z",
-      "summary": "test(scripts): require usable memory search in fd repro",
+      "title": "fix(agents): preserve generated media fallback routing",
+      "link": "https://github.com/openclaw/openclaw/commit/2d23519c770e883bfbab0ed3c9af0c2ba8ac87a9",
+      "publishedAt": "2026-05-30T22:03:32Z",
+      "summary": "fix(agents): preserve generated media fallback routing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(scripts): require usable 記憶 search in fd repro",
-      "summaryZh": "重點：test(scripts): require usable 記憶 search in fd repro..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve generated media fallback routing",
+      "summaryZh": "重點：修正(agents): preserve generated media fallback routing..."
     },
     {
       "id": 3,
-      "title": "fix: route denied exec approval followups to sessions",
-      "link": "https://github.com/openclaw/openclaw/commit/3aa460409ea72a0a55eaad7c666fdd4a88eb12d1",
-      "publishedAt": "2026-05-30T20:45:16Z",
-      "summary": "fix: route denied exec approval followups to sessions Routes denied async exec approval followups through the originating main session before using direct external fallback. Keeps strict inline-eval timeout denials fail-closed, while preserving suppression for subagent, cron, and no-session denial cases. Refs #88167. Verification: - git diff --check origin/main...refs/remotes/pr/88417 - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - gh pr checks 88417 --repo openclaw/openclaw --watch=false Co-authored-by: brokemac79",
+      "title": "fix: show chat errors as visible messages",
+      "link": "https://github.com/openclaw/openclaw/commit/bbd2854c45f364082b3b8ffa9943eea17f6b2b9a",
+      "publishedAt": "2026-05-30T22:03:32Z",
+      "summary": "fix: show chat errors as visible messages Surface gateway chat failures as visible assistant messages in the Control UI, with regression coverage and Crabbox/WebVNC proof. (cherry picked from commit 31a46638ad5e7babe23c1eb4ddb0f95b52be7ac0)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: route denied exec approval followups to sessions",
-      "summaryZh": "重點：修正: route denied exec approval followups to sessions Routes denied async exec approval followups through the originating..."
+      "titleZh": "OpenClaw 程式碼更新：修正: show chat errors as visible messages",
+      "summaryZh": "重點：修正: show chat errors as visible messages Surface Gateway chat failures as visible assistant messages in the Control UI, ..."
     },
     {
       "id": 4,
-      "title": "fix(responses): drop orphaned assistant msg_* id when reasoning is dr…",
-      "link": "https://github.com/openclaw/openclaw/commit/48980a0f414d7f5831646753bfadb0b6e2aa9048",
-      "publishedAt": "2026-05-30T20:45:08Z",
-      "summary": "fix(responses): drop orphaned assistant msg_* id when reasoning is dropped (#88019) (#88067) * fix(responses): drop orphaned assistant msg_* id when reasoning is dropped (#88019) When an Azure/OpenAI Responses session falls back to a non-Responses model and later resumes a Responses model, sanitizeSessionHistory drops the replayable reasoning (rs_*) item via downgradeOpenAIReasoningBlocks. The paired assistant text block still carried its textSignature (the msg_* id), so the transport replayed an assistant message item referencing msg_* with no accompanying rs_* reasoning item. Azure Responses then rejected the next turn with: 400 Item 'msg_...' provided without its required 'reasoning' item: 'rs_...' permanently poisoning the session. Fix: - downgradeOpenAIReasoningBlocks now strips the textSignature from a turn's text blocks whenever it drops a replayable reasoning item, so the msg_* id and its rs_* reasoning are removed together. The transport then falls back to a synthetic, unpaired id that Azure accepts. - Because the synthetic fallback id is derived from the per-message msgIndex, multiple id-less text blocks in one assistant turn (e.g. commentary + final_answer) would collide on the same id. Make the fallback unique per text block in both Responses conversion sites (openai-transport-stream.ts and the shared llm provider openai-responses-shared.ts). Tests: - sanitize-session-history: model-switch path drops the paired msg_* id. - embedded-agent-helpers: downgrade strips paired text signature(s). - reasoning-replay: multiple id-less text blocks get distinct item ids. Co-authored-by: Copilot * fix(responses): preserve phase metadata and guard malformed blocks (#88019) Address PR review feedback on the orphaned msg_* replay fix: - Preserve Responses phase metadata: dropping the paired msg_* id when its rs_* reasoning is removed previously stripped the entire textSignature, which also discarded the phase (commentary/final_answer). Phased text now keeps a phase-only signature ({v:1,phase}) so commentary is not replayed as user-visible output. Both parseTextSignature copies (shared provider and embedded transport) now accept id-less phase-only signatures and fall back to a synthetic id while preserving the phase. - Guard malformed content blocks: the post-drop map no longer dereferences contentBlock.type unconditionally, so a corrupted transcript with a null/primitive block can still sanitize through a model switch. Tests: - sanitize-session-history: phase metadata is preserved while the paired id is dropped on a model switch. - reasoning-replay: id-less phase-only signatures get distinct synthetic ids and retain their phase. Co-authored-by: Copilot --------- Co-authored-by: Copilot",
+      "title": "fix subagent dm completion delivery (#88182)",
+      "link": "https://github.com/openclaw/openclaw/commit/5d3a6909fb20cc9a961dc10a92f99fc9668d00de",
+      "publishedAt": "2026-05-30T22:03:32Z",
+      "summary": "fix subagent dm completion delivery (#88182) (cherry picked from commit 00d87c7b5d7b9c5375ffc0dbc78506e5474290bb)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(responses): drop orphaned assistant msg_* id when reasoning is dr…",
-      "summaryZh": "重點：修正(responses): drop orphaned assistant msg_* id when reasoning is dropped (#88019) (#88067) * 修正(responses): drop orphan..."
+      "titleZh": "OpenClaw 程式碼更新：修正 subagent dm completion delivery (#88182)",
+      "summaryZh": "重點：修正 subagent dm completion delivery (#88182) (cherry picked from 提交 00d87c7b5d7b9c5375ffc0dbc78506e5474290bb)..."
     },
     {
       "id": 5,
