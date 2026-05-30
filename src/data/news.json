@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-30T19:18:10.559Z",
+  "generatedAt": "2026-05-30T20:59:18.619Z",
   "items": [
     {
       "id": 1,
-      "title": "chore: remove inert skill workshop package",
-      "link": "https://github.com/openclaw/openclaw/commit/d9c0d09f1a09f337974c2d5865614510f17a29e7",
-      "publishedAt": "2026-05-30T19:15:31Z",
-      "summary": "chore: remove inert skill workshop package",
+      "title": "perf: cache manifest model suppression resolver",
+      "link": "https://github.com/openclaw/openclaw/commit/3f50485156dc732727fef467aa7513830f6c7fca",
+      "publishedAt": "2026-05-30T20:56:38Z",
+      "summary": "perf: cache manifest model suppression resolver",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore: remove inert skill workshop package",
-      "summaryZh": "重點：chore: remove inert skill workshop package..."
+      "titleZh": "OpenClaw 程式碼更新：perf: cache manifest 模型 suppression resolver",
+      "summaryZh": "重點：perf: cache manifest 模型 suppression resolver..."
     },
     {
       "id": 2,
-      "title": "fix(auth): bound oauth mirror expiry",
-      "link": "https://github.com/openclaw/openclaw/commit/0c7ab411e530fd01743b4e6b27ee81699e28d251",
-      "publishedAt": "2026-05-30T19:11:14Z",
-      "summary": "fix(auth): bound oauth mirror expiry",
+      "title": "test(scripts): require usable memory search in fd repro",
+      "link": "https://github.com/openclaw/openclaw/commit/9c2744f1e12b8f6d9dc4a395f298961a60a97383",
+      "publishedAt": "2026-05-30T20:48:50Z",
+      "summary": "test(scripts): require usable memory search in fd repro",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auth): bound oauth mirror expiry",
-      "summaryZh": "重點：修正(auth): bound oauth mirror expiry..."
+      "titleZh": "OpenClaw 程式碼更新：test(scripts): require usable 記憶 search in fd repro",
+      "summaryZh": "重點：test(scripts): require usable 記憶 search in fd repro..."
     },
     {
       "id": 3,
-      "title": "fix(export-html): guard msg.content and result.content filter/iterati…",
-      "link": "https://github.com/openclaw/openclaw/commit/5811693c7fce16f9780b904eb9159378f48734ec",
-      "publishedAt": "2026-05-30T19:10:43Z",
-      "summary": "fix(export-html): guard msg.content and result.content filter/iteration paths against non-array values (#88271) * fix(export-html): guard all msg.content and result.content filter/iteration paths Three call sites in the export HTML template called `.filter()` or iterated with `for...of` directly on `msg.content` or `result.content` without first checking `Array.isArray`. When a transcript message row carries a non-array content value (null, undefined, or any scalar), those paths throw: TypeError: msg.content.filter is not a function Fix: normalize with `Array.isArray(x) ? x : []` before every unguarded filter and iteration on `msg.content` (computeStats stats path and the renderEntry assistant render loops) and `result.content` (renderToolCall text/image accessors). Regression test added: renderTemplate resolves without throwing for assistant messages with null, undefined, string, and numeric content values. Closes #88255 * fix(export-html): guard user message text extraction path against non-array content The user-message render path in the export HTML template extracted text with `content.filter(...)` without checking whether `content` is an array. A persisted user message row with null, undefined, or any non-string scalar content crashed during export with the same TypeError class as the assistant path. Fix: normalize the ternary so a non-string, non-array value falls through to an empty string rather than calling `.filter` on it. Regression test added for null, undefined, and numeric user message content. Addresses feedback from ClawSweeper review on #88271. * fix(export-html): preserve string content guards --------- Co-authored-by: Peter Steinberger",
+      "title": "fix: route denied exec approval followups to sessions",
+      "link": "https://github.com/openclaw/openclaw/commit/3aa460409ea72a0a55eaad7c666fdd4a88eb12d1",
+      "publishedAt": "2026-05-30T20:45:16Z",
+      "summary": "fix: route denied exec approval followups to sessions Routes denied async exec approval followups through the originating main session before using direct external fallback. Keeps strict inline-eval timeout denials fail-closed, while preserving suppression for subagent, cron, and no-session denial cases. Refs #88167. Verification: - git diff --check origin/main...refs/remotes/pr/88417 - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - gh pr checks 88417 --repo openclaw/openclaw --watch=false Co-authored-by: brokemac79",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(export-html): guard msg.content and result.content filter/iterati…",
-      "summaryZh": "重點：修正(export-html): guard msg.content and result.content filter/iteration paths against non-array values (#88271) * 修正(expo..."
+      "titleZh": "OpenClaw 程式碼更新：修正: route denied exec approval followups to sessions",
+      "summaryZh": "重點：修正: route denied exec approval followups to sessions Routes denied async exec approval followups through the originating..."
     },
     {
       "id": 4,
-      "title": "fix(agents): bound auth health expiry",
-      "link": "https://github.com/openclaw/openclaw/commit/445ff220187de49051ce1d30fa3f9b615b105bb1",
-      "publishedAt": "2026-05-30T19:09:37Z",
-      "summary": "fix(agents): bound auth health expiry",
+      "title": "fix(responses): drop orphaned assistant msg_* id when reasoning is dr…",
+      "link": "https://github.com/openclaw/openclaw/commit/48980a0f414d7f5831646753bfadb0b6e2aa9048",
+      "publishedAt": "2026-05-30T20:45:08Z",
+      "summary": "fix(responses): drop orphaned assistant msg_* id when reasoning is dropped (#88019) (#88067) * fix(responses): drop orphaned assistant msg_* id when reasoning is dropped (#88019) When an Azure/OpenAI Responses session falls back to a non-Responses model and later resumes a Responses model, sanitizeSessionHistory drops the replayable reasoning (rs_*) item via downgradeOpenAIReasoningBlocks. The paired assistant text block still carried its textSignature (the msg_* id), so the transport replayed an assistant message item referencing msg_* with no accompanying rs_* reasoning item. Azure Responses then rejected the next turn with: 400 Item 'msg_...' provided without its required 'reasoning' item: 'rs_...' permanently poisoning the session. Fix: - downgradeOpenAIReasoningBlocks now strips the textSignature from a turn's text blocks whenever it drops a replayable reasoning item, so the msg_* id and its rs_* reasoning are removed together. The transport then falls back to a synthetic, unpaired id that Azure accepts. - Because the synthetic fallback id is derived from the per-message msgIndex, multiple id-less text blocks in one assistant turn (e.g. commentary + final_answer) would collide on the same id. Make the fallback unique per text block in both Responses conversion sites (openai-transport-stream.ts and the shared llm provider openai-responses-shared.ts). Tests: - sanitize-session-history: model-switch path drops the paired msg_* id. - embedded-agent-helpers: downgrade strips paired text signature(s). - reasoning-replay: multiple id-less text blocks get distinct item ids. Co-authored-by: Copilot * fix(responses): preserve phase metadata and guard malformed blocks (#88019) Address PR review feedback on the orphaned msg_* replay fix: - Preserve Responses phase metadata: dropping the paired msg_* id when its rs_* reasoning is removed previously stripped the entire textSignature, which also discarded the phase (commentary/final_answer). Phased text now keeps a phase-only signature ({v:1,phase}) so commentary is not replayed as user-visible output. Both parseTextSignature copies (shared provider and embedded transport) now accept id-less phase-only signatures and fall back to a synthetic id while preserving the phase. - Guard malformed content blocks: the post-drop map no longer dereferences contentBlock.type unconditionally, so a corrupted transcript with a null/primitive block can still sanitize through a model switch. Tests: - sanitize-session-history: phase metadata is preserved while the paired id is dropped on a model switch. - reasoning-replay: id-less phase-only signatures get distinct synthetic ids and retain their phase. Co-authored-by: Copilot --------- Co-authored-by: Copilot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): bound auth health expiry",
-      "summaryZh": "重點：修正(agents): bound auth health expiry..."
+      "titleZh": "OpenClaw 程式碼更新：修正(responses): drop orphaned assistant msg_* id when reasoning is dr…",
+      "summaryZh": "重點：修正(responses): drop orphaned assistant msg_* id when reasoning is dropped (#88019) (#88067) * 修正(responses): drop orphan..."
     },
     {
       "id": 5,
