@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-30T17:06:50.625Z",
+  "generatedAt": "2026-05-30T19:18:10.559Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(commands): bound private approval route expiry",
-      "link": "https://github.com/openclaw/openclaw/commit/e708a872a1fd88e1c21b86904e2b801ec3c684c8",
-      "publishedAt": "2026-05-30T17:06:29Z",
-      "summary": "fix(commands): bound private approval route expiry",
+      "title": "chore: remove inert skill workshop package",
+      "link": "https://github.com/openclaw/openclaw/commit/d9c0d09f1a09f337974c2d5865614510f17a29e7",
+      "publishedAt": "2026-05-30T19:15:31Z",
+      "summary": "chore: remove inert skill workshop package",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(commands): bound private approval route expiry",
-      "summaryZh": "重點：修正(commands): bound private approval route expiry..."
+      "titleZh": "OpenClaw 程式碼更新：chore: remove inert skill workshop package",
+      "summaryZh": "重點：chore: remove inert skill workshop package..."
     },
     {
       "id": 2,
-      "title": "fix(agents): hide sessions_send alias normalization",
-      "link": "https://github.com/openclaw/openclaw/commit/2dacc6da2860db9b4c57df14026c6062c6bf8778",
-      "publishedAt": "2026-05-30T17:06:22Z",
-      "summary": "fix(agents): hide sessions_send alias normalization Co-authored-by: 张贵萍0668001030",
+      "title": "fix(auth): bound oauth mirror expiry",
+      "link": "https://github.com/openclaw/openclaw/commit/0c7ab411e530fd01743b4e6b27ee81699e28d251",
+      "publishedAt": "2026-05-30T19:11:14Z",
+      "summary": "fix(auth): bound oauth mirror expiry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): hide sessions_send alias normalization",
-      "summaryZh": "重點：修正(agents): hide sessions_send alias normalization Co-authored-by: 张贵萍0668001030..."
+      "titleZh": "OpenClaw 程式碼更新：修正(auth): bound oauth mirror expiry",
+      "summaryZh": "重點：修正(auth): bound oauth mirror expiry..."
     },
     {
       "id": 3,
-      "title": "fix(plugin-state): bound ttl expiry writes",
-      "link": "https://github.com/openclaw/openclaw/commit/9660e42fe28d1b8aa498170a69bea16f1ce7f2e7",
-      "publishedAt": "2026-05-30T17:03:24Z",
-      "summary": "fix(plugin-state): bound ttl expiry writes",
+      "title": "fix(export-html): guard msg.content and result.content filter/iterati…",
+      "link": "https://github.com/openclaw/openclaw/commit/5811693c7fce16f9780b904eb9159378f48734ec",
+      "publishedAt": "2026-05-30T19:10:43Z",
+      "summary": "fix(export-html): guard msg.content and result.content filter/iteration paths against non-array values (#88271) * fix(export-html): guard all msg.content and result.content filter/iteration paths Three call sites in the export HTML template called `.filter()` or iterated with `for...of` directly on `msg.content` or `result.content` without first checking `Array.isArray`. When a transcript message row carries a non-array content value (null, undefined, or any scalar), those paths throw: TypeError: msg.content.filter is not a function Fix: normalize with `Array.isArray(x) ? x : []` before every unguarded filter and iteration on `msg.content` (computeStats stats path and the renderEntry assistant render loops) and `result.content` (renderToolCall text/image accessors). Regression test added: renderTemplate resolves without throwing for assistant messages with null, undefined, string, and numeric content values. Closes #88255 * fix(export-html): guard user message text extraction path against non-array content The user-message render path in the export HTML template extracted text with `content.filter(...)` without checking whether `content` is an array. A persisted user message row with null, undefined, or any non-string scalar content crashed during export with the same TypeError class as the assistant path. Fix: normalize the ternary so a non-string, non-array value falls through to an empty string rather than calling `.filter` on it. Regression test added for null, undefined, and numeric user message content. Addresses feedback from ClawSweeper review on #88271. * fix(export-html): preserve string content guards --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugin-state): bound ttl expiry writes",
-      "summaryZh": "重點：修正(plugin-state): bound ttl expiry writes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(export-html): guard msg.content and result.content filter/iterati…",
+      "summaryZh": "重點：修正(export-html): guard msg.content and result.content filter/iteration paths against non-array values (#88271) * 修正(expo..."
     },
     {
       "id": 4,
-      "title": "fix(skills): bound upload expiry checks",
-      "link": "https://github.com/openclaw/openclaw/commit/522da25932b3179258af55acde2c0ce5c9a99b37",
-      "publishedAt": "2026-05-30T17:00:52Z",
-      "summary": "fix(skills): bound upload expiry checks",
+      "title": "fix(agents): bound auth health expiry",
+      "link": "https://github.com/openclaw/openclaw/commit/445ff220187de49051ce1d30fa3f9b615b105bb1",
+      "publishedAt": "2026-05-30T19:09:37Z",
+      "summary": "fix(agents): bound auth health expiry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): bound upload expiry checks",
-      "summaryZh": "重點：修正(skills): bound upload expiry checks..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): bound auth health expiry",
+      "summaryZh": "重點：修正(agents): bound auth health expiry..."
     },
     {
       "id": 5,
