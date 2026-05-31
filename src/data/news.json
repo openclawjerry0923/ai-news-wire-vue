@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-31T12:16:25.268Z",
+  "generatedAt": "2026-05-31T14:46:02.103Z",
   "items": [
     {
       "id": 1,
-      "title": "docs: tighten config surface policy",
-      "link": "https://github.com/openclaw/openclaw/commit/2e254005a0160838009e72b7ee5926fd1c2d6f89",
-      "publishedAt": "2026-05-31T12:14:53Z",
-      "summary": "docs: tighten config surface policy",
+      "title": "fix(agents): preserve runtime tools in lean mode (#88381)",
+      "link": "https://github.com/openclaw/openclaw/commit/4d135ae28bf39d82b334c690029ae4f3aad80b4f",
+      "publishedAt": "2026-05-31T14:43:48Z",
+      "summary": "fix(agents): preserve runtime tools in lean mode (#88381) fix(agents): preserve runtime tools in lean mode Keep runtime-required tools, especially `message`, available when local-model lean filtering is enabled. This preserves `forceMessageTool`, `message_tool_only` source replies, explicit runtime allowlists, and schema projection without disabling lean filtering for ordinary denied tools. Proof: focused Vitest passed 190 tests; `git diff --check origin/main...HEAD` passed; PR CI had no failing or pending checks.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: tighten config surface policy",
-      "summaryZh": "重點：文件: tighten config surface policy..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve runtime tools in lean mode (#88381)",
+      "summaryZh": "重點：修正(agents): preserve runtime tools in lean mode (#88381) 修正(agents): preserve runtime tools in lean mode Keep runtime-re..."
     },
     {
       "id": 2,
-      "title": "fix(devices): refresh paired device last-seen metadata",
-      "link": "https://github.com/openclaw/openclaw/commit/703fae16a982cfdaa8d9e32baac5b961bcabc955",
-      "publishedAt": "2026-05-31T12:12:55Z",
-      "summary": "fix(devices): refresh paired device last-seen metadata Refresh paired-device last-seen metadata on successful device-token auth, paired reconnect, and first silent auto-approved connect. Centralize approved paired-device record construction so normal and bootstrap approvals preserve existing last-seen state unless the gateway passes explicit access metadata. Fixes #81169. Supersedes #81189. Proof: - node scripts/run-vitest.mjs src/infra/device-pairing.test.ts --reporter=verbose - node scripts/run-vitest.mjs src/gateway/server.auth.control-ui.test.ts --reporter=verbose - git diff --check - pnpm exec oxfmt --check --threads=1 src/infra/device-pairing.ts src/infra/device-pairing.test.ts src/gateway/server/ws-connection/message-handler.ts src/gateway/server.auth.control-ui.suite.ts - pnpm check:changed passed before final rebase; post-rebase rerun blocked before checks by local Crabbox 0.21.0 needing >=0.22.0 - autoreview clean: .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main Known unrelated CI failure on latest origin/main/PR base: extensions/discord/src/monitor/gateway-plugin.ts TS2367 in check-prod-types/check-lint/check-test-types/extension-channel checks. Co-authored-by: vyctorbrzezowski",
+      "title": "fix(messages): use best-effort for implicit tool-only source replies …",
+      "link": "https://github.com/openclaw/openclaw/commit/f547ea7668a16964966f5d3662c9b3c38fa0e308",
+      "publishedAt": "2026-05-31T14:41:30Z",
+      "summary": "fix(messages): use best-effort for implicit tool-only source replies (#84232) fix(messages): use best-effort for implicit tool-only source replies Preserve durable required-send semantics for explicit non-current targets while allowing current-source `message_tool_only` replies to be delivered through best-effort outbound sends. This fixes Slack source replies that otherwise fail when the adapter has no `reconcileUnknownSend` hook. Fixes #84078.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(devices): refresh paired device last-seen metadata",
-      "summaryZh": "重點：修正(devices): refresh paired device last-seen metadata Refresh paired-device last-seen metadata on successful device-toke..."
+      "titleZh": "OpenClaw 程式碼更新：修正(messages): use best-effort for implicit tool-only source replies …",
+      "summaryZh": "重點：修正(messages): use best-effort for implicit tool-only source replies (#84232) 修正(messages): use best-effort for implicit ..."
     },
     {
       "id": 3,
-      "title": "fix(agents): classify expired thinking signatures (#88340)",
-      "link": "https://github.com/openclaw/openclaw/commit/fdf8dddf0af3444783cec993bd67cc993a4b4712",
-      "publishedAt": "2026-05-31T12:11:30Z",
-      "summary": "fix(agents): classify expired thinking signatures (#88340) Summary: - The branch adds thinking-signature replay-invalid classification, retries matching terminal stream-error eve ... output, preserves static fallback model params, and updates related tests including a Copilot hook fixture. - PR surface: Source +57, Tests +177. Total +234 across 6 files. - Reproducibility: yes. for the classifier boundary: current main lacks a thinking-signature replay-invalid ma ... ort supplies the exact provider error payload. The time-dependent live expiry path was not reproduced here. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(agents): classify expired thinking signatures - PR branch already contained follow-up commit before automerge: fix(agents): recover thinking signature stream errors - PR branch already contained follow-up commit before automerge: fix(agents): recover expired thinking signatures - PR branch already contained follow-up commit before automerge: fix(clawsweeper): address review for automerge-openclaw-openclaw-8807… Validation: - ClawSweeper review passed for head b65f2b8bda2243e2a3806669c7370f62b3cb8667. - Required merge gates passed before the squash merge. Prepared head SHA: b65f2b8bda2243e2a3806669c7370f62b3cb8667 Review: https://github.com/openclaw/openclaw/pull/88340#issuecomment-4582955790 Co-authored-by: Bryan Tegomoh Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "docs: raise bulk PR close threshold",
+      "link": "https://github.com/openclaw/openclaw/commit/66775c037e3e9ff65a4cdcac27de4d4195aee804",
+      "publishedAt": "2026-05-31T14:40:16Z",
+      "summary": "docs: raise bulk PR close threshold",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): classify expired thinking signatures (#88340)",
-      "summaryZh": "重點：修正(agents): classify expired thinking signatures (#88340) Summary: - The branch adds thinking-signature replay-invalid c..."
+      "titleZh": "OpenClaw 文件更新：文件: raise bulk PR close threshold",
+      "summaryZh": "重點：文件: raise bulk PR close threshold..."
     },
     {
       "id": 4,
-      "title": "fix(browser): document stable tab references (#88393)",
-      "link": "https://github.com/openclaw/openclaw/commit/3a88142ddd8ad3e5037d81a7e05550e2e289266a",
-      "publishedAt": "2026-05-31T12:09:50Z",
-      "summary": "fix(browser): document stable tab references (#88393) Summary: - The branch documents friendly browser tab references across docs, the browser skill, CLI help, and tool schema descriptions, and adds tests for target reference resolution and tab alias behavior. - PR surface: Source +24, Tests +328, Docs +9. Total +361 across 21 files. - Reproducibility: yes. for the documentation mismatch by source inspection: current main supports friendly ta ... schema/help surfaces still emphasize raw CDP target ids. Runtime behavior itself is not a new failing path. Automerge notes: - PR branch already contained follow-up commit before automerge: refactor(browser): share tab reference CLI help Validation: - ClawSweeper review passed for head 118af80b0b0ae4e5cc1069bcf1ff8649f135cc86. - Required merge gates passed before the squash merge. Prepared head SHA: 118af80b0b0ae4e5cc1069bcf1ff8649f135cc86 Review: https://github.com/openclaw/openclaw/pull/88393#issuecomment-4583558133 Co-authored-by: FMLS Co-authored-by: clawsweeper[bot] Approved-by: hxy91819 Co-authored-by: hxy91819",
+      "title": "feat: add exec shell snapshot cache",
+      "link": "https://github.com/openclaw/openclaw/commit/c389839d30185265d5422c9b1e11e2aca3c0e97a",
+      "publishedAt": "2026-05-31T14:39:53Z",
+      "summary": "feat: add exec shell snapshot cache Add an opt-in bash/zsh shell snapshot cache for host exec runs, consolidate shell helper ownership into src/agents/shell-utils.ts, document OPENCLAW_EXEC_SHELL_SNAPSHOT, and keep Windows config command execution on the bash resolver. Also removes a redundant Discord gateway close-code type branch that was blocking test type checks.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(browser): 文件ument stable tab references (#88393)",
-      "summaryZh": "重點：修正(browser): 文件ument stable tab references (#88393) Summary: - The branch 文件uments friendly browser tab references acros..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: add exec shell snapshot cache",
+      "summaryZh": "重點：新功能: add exec shell snapshot cache Add an opt-in bash/zsh shell snapshot cache for host exec runs, consolidate shell hel..."
     },
     {
       "id": 5,
