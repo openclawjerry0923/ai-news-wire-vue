@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-31T18:03:43.295Z",
+  "generatedAt": "2026-05-31T20:09:43.091Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "refactor: extract ACP runtime handle ensure flow",
-      "link": "https://github.com/openclaw/openclaw/commit/2a30b937cba7e829ec9cdeddfb8706b629ab61e0",
-      "publishedAt": "2026-05-31T18:01:59Z",
-      "summary": "refactor: extract ACP runtime handle ensure flow Extract ACP runtime-handle ensure/reuse/recreate flow into `manager.runtime-handle-ensure.ts`. Keeps `AcpSessionManager` focused on orchestration while preserving backend resolution, resume identity retry, metadata persistence, cache replacement, and concurrency-limit behavior. Proof: focused ACP manager runtime-handle/runtime-config/turn-result tests, narrow oxlint, prod + test type checks, autoreview clean, PR CI green.",
+      "title": "test: avoid positional CI check assertion",
+      "link": "https://github.com/openclaw/openclaw/commit/92b9cd21ec8706485a239e3ea58d60b199ba94d4",
+      "publishedAt": "2026-05-31T20:00:04Z",
+      "summary": "test: avoid positional CI check assertion",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: extract ACP runtime handle ensure flow",
-      "summaryZh": "重點：refactor: extract ACP runtime handle ensure flow Extract ACP runtime-handle ensure/reuse/recreate flow into `manager.run..."
+      "titleZh": "OpenClaw 程式碼更新：test: avoid positional CI check assertion",
+      "summaryZh": "重點：test: avoid positional CI check assertion..."
     },
     {
       "id": 3,
-      "title": "fix(auth): add force re-login recovery and fallback auth skips",
-      "link": "https://github.com/openclaw/openclaw/commit/0ff5fe3a80cea9edcdf99ef7727f174c120993c5",
-      "publishedAt": "2026-05-31T18:01:51Z",
-      "summary": "fix(auth): add force re-login recovery and fallback auth skips Summary: - Add forced provider re-login support that clears cached auth profiles before running provider login again. - Add provider-auth remediation guidance and a session-scoped skip cache for known-bad fallback auth attempts. - Wire session ids through agent command, auto-reply, and embedded compaction fallback callers so the skip cache applies on real run paths. - Fail closed when forced auth profile removal cannot update the profile store. Verification: - Local format, lint, diff-check, focused Vitest shards, and autoreview passed. - PR CI, CodeQL Security High, and Critical Quality agent-runtime-boundary passed on head 1b4e9e753e50868ed763784b8211b406f8bdcf1d. Co-authored-by: Mert Basar",
+      "title": "ci: split startup and shrinkwrap checks",
+      "link": "https://github.com/openclaw/openclaw/commit/d62bfab9467d249a4987c643a68d7e4e9eb65e59",
+      "publishedAt": "2026-05-31T19:55:43Z",
+      "summary": "ci: split startup and shrinkwrap checks",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auth): add force re-login recovery and fallback auth skips",
-      "summaryZh": "重點：修正(auth): add force re-login recovery and fallback auth skips Summary: - Add forced provider re-login support that clear..."
+      "titleZh": "OpenClaw 程式碼更新：ci: split startup and shrinkwrap checks",
+      "summaryZh": "重點：ci: split startup and shrinkwrap checks..."
     },
     {
       "id": 4,
-      "title": "perf(scripts): parallelize remote core oxlint shards",
-      "link": "https://github.com/openclaw/openclaw/commit/db0209ac5d8a7cdf2032e89135315f5c2a97eb67",
-      "publishedAt": "2026-05-31T18:01:41Z",
-      "summary": "perf(scripts): parallelize remote core oxlint shards",
+      "title": "test(auto-reply): align debounce timer tests",
+      "link": "https://github.com/openclaw/openclaw/commit/7aa309319feaa590b290d2c42ac9556d49555bb1",
+      "publishedAt": "2026-05-31T19:48:02Z",
+      "summary": "test(auto-reply): align debounce timer tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(scripts): parallelize remote core oxlint shards",
-      "summaryZh": "重點：perf(scripts): parallelize remote core oxlint shards..."
+      "titleZh": "OpenClaw 程式碼更新：test(auto-reply): align debounce timer tests",
+      "summaryZh": "重點：test(auto-reply): align debounce timer tests..."
     },
     {
       "id": 5,
-      "title": "fix(codex): stream final answer partials (#88730)",
-      "link": "https://github.com/openclaw/openclaw/commit/3bac0bcbfb20fb257a196d2d90d5489723cfb5f4",
-      "publishedAt": "2026-05-31T18:00:44Z",
-      "summary": "fix(codex): stream final answer partials (#88730)",
+      "title": "chore(lint): enable no-misused-promises",
+      "link": "https://github.com/openclaw/openclaw/commit/2df95c0b10fdef7551e9a6531cc53c71ca581e0b",
+      "publishedAt": "2026-05-31T19:42:13Z",
+      "summary": "chore(lint): enable no-misused-promises",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): stream final answer partials (#88730)",
-      "summaryZh": "重點：修正(codex): stream final answer partials (#88730)..."
+      "titleZh": "OpenClaw 程式碼更新：chore(lint): enable no-misused-promises",
+      "summaryZh": "重點：chore(lint): enable no-misused-promises..."
     },
     {
       "id": 6,
