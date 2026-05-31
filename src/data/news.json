@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-31T14:46:02.103Z",
+  "generatedAt": "2026-05-31T16:10:08.284Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): preserve runtime tools in lean mode (#88381)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d135ae28bf39d82b334c690029ae4f3aad80b4f",
-      "publishedAt": "2026-05-31T14:43:48Z",
-      "summary": "fix(agents): preserve runtime tools in lean mode (#88381) fix(agents): preserve runtime tools in lean mode Keep runtime-required tools, especially `message`, available when local-model lean filtering is enabled. This preserves `forceMessageTool`, `message_tool_only` source replies, explicit runtime allowlists, and schema projection without disabling lean filtering for ordinary denied tools. Proof: focused Vitest passed 190 tests; `git diff --check origin/main...HEAD` passed; PR CI had no failing or pending checks.",
+      "title": "fix(slack): keep progress drafts in one message (#85612)",
+      "link": "https://github.com/openclaw/openclaw/commit/63d0c1d513eb850cb10d4306b80e54ec8b18b234",
+      "publishedAt": "2026-05-31T16:07:41Z",
+      "summary": "fix(slack): keep progress drafts in one message (#85612) Keep Slack progress-mode drafts on one rolling preview message across assistant and reasoning boundaries while preserving boundary cleanup and the latest visible tool-progress lines. Partial/replace modes still start a fresh draft at assistant boundaries. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve runtime tools in lean mode (#88381)",
-      "summaryZh": "重點：修正(agents): preserve runtime tools in lean mode (#88381) 修正(agents): preserve runtime tools in lean mode Keep runtime-re..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): keep progress drafts in one message (#85612)",
+      "summaryZh": "重點：修正(slack): keep progress drafts in one message (#85612) Keep Slack progress-mode drafts on one rolling preview message a..."
     },
     {
       "id": 2,
-      "title": "fix(messages): use best-effort for implicit tool-only source replies …",
-      "link": "https://github.com/openclaw/openclaw/commit/f547ea7668a16964966f5d3662c9b3c38fa0e308",
-      "publishedAt": "2026-05-31T14:41:30Z",
-      "summary": "fix(messages): use best-effort for implicit tool-only source replies (#84232) fix(messages): use best-effort for implicit tool-only source replies Preserve durable required-send semantics for explicit non-current targets while allowing current-source `message_tool_only` replies to be delivered through best-effort outbound sends. This fixes Slack source replies that otherwise fail when the adapter has no `reconcileUnknownSend` hook. Fixes #84078.",
+      "title": "ci: narrow legacy webchat migration value",
+      "link": "https://github.com/openclaw/openclaw/commit/71a516d644f06d5cc21cb2274a9a40304c8635bb",
+      "publishedAt": "2026-05-31T16:07:36Z",
+      "summary": "ci: narrow legacy webchat migration value",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(messages): use best-effort for implicit tool-only source replies …",
-      "summaryZh": "重點：修正(messages): use best-effort for implicit tool-only source replies (#84232) 修正(messages): use best-effort for implicit ..."
+      "titleZh": "OpenClaw 程式碼更新：ci: narrow legacy webchat migration value",
+      "summaryZh": "重點：ci: narrow legacy webchat migration value..."
     },
     {
       "id": 3,
-      "title": "docs: raise bulk PR close threshold",
-      "link": "https://github.com/openclaw/openclaw/commit/66775c037e3e9ff65a4cdcac27de4d4195aee804",
-      "publishedAt": "2026-05-31T14:40:16Z",
-      "summary": "docs: raise bulk PR close threshold",
+      "title": "fix(discord): route thread bindings to plugin owners",
+      "link": "https://github.com/openclaw/openclaw/commit/63621eead219d989a4925c3a96d83d1df9d9d946",
+      "publishedAt": "2026-05-31T16:03:55Z",
+      "summary": "fix(discord): route thread bindings to plugin owners Route Discord thread follow-up messages to plugin-owned bindings by the raw thread id while retaining parent channel fallback matching. This fixes `/codex bind` follow-ups in Discord threads being claimed by the parent OpenClaw route instead of the bound Codex session. Verification: - `node scripts/run-vitest.mjs extensions/discord/src/channel.conversation.test.ts src/hooks/message-hook-mappers.test.ts extensions/discord/src/monitor/message-handler.process.test.ts -t \"prefers bound session keys|passes Discord thread parent only|routes Discord thread plugin-owned bindings|passes thread parent ids|thread binding\"` - `node scripts/run-vitest.mjs src/auto-reply/reply/dispatch-from-config.test.ts -t \"routes Discord thread plugin-owned bindings by raw thread id\"` - `pnpm build` - `pnpm lint --threads=8` - `CI=true FORCE_COLOR=0 pnpm lint --threads=8` - `.agents/skills/autoreview/scripts/autoreview --mode local` - GitHub: Real behavior proof, check-test-types, check-dependencies, check-prod-types, auto-reply dispatch shard, hooks shard, and extension package boundary passed on head 1e896d9835fb11c97d478e78b403c1f5aa74f701. Known unrelated CI noise at merge: broad opengrep/test/lint CI failures are outside the touched Discord/session-binding surface and contradicted by focused local proof where applicable. Co-authored-by: Hex",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: raise bulk PR close threshold",
-      "summaryZh": "重點：文件: raise bulk PR close threshold..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): route thread bindings to plugin owners",
+      "summaryZh": "重點：修正(Discord): route thread bindings to plugin owners Route Discord thread follow-up messages to plugin-owned bindings by ..."
     },
     {
       "id": 4,
-      "title": "feat: add exec shell snapshot cache",
-      "link": "https://github.com/openclaw/openclaw/commit/c389839d30185265d5422c9b1e11e2aca3c0e97a",
-      "publishedAt": "2026-05-31T14:39:53Z",
-      "summary": "feat: add exec shell snapshot cache Add an opt-in bash/zsh shell snapshot cache for host exec runs, consolidate shell helper ownership into src/agents/shell-utils.ts, document OPENCLAW_EXEC_SHELL_SNAPSHOT, and keep Windows config command execution on the bash resolver. Also removes a redundant Discord gateway close-code type branch that was blocking test type checks.",
+      "title": "feat(github-copilot): add Claude Opus 4.8 to default model catalog",
+      "link": "https://github.com/openclaw/openclaw/commit/fbb776d92c296f8f93cda4c346bc51c783fb4969",
+      "publishedAt": "2026-05-31T16:00:24Z",
+      "summary": "feat(github-copilot): add Claude Opus 4.8 to default model catalog Add Claude Opus 4.8 to the GitHub Copilot static model catalog and default model IDs. Updates provider manifest metadata and regression coverage so fallback/default discovery includes claude-opus-4.8. PR: #88547 Co-authored-by: saju01",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: add exec shell snapshot cache",
-      "summaryZh": "重點：新功能: add exec shell snapshot cache Add an opt-in bash/zsh shell snapshot cache for host exec runs, consolidate shell hel..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(github-copilot): add Claude Opus 4.8 to default 模型 catalog",
+      "summaryZh": "重點：新功能(github-copilot): add Claude Opus 4.8 to default 模型 catalog Add Claude Opus 4.8 to the GitHub Copilot static 模型 catal..."
     },
     {
       "id": 5,
