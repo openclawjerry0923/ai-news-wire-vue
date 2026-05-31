@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-31T08:47:03.545Z",
+  "generatedAt": "2026-05-31T10:58:38.256Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(auto-reply): redact secrets in config show output (#88496)",
-      "link": "https://github.com/openclaw/openclaw/commit/a776de25e8b047ae96d6530877f907b95634f7d3",
-      "publishedAt": "2026-05-31T08:36:24Z",
-      "summary": "fix(auto-reply): redact secrets in config show output (#88496) * fix(auto-reply): redact config show secrets * fix(auto-reply): use schema redaction for config show * fix(auto-reply): redact config set acknowledgements --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(sms): add Twilio webhook diagnostics",
+      "link": "https://github.com/openclaw/openclaw/commit/1e08af453a0631800d1d8a50f42a8fc4845e074b",
+      "publishedAt": "2026-05-31T10:44:39Z",
+      "summary": "fix(sms): add Twilio webhook diagnostics * fix(sms): diagnose Twilio webhook setup * test(sms): satisfy diagnostic lint gates * fix(sms): redact recent probe participants * docs(sms): refresh SecretRef credential matrix * fix(sms): probe Messaging Service webhooks * fix(sms): resolve env-backed SecretRefs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): redact secrets in config show output (#88496)",
-      "summaryZh": "重點：修正(auto-reply): redact secrets in config show output (#88496) * 修正(auto-reply): redact config show secrets * 修正(auto-rep..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sms): add Twilio webhook diagnostics",
+      "summaryZh": "重點：修正(sms): add Twilio webhook diagnostics * 修正(sms): diagnose Twilio webhook setup * test(sms): satisfy diagnostic lint ga..."
     },
     {
       "id": 2,
-      "title": "fix(ci): repair copilot sdk drift",
-      "link": "https://github.com/openclaw/openclaw/commit/b4aaca3365bab167d568f381177bc9412fc8e7c3",
-      "publishedAt": "2026-05-31T08:34:54Z",
-      "summary": "fix(ci): repair copilot sdk drift",
+      "title": "fix(test): repair e2e standalone regressions",
+      "link": "https://github.com/openclaw/openclaw/commit/6d76acc2589f05feecd7c53ed262d69ab48db6ec",
+      "publishedAt": "2026-05-31T10:42:17Z",
+      "summary": "fix(test): repair e2e standalone regressions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): repair copilot sdk drift",
-      "summaryZh": "重點：修正(ci): repair copilot sdk drift..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): repair e2e standalone regressions",
+      "summaryZh": "重點：修正(test): repair e2e standalone regressions..."
     },
     {
       "id": 3,
-      "title": "chore(lint): enable object and reassignment rules",
-      "link": "https://github.com/openclaw/openclaw/commit/f5eca3f84cbf0ce63ae0ca709856242ac9284722",
-      "publishedAt": "2026-05-31T08:32:52Z",
-      "summary": "chore(lint): enable object and reassignment rules",
+      "title": "fix(model-auth): resolve per-entry apiKey profile references",
+      "link": "https://github.com/openclaw/openclaw/commit/f7a1d3f3f676f95b86468bbe911250b96084ea76",
+      "publishedAt": "2026-05-31T10:39:55Z",
+      "summary": "fix(model-auth): resolve per-entry apiKey profile references Fixes #67423. Resolve provider-entry apiKey fields that intentionally reference model auth profiles through centralized binding logic, so runtime auth and status labeling agree. Preserve env-first precedence, SecretRef handling, provider/baseUrl compatibility checks, and model auth-mode guards. Verification: - node scripts/run-vitest.mjs src/agents/model-auth.profiles.test.ts src/agents/model-auth-label.test.ts - PATH=/tmp/openclaw-corepack-shim.XXXXXX:$PATH CI=true pnpm check:changed - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - GitHub CI run 26710260760 and related CodeQL/proof checks on f55dec154d57229fa02a068bd73f202cee4d0b23 Co-authored-by: kinjitakabe",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(lint): enable object and reassignment rules",
-      "summaryZh": "重點：chore(lint): enable object and reassignment rules..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型-auth): resolve per-entry apiKey profile references",
+      "summaryZh": "重點：修正(模型-auth): resolve per-entry apiKey profile references 修正 #67423. Resolve provider-entry apiKey fields that intentiona..."
     },
     {
       "id": 4,
-      "title": "docs: expand SMS channel setup guide",
-      "link": "https://github.com/openclaw/openclaw/commit/ea11b8ad3d48d1a69ef5adf082b3639afe78ab22",
-      "publishedAt": "2026-05-31T08:31:00Z",
-      "summary": "docs: expand SMS channel setup guide",
-      "source": "OpenClaw Commits",
+      "title": "v2026.5.30-beta.2",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.30-beta.2",
+      "publishedAt": "2026-05-31T10:38:57Z",
+      "summary": "OpenClaw 2026.5.30 beta 2",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: expand SMS channel setup guide",
-      "summaryZh": "重點：文件: expand SMS channel setup guide..."
+      "titleZh": "OpenClaw 最新動態：v2026.5.30-beta.2",
+      "summaryZh": "重點：OpenClaw 2026.5.30 beta 2..."
     },
     {
       "id": 5,
@@ -65,6 +65,15 @@
     },
     {
       "id": 7,
+      "title": "駭客假借提供常見系統工具、濫用AI聊天機器人接觸受害者，意圖發動挖礦攻擊",
+      "link": "https://www.ithome.com.tw/news/176246",
+      "publishedAt": "2026-05-31 06:05:04",
+      "summary": "在過往挖礦軟體攻擊當中，駭客可能選擇透過搜尋引擎最佳化中毒（SEO Poisoning）來接觸目標，盡可能地讓更多使用者上當，讓挖礦活動的收益最大化，不過有人採取更為細緻的方法過濾用戶，試圖接觸擁有更多GPU運算能力的電腦。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "台灣儲能國家隊集體「出海」，狂捲全球千億綠能商機",
       "link": "https://technews.tw/2026/05/31/taiwan-energy-storage-national-team-goes-global-seizing-hundreds-billions-green-energy-business-opportunities-worldwide/",
       "publishedAt": "Sun, 31 May 2026 06:00:37 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "技嘉以「ENTER INFINITY」主題參展 COMPUTEX 2026 全面展現 AI 生態系與沉浸式電競體驗",
       "link": "https://ccc.technews.tw/2026/05/31/gigabyte-enter-infinity-computex-2026/",
       "publishedAt": "Sun, 31 May 2026 06:00:13 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "出口制裁反助重生！華為：感謝美國促成我們晶片技術成長",
       "link": "https://technews.tw/2026/05/31/huawei-chairman-thanks-us-for-export-restrictions-on-chips/",
       "publishedAt": "Sun, 31 May 2026 05:59:39 +0000",
       "summary": "華為輪值董事長徐直軍近日針對「韜（τ）定律」（Tau Scaling Law）相關技術發表看法，表示公司其實相 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "尼康擬以低價策略打破 ASML 壟斷地位！力拚重返半導體設備市場",
-      "link": "https://technews.tw/2026/05/31/nikon-lower-prices-asml/",
-      "publishedAt": "Sun, 31 May 2026 05:36:29 +0000",
-      "summary": "日本光學與半導體裝置大廠尼康（Nikon）新任社長大村康弘（Yasuhiro Ohmura）表示，公司提供比 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
