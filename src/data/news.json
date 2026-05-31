@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-05-31T10:58:38.256Z",
+  "generatedAt": "2026-05-31T12:16:25.268Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(sms): add Twilio webhook diagnostics",
-      "link": "https://github.com/openclaw/openclaw/commit/1e08af453a0631800d1d8a50f42a8fc4845e074b",
-      "publishedAt": "2026-05-31T10:44:39Z",
-      "summary": "fix(sms): add Twilio webhook diagnostics * fix(sms): diagnose Twilio webhook setup * test(sms): satisfy diagnostic lint gates * fix(sms): redact recent probe participants * docs(sms): refresh SecretRef credential matrix * fix(sms): probe Messaging Service webhooks * fix(sms): resolve env-backed SecretRefs",
+      "title": "docs: tighten config surface policy",
+      "link": "https://github.com/openclaw/openclaw/commit/2e254005a0160838009e72b7ee5926fd1c2d6f89",
+      "publishedAt": "2026-05-31T12:14:53Z",
+      "summary": "docs: tighten config surface policy",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sms): add Twilio webhook diagnostics",
-      "summaryZh": "重點：修正(sms): add Twilio webhook diagnostics * 修正(sms): diagnose Twilio webhook setup * test(sms): satisfy diagnostic lint ga..."
+      "titleZh": "OpenClaw 文件更新：文件: tighten config surface policy",
+      "summaryZh": "重點：文件: tighten config surface policy..."
     },
     {
       "id": 2,
-      "title": "fix(test): repair e2e standalone regressions",
-      "link": "https://github.com/openclaw/openclaw/commit/6d76acc2589f05feecd7c53ed262d69ab48db6ec",
-      "publishedAt": "2026-05-31T10:42:17Z",
-      "summary": "fix(test): repair e2e standalone regressions",
+      "title": "fix(devices): refresh paired device last-seen metadata",
+      "link": "https://github.com/openclaw/openclaw/commit/703fae16a982cfdaa8d9e32baac5b961bcabc955",
+      "publishedAt": "2026-05-31T12:12:55Z",
+      "summary": "fix(devices): refresh paired device last-seen metadata Refresh paired-device last-seen metadata on successful device-token auth, paired reconnect, and first silent auto-approved connect. Centralize approved paired-device record construction so normal and bootstrap approvals preserve existing last-seen state unless the gateway passes explicit access metadata. Fixes #81169. Supersedes #81189. Proof: - node scripts/run-vitest.mjs src/infra/device-pairing.test.ts --reporter=verbose - node scripts/run-vitest.mjs src/gateway/server.auth.control-ui.test.ts --reporter=verbose - git diff --check - pnpm exec oxfmt --check --threads=1 src/infra/device-pairing.ts src/infra/device-pairing.test.ts src/gateway/server/ws-connection/message-handler.ts src/gateway/server.auth.control-ui.suite.ts - pnpm check:changed passed before final rebase; post-rebase rerun blocked before checks by local Crabbox 0.21.0 needing >=0.22.0 - autoreview clean: .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main Known unrelated CI failure on latest origin/main/PR base: extensions/discord/src/monitor/gateway-plugin.ts TS2367 in check-prod-types/check-lint/check-test-types/extension-channel checks. Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): repair e2e standalone regressions",
-      "summaryZh": "重點：修正(test): repair e2e standalone regressions..."
+      "titleZh": "OpenClaw 程式碼更新：修正(devices): refresh paired device last-seen metadata",
+      "summaryZh": "重點：修正(devices): refresh paired device last-seen metadata Refresh paired-device last-seen metadata on successful device-toke..."
     },
     {
       "id": 3,
-      "title": "fix(model-auth): resolve per-entry apiKey profile references",
-      "link": "https://github.com/openclaw/openclaw/commit/f7a1d3f3f676f95b86468bbe911250b96084ea76",
-      "publishedAt": "2026-05-31T10:39:55Z",
-      "summary": "fix(model-auth): resolve per-entry apiKey profile references Fixes #67423. Resolve provider-entry apiKey fields that intentionally reference model auth profiles through centralized binding logic, so runtime auth and status labeling agree. Preserve env-first precedence, SecretRef handling, provider/baseUrl compatibility checks, and model auth-mode guards. Verification: - node scripts/run-vitest.mjs src/agents/model-auth.profiles.test.ts src/agents/model-auth-label.test.ts - PATH=/tmp/openclaw-corepack-shim.XXXXXX:$PATH CI=true pnpm check:changed - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - GitHub CI run 26710260760 and related CodeQL/proof checks on f55dec154d57229fa02a068bd73f202cee4d0b23 Co-authored-by: kinjitakabe",
+      "title": "fix(agents): classify expired thinking signatures (#88340)",
+      "link": "https://github.com/openclaw/openclaw/commit/fdf8dddf0af3444783cec993bd67cc993a4b4712",
+      "publishedAt": "2026-05-31T12:11:30Z",
+      "summary": "fix(agents): classify expired thinking signatures (#88340) Summary: - The branch adds thinking-signature replay-invalid classification, retries matching terminal stream-error eve ... output, preserves static fallback model params, and updates related tests including a Copilot hook fixture. - PR surface: Source +57, Tests +177. Total +234 across 6 files. - Reproducibility: yes. for the classifier boundary: current main lacks a thinking-signature replay-invalid ma ... ort supplies the exact provider error payload. The time-dependent live expiry path was not reproduced here. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(agents): classify expired thinking signatures - PR branch already contained follow-up commit before automerge: fix(agents): recover thinking signature stream errors - PR branch already contained follow-up commit before automerge: fix(agents): recover expired thinking signatures - PR branch already contained follow-up commit before automerge: fix(clawsweeper): address review for automerge-openclaw-openclaw-8807… Validation: - ClawSweeper review passed for head b65f2b8bda2243e2a3806669c7370f62b3cb8667. - Required merge gates passed before the squash merge. Prepared head SHA: b65f2b8bda2243e2a3806669c7370f62b3cb8667 Review: https://github.com/openclaw/openclaw/pull/88340#issuecomment-4582955790 Co-authored-by: Bryan Tegomoh Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型-auth): resolve per-entry apiKey profile references",
-      "summaryZh": "重點：修正(模型-auth): resolve per-entry apiKey profile references 修正 #67423. Resolve provider-entry apiKey fields that intentiona..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): classify expired thinking signatures (#88340)",
+      "summaryZh": "重點：修正(agents): classify expired thinking signatures (#88340) Summary: - The branch adds thinking-signature replay-invalid c..."
     },
     {
       "id": 4,
-      "title": "v2026.5.30-beta.2",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.5.30-beta.2",
-      "publishedAt": "2026-05-31T10:38:57Z",
-      "summary": "OpenClaw 2026.5.30 beta 2",
-      "source": "OpenClaw Releases",
+      "title": "fix(browser): document stable tab references (#88393)",
+      "link": "https://github.com/openclaw/openclaw/commit/3a88142ddd8ad3e5037d81a7e05550e2e289266a",
+      "publishedAt": "2026-05-31T12:09:50Z",
+      "summary": "fix(browser): document stable tab references (#88393) Summary: - The branch documents friendly browser tab references across docs, the browser skill, CLI help, and tool schema descriptions, and adds tests for target reference resolution and tab alias behavior. - PR surface: Source +24, Tests +328, Docs +9. Total +361 across 21 files. - Reproducibility: yes. for the documentation mismatch by source inspection: current main supports friendly ta ... schema/help surfaces still emphasize raw CDP target ids. Runtime behavior itself is not a new failing path. Automerge notes: - PR branch already contained follow-up commit before automerge: refactor(browser): share tab reference CLI help Validation: - ClawSweeper review passed for head 118af80b0b0ae4e5cc1069bcf1ff8649f135cc86. - Required merge gates passed before the squash merge. Prepared head SHA: 118af80b0b0ae4e5cc1069bcf1ff8649f135cc86 Review: https://github.com/openclaw/openclaw/pull/88393#issuecomment-4583558133 Co-authored-by: FMLS Co-authored-by: clawsweeper[bot] Approved-by: hxy91819 Co-authored-by: hxy91819",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.5.30-beta.2",
-      "summaryZh": "重點：OpenClaw 2026.5.30 beta 2..."
+      "titleZh": "OpenClaw 文件更新：修正(browser): 文件ument stable tab references (#88393)",
+      "summaryZh": "重點：修正(browser): 文件ument stable tab references (#88393) Summary: - The branch 文件uments friendly browser tab references acros..."
     },
     {
       "id": 5,
