@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-05-31T16:10:08.284Z",
+  "generatedAt": "2026-05-31T18:03:43.295Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(slack): keep progress drafts in one message (#85612)",
-      "link": "https://github.com/openclaw/openclaw/commit/63d0c1d513eb850cb10d4306b80e54ec8b18b234",
-      "publishedAt": "2026-05-31T16:07:41Z",
-      "summary": "fix(slack): keep progress drafts in one message (#85612) Keep Slack progress-mode drafts on one rolling preview message across assistant and reasoning boundaries while preserving boundary cleanup and the latest visible tool-progress lines. Partial/replace modes still start a fresh draft at assistant boundaries. Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): keep progress drafts in one message (#85612)",
-      "summaryZh": "重點：修正(slack): keep progress drafts in one message (#85612) Keep Slack progress-mode drafts on one rolling preview message a..."
+      "title": "AI推論躋身企業重要應用系統，F5最新報告點出多模型並用治理風險，以及身分管理成為企業採用AI代理的最大顧慮",
+      "link": "https://www.ithome.com.tw/news/176248",
+      "publishedAt": "2026-06-01 01:06:36",
+      "summary": "AI當道，隨著AI模型與代理式AI日益普及，網路應用程式交付與資安廠商F5今年5月最新發布的報告顯示，企業目前提供與防護應用系統的方式已因此徹底改變。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "ci: narrow legacy webchat migration value",
-      "link": "https://github.com/openclaw/openclaw/commit/71a516d644f06d5cc21cb2274a9a40304c8635bb",
-      "publishedAt": "2026-05-31T16:07:36Z",
-      "summary": "ci: narrow legacy webchat migration value",
+      "title": "refactor: extract ACP runtime handle ensure flow",
+      "link": "https://github.com/openclaw/openclaw/commit/2a30b937cba7e829ec9cdeddfb8706b629ab61e0",
+      "publishedAt": "2026-05-31T18:01:59Z",
+      "summary": "refactor: extract ACP runtime handle ensure flow Extract ACP runtime-handle ensure/reuse/recreate flow into `manager.runtime-handle-ensure.ts`. Keeps `AcpSessionManager` focused on orchestration while preserving backend resolution, resume identity retry, metadata persistence, cache replacement, and concurrency-limit behavior. Proof: focused ACP manager runtime-handle/runtime-config/turn-result tests, narrow oxlint, prod + test type checks, autoreview clean, PR CI green.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: narrow legacy webchat migration value",
-      "summaryZh": "重點：ci: narrow legacy webchat migration value..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: extract ACP runtime handle ensure flow",
+      "summaryZh": "重點：refactor: extract ACP runtime handle ensure flow Extract ACP runtime-handle ensure/reuse/recreate flow into `manager.run..."
     },
     {
       "id": 3,
-      "title": "fix(discord): route thread bindings to plugin owners",
-      "link": "https://github.com/openclaw/openclaw/commit/63621eead219d989a4925c3a96d83d1df9d9d946",
-      "publishedAt": "2026-05-31T16:03:55Z",
-      "summary": "fix(discord): route thread bindings to plugin owners Route Discord thread follow-up messages to plugin-owned bindings by the raw thread id while retaining parent channel fallback matching. This fixes `/codex bind` follow-ups in Discord threads being claimed by the parent OpenClaw route instead of the bound Codex session. Verification: - `node scripts/run-vitest.mjs extensions/discord/src/channel.conversation.test.ts src/hooks/message-hook-mappers.test.ts extensions/discord/src/monitor/message-handler.process.test.ts -t \"prefers bound session keys|passes Discord thread parent only|routes Discord thread plugin-owned bindings|passes thread parent ids|thread binding\"` - `node scripts/run-vitest.mjs src/auto-reply/reply/dispatch-from-config.test.ts -t \"routes Discord thread plugin-owned bindings by raw thread id\"` - `pnpm build` - `pnpm lint --threads=8` - `CI=true FORCE_COLOR=0 pnpm lint --threads=8` - `.agents/skills/autoreview/scripts/autoreview --mode local` - GitHub: Real behavior proof, check-test-types, check-dependencies, check-prod-types, auto-reply dispatch shard, hooks shard, and extension package boundary passed on head 1e896d9835fb11c97d478e78b403c1f5aa74f701. Known unrelated CI noise at merge: broad opengrep/test/lint CI failures are outside the touched Discord/session-binding surface and contradicted by focused local proof where applicable. Co-authored-by: Hex",
+      "title": "fix(auth): add force re-login recovery and fallback auth skips",
+      "link": "https://github.com/openclaw/openclaw/commit/0ff5fe3a80cea9edcdf99ef7727f174c120993c5",
+      "publishedAt": "2026-05-31T18:01:51Z",
+      "summary": "fix(auth): add force re-login recovery and fallback auth skips Summary: - Add forced provider re-login support that clears cached auth profiles before running provider login again. - Add provider-auth remediation guidance and a session-scoped skip cache for known-bad fallback auth attempts. - Wire session ids through agent command, auto-reply, and embedded compaction fallback callers so the skip cache applies on real run paths. - Fail closed when forced auth profile removal cannot update the profile store. Verification: - Local format, lint, diff-check, focused Vitest shards, and autoreview passed. - PR CI, CodeQL Security High, and Critical Quality agent-runtime-boundary passed on head 1b4e9e753e50868ed763784b8211b406f8bdcf1d. Co-authored-by: Mert Basar",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): route thread bindings to plugin owners",
-      "summaryZh": "重點：修正(Discord): route thread bindings to plugin owners Route Discord thread follow-up messages to plugin-owned bindings by ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(auth): add force re-login recovery and fallback auth skips",
+      "summaryZh": "重點：修正(auth): add force re-login recovery and fallback auth skips Summary: - Add forced provider re-login support that clear..."
     },
     {
       "id": 4,
-      "title": "feat(github-copilot): add Claude Opus 4.8 to default model catalog",
-      "link": "https://github.com/openclaw/openclaw/commit/fbb776d92c296f8f93cda4c346bc51c783fb4969",
-      "publishedAt": "2026-05-31T16:00:24Z",
-      "summary": "feat(github-copilot): add Claude Opus 4.8 to default model catalog Add Claude Opus 4.8 to the GitHub Copilot static model catalog and default model IDs. Updates provider manifest metadata and regression coverage so fallback/default discovery includes claude-opus-4.8. PR: #88547 Co-authored-by: saju01",
+      "title": "perf(scripts): parallelize remote core oxlint shards",
+      "link": "https://github.com/openclaw/openclaw/commit/db0209ac5d8a7cdf2032e89135315f5c2a97eb67",
+      "publishedAt": "2026-05-31T18:01:41Z",
+      "summary": "perf(scripts): parallelize remote core oxlint shards",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(github-copilot): add Claude Opus 4.8 to default 模型 catalog",
-      "summaryZh": "重點：新功能(github-copilot): add Claude Opus 4.8 to default 模型 catalog Add Claude Opus 4.8 to the GitHub Copilot static 模型 catal..."
+      "titleZh": "OpenClaw 程式碼更新：perf(scripts): parallelize remote core oxlint shards",
+      "summaryZh": "重點：perf(scripts): parallelize remote core oxlint shards..."
     },
     {
       "id": 5,
+      "title": "fix(codex): stream final answer partials (#88730)",
+      "link": "https://github.com/openclaw/openclaw/commit/3bac0bcbfb20fb257a196d2d90d5489723cfb5f4",
+      "publishedAt": "2026-05-31T18:00:44Z",
+      "summary": "fix(codex): stream final answer partials (#88730)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): stream final answer partials (#88730)",
+      "summaryZh": "重點：修正(codex): stream final answer partials (#88730)..."
+    },
+    {
+      "id": 6,
       "title": "博通端多款 Wi-Fi 8 新品，推業界首款端到端 50G PON 邊緣 AI 產品組合",
       "link": "https://technews.tw/2026/05/31/broadcom-delivers-industrys-first-integrated-wi-fi-8-socs/",
       "publishedAt": "Sun, 31 May 2026 06:56:22 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "加速擺脫對美依賴，傳字節跳動擬自研 CPU 晶片",
       "link": "https://technews.tw/2026/05/31/bytedance-agentic-ai-and-ai-chip/",
       "publishedAt": "Sun, 31 May 2026 06:17:07 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "駭客假借提供常見系統工具、濫用AI聊天機器人接觸受害者，意圖發動挖礦攻擊",
       "link": "https://www.ithome.com.tw/news/176246",
       "publishedAt": "2026-05-31 06:05:04",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "台灣儲能國家隊集體「出海」，狂捲全球千億綠能商機",
       "link": "https://technews.tw/2026/05/31/taiwan-energy-storage-national-team-goes-global-seizing-hundreds-billions-green-energy-business-opportunities-worldwide/",
       "publishedAt": "Sun, 31 May 2026 06:00:37 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "技嘉以「ENTER INFINITY」主題參展 COMPUTEX 2026 全面展現 AI 生態系與沉浸式電競體驗",
       "link": "https://ccc.technews.tw/2026/05/31/gigabyte-enter-infinity-computex-2026/",
       "publishedAt": "Sun, 31 May 2026 06:00:13 +0000",
       "summary": "全球電腦領導品牌技嘉科技（GIGABYTE）以「ENTER INFINITY」為主題參展 COMPUTEX 2 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "出口制裁反助重生！華為：感謝美國促成我們晶片技術成長",
-      "link": "https://technews.tw/2026/05/31/huawei-chairman-thanks-us-for-export-restrictions-on-chips/",
-      "publishedAt": "Sun, 31 May 2026 05:59:39 +0000",
-      "summary": "華為輪值董事長徐直軍近日針對「韜（τ）定律」（Tau Scaling Law）相關技術發表看法，表示公司其實相 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
