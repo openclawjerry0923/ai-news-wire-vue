@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-05T17:56:30.355Z",
+  "generatedAt": "2026-06-05T20:00:39.609Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): dedupe probe warnings by gateway identity (#85791)",
-      "link": "https://github.com/openclaw/openclaw/commit/b3eba2ff38b49830f0a2964737a783f7d86abce8",
-      "publishedAt": "2026-06-05T17:23:12Z",
-      "summary": "fix(gateway): dedupe probe warnings by gateway identity (#85791) Merged via squash. Prepared head SHA: 13e3c00f56f65b8690945bea9a666e3ab5b771e0 Co-authored-by: giodl73-repo Co-authored-by: giodl_microsoft Reviewed-by: @giodl_microsoft",
+      "title": "fix(tui): stabilize optimistic user messages across history reloads, …",
+      "link": "https://github.com/openclaw/openclaw/commit/ac9a219692aa1d89f7ef7c132666a3dc82c4078e",
+      "publishedAt": "2026-06-05T19:09:24Z",
+      "summary": "fix(tui): stabilize optimistic user messages across history reloads, runId reassignment, and abort (#86205) * fix(tui): preserve optimistic user messages * refactor(tui): drop unused pending-user chat-log helpers * fix(tui): reconcile optimistic user row across runId reassignment and abort * refactor(tui): reuse asDateTimestampMs for history timestamp coercion * test(tui): fix event-handler chatLog render mock arity",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): dedupe probe warnings by Gateway identity (#85791)",
-      "summaryZh": "重點：修正(Gateway): dedupe probe warnings by Gateway identity (#85791) Merged via squash. Prepared head SHA: 13e3c00f56f65b8690..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): stabilize optimistic user messages across history reloads, …",
+      "summaryZh": "重點：修正(tui): stabilize optimistic user messages across history reloads, runId reassignment, and abort (#86205) * 修正(tui): pr..."
     },
     {
       "id": 2,
-      "title": "fix(cron): auto-migrate legacy cron store (#90208)",
-      "link": "https://github.com/openclaw/openclaw/commit/21aa297434e4f89b5e60aac88ab11929a7bfdf6b",
-      "publishedAt": "2026-06-05T17:22:02Z",
-      "summary": "fix(cron): auto-migrate legacy cron store (#90208) Merged via squash. Prepared head SHA: f5aa1b67595b72f6a2f30f899a1efedb1b01a377 Co-authored-by: MonkeyLeeT Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "feat(parallel): add Parallel as a bundled web_search provider (#85158)",
+      "link": "https://github.com/openclaw/openclaw/commit/db7d70ae4d9f047f5f83d1bc7d78065158cc8177",
+      "publishedAt": "2026-06-05T19:01:58Z",
+      "summary": "feat(parallel): add Parallel as a bundled web_search provider (#85158) - New extensions/parallel package modeled on extensions/exa - Wires Parallel's POST /v1/search through the generic web_search contract, exposing Parallel's recommended {objective, search_queries} shape (plus optional count, session_id, client_model) so the model can supply both the natural-language goal and 2-3 short keyword queries as Parallel docs advise - client_model lets the model report its own slug so Parallel can tailor optimizations for the consuming model's capabilities; partitions the cache by client_model so different models do not silently share ranked excerpts - Honors top-level tools.web.search.{maxResults,timeoutSeconds,cacheTtlMinutes} via the shared SDK helpers (mergeScopedSearchConfig, withTrustedWebSearchEndpoint, buildSearchCacheKey, read/writeCachedSearchPayload) - Auto-detect order 75; auth via PARALLEL_API_KEY or plugins.entries.parallel.config.webSearch.apiKey - Optional baseUrl override for proxies (e.g. Cloudflare AI Gateway) - Threads caller-supplied session_id through follow-up calls; strips auto-generated session_id from the shared cache to avoid cross-task leaks - Always sends advanced_settings.max_results so result volume matches the OpenClaw web_search default (5) instead of Parallel's default (10) - Identifies the plugin via User-Agent header built from package version - Runtime accepts the generic `query` arg as a fallback so the operator CLI (openclaw capability web.search) keeps working when Parallel is the active provider: it is promoted into the lone `search_queries` entry. `objective` stays optional and is never synthesized from a keyword query (Parallel documents it as natural-language intent). Agent callers using the native objective+search_queries shape take precedence; the schema still advertises only the native keys - Updates the agent tool-display extractor (src/agents/tool-display-common.ts) to recognize Parallel's objective+search_queries shape so calls render with query context in CLI progress and Codex activity metadata - Adds /tools/parallel-search docs page, web.md provider listing, docs nav, labeler entry, per-plugin registration contract test, and minimal core touch-points (legacy migrate, registration cases, providers contract list, runtime bundled list, vitest extension paths)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): auto-migrate legacy 排程 store (#90208)",
-      "summaryZh": "重點：修正(排程): auto-migrate legacy 排程 store (#90208) Merged via squash. Prepared head SHA: f5aa1b67595b72f6a2f30f899a1efedb1b01..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(parallel): add Parallel as a bundled web_search provider (#85158)",
+      "summaryZh": "重點：新功能(parallel): add Parallel as a bundled web_search provider (#85158) - New extensions/parallel package 模型ed on extensio..."
     },
     {
       "id": 3,
-      "title": "test: bracket provider worker env",
-      "link": "https://github.com/openclaw/openclaw/commit/4752e9a67d4f7e0bd9b6d21214bda28e42a7e5e6",
-      "publishedAt": "2026-06-05T16:09:55Z",
-      "summary": "test: bracket provider worker env",
+      "title": "docs: prefer web_fetch in weather skill (#90250)",
+      "link": "https://github.com/openclaw/openclaw/commit/36d9241cf7d6a79d30094bb2d7c313f60ebd9f64",
+      "publishedAt": "2026-06-05T18:35:55Z",
+      "summary": "docs: prefer web_fetch in weather skill (#90250) * docs: prefer web_fetch in weather skill * docs: use compact wttr json in weather skill",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: bracket provider worker env",
-      "summaryZh": "重點：test: bracket provider worker env..."
+      "titleZh": "OpenClaw 文件更新：文件: prefer web_fetch in weather skill (#90250)",
+      "summaryZh": "重點：文件: prefer web_fetch in weather skill (#90250) * 文件: prefer web_fetch in weather skill * 文件: use compact wttr json in we..."
     },
     {
       "id": 4,
-      "title": "test: scope internal transcript state env",
-      "link": "https://github.com/openclaw/openclaw/commit/ec91dce0b86300a477703b36a180ebea1d13aede",
-      "publishedAt": "2026-06-05T16:08:30Z",
-      "summary": "test: scope internal transcript state env",
+      "title": "fix(context-engine): forward isHeartbeat to afterTurn (fixes #89302) …",
+      "link": "https://github.com/openclaw/openclaw/commit/d896a4c7a3ef033f93bc6bd6d392e299630c52c7",
+      "publishedAt": "2026-06-05T18:27:37Z",
+      "summary": "fix(context-engine): forward isHeartbeat to afterTurn (fixes #89302) (#90632) Merged via squash. Prepared head SHA: 2f6da84c4bd1f6e831a66037134a94836b0472d5 Co-authored-by: zenglingbiao Co-authored-by: jalehman Reviewed-by: @jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: scope internal transcript state env",
-      "summaryZh": "重點：test: scope internal transcript state env..."
+      "titleZh": "OpenClaw 程式碼更新：修正(context-engine): forward isHeartbeat to afterTurn (修正 #89302) …",
+      "summaryZh": "重點：修正(context-engine): forward isHeartbeat to afterTurn (修正 #89302) (#90632) Merged via squash. Prepared head SHA: 2f6da84c..."
     },
     {
       "id": 5,
