@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-06-05T20:00:39.609Z",
+  "generatedAt": "2026-06-05T22:15:01.120Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(tui): stabilize optimistic user messages across history reloads, …",
-      "link": "https://github.com/openclaw/openclaw/commit/ac9a219692aa1d89f7ef7c132666a3dc82c4078e",
-      "publishedAt": "2026-06-05T19:09:24Z",
-      "summary": "fix(tui): stabilize optimistic user messages across history reloads, runId reassignment, and abort (#86205) * fix(tui): preserve optimistic user messages * refactor(tui): drop unused pending-user chat-log helpers * fix(tui): reconcile optimistic user row across runId reassignment and abort * refactor(tui): reuse asDateTimestampMs for history timestamp coercion * test(tui): fix event-handler chatLog render mock arity",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): stabilize optimistic user messages across history reloads, …",
-      "summaryZh": "重點：修正(tui): stabilize optimistic user messages across history reloads, runId reassignment, and abort (#86205) * 修正(tui): pr..."
+      "title": "力積電 5月營收達 57.7 億元，連續兩個月站上 50 億元大關",
+      "link": "https://finance.technews.tw/2026/06/06/powerchip-technologys-revenue-reached-nt5-77-billion-in-may/",
+      "publishedAt": "Fri, 05 Jun 2026 22:00:13 +0000",
+      "summary": "晶圓代工廠力積電公布最新營收數據，受惠於記憶體與邏輯代工報價調漲效益，5月合併營收達57.7億元，使得營收金額 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat(parallel): add Parallel as a bundled web_search provider (#85158)",
-      "link": "https://github.com/openclaw/openclaw/commit/db7d70ae4d9f047f5f83d1bc7d78065158cc8177",
-      "publishedAt": "2026-06-05T19:01:58Z",
-      "summary": "feat(parallel): add Parallel as a bundled web_search provider (#85158) - New extensions/parallel package modeled on extensions/exa - Wires Parallel's POST /v1/search through the generic web_search contract, exposing Parallel's recommended {objective, search_queries} shape (plus optional count, session_id, client_model) so the model can supply both the natural-language goal and 2-3 short keyword queries as Parallel docs advise - client_model lets the model report its own slug so Parallel can tailor optimizations for the consuming model's capabilities; partitions the cache by client_model so different models do not silently share ranked excerpts - Honors top-level tools.web.search.{maxResults,timeoutSeconds,cacheTtlMinutes} via the shared SDK helpers (mergeScopedSearchConfig, withTrustedWebSearchEndpoint, buildSearchCacheKey, read/writeCachedSearchPayload) - Auto-detect order 75; auth via PARALLEL_API_KEY or plugins.entries.parallel.config.webSearch.apiKey - Optional baseUrl override for proxies (e.g. Cloudflare AI Gateway) - Threads caller-supplied session_id through follow-up calls; strips auto-generated session_id from the shared cache to avoid cross-task leaks - Always sends advanced_settings.max_results so result volume matches the OpenClaw web_search default (5) instead of Parallel's default (10) - Identifies the plugin via User-Agent header built from package version - Runtime accepts the generic `query` arg as a fallback so the operator CLI (openclaw capability web.search) keeps working when Parallel is the active provider: it is promoted into the lone `search_queries` entry. `objective` stays optional and is never synthesized from a keyword query (Parallel documents it as natural-language intent). Agent callers using the native objective+search_queries shape take precedence; the schema still advertises only the native keys - Updates the agent tool-display extractor (src/agents/tool-display-common.ts) to recognize Parallel's objective+search_queries shape so calls render with query context in CLI progress and Codex activity metadata - Adds /tools/parallel-search docs page, web.md provider listing, docs nav, labeler entry, per-plugin registration contract test, and minimal core touch-points (legacy migrate, registration cases, providers contract list, runtime bundled list, vitest extension paths)",
+      "title": "fix(agents): re-probe single-provider primary during cooldown (#90717)",
+      "link": "https://github.com/openclaw/openclaw/commit/6da3b1f6a35101a988e83394c3405efde279f758",
+      "publishedAt": "2026-06-05T21:20:57Z",
+      "summary": "fix(agents): re-probe single-provider primary during cooldown (#90717) Fixes #90702. Allow a single-provider primary to periodically probe through the existing cooldown throttle even when no fallback chain is configured. This lets WHAM/subscription-limit cooldown state recover without waiting for a far-future provider reset timestamp. Verified: - node scripts/run-vitest.mjs src/agents/model-fallback.probe.test.ts - git diff --check - cherry-pick onto current origin/main and rerun focused regression",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(parallel): add Parallel as a bundled web_search provider (#85158)",
-      "summaryZh": "重點：新功能(parallel): add Parallel as a bundled web_search provider (#85158) - New extensions/parallel package 模型ed on extensio..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): re-probe single-provider primary during cooldown (#90717)",
+      "summaryZh": "重點：修正(agents): re-probe single-provider primary during cooldown (#90717) 修正 #90702. Allow a single-provider primary to peri..."
     },
     {
       "id": 3,
-      "title": "docs: prefer web_fetch in weather skill (#90250)",
-      "link": "https://github.com/openclaw/openclaw/commit/36d9241cf7d6a79d30094bb2d7c313f60ebd9f64",
-      "publishedAt": "2026-06-05T18:35:55Z",
-      "summary": "docs: prefer web_fetch in weather skill (#90250) * docs: prefer web_fetch in weather skill * docs: use compact wttr json in weather skill",
+      "title": "build(deps): bump docker/login-action from 3.6.0 to 4.1.0 (#74980)",
+      "link": "https://github.com/openclaw/openclaw/commit/2ab4eaa2b182363462911473aa9ebb44b7ee28e4",
+      "publishedAt": "2026-06-05T21:12:53Z",
+      "summary": "build(deps): bump docker/login-action from 3.6.0 to 4.1.0 (#74980) Bumps [docker/login-action](https://github.com/docker/login-action) from 3.6.0 to 4.1.0. - [Release notes](https://github.com/docker/login-action/releases) - [Commits](https://github.com/docker/login-action/compare/v3.6.0...4907a6ddec9925e35a0a9e82d7399ccc52663121) --- updated-dependencies: - dependency-name: docker/login-action dependency-version: 4.1.0 dependency-type: direct:production update-type: version-update:semver-major ... Signed-off-by: dependabot[bot] Co-authored-by: dependabot[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: prefer web_fetch in weather skill (#90250)",
-      "summaryZh": "重點：文件: prefer web_fetch in weather skill (#90250) * 文件: prefer web_fetch in weather skill * 文件: use compact wttr json in we..."
+      "titleZh": "OpenClaw 文件更新：build(deps): bump 文件ker/login-action from 3.6.0 to 4.1.0 (#74980)",
+      "summaryZh": "重點：build(deps): bump 文件ker/login-action from 3.6.0 to 4.1.0 (#74980) Bumps [文件ker/login-action](https://github.com/文件ker/lo..."
     },
     {
       "id": 4,
-      "title": "fix(context-engine): forward isHeartbeat to afterTurn (fixes #89302) …",
-      "link": "https://github.com/openclaw/openclaw/commit/d896a4c7a3ef033f93bc6bd6d392e299630c52c7",
-      "publishedAt": "2026-06-05T18:27:37Z",
-      "summary": "fix(context-engine): forward isHeartbeat to afterTurn (fixes #89302) (#90632) Merged via squash. Prepared head SHA: 2f6da84c4bd1f6e831a66037134a94836b0472d5 Co-authored-by: zenglingbiao Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "chore(deps): bump the android-deps group across 1 directory with 9 up…",
+      "link": "https://github.com/openclaw/openclaw/commit/c965141d67cc69318154078d0b75b792603744ee",
+      "publishedAt": "2026-06-05T21:07:08Z",
+      "summary": "chore(deps): bump the android-deps group across 1 directory with 9 updates (#86481) Bumps the android-deps group with 9 updates in the /apps/android directory: | Package | From | To | | --- | --- | --- | | [gradle-wrapper](https://github.com/gradle/gradle) | `9.4.1` | `9.5.1` | | androidx.compose:compose-bom | `2026.04.01` | `2026.05.01` | | [dnsjava:dnsjava](https://github.com/dnsjava/dnsjava) | `3.6.4` | `3.6.5` | | [org.junit.vintage:junit-vintage-engine](https://github.com/junit-team/junit-framework) | `6.0.3` | `6.1.0` | | [org.jetbrains.kotlinx:kotlinx-coroutines-android](https://github.com/Kotlin/kotlinx.coroutines) | `1.10.2` | `1.11.0` | | [org.jetbrains.kotlinx:kotlinx-coroutines-test](https://github.com/Kotlin/kotlinx.coroutines) | `1.10.2` | `1.11.0` | | [com.google.android.material:material](https://github.com/material-components/material-components-android) | `1.13.0` | `1.14.0` | | com.android.application | `9.2.0` | `9.2.1` | | com.android.test | `9.2.0` | `9.2.1` | Updates `gradle-wrapper` from 9.4.1 to 9.5.1 - [Release notes](https://github.com/gradle/gradle/releases) - [Commits](https://github.com/gradle/gradle/compare/v9.4.1...v9.5.1) Updates `androidx.compose:compose-bom` from 2026.04.01 to 2026.05.01 Updates `dnsjava:dnsjava` from 3.6.4 to 3.6.5 - [Release notes](https://github.com/dnsjava/dnsjava/releases) - [Changelog](https://github.com/dnsjava/dnsjava/blob/master/Changelog) - [Commits](https://github.com/dnsjava/dnsjava/commits) Updates `org.junit.vintage:junit-vintage-engine` from 6.0.3 to 6.1.0 - [Release notes](https://github.com/junit-team/junit-framework/releases) - [Commits](https://github.com/junit-team/junit-framework/compare/r6.0.3...r6.1.0) Updates `org.jetbrains.kotlinx:kotlinx-coroutines-android` from 1.10.2 to 1.11.0 - [Release notes](https://github.com/Kotlin/kotlinx.coroutines/releases) - [Changelog](https://github.com/Kotlin/kotlinx.coroutines/blob/master/CHANGES.md) - [Commits](https://github.com/Kotlin/kotlinx.coroutines/compare/1.10.2...1.11.0) Updates `org.jetbrains.kotlinx:kotlinx-coroutines-test` from 1.10.2 to 1.11.0 - [Release notes](https://github.com/Kotlin/kotlinx.coroutines/releases) - [Changelog](https://github.com/Kotlin/kotlinx.coroutines/blob/master/CHANGES.md) - [Commits](https://github.com/Kotlin/kotlinx.coroutines/compare/1.10.2...1.11.0) Updates `org.jetbrains.kotlinx:kotlinx-coroutines-test` from 1.10.2 to 1.11.0 - [Release notes](https://github.com/Kotlin/kotlinx.coroutines/releases) - [Changelog](https://github.com/Kotlin/kotlinx.coroutines/blob/master/CHANGES.md) - [Commits](https://github.com/Kotlin/kotlinx.coroutines/compare/1.10.2...1.11.0) Updates `com.google.android.material:material` from 1.13.0 to 1.14.0 - [Release notes](https://github.com/material-components/material-components-android/releases) - [Commits](https://github.com/material-components/material-components-android/compare/1.13.0...1.14.0) Updates `com.android.application` from 9.2.0 to 9.2.1 Updates `com.android.test` from 9.2.0 to 9.2.1 Updates `com.android.test` from 9.2.0 to 9.2.1 --- updated-dependencies: - dependency-name: androidx.compose:compose-bom dependency-version: 2026.05.01 dependency-type: direct:production dependency-group: android-deps - dependency-name: com.android.application dependency-version: 9.2.1 dependency-type: direct:production update-type: version-update:semver-patch dependency-group: android-deps - dependency-name: com.android.test dependency-version: 9.2.1 dependency-type: direct:production update-type: version-update:semver-patch dependency-group: android-deps - dependency-name: com.android.test dependency-version: 9.2.1 dependency-type: direct:production update-type: version-update:semver-patch dependency-group: android-deps - dependency-name: com.google.android.material:material dependency-version: 1.14.0 dependency-type: direct:production update-type: version-update:semver-minor dependency-group: android-deps - dependency-name: dnsjava:dnsjava dependency-version: 3.6.5 dependency-type: direct:production update-type: version-update:semver-patch dependency-group: android-deps - dependency-name: gradle-wrapper dependency-version: 9.5.1 dependency-type: direct:production update-type: version-update:semver-minor dependency-group: android-deps - dependency-name: org.jetbrains.kotlinx:kotlinx-coroutines-android dependency-version: 1.11.0 dependency-type: direct:production update-type: version-update:semver-minor dependency-group: android-deps - dependency-name: org.jetbrains.kotlinx:kotlinx-coroutines-test dependency-version: 1.11.0 dependency-type: direct:production update-type: version-update:semver-minor dependency-group: android-deps - dependency-name: org.jetbrains.kotlinx:kotlinx-coroutines-test dependency-version: 1.11.0 dependency-type: direct:production update-type: version-update:semver-minor dependency-group: android-deps - dependency-name: org.junit.vintage:junit-vintage-engine dependency-version: 6.1.0 dependency-type: direct:production update-type: version-update:semver-minor dependency-group: android-deps ... Signed-off-by: dependabot[bot] Co-authored-by: dependabot[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(context-engine): forward isHeartbeat to afterTurn (修正 #89302) …",
-      "summaryZh": "重點：修正(context-engine): forward isHeartbeat to afterTurn (修正 #89302) (#90632) Merged via squash. Prepared head SHA: 2f6da84c..."
+      "titleZh": "OpenClaw 程式碼更新：chore(deps): bump the android-deps group across 1 directory with 9 up…",
+      "summaryZh": "重點：chore(deps): bump the android-deps group across 1 directory with 9 updates (#86481) Bumps the android-deps group with 9 ..."
     },
     {
       "id": 5,
+      "title": "chore(deps): bump github.com/apple/swift-testing (#81757)",
+      "link": "https://github.com/openclaw/openclaw/commit/c6972a0664ff05a400e30ee7cc5ae1807dcb75ff",
+      "publishedAt": "2026-06-05T21:05:15Z",
+      "summary": "chore(deps): bump github.com/apple/swift-testing (#81757) Bumps the swift-deps group with 1 update in the /apps/swabble directory: [github.com/apple/swift-testing](https://github.com/apple/swift-testing). Updates `github.com/apple/swift-testing` from 6.3.1 to 6.3.2 - [Release notes](https://github.com/apple/swift-testing/releases) - [Commits](https://github.com/apple/swift-testing/compare/6.3.1...6.3.2) --- updated-dependencies: - dependency-name: github.com/apple/swift-testing dependency-version: 6.3.2 dependency-type: direct:production update-type: version-update:semver-patch dependency-group: swift-deps ... Signed-off-by: dependabot[bot] Co-authored-by: dependabot[bot]",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(deps): bump github.com/apple/swift-testing (#81757)",
+      "summaryZh": "重點：chore(deps): bump github.com/apple/swift-testing (#81757) Bumps the swift-deps group with 1 update in the /apps/swabble ..."
+    },
+    {
+      "id": 6,
       "title": "韋伯望遠鏡首次捕捉系外行星一日天氣循環！熱木星早晨多雲，傍晚放晴",
       "link": "https://technews.tw/2026/06/06/nasas-webb-telescope-discovers-a-planet-where-rock-clouds-vanish-every-night/",
       "publishedAt": "Fri, 05 Jun 2026 16:00:49 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "挑戰星系演化論！韋伯望遠鏡直擊「比宿主星系更老」的超大質量黑洞",
       "link": "https://technews.tw/2026/06/06/webb-telescope-supermassive-black-hole-born-before-host-galaxy/",
       "publishedAt": "Fri, 05 Jun 2026 16:00:06 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "賓士 140 年特展，CLA Shooting Break 打頭陣",
       "link": "https://technews.tw/2026/06/05/mercedes-benz-140year-show-cla-shooting-break/",
       "publishedAt": "Fri, 05 Jun 2026 15:09:52 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "愛普*5月營收月減6.9%",
       "link": "https://finance.technews.tw/2026/06/05/ap-memory-6531-202605-financial-report/",
       "publishedAt": "Fri, 05 Jun 2026 12:40:06 +0000",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "鴻準5月營收87.58 億元",
       "link": "https://finance.technews.tw/2026/06/05/ftc-2354-202605-financial-report/",
       "publishedAt": "Fri, 05 Jun 2026 12:10:05 +0000",
       "summary": "鴻準（2354）今（5）日公布 5 月營收，達 87.58 億元，較 4 月成長 34.2%，較去年同期成長 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "NTLM協定安全問題又一樁，Windows Search URI問題可能導致NTLM驗證資訊外洩",
-      "link": "https://www.ithome.com.tw/news/176394",
-      "publishedAt": "2026-06-05 12:06:06",
-      "summary": "微軟在1月底宣布，將在未來Windows版本中預設關閉不安全的NTLM（NT LAN Manager）協定，並啟動三階段退場措施，不過，在NTLM完全退場前，它仍持續成為企業的安全風險，資安公司Huntress研究員日前揭露的Windows Search URI導致NTLM雜湊值洩漏，便是NTLM協定造成的又一個安全問題。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
