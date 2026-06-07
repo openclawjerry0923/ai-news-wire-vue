@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-07T08:57:20.294Z",
+  "generatedAt": "2026-06-07T11:12:22.774Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: strip Google provider prefix from Gemini paths (#91125)",
-      "link": "https://github.com/openclaw/openclaw/commit/3e4b10fa1cc5d7739de89a563d8088b9e762af35",
-      "publishedAt": "2026-06-07T08:49:45Z",
-      "summary": "fix: strip Google provider prefix from Gemini paths (#91125) * fix: strip Google provider prefix from Gemini paths * test: align qa exit code type",
+      "title": "fix(e2e): bound release user journey JSON artifacts",
+      "link": "https://github.com/openclaw/openclaw/commit/66b91d78feb33d62e2f82ae1d8689c48519f5530",
+      "publishedAt": "2026-06-07T10:45:43Z",
+      "summary": "fix(e2e): bound release user journey JSON artifacts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: strip Google provider pre修正 from Gemini paths (#91125)",
-      "summaryZh": "重點：修正: strip Google provider pre修正 from Gemini paths (#91125) * 修正: strip Google provider pre修正 from Gemini paths * test: a..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound 版本發布 user journey JSON artifacts",
+      "summaryZh": "重點：修正(e2e): bound 版本發布 user journey JSON artifacts..."
     },
     {
       "id": 2,
-      "title": "fix(e2e): bound codex live failure logs",
-      "link": "https://github.com/openclaw/openclaw/commit/e5a9c608511c75f12ea2dc7de849cc59d3a1693f",
-      "publishedAt": "2026-06-07T08:44:06Z",
-      "summary": "fix(e2e): bound codex live failure logs",
+      "title": "fix(inbound-meta): preserve reply-context body tails",
+      "link": "https://github.com/openclaw/openclaw/commit/3753c5e2c8f2b1ede25a14ccadce56d2dc8947dc",
+      "publishedAt": "2026-06-07T10:45:00Z",
+      "summary": "fix(inbound-meta): preserve reply-context body tails Preserve actionable tail content in long reply-context bodies before they enter prompt JSON or inline reply context formatting. - Apply UTF-16-safe head+tail truncation to ReplyChain JSON bodies and fallback ReplyToBody JSON blocks. - Use the same body-aware truncation for Telegram inline ReplyToBody fallback and chat_window message bodies, so those paths cannot suppress the JSON fallback and still lose the tail. - Adds regression coverage for ReplyChain, fallback ReplyToBody, Telegram inline ReplyToBody, chat_window reply targets, and emoji-heavy heads. Verification: - node scripts/run-vitest.mjs src/auto-reply/reply/inbound-meta.test.ts - node_modules/.bin/oxfmt --check --threads=1 src/auto-reply/reply/inbound-meta.ts src/auto-reply/reply/inbound-meta.test.ts - node scripts/run-oxlint.mjs src/auto-reply/reply/inbound-meta.ts src/auto-reply/reply/inbound-meta.test.ts - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - Testbox-through-Crabbox check:changed: provider=blacksmith-testbox id=tbx_01ktgthbb5xa9d5ap58h4134s0 exit=0 - PR CI: 158/158 completed, no failures, MERGEABLE/CLEAN Fixes #91042",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound codex live failure logs",
-      "summaryZh": "重點：修正(e2e): bound codex live failure logs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(inbound-meta): preserve reply-context body tails",
+      "summaryZh": "重點：修正(inbound-meta): preserve reply-context body tails Preserve actionable tail content in long reply-context bodies before..."
     },
     {
       "id": 3,
-      "title": "fix(e2e): bound telegram desktop proof logs",
-      "link": "https://github.com/openclaw/openclaw/commit/677358f4a9ea460d7571485369481af473fa7368",
-      "publishedAt": "2026-06-07T08:42:28Z",
-      "summary": "fix(e2e): bound telegram desktop proof logs",
+      "title": "fix(e2e): bound release scenario JSON artifacts",
+      "link": "https://github.com/openclaw/openclaw/commit/9bafa2a2b605a99bcd4d5c03664e7891c4bb775d",
+      "publishedAt": "2026-06-07T10:43:33Z",
+      "summary": "fix(e2e): bound release scenario JSON artifacts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound Telegram desktop proof logs",
-      "summaryZh": "重點：修正(e2e): bound Telegram desktop proof logs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound 版本發布 scenario JSON artifacts",
+      "summaryZh": "重點：修正(e2e): bound 版本發布 scenario JSON artifacts..."
     },
     {
       "id": 4,
-      "title": "fix(e2e): bound telegram rtt mock logs",
-      "link": "https://github.com/openclaw/openclaw/commit/9e87d316c7ce72eee88f2227d297238c4aa59acb",
-      "publishedAt": "2026-06-07T08:41:07Z",
-      "summary": "fix(e2e): bound telegram rtt mock logs",
+      "title": "fix(e2e): bound browser snapshot diagnostics",
+      "link": "https://github.com/openclaw/openclaw/commit/1703fbc2ade6bd802eee8b8493f12a8610dfe24a",
+      "publishedAt": "2026-06-07T10:39:48Z",
+      "summary": "fix(e2e): bound browser snapshot diagnostics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound Telegram rtt mock logs",
-      "summaryZh": "重點：修正(e2e): bound Telegram rtt mock logs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound browser snapshot diagnostics",
+      "summaryZh": "重點：修正(e2e): bound browser snapshot diagnostics..."
     },
     {
       "id": 5,
