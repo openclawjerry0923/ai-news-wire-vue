@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-06-07T19:24:15.824Z",
+  "generatedAt": "2026-06-07T21:14:39.848Z",
   "items": [
     {
       "id": 1,
-      "title": "v2026.6.7-alpha.2",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.7-alpha.2",
-      "publishedAt": "2026-06-07T18:24:11Z",
-      "summary": "openclaw 2026.6.7-alpha.2",
-      "source": "OpenClaw Releases",
+      "title": "fix(imessage): self-explaining private-API failures and dedicated sen…",
+      "link": "https://github.com/openclaw/openclaw/commit/6c35c0d965a0808e211ee90f2aee3d40053038c6",
+      "publishedAt": "2026-06-07T21:07:31Z",
+      "summary": "fix(imessage): self-explaining private-API failures and dedicated send timeout (#91041) Append imsg's own status message (SIP / library validation / macOS 26 AMFI gate) to iMessage private-API blocked-action errors so operators see the real blocker instead of a generic \"run imsg launch\". Add a dedicated 150s default timeout for iMessage send RPCs (explicit opts and probeTimeoutMs still win) so macOS 26 bridge stalls are not aborted mid-send. Staged mitigation: the longer wait fully activates once the companion bridge timeout (openclaw/imsg#139) ships; on current imsg the bridge still returns at its own 10s, so there is no regression. Diagnostics half is live-proven; the delayed-send timeout is covered by source + unit proof + maintainer waiver.",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.6.7-alpha.2",
-      "summaryZh": "重點：OpenClaw 2026.6.7-alpha.2..."
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): self-explaining private-API failures and dedicated sen…",
+      "summaryZh": "重點：修正(imessage): self-explaining private-API failures and dedicated send timeout (#91041) Append imsg's own status message ..."
     },
     {
       "id": 2,
-      "title": "fix: stabilize docker stats heartbeat test",
-      "link": "https://github.com/openclaw/openclaw/commit/0c33f4e0786e79f92b14766979f945ebbb1eb4a5",
-      "publishedAt": "2026-06-07T18:06:24Z",
-      "summary": "fix: stabilize docker stats heartbeat test",
+      "title": "fix: preserve live Ollama catalog metadata",
+      "link": "https://github.com/openclaw/openclaw/commit/af79cd6a9d35ac3463293b678fbc7bdb153cb599",
+      "publishedAt": "2026-06-07T21:00:09Z",
+      "summary": "fix: preserve live Ollama catalog metadata",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: stabilize 文件ker stats heartbeat test",
-      "summaryZh": "重點：修正: stabilize 文件ker stats heartbeat test..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve live Ollama catalog metadata",
+      "summaryZh": "重點：修正: preserve live Ollama catalog metadata..."
     },
     {
       "id": 3,
-      "title": "feat(ios): clarify talk realtime fallback (#91201)",
-      "link": "https://github.com/openclaw/openclaw/commit/47dbc675e95363828c0537fd21b0cfdd93052ece",
-      "publishedAt": "2026-06-07T17:21:34Z",
-      "summary": "feat(ios): clarify talk realtime fallback (#91201) Merged via squash. Prepared head SHA: b6fd32ed6ed1f97f124c1de52f134ff0e399e391 Local prep note: pnpm build passed. pnpm check hit the npm shrinkwrap guard because @anthropic-ai/sdk@0.100.1 is no longer resolvable before 2026-05-24T20:18:43Z; the same shrinkwrap guard failure reproduces on current origin/main at 66b91d78fe, and this PR does not touch dependency manifests or lockfiles. Co-authored-by: ngutman Reviewed-by: @ngutman",
+      "title": "fix: make sandbox skills readable in writable sandboxes",
+      "link": "https://github.com/openclaw/openclaw/commit/3b6bcbfb50452fdf3c98fa0f17cfdd4ab332c38c",
+      "publishedAt": "2026-06-07T20:47:56Z",
+      "summary": "fix: make sandbox skills readable in writable sandboxes Materializes prompt-visible skills into a protected sandbox-readable workspace for rw sandboxes, refreshes Docker/SSH/OpenShell views, and hardens stale or poisoned remote skill copies. Fixes #90410.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ios): clarify talk realtime fallback (#91201)",
-      "summaryZh": "重點：新功能(ios): clarify talk realtime fallback (#91201) Merged via squash. Prepared head SHA: b6fd32ed6ed1f97f124c1de52f134ff0..."
+      "titleZh": "OpenClaw 程式碼更新：修正: make sandbox skills readable in writable sandboxes",
+      "summaryZh": "重點：修正: make sandbox skills readable in writable sandboxes Materializes prompt-visible skills into a protected sandbox-reada..."
     },
     {
       "id": 4,
+      "title": "fix(agents): prevent ReDoS in background-session name derivation (#91…",
+      "link": "https://github.com/openclaw/openclaw/commit/e498d39bedaae2d9b23fbaf88914ebdf95b18d63",
+      "publishedAt": "2026-06-07T20:30:56Z",
+      "summary": "fix(agents): prevent ReDoS in background-session name derivation (#91233) Summary: - The PR updates background-session command tokenization to avoid catastrophic regex backtracking and adds `deriveSessionName` regression tests for quoted and backslash-heavy commands. - PR surface: Source 0, Tests +26. Total +26 across 2 files. - Reproducibility: yes. with high confidence from source inspection and supplied terminal proof: current `main ... shows before/after timing for the production helper. I did not run tests because this review is read-only. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(agents): treat backslash as literal inside single-quoted session … - PR branch already contained follow-up commit before automerge: fix(agents): prevent ReDoS in background-session name derivation Validation: - ClawSweeper review passed for head 0a38952fc866cf206319ca04add05dd5b91cdb54. - Required merge gates passed before the squash merge. Prepared head SHA: 0a38952fc866cf206319ca04add05dd5b91cdb54 Review: https://github.com/openclaw/openclaw/pull/91233#issuecomment-4643821335 Co-authored-by: yetval Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): prevent ReDoS in background-session name derivation (#91…",
+      "summaryZh": "重點：修正(agents): prevent ReDoS in background-session name derivation (#91233) Summary: - The PR updates background-session co..."
+    },
+    {
+      "id": 5,
       "title": "從模型到機器人建構 AI 優勢，民主陣營建生態系、拼技術擴散",
       "link": "https://infosecu.technews.tw/2026/06/07/ai-supply-chain-resilience-dialogue/",
       "publishedAt": "Sun, 07 Jun 2026 12:49:58 +0000",
       "summary": "國家智庫「科技、民主與社會研究中心」（Research Institute for Democracy, So [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "fix(e2e): bound release user journey JSON artifacts",
-      "link": "https://github.com/openclaw/openclaw/commit/66b91d78feb33d62e2f82ae1d8689c48519f5530",
-      "publishedAt": "2026-06-07T10:45:43Z",
-      "summary": "fix(e2e): bound release user journey JSON artifacts",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound 版本發布 user journey JSON artifacts",
-      "summaryZh": "重點：修正(e2e): bound 版本發布 user journey JSON artifacts..."
     },
     {
       "id": 6,
