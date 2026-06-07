@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-06-07T17:17:51.188Z",
+  "generatedAt": "2026-06-07T19:24:15.824Z",
   "items": [
     {
       "id": 1,
+      "title": "v2026.6.7-alpha.2",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.7-alpha.2",
+      "publishedAt": "2026-06-07T18:24:11Z",
+      "summary": "openclaw 2026.6.7-alpha.2",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：v2026.6.7-alpha.2",
+      "summaryZh": "重點：OpenClaw 2026.6.7-alpha.2..."
+    },
+    {
+      "id": 2,
+      "title": "fix: stabilize docker stats heartbeat test",
+      "link": "https://github.com/openclaw/openclaw/commit/0c33f4e0786e79f92b14766979f945ebbb1eb4a5",
+      "publishedAt": "2026-06-07T18:06:24Z",
+      "summary": "fix: stabilize docker stats heartbeat test",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正: stabilize 文件ker stats heartbeat test",
+      "summaryZh": "重點：修正: stabilize 文件ker stats heartbeat test..."
+    },
+    {
+      "id": 3,
+      "title": "feat(ios): clarify talk realtime fallback (#91201)",
+      "link": "https://github.com/openclaw/openclaw/commit/47dbc675e95363828c0537fd21b0cfdd93052ece",
+      "publishedAt": "2026-06-07T17:21:34Z",
+      "summary": "feat(ios): clarify talk realtime fallback (#91201) Merged via squash. Prepared head SHA: b6fd32ed6ed1f97f124c1de52f134ff0e399e391 Local prep note: pnpm build passed. pnpm check hit the npm shrinkwrap guard because @anthropic-ai/sdk@0.100.1 is no longer resolvable before 2026-05-24T20:18:43Z; the same shrinkwrap guard failure reproduces on current origin/main at 66b91d78fe, and this PR does not touch dependency manifests or lockfiles. Co-authored-by: ngutman Reviewed-by: @ngutman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(ios): clarify talk realtime fallback (#91201)",
+      "summaryZh": "重點：新功能(ios): clarify talk realtime fallback (#91201) Merged via squash. Prepared head SHA: b6fd32ed6ed1f97f124c1de52f134ff0..."
+    },
+    {
+      "id": 4,
       "title": "從模型到機器人建構 AI 優勢，民主陣營建生態系、拼技術擴散",
       "link": "https://infosecu.technews.tw/2026/06/07/ai-supply-chain-resilience-dialogue/",
       "publishedAt": "Sun, 07 Jun 2026 12:49:58 +0000",
@@ -11,7 +44,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 5,
       "title": "fix(e2e): bound release user journey JSON artifacts",
       "link": "https://github.com/openclaw/openclaw/commit/66b91d78feb33d62e2f82ae1d8689c48519f5530",
       "publishedAt": "2026-06-07T10:45:43Z",
@@ -20,39 +53,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound 版本發布 user journey JSON artifacts",
       "summaryZh": "重點：修正(e2e): bound 版本發布 user journey JSON artifacts..."
-    },
-    {
-      "id": 3,
-      "title": "fix(inbound-meta): preserve reply-context body tails",
-      "link": "https://github.com/openclaw/openclaw/commit/3753c5e2c8f2b1ede25a14ccadce56d2dc8947dc",
-      "publishedAt": "2026-06-07T10:45:00Z",
-      "summary": "fix(inbound-meta): preserve reply-context body tails Preserve actionable tail content in long reply-context bodies before they enter prompt JSON or inline reply context formatting. - Apply UTF-16-safe head+tail truncation to ReplyChain JSON bodies and fallback ReplyToBody JSON blocks. - Use the same body-aware truncation for Telegram inline ReplyToBody fallback and chat_window message bodies, so those paths cannot suppress the JSON fallback and still lose the tail. - Adds regression coverage for ReplyChain, fallback ReplyToBody, Telegram inline ReplyToBody, chat_window reply targets, and emoji-heavy heads. Verification: - node scripts/run-vitest.mjs src/auto-reply/reply/inbound-meta.test.ts - node_modules/.bin/oxfmt --check --threads=1 src/auto-reply/reply/inbound-meta.ts src/auto-reply/reply/inbound-meta.test.ts - node scripts/run-oxlint.mjs src/auto-reply/reply/inbound-meta.ts src/auto-reply/reply/inbound-meta.test.ts - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - Testbox-through-Crabbox check:changed: provider=blacksmith-testbox id=tbx_01ktgthbb5xa9d5ap58h4134s0 exit=0 - PR CI: 158/158 completed, no failures, MERGEABLE/CLEAN Fixes #91042",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(inbound-meta): preserve reply-context body tails",
-      "summaryZh": "重點：修正(inbound-meta): preserve reply-context body tails Preserve actionable tail content in long reply-context bodies before..."
-    },
-    {
-      "id": 4,
-      "title": "fix(e2e): bound release scenario JSON artifacts",
-      "link": "https://github.com/openclaw/openclaw/commit/9bafa2a2b605a99bcd4d5c03664e7891c4bb775d",
-      "publishedAt": "2026-06-07T10:43:33Z",
-      "summary": "fix(e2e): bound release scenario JSON artifacts",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound 版本發布 scenario JSON artifacts",
-      "summaryZh": "重點：修正(e2e): bound 版本發布 scenario JSON artifacts..."
-    },
-    {
-      "id": 5,
-      "title": "fix(e2e): bound browser snapshot diagnostics",
-      "link": "https://github.com/openclaw/openclaw/commit/1703fbc2ade6bd802eee8b8493f12a8610dfe24a",
-      "publishedAt": "2026-06-07T10:39:48Z",
-      "summary": "fix(e2e): bound browser snapshot diagnostics",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): bound browser snapshot diagnostics",
-      "summaryZh": "重點：修正(e2e): bound browser snapshot diagnostics..."
     },
     {
       "id": 6,
