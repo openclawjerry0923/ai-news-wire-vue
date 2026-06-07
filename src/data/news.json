@@ -1,8 +1,50 @@
 {
-  "generatedAt": "2026-06-07T21:14:39.848Z",
+  "generatedAt": "2026-06-07T23:05:51.254Z",
   "items": [
     {
       "id": 1,
+      "title": "COMPUTEX 2026：機器人首設獨立展區，成實體 AI 最佳範例",
+      "link": "https://technews.tw/2026/06/08/computex-2026-physical-ai/",
+      "publishedAt": "Sun, 07 Jun 2026 23:00:01 +0000",
+      "summary": "COMPUTEX 2026 以 AI 轉型為主軸，首度設立機器人專區，展會聚焦實體 AI（Physical A [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "fix: gate owner-only HTTP tools (#90261)",
+      "link": "https://github.com/openclaw/openclaw/commit/2a21de63223963d4a36792a75d69df958bc4e2a5",
+      "publishedAt": "2026-06-07T22:26:12Z",
+      "summary": "fix: gate owner-only HTTP tools (#90261) * fix: gate owner-only HTTP tools * fix: inherit HTTP owner tool denies * fix: use mutable HTTP owner deny policy * fix: preserve RPC owner tool access * docs: clarify owner-only gateway tool allowlist --------- Co-authored-by: joshavant",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: gate owner-only HTTP tools (#90261)",
+      "summaryZh": "重點：修正: gate owner-only HTTP tools (#90261) * 修正: gate owner-only HTTP tools * 修正: inherit HTTP owner tool denies * 修正: use ..."
+    },
+    {
+      "id": 3,
+      "title": "feat(android): add theme mode selection (#90752)",
+      "link": "https://github.com/openclaw/openclaw/commit/3c73ff7689f046c07547c5d1f26975825ebc2dd0",
+      "publishedAt": "2026-06-07T22:24:57Z",
+      "summary": "feat(android): add theme mode selection (#90752) * feat(android): add theme mode selection * refine Android theme mode handling --------- Co-authored-by: joshavant",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(android): add theme mode selection (#90752)",
+      "summaryZh": "重點：新功能(android): add theme mode selection (#90752) * 新功能(android): add theme mode selection * refine Android theme mode han..."
+    },
+    {
+      "id": 4,
+      "title": "feat: add live provider model catalog helper",
+      "link": "https://github.com/openclaw/openclaw/commit/57e0bdaabe0adc5949816dff63a7a2e5743303ba",
+      "publishedAt": "2026-06-07T21:16:00Z",
+      "summary": "feat: add live provider model catalog helper Summary: - Add a shared live provider catalog runtime for SDK-backed providers. - Route OpenAI, xAI, OpenCode Go, Chutes, DeepInfra, Venice, NVIDIA, and Vercel AI Gateway live model discovery through the shared helper. - Remove duplicated provider-local live catalog caching and harden auth marker stripping, empty live-result retries, and OpenAI custom-base-url handling. Verification: - node scripts/run-vitest.mjs extensions/openai/openai-provider.test.ts src/plugin-sdk/provider-catalog-live-runtime.test.ts src/commands/models/list.source-plan.test.ts extensions/opencode-go/index.test.ts extensions/nvidia/provider-catalog.test.ts - pnpm plugin-sdk:api:check - pnpm lint --threads=8 - pnpm run lint:extensions:bundled - pnpm run test:extensions:package-boundary:compile - pnpm check:import-cycles - pnpm exec oxfmt --check extensions/openai/openai-provider.ts extensions/openai/openai-provider.test.ts - git diff --check origin/main...HEAD - autoreview clean: no accepted/actionable findings reported - AWS Crabbox focused remote proof: run_364680d1bff8 / cbx_2456fffafe01 - Earlier same-PR AWS Crabbox live proof: run_1f05ccab368e / cbx_7375c79fcf9b Known proof gap: - Final current-code true live-provider smoke was blocked by Crabbox secret hydration, documented in the PR proof comment.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能: add live provider 模型 catalog helper",
+      "summaryZh": "重點：新功能: add live provider 模型 catalog helper Summary: - Add a shared live provider catalog runtime for SDK-backed providers...."
+    },
+    {
+      "id": 5,
       "title": "fix(imessage): self-explaining private-API failures and dedicated sen…",
       "link": "https://github.com/openclaw/openclaw/commit/6c35c0d965a0808e211ee90f2aee3d40053038c6",
       "publishedAt": "2026-06-07T21:07:31Z",
@@ -13,40 +55,7 @@
       "summaryZh": "重點：修正(imessage): self-explaining private-API failures and dedicated send timeout (#91041) Append imsg's own status message ..."
     },
     {
-      "id": 2,
-      "title": "fix: preserve live Ollama catalog metadata",
-      "link": "https://github.com/openclaw/openclaw/commit/af79cd6a9d35ac3463293b678fbc7bdb153cb599",
-      "publishedAt": "2026-06-07T21:00:09Z",
-      "summary": "fix: preserve live Ollama catalog metadata",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve live Ollama catalog metadata",
-      "summaryZh": "重點：修正: preserve live Ollama catalog metadata..."
-    },
-    {
-      "id": 3,
-      "title": "fix: make sandbox skills readable in writable sandboxes",
-      "link": "https://github.com/openclaw/openclaw/commit/3b6bcbfb50452fdf3c98fa0f17cfdd4ab332c38c",
-      "publishedAt": "2026-06-07T20:47:56Z",
-      "summary": "fix: make sandbox skills readable in writable sandboxes Materializes prompt-visible skills into a protected sandbox-readable workspace for rw sandboxes, refreshes Docker/SSH/OpenShell views, and hardens stale or poisoned remote skill copies. Fixes #90410.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: make sandbox skills readable in writable sandboxes",
-      "summaryZh": "重點：修正: make sandbox skills readable in writable sandboxes Materializes prompt-visible skills into a protected sandbox-reada..."
-    },
-    {
-      "id": 4,
-      "title": "fix(agents): prevent ReDoS in background-session name derivation (#91…",
-      "link": "https://github.com/openclaw/openclaw/commit/e498d39bedaae2d9b23fbaf88914ebdf95b18d63",
-      "publishedAt": "2026-06-07T20:30:56Z",
-      "summary": "fix(agents): prevent ReDoS in background-session name derivation (#91233) Summary: - The PR updates background-session command tokenization to avoid catastrophic regex backtracking and adds `deriveSessionName` regression tests for quoted and backslash-heavy commands. - PR surface: Source 0, Tests +26. Total +26 across 2 files. - Reproducibility: yes. with high confidence from source inspection and supplied terminal proof: current `main ... shows before/after timing for the production helper. I did not run tests because this review is read-only. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(agents): treat backslash as literal inside single-quoted session … - PR branch already contained follow-up commit before automerge: fix(agents): prevent ReDoS in background-session name derivation Validation: - ClawSweeper review passed for head 0a38952fc866cf206319ca04add05dd5b91cdb54. - Required merge gates passed before the squash merge. Prepared head SHA: 0a38952fc866cf206319ca04add05dd5b91cdb54 Review: https://github.com/openclaw/openclaw/pull/91233#issuecomment-4643821335 Co-authored-by: yetval Co-authored-by: clawsweeper Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): prevent ReDoS in background-session name derivation (#91…",
-      "summaryZh": "重點：修正(agents): prevent ReDoS in background-session name derivation (#91233) Summary: - The PR updates background-session co..."
-    },
-    {
-      "id": 5,
+      "id": 6,
       "title": "從模型到機器人建構 AI 優勢，民主陣營建生態系、拼技術擴散",
       "link": "https://infosecu.technews.tw/2026/06/07/ai-supply-chain-resilience-dialogue/",
       "publishedAt": "Sun, 07 Jun 2026 12:49:58 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "美政府入股 AI 公司有譜？川普正面回應，本週召開會議討論",
       "link": "https://technews.tw/2026/06/07/trump-says-his-team-will-look-into-us-taking-stake-in-ai-companies/",
       "publishedAt": "Sun, 07 Jun 2026 08:19:34 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "AI 分析 41 萬則 Reddit 貼文，揭減肥針潛在未知副作用",
       "link": "https://technews.tw/2026/06/07/ai-uses-reddit-posts-to-spot-potential-weight-loss-drug-side-effects/",
       "publishedAt": "Sun, 07 Jun 2026 07:00:31 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "台股面臨多重賣壓形成「恐懼的總和」，法人：落底看 4 大指標",
       "link": "https://finance.technews.tw/2026/06/07/wall-street-ends-sharply-lower/",
       "publishedAt": "Sun, 07 Jun 2026 07:00:15 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "AMD 百億美元布局台灣 AI 生態系，AIC 於 COMPUTEX 展示 Helios 機架平台",
       "link": "https://technews.tw/2026/06/07/aic-amd-helios-computex-2026/",
       "publishedAt": "Sun, 07 Jun 2026 06:00:56 +0000",
       "summary": "隨著 AI 基礎設施需求高速成長，AMD 宣布將加碼投資台灣 AI 生態系，總規模上看百億美元，進一步深化與台 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "逾七成房產掌握在 50 歲以上族群，台灣房市悄悄從交易市場走向繼承市場",
-      "link": "https://finance.technews.tw/2026/06/07/taiwan-housing-market-structure-transformation-70-properties-middle-senior-age-elderly-homeowners-surge-1-18m-6-years/",
-      "publishedAt": "Sun, 07 Jun 2026 05:30:11 +0000",
-      "summary": "當台灣正式邁入超高齡社會，人口老化不只改變社會，也開始重塑房市結構。根據最新統計，全台逾七成房產已掌握在 50 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
