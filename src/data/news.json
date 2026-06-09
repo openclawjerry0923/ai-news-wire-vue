@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-09T20:58:40.458Z",
+  "generatedAt": "2026-06-09T22:42:36.640Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(codex): guard sandbox http requests (#91752)",
-      "link": "https://github.com/openclaw/openclaw/commit/21410d1c3247ec988fa2a71995def1231f876b47",
-      "publishedAt": "2026-06-09T20:54:24Z",
-      "summary": "fix(codex): guard sandbox http requests (#91752) * fix(codex): guard sandbox http requests * fix(codex): align sandbox http policy",
+      "title": "fix(ui): require user intent for chat sessions (#91480)",
+      "link": "https://github.com/openclaw/openclaw/commit/9833f3ea9bf8f3faec25edc4593954832543a4a9",
+      "publishedAt": "2026-06-09T22:40:07Z",
+      "summary": "fix(ui): require user intent for chat sessions (#91480) Summary: - The PR adds an explicit user-intent argument to `createChatSession`, updates the New Chat and `/new` action callers to pass it, adds helper regression coverage, and carries minor gateway formatting/import ordering churn. - PR surface: Source +8, Tests +9. Total +17 across 8 files. - Reproducibility: yes. at source level: current main lets `createChatSession(state)` reach `sessions.create` ... ct flow, so the exact user-path reproduction remains integration-level rather than locally reproduced here. Automerge notes: - PR branch already contained follow-up commit before automerge: test(tasks): restore timers before maintenance apply - PR branch already contained follow-up commit before automerge: Merge remote-tracking branch 'origin/main' into HEAD Validation: - ClawSweeper review passed for head e7cd79006b5939acbd73ad1212625b4c4fb0f496. - Required merge gates passed before the squash merge. Prepared head SHA: e7cd79006b5939acbd73ad1212625b4c4fb0f496 Review: https://github.com/openclaw/openclaw/pull/91480#issuecomment-4651778423 Co-authored-by: Andy Ye Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): guard sandbox http requests (#91752)",
-      "summaryZh": "重點：修正(codex): guard sandbox http requests (#91752) * 修正(codex): guard sandbox http requests * 修正(codex): align sandbox http..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): require user intent for chat sessions (#91480)",
+      "summaryZh": "重點：修正(ui): require user intent for chat sessions (#91480) Summary: - The PR adds an explicit user-intent argument to `creat..."
     },
     {
       "id": 2,
-      "title": "fix(elevated): reject group ids as senders (#91748)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4e02cd1dd4818975d0a9f17b1dd11e8960269cc",
-      "publishedAt": "2026-06-09T20:20:36Z",
-      "summary": "fix(elevated): reject group ids as senders (#91748) * fix(elevated): reject group ids as senders * fix(elevated): keep channel parsing out of core",
-      "source": "OpenClaw Commits",
+      "title": "v2026.6.9-alpha.3",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.9-alpha.3",
+      "publishedAt": "2026-06-09T22:00:34Z",
+      "summary": "openclaw 2026.6.9-alpha.3",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(elevated): reject group ids as senders (#91748)",
-      "summaryZh": "重點：修正(elevated): reject group ids as senders (#91748) * 修正(elevated): reject group ids as senders * 修正(elevated): keep chan..."
+      "titleZh": "OpenClaw 最新動態：v2026.6.9-alpha.3",
+      "summaryZh": "重點：OpenClaw 2026.6.9-alpha.3..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): restrict non-owner loopback tools (#91749)",
-      "link": "https://github.com/openclaw/openclaw/commit/b6a3f2988c664d739d2bd21ed8c03bd64bf4c6fe",
-      "publishedAt": "2026-06-09T20:15:48Z",
-      "summary": "fix(gateway): restrict non-owner loopback tools (#91749) * fix(gateway): restrict non-owner loopback tools * fix(gateway): split loopback owner cache key",
+      "title": "docs(security): clarify env var report scope (#91765)",
+      "link": "https://github.com/openclaw/openclaw/commit/e9bd90d20912939b1f38a764d133a6114856edd4",
+      "publishedAt": "2026-06-09T21:14:24Z",
+      "summary": "docs(security): clarify env var report scope (#91765)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): restrict non-owner loopback tools (#91749)",
-      "summaryZh": "重點：修正(Gateway): restrict non-owner loopback tools (#91749) * 修正(Gateway): restrict non-owner loopback tools * 修正(Gateway): ..."
+      "titleZh": "OpenClaw 文件更新：文件(安全): clarify env var report scope (#91765)",
+      "summaryZh": "重點：文件(安全): clarify env var report scope (#91765)..."
     },
     {
       "id": 4,
-      "title": "feat(diagnostics-otel): capture tool input/output content via trusted…",
-      "link": "https://github.com/openclaw/openclaw/commit/bf9588381271ec2580a1e7929a6ad6cc33c8e875",
-      "publishedAt": "2026-06-09T19:52:52Z",
-      "summary": "feat(diagnostics-otel): capture tool input/output content via trusted channel (#91256) diagnostics.otel.captureContent.{toolInputs,toolOutputs} were documented and config-wired but never produced any span content. Emit tool args and results over the trusted private-data diagnostic channel (mirroring the model-content path), and have the OTel exporter bound/redact/truncate them before span export. Raw tool content never rides the public event bus. Scope: core embedded-runner tool path (canonical producer). Codex (async-batched) and Claude CLI remain follow-ups tracked by the issue. Refs #77391",
+      "title": "fix(mcp): harden stdio env filtering (#91751)",
+      "link": "https://github.com/openclaw/openclaw/commit/314de694c4fddd96f7f07727fabd09ba5cab8b71",
+      "publishedAt": "2026-06-09T21:08:47Z",
+      "summary": "fix(mcp): harden stdio env filtering (#91751)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(diagnostics-otel): capture tool input/output content via trusted…",
-      "summaryZh": "重點：新功能(diagnostics-otel): capture tool input/output content via trusted channel (#91256) diagnostics.otel.captureContent.{t..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): harden stdio env filtering (#91751)",
+      "summaryZh": "重點：修正(mcp): harden stdio env filtering (#91751)..."
     },
     {
       "id": 5,
