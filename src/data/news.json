@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-09T18:10:39.075Z",
+  "generatedAt": "2026-06-09T20:58:40.458Z",
   "items": [
     {
       "id": 1,
-      "title": "v2026.6.5",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.5",
-      "publishedAt": "2026-06-09T17:43:56Z",
-      "summary": "openclaw 2026.6.5",
-      "source": "OpenClaw Releases",
+      "title": "fix(codex): guard sandbox http requests (#91752)",
+      "link": "https://github.com/openclaw/openclaw/commit/21410d1c3247ec988fa2a71995def1231f876b47",
+      "publishedAt": "2026-06-09T20:54:24Z",
+      "summary": "fix(codex): guard sandbox http requests (#91752) * fix(codex): guard sandbox http requests * fix(codex): align sandbox http policy",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.6.5",
-      "summaryZh": "重點：OpenClaw 2026.6.5..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): guard sandbox http requests (#91752)",
+      "summaryZh": "重點：修正(codex): guard sandbox http requests (#91752) * 修正(codex): guard sandbox http requests * 修正(codex): align sandbox http..."
     },
     {
       "id": 2,
-      "title": "fix: preserve configured ACP deleted-agent guard",
-      "link": "https://github.com/openclaw/openclaw/commit/52154eda0dd111265d982b1a5d50669ee73cd1dc",
-      "publishedAt": "2026-06-09T17:31:40Z",
-      "summary": "fix: preserve configured ACP deleted-agent guard",
+      "title": "fix(elevated): reject group ids as senders (#91748)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4e02cd1dd4818975d0a9f17b1dd11e8960269cc",
+      "publishedAt": "2026-06-09T20:20:36Z",
+      "summary": "fix(elevated): reject group ids as senders (#91748) * fix(elevated): reject group ids as senders * fix(elevated): keep channel parsing out of core",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve configured ACP deleted-agent guard",
-      "summaryZh": "重點：修正: preserve configured ACP deleted-agent guard..."
+      "titleZh": "OpenClaw 程式碼更新：修正(elevated): reject group ids as senders (#91748)",
+      "summaryZh": "重點：修正(elevated): reject group ids as senders (#91748) * 修正(elevated): reject group ids as senders * 修正(elevated): keep chan..."
     },
     {
       "id": 3,
-      "title": "test(gateway): add store integration proof for ACP deleted-agent guard",
-      "link": "https://github.com/openclaw/openclaw/commit/3853eb15af5e8b78dc3e0b10386e5b8cb635de25",
-      "publishedAt": "2026-06-09T17:31:40Z",
-      "summary": "test(gateway): add store integration proof for ACP deleted-agent guard",
+      "title": "fix(gateway): restrict non-owner loopback tools (#91749)",
+      "link": "https://github.com/openclaw/openclaw/commit/b6a3f2988c664d739d2bd21ed8c03bd64bf4c6fe",
+      "publishedAt": "2026-06-09T20:15:48Z",
+      "summary": "fix(gateway): restrict non-owner loopback tools (#91749) * fix(gateway): restrict non-owner loopback tools * fix(gateway): split loopback owner cache key",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): add store integration proof for ACP deleted-agent guard",
-      "summaryZh": "重點：test(Gateway): add store integration proof for ACP deleted-agent guard..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): restrict non-owner loopback tools (#91749)",
+      "summaryZh": "重點：修正(Gateway): restrict non-owner loopback tools (#91749) * 修正(Gateway): restrict non-owner loopback tools * 修正(Gateway): ..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): skip deleted-agent guard for ACP harness session keys",
-      "link": "https://github.com/openclaw/openclaw/commit/696c1ecd2068b1cf9a785faa80e544f18632dda4",
-      "publishedAt": "2026-06-09T17:31:40Z",
-      "summary": "fix(gateway): skip deleted-agent guard for ACP harness session keys ACP session keys use agent::acp:, so sessions_send and sessions.resolve must not treat harness ids as agents.list owners.",
+      "title": "feat(diagnostics-otel): capture tool input/output content via trusted…",
+      "link": "https://github.com/openclaw/openclaw/commit/bf9588381271ec2580a1e7929a6ad6cc33c8e875",
+      "publishedAt": "2026-06-09T19:52:52Z",
+      "summary": "feat(diagnostics-otel): capture tool input/output content via trusted channel (#91256) diagnostics.otel.captureContent.{toolInputs,toolOutputs} were documented and config-wired but never produced any span content. Emit tool args and results over the trusted private-data diagnostic channel (mirroring the model-content path), and have the OTel exporter bound/redact/truncate them before span export. Raw tool content never rides the public event bus. Scope: core embedded-runner tool path (canonical producer). Codex (async-batched) and Claude CLI remain follow-ups tracked by the issue. Refs #77391",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): skip deleted-agent guard for ACP harness session keys",
-      "summaryZh": "重點：修正(Gateway): skip deleted-agent guard for ACP harness session keys ACP session keys use agent::acp:, so sessions_send an..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(diagnostics-otel): capture tool input/output content via trusted…",
+      "summaryZh": "重點：新功能(diagnostics-otel): capture tool input/output content via trusted channel (#91256) diagnostics.otel.captureContent.{t..."
     },
     {
       "id": 5,
