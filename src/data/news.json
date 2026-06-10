@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-10T20:40:59.944Z",
+  "generatedAt": "2026-06-10T22:51:35.079Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(qa): scope runtime parity mock requests",
-      "link": "https://github.com/openclaw/openclaw/commit/8042ec4cb89ad5fce78b33f5fafe34528d8de439",
-      "publishedAt": "2026-06-10T20:19:10Z",
-      "summary": "fix(qa): scope runtime parity mock requests",
+      "title": "fix: repair origin main CI failures",
+      "link": "https://github.com/openclaw/openclaw/commit/a450ff036a50e9ae50b5571876ecff71eb000429",
+      "publishedAt": "2026-06-10T22:49:41Z",
+      "summary": "fix: repair origin main CI failures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): scope runtime parity mock requests",
-      "summaryZh": "重點：修正(qa): scope runtime parity mock requests..."
+      "titleZh": "OpenClaw 程式碼更新：修正: repair origin main CI failures",
+      "summaryZh": "重點：修正: repair origin main CI failures..."
     },
     {
       "id": 2,
       "title": "OpenClaw 2026.6.6-beta.1",
       "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.6-beta.1",
-      "publishedAt": "2026-06-10T20:19:06Z",
+      "publishedAt": "2026-06-10T22:30:35Z",
       "summary": "2026.6.6 Highlights Security boundaries are substantially tighter across transcripts, sandbox binds, host environment inheritance, MCP stdio, Codex HTTP access, native search policy, elevated sender checks, deleted-agent ACP bypasses, loopback tools, Discord moderation, and Teams group actions; exec approvals now fail closed on timeout. (#91529, #91618, #91615, #91619, #91741, #91745, #91746, #91748, #91749, #91750, #91751, #91752, #91763, #89938) Thanks @joshavant, @pgondhi987, @mmaps, @eleqtrizit, @shakkernerd, and @drobison00. Telegram delivery is safer and more coherent: account-scoped topics route to the right agent, streamed text survives tool calls, /compact works on generic ingress, callback handling uses concrete APIs, draft chunking is shared, durable dispatch dedupe moved into the SDK, and unauthorized DM text stays out of cache and prompt context. (#91189, #88682, #89588, #90212, #91876, #91874, #91904, #91478, #91915) Thanks @codysai001, @alexzhu0, @joelnishanth, @snowzlm, @obviyus, and @sallyom. iMessage recovery and delivery now cover always-on inbound restart, durable echo markers, block streaming, idle approval discovery, hardened outbound transport, and actionable inbound startup diagnostics. (#91335, #91449, #88969, #88530, #91783, #91785) Thanks @omarshahine, @jmissig, and @colmbrogan. Browser and MCP connectivity gained existing-session CDP support, discovered WebSocket validation, default-profile cdpUrl handling, safer browser-output boundaries, Streamable HTTP loopback transport, corrected OAuth/SSE authorization handling, and broader schema compatibility. (#91422, #89851, #91736, #91747, #91451, #80143) Thanks @pgondhi987, @anagnorisis2peripeteia, @lifuyue, @eleqtrizit, @LiuwqGit, and @HemantSudarshan. Control UI startup and first-reply latency are lower through cached model metadata, removal of the startup catalog wait, lazy slash-command loading, and first-event tracing with slow-reply diagnostics. (#91531, #91538, #91568, #91583, #91598) Provider support expands with OpenRouter OAuth onboarding and Claude Fable 5 adaptive thinking, while Codex sessions keep correct compaction ownership, local models skip guardian review, dynamic tool progress normalizes cleanly, and Gemma 4 reasoning replay is preserved. (#91830, #91882, #91590, #88630, #88768, #91696) Thanks @Patrick-Erichsen, @joshavant, @bdjben, and @Coder-Wangyankun. Changes CLI progress: emit Claude CLI commentary progress events and bridge inter-tool commentary into channel progress without exposing internal protocol scaffolding. (#89834, #90883) Thanks @anagnorisis2peripeteia. Observability: allow trusted diagnostics channels to capture tool input/output content, add first-assistant-event traces, and warn on slow initial replies. (#91256, #91568, #91583) Thanks @amknight. Plugins/ClawHub: dogfood reusable package publishing, let dry runs skip publish approval, allow declared installed trusted hooks, report managed plugin version drift, and warn instead of failing on retired Skill Workshop configuration. (#91574, #91591, #90004, #90927, #90838) Thanks @Patrick-Erichsen, @brokemac79, and @lonexreb. Memory/providers: move the local llama.cpp runtime into its provider plugin, batch embeddings across files, persist the agent model catalog cache, and keep QMD JSON search one-shot while filtering stale REM recall previews. (#91324, #89138, #90457, #91837, #91851) Thanks @osolmaz, @mushuiyu886, @ai-hpc, and @TurboTheTurtle. Channels/mobile: add the QQBot group mention toggle, improve iPad and iPhone control surfaces, and expose the active connection host in the TUI footer. (#91423, #91557, #89909) Thanks @cxyhhhhh, @Solvely-Colin, and @baskduf. Performance: prewarm TUI runtime plugins, deduplicate plugin auto-enable fanout, trim dense text-delta snapshots, and reuse prepared startup model metadata. (#90782, #89978, #91580, #91531) Thanks @RomneyDa and @ai-hpc. Fixes Agent/session recovery: drop stale approval follow-ups after session rebind, remove drained reply-queue items by identity, recover stale main and visible replies, preserve Codex context-engine compaction ownership, lower the default compaction timeout to 180 seconds while respecting explicit configuration, and keep provider-failure terminal lifecycle state correct. (#85679, #91450, #91566, #91840, #91590, #91361, #91895) Thanks @openperf, @yetval, @joshavant, @wangmiao0668000666, and @TurboTheTurtle. User-visible content boundaries: suppress Codex/Harmony protocol artifacts, neutralize browser and LanceDB memory media directives, redact transcript images, and preserve native /compact replies through source suppression. (#89151, #91422, #91425, #91529, #90212) Thanks @joelnishanth, @pgondhi987, @joshavant, and @snowzlm. Channel delivery: keep WhatsApp captured replies attached to the successor controller after restart, retry Feishu rate limits, preserve Mattermost thread replies, canonicalize LINE webhook paths, restore Discord reply hydration and runtime timeout exports, and show OpenAI Realtime WebRTC assistant transcripts. (#85823, #89659, #91684, #91649, #90263, #91686, #90426) Thanks @itsuzef, @ladygege, @jacobtomlinson, @fuller-stack-dev, and @shushushv. Cron: cancel active task runs cleanly, preserve terminal timeout/cancel state, and recover no-deliver tool warnings instead of silently losing the outcome. (#90666, #90678) Thanks @ai-hpc. Gateway/config/auth: share the approval runtime socket token, replace arrays explicitly in config.patch, skip the deleted-agent guard only for valid ACP harness sessions, surface headless LaunchAgent state, verify SQLite auth migration before cleanup, and arm QMD startup maintenance. (#87105, #91551, #91219, #91614, #91740, #91978) Thanks @fuller-stack-dev and @scotthuang. Providers/Codex: clarify quota errors, restore the Codex synthetic usage line, canonicalize Codex protocol assets, require API-key auth for realtime voice, normalize ACP model refs, preserve Gemma 4 reasoning_content, and avoid guardian review for local models. (#91390, #91709, #91507, #91567, #88630, #91696) Thanks @hxy91819, @brokemac79, @RomneyDa, @joshavant, and @Coder-Wangyankun. Updates/builds: recover package Gateway restarts after refresh failure, expose plugin convergence repair, fall back to Corepack in PATH-less pnpm environments, seed the correct Docker store packages, and keep ClawHub dry-run and publish paths reusable. (#91581, #91599, #91547, #91591) Thanks @fuller-stack-dev, @sallyom, and @Patrick-Erichsen. UI: require explicit user intent before opening chat sessions and drain restored chat queues after session switches. (#91480) Thanks @TurboTheTurtle. Android: avoid the dataSync foreground-service type for persistent nodes. (#80082) Thanks @davelutztx. Native hooks: bound relay lifetimes so abandoned native hook connections cannot linger indefinitely. (#91550) Thanks @joshavant.",
       "source": "OpenClaw Releases",
       "tag": "OpenClaw",
@@ -25,28 +25,46 @@
     },
     {
       "id": 3,
-      "title": "fix: capture cron wake origin session",
-      "link": "https://github.com/openclaw/openclaw/commit/f1f00cbf1d587371cd6d89f7984c94913ecec5a0",
-      "publishedAt": "2026-06-10T19:52:40Z",
-      "summary": "fix: capture cron wake origin session Capture the originating sessionKey and agentId for cron wake tool calls so non-main session and multi-agent wakes return to the conversation lane that requested them. Carry stored delivery context through queued wake events so topic/thread replies route correctly, while preserving the default no-origin wake behavior and explicit target:none opt-out. Refs #46886. Refs #64556. Thanks @anagnorisis2peripeteia. Co-authored-by: Cameron Beeley",
+      "title": "fix(sessions): repair shipped stale transcript paths",
+      "link": "https://github.com/openclaw/openclaw/commit/a7b0d325af0751162a26c77df51c119df6c58bb1",
+      "publishedAt": "2026-06-10T22:30:34Z",
+      "summary": "fix(sessions): repair shipped stale transcript paths",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: capture 排程 wake origin session",
-      "summaryZh": "重點：修正: capture 排程 wake origin session Capture the originating sessionKey and agentId for 排程 wake tool calls so non-main ses..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): repair shipped stale transcript paths",
+      "summaryZh": "重點：修正(sessions): repair shipped stale transcript paths..."
     },
     {
       "id": 4,
-      "title": "test(update): align corrupt plugin repair guidance",
-      "link": "https://github.com/openclaw/openclaw/commit/e6b0a22f36cdb90ea382f648318954edfa292432",
-      "publishedAt": "2026-06-10T19:33:25Z",
-      "summary": "test(update): align corrupt plugin repair guidance",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(update): align corrupt plugin repair guidance",
-      "summaryZh": "重點：test(update): align corrupt plugin repair guidance..."
+      "title": "泓德能源 5 月營收 3.94 億元，綠電交易貢獻逾 2 億元",
+      "link": "https://finance.technews.tw/2026/06/11/hrnewable-may-financial-chart/",
+      "publishedAt": "Wed, 10 Jun 2026 22:30:06 +0000",
+      "summary": "智慧能源品牌泓德能源公布 2026 年 5 月營收達 3.94 億元，月減 8.55%、年減 32.8%；累計 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "v2026.6.10-alpha.2",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.10-alpha.2",
+      "publishedAt": "2026-06-10T22:05:09Z",
+      "summary": "openclaw 2026.6.10-alpha.2",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：v2026.6.10-alpha.2",
+      "summaryZh": "重點：OpenClaw 2026.6.10-alpha.2..."
+    },
+    {
+      "id": 6,
+      "title": "韓國客戶調整出貨時程，晶呈科技：需求未減、第三季預期回溫",
+      "link": "https://finance.technews.tw/2026/06/11/korean-memory-requirement-time-change/",
+      "publishedAt": "Wed, 10 Jun 2026 22:00:11 +0000",
+      "summary": "特殊氣體廠晶呈科技公布 2026 年 5 月合併營收 9,761 萬元，月減 43.8%、年增 64.24%； [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "黏土礦物橫跨 600 公里，羅莎琳·富蘭克林號探測車降落地點藏著火星古海洋遺跡",
       "link": "https://technews.tw/2026/06/10/european-mars-rover-to-land-ancient-water-system/",
       "publishedAt": "Wed, 10 Jun 2026 14:08:29 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "微軟整合雲端防護與程式碼安全工具，協助企業依正式環境風險排序漏洞修補",
       "link": "https://www.ithome.com.tw/news/176509",
       "publishedAt": "2026-06-10 12:06:58",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "蘋果Safari能自動變更外洩密碼、通知網站新動態、還能生成用戶想要的外掛",
       "link": "https://www.ithome.com.tw/news/176507",
       "publishedAt": "2026-06-10 12:06:49",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Meta證實有2萬個Instagram帳號因Meta AI漏洞被盜，時間長達1.5個月",
       "link": "https://www.ithome.com.tw/news/176505",
       "publishedAt": "2026-06-10 12:06:27",
       "summary": "Meta本週證實Meta AI支援工具存在一項漏洞，讓駭客得以在AI助理協助下，盜走Instagram（IG）帳號，估計從4月中到5月，超過2萬用戶受害。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "歐盟網路韌性法案9月啟動漏洞與資安事件通報義務，Linux基金會示警全球軟體生態系準備不足",
-      "link": "https://www.ithome.com.tw/news/176510",
-      "publishedAt": "2026-06-10 12:06:09",
-      "summary": "Linux基金會研究部門（Linux Foundation Research）與開放原始碼安全基金會（OpenSSF）於6月發布報告，指出全球軟體與開放原始碼生態系對歐盟網路韌性法案（Cyber Resilience Act，CRA）的認知與準備仍明顯不足。這項調查於2026年初進行，共有843名來自歐洲、北美、亞太等地區的軟體產業與開放原始碼相關人員參與。結果顯示，有66%受訪者表示不熟悉CRA。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "SAP修補NetWeaver與Commerce重大漏洞",
-      "link": "https://www.ithome.com.tw/news/176506",
-      "publishedAt": "2026-06-10 12:06:03",
-      "summary": "6月9日SAP發布本月例行更新（Security Patch Day），總共修補15個資安漏洞，其中有4個是重大等級的漏洞CVE-2026-44748、CVE-2026-27671、CVE-2026-22732、CVE-2026-40128，格外引起矚目。",
       "source": "iThome",
       "tag": "繁中"
     }
