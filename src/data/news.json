@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T05:49:15.966Z",
+  "generatedAt": "2026-06-11T10:27:34.781Z",
   "items": [
     {
       "id": 1,
@@ -51,53 +51,53 @@
       "title": "研究人員揭露Exchange Online資安漏洞Ghost-Sender，攻擊者能偽造任意電子郵件地址",
       "link": "https://www.ithome.com.tw/news/176535",
       "publishedAt": "2026-06-11 11:06:20",
-      "summary": "6月9日資安公司InfoGuard針對Exchange Online用戶提出警告，他們發現名為Ghost-Sender的資安漏洞，Exchange Online或採用混合模式部署的Exchage郵件系統，只要搭配第三方的郵件伺服器防護措施或垃圾信過濾機制，而使得Exchange Online與外部的MX紀錄整合，攻擊者就有機會對目標租戶發動欺騙攻擊，以任意的寄件人的名義，發送信件給任何收件者，將其用於網釣活動，例如：寄送假帳單到其他企業組織，或是冒充公司的執行長進行詐欺行為等。",
+      "summary": "6月9日資安公司InfoGuard針對Exchange Online用戶提出警告，他們發現名為Ghost-Sender的資安漏洞，Exchange Online或採用混合模式部署的Exchange郵件系統，只要搭配第三方的郵件伺服器防護措施或垃圾信過濾機制，而使得Exchange Online與外部的MX紀錄整合，攻擊者就有機會對目標租戶發動欺騙攻擊，以任意的寄件人的名義，發送信件給任何收件者，將其用於網釣活動，例如：寄送假帳單到其他企業組織，或是冒充公司的執行長進行詐欺行為等。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "fix(clickclack): allow explicit enable through plugin allowlist (#92084)",
-      "link": "https://github.com/openclaw/openclaw/commit/418d7e1e83c560c14139cd8c1e043b8f374a446c",
-      "publishedAt": "2026-06-11T04:47:20Z",
-      "summary": "fix(clickclack): allow explicit enable through plugin allowlist (#92084) Allow an explicit canonical ClickClack enable/setup selection to record ClickClack in a nonempty plugin allowlist, while preserving unrelated allowlist rejection, denylist authority, and global plugin disablement. Validated at source head 24af9d8e751440a8954aa731c5d2c63a53094698 with focused regressions, built-CLI disposable-config E2E, security checks, and autoreview. Merged under owner authorization despite the two documented untouched-main agent-core baseline failures.",
+      "title": "Google: show detailed Gemini CLI OAuth extraction failures (#41991)",
+      "link": "https://github.com/openclaw/openclaw/commit/96e1b8c3ba378a9f45ea8bb12d15c6e6ccd21b46",
+      "publishedAt": "2026-06-11T10:24:52Z",
+      "summary": "Google: show detailed Gemini CLI OAuth extraction failures (#41991) * Google: preserve Gemini CLI OAuth failure context Port the diagnostics-only fix to the bundled Google OAuth implementation so user-facing setup errors explain why automatic Gemini CLI client-config discovery failed. Constraint: #54289 may remove or gate automatic Gemini CLI credential extraction Rejected: Change extraction consent behavior here | security/product decision belongs in #54289 Confidence: medium Scope-risk: narrow Tested: pnpm test -- extensions/google/oauth.test.ts Tested: pnpm check Tested: pnpm format:check extensions/google/oauth.credentials.ts extensions/google/oauth.test.ts Not-tested: full pnpm test suite * Google: clarify Gemini bundle fallback diagnostic comment Keep the follow-up limited to the explanatory comment so it matches the diagnostic error preservation added around bundle traversal failures. Constraint: comment-only cleanup after diagnostics port Confidence: high Scope-risk: narrow Tested: pnpm format:check extensions/google/oauth.credentials.ts Not-tested: tests not run; comment-only change * fix: resolve OAuth test rebase conflict",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(clickclack): allow explicit enable through plugin allowlist (#92084)",
-      "summaryZh": "重點：修正(clickclack): allow explicit enable through plugin allowlist (#92084) Allow an explicit canonical ClickClack enable/se..."
+      "titleZh": "OpenClaw 程式碼更新：Google: show detailed Gemini CLI OAuth extraction failures (#41991)",
+      "summaryZh": "重點：Google: show detailed Gemini CLI OAuth extraction failures (#41991) * Google: preserve Gemini CLI OAuth failure context ..."
     },
     {
       "id": 8,
-      "title": "v2026.6.7-alpha.3",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.7-alpha.3",
-      "publishedAt": "2026-06-11T04:07:52Z",
-      "summary": "openclaw 2026.6.7-alpha.3",
-      "source": "OpenClaw Releases",
+      "title": "fix(thinking): apply Claude profile to anthropic-messages catalog row…",
+      "link": "https://github.com/openclaw/openclaw/commit/43b4e276992823126624c929230306d186a0c51f",
+      "publishedAt": "2026-06-11T10:24:46Z",
+      "summary": "fix(thinking): apply Claude profile to anthropic-messages catalog rows (#92053) * fix(thinking): apply Claude profile to anthropic-messages catalog rows When a custom provider (e.g. `jdcloud-anthropic`) fronted Claude Opus over the native anthropic-messages adapter, `--thinking xhigh` was silently clamped to `off`. The thinking-profile dispatcher resolves bundled plugin policy surfaces by exact provider id, so a renamed Anthropic-compatible provider never reached the anthropic plugin's policy and `xhigh` was not in the resulting profile. `auto-reply/thinking.ts` already had a fallback keyed on `context.api === \"anthropic-messages\"` that attached `CLAUDE_FABLE_5_THINKING_PROFILE` for Fable models. Generalize it to use `resolveClaudeThinkingProfile(modelId, params)` instead — the same canonical helper the anthropic plugin uses — which still returns the Fable profile for Fable models and now returns the correct Opus 4.7/4.8 profile (with `xhigh`/`adaptive`/`max`) for Claude Opus regardless of provider id. Non-Claude models on anthropic-messages routes still get the base profile, and a Claude id on a non-Anthropic transport (e.g. an openai-completions catalog row) is unaffected. Fixes #91975 * fix(thinking): match native Anthropic includeNativeMax in fallback Address ClawSweeper P2 review on #92053. The anthropic-messages fallback in `resolveThinkingProfile` calls `resolveClaudeThinkingProfile` but omits the `{ includeNativeMax: true }` option that the bundled anthropic plugin uses (extensions/anthropic/provider-policy-api.ts:38,45). For native-xhigh Claude families (Opus 4.7/4.8) this had no effect since the native-xhigh branch already exposes `max`. But adaptive Claude families that take the adaptive-default branch (e.g. claude-sonnet-4-6, claude-opus-4-6) silently lost `max` parity on custom anthropic-messages providers compared to native Anthropic policy. Also add a regression test on `claude-sonnet-4-6` that verifies the adaptive-branch path keeps `max` for custom providers. * docs(thinking): document deliberate compat.xhigh bypass on anthropic-messages Self-review surfaced a subtle behavior change worth documenting: when the anthropic-messages fallback was generalized, non-Claude models on this transport stop honoring catalog `compat.supportedReasoningEfforts: [\"xhigh\"]` because they take the Claude base profile instead of falling through to the later `catalogSupportsXHigh` upgrade path. This is intentional — anthropic-messages does not carry a generic xhigh contract; xhigh on this protocol is a Claude-family capability. Add an inline comment at the resolver site and a regression test that locks the suppression so the next reader (or a future patch) doesn't accidentally restore the upgrade path. * fix(thinking): extract Claude profile to leaf to break import cycle The previous commits added a `resolveClaudeThinkingProfile` import from `auto-reply/thinking.ts` to `plugin-sdk/provider-model-shared.ts`. The shared barrel re-exports `provider-replay-helpers` and `plugins/types`, which transitively reach back into `auto-reply` via the gateway server methods chain — creating the madge cycle reported by `check:madge-import-cycles`: auto-reply/thinking.ts -> ... -> plugin-sdk/provider-model-shared.ts -> plugins/{config-schema, host-hooks, ...} -> plugins/types.ts Move `BASE_CLAUDE_THINKING_LEVELS`, `isClaudeAdaptiveThinkingDefaultModelId`, and `resolveClaudeThinkingProfile` to a new leaf module `src/plugins/provider-claude-thinking.ts` whose only imports are `@openclaw/llm-core` and the existing leaf `provider-thinking.types`. `provider-model-shared.ts` continues to re-export both helpers so existing consumers (`extensions/anthropic/*`, the public test surface) are unaffected. `auto-reply/thinking.ts` now imports the leaf directly, breaking the cycle. * test(thinking): add live proof harness for #91975 anthropic-messages clamp --------- Co-authored-by: wanglu241",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.6.7-alpha.3",
-      "summaryZh": "重點：OpenClaw 2026.6.7-alpha.3..."
+      "titleZh": "OpenClaw 程式碼更新：修正(thinking): apply Claude profile to anthropic-messages catalog row…",
+      "summaryZh": "重點：修正(thinking): apply Claude profile to anthropic-messages catalog rows (#92053) * 修正(thinking): apply Claude profile to a..."
     },
     {
       "id": 9,
-      "title": "fix(sessions): preserve user model override across daily/idle rollove…",
-      "link": "https://github.com/openclaw/openclaw/commit/8e81bf774e30e09572407259201a953fca8cfc29",
-      "publishedAt": "2026-06-11T03:31:49Z",
-      "summary": "fix(sessions): preserve user model override across daily/idle rollover (#90128) User-driven /model (and sessions.patch) overrides were dropped when a session rolled over at the daily/idle reset boundary, reverting to the configured default on the next turn despite the 'Model set to ... for this session' ack. The override-preservation carryover in initSessionState was gated on resetTriggered, so implicit stale rollovers (the common case for always-on channel sessions) skipped it. Run resolveResetPreservedSelection for any rollover that mints a new session from an existing entry (explicit /new + /reset AND implicit stale daily/idle). resolveResetPreservedSelection already preserves only user-driven overrides and clears auto-fallback pins, so resets still return to the default. Adds regression tests in session.test.ts covering both cases. Fixes #90119 Filed with AI assistance (OpenClaw agent); reviewed by @Peetiegonzalez. Co-authored-by: Marvinthebored",
+      "title": "fix(cli-runner): scope claude-cli queue to live-session owner identit…",
+      "link": "https://github.com/openclaw/openclaw/commit/43b108896219a265beea4a2afcb19750940d4730",
+      "publishedAt": "2026-06-11T10:24:39Z",
+      "summary": "fix(cli-runner): scope claude-cli queue to live-session owner identity (#91946) (#91974) * fix(cli-runner): scope claude-cli queue to live-session owner identity Fresh claude-cli runs without a stored cliSessionId previously collapsed onto a single workspace-scoped queue key, serializing all fan-out within one workspace regardless of subagent lane configuration. Replace the workspace fallback with the same owner identity that claude-live-session.ts already uses for its live-session map (agentAccountId + agentId + authProfileId + sessionId + sessionKey), keeping per-session resume safety while letting independent OpenClaw sessions in the same workspace run concurrently. Refactor buildClaudeLiveKey() to share the new buildClaudeOwnerKey() helper so the queue key and the live-session key cannot drift. Refs: #91946 * test(cli-runner): pin owner-key hash + document buildClaudeOwnerKey contract Add a golden-hash regression test for buildClaudeOwnerKey using the exact legacy fixture, so a future refactor that reorders fields or flips the JSON encoding can't silently orphan every deployed Claude live session at upgrade. Hash verified empirically against the prior inline sha256(JSON.stringify(...)) in buildClaudeLiveKey. Add a JSDoc on buildClaudeOwnerKey explaining the cross-module contract between the CLI run queue and the live-session map. Refs: #91946 * docs(cli-runner): tighten buildClaudeOwnerKey contract comment The previous comment claimed an encoding mismatch would orphan deployed live sessions across upgrades. The Claude live-session registry is process-local, so any restart already discards every entry — the real invariant is that the queue path and live-session path produce byte-identical owner keys *within a single process*, so a fresh queued turn picks up the same live session the registry already holds. Update the helper docstring and the golden-hash test description accordingly; the pinned hash and behavior are unchanged. * test(cli-runner): add owner-key concurrency demo script A pure-Node, no-test-runner demo that reproduces the PR-head queue behavior end-to-end: BEFORE-PR collapse (workspace lane), distinct-owner overlap, and identical-owner serialization, all in one run with millisecond-stamped event ordering. Useful as a low-overhead regression check for the owner-key contract and as a maintainer-runnable proof artifact for #91946. * test(cli-runner): satisfy oxlint curly + no-promise-executor-return Wrap single-statement if/for-of bodies in braces and rewrite the sleep helper so its Promise executor is a void block instead of an arrow with an implicit return. No behavior change; demo output and the byte-equivalent slice fingerprints are unchanged. --------- Co-authored-by: wanglu241",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): preserve user 模型 override across daily/idle rollove…",
-      "summaryZh": "重點：修正(sessions): preserve user 模型 override across daily/idle rollover (#90128) User-driven /模型 (and sessions.patch) overrid..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli-runner): scope claude-cli queue to live-session owner identit…",
+      "summaryZh": "重點：修正(cli-runner): scope claude-cli queue to live-session owner identity (#91946) (#91974) * 修正(cli-runner): scope claude-c..."
     },
     {
       "id": 10,
-      "title": "refactor(auto-reply): distill verbose commentary lane wiring",
-      "link": "https://github.com/openclaw/openclaw/commit/bd96e4d22dafe64f558fb7f3ba5977aa3a93aee6",
-      "publishedAt": "2026-06-11T02:48:04Z",
-      "summary": "refactor(auto-reply): distill verbose commentary lane wiring",
+      "title": "Stabilize A2A prompt cache metadata (#90173)",
+      "link": "https://github.com/openclaw/openclaw/commit/5d42ad6654a8db04f69c0acbf924fdce1f862ce1",
+      "publishedAt": "2026-06-11T10:24:32Z",
+      "summary": "Stabilize A2A prompt cache metadata (#90173) A2A session routing identifiers are needed for delivery provenance, but concrete session keys in extraSystemPrompt make the agent system prompt vary between otherwise identical handoffs. Keep the model-facing system context stable by describing high-cardinality session slots with placeholders while retaining concrete values in inputProvenance. Channel names stay concrete: they are low-cardinality (discord/slack/webchat/...), so they do not meaningfully fragment the cache, and they inform reply formatting on the receiving agent. Constraint: OpenClaw contributor PRs require focused behavior proof and tests for prompt/cache-facing changes. Rejected: Removing routing metadata entirely | would weaken model context for requester/target roles. Rejected: Placeholdering channel values too | drops model-visible formatting context for negligible cache benefit (reviewer feedback). Confidence: medium Scope-risk: narrow Directive: Keep concrete session identifiers out of extraSystemPrompt; preserve them in structured provenance or payload fields. Low-cardinality channel labels may stay model-visible. Tested: node scripts/run-vitest.mjs src/agents/tools/sessions-send-helpers.test.ts src/agents/openclaw-tools.sessions.test.ts Tested: corepack pnpm exec oxfmt --check src/agents/tools/sessions-send-helpers.ts src/agents/tools/sessions-send-helpers.test.ts src/agents/openclaw-tools.sessions.test.ts Tested: node scripts/run-oxlint.mjs src/agents/tools/sessions-send-helpers.ts src/agents/tools/sessions-send-helpers.test.ts src/agents/openclaw-tools.sessions.test.ts Tested: git diff --check Tested: live before/after provider cache trace (isolated local gateway, two A2A sends from distinct requester sessions; see PR Real behavior proof) Co-authored-by: Sunjae Kim",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(auto-reply): distill verbose commentary lane wiring",
-      "summaryZh": "重點：refactor(auto-reply): distill verbose commentary lane wiring..."
+      "titleZh": "OpenClaw 程式碼更新：Stabilize A2A prompt cache metadata (#90173)",
+      "summaryZh": "重點：Stabilize A2A prompt cache metadata (#90173) A2A session routing identifiers are needed for delivery provenance, but con..."
     }
   ]
 }
