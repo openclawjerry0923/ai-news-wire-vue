@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-06-13T15:01:28.396Z",
+  "generatedAt": "2026-06-13T17:23:54.272Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(test): extend watchdog for gateway core shard",
-      "link": "https://github.com/openclaw/openclaw/commit/45056a463ab2bb3a7bdbc81787ef770715f75244",
-      "publishedAt": "2026-06-13T15:01:11Z",
-      "summary": "fix(test): extend watchdog for gateway core shard",
+      "title": "fix(google): strip provider prefix from Vertex model path",
+      "link": "https://github.com/openclaw/openclaw/commit/22069bcc56b753b2a19c495efc47211a1d37ef59",
+      "publishedAt": "2026-06-13T17:13:43Z",
+      "summary": "fix(google): strip provider prefix from Vertex model path Summary: - Strip the redundant `google/` provider prefix before embedding Google Vertex model ids under `/publishers/google/models/`. - Keep bare Vertex model ids unchanged. - Add regression coverage for the provider-qualified Vertex path. Verification: - `node_modules/.bin/oxfmt --check --threads=1 extensions/google/transport-stream.ts extensions/google/transport-stream.test.ts` - `node scripts/run-oxlint.mjs extensions/google/transport-stream.ts extensions/google/transport-stream.test.ts` - `node scripts/run-vitest.mjs extensions/google/transport-stream.test.ts --maxWorkers=1 -t 'strips redundant google provider prefixes from Google Vertex model paths'` - Autoreview clean - AWS Crabbox `run_649b209478d2` focused Node 24 regression proof - AWS Crabbox `run_e193db2707ad` remote `check:changed` - Exact-head CI green for `23aca6f46f596e220df37d939317b433f7044ec6` - Contributor live Google Vertex proof recorded in the PR body",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): extend watchdog for Gateway core shard",
-      "summaryZh": "重點：修正(test): extend watchdog for Gateway core shard..."
+      "titleZh": "OpenClaw 程式碼更新：修正(google): strip provider pre修正 from Vertex 模型 path",
+      "summaryZh": "重點：修正(google): strip provider pre修正 from Vertex 模型 path Summary: - Strip the redundant `google/` provider pre修正 before embe..."
     },
     {
       "id": 2,
-      "title": "fix(cron): de-duplicate main-session heartbeat events",
-      "link": "https://github.com/openclaw/openclaw/commit/c773d8cd8ef8aa2075810cc6182f1b436bcdf294",
-      "publishedAt": "2026-06-13T14:49:48Z",
-      "summary": "fix(cron): de-duplicate main-session heartbeat events Fixes #44922 Preserve heartbeat-owned cron reminders as a single model input during heartbeat runs while keeping normal-turn fallback delivery when a heartbeat is skipped. Proof: focused local Vitest/oxlint/format, clean autoreview, Crabbox AWS run_67abc286250a, Crabbox AWS check:changed run_bddebf014d58, and exact-head GitHub CI green for 341e807d7a30c5b15b3714f6292d06ac41e1a798.",
+      "title": "fix(ui): restore sidebar session picker interactivity above desktop w…",
+      "link": "https://github.com/openclaw/openclaw/commit/b01a54de6f0cb2df4a137c28a62d985c308cf723",
+      "publishedAt": "2026-06-13T17:13:29Z",
+      "summary": "fix(ui): restore sidebar session picker interactivity above desktop workbench (#92705) * fix(ui): restore sidebar session picker interactivity above desktop workbench The collapsed sidebar session picker was covered by the chat content area when the workspace rail was visible at wider viewports. Two issues caused this: 1. .sidebar-session-select--collapsed .chat-session-picker used var(--z-dropdown) which was never defined, creating an invalid z-index declaration (falls back to auto). 2. .shell-nav and .content--chat are grid siblings with equal z-index (auto), and .content--chat (later DOM) paints above .shell-nav, covering the session picker that extends from the nav column into the content column. Fix: add position:relative + z-index:10 to .shell-nav so it stacks above .content--chat; change overflow from hidden to visible so the session picker extends beyond the nav rail; replace undefined var(--z-dropdown) with z-index:100. * fix(ui): keep sidebar picker z-index tokenized --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): de-duplicate main-session heartbeat events",
-      "summaryZh": "重點：修正(排程): de-duplicate main-session heartbeat events 修正 #44922 Preserve heartbeat-owned 排程 reminders as a single 模型 input ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore sidebar session picker interactivity above desktop w…",
+      "summaryZh": "重點：修正(ui): restore sidebar session picker interactivity above desktop workbench (#92705) * 修正(ui): restore sidebar session ..."
     },
     {
       "id": 3,
-      "title": "test(config): contain shell env fallback in config write tests",
-      "link": "https://github.com/openclaw/openclaw/commit/eb1b640854bb6b7dc82db9a5bcb652836574d0b3",
-      "publishedAt": "2026-06-13T14:22:01Z",
-      "summary": "test(config): contain shell env fallback in config write tests",
-      "source": "OpenClaw Commits",
+      "title": "v2026.6.8-alpha.2",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.8-alpha.2",
+      "publishedAt": "2026-06-13T16:15:29Z",
+      "summary": "openclaw 2026.6.8-alpha.2",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(config): contain shell env fallback in config write tests",
-      "summaryZh": "重點：test(config): contain shell env fallback in config write tests..."
+      "titleZh": "OpenClaw 最新動態：v2026.6.8-alpha.2",
+      "summaryZh": "重點：OpenClaw 2026.6.8-alpha.2..."
     },
     {
       "id": 4,
-      "title": "fix(memory): keep memory_search in transient qmd mode (#92639)",
-      "link": "https://github.com/openclaw/openclaw/commit/ddacb7ba39d482cee9f0fd5dc065187130ea8dab",
-      "publishedAt": "2026-06-13T14:14:54Z",
-      "summary": "fix(memory): keep memory_search in transient qmd mode (#92639) Summary: - Merged fix(memory): keep memory_search in transient qmd mode after ClawSweeper review. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(memory): close transient search managers - PR branch already contained follow-up commit before automerge: fix(memory): preserve default search managers - PR branch already contained follow-up commit before automerge: fix(memory): preserve qmd cli boot freshness Validation: - ClawSweeper review passed for head 64fe82c24c0b5293463e5f12c5b3fb60de2c47b0. - Required merge gates passed before the squash merge. Prepared head SHA: 64fe82c24c0b5293463e5f12c5b3fb60de2c47b0 Review: https://github.com/openclaw/openclaw/pull/92639#issuecomment-4698763950 Co-authored-by: Andy Ye Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
+      "title": "fix(telegram): pass rich text prompts to cli backends",
+      "link": "https://github.com/openclaw/openclaw/commit/45e36a241a799c8393449d011104286e7057d624",
+      "publishedAt": "2026-06-13T16:15:22Z",
+      "summary": "fix(telegram): pass rich text prompts to cli backends",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): keep 記憶_search in transient qmd mode (#92639)",
-      "summaryZh": "重點：修正(記憶): keep 記憶_search in transient qmd mode (#92639) Summary: - Merged 修正(記憶): keep 記憶_search in transient qmd mode aft..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): pass rich text prompts to cli backends",
+      "summaryZh": "重點：修正(Telegram): pass rich text prompts to cli backends..."
     },
     {
       "id": 5,
+      "title": "同胞雙星化學成分大不同，HD 81809 上演恆星生吞行星的「犯罪現場」",
+      "link": "https://technews.tw/2026/06/14/chemical-paradox-reveals-stars-devouring-planets/",
+      "publishedAt": "Sat, 13 Jun 2026 16:00:35 +0000",
+      "summary": "天文學家研究一個名為 HD 81809 的特殊雙星系統時，發現兩顆理應同時誕生的恆星，竟擁有截然不同的化學組成 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "外星訪客 3I/ATLAS 又有新發現，韋伯直接偵測到含甲烷與大量二氧化碳",
+      "link": "https://technews.tw/2026/06/14/interstellar-comet-3iatlas-reveals-strange-chemistry-beyond-our-solar-system/",
+      "publishedAt": "Sat, 13 Jun 2026 16:00:04 +0000",
+      "summary": "NASA 詹姆斯·韋伯太空望遠鏡再傳突破，首次在彗星 3I/ATLAS 直接偵測到甲烷，並確認含異常大量二氧化 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "馬斯克身價可比七個黃仁勳！SpaceX 世紀掛牌引爆資金大洗牌，恐終結美股七雄霸局",
       "link": "https://finance.technews.tw/2026/06/13/musk-wealth-exceeds-7x-huang-spacex-ipo-triggers-capital-reshuffle-ends-mag7-dominance/",
       "publishedAt": "Sat, 13 Jun 2026 08:26:31 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "中國駭客瞄準缺乏EDR防護的邊界設備，藉Brickstorm後門潛伏18個月",
       "link": "https://www.ithome.com.tw/news/176583",
       "publishedAt": "2026-06-13 08:06:32",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "AI 連手機密碼也能代理！Apple Intelligence 能自動更改不安全的密碼",
       "link": "https://infosecu.technews.tw/2026/06/13/apple-intelligence-can-change-your-passwords-for-you-when-you-get-hacked/",
       "publishedAt": "Sat, 13 Jun 2026 06:30:51 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Hyundai Motor 推出波士頓動力 Atlas 擔綱「School of Football」活動，迎接 FIFA World Cup 2026",
       "link": "https://technews.tw/2026/06/13/hyundai-motor-school-of-football-campaign-boston-dynamics-atlas-fifa-world-cup-2026/",
       "publishedAt": "Sat, 13 Jun 2026 06:00:02 +0000",
       "summary": "Hyundai Motor Company 2 日宣布推出全新全球宣傳活動「School of Footbal [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "AWS 有望採 AI200！外資看好高通拿下首個大型 ASIC 客戶，上調目標價",
-      "link": "https://technews.tw/2026/06/13/wells-fargo-see-qualcomm-aws/",
-      "publishedAt": "Sat, 13 Jun 2026 05:57:38 +0000",
-      "summary": "富國銀行（Wells Fargo）出具最新外資報告，高通有望進一步深化與亞馬遜旗下雲端服務部門 AWS 的合作 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "農藥的「無聲傷害」，胎兒期暴露與腦部發育的長期風險",
-      "link": "https://technews.tw/2026/06/13/common-pesticide-linked-to-hidden-brain-damage-scientists-warn/",
-      "publishedAt": "Sat, 13 Jun 2026 05:00:27 +0000",
-      "summary": "近年環境化學物質對神經系統的傷害重新受重視，尤其對胎兒與兒童發育的潛在影響。最近美國哥倫比亞大學（Columb [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
