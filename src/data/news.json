@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-13T12:26:32.166Z",
+  "generatedAt": "2026-06-13T15:01:28.396Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): reject unknown OpenAI agent selectors",
-      "link": "https://github.com/openclaw/openclaw/commit/8eb1fa09c66e2200f2f40d2b0b868429a0b52d1d",
-      "publishedAt": "2026-06-13T12:16:13Z",
-      "summary": "fix(gateway): reject unknown OpenAI agent selectors Reject explicit unknown or malformed OpenAI-compatible agent selectors before creating gateway request/session state. Default aliases remain compatible; chat completions, Responses, and embeddings now return structured invalid_request_error responses for bad explicit selectors. Fixes #92504.",
+      "title": "fix(test): extend watchdog for gateway core shard",
+      "link": "https://github.com/openclaw/openclaw/commit/45056a463ab2bb3a7bdbc81787ef770715f75244",
+      "publishedAt": "2026-06-13T15:01:11Z",
+      "summary": "fix(test): extend watchdog for gateway core shard",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reject unknown OpenAI agent selectors",
-      "summaryZh": "重點：修正(Gateway): reject unknown OpenAI agent selectors Reject explicit unknown or malformed OpenAI-compatible agent selector..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): extend watchdog for Gateway core shard",
+      "summaryZh": "重點：修正(test): extend watchdog for Gateway core shard..."
     },
     {
       "id": 2,
-      "title": "test(test): align source full-suite sharding assertion",
-      "link": "https://github.com/openclaw/openclaw/commit/2d2c1e63f0da9356c09f0a4c2a5e227f321ab9f3",
-      "publishedAt": "2026-06-13T11:57:09Z",
-      "summary": "test(test): align source full-suite sharding assertion",
+      "title": "fix(cron): de-duplicate main-session heartbeat events",
+      "link": "https://github.com/openclaw/openclaw/commit/c773d8cd8ef8aa2075810cc6182f1b436bcdf294",
+      "publishedAt": "2026-06-13T14:49:48Z",
+      "summary": "fix(cron): de-duplicate main-session heartbeat events Fixes #44922 Preserve heartbeat-owned cron reminders as a single model input during heartbeat runs while keeping normal-turn fallback delivery when a heartbeat is skipped. Proof: focused local Vitest/oxlint/format, clean autoreview, Crabbox AWS run_67abc286250a, Crabbox AWS check:changed run_bddebf014d58, and exact-head GitHub CI green for 341e807d7a30c5b15b3714f6292d06ac41e1a798.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(test): align source full-suite sharding assertion",
-      "summaryZh": "重點：test(test): align source full-suite sharding assertion..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): de-duplicate main-session heartbeat events",
+      "summaryZh": "重點：修正(排程): de-duplicate main-session heartbeat events 修正 #44922 Preserve heartbeat-owned 排程 reminders as a single 模型 input ..."
     },
     {
       "id": 3,
-      "title": "fix #73713: surface nested embedding fetch failures (#92628)",
-      "link": "https://github.com/openclaw/openclaw/commit/6cdbccaa9ebe5b66368c0f6e47b3ab4e4cdc7f12",
-      "publishedAt": "2026-06-13T11:55:37Z",
-      "summary": "fix #73713: surface nested embedding fetch failures (#92628) * fix(cli): surface nested fetch failure details * fix(cli): preserve error prefixes in runtime output",
+      "title": "test(config): contain shell env fallback in config write tests",
+      "link": "https://github.com/openclaw/openclaw/commit/eb1b640854bb6b7dc82db9a5bcb652836574d0b3",
+      "publishedAt": "2026-06-13T14:22:01Z",
+      "summary": "test(config): contain shell env fallback in config write tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 #73713: surface nested embedding fetch failures (#92628)",
-      "summaryZh": "重點：修正 #73713: surface nested embedding fetch failures (#92628) * 修正(cli): surface nested fetch failure details * 修正(cli): p..."
+      "titleZh": "OpenClaw 程式碼更新：test(config): contain shell env fallback in config write tests",
+      "summaryZh": "重點：test(config): contain shell env fallback in config write tests..."
     },
     {
       "id": 4,
-      "title": "fix(copilot): disable eager tool streaming for Claude 4.5 (#75393)",
-      "link": "https://github.com/openclaw/openclaw/commit/9f522ee7dffdb72d2482348c025f5abfd2153702",
-      "publishedAt": "2026-06-13T11:52:02Z",
-      "summary": "fix(copilot): disable eager tool streaming for Claude 4.5 (#75393) Disable Anthropic eager tool streaming only for GitHub Copilot Claude 4.5 proxy routes, preserving newer Claude behavior. Fixes #75348 Co-authored-by: Kailigithub",
+      "title": "fix(memory): keep memory_search in transient qmd mode (#92639)",
+      "link": "https://github.com/openclaw/openclaw/commit/ddacb7ba39d482cee9f0fd5dc065187130ea8dab",
+      "publishedAt": "2026-06-13T14:14:54Z",
+      "summary": "fix(memory): keep memory_search in transient qmd mode (#92639) Summary: - Merged fix(memory): keep memory_search in transient qmd mode after ClawSweeper review. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(memory): close transient search managers - PR branch already contained follow-up commit before automerge: fix(memory): preserve default search managers - PR branch already contained follow-up commit before automerge: fix(memory): preserve qmd cli boot freshness Validation: - ClawSweeper review passed for head 64fe82c24c0b5293463e5f12c5b3fb60de2c47b0. - Required merge gates passed before the squash merge. Prepared head SHA: 64fe82c24c0b5293463e5f12c5b3fb60de2c47b0 Review: https://github.com/openclaw/openclaw/pull/92639#issuecomment-4698763950 Co-authored-by: Andy Ye Co-authored-by: clawsweeper[bot] Approved-by: takhoffman Co-authored-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(copilot): disable eager tool streaming for Claude 4.5 (#75393)",
-      "summaryZh": "重點：修正(copilot): disable eager tool streaming for Claude 4.5 (#75393) Disable Anthropic eager tool streaming only for GitHub..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): keep 記憶_search in transient qmd mode (#92639)",
+      "summaryZh": "重點：修正(記憶): keep 記憶_search in transient qmd mode (#92639) Summary: - Merged 修正(記憶): keep 記憶_search in transient qmd mode aft..."
     },
     {
       "id": 5,
