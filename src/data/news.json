@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-06-13T07:49:44.209Z",
+  "generatedAt": "2026-06-13T10:30:17.769Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(agents): pause yielded subagent runs whose terminal also signals …",
+      "link": "https://github.com/openclaw/openclaw/commit/cd3eb438f07f12abee05fc9382feb769de6425a5",
+      "publishedAt": "2026-06-13T10:23:10Z",
+      "summary": "fix(agents): pause yielded subagent runs whose terminal also signals abort (#92631) * fix(agents): pause yielded subagent runs whose terminal also signals abort (#92448) * fix(agents): clear yielded subagent grace timers --------- Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): pause yielded subagent runs whose terminal also signals …",
+      "summaryZh": "重點：修正(agents): pause yielded subagent runs whose terminal also signals abort (#92631) * 修正(agents): pause yielded subagent ..."
+    },
+    {
+      "id": 2,
+      "title": "fix(slack): diagnose invalid channel map keys (#89438)",
+      "link": "https://github.com/openclaw/openclaw/commit/26281a8a11190d7c337cefb229cafa896528ffa4",
+      "publishedAt": "2026-06-13T10:13:14Z",
+      "summary": "fix(slack): diagnose invalid channel map keys (#89438) Diagnose Slack channel-map keys that cannot route as configured, including account inheritance, open-policy overrides, malformed room identifiers, and DM identifiers. Fixes #81665 Co-authored-by: Alix-007",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): diagnose invalid channel map keys (#89438)",
+      "summaryZh": "重點：修正(slack): diagnose invalid channel map keys (#89438) Diagnose Slack channel-map keys that cannot route as configured, i..."
+    },
+    {
+      "id": 3,
+      "title": "test(qa-lab): align bootstrap selection assertion",
+      "link": "https://github.com/openclaw/openclaw/commit/4208c89ec49e35c33a744115fbdc21a395d35663",
+      "publishedAt": "2026-06-13T10:11:46Z",
+      "summary": "test(qa-lab): align bootstrap selection assertion",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(qa-lab): align bootstrap selection assertion",
+      "summaryZh": "重點：test(qa-lab): align bootstrap selection assertion..."
+    },
+    {
+      "id": 4,
+      "title": "openclaw 2026.6.7-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.7-beta.1",
+      "publishedAt": "2026-06-13T10:00:23Z",
+      "summary": "2026.6.7 Highlights Channel delivery is tighter across Slack, Telegram, outbound media, silent replies, progress drafts, and paged action results: same-channel Slack finals persist in transcripts, top-level image message-tool sends attach media, expandable Telegram blockquotes and spooled replay survive delivery, explicit silent assistant replies stay silent, progress draft startup failures are reported, and channel action result pages can be fetched incrementally. (#92498, #92407, #92416, #92281, #92073, #92083, #88993) Thanks @TurboTheTurtle, @ichirokyoto, @xydigit-sj, @joshavant, @sallyom, @hansraj316, and @fuller-stack-dev. Provider and model handling is more resilient: Kimi K2.7 Code is available, Kimi native tool-call ids and replayed reasoning_content are repaired, Mistral skips unreadable tool schemas, Fireworks catalog parameters come from manifests, DeepSeek keeps configured static transport, provider fallbacks resolve correctly, Anthropic thinking replay is repaired, and Anthropic Vertex stops re-marking transport-budgeted cache control. (#92554, #92396, #90242, #90326, #92265, #92293, #92286, #92387) Thanks @xialonglee, @vincentkoc, @obuchowski, @joshavant, and @openperf. User-visible context and auth boundaries are safer: Feishu no longer leaks prompt-preface runtime context into replies, WebSocket payload handling is hardened, CLI-backed /btw fallback fails closed, local setup trust is hardened, and Skill Workshop symlink writes are gated and validated before rollback metadata is written. (#92589, #92593, #92226, #92175) Thanks @jovi2014-cyber, @zhangqueping, and @joshavant. Agent, memory, Codex, cron, and update recovery paths preserve the useful failure now: invalid plugin model catalogs are isolated, QMD startup failures survive fallback errors, Codex memory prompts remain registered, source message tool replies no longer stop agent progress, structured unsupported-model errors are classified, heartbeat/cron terminal state is preserved, Linux service updates hand off cleanly, and cron status reports the SQLite store path. (#92564, #92218, #92618, #92350, #92343, #92280, #92231, #92225, #92144) Thanks @tangtaizong666, @zhbcher, @mushuiyu886, @rubencu, @joshavant, and @liuhao1024. UI, docs, QA, Docker, and release proof are easier to trust: accessibility contrast/focus/font fixes landed, empty Workboard columns can hide, the design-system docs are documented, uptime monitors are pointed at /health, Windows Hub docs pin the verified stable installer links, QA evidence and scorecard taxonomy artifacts are produced, QA Lab is bundled into Docker images, and lifecycle timeout cleanup survives leader exit. (#89822, #89615, #89827, #55768, #92608, #92605, #91484, #91500, #92087, #92566) Thanks @BunsDev, @faahim, @liuhao1024, @lzyyzznl, @RomneyDa, and @jesse-merhi. Changes QA and release validation now emit scorecard taxonomy and evidence artifacts, split plugin ClawHub publishing paths, use trusted plugin npm publishing, keep plugin publish checks authoritative, and align the root package, publishable plugin manifests, generated baselines, and native app versions for the 2026.6.7 beta train. (#91484, #91500) Thanks @RomneyDa. Docs and operator guidance now cover Gateway uptime monitoring, design-system guidance, Windows Hub stable download pins, removed stale ClawHub navigation, WhatsApp inbound compatibility, and doctor/update progress behavior. (#55768, #92608, #89827, #92605) Thanks @faahim, @liuhao1024, @BunsDev, and @lzyyzznl. Matrix plugin release metadata is aligned with the core beta train and records the version-alignment changelog entry for package publication. Fixes Channels and outbound flows preserve user intent across Slack transcript mirrors, Telegram polling conflicts and transient draft-preview failures, outbound image sends, explicit silent assistant replies, progress-draft startup errors, paged action results, WhatsApp inbound aliases, local setup trust, and heartbeat commitment delivery. (#92498, #92281, #92407, #92416, #92073, #92083, #88993, #92175, #92231) Thanks @TurboTheTurtle, @joshavant, @ichirokyoto, @xydigit-sj, @sallyom, @hansraj316, and @fuller-stack-dev. Provider, model, and tool replay fixes cover unreadable Mistral schemas, Fireworks manifest model parameters, Kimi K2.7 Code/tool-call/reasoning replay, DeepSeek transport inheritance, managed SecretRef auth, static model fallbacks, rejected Anthropic thinking replay, Anthropic Vertex cache control, and OTLP trace correlation. (#90242, #90326, #92554, #92396, #92265, #92235, #92293, #92286, #92387, #92276) Thanks @vincentkoc, @obuchowski, @xialonglee, @joshavant, and @openperf. Agent/runtime recovery now isolates invalid plugin model catalogs, preserves Codex memory prompt registration, continues after source message tool replies, classifies structured unsupported-model errors, reports QMD startup failures beside fallback errors, preserves cron timeout/cancel state, keeps disabled heartbeat one-shot retries working, and keeps Linux service auto-updates readable and handed off. (#92564, #92350, #92343, #92280, #92218, #92618, #92225, #92282, #92144) Thanks @tangtaizong666, @rubencu, @joshavant, @zhbcher, @mushuiyu886, and @liuhao1024. Install, sandbox, doctor, and security surfaces render CLI skill prompts from materialized paths, fail closed for CLI-backed /btw, resolve doctor SecretRef previews, diagnose blocked external channel plugins, validate and gate Skill Workshop symlink writes, stop after failed Node package installs, and keep unsupported daemon service status readable. (#92508, #92226, #92229, #86629) Thanks @brokemac79, @joshavant, and @brokemac79. Release, CI, E2E, Docker, and dependency gates keep lifecycle timeout cleanup alive, bundle QA Lab runtime in Docker images, update the esbuild audit pin, harden Docker process cleanup, keep plugin publish checks authoritative, and remove noisy redundant proof scripts so release failures stay bounded. (#92566, #92087, #92540) Thanks @RomneyDa and @jesse-merhi.",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 版本更新：2026.6.7-beta.1",
+      "summaryZh": "重點：2026.6.7 Highlights Channel delivery is tighter across Slack, Telegram, outbound media, silent replies, progress drafts,..."
+    },
+    {
+      "id": 5,
+      "title": "馬斯克身價可比七個黃仁勳！SpaceX 世紀掛牌引爆資金大洗牌，恐終結美股七雄霸局",
+      "link": "https://finance.technews.tw/2026/06/13/musk-wealth-exceeds-7x-huang-spacex-ipo-triggers-capital-reshuffle-ends-mag7-dominance/",
+      "publishedAt": "Sat, 13 Jun 2026 08:26:31 +0000",
+      "summary": "全球首富馬斯克（Elon Musk）旗下「太空探索技術公司」（SpaceX）於 12 日首次公開募股（IPO） [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "中國駭客瞄準缺乏EDR防護的邊界設備，藉Brickstorm後門潛伏18個月",
       "link": "https://www.ithome.com.tw/news/176583",
       "publishedAt": "2026-06-13 08:06:32",
@@ -11,40 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(channels): report progress draft startup failures (#92083)",
-      "link": "https://github.com/openclaw/openclaw/commit/ab559a7257d9b6eace7abfb2cdf0ad8ac76e6511",
-      "publishedAt": "2026-06-13T07:42:13Z",
-      "summary": "fix(channels): report progress draft startup failures (#92083) Report timer-fired channel progress-draft startup failures at the shared gate boundary instead of silently dropping them. Explicitly awaited starts still reject, and failed timer starts remain retryable. Refs #92031. Co-authored-by: Hansraj Singh Thakur",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): report progress draft startup failures (#92083)",
-      "summaryZh": "重點：修正(channels): report progress draft startup failures (#92083) Report timer-fired channel progress-draft startup failures..."
-    },
-    {
-      "id": 3,
-      "title": "fix(slack): persist delivered replies in transcripts (#92498)",
-      "link": "https://github.com/openclaw/openclaw/commit/7c088045413ff608e1b111d724f8f02ecee183b5",
-      "publishedAt": "2026-06-13T07:17:16Z",
-      "summary": "fix(slack): persist delivered replies in transcripts (#92498) Persist successful same-channel Slack and CLI assistant replies exactly once in the owning transcript. Preserve delivery-hook output, routed/runtime ownership, custom stores, and authoritative reset/session rotation bindings. Fixes #92489 Co-authored-by: Andy Ye",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): persist delivered replies in transcripts (#92498)",
-      "summaryZh": "重點：修正(slack): persist delivered replies in transcripts (#92498) Persist successful same-channel Slack and CLI assistant rep..."
-    },
-    {
-      "id": 4,
-      "title": "fix(mistral): skip unreadable tool schemas (#90242)",
-      "link": "https://github.com/openclaw/openclaw/commit/991471b8ec29915af5ab166c45afb02a81de2ac9",
-      "publishedAt": "2026-06-13T07:00:52Z",
-      "summary": "fix(mistral): skip unreadable tool schemas (#90242) Skip unreadable Mistral tool schemas while preserving valid sibling tools. Omit empty tool payloads, reject forced choices for removed tools, and snapshot pinned tool names before validation and emission. Live Mistral E2E: run_9b34d30e9f5b CI: https://github.com/openclaw/openclaw/actions/runs/27459679633 Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mistral): skip unreadable tool schemas (#90242)",
-      "summaryZh": "重點：修正(mistral): skip unreadable tool schemas (#90242) Skip unreadable Mistral tool schemas while preserving valid sibling t..."
-    },
-    {
-      "id": 5,
+      "id": 7,
       "title": "AI 連手機密碼也能代理！Apple Intelligence 能自動更改不安全的密碼",
       "link": "https://infosecu.technews.tw/2026/06/13/apple-intelligence-can-change-your-passwords-for-you-when-you-get-hacked/",
       "publishedAt": "Sat, 13 Jun 2026 06:30:51 +0000",
@@ -53,18 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "fix(doctor): diagnose blocked external channel plugins (#86629)",
-      "link": "https://github.com/openclaw/openclaw/commit/7190fc4de83094a3444e4a417782b1dd297f2383",
-      "publishedAt": "2026-06-13T06:24:19Z",
-      "summary": "fix(doctor): diagnose blocked external channel plugins (#86629) Diagnose configured channel plugins whose installed owners are blocked by trust or activation policy, while preserving multi-owner fallback and actionable channel safety warnings. Closes #83212. Co-authored-by: luyifan",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): diagnose blocked external channel plugins (#86629)",
-      "summaryZh": "重點：修正(文件tor): diagnose blocked external channel plugins (#86629) Diagnose configured channel plugins whose installed owners..."
-    },
-    {
-      "id": 7,
+      "id": 8,
       "title": "Hyundai Motor 推出波士頓動力 Atlas 擔綱「School of Football」活動，迎接 FIFA World Cup 2026",
       "link": "https://technews.tw/2026/06/13/hyundai-motor-school-of-football-campaign-boston-dynamics-atlas-fifa-world-cup-2026/",
       "publishedAt": "Sat, 13 Jun 2026 06:00:02 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "AWS 有望採 AI200！外資看好高通拿下首個大型 ASIC 客戶，上調目標價",
       "link": "https://technews.tw/2026/06/13/wells-fargo-see-qualcomm-aws/",
       "publishedAt": "Sat, 13 Jun 2026 05:57:38 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "農藥的「無聲傷害」，胎兒期暴露與腦部發育的長期風險",
       "link": "https://technews.tw/2026/06/13/common-pesticide-linked-to-hidden-brain-damage-scientists-warn/",
       "publishedAt": "Sat, 13 Jun 2026 05:00:27 +0000",
       "summary": "近年環境化學物質對神經系統的傷害重新受重視，尤其對胎兒與兒童發育的潛在影響。最近美國哥倫比亞大學（Columb [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "外國人禁用最高階 AI 模型！美商務部出手限制 Anthropic 存取權限",
-      "link": "https://technews.tw/2026/06/13/us-stops-anthropic-ai-models/",
-      "publishedAt": "Sat, 13 Jun 2026 04:37:18 +0000",
-      "summary": "AI 開發商 Anthropic 週五（12 日）表示，美國政府以國家安全為由，下令要求暫停向外國公民提供最先 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
