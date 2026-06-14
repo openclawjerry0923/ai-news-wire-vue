@@ -1,30 +1,88 @@
 {
-  "generatedAt": "2026-06-14T04:13:21.408Z",
+  "generatedAt": "2026-06-14T08:41:17.334Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(feishu): target typing reaction on inbound message",
-      "link": "https://github.com/openclaw/openclaw/commit/808f677ab473b33f9c63af0b44aef3141afd115d",
-      "publishedAt": "2026-06-14T04:11:49Z",
-      "summary": "fix(feishu): target typing reaction on inbound message Target Feishu Typing reactions at the inbound message id while preserving reply and thread routing to the topic root. This keeps the fallback to replyToMessageId for flows without a separate inbound target, and adds regression coverage for topic/replyInThread behavior and synthetic Feishu turn sources. Based on and credits #67783 by @huiwen01. This replacement branch carries the same user-visible fix forward because #67783 is dirty against main and earlier automation could not update the fork branch with available permissions. This intentionally does not reuse or expand #73958; root_id routing remains separate. Validation: - pnpm check:changed - pnpm -s vitest run extensions/feishu/src/bot.test.ts extensions/feishu/src/reply-dispatcher.test.ts extensions/feishu/src/monitor.reaction.test.ts - autoreview clean: no accepted/actionable findings - GitHub checks: 127 pass, 0 fail, 0 pending Co-authored-by: huiwen01",
+      "title": "test(gateway): keep trajectory export live proof correlated",
+      "link": "https://github.com/openclaw/openclaw/commit/1c86769cb817c468432f48ddd688131ddbfd0081",
+      "publishedAt": "2026-06-14T08:38:58Z",
+      "summary": "test(gateway): keep trajectory export live proof correlated",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): target typing reaction on inbound message",
-      "summaryZh": "重點：修正(feishu): target typing reaction on inbound message Target Feishu Typing reactions at the inbound message id while pre..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): keep trajectory export live proof correlated",
+      "summaryZh": "重點：test(Gateway): keep trajectory export live proof correlated..."
     },
     {
       "id": 2,
-      "title": "fix(update): continue after package doctor warnings (#91586)",
-      "link": "https://github.com/openclaw/openclaw/commit/7259cb5c771bd4c55ca78edcaa0123eba3f80bff",
-      "publishedAt": "2026-06-14T04:03:57Z",
-      "summary": "fix(update): continue after package doctor warnings (#91586) * fix(update): continue after package doctor warnings * fix(update): type advisory step rendering * fix(update): preserve advisory doctor step state * fix(update): share advisory doctor state * fix(update): keep timed-out doctor failures blocking * fix(update): require explicit doctor advisory result * fix(update): reject malformed doctor advisory results * fix(update): bound doctor advisory diagnostics * fix(update): keep doctor advisory restart-neutral * fix(update): protect doctor advisory IPC * fix(update): scope doctor advisories to converging updater * fix(update): scope doctor advisories to deferred repairs * fix(update): secure doctor advisory IPC --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
+      "title": "openclaw 2026.6.8-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.8-beta.1",
+      "publishedAt": "2026-06-14T08:14:21Z",
+      "summary": "2026.6.8",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(update): continue after package 文件tor warnings (#91586)",
-      "summaryZh": "重點：修正(update): continue after package 文件tor warnings (#91586) * 修正(update): continue after package 文件tor warnings * 修正(upda..."
+      "titleZh": "OpenClaw 版本更新：2026.6.8-beta.1",
+      "summaryZh": "重點：2026.6.8..."
     },
     {
       "id": 3,
+      "title": "test(qa): align tool coverage CLI expectation",
+      "link": "https://github.com/openclaw/openclaw/commit/b1caba590631160a8111d53100f0509a7fec1d09",
+      "publishedAt": "2026-06-14T08:11:00Z",
+      "summary": "test(qa): align tool coverage CLI expectation",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(qa): align tool coverage CLI expectation",
+      "summaryZh": "重點：test(qa): align tool coverage CLI expectation..."
+    },
+    {
+      "id": 4,
+      "title": "test(agents): skip anthropic billing drift in live tool checks",
+      "link": "https://github.com/openclaw/openclaw/commit/d2c0d3ac9bc2189d305ba0930f6cb5374f85692c",
+      "publishedAt": "2026-06-14T07:56:29Z",
+      "summary": "test(agents): skip anthropic billing drift in live tool checks",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents): skip anthropic billing drift in live tool checks",
+      "summaryZh": "重點：test(agents): skip anthropic billing drift in live tool checks..."
+    },
+    {
+      "id": 5,
+      "title": "次世代運輸機緩不濟急，美國會要求空軍評估重啟 C-17 產線",
+      "link": "https://technews.tw/2026/06/14/us-congress-requests-the-usaf-to-evaluate-the-possibilities-of-reactive-c-17-production/",
+      "publishedAt": "Sun, 14 Jun 2026 07:16:25 +0000",
+      "summary": "面對日益嚴峻的地緣政治衝突與頻繁的全球人道任務，美國空軍的戰略空運主力 C-17「全球霸王 III」（Glob [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "Supermicro 推搭載英特爾 Xeon 6+ 處理器新伺服器方案，助大型雲端及資料中心降低總擁有成本，加速服務上線",
+      "link": "https://technews.tw/2026/06/14/supermicro-intel-xeon-6-dcbbs/",
+      "publishedAt": "Sun, 14 Jun 2026 06:00:52 +0000",
+      "summary": "AI、企業級運算、儲存及 5G／邊緣運算整體解決方案供應商 Super Micro Computer, Inc [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "85% 串流音樂具詐騙性質，Deezer 搶先推出適用各串流平台的 AI 音樂偵測器",
+      "link": "https://infosecu.technews.tw/2026/06/14/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/",
+      "publishedAt": "Sun, 14 Jun 2026 06:00:45 +0000",
+      "summary": "AI 生成音樂在各串流平台上的數量持續增加，串流平台 Deezer 曾公布一項數據指出，目前上傳至其平台的所有 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "當細胞開始交換 DNA：可能改寫癌症演化觀點的新發現",
+      "link": "https://technews.tw/2026/06/14/genome-instability-triggers-intercellular-dna-transfer-between-human-cells/",
+      "publishedAt": "Sun, 14 Jun 2026 05:00:19 +0000",
+      "summary": "人類細胞的基因組（genome）咸認是高度封閉系統，每個細胞通常只會將自己的 DNA 傳給子細胞。然而，最近美 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "Anthropic 被政府命令九十分鐘內下架最新 AI 模型，背後到底發生什麼事？",
       "link": "https://technews.tw/2026/06/14/trump-administration-only-gave-anthropic-90-minutes-to-de-deploy-its-new-ai-model/",
       "publishedAt": "Sun, 14 Jun 2026 03:38:03 +0000",
@@ -33,69 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "fix(ui): repair iOS Safari chat viewport handling",
-      "link": "https://github.com/openclaw/openclaw/commit/889bc52ba5b38187d10d22fd8978858011342cba",
-      "publishedAt": "2026-06-14T03:36:42Z",
-      "summary": "fix(ui): repair iOS Safari chat viewport handling Repairs https://github.com/openclaw/openclaw/pull/63644. Review proof: local structured autoreview on branch review/pr-92855 against origin/main exited clean with no accepted/actionable findings. Co-authored-by: Xi Qi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): repair iOS Safari chat viewport handling",
-      "summaryZh": "重點：修正(ui): repair iOS Safari chat viewport handling Repairs https://github.com/OpenClaw/OpenClaw/pull/63644. Review proof: ..."
-    },
-    {
-      "id": 5,
-      "title": "fix(hooks): reject slug-generator error payloads",
-      "link": "https://github.com/openclaw/openclaw/commit/c8cf57a1a54056e582fc18e8c0ca70d4396e5078",
-      "publishedAt": "2026-06-14T03:31:01Z",
-      "summary": "fix(hooks): reject slug-generator error payloads Repairs https://github.com/openclaw/openclaw/pull/64181. Co-authored-by: Cypher",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(hooks): reject slug-generator error payloads",
-      "summaryZh": "重點：修正(hooks): reject slug-generator error payloads Repairs https://github.com/OpenClaw/OpenClaw/pull/64181. Co-authored-by:..."
-    },
-    {
-      "id": 6,
+      "id": 10,
       "title": "兩年營收暴增 3.4 倍、坐擁 5 億用戶！神祕數位巨頭 Bending Spoons 悄悄叩關美股",
       "link": "https://finance.technews.tw/2026/06/14/ai-empowers-individuals-generate-2-57m-annually-bending-spoons-startup-pe-revenue-triples-2-years-ipo/",
       "publishedAt": "Sun, 14 Jun 2026 03:00:04 +0000",
       "summary": "今年夏天的首次公開發行（IPO）市場非常熱鬧，SpaceX、Anthropic、OpenAI 依序排隊中，但可 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "川普政府全面封殺 Anthropic 頂尖 AI 外國用戶，竟是亞馬遜去告密",
-      "link": "https://infosecu.technews.tw/2026/06/14/amazons-ceo-andy-jassy-was-the-snitch-who-caused-the-ban-on-anthropic/",
-      "publishedAt": "Sun, 14 Jun 2026 02:56:59 +0000",
-      "summary": "科技巨頭與白宮的角力再度升級，《華爾街日報》引述知情人士，亞馬遜執行長賈西（Andy Jassy）親自向川普政 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "蘋果晶片版 Mac 故障率只有英特爾版一半，散熱佳、低功耗但維修難度仍高",
-      "link": "https://technews.tw/2026/06/14/apple-silicon-cuts-mac-failures-in-half-says-refurb-firm/",
-      "publishedAt": "Sun, 14 Jun 2026 02:30:37 +0000",
-      "summary": "英國維修商 Hoxton Macs 數據顯示，搭載 Apple Silicon 的 Mac 硬體穩定性明顯優於 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "別再盲追標普 500，美銀拋 7 大熊市訊號籲「落袋為安」",
-      "link": "https://finance.technews.tw/2026/06/14/bank-of-america-warns-investors-take-profits-7-bear-market-signals-flashing/",
-      "publishedAt": "Sun, 14 Jun 2026 02:00:56 +0000",
-      "summary": "美股漲到現在，最危險的地方不是波動大，而是市場看起來一切都還很好。 標普500今年以來已上漲8%，AI、科技股 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "智慧敷料問世：有害細菌孳生才釋放抗生素，加速傷口癒合並降低抗藥性",
-      "link": "https://technews.tw/2026/06/14/scientists-create-intelligent-bandage-that-targets-harmful-bacteria/",
-      "publishedAt": "Sun, 14 Jun 2026 01:30:49 +0000",
-      "summary": "美國布朗大學（Brown University）生醫工程師開發出革命性智慧傷口敷料，能在偵測到有害細菌時才釋放 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
