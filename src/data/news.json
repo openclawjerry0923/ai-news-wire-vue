@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-06-14T08:41:17.334Z",
+  "generatedAt": "2026-06-14T11:31:22.157Z",
   "items": [
     {
       "id": 1,
-      "title": "test(gateway): keep trajectory export live proof correlated",
-      "link": "https://github.com/openclaw/openclaw/commit/1c86769cb817c468432f48ddd688131ddbfd0081",
-      "publishedAt": "2026-06-14T08:38:58Z",
-      "summary": "test(gateway): keep trajectory export live proof correlated",
+      "title": "fix(gateway): degrade config watcher to polling",
+      "link": "https://github.com/openclaw/openclaw/commit/c78f9376d9297c15686709465f797345ea071f25",
+      "publishedAt": "2026-06-14T11:29:29Z",
+      "summary": "fix(gateway): degrade config watcher to polling Fixes #92851. When native filesystem watching exhausts its retry budget, the gateway config reloader now falls back to polling instead of disabling hot reload for the rest of the process. The watcher state tracks the effective Chokidar polling mode, including CHOKIDAR_USEPOLLING overrides, so forced polling avoids a redundant native phase and forced native mode reports an accurate native-mode disable. Verification: - node scripts/run-vitest.mjs src/gateway/config-reload.test.ts --maxWorkers=1 - .agents/skills/autoreview/scripts/autoreview --mode branch --base origin/main - Testbox-through-Crabbox tbx_01kv2xvbqkv4dmvvvsswzm75hz: OPENCLAW_CHECK_CHANGED_REMOTE_CHILD=1 OPENCLAW_CHANGED_LANES_RAW_SYNC=1 corepack pnpm check:changed - GitHub PR checks clean on c9762c5159a2ef75aa23d2af2a5435d0d8bf6b63",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): keep trajectory export live proof correlated",
-      "summaryZh": "重點：test(Gateway): keep trajectory export live proof correlated..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): degrade config watcher to polling",
+      "summaryZh": "重點：修正(Gateway): degrade config watcher to polling 修正 #92851. When native filesystem watching exhausts its retry budget, the..."
     },
     {
       "id": 2,
-      "title": "openclaw 2026.6.8-beta.1",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.8-beta.1",
-      "publishedAt": "2026-06-14T08:14:21Z",
-      "summary": "2026.6.8",
-      "source": "OpenClaw Releases",
+      "title": "fix(subagents): handle configured bare model provenance",
+      "link": "https://github.com/openclaw/openclaw/commit/d4a74b4993b97a02f5c04c46c342b35591e10e2a",
+      "publishedAt": "2026-06-14T11:29:22Z",
+      "summary": "fix(subagents): handle configured bare model provenance",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.6.8-beta.1",
-      "summaryZh": "重點：2026.6.8..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): handle configured bare 模型 provenance",
+      "summaryZh": "重點：修正(subagents): handle configured bare 模型 provenance..."
     },
     {
       "id": 3,
-      "title": "test(qa): align tool coverage CLI expectation",
-      "link": "https://github.com/openclaw/openclaw/commit/b1caba590631160a8111d53100f0509a7fec1d09",
-      "publishedAt": "2026-06-14T08:11:00Z",
-      "summary": "test(qa): align tool coverage CLI expectation",
+      "title": "fix(subagents): preserve config-selected child model overrides",
+      "link": "https://github.com/openclaw/openclaw/commit/aa04aef629d18413659c7c801687fcaed656c196",
+      "publishedAt": "2026-06-14T11:29:22Z",
+      "summary": "fix(subagents): preserve config-selected child model overrides",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): align tool coverage CLI expectation",
-      "summaryZh": "重點：test(qa): align tool coverage CLI expectation..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): preserve config-selected child 模型 overrides",
+      "summaryZh": "重點：修正(subagents): preserve config-selected child 模型 overrides..."
     },
     {
       "id": 4,
-      "title": "test(agents): skip anthropic billing drift in live tool checks",
-      "link": "https://github.com/openclaw/openclaw/commit/d2c0d3ac9bc2189d305ba0930f6cb5374f85692c",
-      "publishedAt": "2026-06-14T07:56:29Z",
-      "summary": "test(agents): skip anthropic billing drift in live tool checks",
-      "source": "OpenClaw Commits",
+      "title": "openclaw 2026.6.8-beta.1",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.8-beta.1",
+      "publishedAt": "2026-06-14T11:26:39Z",
+      "summary": "2026.6.8 Highlights Telegram and WhatsApp channel delivery are richer and less brittle: Telegram can send structured rich text with tables, lists, expandable blockquotes, prompt-preserving CLI backend delivery, retired native draft migration, and safer rich-media boundaries, while WhatsApp now honors configured ACP bindings. (#92679, #84082, #89421, #92513) Thanks @obviyus, @jzakirov, @spacegeologist, and @TurboTheTurtle. Agent and Gateway recovery is sharper across account-scoped DM sends, generated media completions, reset archive fallback reads, restart shutdown aborts, yielded subagent pauses, trusted subagent thinking override fallback, yielded cron media, heartbeat dedupe, session identity prompts, and unknown OpenAI agent selector rejection. (#92788, #91246, #92879, #91357, #92631, #92412, #92146, #91287, #92468, #92510) Thanks @yetval, @TurboTheTurtle, @masatohoshino, @CadanHu, @ooiuuii, @openperf, @IWhatsskill, @ZengWen-DT, and @zhangguiping-xydt. Provider/model handling expands and tightens with GLM-5.2, Claude Haiku 4.5 catalog rows, OpenRouter and Google Vertex provider-prefix normalization, managed SecretRef auth, OAuth image-default routing through Codex, bounded model browse discovery, storeless OpenAI Responses replay gating, invalid OpenAI reasoning-signature recovery, Claude 4.5 Copilot tool-streaming safety, and OpenAI/Anthropic-family payload quarantine for unreadable or post-hook tool schemas. (#92796, #90116, #92627, #91218, #90686, #92824, #92247, #90706, #92941, #75393, #92908, #92921, #92928) Thanks @arkyu2077, @liuhao1024, @bymle, @rohitjavvadi, @bek91, @samson910022, @snowzlm, @Kailigithub, and @vincentkoc. /usage and reply payload hooks now have a native full footer renderer, default template, fixed-decimal formatting, credential-aware limits, better partial-count handling, and warnings for broken templates instead of silent bad output. (#92657, #89835, #89629) Thanks @Marvinthebored. UI and mobile flows are steadier: workspace files can collapse and start collapsed, WebChat backscroll survives streaming, the sidebar session picker remains interactive above the desktop workbench, reset soft args survive UI dispatch, stale dashboard session parent lineage is preserved, and iOS reconnects stale foreground gateways. (#92779, #92622, #92705, #91353, #90658, #92552) Thanks @shakkernerd, @TurboTheTurtle, @NianJiuZst, @zhouhe-xydt, @luoyanglang, and @Solvely-Colin. Memory, state, and diagnostics recover cleaner: oversized OpenAI embedding batches split before 431s, QMD memory search stays available in transient mode, SQLite avoids WAL on NFS state volumes, stuck-session recovery scheduling no longer resets warning backoff, full memory reindexes preserve rollback/cache recovery, raw Memory Wiki source pages stop looking malformed, and Infinity chunk limits stay genuinely unbounded. (#92650, #92618, #92639, #91247, #92752, #92881, #59137, #92876, #69700, #92735) Thanks @mushuiyu886, @TurboTheTurtle, @849261680, @gnanam1990, @TSHOGX, @arlen8411, and @yhterrance. Changes Providers/models: add GLM-5.2 support and Claude Haiku 4.5 catalog entries while keeping provider-qualified model IDs normalized across OpenRouter and Google Vertex paths. (#92796, #90116, #92627, #91218) Thanks @arkyu2077, @liuhao1024, and @bymle. Channel plugins: ship Telegram rich-message delivery and WhatsApp ACP binding support, including rich prompt handoff to CLI backends and transport fixtures for richer drafts. (#92679, #92513) Thanks @obviyus and @TurboTheTurtle. Agent commands: support /btw in CLI-backed sessions and keep CLI usage-error exits classified as usage failures instead of successful runs. (#92669, #92162) Thanks @joshavant and @Pandah97. Usage hooks: add built-in full footer rendering, default footer templates, per-turn usage state, credential-aware limits, and fixed-decimal formatting for usage-bar templates. (#92657, #89835, #89629) Thanks @Marvinthebored. Docs and operator guidance: document node config examples, clarify before-install hook scope, correct agent default concurrency comments, refresh ZAI provider docs, and update channel/group docs for current Telegram and WhatsApp behavior. (#92677, #92766, #92695) Thanks @liuhao1024, @sallyom, and @ArielSmoliar. Fixes Channels and delivery: preserve account-scoped DM channel send policy, rich Telegram final replies, rich Telegram tables and lists, Telegram thread-create CLI remapping, Feishu dynamic-agent routes after persisted binding reuse, Slack outbound message_sent hooks, contributed message-tool schema optionality, same-channel generated media completions, and channel chunking around surrogate pairs and Infinity limits. (#92788, #92679, #89421, #89943, #42837, #92814, #91137, #91246, #92735) Thanks @yetval, @obviyus, @spacegeologist, @rishitamrakar, @liuhao1024, @lundog, @TurboTheTurtle, and @yhterrance. Discord: give generated auto-thread titles a 60-second timeout and 4,096-token reasoning-model output budget, clamped to the selected model output cap. (#64734) Thanks @hanamizuki. Agent, cron, and Gateway runtime: mark active main sessions before restart shutdown aborts, pause yielded subagent runs whose terminal also signals abort, clamp trusted subagent thinking overrides through provider/model fallback, preserve yielded media completions, restore reset archive fallback reads when active async transcripts are missing, de-duplicate main-session heartbeat events, expose session identity in runtime prompts, reject unknown OpenAI agent selectors, keep generated media completions and slash-command block replies in WebChat, and require admin privileges for HTTP session/model override surfaces. (#91357, #92631, #92412, #92146, #92879, #91287, #92468, #92510, #91246, #92651, #92646) Thanks @ooiuuii, @openperf, @IWhatsskill, @masatohoshino, @CadanHu, @ZengWen-DT, @zhangguiping-xydt, and @TurboTheTurtle. Providers and model replay: preserve storeless OpenAI Responses replay compatibility, recover invalid OpenAI reasoning signatures, route OAuth image defaults through Codex for eligible OpenAI profiles, avoid eager tool streaming for Claude 4.5 in Copilot, quarantine unreadable and post-hook OpenAI/Anthropic-family tool schemas without broadening allowed tool choices, honor profile auth for SecretRef model entries, bound model browsing, strip provider prefixes where runtimes need bare IDs, and surface nested embedding fetch failures. (#90706, #92941, #92824, #75393, #92908, #92921, #92928, #90686, #92247, #92627, #91218, #92628) Thanks @snowzlm, @bek91, @Kailigithub, @vincentkoc, @rohitjavvadi, @samson910022, @liuhao1024, @bymle, and @mushuiyu886. Memory, state, diagnostics, and config: split header-too-large embedding batches, keep QMD memory search enabled in transient mode, avoid SQLite WAL on NFS volumes, preserve recovery scheduling outside stuck-session warning backoff, preserve full-reindex rollback/cache recovery, treat raw Memory Wiki source pages as source evidence, and keep shell environment fallbacks contained in config write tests. (#92650, #92618, #92639, #91247, #92752, #92881, #59137, #92876, #69700) Thanks @mushuiyu886, @TurboTheTurtle, @849261680, @gnanam1990, @TSHOGX, and @arlen8411. UI/mobile/TUI: preserve dashboard session parent lineage, WebChat backscroll, reset soft command args, sidebar session picker interactivity, collapsed workspace files, resolved /model confirmation refs, and stale foreground iOS Gateway reconnects. (#90658, #92622, #91353, #92705, #92779, #92773, #92552) Thanks @luoyanglang, @TurboTheTurtle, @zhouhe-xydt, @NianJiuZst, @shakkernerd, @NarahariRaghava, and @Solvely-Colin. Release and test reliability: extend slow Gateway/full-suite watchdogs, split local full-suite shards when throttled, stabilize plugin auth marker fixtures, avoid brittle provider-ref error text, fold Telegram RTT sampling into live QA evidence, simplify QA scorecard mappings around canonical coverage IDs, keep QA Lab bootstrap selection assertions aligned with flow-only scenarios, skip QA coverage artifact consumers when runtime parity producer status is not green, keep Feishu lifecycle release checks pointed at the active fixture config, isolate trajectory-export live seed turns from Codex-native shell approvals, widen live OpenAI TTS budgets for slower provider responses, and avoid false downgrade prompts for unresolved latest-tag updates. (#92652, #92550, #92558, #92911) Thanks @RomneyDa and @Andy312432.",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): skip anthropic billing drift in live tool checks",
-      "summaryZh": "重點：test(agents): skip anthropic billing drift in live tool checks..."
+      "titleZh": "OpenClaw 版本更新：2026.6.8-beta.1",
+      "summaryZh": "重點：2026.6.8 Highlights Telegram and WhatsApp channel delivery are richer and less brittle: Telegram can send structured ric..."
     },
     {
       "id": 5,
+      "title": "美國海軍還是要雙發動機，波音繼洛馬之後退出初級教練機標案",
+      "link": "https://technews.tw/2026/06/14/beoing-also-announced-to-quit-us-navys-ujts-bid/",
+      "publishedAt": "Sun, 14 Jun 2026 09:48:07 +0000",
+      "summary": "波音近日正式宣布退出美國海軍「初級噴射訓練系統」（UJTS）標案，不再推動以空軍 T-7A「紅鷹」為基礎的改裝 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "次世代運輸機緩不濟急，美國會要求空軍評估重啟 C-17 產線",
       "link": "https://technews.tw/2026/06/14/us-congress-requests-the-usaf-to-evaluate-the-possibilities-of-reactive-c-17-production/",
       "publishedAt": "Sun, 14 Jun 2026 07:16:25 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Supermicro 推搭載英特爾 Xeon 6+ 處理器新伺服器方案，助大型雲端及資料中心降低總擁有成本，加速服務上線",
       "link": "https://technews.tw/2026/06/14/supermicro-intel-xeon-6-dcbbs/",
       "publishedAt": "Sun, 14 Jun 2026 06:00:52 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "85% 串流音樂具詐騙性質，Deezer 搶先推出適用各串流平台的 AI 音樂偵測器",
       "link": "https://infosecu.technews.tw/2026/06/14/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/",
       "publishedAt": "Sun, 14 Jun 2026 06:00:45 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "當細胞開始交換 DNA：可能改寫癌症演化觀點的新發現",
       "link": "https://technews.tw/2026/06/14/genome-instability-triggers-intercellular-dna-transfer-between-human-cells/",
       "publishedAt": "Sun, 14 Jun 2026 05:00:19 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Anthropic 被政府命令九十分鐘內下架最新 AI 模型，背後到底發生什麼事？",
       "link": "https://technews.tw/2026/06/14/trump-administration-only-gave-anthropic-90-minutes-to-de-deploy-its-new-ai-model/",
       "publishedAt": "Sun, 14 Jun 2026 03:38:03 +0000",
       "summary": "在生成式 AI 發展的戰場上，一場突如其來的「國安危機」正引爆華府與矽谷的劇烈摩擦。 《AXIOS》引述 An [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "兩年營收暴增 3.4 倍、坐擁 5 億用戶！神祕數位巨頭 Bending Spoons 悄悄叩關美股",
-      "link": "https://finance.technews.tw/2026/06/14/ai-empowers-individuals-generate-2-57m-annually-bending-spoons-startup-pe-revenue-triples-2-years-ipo/",
-      "publishedAt": "Sun, 14 Jun 2026 03:00:04 +0000",
-      "summary": "今年夏天的首次公開發行（IPO）市場非常熱鬧，SpaceX、Anthropic、OpenAI 依序排隊中，但可 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
