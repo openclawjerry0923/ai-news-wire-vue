@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-14T16:22:50.755Z",
+  "generatedAt": "2026-06-14T18:14:09.724Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(skills): keep managed prompt paths readable (#92894)",
-      "link": "https://github.com/openclaw/openclaw/commit/aefd49909d415a68e7f2692c84b9c54c0cc3616e",
-      "publishedAt": "2026-06-14T16:19:08Z",
-      "summary": "fix(skills): keep managed prompt paths readable (#92894) * fix(skills): keep managed prompt paths readable * fix(skills): preserve only managed skill prompt paths * chore: refresh proof gate * fix(skills): refresh managed prompt snapshots * fix(skills): preserve plugin prompt paths in state roots * test(skills): use generic state-root path names Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
+      "title": "test: centralize session file env restore",
+      "link": "https://github.com/openclaw/openclaw/commit/a1b7f3570ce30b6d0a0bc4545701d1d955a362ef",
+      "publishedAt": "2026-06-14T18:11:31Z",
+      "summary": "test: centralize session file env restore",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): keep managed prompt paths readable (#92894)",
-      "summaryZh": "重點：修正(skills): keep managed prompt paths readable (#92894) * 修正(skills): keep managed prompt paths readable * 修正(skills): p..."
+      "titleZh": "OpenClaw 程式碼更新：test: centralize session file env restore",
+      "summaryZh": "重點：test: centralize session file env restore..."
     },
     {
       "id": 2,
-      "title": "fix(reply): deliver final reply when queued follow-up claims session;…",
-      "link": "https://github.com/openclaw/openclaw/commit/c67dc59b02b09fd2876011e871279970ce987fa0",
-      "publishedAt": "2026-06-14T16:11:05Z",
-      "summary": "fix(reply): deliver final reply when queued follow-up claims session; scope dedupe to routed thread (#90943) * fix(reply): deliver final reply when queued follow-up claims session; scope dedupe to routed thread Two core bugs caused composed replies to be silently dropped (no delivery, no error) when a second message arrived in the same thread mid-run: 1. dispatch-from-config: ensureDispatchReplyOperation only kept the dispatch-owned operation authoritative while it had no result. Once runReplyAgent completed the operation to drain queued follow-ups, a second same-thread inbound could claim the session and the first final reply would try to re-acquire the lane instead of finishing delivery, deadlocking behind the queued work. Keep the dispatch-owned operation authoritative through final delivery. 2. reply-payloads-dedupe: messaging-tool reply dedupe compared only the channel target, not the routed thread, so a send in one thread could suppress a later reply in a different thread. Thread the routed thread id through buildReplyPayloads + follow-up delivery and only fall back to channel-only matching for providers without a thread-aware suppression matcher when neither side carries thread evidence. Adds regression tests; existing Telegram topic-suppression behavior is preserved by gating the thread guard to providers lacking a plugin matcher. * fix(reply): preserve threaded message delivery evidence * fix(reply): dedupe final payloads by delivery route * fix(slack): preserve native send thread evidence * fix(reply): preserve explicit reply thread evidence * fix(reply): align explicit reply route dedupe * fix(reply): preserve delivery lane through final dispatch * fix(mattermost): preserve threaded tool send routes * chore(plugin-sdk): refresh API baseline * fix(reply): align final delivery route dedupe * fix(reply): gate followups on final delivery * fix(reply): keep send receipts private * fix(reply): infer implicit message provider * fix(reply): align routed threading policy * fix(reply): preserve queued delivery context * fix(reply): hydrate queued system event routes * fix(reply): hydrate queued execution routes * fix(reply): scope final delivery barriers * fix(slack): preserve DM target aliases * fix(reply): mirror resolved source thread routes * fix(mattermost): retain delayed delivery barrier * fix(codex): separate message routing from tool policy * fix(reply): consume normalized Slack DM targets once * fix(slack): remove stale target alias * style(reply): satisfy changed lint gates * fix(mattermost): preserve explicit reply targets * test: align Slack reply branch checks * fix(reply): persist overflow summaries to admitted session --------- Co-authored-by: Peter Steinberger",
+      "title": "fix: restore acp task env scope",
+      "link": "https://github.com/openclaw/openclaw/commit/b8ed2c3280dfc00db3150322f3f250db3716dab7",
+      "publishedAt": "2026-06-14T18:06:25Z",
+      "summary": "fix: restore acp task env scope",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): deliver final reply when queued follow-up claims session;…",
-      "summaryZh": "重點：修正(reply): deliver final reply when queued follow-up claims session; scope dedupe to routed thread (#90943) * 修正(reply):..."
+      "titleZh": "OpenClaw 程式碼更新：修正: restore acp task env scope",
+      "summaryZh": "重點：修正: restore acp task env scope..."
     },
     {
       "id": 3,
-      "title": "refactor: route command session reads through seam (#89122)",
-      "link": "https://github.com/openclaw/openclaw/commit/e1744184b8c00af574d99248b6a6caede838a64b",
-      "publishedAt": "2026-06-14T16:01:17Z",
-      "summary": "refactor: route command session reads through seam (#89122) Merged via squash. Prepared head SHA: 73218cc7cd336c7389785960364aed4049a1affd Co-authored-by: jalehman Co-authored-by: jalehman Reviewed-by: @jalehman",
+      "title": "test: route wsl env mutations",
+      "link": "https://github.com/openclaw/openclaw/commit/8bc728307d3ab1a93b1ac9ef3af427596b38ef84",
+      "publishedAt": "2026-06-14T18:03:47Z",
+      "summary": "test: route wsl env mutations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: route command session reads through seam (#89122)",
-      "summaryZh": "重點：refactor: route command session reads through seam (#89122) Merged via squash. Prepared head SHA: 73218cc7cd336c73897859..."
+      "titleZh": "OpenClaw 程式碼更新：test: route wsl env mutations",
+      "summaryZh": "重點：test: route wsl env mutations..."
     },
     {
       "id": 4,
-      "title": "v2026.6.9-alpha.5",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.9-alpha.5",
-      "publishedAt": "2026-06-14T15:49:28Z",
-      "summary": "openclaw 2026.6.9-alpha.5",
-      "source": "OpenClaw Releases",
+      "title": "fix(ollama): preserve length-limited responses (#89160)",
+      "link": "https://github.com/openclaw/openclaw/commit/81924cfd5e61d15866df2479339af0acd817be94",
+      "publishedAt": "2026-06-14T17:59:37Z",
+      "summary": "fix(ollama): preserve length-limited responses (#89160) Preserve Ollama length termination and surface incomplete token-limited embedded-agent turns without discarding durable tool output. Fixes #89051. Co-authored-by: joelnishanth",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.6.9-alpha.5",
-      "summaryZh": "重點：OpenClaw 2026.6.9-alpha.5..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ollama): preserve length-limited responses (#89160)",
+      "summaryZh": "重點：修正(ollama): preserve length-limited responses (#89160) Preserve Ollama length termination and surface incomplete token-l..."
     },
     {
       "id": 5,
