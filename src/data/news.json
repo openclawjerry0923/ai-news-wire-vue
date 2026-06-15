@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-06-15T13:15:34.897Z",
+  "generatedAt": "2026-06-15T18:27:06.615Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(macos): route Peekaboo through app bridge",
-      "link": "https://github.com/openclaw/openclaw/commit/66079161d72a10857e1dd4c54c416d23662c2110",
-      "publishedAt": "2026-06-15T13:14:16Z",
-      "summary": "fix(macos): route Peekaboo through app bridge",
+      "title": "fix(gateway): guard fast-path startup migrations (#93118)",
+      "link": "https://github.com/openclaw/openclaw/commit/df521a645977706eca16dc1130e7f9c53428ab1e",
+      "publishedAt": "2026-06-15T17:54:29Z",
+      "summary": "fix(gateway): guard fast-path startup migrations (#93118) * fix(cron): run legacy cron store migration in gateway fast path * fix(cli): run gateway startup migrations * fix(gateway): guard startup migrations and config selection * fix(gateway): reconcile final startup environment * fix(gateway): preserve guarded startup env semantics * fix(gateway): guard service-mode recovery candidates * fix(config): reconcile normalized env precedence * fix(cli): clear replaced proxy signal handlers * fix(gateway): reject invalid final config * test(gateway): cover invalid future config reset guard * test(cli): remove unused recovery state",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): route Peekaboo through app bridge",
-      "summaryZh": "重點：修正(macos): route Peekaboo through app bridge..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): guard fast-path startup migrations (#93118)",
+      "summaryZh": "重點：修正(Gateway): guard fast-path startup migrations (#93118) * 修正(排程): run legacy 排程 store migration in Gateway fast path * ..."
     },
     {
       "id": 2,
-      "title": "Persist ClawHub skill install provenance (#93283)",
-      "link": "https://github.com/openclaw/openclaw/commit/dd7f2ef002e836591d687ab21adbf8d102d057d9",
-      "publishedAt": "2026-06-15T13:04:08Z",
-      "summary": "Persist ClawHub skill install provenance (#93283) Summary: - The PR adds artifact, installed skill-file, source URL, and verification-envelope fields to ClawHub skill origin/lock metadata while keeping install telemetry restricted to the older version/registry shape. - PR surface: Source +144, Tests +139. Total +283 across 2 files. - Reproducibility: not applicable. as a bug reproduction. Source inspection shows current main lacks the richer `.clawhub` provenance fields, and the PR body provides after-patch live output from a ClawHub install. Automerge notes: - PR branch already contained follow-up commit before automerge: Persist ClawHub skill install provenance Validation: - ClawSweeper review passed for head 65774f4f4ba98611446989a0b1e9497fafa29ae6. - Required merge gates passed before the squash merge. Prepared head SHA: 65774f4f4ba98611446989a0b1e9497fafa29ae6 Review: https://github.com/openclaw/openclaw/pull/93283#issuecomment-4707787041 Co-authored-by: momothemage Co-authored-by: clawsweeper Approved-by: momothemage",
+      "title": "fix(sessions): cache validated transcripts across turns (#90412)",
+      "link": "https://github.com/openclaw/openclaw/commit/a0b16f37e83502f2f16de813b11f20ce6b915e1d",
+      "publishedAt": "2026-06-15T17:32:35Z",
+      "summary": "fix(sessions): cache validated transcripts across turns (#90412) Avoid repeated full JSONL parsing and cloning on every embedded-agent turn by keeping a bounded, validated transcript cache and advancing repair incrementally. The final implementation preserves lock ownership and exact fingerprint validation, publishes only verified writes, handles header rewrites and unterminated JSONL safely, and adds focused regression coverage. Fixes #83943. Co-authored-by: Alix-007",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Persist ClawHub skill install provenance (#93283)",
-      "summaryZh": "重點：Persist ClawHub skill install provenance (#93283) Summary: - The PR adds artifact, installed skill-file, source URL, and..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): cache validated transcripts across turns (#90412)",
+      "summaryZh": "重點：修正(sessions): cache validated transcripts across turns (#90412) Avoid repeated full JSONL parsing and cloning on every e..."
     },
     {
       "id": 3,
-      "title": "fix(memory): clean rollback-journal reindex temp sidecar on NFS stores",
-      "link": "https://github.com/openclaw/openclaw/commit/018d2794687fc45008255d1c858164a5dada88e5",
-      "publishedAt": "2026-06-15T12:49:12Z",
-      "summary": "fix(memory): clean rollback-journal reindex temp sidecar on NFS stores cleanupAgedMemoryReindexTempFiles only removed WAL sidecars (-wal/-shm) of orphaned reindex temp DBs. On NFS-backed stores configureMemorySqliteWalMaintenance -> requireRollbackJournalMode forces journal_mode=DELETE, so the reindex temp DB uses a rollback journal; a hard crash leaves an orphaned .tmp--journal that leaked forever (cleanup neither deleted nor even discovered it). Add -journal to both the delete set (memoryIndexFileSuffixes) and the discovery set (reindexTempEntrySuffixes), with regression tests for the temp-plus-journal and stranded-journal cases.",
+      "title": "fix(cron): preserve scheduled turn tool policy [AI] (#91499)",
+      "link": "https://github.com/openclaw/openclaw/commit/cc000e0ffee9563610aa403ef9bc384a472016e5",
+      "publishedAt": "2026-06-15T17:29:11Z",
+      "summary": "fix(cron): preserve scheduled turn tool policy [AI] (#91499) * fix(cron): preserve creator tool policy for scheduled turns * fix(cron): cap edited scheduled turns * fix(cron): preserve scheduled turn allowlists * fix(cron): cap filtered tool surfaces * fix(cron): cap scheduled turn conversions * fix(cron): include bundled scheduled tools",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): clean rollback-journal reindex temp sidecar on NFS stores",
-      "summaryZh": "重點：修正(記憶): clean rollback-journal reindex temp sidecar on NFS stores cleanupAged記憶ReindexTempFiles only removed WAL sidecar..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): preserve scheduled turn tool policy [AI] (#91499)",
+      "summaryZh": "重點：修正(排程): preserve scheduled turn tool policy [AI] (#91499) * 修正(排程): preserve creator tool policy for scheduled turns * 修..."
     },
     {
       "id": 4,
-      "title": "v2026.6.15-alpha.1",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.15-alpha.1",
-      "publishedAt": "2026-06-15T12:41:38Z",
-      "summary": "v2026.6.15-alpha.1",
-      "source": "OpenClaw Releases",
+      "title": "feat: configure ios app store release upload",
+      "link": "https://github.com/openclaw/openclaw/commit/9092578d8ddc9c2ce8cc5f2963ca4903393d8ab9",
+      "publishedAt": "2026-06-15T17:27:55Z",
+      "summary": "feat: configure ios app store release upload",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.6.15-alpha.1",
-      "summaryZh": "重點：v2026.6.15-alpha.1..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: configure ios app store 版本發布 upload",
+      "summaryZh": "重點：新功能: configure ios app store 版本發布 upload..."
     },
     {
       "id": 5,
+      "title": "台灣新思科技迎接成立 35 周年，與工研院簽訂合作協議發展 IC 設計產業",
+      "link": "https://finance.technews.tw/2026/06/15/synopsys-taiwan-celebrates-its-35th-anniversary/",
+      "publishedAt": "Mon, 15 Jun 2026 14:15:00 +0000",
+      "summary": "台灣新思科技（Synopsys Taiwan）在迎接成立35周年之際，除了舉辦竹科X軟體園區新辦公室啟用典禮之 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "韋伯望遠鏡破譯早期宇宙「小紅點」之謎，揪出被氣體包覆的超大質量黑洞",
+      "link": "https://technews.tw/2026/06/15/finding-little-red-dot-strongest-evidence-black-hole/",
+      "publishedAt": "Mon, 15 Jun 2026 14:07:08 +0000",
+      "summary": "2022 年 NASA 詹姆斯·韋伯太空望遠鏡（JWST）發現神祕的「小紅點」（little red dots [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Threads 帳號遭無預警停權，Meta：帳號誤判未滿 13 歲",
+      "link": "https://infosecu.technews.tw/2026/06/15/meta-issues-a-statement-regarding-the-unannounced-threads-account-bans-on-june-15/",
+      "publishedAt": "Mon, 15 Jun 2026 13:29:02 +0000",
+      "summary": "Meta 旗下社群平台 Threads 15 日傳出，多個政治人物、媒體及創作者的帳號無預警遭到停權，帳號無法 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "澳洲第二大製糖業者Mackay Sugar遭網路攻擊，兩糖廠營運停擺並迫使農戶暫停收割",
       "link": "https://www.ithome.com.tw/news/176600",
       "publishedAt": "2026-06-15 12:06:49",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "遠端管理工具SimpleHelp修補重大身分驗證繞過漏洞，未更新可能導致攻擊者取得管理權限",
       "link": "https://www.ithome.com.tw/news/176601",
       "publishedAt": "2026-06-15 12:06:41",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "MITRE ATT&amp;CK第19版刪除防禦規避戰略，拆分為隱匿與防禦削弱",
       "link": "https://www.ithome.com.tw/news/176594",
       "publishedAt": "2026-06-15 12:06:19",
       "summary": "資安界廣泛採用的攻擊手法框架MITRE ATT&amp;CK，如今已更新至第19版（目前最新為19.1版）。本次新版調整有一項重大變化，是將Enterprise ATT&amp;CK中的防禦規避（Defense Evasion）的戰術，進一步拆分成隱匿（Stealth）與防禦削弱（Defense Impairment）。因此，更新的Enterprise ATT&amp;CK，將從原有14個戰術（Tactics）擴展為15個。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Anthropic發布原始碼漏洞掃描參考實作，示範以Claude驗證與修補漏洞",
-      "link": "https://www.ithome.com.tw/news/176595",
-      "publishedAt": "2026-06-15 11:06:23",
-      "summary": "AI模型業者Anthropic發布程式原始碼安全實務指南，說明企業與開放原始碼的軟體專案如何運用Claude建立威脅模型、找出漏洞，並進一步驗證、分級處理與修補，同時提供開放原始碼參考實作defending-code-reference-",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "美政府要求封鎖他國用戶存取Claude Fable與Mythos，Anthropic全面暫停提供",
-      "link": "https://www.ithome.com.tw/news/176598",
-      "publishedAt": "2026-06-15 11:06:20",
-      "summary": "美國政府上周以國安為由，要求Anthropic封鎖其他國家用戶存取其威力最大的Claude Fable及Mythos模型。Anthropic表示，將全面暫停提供全球用戶作為回應。該公司也發聲明反對美國政府的作法。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "phpBB修補重大身分驗證繞過漏洞，攻擊者可冒充任意論壇用戶",
-      "link": "https://www.ithome.com.tw/news/176597",
-      "publishedAt": "2026-06-15 11:06:01",
-      "summary": "開源論壇軟體phpBB近日發布更新，修補重大身分驗證繞過漏洞，攻擊者可利用這個漏洞登入包括管理者在內的任意帳號， 受影響版本涵蓋3.3.16以前的所有3.x版本，以及4.0.0-a2以前的4.x測試版本，其中3.x版已於3.3.17版修補完成，但4.x版尚未修補。",
       "source": "iThome",
       "tag": "繁中"
     }
