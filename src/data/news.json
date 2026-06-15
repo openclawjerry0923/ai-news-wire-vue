@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-15T18:27:06.615Z",
+  "generatedAt": "2026-06-15T21:43:56.530Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): guard fast-path startup migrations (#93118)",
-      "link": "https://github.com/openclaw/openclaw/commit/df521a645977706eca16dc1130e7f9c53428ab1e",
-      "publishedAt": "2026-06-15T17:54:29Z",
-      "summary": "fix(gateway): guard fast-path startup migrations (#93118) * fix(cron): run legacy cron store migration in gateway fast path * fix(cli): run gateway startup migrations * fix(gateway): guard startup migrations and config selection * fix(gateway): reconcile final startup environment * fix(gateway): preserve guarded startup env semantics * fix(gateway): guard service-mode recovery candidates * fix(config): reconcile normalized env precedence * fix(cli): clear replaced proxy signal handlers * fix(gateway): reject invalid final config * test(gateway): cover invalid future config reset guard * test(cli): remove unused recovery state",
+      "title": "fix(doctor): import default-agent auth profiles into sqlite (#93156)",
+      "link": "https://github.com/openclaw/openclaw/commit/f018945eff80945d4319b6076cac02a0af1dc089",
+      "publishedAt": "2026-06-15T21:42:51Z",
+      "summary": "fix(doctor): import default-agent auth profiles into sqlite (#93156) * fix(doctor): import default-agent auth profiles into sqlite * fix(doctor): type legacy config auth imports * fix(doctor): preserve auth json precedence * fix(doctor): import config auth with state-only stores Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): guard fast-path startup migrations (#93118)",
-      "summaryZh": "重點：修正(Gateway): guard fast-path startup migrations (#93118) * 修正(排程): run legacy 排程 store migration in Gateway fast path * ..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): import default-agent auth profiles into sqlite (#93156)",
+      "summaryZh": "重點：修正(文件tor): import default-agent auth profiles into sqlite (#93156) * 修正(文件tor): import default-agent auth profiles into ..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): cache validated transcripts across turns (#90412)",
-      "link": "https://github.com/openclaw/openclaw/commit/a0b16f37e83502f2f16de813b11f20ce6b915e1d",
-      "publishedAt": "2026-06-15T17:32:35Z",
-      "summary": "fix(sessions): cache validated transcripts across turns (#90412) Avoid repeated full JSONL parsing and cloning on every embedded-agent turn by keeping a bounded, validated transcript cache and advancing repair incrementally. The final implementation preserves lock ownership and exact fingerprint validation, publishes only verified writes, handles header rewrites and unterminated JSONL safely, and adds focused regression coverage. Fixes #83943. Co-authored-by: Alix-007",
+      "title": "fix(plugins): enforce install policy in wrappers (#93357)",
+      "link": "https://github.com/openclaw/openclaw/commit/8b0eac7927d5e7695d058d3503edcd3f8e278b67",
+      "publishedAt": "2026-06-15T20:59:37Z",
+      "summary": "fix(plugins): enforce install policy in wrappers (#93357)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): cache validated transcripts across turns (#90412)",
-      "summaryZh": "重點：修正(sessions): cache validated transcripts across turns (#90412) Avoid repeated full JSONL parsing and cloning on every e..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): enforce install policy in wrappers (#93357)",
+      "summaryZh": "重點：修正(plugins): enforce install policy in wrappers (#93357)..."
     },
     {
       "id": 3,
-      "title": "fix(cron): preserve scheduled turn tool policy [AI] (#91499)",
-      "link": "https://github.com/openclaw/openclaw/commit/cc000e0ffee9563610aa403ef9bc384a472016e5",
-      "publishedAt": "2026-06-15T17:29:11Z",
-      "summary": "fix(cron): preserve scheduled turn tool policy [AI] (#91499) * fix(cron): preserve creator tool policy for scheduled turns * fix(cron): cap edited scheduled turns * fix(cron): preserve scheduled turn allowlists * fix(cron): cap filtered tool surfaces * fix(cron): cap scheduled turn conversions * fix(cron): include bundled scheduled tools",
+      "title": "refactor: add transcript runtime identity contract (#89201)",
+      "link": "https://github.com/openclaw/openclaw/commit/efa9a6110b4e26f48c9dbb7fab113ed0cc36a738",
+      "publishedAt": "2026-06-15T20:04:03Z",
+      "summary": "refactor: add transcript runtime identity contract (#89201)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): preserve scheduled turn tool policy [AI] (#91499)",
-      "summaryZh": "重點：修正(排程): preserve scheduled turn tool policy [AI] (#91499) * 修正(排程): preserve creator tool policy for scheduled turns * 修..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: add transcript runtime identity contract (#89201)",
+      "summaryZh": "重點：refactor: add transcript runtime identity contract (#89201)..."
     },
     {
       "id": 4,
-      "title": "feat: configure ios app store release upload",
-      "link": "https://github.com/openclaw/openclaw/commit/9092578d8ddc9c2ce8cc5f2963ca4903393d8ab9",
-      "publishedAt": "2026-06-15T17:27:55Z",
-      "summary": "feat: configure ios app store release upload",
+      "title": "Control Telegram group history context (#89547)",
+      "link": "https://github.com/openclaw/openclaw/commit/32af1c0697274b71906961129e9ad78620b4ee9d",
+      "publishedAt": "2026-06-15T19:37:04Z",
+      "summary": "Control Telegram group history context (#89547) * fix(telegram): control group history context * fix(telegram): keep history mode type local * fix(telegram): respect history mode during forum recovery",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: configure ios app store 版本發布 upload",
-      "summaryZh": "重點：新功能: configure ios app store 版本發布 upload..."
+      "titleZh": "OpenClaw 程式碼更新：Control Telegram group history context (#89547)",
+      "summaryZh": "重點：Control Telegram group history context (#89547) * 修正(Telegram): control group history context * 修正(Telegram): keep histo..."
     },
     {
       "id": 5,
