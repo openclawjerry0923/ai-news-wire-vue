@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-06-16T10:08:28.397Z",
+  "generatedAt": "2026-06-16T15:55:18.651Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(telegram): dispatch MEDIA directives as attachments (#93690)",
+      "link": "https://github.com/openclaw/openclaw/commit/6e3ebaccf0f97f7e1004f112d0344c2c15923847",
+      "publishedAt": "2026-06-16T15:52:59Z",
+      "summary": "fix(telegram): dispatch MEDIA directives as attachments (#93690) * fix(telegram): deliver MEDIA directive replies as attachments * fix(clownfish): address review for gitcrawl-167-autonomous-terminal-gap (1) --------- Co-authored-by: openclaw-clownfish[bot]",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): dispatch MEDIA directives as attachments (#93690)",
+      "summaryZh": "重點：修正(Telegram): dispatch MEDIA directives as attachments (#93690) * 修正(Telegram): deliver MEDIA directive replies as attac..."
+    },
+    {
+      "id": 2,
+      "title": "fix(reply): preserve unsent text-only finals after block pipeline str…",
+      "link": "https://github.com/openclaw/openclaw/commit/a67ae8137d6bd1f7ce0020a8b6d8ef40d6a9ec68",
+      "publishedAt": "2026-06-16T15:49:12Z",
+      "summary": "fix(reply): preserve unsent text-only finals after block pipeline streamed partial content (fixes #81078) (#93629) When the block reply pipeline streamed partial content, buildReplyPayloads() unconditionally dropped all text-only final payloads. This suppressed the complete final reply when the pipeline only streamed a partial block and never sent the exact final text. The fix checks hasSentPayload() for text-only payloads too, preserving unsent finals instead of dropping them unconditionally.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(reply): preserve unsent text-only finals after block pipeline str…",
+      "summaryZh": "重點：修正(reply): preserve unsent text-only finals after block pipeline streamed partial content (修正 #81078) (#93629) When the ..."
+    },
+    {
+      "id": 3,
+      "title": "fix(control-ui): copy code blocks over plain HTTP via clipboard fallb…",
+      "link": "https://github.com/openclaw/openclaw/commit/a6b348a3073e99cc43c8510b6685b28a77cd8356",
+      "publishedAt": "2026-06-16T15:47:03Z",
+      "summary": "fix(control-ui): copy code blocks over plain HTTP via clipboard fallback (#93666) The async Clipboard API is only available in secure contexts (HTTPS or localhost). On plain-HTTP deployments navigator.clipboard is undefined, so the code block copy button threw synchronously and silently failed. Add a shared copyToClipboard helper that guards the secure-context path and falls back to the legacy execCommand copy, reuse it for the code block button and the copy-as- markdown affordance, and cover it with a unit test plus a real-browser e2e that simulates the non-secure context. Fixes #93628 Co-authored-by: Pick-cat",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): copy code blocks over plain HTTP via clipboard fallb…",
+      "summaryZh": "重點：修正(control-ui): copy code blocks over plain HTTP via clipboard fallback (#93666) The async Clipboard API is only availab..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ci): fail unusable Windows testbox phone-home",
+      "link": "https://github.com/openclaw/openclaw/commit/f285a0c4c4576b41b57d7ad8ec6f2f8f85c39f7e",
+      "publishedAt": "2026-06-16T15:24:18Z",
+      "summary": "fix(ci): fail unusable Windows testbox phone-home",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): fail unusable Windows testbox phone-home",
+      "summaryZh": "重點：修正(ci): fail unusable Windows testbox phone-home..."
+    },
+    {
+      "id": 5,
+      "title": "穿越 80 億光年的「宇宙雷射」，南非望遠鏡捕捉史上最強超巨大邁射",
+      "link": "https://technews.tw/2026/06/16/south-african-telescope-detects-record-breaking-signal-early-universe/",
+      "publishedAt": "Tue, 16 Jun 2026 14:13:08 +0000",
+      "summary": "南非無線電天文台（SARAO）運作的 MeerKAT 無線電望遠鏡，近日偵測到距離最遙遠的羥基巨大邁射（hyd [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "SpaceX 以 600 億美元收購 Cursor，加碼 AI 編碼與訓練布局",
+      "link": "https://finance.technews.tw/2026/06/16/spacex-acquires-cursor-600-million-ai-coding-training/",
+      "publishedAt": "Tue, 16 Jun 2026 13:28:49 +0000",
+      "summary": "美國太空探索技術公司 SpaceX 於 2026 年 6 月 16 日宣布，同意以全股票交易方式收購 AI 程 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "90天完成AI治理起手式，Check Point資安長教你用5個步驟搞定",
       "link": "https://www.ithome.com.tw/news/176644",
       "publishedAt": "2026-06-16 12:06:32",
@@ -11,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "OpenRouter推出Fusion，以多模型協作提升AI研究能力",
       "link": "https://www.ithome.com.tw/news/176646",
       "publishedAt": "2026-06-16 11:06:54",
@@ -20,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 9,
       "title": "伊朗駭客Handala傳出入侵加州水務公司，洩露GPS基礎設施憑證、客戶個資",
       "link": "https://www.ithome.com.tw/news/176643",
       "publishedAt": "2026-06-16 11:06:54",
@@ -29,75 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 10,
       "title": "HPE推VM Essentials新方案，鎖定評估更換虛擬化平臺的企業客戶",
       "link": "https://www.ithome.com.tw/news/176642",
       "publishedAt": "2026-06-16 11:06:37",
       "summary": "在本週舉行的年度用戶大會期間，HPE宣布新的虛擬化平臺遷移方案，鎖定正在評估更換既有虛擬化平臺的企業客戶。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "ENISA歐盟網路演習邁入第八屆，2026聚焦鐵路與海運領域",
-      "link": "https://www.ithome.com.tw/news/176636",
-      "publishedAt": "2026-06-16 11:06:10",
-      "summary": "歐盟網路安全局（ENISA）於6月10日至11日展開兩年一度的大型網路安全演習「Cyber Europe 2026」。此次演習為第八屆，核心目標為實測歐洲各國面對大規模跨境網路攻擊的集體應變能力、協作機制，以及關鍵基礎設施的復原韌性。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "中國駭客組織UNC6508鎖定美國醫療與國防研究機構竊取機密",
-      "link": "https://www.ithome.com.tw/news/176648",
-      "publishedAt": "2026-06-16 11:06:05",
-      "summary": "Google威脅情報團隊（GTIG）揭露由新興中國駭客組織UNC6508發起的大規模網路間諜行動，鎖定北美學術、醫療與軍事研究社群的機構，在長達逾一年的潛伏期間，攻擊者入侵對外開放的網路應用程式、部署客製化惡意軟體、滲透進敏感內部系統，並濫用企業管理工具進行隱密的資料外洩。GTIG與Mandiant Consulting聯手。摧毀惡意基礎設施，並通知受害機構及提供協助。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "refactor(agents): remove unused process registry export",
-      "link": "https://github.com/openclaw/openclaw/commit/047127527051a7e12721488ecdea60d4b7e84fd0",
-      "publishedAt": "2026-06-16T10:07:18Z",
-      "summary": "refactor(agents): remove unused process registry export",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): remove unused process registry export",
-      "summaryZh": "重點：refactor(agents): remove unused process registry export..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(agents): drop unused truncation export",
-      "link": "https://github.com/openclaw/openclaw/commit/203bddcdb7fd7a85f2d41be1464ea91cc545791b",
-      "publishedAt": "2026-06-16T10:06:05Z",
-      "summary": "refactor(agents): drop unused truncation export",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): drop unused truncation export",
-      "summaryZh": "重點：refactor(agents): drop unused truncation export..."
-    },
-    {
-      "id": 9,
-      "title": "test(ci): update checkout timeout guard",
-      "link": "https://github.com/openclaw/openclaw/commit/c6d549c5a721582dcf3c5ba33428e4b5b7145733",
-      "publishedAt": "2026-06-16T10:04:58Z",
-      "summary": "test(ci): update checkout timeout guard",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): update checkout timeout guard",
-      "summaryZh": "重點：test(ci): update checkout timeout guard..."
-    },
-    {
-      "id": 10,
-      "title": "fix(skills): clear orphaned idempotency pointer on corrupt-metadata r…",
-      "link": "https://github.com/openclaw/openclaw/commit/176572cb359a842aba0cfde843ec2c98c99c9f73",
-      "publishedAt": "2026-06-16T10:04:47Z",
-      "summary": "fix(skills): clear orphaned idempotency pointer on corrupt-metadata re-begin (#93509) Merged via squash. Prepared head SHA: 0dd53d2dac93868354e8014ab41ab13693e050f2 Co-authored-by: Alix-007 Co-authored-by: vincentkoc Reviewed-by: @vincentkoc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): clear orphaned idempotency pointer on corrupt-metadata r…",
-      "summaryZh": "重點：修正(skills): clear orphaned idempotency pointer on corrupt-metadata re-begin (#93509) Merged via squash. Prepared head SH..."
     }
   ]
 }
