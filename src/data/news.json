@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-16T15:55:18.651Z",
+  "generatedAt": "2026-06-16T19:37:40.399Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(telegram): dispatch MEDIA directives as attachments (#93690)",
-      "link": "https://github.com/openclaw/openclaw/commit/6e3ebaccf0f97f7e1004f112d0344c2c15923847",
-      "publishedAt": "2026-06-16T15:52:59Z",
-      "summary": "fix(telegram): dispatch MEDIA directives as attachments (#93690) * fix(telegram): deliver MEDIA directive replies as attachments * fix(clownfish): address review for gitcrawl-167-autonomous-terminal-gap (1) --------- Co-authored-by: openclaw-clownfish[bot]",
+      "title": "fix(qa): reject malformed kitchen-sink CPU samples",
+      "link": "https://github.com/openclaw/openclaw/commit/b816dfbb9f10c6490373a23c745fc6b646a2c437",
+      "publishedAt": "2026-06-16T19:36:59Z",
+      "summary": "fix(qa): reject malformed kitchen-sink CPU samples",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): dispatch MEDIA directives as attachments (#93690)",
-      "summaryZh": "重點：修正(Telegram): dispatch MEDIA directives as attachments (#93690) * 修正(Telegram): deliver MEDIA directive replies as attac..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): reject malformed kitchen-sink CPU samples",
+      "summaryZh": "重點：修正(qa): reject malformed kitchen-sink CPU samples..."
     },
     {
       "id": 2,
-      "title": "fix(reply): preserve unsent text-only finals after block pipeline str…",
-      "link": "https://github.com/openclaw/openclaw/commit/a67ae8137d6bd1f7ce0020a8b6d8ef40d6a9ec68",
-      "publishedAt": "2026-06-16T15:49:12Z",
-      "summary": "fix(reply): preserve unsent text-only finals after block pipeline streamed partial content (fixes #81078) (#93629) When the block reply pipeline streamed partial content, buildReplyPayloads() unconditionally dropped all text-only final payloads. This suppressed the complete final reply when the pipeline only streamed a partial block and never sent the exact final text. The fix checks hasSentPayload() for text-only payloads too, preserving unsent finals instead of dropping them unconditionally.",
+      "title": "fix: pin plugin workspace dir for sessions.list to avoid O(rows) memo…",
+      "link": "https://github.com/openclaw/openclaw/commit/583b7195b4c295d84877e9a708cc294da068492d",
+      "publishedAt": "2026-06-16T19:33:46Z",
+      "summary": "fix: pin plugin workspace dir for sessions.list to avoid O(rows) memo busting (#93719) * fix: pin plugin workspace dir for sessions.list to avoid O(rows) memo busting sessions.list was O(rows) slow under concurrent agent/cron load because each row read a process-global active plugin-registry workspace dir that was mutated by other turns between rows. The per-row memo key changed every time, so loadPluginMetadataSnapshot scanned fresh (~100ms per row). Fix: 1. Add AsyncLocalStorage-based workspace dir pinning to runtime-workspace-state.ts — withPinnedActivePluginRegistryWorkspaceDir() snapshots the current workspace dir for the duration of a callback. 2. Wrap listSessionsFromStoreAsync body in the pin so all per-row metadata lookups use a stable memo key. Fixes #90814 * test(plugins): cover request-scoped workspace pins * fix(plugins): pin canonical runtime workspace reads * fix(plugins): preserve workspace pins across reloads --------- Co-authored-by: lsr911 Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): preserve unsent text-only finals after block pipeline str…",
-      "summaryZh": "重點：修正(reply): preserve unsent text-only finals after block pipeline streamed partial content (修正 #81078) (#93629) When the ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: pin plugin workspace dir for sessions.list to avoid O(rows) memo…",
+      "summaryZh": "重點：修正: pin plugin workspace dir for sessions.list to avoid O(rows) memo busting (#93719) * 修正: pin plugin workspace dir for..."
     },
     {
       "id": 3,
-      "title": "fix(control-ui): copy code blocks over plain HTTP via clipboard fallb…",
-      "link": "https://github.com/openclaw/openclaw/commit/a6b348a3073e99cc43c8510b6685b28a77cd8356",
-      "publishedAt": "2026-06-16T15:47:03Z",
-      "summary": "fix(control-ui): copy code blocks over plain HTTP via clipboard fallback (#93666) The async Clipboard API is only available in secure contexts (HTTPS or localhost). On plain-HTTP deployments navigator.clipboard is undefined, so the code block copy button threw synchronously and silently failed. Add a shared copyToClipboard helper that guards the secure-context path and falls back to the legacy execCommand copy, reuse it for the code block button and the copy-as- markdown affordance, and cover it with a unit test plus a real-browser e2e that simulates the non-secure context. Fixes #93628 Co-authored-by: Pick-cat",
+      "title": "fix(ollama): preserve configured API during discovery (#93729)",
+      "link": "https://github.com/openclaw/openclaw/commit/f0b5d78ff91b3ba354bdbe0f0ccbd35c19e7625e",
+      "publishedAt": "2026-06-16T19:29:46Z",
+      "summary": "fix(ollama): preserve configured API during discovery (#93729) * fix(ollama): preserve configured API during discovery * fix(ollama): keep compatible discovery base URL * fix(ollama): route compatible APIs through configured transport --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): copy code blocks over plain HTTP via clipboard fallb…",
-      "summaryZh": "重點：修正(control-ui): copy code blocks over plain HTTP via clipboard fallback (#93666) The async Clipboard API is only availab..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ollama): preserve configured API during discovery (#93729)",
+      "summaryZh": "重點：修正(ollama): preserve configured API during discovery (#93729) * 修正(ollama): preserve configured API during discovery * 修..."
     },
     {
       "id": 4,
-      "title": "fix(ci): fail unusable Windows testbox phone-home",
-      "link": "https://github.com/openclaw/openclaw/commit/f285a0c4c4576b41b57d7ad8ec6f2f8f85c39f7e",
-      "publishedAt": "2026-06-16T15:24:18Z",
-      "summary": "fix(ci): fail unusable Windows testbox phone-home",
+      "title": "fix(discord): propagate timeout through channel capabilities diagnost…",
+      "link": "https://github.com/openclaw/openclaw/commit/f3982d644290338bd3d0d8759b5cce6ca3df4780",
+      "publishedAt": "2026-06-16T19:27:50Z",
+      "summary": "fix(discord): propagate timeout through channel capabilities diagnostics (#93716) * fix(discord): propagate timeout through channel capabilities diagnostics * fix(discord): fix type error in capabilities timeout test * fix(discord): cancel timed-out capability diagnostics * fix(discord): abort in-flight capability requests --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): fail unusable Windows testbox phone-home",
-      "summaryZh": "重點：修正(ci): fail unusable Windows testbox phone-home..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): propagate timeout through channel capabilities diagnost…",
+      "summaryZh": "重點：修正(Discord): propagate timeout through channel capabilities diagnostics (#93716) * 修正(Discord): propagate timeout throug..."
     },
     {
       "id": 5,
