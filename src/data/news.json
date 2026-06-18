@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-18T19:29:37.093Z",
+  "generatedAt": "2026-06-18T22:10:06.228Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(e2e): cancel stalled kitchen sink response streams",
-      "link": "https://github.com/openclaw/openclaw/commit/d9397e5b9bb068f01d8aa915dcb31b5573b753ec",
-      "publishedAt": "2026-06-18T19:27:08Z",
-      "summary": "fix(e2e): cancel stalled kitchen sink response streams",
+      "title": "fix(e2e): validate docker e2e ports",
+      "link": "https://github.com/openclaw/openclaw/commit/27310bfa34cee0411eb4370b2e575542eea93f02",
+      "publishedAt": "2026-06-18T22:09:47Z",
+      "summary": "fix(e2e): validate docker e2e ports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(e2e): cancel stalled kitchen sink response streams",
-      "summaryZh": "重點：修正(e2e): cancel stalled kitchen sink response streams..."
+      "titleZh": "OpenClaw 文件更新：修正(e2e): validate 文件ker e2e ports",
+      "summaryZh": "重點：修正(e2e): validate 文件ker e2e ports..."
     },
     {
       "id": 2,
-      "title": "fix(scripts): ignore loose package content length headers",
-      "link": "https://github.com/openclaw/openclaw/commit/d9d7766a4105e66bb6d962f6d8b38aaf03a33570",
-      "publishedAt": "2026-06-18T19:23:41Z",
-      "summary": "fix(scripts): ignore loose package content length headers",
+      "title": "fix(slack): stop leaking bot token into /api/auth.test request body (…",
+      "link": "https://github.com/openclaw/openclaw/commit/fbc12e0879f746c7fd128165a1fca85407dca455",
+      "publishedAt": "2026-06-18T22:09:37Z",
+      "summary": "fix(slack): stop leaking bot token into /api/auth.test request body (#94574) * fix(slack): stop leaking bot token into /api/auth.test request body The bot token is already passed as an `Authorization` header, so we don't need to send it in the request body when calling `/api/auth.test`. See [Slack API documentation](https://api.slack.com/methods/auth.test). Also, showing with `curl` that the bot token is not needed in the request body when passed as an `Authorization` header when calling `/api/auth.test`: ``` curl -X POST https://slack.com:443/api/auth.test -H \"Authorization: Bearer xoxb-...\" {\"ok\":true,\"url\":\"https://xcoulonworkspace.slack.com/\",\"team\":\"xcoulon\",...} ``` Signed-off-by: Xavier Coulon * add test for slack auth.test token handling verify that the bot token is not passed in the request body when calling `/api/auth.test`. Signed-off-by: Xavier Coulon --------- Signed-off-by: Xavier Coulon",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(scripts): ignore loose package content length headers",
-      "summaryZh": "重點：修正(scripts): ignore loose package content length headers..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): stop leaking bot token into /api/auth.test request body (…",
+      "summaryZh": "重點：修正(slack): stop leaking bot token into /api/auth.test request body (#94574) * 修正(slack): stop leaking bot token into /ap..."
     },
     {
       "id": 3,
-      "title": "refactor(core): remove unused helper wrappers",
-      "link": "https://github.com/openclaw/openclaw/commit/0771ac8563795672fcaefa8880cd2299d1e08424",
-      "publishedAt": "2026-06-18T19:22:07Z",
-      "summary": "refactor(core): remove unused helper wrappers",
+      "title": "fix(sdk): refresh plugin api baseline hash",
+      "link": "https://github.com/openclaw/openclaw/commit/73cdb78a1edd341b3b4d6cc3e56b2e353756b956",
+      "publishedAt": "2026-06-18T22:01:15Z",
+      "summary": "fix(sdk): refresh plugin api baseline hash",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(core): remove unused helper wrappers",
-      "summaryZh": "重點：refactor(core): remove unused helper wrappers..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sdk): refresh plugin api baseline hash",
+      "summaryZh": "重點：修正(sdk): refresh plugin api baseline hash..."
     },
     {
       "id": 4,
-      "title": "fix(scripts): ignore loose audit content length headers",
-      "link": "https://github.com/openclaw/openclaw/commit/906174bff16dc82631c7e6a43860436aa6e38cdb",
-      "publishedAt": "2026-06-18T19:20:26Z",
-      "summary": "fix(scripts): ignore loose audit content length headers",
+      "title": "fix(e2e): validate docker resource limits",
+      "link": "https://github.com/openclaw/openclaw/commit/0df60ad306e743adcd0b2756df99afd9666e24e5",
+      "publishedAt": "2026-06-18T22:00:42Z",
+      "summary": "fix(e2e): validate docker resource limits",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(scripts): ignore loose audit content length headers",
-      "summaryZh": "重點：修正(scripts): ignore loose audit content length headers..."
+      "titleZh": "OpenClaw 文件更新：修正(e2e): validate 文件ker resource limits",
+      "summaryZh": "重點：修正(e2e): validate 文件ker resource limits..."
     },
     {
       "id": 5,
