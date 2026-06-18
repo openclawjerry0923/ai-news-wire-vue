@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-06-18T12:53:57.462Z",
+  "generatedAt": "2026-06-18T16:34:12.979Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(providers): remove unused catalog metadata exports",
+      "link": "https://github.com/openclaw/openclaw/commit/4560597c4bbf57f81b9038520145e64a160f4f32",
+      "publishedAt": "2026-06-18T16:24:41Z",
+      "summary": "refactor(providers): remove unused catalog metadata exports",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(providers): remove unused catalog metadata exports",
+      "summaryZh": "重點：refactor(providers): remove unused catalog metadata exports..."
+    },
+    {
+      "id": 2,
+      "title": "feat(firecrawl): add keyless scrape support (#94551)",
+      "link": "https://github.com/openclaw/openclaw/commit/beea31a6b5daa78c9a73b3d05b7ea9ec24c1c873",
+      "publishedAt": "2026-06-18T16:23:41Z",
+      "summary": "feat(firecrawl): add keyless scrape support (#94551) Merged under maintainer approval while exact-head CI was queue-bound. Co-authored-by: Developers Digest Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(firecrawl): add keyless scrape support (#94551)",
+      "summaryZh": "重點：新功能(firecrawl): add keyless scrape support (#94551) Merged under maintainer approval while exact-head CI was queue-bound..."
+    },
+    {
+      "id": 3,
+      "title": "fix(cron): release cancelled embedded lanes",
+      "link": "https://github.com/openclaw/openclaw/commit/fa4f1abb290cafee615e2d9671df73977809108f",
+      "publishedAt": "2026-06-18T16:20:49Z",
+      "summary": "fix(cron): release cancelled embedded lanes",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): 版本發布 cancelled embedded lanes",
+      "summaryZh": "重點：修正(排程): 版本發布 cancelled embedded lanes..."
+    },
+    {
+      "id": 4,
+      "title": "fix(cron): prevent lane timeout during long tool execution",
+      "link": "https://github.com/openclaw/openclaw/commit/bf9c59b6a4126b86921c10c06ec4ad98d21d5498",
+      "publishedAt": "2026-06-18T16:20:49Z",
+      "summary": "fix(cron): prevent lane timeout during long tool execution The lane timeout sliding window expires during long-running tool execution (e.g. exec commands >5min) because noteLaneTaskProgress() is never called during tool execution. Add a periodic 30s interval that calls noteLaneTaskProgress() while the embedded attempt runs, keeping the lane alive until the attempt completes. Closes: openclaw/openclaw#94033 Co-Authored-By: Claude",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): prevent lane timeout during long tool execution",
+      "summaryZh": "重點：修正(排程): prevent lane timeout during long tool execution The lane timeout sliding window expires during long-running tool..."
+    },
+    {
+      "id": 5,
+      "title": "哄睡小孩新幫手，亞馬遜推 Echo Kids 新功能 Sleep Studio 助力睡前儀式更有效",
+      "link": "https://ccc.technews.tw/2026/06/19/amazons-echo-speakers-can-now-help-kids-wind-down-and-fall-asleep/",
+      "publishedAt": "Thu, 18 Jun 2026 16:00:39 +0000",
+      "summary": "亞馬遜 11 日推出 Echo Kids 新功能 Sleep Studio，將 Echo 與 Echo Kid [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "直擊銀河系心臟，天文學家尋獲距離超大質量黑洞最近的疑似超新星殘骸",
+      "link": "https://technews.tw/2026/06/19/suspected-supernova-remnant-discovered-galactic-center/",
+      "publishedAt": "Thu, 18 Jun 2026 16:00:26 +0000",
+      "summary": "近日，天文學家利用 NASA 錢卓拉 X 射線天文台（Chandra X-ray Observatory）的觀 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "政院提 2,100 億特別條例，分 5 年籌獲國防自主無人載具",
       "link": "https://technews.tw/2026/06/18/executive-yuan-unmanned-vehicle-procurement-special-act-210-billion/",
       "publishedAt": "Thu, 18 Jun 2026 12:40:19 +0000",
@@ -11,40 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "refactor(test): dedupe installer npm fixtures",
-      "link": "https://github.com/openclaw/openclaw/commit/00a06eab44853c35ab59138746a76fd6e6f60f6c",
-      "publishedAt": "2026-06-18T12:38:29Z",
-      "summary": "refactor(test): dedupe installer npm fixtures",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(test): dedupe installer npm 修正tures",
-      "summaryZh": "重點：refactor(test): dedupe installer npm 修正tures..."
-    },
-    {
-      "id": 3,
-      "title": "refactor(gateway): dedupe gateway client test startup",
-      "link": "https://github.com/openclaw/openclaw/commit/af21bd7130ac84a66c2f0e9d61991072bbbe7a9c",
-      "publishedAt": "2026-06-18T12:27:14Z",
-      "summary": "refactor(gateway): dedupe gateway client test startup",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): dedupe Gateway client test startup",
-      "summaryZh": "重點：refactor(Gateway): dedupe Gateway client test startup..."
-    },
-    {
-      "id": 4,
-      "title": "refactor(config): dedupe plugin metadata test snapshots",
-      "link": "https://github.com/openclaw/openclaw/commit/9592a83a292478893602c4aa01d6f234beb4b128",
-      "publishedAt": "2026-06-18T12:14:27Z",
-      "summary": "refactor(config): dedupe plugin metadata test snapshots",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): dedupe plugin metadata test snapshots",
-      "summaryZh": "重點：refactor(config): dedupe plugin metadata test snapshots..."
-    },
-    {
-      "id": 5,
+      "id": 8,
       "title": "Vercel整合AI代理開發基礎元件發表Agent Stack",
       "link": "https://www.ithome.com.tw/news/176719",
       "publishedAt": "2026-06-18 12:06:55",
@@ -53,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "FortiBleed曝光逾7萬臺Fortinet設備憑證資料，臺灣受影響數量居全球第三",
       "link": "https://www.ithome.com.tw/news/176718",
       "publishedAt": "2026-06-18 12:06:32",
@@ -62,41 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "【資安日報】6月18日，引領AI軟體開發安全，Anthropic發布指南示範以Claude建立威脅模型並修補漏洞",
       "link": "https://www.ithome.com.tw/news/176711",
       "publishedAt": "2026-06-18 12:06:26",
       "summary": "巴西外送龍頭iFood個資外洩，業者證實120萬用戶受影響",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Azure第6代AMD雲端機密虛擬機器供應全球57個區域，臺灣也入列",
-      "link": "https://www.ithome.com.tw/news/176702",
-      "publishedAt": "2026-06-18 12:06:02",
-      "summary": "去年9月，微軟Azure的DCasv6系列與ECasv6系列正式上線，是採用AMD第四代EPYC處理器的雲端機密運算虛擬機器服務（CVM），主打效能比前一代增加25%，最大提供96顆vCPU與672 GiB記憶體的組態，並具備記憶體預設啟用256位元AES加密保護，以及支援加密金鑰可線上輪替等特色。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "refactor(agents): reuse embedded runner e2e fixtures",
-      "link": "https://github.com/openclaw/openclaw/commit/c88d5f261192eef9d5d15e46e6fe6731cd437f1d",
-      "publishedAt": "2026-06-18T11:57:01Z",
-      "summary": "refactor(agents): reuse embedded runner e2e fixtures",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): reuse embedded runner e2e 修正tures",
-      "summaryZh": "重點：refactor(agents): reuse embedded runner e2e 修正tures..."
-    },
-    {
-      "id": 10,
-      "title": "Midjourney 跨足醫療保健還要開 SPA，發表全身掃描儀、稱優於 MRI",
-      "link": "https://technews.tw/2026/06/18/midjourney-is-developing-a-full-body-ultrasonic-scanner/",
-      "publishedAt": "Thu, 18 Jun 2026 11:20:44 +0000",
-      "summary": "AI 新創公司 Midjourney 於舊金山的一場活動公開首款硬體產品計畫，是一款以超音波為基礎的全身掃描儀 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
