@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T17:59:26.474Z",
+  "generatedAt": "2026-06-19T19:59:29.254Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "refactor(discord): drop unused internal wrapper methods",
-      "link": "https://github.com/openclaw/openclaw/commit/7b94ae9944fcf5c03658184cb73c4873fb2b82b0",
-      "publishedAt": "2026-06-19T17:52:02Z",
-      "summary": "refactor(discord): drop unused internal wrapper methods",
+      "title": "feat(cli): add `openclaw sessions compact` and fail loudly on CLI `/c…",
+      "link": "https://github.com/openclaw/openclaw/commit/e35e5f123ddae0fbcef1d578ada7c06b1647017b",
+      "publishedAt": "2026-06-19T19:47:43Z",
+      "summary": "feat(cli): add `openclaw sessions compact` and fail loudly on CLI `/compact` (fixes #90640) (#91378) * feat(cli): add `sessions compact` command and fail loudly on CLI `/compact` `sessions.compact` was reachable only as an internal Gateway RPC — no CLI command, no docs — and `openclaw agent --message '/compact'` silently no-opped with exit 0 because the slash-command handler rejects CLI-originated senders, so the message fell through to an ordinary agent turn that compacted nothing. - Add `openclaw sessions compact ` wrapping the existing `sessions.compact` RPC; exit non-zero on a transport error or an `ok:false` payload so automation never mistakes a silent no-op for success. - Reject `openclaw agent --message '/compact'` with a redirect to the new command and exit 1 instead of a silent exit 0. The shared chat-side `/compact` handler is left untouched (no compatibility / message-delivery blast radius). - Strictly validate `--max-lines` and `--timeout` (positive integers only). - Document the command and the `sessions.compact` RPC in docs/cli/sessions.md. Fixes #90640. * fix(cli): inherit parent `sessions` options for `compact` `openclaw sessions compact ` did not merge the parent `sessions` command options the way its sibling subcommands (list/cleanup/info/…) do, so a parent-level `--agent`/`--json` was silently dropped. In particular `openclaw sessions --agent work compact ` compacted the default agent's session instead of the work agent's — a wrong-target session-state mutation. Merge the parent options in the compact action (parent `--agent`/`--json`, with the compact-level option taking precedence) and add regression coverage for parent `--agent`, parent `--json`, and the compact-level override. Refs #90640. * fix(cli): report pending Codex compaction and reject unsupported parent options Address two ClawSweeper review findings on the `sessions compact` command: - `sessions-compact.ts`: the Codex app-server `thread/compact/start` path returns `ok:true / compacted:false` with a pending marker, meaning the compaction was *started* asynchronously. The formatter collapsed every non-compacted success into \"No compaction needed\", so Codex users were told nothing happened. Report it as a started/pending compaction instead. - `register.status-health-sessions.ts`: the parent `sessions` command defines list-only options (`--store`/`--all-agents`/`--active`/`--limit`) that the compact action previously ignored. Silently dropping a parent `--store` is dangerous — the gateway resolves the target store itself, so a user could believe they targeted one store while another is mutated. Reject any unsupported inherited parent option with a clear error and a non-zero exit. Add regression tests for the pending-compaction message and the rejected parent options. Refs #90640. * fix(gateway): guard sessions.compact maxLines truncation against active runs The non-maxLines (LLM) compact branch interrupts an active session run before compacting, but the maxLines truncate branch read the tail, archived, and overwrote the transcript in place without that guard. Exposing `--max-lines` as a documented CLI command (this PR) would make the active-run data-loss mode tracked by #72765 easy to trigger from ordinary CLI usage. Run the same interruptSessionRunIfActive guard in the maxLines branch before reading the tail and truncating, matching the LLM compact path. Add gateway regression coverage over a real in-process Gateway: with no active run, the maxLines branch truncates the on-disk transcript 500 -> 50 and preserves the original 500 lines in the .bak archive; with an active embedded run, the maxLines branch fires the same interrupt (abort + wait-for-end) before archiving and truncating. * docs(cli): move sessions compact section above related links The new \"Compact a session\" section was inserted between the cleanup section's inline \"Related:\" list and the page's final \"## Related\" block, splitting related-link content around the command docs. Move the compact section above the related-links area and merge the orphaned \"Session config\" link into the single final \"## Related\" block. * fix(gateway): avoid no-op compact aborts Signed-off-by: sallyom * fix(gateway): satisfy compact preflight lint Signed-off-by: sallyom * fix(sessions): preserve compacted transcript structure --------- Signed-off-by: sallyom Co-authored-by: sallyom Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): drop unused internal wrapper methods",
-      "summaryZh": "重點：refactor(Discord): drop unused internal wrapper methods..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(cli): add `OpenClaw sessions compact` and fail loudly on CLI `/c…",
+      "summaryZh": "重點：新功能(cli): add `OpenClaw sessions compact` and fail loudly on CLI `/compact` (修正 #90640) (#91378) * 新功能(cli): add `sessio..."
     },
     {
       "id": 3,
-      "title": "test(state): canonicalize sqlite volume assertions",
-      "link": "https://github.com/openclaw/openclaw/commit/1609365b3e7464856b84749773c29db523dc7376",
-      "publishedAt": "2026-06-19T17:45:40Z",
-      "summary": "test(state): canonicalize sqlite volume assertions",
+      "title": "fix(ci): retry stable closeout package lookup",
+      "link": "https://github.com/openclaw/openclaw/commit/b5811ea2b3e18807b2af25ebe035d372cd5ba70a",
+      "publishedAt": "2026-06-19T19:42:41Z",
+      "summary": "fix(ci): retry stable closeout package lookup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(state): canonicalize sqlite volume assertions",
-      "summaryZh": "重點：test(state): canonicalize sqlite volume assertions..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): retry stable closeout package lookup",
+      "summaryZh": "重點：修正(ci): retry stable closeout package lookup..."
     },
     {
       "id": 4,
-      "title": "refactor: use canonical transcript reader identity (#89581)",
-      "link": "https://github.com/openclaw/openclaw/commit/d216f7c876dd55aa7e2c61ccf1053a5f0c70ec6a",
-      "publishedAt": "2026-06-19T17:40:18Z",
-      "summary": "refactor: use canonical transcript reader identity (#89581) * refactor: use canonical transcript reader identity * refactor: keep transcript reader dependency storage-neutral",
+      "title": "fix(scripts): reject unsafe package download lengths",
+      "link": "https://github.com/openclaw/openclaw/commit/bb1043b14c465582b7737a0181b6f37e5e91bac2",
+      "publishedAt": "2026-06-19T19:36:12Z",
+      "summary": "fix(scripts): reject unsafe package download lengths Reject unsafe decimal package_url Content-Length values before streaming response bodies.\\n\\nValidation:\\n- node --check scripts/resolve-openclaw-package-candidate.mjs\\n- direct injected downloadUrl repro for unsafe Content-Length\\n- git diff --check origin/main...HEAD\\n- autoreview clean, overall patch correct 0.9\\n- exact-head release gate https://github.com/openclaw/openclaw/actions/runs/27844538401",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: use canonical transcript reader identity (#89581)",
-      "summaryZh": "重點：refactor: use canonical transcript reader identity (#89581) * refactor: use canonical transcript reader identity * refac..."
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): reject unsafe package download lengths",
+      "summaryZh": "重點：修正(scripts): reject unsafe package download lengths Reject unsafe decimal package_url Content-Length values before strea..."
     },
     {
       "id": 5,
-      "title": "refactor(oc-path): drop unused repack helper",
-      "link": "https://github.com/openclaw/openclaw/commit/d41a3d28a0d8d915c42b3ddbbb16e933d1dccebb",
-      "publishedAt": "2026-06-19T17:32:16Z",
-      "summary": "refactor(oc-path): drop unused repack helper",
+      "title": "fix(cron): honor configured retry.backoffMs for recurring error backo…",
+      "link": "https://github.com/openclaw/openclaw/commit/16fba65cb6ad1d0ecfebbfbbd8f3b24eab7d1541",
+      "publishedAt": "2026-06-19T19:35:42Z",
+      "summary": "fix(cron): honor configured retry.backoffMs for recurring error backoff floor (#93051) Merged via squash. Prepared head SHA: c8026d0aef2e6acfac1a752fecab0a302fb14e34 Co-authored-by: Alix-007 Co-authored-by: steipete Reviewed-by: @steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(oc-path): drop unused repack helper",
-      "summaryZh": "重點：refactor(oc-path): drop unused repack helper..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): honor configured retry.backoffMs for recurring error backo…",
+      "summaryZh": "重點：修正(排程): honor configured retry.backoffMs for recurring error backoff floor (#93051) Merged via squash. Prepared head SHA..."
     },
     {
       "id": 6,
