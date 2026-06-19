@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-06-18T22:10:06.228Z",
+  "generatedAt": "2026-06-19T00:27:58.781Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(e2e): validate docker e2e ports",
-      "link": "https://github.com/openclaw/openclaw/commit/27310bfa34cee0411eb4370b2e575542eea93f02",
-      "publishedAt": "2026-06-18T22:09:47Z",
-      "summary": "fix(e2e): validate docker e2e ports",
+      "title": "fix(skills/1password): stop forcing tmux for desktop app auth (#52540…",
+      "link": "https://github.com/openclaw/openclaw/commit/73241d39f658856f890832100c8df59d34964f6c",
+      "publishedAt": "2026-06-19T00:26:56Z",
+      "summary": "fix(skills/1password): stop forcing tmux for desktop app auth (#52540) (#81825) * fix(skills/1password): stop forcing tmux for desktop app auth (#52540) The bundled skill currently mandates that every `op` invocation run inside a fresh tmux session. That guidance is wrong on every desktop-app-integration setup (macOS/Windows/Linux) because the 1Password app exposes the CLI over a per-user Unix domain socket the gateway exec env can reach but tmux subshells generally cannot — wrapping in tmux produces \"1Password CLI couldn't connect to the 1Password desktop app\" failures. Rewrite the skill to detect auth mode first and only use tmux for the one case where it actually helps: - Service account (`OP_SERVICE_ACCOUNT_TOKEN`): direct exec, no signin. - Desktop app integration: direct exec, never tmux. Note the macOS socket location (`~/Library/Group Containers/2BUA8C4S2C.com.1password/t/`) so agents can recognize the failure mode. - Standalone interactive signin: tmux is the right tool because it preserves the per-shell session token written by `op signin`. Update Guardrails and the get-started reference accordingly. Drop the blanket 'do not run op outside tmux' rule. Fixes #52540 * fix(skills/1password): correct desktop-app IPC wording and signin example Address PR #75090 review: - Replace the blanket 'per-user Unix domain socket' description with per-platform wording: XPC via the 1Password Browser Helper on macOS, a Unix domain socket on Linux, a named pipe on Windows. Keep the macOS group-container path as a symptom indicator only, not as a transport claim. Mirror the same correction in the get-started reference and the changelog entry. - Fix the standalone-signin tmux example: `op signin` was being sent as a plain command, so its eval-style export was printed but never applied. Subsequent `op whoami` and `op vault list` calls would fail because the OP_SESSION_* env var was never set. Wrap the call in `eval \"$(op signin ...)\"` so the session token is exported into the tmux pane environment as the surrounding text describes. Same direct-exec direction; tighter and more accurate. * docs(1password): clarify Windows standalone signin * Potential fix for pull request finding Co-authored-by: Copilot Autofix powered by AI * fix(skills/1password): repair auth-mode guidance --------- Co-authored-by: Copilot Autofix powered by AI Co-authored-by: openclaw-clownfish[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(e2e): validate 文件ker e2e ports",
-      "summaryZh": "重點：修正(e2e): validate 文件ker e2e ports..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills/1password): stop forcing tmux for desktop app auth (#52540…",
+      "summaryZh": "重點：修正(skills/1password): stop forcing tmux for desktop app auth (#52540) (#81825) * 修正(skills/1password): stop forcing tmux..."
     },
     {
       "id": 2,
-      "title": "fix(slack): stop leaking bot token into /api/auth.test request body (…",
-      "link": "https://github.com/openclaw/openclaw/commit/fbc12e0879f746c7fd128165a1fca85407dca455",
-      "publishedAt": "2026-06-18T22:09:37Z",
-      "summary": "fix(slack): stop leaking bot token into /api/auth.test request body (#94574) * fix(slack): stop leaking bot token into /api/auth.test request body The bot token is already passed as an `Authorization` header, so we don't need to send it in the request body when calling `/api/auth.test`. See [Slack API documentation](https://api.slack.com/methods/auth.test). Also, showing with `curl` that the bot token is not needed in the request body when passed as an `Authorization` header when calling `/api/auth.test`: ``` curl -X POST https://slack.com:443/api/auth.test -H \"Authorization: Bearer xoxb-...\" {\"ok\":true,\"url\":\"https://xcoulonworkspace.slack.com/\",\"team\":\"xcoulon\",...} ``` Signed-off-by: Xavier Coulon * add test for slack auth.test token handling verify that the bot token is not passed in the request body when calling `/api/auth.test`. Signed-off-by: Xavier Coulon --------- Signed-off-by: Xavier Coulon",
+      "title": "refactor(channels): remove stale setup reload helpers",
+      "link": "https://github.com/openclaw/openclaw/commit/c770c7b0842c2f3a9295e1a9c4552b8a1b961072",
+      "publishedAt": "2026-06-19T00:25:38Z",
+      "summary": "refactor(channels): remove stale setup reload helpers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): stop leaking bot token into /api/auth.test request body (…",
-      "summaryZh": "重點：修正(slack): stop leaking bot token into /api/auth.test request body (#94574) * 修正(slack): stop leaking bot token into /ap..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(channels): remove stale setup reload helpers",
+      "summaryZh": "重點：refactor(channels): remove stale setup reload helpers..."
     },
     {
       "id": 3,
-      "title": "fix(sdk): refresh plugin api baseline hash",
-      "link": "https://github.com/openclaw/openclaw/commit/73cdb78a1edd341b3b4d6cc3e56b2e353756b956",
-      "publishedAt": "2026-06-18T22:01:15Z",
-      "summary": "fix(sdk): refresh plugin api baseline hash",
+      "title": "Standardize QA coverage IDs on dotted names (#94702)",
+      "link": "https://github.com/openclaw/openclaw/commit/e12cf72b17b8e07316c748c51d710b1c39fcf421",
+      "publishedAt": "2026-06-19T00:25:26Z",
+      "summary": "Standardize QA coverage IDs on dotted names (#94702) * fix: standardize qa coverage ids * test: avoid qa coverage id assertion spread",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sdk): refresh plugin api baseline hash",
-      "summaryZh": "重點：修正(sdk): refresh plugin api baseline hash..."
+      "titleZh": "OpenClaw 程式碼更新：Standardize QA coverage IDs on dotted names (#94702)",
+      "summaryZh": "重點：Standardize QA coverage IDs on dotted names (#94702) * 修正: standardize qa coverage ids * test: avoid qa coverage id asse..."
     },
     {
       "id": 4,
-      "title": "fix(e2e): validate docker resource limits",
-      "link": "https://github.com/openclaw/openclaw/commit/0df60ad306e743adcd0b2756df99afd9666e24e5",
-      "publishedAt": "2026-06-18T22:00:42Z",
-      "summary": "fix(e2e): validate docker resource limits",
+      "title": "fix(scripts): avoid mutating tracked auth-monitor template during set…",
+      "link": "https://github.com/openclaw/openclaw/commit/e9e44bf83cbe41aa58b79b34a7b192acf41434da",
+      "publishedAt": "2026-06-19T00:24:16Z",
+      "summary": "fix(scripts): avoid mutating tracked auth-monitor template during setup (#53920) * fix(scripts): render auth monitor unit before install Render the auth monitor service into temporary files instead of editing the tracked template. Quote the generated ExecStart safely, including spaces and literal dollars, then atomically install the rendered unit. * fix(scripts): avoid mutating tracked auth-monitor template during setup * fix(scripts): avoid mutating tracked auth-monitor template during setup * fix(scripts): avoid mutating tracked auth-monitor template during setup --------- Co-authored-by: JackWuGlobal Co-authored-by: openclaw-clownfish[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(e2e): validate 文件ker resource limits",
-      "summaryZh": "重點：修正(e2e): validate 文件ker resource limits..."
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): avoid mutating tracked auth-monitor template during set…",
+      "summaryZh": "重點：修正(scripts): avoid mutating tracked auth-monitor template during setup (#53920) * 修正(scripts): render auth monitor unit ..."
     },
     {
       "id": 5,
+      "title": "黃仁勳「兆元宴」的隱藏密碼，起底背後高達七成 AI 巨頭的製造大本營桃園",
+      "link": "https://technews.tw/2026/06/19/taoyuan-emerges-as-a-new-global-ai-hub/",
+      "publishedAt": "Fri, 19 Jun 2026 00:00:48 +0000",
+      "summary": "「兆元宴」這個新名詞，這兩年在台灣科技圈快速流傳。它指的是輝達創辦人黃仁勳來台時，邀集台灣供應鏈夥伴共聚一堂的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "美國做不到歐洲做，KNDS 發表全新自走砲讓傳統彈藥射程達 60 公里",
+      "link": "https://technews.tw/2026/06/19/knds-france-unveiled-new-loras-howitzer/",
+      "publishedAt": "Thu, 18 Jun 2026 23:00:39 +0000",
+      "summary": "在巴黎 Eurosatory 國防展上，法德合資公司 KNDS 正式公開名為 「長程火砲系統」（Long-Ra [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "哄睡小孩新幫手，亞馬遜推 Echo Kids 新功能 Sleep Studio 助力睡前儀式更有效",
       "link": "https://ccc.technews.tw/2026/06/19/amazons-echo-speakers-can-now-help-kids-wind-down-and-fall-asleep/",
       "publishedAt": "Thu, 18 Jun 2026 16:00:39 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "直擊銀河系心臟，天文學家尋獲距離超大質量黑洞最近的疑似超新星殘骸",
       "link": "https://technews.tw/2026/06/19/suspected-supernova-remnant-discovered-galactic-center/",
       "publishedAt": "Thu, 18 Jun 2026 16:00:26 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "政院提 2,100 億特別條例，分 5 年籌獲國防自主無人載具",
       "link": "https://technews.tw/2026/06/18/executive-yuan-unmanned-vehicle-procurement-special-act-210-billion/",
       "publishedAt": "Thu, 18 Jun 2026 12:40:19 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Vercel整合AI代理開發基礎元件發表Agent Stack",
       "link": "https://www.ithome.com.tw/news/176719",
       "publishedAt": "2026-06-18 12:06:55",
       "summary": "開源Web框架Next.js開發商Vercel發表Agent Stack，將AI代理開發所需的模型連接、工作流程執行，以及外部系統存取與使用者互動平臺整合，整理成一組產品框架，涵蓋AI SDK、AI Gateway、Workflow SDK、Vercel Sandbox、Vercel Connect、Chat SDK與eve開源代理框架，目標是讓開發者在建立代理時，不必逐一處理多模型呼叫、長任務狀態保存、隔離執行環境",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "FortiBleed曝光逾7萬臺Fortinet設備憑證資料，臺灣受影響數量居全球第三",
-      "link": "https://www.ithome.com.tw/news/176718",
-      "publishedAt": "2026-06-18 12:06:32",
-      "summary": "威脅情報平臺InfoStealers周三（6/17）揭露一起名為FortiBleed的大規模憑證外洩事件，指出全球有超過7萬臺Fortinet FortiGate防火牆與SSL VPN設備的登入憑證遭駭客竊取並外洩，受害者遍布194個國家，影響逾2萬個獨立網域，且臺灣受影響的設備數量位居全球第三。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "【資安日報】6月18日，引領AI軟體開發安全，Anthropic發布指南示範以Claude建立威脅模型並修補漏洞",
-      "link": "https://www.ithome.com.tw/news/176711",
-      "publishedAt": "2026-06-18 12:06:26",
-      "summary": "巴西外送龍頭iFood個資外洩，業者證實120萬用戶受影響",
       "source": "iThome",
       "tag": "繁中"
     }
