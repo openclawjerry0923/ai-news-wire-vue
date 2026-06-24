@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T08:22:21.707Z",
+  "generatedAt": "2026-06-24T11:45:24.258Z",
   "items": [
     {
       "id": 1,
@@ -15,12 +15,34 @@
       "title": "SSH函式庫libssh2揭露重大漏洞，可能導致攻擊者透過特製SSH封包執行任意程式碼",
       "link": "https://www.ithome.com.tw/news/176834",
       "publishedAt": "2026-06-24 12:06:14",
-      "summary": "廣泛應用於SSH通訊的開源函式庫專案libssh2，近日揭露重大漏洞CVE-2026-55200，可能導致未經身分驗證的攻擊者透過特製SSH封包觸發漏洞，進而從遠端執行程式碼，CVSS v4嚴重性等級達9.2分，影響1.11.1版以前的libssh2，由於libssh2廣泛應用於檔案傳輸工具、備份軟體及其他SSH相關應用，因此相關產品可能受到波及。libssh2專案開發團隊已將修補程式提交至GitHub程式碼庫，並正在準備發布正式修補版本。",
+      "summary": "廣泛應用於SSH通訊的開源函式庫專案libssh2，近日揭露重大漏洞CVE-2026-55200，可能導致未經身分驗證的攻擊者透過特製SSH封包觸發漏洞，進而從遠端執行程式碼，CVSS v4嚴重性評分達9.2分，影響1.11.1版以前的libssh2，由於libssh2廣泛應用於檔案傳輸工具、備份軟體及其他SSH相關應用，因此相關產品可能受到波及。libssh2專案開發團隊已將修補程式提交至GitHub程式碼庫，並正在準備發布正式修補版本。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 3,
+      "title": "fix(slack): truncate on code-point boundaries to avoid splitting surr…",
+      "link": "https://github.com/openclaw/openclaw/commit/1069c60e1e2509b23b88e841c8d60b856f2aabc0",
+      "publishedAt": "2026-06-24T11:30:29Z",
+      "summary": "fix(slack): truncate on code-point boundaries to avoid splitting surrogate pairs (#96382) truncateSlackText sliced by UTF-16 code unit ('trimmed.slice(0, max - 1)'), so an emoji or other astral character straddling the limit was cut in half, leaving a lone high surrogate before the ellipsis — e.g. truncateSlackText('abc😀def', 5) returned 'abc\\uD83D…' instead of 'abc…'. That invalid half-character is sent in live Slack payloads (message text and Block Kit section/button/header/option labels, which truncate at limits as small as 75). Use the repo's canonical sliceUtf16Safe (already re-exported from plugin-sdk/text-utility-runtime, the module slack code imports from) so a straddling pair is dropped whole. Behavior is byte-identical for all-BMP input. Co-authored-by: ly-wang19 Co-authored-by: Claude Opus 4.8 (1M context)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): truncate on code-point boundaries to avoid splitting surr…",
+      "summaryZh": "重點：修正(slack): truncate on code-point boundaries to avoid splitting surrogate pairs (#96382) truncateSlackText sliced by UTF..."
+    },
+    {
+      "id": 4,
+      "title": "docs(docker): document Claude CLI persistence (#96380)",
+      "link": "https://github.com/openclaw/openclaw/commit/9e68fb1178925e831923240d64bf7fa68b2847e5",
+      "publishedAt": "2026-06-24T11:29:52Z",
+      "summary": "docs(docker): document Claude CLI persistence (#96380) Summary: - The branch adds Docker-specific Claude CLI persistence guidance and cross-links it from the CLI backend and Anthropic provider docs. - PR surface: Docs +101. Total +101 across 3 files. - Reproducibility: not applicable. as a bug reproduction. Source inspection confirms the current docs gap and the PR examples match existing Docker, config, and Claude CLI backend contracts. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head ad95482074c4dcc8200591319491ef4854b4ebcc. - Required merge gates passed before the squash merge. Prepared head SHA: ad95482074c4dcc8200591319491ef4854b4ebcc Review: https://github.com/openclaw/openclaw/pull/96380#issuecomment-4788612433 Co-authored-by: zaidazmi Approved-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(文件ker): 文件ument Claude CLI persistence (#96380)",
+      "summaryZh": "重點：文件(文件ker): 文件ument Claude CLI persistence (#96380) Summary: - The branch adds 文件ker-specific Claude CLI persistence guid..."
+    },
+    {
+      "id": 5,
       "title": "巴西民防警報系統疑遭入侵，里約熱內盧等地民眾收到假警報",
       "link": "https://www.ithome.com.tw/news/176831",
       "publishedAt": "2026-06-24 11:06:43",
@@ -29,7 +51,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "逾6成LLM iOS App暴露AI服務存取資訊",
       "link": "https://www.ithome.com.tw/news/176825",
       "publishedAt": "2026-06-24 11:06:40",
@@ -38,7 +60,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 7,
       "title": "LG與三星智慧電視逾三成App讓用戶電視慘變代理伺服器節點",
       "link": "https://www.ithome.com.tw/news/176829",
       "publishedAt": "2026-06-24 11:06:30",
@@ -47,7 +69,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "金融業動起來！金管會公布後量子密碼遷移指引，要求建立CBOM與加密敏捷性",
       "link": "https://www.ithome.com.tw/news/176824",
       "publishedAt": "2026-06-24 11:06:29",
@@ -56,48 +78,26 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "#94162: Performance: bundle-tools loading adds 6-7s latency on every …",
-      "link": "https://github.com/openclaw/openclaw/commit/a2725b6a24c85f921f813b8255fbc3c0eae8188f",
-      "publishedAt": "2026-06-24T08:20:23Z",
-      "summary": "#94162: Performance: bundle-tools loading adds 6-7s latency on every agent request (#94230) * perf(mcp): parallelize MCP server connections in getCatalog to reduce prep latency Every agent request incurred 6-7s of prep latency because bundle-tools connected to configured MCP servers sequentially, one at a time. With 4-5 MCP servers at ~1.5s each (default tools/list timeout), the total was the sum of all servers' connection times. Fix: split getCatalog() into two phases: 1. Synchronous pre-computation of safe server names (fast, sequential) 2. Async connection + tool listing (parallelized via Promise.allSettled) Now MCP servers connect and list tools concurrently, reducing the total latency from the sum of all servers to roughly the slowest single server. Each server still has its own error handling — individual failures are gracefully demoted to diagnostics, not fatal to the catalog. Prep stage timing change: Before: bundle-tools = sum(connection + listTools) for each server After: bundle-tools = max(connection + listTools) across all servers Closes #94162 Co-Authored-By: Claude * fix(mcp): add missing braces for eslint curly rule Two if-statements lacked braces, failing the CI check-lint job. Co-Authored-By: Claude * test(mcp): add deterministic regression test for parallel catalog loading - Add focused timing test that proves parallel MCP catalog loading completes in max(server delays) not sum(server delays) - Test creates 3 slow stdio MCP servers (200/400/600ms delays) and asserts wall time Co-authored-by: mmyzwl Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：#94162: Performance: bundle-tools loading adds 6-7s latency on every …",
-      "summaryZh": "重點：#94162: Performance: bundle-tools loading adds 6-7s latency on every agent request (#94230) * perf(mcp): parallelize MCP..."
-    },
-    {
-      "id": 8,
-      "title": "fix(wiki): wiki_get and wiki compile miss nested source files (#96022)",
-      "link": "https://github.com/openclaw/openclaw/commit/63ee4cd2405c932f338de269147ed0510910c0e8",
-      "publishedAt": "2026-06-24T08:19:14Z",
-      "summary": "fix(wiki): wiki_get and wiki compile miss nested source files (#96022) * fix(wiki): discover nested source files in QUERY_DIRS Two functions in the memory-wiki extension — listWikiMarkdownFiles (wiki_get runtime lookup) and collectMarkdownFiles (wiki compile indexing) — used fs.readdir without { recursive: true }. Nested source files (e.g. sources/audi/car.md) were silently invisible to both wiki_get and wiki compile. Add recursive: true and adjust path construction using entry.parentPath so nested .md files in all QUERY_DIRS are discovered while preserving the index.md exclusion and backward compatibility with flat vaults. * fix(wiki): remove entry.path fallback, only parentPath is typed on Dirent * fix(wiki): add recursive scan to status.ts and add nested-file regression tests * fix(wiki): use toSorted instead of sort to pass lint * style(memory-wiki): format recursive discovery fix --------- Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(wiki): wiki_get and wiki compile miss nested source files (#96022)",
-      "summaryZh": "重點：修正(wiki): wiki_get and wiki compile miss nested source files (#96022) * 修正(wiki): discover nested source files in QUERY_..."
-    },
-    {
       "id": 9,
-      "title": "fix(acp-core): never return undefined from stringifyNonErrorCause (#9…",
-      "link": "https://github.com/openclaw/openclaw/commit/599294b9af1fd24d450529fe04390d55a9e47a82",
-      "publishedAt": "2026-06-24T08:06:45Z",
-      "summary": "fix(acp-core): never return undefined from stringifyNonErrorCause (#96270) `stringifyNonErrorCause` is typed `string`, but its `try` returned `JSON.stringify(value)`, which is `undefined` for functions, symbols, and undefined causes — leaking undefined to callers that format nested ACP runtime failures and expect a string. Fall back to a tag string when stringify yields undefined, matching the already-correct sibling at `src/infra/errors.ts`. Co-authored-by: ly-wang19 Co-authored-by: Claude Opus 4.8 (1M context)",
+      "title": "docs(qa): clarify Matrix smoke provider mode",
+      "link": "https://github.com/openclaw/openclaw/commit/ae06d846faf3273a26314d8310647a13544b4057",
+      "publishedAt": "2026-06-24T11:02:57Z",
+      "summary": "docs(qa): clarify Matrix smoke provider mode",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(acp-core): never return undefined from stringifyNonErrorCause (#9…",
-      "summaryZh": "重點：修正(acp-core): never return undefined from stringifyNonErrorCause (#96270) `stringifyNonErrorCause` is typed `string`, bu..."
+      "titleZh": "OpenClaw 文件更新：文件(qa): clarify Matrix smoke provider mode",
+      "summaryZh": "重點：文件(qa): clarify Matrix smoke provider mode..."
     },
     {
       "id": 10,
-      "title": "test(qa): log effective channel driver in progress (#96327)",
-      "link": "https://github.com/openclaw/openclaw/commit/bd43c36bb1322d5edac9fb9cb82321d0a67eca17",
-      "publishedAt": "2026-06-24T08:04:52Z",
-      "summary": "test(qa): log effective channel driver in progress (#96327)",
+      "title": "fix(tools-manager): require clean exit in commandExists (#96361)",
+      "link": "https://github.com/openclaw/openclaw/commit/380f2749becc001c4f949a922d9a0fd427e2b539",
+      "publishedAt": "2026-06-24T10:59:36Z",
+      "summary": "fix(tools-manager): require clean exit in commandExists (#96361) Summary: - The PR changes the agent tools manager to treat spawned-but-nonzero fd/rg probes as missing and adds regression tests for non-zero and zero spawn status. - PR surface: Source +3, Tests +27. Total +30 across 2 files. - Reproducibility: yes. Current main ignores non-zero `spawnSync.status`, and a live Node probe confirms a spawned child can exit non-zero while leaving `error` unset. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 377d560effe8fbeaf464bcdf8f5892eab925475a. - Required merge gates passed before the squash merge. Prepared head SHA: 377d560effe8fbeaf464bcdf8f5892eab925475a Review: https://github.com/openclaw/openclaw/pull/96361#issuecomment-4788071605 Co-authored-by: liyuanbin Co-authored-by: Claude Approved-by: takhoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): log effective channel driver in progress (#96327)",
-      "summaryZh": "重點：test(qa): log effective channel driver in progress (#96327)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tools-manager): require clean exit in commandExists (#96361)",
+      "summaryZh": "重點：修正(tools-manager): require clean exit in commandExists (#96361) Summary: - The PR changes the agent tools manager to tre..."
     }
   ]
 }
