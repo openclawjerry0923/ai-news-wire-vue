@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-06-24T11:45:24.258Z",
+  "generatedAt": "2026-06-24T14:33:19.823Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(plugins): retain plugin tool registry after replacement (#82562)",
+      "link": "https://github.com/openclaw/openclaw/commit/374076b5a8c535bcb31aa0cbb324f0eee93e0b7b",
+      "publishedAt": "2026-06-24T14:22:29Z",
+      "summary": "fix(plugins): retain plugin tool registry after replacement (#82562) Merged via squash. Prepared head SHA: 1bcbbbfbc1a3cfd44367145afeacf17715fa7adc Co-authored-by: luoyanglang Co-authored-by: vincentkoc Reviewed-by: @vincentkoc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): retain plugin tool registry after replacement (#82562)",
+      "summaryZh": "重點：修正(plugins): retain plugin tool registry after replacement (#82562) Merged via squash. Prepared head SHA: 1bcbbbfbc1a3cf..."
+    },
+    {
+      "id": 2,
+      "title": "test(telegram): pass outbound sanitizer payload",
+      "link": "https://github.com/openclaw/openclaw/commit/242fbf1a678bc8db805fb9897518f1bb8c82261b",
+      "publishedAt": "2026-06-24T14:13:32Z",
+      "summary": "test(telegram): pass outbound sanitizer payload",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(Telegram): pass outbound sanitizer payload",
+      "summaryZh": "重點：test(Telegram): pass outbound sanitizer payload..."
+    },
+    {
+      "id": 3,
+      "title": "fix(telegram): sanitize outbound tool traces",
+      "link": "https://github.com/openclaw/openclaw/commit/434d752dd60c34380943bc004b113a00ae95f34e",
+      "publishedAt": "2026-06-24T14:13:32Z",
+      "summary": "fix(telegram): sanitize outbound tool traces",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): sanitize outbound tool traces",
+      "summaryZh": "重點：修正(Telegram): sanitize outbound tool traces..."
+    },
+    {
+      "id": 4,
+      "title": "fix(messages): apply response usage to followups",
+      "link": "https://github.com/openclaw/openclaw/commit/3179692f0e44e69dc97036731b53e3cbe0cd3707",
+      "publishedAt": "2026-06-24T14:12:33Z",
+      "summary": "fix(messages): apply response usage to followups",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(messages): apply response usage to followups",
+      "summaryZh": "重點：修正(messages): apply response usage to followups..."
+    },
+    {
+      "id": 5,
+      "title": "破解「幽靈粒子」身世之謎，重力透鏡尋獲高能微中子新家鄉",
+      "link": "https://technews.tw/2026/06/24/unveiling-new-sources-cosmic-high-energy-neutrinos/",
+      "publishedAt": "Wed, 24 Jun 2026 13:58:52 +0000",
+      "summary": "地球上的微中子探測器長期偵測到來自宇宙的高能微中子，但它們的來源至今仍未完全釐清。雖然太陽、超新星等天體都會產 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "合聖 6/26 每股 120 元登興櫃，首條自主 FAU 封裝產線 Q4 試產",
+      "link": "https://technews.tw/2026/06/24/authenx-ipo/",
+      "publishedAt": "Wed, 24 Jun 2026 12:25:21 +0000",
+      "summary": "高速光學互連解決方案領導廠商合聖科技今（24 日）舉辦媒體交流會，董事長伍茂仁表示，自主 Meta Lens [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "駭客滲透Klue Battlecards整合服務竊取用戶Salesforce資料，犯案過程僅不到一天",
       "link": "https://www.ithome.com.tw/news/176833",
       "publishedAt": "2026-06-24 12:06:33",
@@ -11,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "SSH函式庫libssh2揭露重大漏洞，可能導致攻擊者透過特製SSH封包執行任意程式碼",
       "link": "https://www.ithome.com.tw/news/176834",
       "publishedAt": "2026-06-24 12:06:14",
@@ -20,29 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(slack): truncate on code-point boundaries to avoid splitting surr…",
-      "link": "https://github.com/openclaw/openclaw/commit/1069c60e1e2509b23b88e841c8d60b856f2aabc0",
-      "publishedAt": "2026-06-24T11:30:29Z",
-      "summary": "fix(slack): truncate on code-point boundaries to avoid splitting surrogate pairs (#96382) truncateSlackText sliced by UTF-16 code unit ('trimmed.slice(0, max - 1)'), so an emoji or other astral character straddling the limit was cut in half, leaving a lone high surrogate before the ellipsis — e.g. truncateSlackText('abc😀def', 5) returned 'abc\\uD83D…' instead of 'abc…'. That invalid half-character is sent in live Slack payloads (message text and Block Kit section/button/header/option labels, which truncate at limits as small as 75). Use the repo's canonical sliceUtf16Safe (already re-exported from plugin-sdk/text-utility-runtime, the module slack code imports from) so a straddling pair is dropped whole. Behavior is byte-identical for all-BMP input. Co-authored-by: ly-wang19 Co-authored-by: Claude Opus 4.8 (1M context)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): truncate on code-point boundaries to avoid splitting surr…",
-      "summaryZh": "重點：修正(slack): truncate on code-point boundaries to avoid splitting surrogate pairs (#96382) truncateSlackText sliced by UTF..."
-    },
-    {
-      "id": 4,
-      "title": "docs(docker): document Claude CLI persistence (#96380)",
-      "link": "https://github.com/openclaw/openclaw/commit/9e68fb1178925e831923240d64bf7fa68b2847e5",
-      "publishedAt": "2026-06-24T11:29:52Z",
-      "summary": "docs(docker): document Claude CLI persistence (#96380) Summary: - The branch adds Docker-specific Claude CLI persistence guidance and cross-links it from the CLI backend and Anthropic provider docs. - PR surface: Docs +101. Total +101 across 3 files. - Reproducibility: not applicable. as a bug reproduction. Source inspection confirms the current docs gap and the PR examples match existing Docker, config, and Claude CLI backend contracts. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head ad95482074c4dcc8200591319491ef4854b4ebcc. - Required merge gates passed before the squash merge. Prepared head SHA: ad95482074c4dcc8200591319491ef4854b4ebcc Review: https://github.com/openclaw/openclaw/pull/96380#issuecomment-4788612433 Co-authored-by: zaidazmi Approved-by: takhoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(文件ker): 文件ument Claude CLI persistence (#96380)",
-      "summaryZh": "重點：文件(文件ker): 文件ument Claude CLI persistence (#96380) Summary: - The branch adds 文件ker-specific Claude CLI persistence guid..."
-    },
-    {
-      "id": 5,
+      "id": 9,
       "title": "巴西民防警報系統疑遭入侵，里約熱內盧等地民眾收到假警報",
       "link": "https://www.ithome.com.tw/news/176831",
       "publishedAt": "2026-06-24 11:06:43",
@@ -51,53 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "逾6成LLM iOS App暴露AI服務存取資訊",
       "link": "https://www.ithome.com.tw/news/176825",
       "publishedAt": "2026-06-24 11:06:40",
       "summary": "維克森林大學（Wake Forest University）研究人員公布一項實證研究，指出許多導入大型語言模型（LLM）功能的iOS應用程式，在執行期間的網路流量中暴露可遭利用的驗證權杖、未要求驗證即可存取的後端代理機制，或其他可用來呼叫LLM服務的憑證資訊。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "LG與三星智慧電視逾三成App讓用戶電視慘變代理伺服器節點",
-      "link": "https://www.ithome.com.tw/news/176829",
-      "publishedAt": "2026-06-24 11:06:30",
-      "summary": "研究人員發現，三星、LG智慧電視的App，有將1/3會利用或出售用戶住家IP位址，讓用戶電視淪為導引流量的代理伺服器的安全隱憂。 資安業者Spur分析6,038個三星和LG智慧電視的App套件分析，發現有2,058款內含將用戶住家IP位址提供作為代理伺服器（proxy）的SDK。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "金融業動起來！金管會公布後量子密碼遷移指引，要求建立CBOM與加密敏捷性",
-      "link": "https://www.ithome.com.tw/news/176824",
-      "publishedAt": "2026-06-24 11:06:29",
-      "summary": "量子運算技術快速發展，為協助國內金融業提前因應可能產生的風險，金管會近期發布「金融業後量子密碼（Post-Quantum Cryptography，PQC）遷移參考指引」，提出金融機構規畫後量子密碼遷移的整備方向，並提出治理機制、密碼技",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "docs(qa): clarify Matrix smoke provider mode",
-      "link": "https://github.com/openclaw/openclaw/commit/ae06d846faf3273a26314d8310647a13544b4057",
-      "publishedAt": "2026-06-24T11:02:57Z",
-      "summary": "docs(qa): clarify Matrix smoke provider mode",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(qa): clarify Matrix smoke provider mode",
-      "summaryZh": "重點：文件(qa): clarify Matrix smoke provider mode..."
-    },
-    {
-      "id": 10,
-      "title": "fix(tools-manager): require clean exit in commandExists (#96361)",
-      "link": "https://github.com/openclaw/openclaw/commit/380f2749becc001c4f949a922d9a0fd427e2b539",
-      "publishedAt": "2026-06-24T10:59:36Z",
-      "summary": "fix(tools-manager): require clean exit in commandExists (#96361) Summary: - The PR changes the agent tools manager to treat spawned-but-nonzero fd/rg probes as missing and adds regression tests for non-zero and zero spawn status. - PR surface: Source +3, Tests +27. Total +30 across 2 files. - Reproducibility: yes. Current main ignores non-zero `spawnSync.status`, and a live Node probe confirms a spawned child can exit non-zero while leaving `error` unset. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 377d560effe8fbeaf464bcdf8f5892eab925475a. - Required merge gates passed before the squash merge. Prepared head SHA: 377d560effe8fbeaf464bcdf8f5892eab925475a Review: https://github.com/openclaw/openclaw/pull/96361#issuecomment-4788071605 Co-authored-by: liyuanbin Co-authored-by: Claude Approved-by: takhoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tools-manager): require clean exit in commandExists (#96361)",
-      "summaryZh": "重點：修正(tools-manager): require clean exit in commandExists (#96361) Summary: - The PR changes the agent tools manager to tre..."
     }
   ]
 }
