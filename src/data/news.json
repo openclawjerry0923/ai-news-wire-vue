@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-06-25T19:05:08.549Z",
+  "generatedAt": "2026-06-25T21:44:04.180Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(telegram): back off session init spool retries",
+      "link": "https://github.com/openclaw/openclaw/commit/13ecca5408cbc94e66105608bfe770d0fc660d76",
+      "publishedAt": "2026-06-25T20:41:57Z",
+      "summary": "fix(telegram): back off session init spool retries",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): back off session init spool retries",
+      "summaryZh": "重點：修正(Telegram): back off session init spool retries..."
+    },
+    {
+      "id": 2,
+      "title": "fix(gateway): report omitted chat-history messages in truncation log …",
+      "link": "https://github.com/openclaw/openclaw/commit/c68484acc4b14a3cf2ee473aa7b7120f2d765daf",
+      "publishedAt": "2026-06-25T20:17:27Z",
+      "summary": "fix(gateway): report omitted chat-history messages in truncation log (#96788) Summary: - The PR moves Gateway `chat.history` omission accounting to a whole-pipeline reporter and adds focused helper plus real WebSocket request regression tests. - PR surface: Source +35, Tests +219. Total +254 across 4 files. - Reproducibility: yes. Current-main source shows the zero-count keep-last helper branch and the positive-coun ... he PR body includes a negative-control real WebSocket run where the same request test fails before the fix. Automerge notes: - PR branch already contained follow-up commit before automerge: fix(gateway): count unique omitted chat-history messages + prove diag… - PR branch already contained follow-up commit before automerge: test(gateway): prove chat.history request emits omission diagnostic Validation: - ClawSweeper review passed for head 414f885880f061508d5149a859266d7095363081. - Required merge gates passed before the squash merge. Prepared head SHA: 414f885880f061508d5149a859266d7095363081 Review: https://github.com/openclaw/openclaw/pull/96788#issuecomment-4799553366 Co-authored-by: ZengWen-DT Approved-by: takhoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): report omitted chat-history messages in truncation log …",
+      "summaryZh": "重點：修正(Gateway): report omitted chat-history messages in truncation log (#96788) Summary: - The PR moves Gateway `chat.histo..."
+    },
+    {
+      "id": 3,
+      "title": "fix(auto-reply): serialize reply session initialization",
+      "link": "https://github.com/openclaw/openclaw/commit/d2da8c79d9b8199915ba280fe88a1be5f8d3f6b8",
+      "publishedAt": "2026-06-25T20:10:35Z",
+      "summary": "fix(auto-reply): serialize reply session initialization",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): serialize reply session initialization",
+      "summaryZh": "重點：修正(auto-reply): serialize reply session initialization..."
+    },
+    {
+      "id": 4,
       "title": "fix(github-copilot): bound model discovery and embeddings JSON respon…",
       "link": "https://github.com/openclaw/openclaw/commit/1aa7cafc35a1aaaf1cd2f9b905d6cca2603ba994",
       "publishedAt": "2026-06-25T18:46:09Z",
@@ -11,39 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：修正(github-copilot): bound 模型 discovery and embeddings JSON respon…",
       "summaryZh": "重點：修正(github-copilot): bound 模型 discovery and embeddings JSON response (#96499) * 修正(github-copilot): bound 模型 discovery an..."
-    },
-    {
-      "id": 2,
-      "title": "fix(speech): bound TTS/STT voice-list and transcription JSON response…",
-      "link": "https://github.com/openclaw/openclaw/commit/66e2fcc6f83eb6aef394401a19342d7af19b1478",
-      "publishedAt": "2026-06-25T18:32:53Z",
-      "summary": "fix(speech): bound TTS/STT voice-list and transcription JSON response reads (#96496) Route success JSON reads through readProviderJsonResponse (16 MiB cap) in azure-speech, elevenlabs, microsoft, minimax/tts, xai/stt, and openrouter/media-understanding to prevent OOM from oversized or hostile endpoint responses. Mirrors the response-limit campaign already applied to other provider paths. AI-assisted. Co-authored-by: Cursor",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(speech): bound TTS/STT voice-list and transcription JSON response…",
-      "summaryZh": "重點：修正(speech): bound TTS/STT voice-list and transcription JSON response reads (#96496) Route success JSON reads through rea..."
-    },
-    {
-      "id": 3,
-      "title": "fix(codex): prefer desktop app-server for Computer Use on macOS (#96730)",
-      "link": "https://github.com/openclaw/openclaw/commit/b3ac552c821bb79db8b5a2c1ed2fac9d444733df",
-      "publishedAt": "2026-06-25T18:28:20Z",
-      "summary": "fix(codex): prefer desktop app-server for Computer Use on macOS (#96730) * fix(codex): prefer desktop app-server for Computer Use on macOS * fix(codex): fall back from stale desktop app-server --------- Co-authored-by: Benjamin Badejo",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): prefer desktop app-server for Computer Use on macOS (#96730)",
-      "summaryZh": "重點：修正(codex): prefer desktop app-server for Computer Use on macOS (#96730) * 修正(codex): prefer desktop app-server for Compu..."
-    },
-    {
-      "id": 4,
-      "title": "fix(openrouter): bound video catalog JSON reads (#96505)",
-      "link": "https://github.com/openclaw/openclaw/commit/5715b5500067e4af80ca40da10775de4b3648cea",
-      "publishedAt": "2026-06-25T18:17:01Z",
-      "summary": "fix(openrouter): bound video catalog JSON reads (#96505)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(openrouter): bound video catalog JSON reads (#96505)",
-      "summaryZh": "重點：修正(openrouter): bound video catalog JSON reads (#96505)..."
     },
     {
       "id": 5,
