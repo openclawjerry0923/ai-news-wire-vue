@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-27T14:42:34.852Z",
+  "generatedAt": "2026-06-27T16:07:05.853Z",
   "items": [
     {
       "id": 1,
-      "title": "Refactor external plugin catalog toward feeds (#95846)",
-      "link": "https://github.com/openclaw/openclaw/commit/4010b81a77f40c17ebfc55a6b47571dc1ef92902",
-      "publishedAt": "2026-06-27T14:41:40Z",
-      "summary": "Refactor external plugin catalog toward feeds (#95846) Merged via squash. Prepared head SHA: 82d05bdc461eab94db7e0ad4e7d99650daf84815 Co-authored-by: giodl73-repo Co-authored-by: giodl73-repo Reviewed-by: @giodl73-repo",
+      "title": "feat(xai): route OAuth login through device-code flow (#97249)",
+      "link": "https://github.com/openclaw/openclaw/commit/84bcd500c974ec0eeaa23a678b946638108f8208",
+      "publishedAt": "2026-06-27T16:02:57Z",
+      "summary": "feat(xai): route OAuth login through device-code flow (#97249) Route xAI OAuth through device-code sign-in so remote and headless hosts do not need a localhost callback. Preserve the legacy manual `xai-device-code` auth choice/method as a compatibility alias to the same device-code flow. Also migrate stale xAI token endpoints on refresh and fail fast on structured refresh errors while keeping retries scoped to detected HTML/Cloudflare challenge responses. Verification: - `node scripts/run-vitest.mjs extensions/xai/index.test.ts extensions/xai/xai-oauth.test.ts` - `node scripts/run-vitest.mjs src/cli/models-cli.test.ts -t 'maps --device-code'` - `node scripts/run-vitest.mjs src/commands/auth-choice.test.ts -t 'removed provider auth choice'` - Crabbox local-container live smoke on exact head `fef3cb24afb01cd1f69cf04ef67ed11d71dfadb3`: xAI discovery and device authorization returned 200. - `$autoreview` after the live smoke: clean. Co-authored-by: Jaaneek Co-authored-by: fuller-stack-dev",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Refactor external plugin catalog toward feeds (#95846)",
-      "summaryZh": "重點：Refactor external plugin catalog toward feeds (#95846) Merged via squash. Prepared head SHA: 82d05bdc461eab94db7e0ad4e7d..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(xai): route OAuth login through device-code flow (#97249)",
+      "summaryZh": "重點：新功能(xai): route OAuth login through device-code flow (#97249) Route xAI OAuth through device-code sign-in so remote and ..."
     },
     {
       "id": 2,
-      "title": "fix(nostr): bound seen tracker timer options (#97133)",
-      "link": "https://github.com/openclaw/openclaw/commit/8fa24325b58fdc766a58782250bb45b468f51f15",
-      "publishedAt": "2026-06-27T14:40:36Z",
-      "summary": "fix(nostr): bound seen tracker timer options (#97133)",
+      "title": "fix(terminal): wrap long wide-char words by visible width, not code-p…",
+      "link": "https://github.com/openclaw/openclaw/commit/f857e8d66eb30bbd9b936a784256198e1f9ffa3f",
+      "publishedAt": "2026-06-27T15:50:45Z",
+      "summary": "fix(terminal): wrap long wide-char words by visible width, not code-point count (#96746) wrapNoteMessage measures every fit decision in visible columns, but its splitLongWord fallback (for a single word longer than the line budget) sliced the word into groups of maxLen code points. maxLen is a visible-column budget, so a run of wide characters (CJK / fullwidth / emoji, 2 columns each) produced lines up to twice the budget — e.g. a 24-char CJK word at maxWidth 20 emitted a 40-column line. Accumulate grapheme visible width (the same unit visibleWidth uses) and start a new segment when the next grapheme would exceed maxLen, so every wrapped segment fits the budget; a single grapheme wider than the budget still emits, preserving progress. ASCII wrapping is unchanged. Co-authored-by: ly-wang19 Co-authored-by: Claude Opus 4.8 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(nostr): bound seen tracker timer options (#97133)",
-      "summaryZh": "重點：修正(nostr): bound seen tracker timer options (#97133)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(terminal): wrap long wide-char words by visible width, not code-p…",
+      "summaryZh": "重點：修正(terminal): wrap long wide-char words by visible width, not code-point count (#96746) wrapNoteMessage measures every f..."
     },
     {
       "id": 3,
-      "title": "fix(clickclack): bound REST success JSON response reads (#96970)",
-      "link": "https://github.com/openclaw/openclaw/commit/f4fa10c2c5acae26156868fe50f01d52a464f4b1",
-      "publishedAt": "2026-06-27T14:30:32Z",
-      "summary": "fix(clickclack): bound REST success JSON response reads (#96970) * fix(clickclack): bound REST success JSON response reads * test(clickclack): harden response cap proof --------- Co-authored-by: Vincent Koc",
+      "title": "fix(qa-lab): treat claude-cli as Anthropic-family for live turn timeo…",
+      "link": "https://github.com/openclaw/openclaw/commit/a048aeae16b6aaea38ac4a90a7bd16ea8f0fe3f8",
+      "publishedAt": "2026-06-27T15:47:33Z",
+      "summary": "fix(qa-lab): treat claude-cli as Anthropic-family for live turn timeouts (#96567) The live-frontier turn-timeout resolution only matched `anthropic/` models, so `claude-cli/*` routes fell into the 120s fallback bucket instead of the 180s Anthropic floor, and claude-cli Opus missed the 240s Opus floor — even though claude-cli serves the same Anthropic Claude models. Recognize claude-cli as Anthropic-family via a small `isAnthropicFamilyModel` helper, mirroring the existing `provider === \"anthropic\" || provider === \"claude-cli\"` precedent in the aimock and mock-openai servers. Co-authored-by: clawSean Co-authored-by: Claude Opus 4.8",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(clickclack): bound REST success JSON response reads (#96970)",
-      "summaryZh": "重點：修正(clickclack): bound REST success JSON response reads (#96970) * 修正(clickclack): bound REST success JSON response reads..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): treat claude-cli as Anthropic-family for live turn timeo…",
+      "summaryZh": "重點：修正(qa-lab): treat claude-cli as Anthropic-family for live turn timeouts (#96567) The live-frontier turn-timeout resoluti..."
     },
     {
       "id": 4,
-      "title": "fix(telegram): avoid duplicate dm chat window context (#89855)",
-      "link": "https://github.com/openclaw/openclaw/commit/2100ee7cc843f4b1776d41816f8f57dadcd2fe18",
-      "publishedAt": "2026-06-27T14:29:57Z",
-      "summary": "fix(telegram): avoid duplicate dm chat window context (#89855) Co-authored-by: Cornna",
+      "title": "fix(msteams): keep truncated parent context text well-formed (#96569)",
+      "link": "https://github.com/openclaw/openclaw/commit/4b9e01813e684100cbf4c47f8a77118a6ab5f587",
+      "publishedAt": "2026-06-27T15:47:27Z",
+      "summary": "fix(msteams): keep truncated parent context text well-formed (#96569) summarizeParentMessage truncated the parent body with text.slice(0, PARENT_TEXT_MAX_CHARS - 1), which can cut a surrogate pair in half and emit a lone surrogate into the injected \"Replying to @sender: …\" system event. Use the shared truncateUtf16Safe helper so truncation falls back to a whole code-point boundary. Add a regression asserting the summary stays isWellFormed() when the limit lands inside an emoji.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): avoid duplicate dm chat window context (#89855)",
-      "summaryZh": "重點：修正(Telegram): avoid duplicate dm chat window context (#89855) Co-authored-by: Cornna..."
+      "titleZh": "OpenClaw 程式碼更新：修正(msteams): keep truncated parent context text well-formed (#96569)",
+      "summaryZh": "重點：修正(msteams): keep truncated parent context text well-formed (#96569) summarizeParentMessage truncated the parent body wi..."
     },
     {
       "id": 5,
@@ -56,47 +56,47 @@
     },
     {
       "id": 6,
-      "title": "扛不住記憶體狂漲！蘋果試圖遊說白宮批准向中國軍工黑名單企業採購晶片",
-      "link": "https://technews.tw/2026/06/27/memory-prices-surge/",
-      "publishedAt": "Sat, 27 Jun 2026 09:18:48 +0000",
-      "summary": "蘋果（Apple）6 月 25 日宣布決定提高 MacBook 和 iPad 的售價，此舉導致其市值蒸發 2, [&#8230;]",
-      "source": "TechNews",
+      "title": "產品體驗平臺公司Pendo、雲端通訊服務廠商8×8受Klue供應鏈攻擊影響，並引發資料外洩",
+      "link": "https://www.ithome.com.tw/news/176896",
+      "publishedAt": "2026-06-26 12:06:57",
+      "summary": "上週爆發的Klue供應鏈攻擊事故，已有超過10家公司證實受到影響，導致他們存放在Salesforce平臺的資料出現未經授權存取的現象，其中大部分是資安公司。如今有SaaS服務公司也受害。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "黃仁勳預言正加速實現！安永調查 66% 企業押注「代理式 AI」搶進主權雲",
-      "link": "https://finance.technews.tw/2026/06/27/reimagine/",
-      "publishedAt": "Sat, 27 Jun 2026 08:42:52 +0000",
-      "summary": "輝達（NVIDIA）執行長黃仁勳日前預言代理式 AI（Agentic AI）時代正加速到來，企業將不再只是使用 [&#8230;]",
-      "source": "TechNews",
+      "title": "Klue供應鏈攻擊影響範圍擴大，AI營收情資平臺Gong的用戶也受到波及",
+      "link": "https://www.ithome.com.tw/news/176898",
+      "publishedAt": "2026-06-26 12:06:55",
+      "summary": "上週Salesforce揭露Klue供應鏈攻擊，並宣布切斷Klue Battlecards應用程式與用戶的Salesforce系統連結因應。然而就在有許多受害公司證實他們的Salesforce因此出現未經授權存取的情形之際，有另一家公司指出，他們的用戶也可能遭到這波供應鏈事故波及。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "兼顧大視野與薄鏡片！Lumus 推出 70° FOV「薄型」波導",
-      "link": "https://technews.tw/2026/06/27/lumuss-new-waveguides-enable-70-fov-thin-glasses/",
-      "publishedAt": "Sat, 27 Jun 2026 08:00:47 +0000",
-      "summary": "日前，以色列波導（WaveGuide）光學元供應商 Lumus 在一場非公開展示會中，向資深 VR 部落客 S [&#8230;]",
-      "source": "TechNews",
+      "title": "微軟悄悄展延Windows 10 ESU到2027年10月",
+      "link": "https://www.ithome.com.tw/news/176897",
+      "publishedAt": "2026-06-26 12:06:55",
+      "summary": "本週微軟低調透過官方部落格公告，針對個人用Windows 10 PC提供的延伸安全更新（Extended Security Update,ESU）將再免費展延一年到2027年10月。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "房貸揹滿 30 年、信貸借滿衝台股！台灣迎「極致槓桿時代」當心反轉成雙殺",
-      "link": "https://finance.technews.tw/2026/06/27/the-era-of-ultimate-leverage/",
-      "publishedAt": "Sat, 27 Jun 2026 07:28:19 +0000",
-      "summary": "台灣正迎接極致槓桿時代，由於台股熱潮催生借貸投資風潮，同時持有房貸與信貸的「雙貸族」，今年 4 月底突破 42 [&#8230;]",
-      "source": "TechNews",
+      "title": "Deno 2.9新增桌面應用工具，網頁專案可封裝成跨平臺應用程式",
+      "link": "https://www.ithome.com.tw/news/176895",
+      "publishedAt": "2026-06-26 12:06:53",
+      "summary": "JavaScript與TypeScript執行環境Deno發布2.9版，新增實驗性的deno desktop工具，讓開發者可將JavaScript與TypeScript網頁專案封裝成桌面應用程式。該功能讓Deno從伺服器端與命令列執行環境，擴大到桌面程式開發，開發者可用既有網頁技術建立Windows、macOS與Linux應用。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "越聊越危險？最新研究揭露 AI 如何透過「放大螺旋」將人推向妄想邊緣",
-      "link": "https://technews.tw/2026/06/27/ai-chatbots-characteristics-amplify-delusions-amplification-spiral/",
-      "publishedAt": "Sat, 27 Jun 2026 07:00:28 +0000",
-      "summary": "最新研究指出，人工智慧（AI）聊天機器人與使用者長時間互動，不只會回應，還可能主動放大並鞏固使用者的錯誤認知， [&#8230;]",
-      "source": "TechNews",
+      "title": "F5併購SurePath AI，延續與擴張公司長期發展的網路層資安防護策略，強化AI治理能見度與安全性",
+      "link": "https://www.ithome.com.tw/news/176893",
+      "publishedAt": "2026-06-26 12:06:42",
+      "summary": "從傳統應用遞送（ADC）轉型、如今專注發展多雲應用安全與多雲網路（MCN）的 F5，本週發表AI資安平臺F5 AI Security Platform（AISP），為企業提供持續保護使用AI的能力，涵蓋探查（discovery）、安全性測試（security testing）、治理（governance）、AI執行階段防護（runtime protection），以及可觀測性（observability），也宣",
+      "source": "iThome",
       "tag": "繁中"
     }
   ]
