@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-06-27T16:07:05.853Z",
+  "generatedAt": "2026-06-27T18:04:45.341Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(xai): route OAuth login through device-code flow (#97249)",
-      "link": "https://github.com/openclaw/openclaw/commit/84bcd500c974ec0eeaa23a678b946638108f8208",
-      "publishedAt": "2026-06-27T16:02:57Z",
-      "summary": "feat(xai): route OAuth login through device-code flow (#97249) Route xAI OAuth through device-code sign-in so remote and headless hosts do not need a localhost callback. Preserve the legacy manual `xai-device-code` auth choice/method as a compatibility alias to the same device-code flow. Also migrate stale xAI token endpoints on refresh and fail fast on structured refresh errors while keeping retries scoped to detected HTML/Cloudflare challenge responses. Verification: - `node scripts/run-vitest.mjs extensions/xai/index.test.ts extensions/xai/xai-oauth.test.ts` - `node scripts/run-vitest.mjs src/cli/models-cli.test.ts -t 'maps --device-code'` - `node scripts/run-vitest.mjs src/commands/auth-choice.test.ts -t 'removed provider auth choice'` - Crabbox local-container live smoke on exact head `fef3cb24afb01cd1f69cf04ef67ed11d71dfadb3`: xAI discovery and device authorization returned 200. - `$autoreview` after the live smoke: clean. Co-authored-by: Jaaneek Co-authored-by: fuller-stack-dev",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(xai): route OAuth login through device-code flow (#97249)",
-      "summaryZh": "重點：新功能(xai): route OAuth login through device-code flow (#97249) Route xAI OAuth through device-code sign-in so remote and ..."
+      "title": "Linux存在新的本機權限提升漏洞pedit COW，搭配5.18版至 7.1-rc6版核心的系統均可能受影響",
+      "link": "https://www.ithome.com.tw/news/176912",
+      "publishedAt": "2026-06-28 01:06:14",
+      "summary": "今年5月爆發一連串Linux本機權限提升漏洞，例如，Copy Fail、DirtyFrag、Fragnesia，6月底又出現這類型漏洞的揭露，我們先看看威脅情報平臺廠商",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(terminal): wrap long wide-char words by visible width, not code-p…",
-      "link": "https://github.com/openclaw/openclaw/commit/f857e8d66eb30bbd9b936a784256198e1f9ffa3f",
-      "publishedAt": "2026-06-27T15:50:45Z",
-      "summary": "fix(terminal): wrap long wide-char words by visible width, not code-point count (#96746) wrapNoteMessage measures every fit decision in visible columns, but its splitLongWord fallback (for a single word longer than the line budget) sliced the word into groups of maxLen code points. maxLen is a visible-column budget, so a run of wide characters (CJK / fullwidth / emoji, 2 columns each) produced lines up to twice the budget — e.g. a 24-char CJK word at maxWidth 20 emitted a 40-column line. Accumulate grapheme visible width (the same unit visibleWidth uses) and start a new segment when the next grapheme would exceed maxLen, so every wrapped segment fits the budget; a single grapheme wider than the budget still emits, preserving progress. ASCII wrapping is unchanged. Co-authored-by: ly-wang19 Co-authored-by: Claude Opus 4.8 (1M context)",
+      "title": "fix(model-fallback): don't rethrow provider-side AbortErrors as user …",
+      "link": "https://github.com/openclaw/openclaw/commit/98ed83f848de30e2a66f6a5d6d1ce0b8ae098ac9",
+      "publishedAt": "2026-06-27T17:53:16Z",
+      "summary": "fix(model-fallback): don't rethrow provider-side AbortErrors as user cancellations (#90908) * fix(model-fallback): don't rethrow provider-side AbortErrors as user cancellations When the LLM API closes the connection mid-stream, the fetch layer surfaces AbortError(\"This operation was aborted\") with no external abort signal triggered. The old guard `shouldRethrowAbort()` returned false for these errors (because isTimeoutError matched the message), so they fell through to the fallback loop but were never retried — the error propagated up and produced SILENT_REPLY_TOKEN in group sessions, permanently silencing the topic. Replace the guard with a direct check: only rethrow AbortError when the external abort signal is actually set (user/gateway cancellation). Provider-side AbortErrors without an external signal now fall through to the next fallback candidate, giving the system a chance to recover. * fix(cron): forward abort signal into runWithModelFallback Thread the cron executor's abort signal into the shared runWithModelFallback call so that cron timeouts and cancellations stop the fallback chain instead of retrying with the next candidate. Previously, the run callback checked params.abortSignal?.aborted and threw, but runWithModelFallback itself had no signal — so the new guard in model-fallback.ts could not distinguish a caller abort from a provider-side AbortError and would retry silently. Also adds a focused regression test verifying the signal is forwarded. --------- Co-authored-by: Shengting Xie Co-authored-by: yayu",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(terminal): wrap long wide-char words by visible width, not code-p…",
-      "summaryZh": "重點：修正(terminal): wrap long wide-char words by visible width, not code-point count (#96746) wrapNoteMessage measures every f..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型-fallback): don't rethrow provider-side AbortErrors as user …",
+      "summaryZh": "重點：修正(模型-fallback): don't rethrow provider-side AbortErrors as user cancellations (#90908) * 修正(模型-fallback): don't rethrow..."
     },
     {
       "id": 3,
-      "title": "fix(qa-lab): treat claude-cli as Anthropic-family for live turn timeo…",
-      "link": "https://github.com/openclaw/openclaw/commit/a048aeae16b6aaea38ac4a90a7bd16ea8f0fe3f8",
-      "publishedAt": "2026-06-27T15:47:33Z",
-      "summary": "fix(qa-lab): treat claude-cli as Anthropic-family for live turn timeouts (#96567) The live-frontier turn-timeout resolution only matched `anthropic/` models, so `claude-cli/*` routes fell into the 120s fallback bucket instead of the 180s Anthropic floor, and claude-cli Opus missed the 240s Opus floor — even though claude-cli serves the same Anthropic Claude models. Recognize claude-cli as Anthropic-family via a small `isAnthropicFamilyModel` helper, mirroring the existing `provider === \"anthropic\" || provider === \"claude-cli\"` precedent in the aimock and mock-openai servers. Co-authored-by: clawSean Co-authored-by: Claude Opus 4.8",
+      "title": "Doctor: expose plugin registry findings (#96169)",
+      "link": "https://github.com/openclaw/openclaw/commit/1bdde669503019a100f479d6a00be5d3c1e4b557",
+      "publishedAt": "2026-06-27T17:00:50Z",
+      "summary": "Doctor: expose plugin registry findings (#96169) Merged via squash. Prepared head SHA: cf4399955e2ddc8a38f5bb0f34bed4c6afc54749 Co-authored-by: giodl73-repo Co-authored-by: giodl73-repo Reviewed-by: @giodl73-repo",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): treat claude-cli as Anthropic-family for live turn timeo…",
-      "summaryZh": "重點：修正(qa-lab): treat claude-cli as Anthropic-family for live turn timeouts (#96567) The live-frontier turn-timeout resoluti..."
+      "titleZh": "OpenClaw 文件更新：文件tor: expose plugin registry findings (#96169)",
+      "summaryZh": "重點：文件tor: expose plugin registry findings (#96169) Merged via squash. Prepared head SHA: cf4399955e2ddc8a38f5bb0f34bed4c6af..."
     },
     {
       "id": 4,
-      "title": "fix(msteams): keep truncated parent context text well-formed (#96569)",
-      "link": "https://github.com/openclaw/openclaw/commit/4b9e01813e684100cbf4c47f8a77118a6ab5f587",
-      "publishedAt": "2026-06-27T15:47:27Z",
-      "summary": "fix(msteams): keep truncated parent context text well-formed (#96569) summarizeParentMessage truncated the parent body with text.slice(0, PARENT_TEXT_MAX_CHARS - 1), which can cut a surrogate pair in half and emit a lone surrogate into the injected \"Replying to @sender: …\" system event. Use the shared truncateUtf16Safe helper so truncation falls back to a whole code-point boundary. Add a regression asserting the summary stays isWellFormed() when the limit lands inside an emoji.",
+      "title": "fix(duckduckgo): guard out-of-range numeric HTML entities (#96583)",
+      "link": "https://github.com/openclaw/openclaw/commit/2720ac06b7c86ef49d5724aeba741d24eae54555",
+      "publishedAt": "2026-06-27T16:37:58Z",
+      "summary": "fix(duckduckgo): guard out-of-range numeric HTML entities (#96583) decodeHtmlEntities decoded numeric entities with String.fromCodePoint(parseInt(...)) without a range check, so an out-of-range entity such as &amp;#99999999; or &amp;#x110000; threw RangeError and made the whole results page fail to parse. Validate the code point is within 0..0x10FFFF and keep the original entity text otherwise. Add a regression covering decimal and hex out-of-range entities plus a valid astral entity.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(msteams): keep truncated parent context text well-formed (#96569)",
-      "summaryZh": "重點：修正(msteams): keep truncated parent context text well-formed (#96569) summarizeParentMessage truncated the parent body wi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(duckduckgo): guard out-of-range numeric HTML entities (#96583)",
+      "summaryZh": "重點：修正(duckduckgo): guard out-of-range numeric HTML entities (#96583) decodeHtmlEntities decoded numeric entities with Strin..."
     },
     {
       "id": 5,
+      "title": "fix(telegram): use idempotent retry context for delete/reaction (#96612)",
+      "link": "https://github.com/openclaw/openclaw/commit/ce15f348bbc419e91c8ab0034cf2a06382f5e912",
+      "publishedAt": "2026-06-27T16:31:52Z",
+      "summary": "fix(telegram): use idempotent retry context for delete/reaction (#96612) reactMessageTelegram and deleteMessageTelegram passed context: \"send\" to isRecoverableTelegramNetworkError, which disables message-snippet matching (allowMessageMatch defaults to false only for \"send\"). Both operations are idempotent (setMessageReaction / deleteMessage are safe to repeat), yet a transient snippet-only network error (e.g. \"socket hang up\", \"undici network error\" with no error code) was not retried — stricter than polling/webhook/ unknown, which all default allowMessageMatch to true. Users saw spurious reaction/delete failures on transient network errors. Add delete | react to TelegramNetworkErrorContext (additive) and use them at the two callers. The helper default (context !== \"send\") is unchanged, so delete/react now match polling/webhook/unknown. sendMessage keeps \"send\". Co-authored-by: Claude",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): use idempotent retry context for delete/reaction (#96612)",
+      "summaryZh": "重點：修正(Telegram): use idempotent retry context for delete/reaction (#96612) reactMessageTelegram and deleteMessageTelegram p..."
+    },
+    {
+      "id": 6,
+      "title": "NASA 選擇 Relativity Space 合作火星探測器任務，與 SpaceX 展開競賽",
+      "link": "https://technews.tw/2026/06/28/nasa-picks-eric-schmidts-rocket-company-for-mars-mission/",
+      "publishedAt": "Sat, 27 Jun 2026 16:00:58 +0000",
+      "summary": "NASA 17 日宣布，將與 Google 前董事長施密特（Eric Schmidt）掌舵的火箭公司 Rela [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Terzan 5 包含四代恆星族群，改寫銀河系核球形成歷史",
+      "link": "https://technews.tw/2026/06/28/new-research-discovered-terzan-5-contains-four-stellar-generations/",
+      "publishedAt": "Sat, 27 Jun 2026 16:00:40 +0000",
+      "summary": "位於銀河系核心核球區、距離地球約 1.9 萬光年的 Terzan 5，長期以來被視為一個典型的球狀星團。然而， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "放棄百萬年薪也要逃離美國？AI 大老逆風揭密：矽谷仍是全球「最強吸鈔機」",
+      "link": "https://technews.tw/2026/06/28/us-2025-net-population-outflow-fails-deter-silicon-valley-ai-wave-again-amplifies-global-startup-attraction/",
+      "publishedAt": "Sat, 27 Jun 2026 16:00:27 +0000",
+      "summary": "美國爆發近年罕見的人口出走潮之際 Google 前傑出工程師、雲端資料公司 Rubrik 共同創辦人阿文德‧賈 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "本週Google二度發布Chrome 149穩定版更新，修補3項高風險漏洞",
       "link": "https://www.ithome.com.tw/news/176911",
       "publishedAt": "2026-06-27 12:06:24",
@@ -55,48 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "產品體驗平臺公司Pendo、雲端通訊服務廠商8×8受Klue供應鏈攻擊影響，並引發資料外洩",
-      "link": "https://www.ithome.com.tw/news/176896",
-      "publishedAt": "2026-06-26 12:06:57",
-      "summary": "上週爆發的Klue供應鏈攻擊事故，已有超過10家公司證實受到影響，導致他們存放在Salesforce平臺的資料出現未經授權存取的現象，其中大部分是資安公司。如今有SaaS服務公司也受害。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "Klue供應鏈攻擊影響範圍擴大，AI營收情資平臺Gong的用戶也受到波及",
-      "link": "https://www.ithome.com.tw/news/176898",
-      "publishedAt": "2026-06-26 12:06:55",
-      "summary": "上週Salesforce揭露Klue供應鏈攻擊，並宣布切斷Klue Battlecards應用程式與用戶的Salesforce系統連結因應。然而就在有許多受害公司證實他們的Salesforce因此出現未經授權存取的情形之際，有另一家公司指出，他們的用戶也可能遭到這波供應鏈事故波及。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "微軟悄悄展延Windows 10 ESU到2027年10月",
-      "link": "https://www.ithome.com.tw/news/176897",
-      "publishedAt": "2026-06-26 12:06:55",
-      "summary": "本週微軟低調透過官方部落格公告，針對個人用Windows 10 PC提供的延伸安全更新（Extended Security Update,ESU）將再免費展延一年到2027年10月。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Deno 2.9新增桌面應用工具，網頁專案可封裝成跨平臺應用程式",
-      "link": "https://www.ithome.com.tw/news/176895",
-      "publishedAt": "2026-06-26 12:06:53",
-      "summary": "JavaScript與TypeScript執行環境Deno發布2.9版，新增實驗性的deno desktop工具，讓開發者可將JavaScript與TypeScript網頁專案封裝成桌面應用程式。該功能讓Deno從伺服器端與命令列執行環境，擴大到桌面程式開發，開發者可用既有網頁技術建立Windows、macOS與Linux應用。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 10,
-      "title": "F5併購SurePath AI，延續與擴張公司長期發展的網路層資安防護策略，強化AI治理能見度與安全性",
-      "link": "https://www.ithome.com.tw/news/176893",
-      "publishedAt": "2026-06-26 12:06:42",
-      "summary": "從傳統應用遞送（ADC）轉型、如今專注發展多雲應用安全與多雲網路（MCN）的 F5，本週發表AI資安平臺F5 AI Security Platform（AISP），為企業提供持續保護使用AI的能力，涵蓋探查（discovery）、安全性測試（security testing）、治理（governance）、AI執行階段防護（runtime protection），以及可觀測性（observability），也宣",
-      "source": "iThome",
+      "title": "扛不住記憶體狂漲！蘋果試圖遊說白宮批准向中國軍工黑名單企業採購晶片",
+      "link": "https://technews.tw/2026/06/27/memory-prices-surge/",
+      "publishedAt": "Sat, 27 Jun 2026 09:18:48 +0000",
+      "summary": "蘋果（Apple）6 月 25 日宣布決定提高 MacBook 和 iPad 的售價，此舉導致其市值蒸發 2, [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     }
   ]
