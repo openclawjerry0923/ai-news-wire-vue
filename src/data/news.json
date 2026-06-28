@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-06-28T15:18:21.906Z",
+  "generatedAt": "2026-06-28T17:13:19.822Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(opencode): restore Zen model catalog (#92495)",
+      "link": "https://github.com/openclaw/openclaw/commit/891096926e272e5e3c24fae66133876b8dbe7060",
+      "publishedAt": "2026-06-28T16:32:44Z",
+      "summary": "fix(opencode): restore Zen model catalog (#92495) * fix(opencode): restore Zen model catalog * fix(opencode): restore Zen transport routing * fix(opencode): broaden Zen fallback catalog * fix(opencode): correct Zen family routing * fix(opencode): route Zen MiniMax through Anthropic * fix(opencode): filter Zen live-only catalog rows * fix(opencode): route MiniMax through Zen chat completions * fix(opencode): omit unverified Zen model costs * fix(opencode): align sampled Zen costs * fix(opencode): keep Zen cost metadata required * fix(opencode): keep Zen docs examples resolvable * fix(opencode): move Zen catalog to provider discovery * test(opencode): cover Zen discovery cache isolation * fix(opencode): add Zen GLM-5.2 catalog coverage * test(opencode): detect Zen catalog drift Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(opencode): restore Zen 模型 catalog (#92495)",
+      "summaryZh": "重點：修正(opencode): restore Zen 模型 catalog (#92495) * 修正(opencode): restore Zen 模型 catalog * 修正(opencode): restore Zen transpo..."
+    },
+    {
+      "id": 2,
+      "title": "fix(agent): bound proxy error response parsing (#97351)",
+      "link": "https://github.com/openclaw/openclaw/commit/27c1685f106d751500a2720eff39b3d69ce3b105",
+      "publishedAt": "2026-06-28T15:53:09Z",
+      "summary": "fix(agent): bound proxy error response parsing (#97351)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agent): bound proxy error response parsing (#97351)",
+      "summaryZh": "重點：修正(agent): bound proxy error response parsing (#97351)..."
+    },
+    {
+      "id": 3,
       "title": "fix(speech): bound TTS response reads (#96874)",
       "link": "https://github.com/openclaw/openclaw/commit/2f851ecfe9df4486878305798775f7e8f04fdf92",
       "publishedAt": "2026-06-28T14:57:25Z",
@@ -13,7 +35,7 @@
       "summaryZh": "重點：修正(speech): bound TTS response reads (#96874)..."
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "Add hosted catalog config profiles (#95981)",
       "link": "https://github.com/openclaw/openclaw/commit/70e0fd4d8b91c81a982aaed2ddde4d178675a017",
       "publishedAt": "2026-06-28T14:53:32Z",
@@ -22,28 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：Add hosted catalog config profiles (#95981)",
       "summaryZh": "重點：Add hosted catalog config profiles (#95981) Merged via squash. Prepared head SHA: ef4d81cd0824de2322857028e64786a9dad304..."
-    },
-    {
-      "id": 3,
-      "title": "fix(minimax): bound video control response reads (#96889)",
-      "link": "https://github.com/openclaw/openclaw/commit/25e184aeab644b3f1acbef7f00fdd9121fe6d1a4",
-      "publishedAt": "2026-06-28T14:52:33Z",
-      "summary": "fix(minimax): bound video control response reads (#96889) * fix(minimax): bound image/video success response reads MiniMax image generation and video generation (task submit + status poll) read their success responses through unbounded `await response.json()`, so a misbehaving or hostile endpoint could stream an arbitrarily large body into memory before parsing and exhaust the process. Read those success bodies through the shared bounded reader (16 MiB cap, the same limit other bundled providers and the sibling MiniMax web-search provider already use) and cancel the stream on overflow. The error-body path is already bounded via assertOkOrThrowHttpError; this closes the matching success-JSON gap. MiniMax TTS is already bounded and is left unchanged. AI-assisted. * fix(minimax): bound video metadata response reads * fix(minimax): leave image response sizing to image hardening * fix(minimax): bound image/video success response reads MiniMax image generation and video generation (task submit + status poll) read their success responses through unbounded `await response.json()`, so a misbehaving or hostile endpoint could stream an arbitrarily large body into memory before parsing and exhaust the process. Read those success bodies through the shared bounded reader (16 MiB cap, the same limit other bundled providers and the sibling MiniMax web-search provider already use) and cancel the stream on overflow. The error-body path is already bounded via assertOkOrThrowHttpError; this closes the matching success-JSON gap. MiniMax TTS is already bounded and is left unchanged. AI-assisted. * fix(minimax): bound video metadata response reads",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(minimax): bound video control response reads (#96889)",
-      "summaryZh": "重點：修正(minimax): bound video control response reads (#96889) * 修正(minimax): bound image/video success response reads MiniMax..."
-    },
-    {
-      "id": 4,
-      "title": "fix(mattermost): bound successful REST JSON/text response reads (#96033)",
-      "link": "https://github.com/openclaw/openclaw/commit/9241b9701d9c14f4d3b3a176071d95e9c21de4ac",
-      "publishedAt": "2026-06-28T14:40:32Z",
-      "summary": "fix(mattermost): bound successful REST JSON/text response reads (#96033) * fix(mattermost): bound successful REST JSON/text response reads The Mattermost REST client already bounds error bodies (readResponseTextLimited) and streams guarded responses without buffering, but the success path still called `await res.json()` / `await res.text()`, reading the whole body into memory before parsing. A self-hosted or compromised Mattermost server can return an arbitrarily large (or never-terminating, content-length-less) JSON/text body and force the plugin to buffer it unbounded. Read successful JSON through the shared readProviderJsonResponse (16 MiB cap, cancels the stream and throws a bounded error on overflow, same as the provider HTTP path) and cap non-JSON success bodies with readResponseTextLimited. uploadMattermostFile's file-info JSON is bounded the same way. Symmetric follow-up to the #95103 / #95108 response-limit campaign. AI-assisted. * fix(mattermost): bound probe success JSON reads * fix(mattermost): reject oversized success text bodies",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mattermost): bound successful REST JSON/text response reads (#96033)",
-      "summaryZh": "重點：修正(mattermost): bound successful REST JSON/text response reads (#96033) * 修正(mattermost): bound successful REST JSON/tex..."
     },
     {
       "id": 5,
