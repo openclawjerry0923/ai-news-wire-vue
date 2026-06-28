@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-28T13:48:33.898Z",
+  "generatedAt": "2026-06-28T15:18:21.906Z",
   "items": [
     {
       "id": 1,
-      "title": "test: stabilize startup session migration flake (#97370)",
-      "link": "https://github.com/openclaw/openclaw/commit/08d15ec32db3ca8a9f1d3160cdb14b8fff95f7b1",
-      "publishedAt": "2026-06-28T11:29:41Z",
-      "summary": "test: stabilize startup session migration flake (#97370) * test: stabilize startup session migration flake * test: cover voice call doctor session ids",
+      "title": "fix(speech): bound TTS response reads (#96874)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f851ecfe9df4486878305798775f7e8f04fdf92",
+      "publishedAt": "2026-06-28T14:57:25Z",
+      "summary": "fix(speech): bound TTS response reads (#96874)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: stabilize startup session migration flake (#97370)",
-      "summaryZh": "重點：test: stabilize startup session migration flake (#97370) * test: stabilize startup session migration flake * test: cover..."
+      "titleZh": "OpenClaw 程式碼更新：修正(speech): bound TTS response reads (#96874)",
+      "summaryZh": "重點：修正(speech): bound TTS response reads (#96874)..."
     },
     {
       "id": 2,
-      "title": "test: link Tool Search gateway QA coverage (#97374)",
-      "link": "https://github.com/openclaw/openclaw/commit/39c4c02653eac815c2ccc9792d484b853835c839",
-      "publishedAt": "2026-06-28T11:28:32Z",
-      "summary": "test: link Tool Search gateway QA coverage (#97374)",
+      "title": "Add hosted catalog config profiles (#95981)",
+      "link": "https://github.com/openclaw/openclaw/commit/70e0fd4d8b91c81a982aaed2ddde4d178675a017",
+      "publishedAt": "2026-06-28T14:53:32Z",
+      "summary": "Add hosted catalog config profiles (#95981) Merged via squash. Prepared head SHA: ef4d81cd0824de2322857028e64786a9dad304dd Co-authored-by: giodl73-repo Co-authored-by: giodl73-repo Reviewed-by: @giodl73-repo",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: link Tool Search Gateway QA coverage (#97374)",
-      "summaryZh": "重點：test: link Tool Search Gateway QA coverage (#97374)..."
+      "titleZh": "OpenClaw 程式碼更新：Add hosted catalog config profiles (#95981)",
+      "summaryZh": "重點：Add hosted catalog config profiles (#95981) Merged via squash. Prepared head SHA: ef4d81cd0824de2322857028e64786a9dad304..."
     },
     {
       "id": 3,
-      "title": "fix(agents): preserve structured tool result visible text (#97268)",
-      "link": "https://github.com/openclaw/openclaw/commit/8d168c836af38332a75529ca8c1af2cf28494427",
-      "publishedAt": "2026-06-28T09:38:43Z",
-      "summary": "fix(agents): preserve structured tool result visible text (#97268) * fix(agents): preserve structured tool result visible text * fix(agents): address structured tool result review blockers * fix(agents): cover real structured tool result shapes * fix(agents): preserve canonical tool error statuses * fix(agents): harden structured result rendering * fix(agents): preserve typed structured results * fix(agents): bound provider result media --------- Co-authored-by: snowzlmbot Co-authored-by: Peter Steinberger",
+      "title": "fix(minimax): bound video control response reads (#96889)",
+      "link": "https://github.com/openclaw/openclaw/commit/25e184aeab644b3f1acbef7f00fdd9121fe6d1a4",
+      "publishedAt": "2026-06-28T14:52:33Z",
+      "summary": "fix(minimax): bound video control response reads (#96889) * fix(minimax): bound image/video success response reads MiniMax image generation and video generation (task submit + status poll) read their success responses through unbounded `await response.json()`, so a misbehaving or hostile endpoint could stream an arbitrarily large body into memory before parsing and exhaust the process. Read those success bodies through the shared bounded reader (16 MiB cap, the same limit other bundled providers and the sibling MiniMax web-search provider already use) and cancel the stream on overflow. The error-body path is already bounded via assertOkOrThrowHttpError; this closes the matching success-JSON gap. MiniMax TTS is already bounded and is left unchanged. AI-assisted. * fix(minimax): bound video metadata response reads * fix(minimax): leave image response sizing to image hardening * fix(minimax): bound image/video success response reads MiniMax image generation and video generation (task submit + status poll) read their success responses through unbounded `await response.json()`, so a misbehaving or hostile endpoint could stream an arbitrarily large body into memory before parsing and exhaust the process. Read those success bodies through the shared bounded reader (16 MiB cap, the same limit other bundled providers and the sibling MiniMax web-search provider already use) and cancel the stream on overflow. The error-body path is already bounded via assertOkOrThrowHttpError; this closes the matching success-JSON gap. MiniMax TTS is already bounded and is left unchanged. AI-assisted. * fix(minimax): bound video metadata response reads",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve structured tool result visible text (#97268)",
-      "summaryZh": "重點：修正(agents): preserve structured tool result visible text (#97268) * 修正(agents): preserve structured tool result visible ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(minimax): bound video control response reads (#96889)",
+      "summaryZh": "重點：修正(minimax): bound video control response reads (#96889) * 修正(minimax): bound image/video success response reads MiniMax..."
     },
     {
       "id": 4,
-      "title": "[AI] fix(plugins): recognize document-extractors as a capability kind…",
-      "link": "https://github.com/openclaw/openclaw/commit/d17b970bb50d8835ee3e8d23e43aec91a08da4e0",
-      "publishedAt": "2026-06-28T09:06:10Z",
-      "summary": "[AI] fix(plugins): recognize document-extractors as a capability kind… (#91597) * [AI] fix(plugins): recognize document-extractors as a capability kind in inspect-shape PluginCapabilityKind did not include \"document-extractors\", causing plugins that declare contracts.documentExtractors (like document-extract) to show capabilityCount=0 and shape=\"non-capability\" in plugins inspect. Add \"document-extractors\" to PluginCapabilityKind and read from plugin.contracts.documentExtractors in buildPluginCapabilityEntries(). Related to #91539 * [AI] test(plugins): add document-extractors shape contract coverage Add a test case verifying that plugins declaring contracts.documentExtractors are classified as plain-capability shape with capabilityCount=1 and capabilities including the document-extractors kind. Addresses ClawSweeper P2 review finding on PR #91597. * [AI] chore: rebase on main to refresh CI * test(plugins): fold extractor into shape matrix --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(mattermost): bound successful REST JSON/text response reads (#96033)",
+      "link": "https://github.com/openclaw/openclaw/commit/9241b9701d9c14f4d3b3a176071d95e9c21de4ac",
+      "publishedAt": "2026-06-28T14:40:32Z",
+      "summary": "fix(mattermost): bound successful REST JSON/text response reads (#96033) * fix(mattermost): bound successful REST JSON/text response reads The Mattermost REST client already bounds error bodies (readResponseTextLimited) and streams guarded responses without buffering, but the success path still called `await res.json()` / `await res.text()`, reading the whole body into memory before parsing. A self-hosted or compromised Mattermost server can return an arbitrarily large (or never-terminating, content-length-less) JSON/text body and force the plugin to buffer it unbounded. Read successful JSON through the shared readProviderJsonResponse (16 MiB cap, cancels the stream and throws a bounded error on overflow, same as the provider HTTP path) and cap non-JSON success bodies with readResponseTextLimited. uploadMattermostFile's file-info JSON is bounded the same way. Symmetric follow-up to the #95103 / #95108 response-limit campaign. AI-assisted. * fix(mattermost): bound probe success JSON reads * fix(mattermost): reject oversized success text bodies",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：[AI] 修正(plugins): recognize 文件ument-extractors as a capability kind…",
-      "summaryZh": "重點：[AI] 修正(plugins): recognize 文件ument-extractors as a capability kind… (#91597) * [AI] 修正(plugins): recognize 文件ument-extr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mattermost): bound successful REST JSON/text response reads (#96033)",
+      "summaryZh": "重點：修正(mattermost): bound successful REST JSON/text response reads (#96033) * 修正(mattermost): bound successful REST JSON/tex..."
     },
     {
       "id": 5,
