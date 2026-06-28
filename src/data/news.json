@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T21:02:36.950Z",
+  "generatedAt": "2026-06-28T23:02:56.808Z",
   "items": [
     {
       "id": 1,
@@ -12,50 +12,68 @@
     },
     {
       "id": 2,
-      "title": "fix(cron): truncate failure alert error text on UTF-16 boundary (#97298)",
-      "link": "https://github.com/openclaw/openclaw/commit/686a2876c7f4163ca801b5d740c2f7a57c303550",
-      "publishedAt": "2026-06-28T20:59:06Z",
-      "summary": "fix(cron): truncate failure alert error text on UTF-16 boundary (#97298) * fix(cron): truncate failure alert error text on UTF-16 boundary * test(cron): add regression test for UTF-16 safe failure alert truncation Verify that emitFailureAlert does not produce dangling surrogates when truncating a cron failure error message with a non-BMP character (emoji) straddling the 200-code-unit truncation boundary. * fix(test): cover last code unit in surrogate scan The dangling surrogate check loop stopped at length-1, missing a high surrogate at the final position. Extend to i",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): truncate failure alert error text on UTF-16 boundary (#97298)",
-      "summaryZh": "重點：修正(排程): truncate failure alert error text on UTF-16 boundary (#97298) * 修正(排程): truncate failure alert error text on UTF..."
+      "title": "擺脫衛星與跑道限制，美軍測試平流層太陽能無人機加微型氣球組合",
+      "link": "https://technews.tw/2026/06/29/us-military-tested-icarus-apollo-r-solar-powered-drone-with-ballon/",
+      "publishedAt": "Sun, 28 Jun 2026 23:00:16 +0000",
+      "summary": "在廣袤且充滿衝突風險的印太戰區，如何維持不間斷的通訊與偵察，一直是美軍的終極難題，而在近期的演習中，一項新的嘗 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(shared): use UTF-16 safe truncation in subagent line display (#97…",
-      "link": "https://github.com/openclaw/openclaw/commit/c9d2edfb7e597edb9792fee22e10f615079927af",
-      "publishedAt": "2026-06-28T20:58:58Z",
-      "summary": "fix(shared): use UTF-16 safe truncation in subagent line display (#97557) * fix(shared): use UTF-16 safe truncation in subagent line display truncateLine sliced by code units instead of preserving surrogate pairs, causing emoji / CJK Extension B characters at the truncation boundary to display as broken replacement characters. * fix(shared): move import above export to satisfy import/first lint rule",
+      "title": "perf: skip manifest normalization in status summary (#87831)",
+      "link": "https://github.com/openclaw/openclaw/commit/87aae9f11d270c414e1ae97cff34540069cf71e7",
+      "publishedAt": "2026-06-28T22:52:44Z",
+      "summary": "perf: skip manifest normalization in status summary (#87831)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(shared): use UTF-16 safe truncation in subagent line display (#97…",
-      "summaryZh": "重點：修正(shared): use UTF-16 safe truncation in subagent line display (#97557) * 修正(shared): use UTF-16 safe truncation in sub..."
+      "titleZh": "OpenClaw 程式碼更新：perf: skip manifest normalization in status summary (#87831)",
+      "summaryZh": "重點：perf: skip manifest normalization in status summary (#87831)..."
     },
     {
       "id": 4,
-      "title": "fix(doctor): warn and document QMD session recall gates (#80947)",
-      "link": "https://github.com/openclaw/openclaw/commit/78029e43d2d4e71ead075308ec9031152956cb58",
-      "publishedAt": "2026-06-28T20:55:27Z",
-      "summary": "fix(doctor): warn and document QMD session recall gates (#80947) * Warn on QMD session recall export mismatch * Clarify session transcript recall gates",
+      "title": "test: inventory conditional test gates",
+      "link": "https://github.com/openclaw/openclaw/commit/2a01602a7f33dc3905e40b1c35f89e1e2a90c8d7",
+      "publishedAt": "2026-06-28T22:50:29Z",
+      "summary": "test: inventory conditional test gates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): warn and 文件ument QMD session recall gates (#80947)",
-      "summaryZh": "重點：修正(文件tor): warn and 文件ument QMD session recall gates (#80947) * Warn on QMD session recall export mismatch * Clarify ses..."
+      "titleZh": "OpenClaw 程式碼更新：test: inventory conditional test gates",
+      "summaryZh": "重點：test: inventory conditional test gates..."
     },
     {
       "id": 5,
-      "title": "Add prototype pollution guard to resolveConfigPath (#59694)",
-      "link": "https://github.com/openclaw/openclaw/commit/f37e45ecc1f4a32d6dbd3dca095e50ed17021ec8",
-      "publishedAt": "2026-06-28T20:48:24Z",
-      "summary": "Add prototype pollution guard to resolveConfigPath (#59694) * config: block prototype keys in config path resolver * config: guard config defaults fallback",
+      "title": "fix(telegram): preserve literal reasoning tags",
+      "link": "https://github.com/openclaw/openclaw/commit/52eb5946c7963b68570879a18255a81cd56f1f33",
+      "publishedAt": "2026-06-28T22:49:03Z",
+      "summary": "fix(telegram): preserve literal reasoning tags",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Add prototype pollution guard to resolveConfigPath (#59694)",
-      "summaryZh": "重點：Add prototype pollution guard to resolveConfigPath (#59694) * config: block prototype keys in config path resolver * con..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): preserve literal reasoning tags",
+      "summaryZh": "重點：修正(Telegram): preserve literal reasoning tags..."
     },
     {
       "id": 6,
+      "title": "fix(telegram): track chunked outbound sends",
+      "link": "https://github.com/openclaw/openclaw/commit/bc2728c6b17ab04536fffba9d573083166311da4",
+      "publishedAt": "2026-06-28T22:48:24Z",
+      "summary": "fix(telegram): track chunked outbound sends",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): track chunked outbound sends",
+      "summaryZh": "重點：修正(Telegram): track chunked outbound sends..."
+    },
+    {
+      "id": 7,
+      "title": "Meta 遭 Google 限制 Gemini 模型用量，AI 專案進展受阻",
+      "link": "https://technews.tw/2026/06/29/google-limits-meta-s-use-of-its-gemini-ai-models/",
+      "publishedAt": "Sun, 28 Jun 2026 22:44:45 +0000",
+      "summary": "《金融時報》報導指出，Google 已限制 Meta 大量運用 Gemini 模型，此舉擾亂了 Meta 內部 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "新思科技推第一波多物理場融合解決方案，聯發科、輝達等大廠導入",
       "link": "https://technews.tw/2026/06/28/synopsys-multiphysics-analysis/",
       "publishedAt": "Sun, 28 Jun 2026 08:37:58 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "博主爆料與網友推測，Honor 正在為未來手機研發 14,000mAh 巨無霸電池",
       "link": "https://technews.tw/2026/06/28/honor-rumored-for-testing-14000mah-battery-for-future-phone/",
       "publishedAt": "Sun, 28 Jun 2026 08:00:11 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "不只要 AI 自己跑，還要讓它知道何時停：循環工程熱潮背後的成本控管革命",
       "link": "https://technews.tw/2026/06/28/enterprises-agentic-ai-multi-step-tasks-strictly-controlling-token-costs/",
       "publishedAt": "Sun, 28 Jun 2026 07:00:45 +0000",
       "summary": "AI 圈前陣子盛行「盡量用、用力燒」文化，許多企業為了加速數位轉型，不僅鼓勵員工大量使用 AI，甚至設立排行榜 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "全球 AI 競爭格局重新洗牌？外媒稱中國 AI 資安能力已追上 Anthropic",
-      "link": "https://technews.tw/2026/06/28/china-anthropic-in-cybersecurity/",
-      "publishedAt": "Sun, 28 Jun 2026 06:36:09 +0000",
-      "summary": "中國人工智慧（AI）系統在部分網路安全情境下，已追上 Anthropic Mythos 模型的表現。《華爾街日 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "大摩報告：全球 AI 債務暴增 357%，最大債主可能就是台廠",
-      "link": "https://finance.technews.tw/2026/06/28/global-ai-debt-surges-357/",
-      "publishedAt": "Sun, 28 Jun 2026 06:30:06 +0000",
-      "summary": "摩根士丹利的預測，全球「AI 債務」爆增將突破新台幣 18 兆元，但不會立刻爆雷，只是該還的錢遲早要還。亞馬遜 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
