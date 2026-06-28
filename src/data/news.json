@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T19:21:56.211Z",
+  "generatedAt": "2026-06-28T21:02:36.950Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "docs: add scripts directory index (#97250)",
-      "link": "https://github.com/openclaw/openclaw/commit/9f66f61d0593b45425c38c49ca0f7f2e31b6a259",
-      "publishedAt": "2026-06-28T19:19:30Z",
-      "summary": "docs: add scripts directory index (#97250)",
+      "title": "fix(cron): truncate failure alert error text on UTF-16 boundary (#97298)",
+      "link": "https://github.com/openclaw/openclaw/commit/686a2876c7f4163ca801b5d740c2f7a57c303550",
+      "publishedAt": "2026-06-28T20:59:06Z",
+      "summary": "fix(cron): truncate failure alert error text on UTF-16 boundary (#97298) * fix(cron): truncate failure alert error text on UTF-16 boundary * test(cron): add regression test for UTF-16 safe failure alert truncation Verify that emitFailureAlert does not produce dangling surrogates when truncating a cron failure error message with a non-BMP character (emoji) straddling the 200-code-unit truncation boundary. * fix(test): cover last code unit in surrogate scan The dangling surrogate check loop stopped at length-1, missing a high surrogate at the final position. Extend to i",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: add scripts directory index (#97250)",
-      "summaryZh": "重點：文件: add scripts directory index (#97250)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): truncate failure alert error text on UTF-16 boundary (#97298)",
+      "summaryZh": "重點：修正(排程): truncate failure alert error text on UTF-16 boundary (#97298) * 修正(排程): truncate failure alert error text on UTF..."
     },
     {
       "id": 3,
-      "title": "fix: clarify pinned plugin dry-run updates (#97282)",
-      "link": "https://github.com/openclaw/openclaw/commit/f3bcee8b2e1a6b7c85385b29fc6889de1f1a4a8b",
-      "publishedAt": "2026-06-28T19:18:31Z",
-      "summary": "fix: clarify pinned plugin dry-run updates (#97282) * fix: clarify pinned plugin dry-run updates * fix(plugins): normalize pinned npm dry-run versions",
+      "title": "fix(shared): use UTF-16 safe truncation in subagent line display (#97…",
+      "link": "https://github.com/openclaw/openclaw/commit/c9d2edfb7e597edb9792fee22e10f615079927af",
+      "publishedAt": "2026-06-28T20:58:58Z",
+      "summary": "fix(shared): use UTF-16 safe truncation in subagent line display (#97557) * fix(shared): use UTF-16 safe truncation in subagent line display truncateLine sliced by code units instead of preserving surrogate pairs, causing emoji / CJK Extension B characters at the truncation boundary to display as broken replacement characters. * fix(shared): move import above export to satisfy import/first lint rule",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: clarify pinned plugin dry-run updates (#97282)",
-      "summaryZh": "重點：修正: clarify pinned plugin dry-run updates (#97282) * 修正: clarify pinned plugin dry-run updates * 修正(plugins): normalize ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(shared): use UTF-16 safe truncation in subagent line display (#97…",
+      "summaryZh": "重點：修正(shared): use UTF-16 safe truncation in subagent line display (#97557) * 修正(shared): use UTF-16 safe truncation in sub..."
     },
     {
       "id": 4,
-      "title": "fix(bedrock): honor adaptive model max tokens (#97343)",
-      "link": "https://github.com/openclaw/openclaw/commit/a083c76621598a85d4cc63474f58004680fd77b1",
-      "publishedAt": "2026-06-28T19:15:02Z",
-      "summary": "fix(bedrock): honor adaptive model max tokens (#97343)",
+      "title": "fix(doctor): warn and document QMD session recall gates (#80947)",
+      "link": "https://github.com/openclaw/openclaw/commit/78029e43d2d4e71ead075308ec9031152956cb58",
+      "publishedAt": "2026-06-28T20:55:27Z",
+      "summary": "fix(doctor): warn and document QMD session recall gates (#80947) * Warn on QMD session recall export mismatch * Clarify session transcript recall gates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(bedrock): honor adaptive 模型 max tokens (#97343)",
-      "summaryZh": "重點：修正(bedrock): honor adaptive 模型 max tokens (#97343)..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): warn and 文件ument QMD session recall gates (#80947)",
+      "summaryZh": "重點：修正(文件tor): warn and 文件ument QMD session recall gates (#80947) * Warn on QMD session recall export mismatch * Clarify ses..."
     },
     {
       "id": 5,
-      "title": "fix(azure-openai-responses): bound SSE response reads via buildGuarde…",
-      "link": "https://github.com/openclaw/openclaw/commit/66ffad11761087455a449a9950514297d27ba48e",
-      "publishedAt": "2026-06-28T19:14:53Z",
-      "summary": "fix(azure-openai-responses): bound SSE response reads via buildGuardedModelFetch (#97349) Inject buildGuardedModelFetch with resolved Azure base URL into both SDK constructors (OpenAI and AzureOpenAI path) so Azure Responses requests route through OpenClaw's guarded transport (SSRF policy, timeout, retry limiting, SSE/JSON synthesis caps). The non-OK response body cap is applied lazily inside the shared sanitizeOpenAISdkSseResponse guard via TransformStream — closes the unbounded response.text() OOM path for hostile 4xx/5xx responses while preserving the OpenAI SDK's ability to cancel and retry. - src/llm/providers/azure-openai-responses.ts: pass guardedFetch into both OpenAI and AzureOpenAI SDK constructors (no per-provider wrapper) - src/agents/provider-transport-fetch.ts: add capNonOkResponseBodyLazily helper and wire into sanitizeOpenAISdkSseResponse for !response.ok - src/agents/provider-transport-fetch.test.ts: 2 inline tests (cap fires + SDK cancel preserves source) Co-authored-by: Claude",
+      "title": "Add prototype pollution guard to resolveConfigPath (#59694)",
+      "link": "https://github.com/openclaw/openclaw/commit/f37e45ecc1f4a32d6dbd3dca095e50ed17021ec8",
+      "publishedAt": "2026-06-28T20:48:24Z",
+      "summary": "Add prototype pollution guard to resolveConfigPath (#59694) * config: block prototype keys in config path resolver * config: guard config defaults fallback",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(azure-openai-responses): bound SSE response reads via buildGuarde…",
-      "summaryZh": "重點：修正(azure-openai-responses): bound SSE response reads via buildGuarded模型Fetch (#97349) Inject buildGuarded模型Fetch with re..."
+      "titleZh": "OpenClaw 程式碼更新：Add prototype pollution guard to resolveConfigPath (#59694)",
+      "summaryZh": "重點：Add prototype pollution guard to resolveConfigPath (#59694) * config: block prototype keys in config path resolver * con..."
     },
     {
       "id": 6,
