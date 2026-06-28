@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-06-28T08:53:42.762Z",
+  "generatedAt": "2026-06-28T11:08:19.909Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(agents): preserve structured tool result visible text (#97268)",
+      "link": "https://github.com/openclaw/openclaw/commit/8d168c836af38332a75529ca8c1af2cf28494427",
+      "publishedAt": "2026-06-28T09:38:43Z",
+      "summary": "fix(agents): preserve structured tool result visible text (#97268) * fix(agents): preserve structured tool result visible text * fix(agents): address structured tool result review blockers * fix(agents): cover real structured tool result shapes * fix(agents): preserve canonical tool error statuses * fix(agents): harden structured result rendering * fix(agents): preserve typed structured results * fix(agents): bound provider result media --------- Co-authored-by: snowzlmbot Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve structured tool result visible text (#97268)",
+      "summaryZh": "重點：修正(agents): preserve structured tool result visible text (#97268) * 修正(agents): preserve structured tool result visible ..."
+    },
+    {
+      "id": 2,
+      "title": "[AI] fix(plugins): recognize document-extractors as a capability kind…",
+      "link": "https://github.com/openclaw/openclaw/commit/d17b970bb50d8835ee3e8d23e43aec91a08da4e0",
+      "publishedAt": "2026-06-28T09:06:10Z",
+      "summary": "[AI] fix(plugins): recognize document-extractors as a capability kind… (#91597) * [AI] fix(plugins): recognize document-extractors as a capability kind in inspect-shape PluginCapabilityKind did not include \"document-extractors\", causing plugins that declare contracts.documentExtractors (like document-extract) to show capabilityCount=0 and shape=\"non-capability\" in plugins inspect. Add \"document-extractors\" to PluginCapabilityKind and read from plugin.contracts.documentExtractors in buildPluginCapabilityEntries(). Related to #91539 * [AI] test(plugins): add document-extractors shape contract coverage Add a test case verifying that plugins declaring contracts.documentExtractors are classified as plain-capability shape with capabilityCount=1 and capabilities including the document-extractors kind. Addresses ClawSweeper P2 review finding on PR #91597. * [AI] chore: rebase on main to refresh CI * test(plugins): fold extractor into shape matrix --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：[AI] 修正(plugins): recognize 文件ument-extractors as a capability kind…",
+      "summaryZh": "重點：[AI] 修正(plugins): recognize 文件ument-extractors as a capability kind… (#91597) * [AI] 修正(plugins): recognize 文件ument-extr..."
+    },
+    {
+      "id": 3,
+      "title": "Fix/zalo bound api json response reads (#97277)",
+      "link": "https://github.com/openclaw/openclaw/commit/38ddcef78f072d647136a1e28bf7383b0e203a37",
+      "publishedAt": "2026-06-28T09:04:22Z",
+      "summary": "Fix/zalo bound api json response reads (#97277) * fix(zalo): bound Bot API JSON response reads via readProviderJsonResponse * test(zalo): keep API proof in focused coverage --------- Co-authored-by: NIO Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正/zalo bound api json response reads (#97277)",
+      "summaryZh": "重點：修正/zalo bound api json response reads (#97277) * 修正(zalo): bound Bot API JSON response reads via readProviderJsonRespons..."
+    },
+    {
+      "id": 4,
+      "title": "Fix/discord bound probe getme json reads (#97278)",
+      "link": "https://github.com/openclaw/openclaw/commit/7ba9212665a728993550a65ef5d8fdd235d4a160",
+      "publishedAt": "2026-06-28T08:57:20Z",
+      "summary": "Fix/discord bound probe getme json reads (#97278) * fix(discord): bound probe getMe JSON response reads * test(discord): add oversized probe getMe JSON regression * test(discord): add loopback proof for bounded probe getMe reads * fix(scripts): satisfy oxlint in discord probe proof script * test(discord): keep probe proof in focused coverage --------- Co-authored-by: NIO Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正/Discord bound probe getme json reads (#97278)",
+      "summaryZh": "重點：修正/Discord bound probe getme json reads (#97278) * 修正(Discord): bound probe getMe JSON response reads * test(Discord): a..."
+    },
+    {
+      "id": 5,
       "title": "新思科技推第一波多物理場融合解決方案，聯發科、輝達等大廠導入",
       "link": "https://technews.tw/2026/06/28/synopsys-multiphysics-analysis/",
       "publishedAt": "Sun, 28 Jun 2026 08:37:58 +0000",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "博主爆料與網友推測，Honor 正在為未來手機研發 14,000mAh 巨無霸電池",
       "link": "https://technews.tw/2026/06/28/honor-rumored-for-testing-14000mah-battery-for-future-phone/",
       "publishedAt": "Sun, 28 Jun 2026 08:00:11 +0000",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "不只要 AI 自己跑，還要讓它知道何時停：循環工程熱潮背後的成本控管革命",
       "link": "https://technews.tw/2026/06/28/enterprises-agentic-ai-multi-step-tasks-strictly-controlling-token-costs/",
       "publishedAt": "Sun, 28 Jun 2026 07:00:45 +0000",
@@ -29,18 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "fix: seed Slack thread context after reset (#97100)",
-      "link": "https://github.com/openclaw/openclaw/commit/9c95abd49d4567097f22090929bd9ea542b0ecbe",
-      "publishedAt": "2026-06-28T06:36:53Z",
-      "summary": "fix: seed Slack thread context after reset (#97100)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: seed Slack thread context after reset (#97100)",
-      "summaryZh": "重點：修正: seed Slack thread context after reset (#97100)..."
-    },
-    {
-      "id": 5,
+      "id": 8,
       "title": "全球 AI 競爭格局重新洗牌？外媒稱中國 AI 資安能力已追上 Anthropic",
       "link": "https://technews.tw/2026/06/28/china-anthropic-in-cybersecurity/",
       "publishedAt": "Sun, 28 Jun 2026 06:36:09 +0000",
@@ -49,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "大摩報告：全球 AI 債務暴增 357%，最大債主可能就是台廠",
       "link": "https://finance.technews.tw/2026/06/28/global-ai-debt-surges-357/",
       "publishedAt": "Sun, 28 Jun 2026 06:30:06 +0000",
@@ -58,46 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "技嘉全新 27 吋 WOLED 電競螢幕 GO27Q24G 正式上市",
       "link": "https://ccc.technews.tw/2026/06/28/gigabyte-officially-launches-new-27-inch-woled-gaming-monitor-go27q24g/",
       "publishedAt": "Sun, 28 Jun 2026 06:00:23 +0000",
       "summary": "全球電腦領導品牌 GIGABYTE 技嘉科技宣布旗下 GO27Q24G WOLED 電競螢幕正式上市。這款 2 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "test: promote OpenAI HTTP QA coverage (#97369)",
-      "link": "https://github.com/openclaw/openclaw/commit/119dc4bd821ec69503b3faf4b78f04e25e39775d",
-      "publishedAt": "2026-06-28T05:28:31Z",
-      "summary": "test: promote OpenAI HTTP QA coverage (#97369)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: promote OpenAI HTTP QA coverage (#97369)",
-      "summaryZh": "重點：test: promote OpenAI HTTP QA coverage (#97369)..."
-    },
-    {
-      "id": 9,
-      "title": "ci: log macOS Swift build phases (#97151)",
-      "link": "https://github.com/openclaw/openclaw/commit/69af58ba2613de7889a3d24d7813d247158df73b",
-      "publishedAt": "2026-06-28T05:06:56Z",
-      "summary": "ci: log macOS Swift build phases (#97151)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: log macOS Swift build phases (#97151)",
-      "summaryZh": "重點：ci: log macOS Swift build phases (#97151)..."
-    },
-    {
-      "id": 10,
-      "title": "fix: avoid stale dashboard child context budgets (#97332)",
-      "link": "https://github.com/openclaw/openclaw/commit/c6ade83a5ccb12f2df2bce4aa745bdb28c60dd92",
-      "publishedAt": "2026-06-28T04:31:18Z",
-      "summary": "fix: avoid stale dashboard child context budgets (#97332) * fix(gateway): avoid stale child session context tokens * fix(gateway): avoid stale child session context tokens --------- Co-authored-by: Galin Iliev",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid stale dashboard child context budgets (#97332)",
-      "summaryZh": "重點：修正: avoid stale dashboard child context budgets (#97332) * 修正(Gateway): avoid stale child session context tokens * 修正(Ga..."
     }
   ]
 }
