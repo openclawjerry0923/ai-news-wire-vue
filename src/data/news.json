@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T05:04:36.219Z",
+  "generatedAt": "2026-06-30T09:38:22.260Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(matrix): use fixed crypto bootstrap command (#97181)",
-      "link": "https://github.com/openclaw/openclaw/commit/85ee71223f0dc4f5322b1c4732e262b9c1af82e8",
-      "publishedAt": "2026-06-30T04:02:00Z",
-      "summary": "fix(matrix): use fixed crypto bootstrap command (#97181) * fix(matrix): use fixed crypto bootstrap command * chore(matrix): drop release metadata bump",
+      "title": "fix: gate active memory global toggles (#97841)",
+      "link": "https://github.com/openclaw/openclaw/commit/738b2be4b49b0182788e70abb5454faf82407a2d",
+      "publishedAt": "2026-06-30T09:02:37Z",
+      "summary": "fix: gate active memory global toggles (#97841)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(matrix): use 修正 crypto bootstrap command (#97181)",
-      "summaryZh": "重點：修正(matrix): use 修正 crypto bootstrap command (#97181) * 修正(matrix): use 修正 crypto bootstrap command * chore(matrix): drop..."
+      "titleZh": "OpenClaw 程式碼更新：修正: gate active 記憶 global toggles (#97841)",
+      "summaryZh": "重點：修正: gate active 記憶 global toggles (#97841)..."
     },
     {
       "id": 8,
-      "title": "fix(codex): require admin for native controls (#97952)",
-      "link": "https://github.com/openclaw/openclaw/commit/72f837a4a4782bec761b5facb09f5559f2db5a19",
-      "publishedAt": "2026-06-30T03:41:28Z",
-      "summary": "fix(codex): require admin for native controls (#97952) * fix(codex): require admin for native controls Gate Codex native session controls and bound turns on current owner or operator.admin authority. Preserve gateway scope precedence and read-only status behavior. * fix(codex): align native authorization * fix(codex): preserve silent bound handling * fix(codex): narrow bound auth contract * fix(docs): refresh generated docs map",
+      "title": "fix: gate group activation changes by owner (#97838)",
+      "link": "https://github.com/openclaw/openclaw/commit/3d4b7cade9cda614a29b920d6953ecd96219c476",
+      "publishedAt": "2026-06-30T08:26:56Z",
+      "summary": "fix: gate group activation changes by owner (#97838)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): require admin for native controls (#97952)",
-      "summaryZh": "重點：修正(codex): require admin for native controls (#97952) * 修正(codex): require admin for native controls Gate Codex native s..."
+      "titleZh": "OpenClaw 程式碼更新：修正: gate group activation changes by owner (#97838)",
+      "summaryZh": "重點：修正: gate group activation changes by owner (#97838)..."
     },
     {
       "id": 9,
-      "title": "v2026.6.11",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.11",
-      "publishedAt": "2026-06-30T03:20:41Z",
-      "summary": "openclaw 2026.6.11",
-      "source": "OpenClaw Releases",
+      "title": "fix(agents): skip pre-prompt precheck when context engine owns compac…",
+      "link": "https://github.com/openclaw/openclaw/commit/444a093593776c8886ff7857acbe1b3db3fc2469",
+      "publishedAt": "2026-06-30T07:55:03Z",
+      "summary": "fix(agents): skip pre-prompt precheck when context engine owns compaction (#95342) * fix(agents): skip pre-prompt precheck when context engine owns compaction When a context engine advertises ownsCompaction=true (e.g. lossless-claw), skip the pre-prompt preemptive overflow precheck entirely. The engine already manages the context budget through assemble() and its own compaction lifecycle — the built-in precheck is redundant and causes false-positive overflow errors for CJK-heavy sessions due to its conservative token estimation formula. Safety is preserved: if the model's actual context limit is exceeded, the model API returns an error that the outer overflow-compaction retry loop handles normally. * fix(agents): assert non-null context engine in precheck skip log * test(context-engine): cover owning precheck contract * fix(agents): preserve precheck after context assembly failure --------- Co-authored-by: Josh Lehman",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.6.11",
-      "summaryZh": "重點：OpenClaw 2026.6.11..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): skip pre-prompt precheck when context engine owns compac…",
+      "summaryZh": "重點：修正(agents): skip pre-prompt precheck when context engine owns compaction (#95342) * 修正(agents): skip pre-prompt precheck..."
     },
     {
       "id": 10,
-      "title": "fix(ios): reset sidebar navigation stacks (#94991)",
-      "link": "https://github.com/openclaw/openclaw/commit/54b09580f61b5d3ad41c1483dfd9d65cd4b2274a",
-      "publishedAt": "2026-06-30T00:56:22Z",
-      "summary": "fix(ios): reset sidebar navigation stacks (#94991)",
+      "title": "fix(codex): keep plugin apps available when inventory is missing (#98…",
+      "link": "https://github.com/openclaw/openclaw/commit/58367137eac6677bc62f0401947f1bb6de5dfa5a",
+      "publishedAt": "2026-06-30T07:44:28Z",
+      "summary": "fix(codex): keep plugin apps available when inventory is missing (#98042) * fix(codex): refresh missing app inventory * fix(codex): support remote curated plugins * fix(codex): resolve plugins across curated marketplaces * fix(codex): enable Guardian on first thread turn",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): reset sidebar navigation stacks (#94991)",
-      "summaryZh": "重點：修正(ios): reset sidebar navigation stacks (#94991)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep plugin apps available when inventory is missing (#98…",
+      "summaryZh": "重點：修正(codex): keep plugin apps available when inventory is missing (#98042) * 修正(codex): refresh missing app inventory * 修正..."
     }
   ]
 }
