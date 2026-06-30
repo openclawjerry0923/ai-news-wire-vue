@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-06-30T17:55:27.955Z",
+  "generatedAt": "2026-06-30T20:00:34.667Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(config): preserve unreadable write rejection for exported writes",
-      "link": "https://github.com/openclaw/openclaw/commit/68c533cfb339cbb8650832cb2a4bf38dba7022fa",
-      "publishedAt": "2026-06-30T17:52:44Z",
-      "summary": "fix(config): preserve unreadable write rejection for exported writes",
+      "title": "fix(usage): reject inverted startDate-endDate range in usage.cost and…",
+      "link": "https://github.com/openclaw/openclaw/commit/640258d7b31d47e9bec3ad15e1e41f2096726070",
+      "publishedAt": "2026-06-30T19:55:43Z",
+      "summary": "fix(usage): reject inverted startDate-endDate range in usage.cost and sessions.usage (#94096) * fix(usage): reject inverted startDate-endDate range * chore: retrigger CI for real behavior proof check * refactor(usage): resolve validated date ranges once --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): preserve unreadable write rejection for exported writes",
-      "summaryZh": "重點：修正(config): preserve unreadable write rejection for exported writes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(usage): reject inverted startDate-endDate range in usage.cost and…",
+      "summaryZh": "重點：修正(usage): reject inverted startDate-endDate range in usage.cost and sessions.usage (#94096) * 修正(usage): reject inverte..."
     },
     {
       "id": 2,
-      "title": "test(config): distill unreadable config write guard cases",
-      "link": "https://github.com/openclaw/openclaw/commit/c1605064d0198bc15c3432f1e9e9fd33bbd5c8f1",
-      "publishedAt": "2026-06-30T17:52:44Z",
-      "summary": "test(config): distill unreadable config write guard cases",
+      "title": "fix(imessage): recognize MiniMax mm: reasoning tags in reflection gua…",
+      "link": "https://github.com/openclaw/openclaw/commit/076da567f434388e03153692fdce099f1e6c5ca5",
+      "publishedAt": "2026-06-30T19:41:42Z",
+      "summary": "fix(imessage): recognize MiniMax mm: reasoning tags in reflection guard (completes #93767) (#93820) * fix(imessage): detect MiniMax mm: namespaced reasoning tags in reflection guard The iMessage reflection guard's THINKING_TAG_RE only matched bare `/` tags, so MiniMax's `` namespaced reasoning tags (and Anthropic's `antml:` prefix) were not recognized as reflected assistant content. When such reasoning leaked back inbound, the guard treated it as a normal user message instead of dropping it, allowing recursive echo amplification. Accept the known reasoning-tag namespace prefixes `(?:antml:|mm:)?` on the think/thought alternatives, mirroring the shared reasoning-tag contract in src/shared/text/reasoning-tags.ts (PR #93767). This is the remaining channel-monitor complement of #93767 for the iMessage path; the optional prefix is a pure recognition enhancement with no change to the bare-tag, code-region exemption, or other reflection patterns. Verified by driving the real detectReflectedContent export: secretvisible -> isReflection=true (was false) ... -> isReflection=true secret -> isReflection=true (no regression) \"thinking about minimax algorithms\" -> isReflection=false (no false-positive) `x` in code -> isReflection=false (code exemption kept) * chore: retrigger CI for real behavior proof check * refactor(imessage): tighten reflection guard coverage --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(config): distill unreadable config write guard cases",
-      "summaryZh": "重點：test(config): distill unreadable config write guard cases..."
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): recognize MiniMax mm: reasoning tags in reflection gua…",
+      "summaryZh": "重點：修正(imessage): recognize MiniMax mm: reasoning tags in reflection guard (completes #93767) (#93820) * 修正(imessage): detec..."
     },
     {
       "id": 3,
-      "title": "fix(config): fail closed when config is unreadable before a full-file…",
-      "link": "https://github.com/openclaw/openclaw/commit/14198836b2c6b6bfeb59efa89c233a5b57e0e0da",
-      "publishedAt": "2026-06-30T17:52:44Z",
-      "summary": "fix(config): fail closed when config is unreadable before a full-file write A present-but-unreadable openclaw.json (for example EACCES after a sudo command leaves it root-owned) returns an empty best-effort fallback snapshot. A later full-file write (openclaw doctor, including the update doctor pass) then serialized a skeletal config over the still-rich file, dropping gateway.mode and bricking gateway startup. The fallback base has no raw bytes and an empty resolved config, so the existing size-drop and gateway-mode-removed guards never fired, and the update path passes allowConfigSizeDrop=true. Record the read failure on the snapshot (readError) and treat an unreadable base as an always-blocking write reason (unreadable-config-before-write) that allowConfigSizeDrop does not bypass. The allowDestructiveWrite escape hatch and the rejected-artifact path are preserved, so explicit recovery still works and the blocked payload is saved to openclaw.json.rejected.. Refs #78493.",
+      "title": "fix: preserve legacy ClawHub plugin family (#98249)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a89484eb31dd2a8863c5c49aabbad06ecb0e48d",
+      "publishedAt": "2026-06-30T19:20:08Z",
+      "summary": "fix: preserve legacy ClawHub plugin family (#98249)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): fail closed when config is unreadable before a full-file…",
-      "summaryZh": "重點：修正(config): fail closed when config is unreadable before a full-file write A present-but-unreadable OpenClaw.json (for e..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve legacy ClawHub plugin family (#98249)",
+      "summaryZh": "重點：修正: preserve legacy ClawHub plugin family (#98249)..."
     },
     {
       "id": 4,
-      "title": "fix(signal): guard containerRestRequest JSON.parse against malformed …",
-      "link": "https://github.com/openclaw/openclaw/commit/7d98ad2a92640a067a2e11620f209ca84c46fe9f",
-      "publishedAt": "2026-06-30T17:50:59Z",
-      "summary": "fix(signal): guard containerRestRequest JSON.parse against malformed responses (#98073) * fix(signal): guard containerRestRequest JSON.parse against malformed responses Wrap JSON.parse(text) in containerRestRequest with try/catch to prevent a malformed Signal REST container response from throwing an unhandled SyntaxError. On parse failure, throw a descriptive Error. The success body is already bounded by readProviderTextResponse (16 MiB cap, D1 protection). Co-Authored-By: Claude Signed-off-by: lsr911 * fix(signal): add real HTTP server proof for malformed JSON guard Starts a local node:http server returning malformed JSON, then calls containerRestRequest against it. This exercises the actual changed try/catch code path through the real fetch stack (no mock override). Proof output: PASS malformed JSON: throws Error :: type=Error PASS malformed JSON: message describes malformed JSON PASS malformed JSON: NOT raw SyntaxError Signed-off-by: lsr911 Co-Authored-By: Claude Signed-off-by: lsr911 * test(signal): remove committed proof script --------- Signed-off-by: lsr911 Co-authored-by: Claude Co-authored-by: Vincent Koc",
+      "title": "fix(moonshot): bound video description JSON response reads (#96502)",
+      "link": "https://github.com/openclaw/openclaw/commit/765d05c2e4a891873b782c969957c6eddc163405",
+      "publishedAt": "2026-06-30T19:12:46Z",
+      "summary": "fix(moonshot): bound video description JSON response reads (#96502) * fix(moonshot): bound video description JSON response reads The Moonshot video description endpoint used an unbounded await res.json() to parse the media understanding response. Route through readProviderJsonResponse (16 MiB cap) to match the bound already in place for other media understanding providers (xai, openrouter). AI-assisted. Co-authored-by: Cursor * test(moonshot): add bounds and malformed-JSON coverage for video description --------- Co-authored-by: Cursor",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(signal): guard containerRestRequest JSON.parse against malformed …",
-      "summaryZh": "重點：修正(signal): guard containerRestRequest JSON.parse against malformed responses (#98073) * 修正(signal): guard containerRest..."
+      "titleZh": "OpenClaw 程式碼更新：修正(moonshot): bound video description JSON response reads (#96502)",
+      "summaryZh": "重點：修正(moonshot): bound video description JSON response reads (#96502) * 修正(moonshot): bound video description JSON response..."
     },
     {
       "id": 5,
+      "title": "Google 強化 AI 生成戰力，新版 Nano Banana、Gemini Omni 上線",
+      "link": "https://technews.tw/2026/07/01/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/",
+      "publishedAt": "Tue, 30 Jun 2026 18:44:54 +0000",
+      "summary": "運用生成式 AI 進行創作，往往可以在創意上反覆嘗試。Google 提供了 Nano Banana、Gemin [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "密度比棉花糖還低！罕見「超蓬鬆」氣巨行星或揭露形成演化之謎",
       "link": "https://technews.tw/2026/06/30/tess-spots-puffiest-exoplanets-ever-found/",
       "publishedAt": "Tue, 30 Jun 2026 14:11:22 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Google在美免費開放Nano Banana為基礎的個人化AI圖像生成工具",
       "link": "https://www.ithome.com.tw/news/176969",
       "publishedAt": "2026-06-30 12:06:43",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "美最高法院裁定地理圍欄搜索令受第四修正案規範",
       "link": "https://www.ithome.com.tw/news/176965",
       "publishedAt": "2026-06-30 12:06:43",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "一張打卡照，讓你的假期與演唱會門票落入他人之手",
       "link": "https://www.ithome.com.tw/news/176968",
       "publishedAt": "2026-06-30 12:06:23",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "微軟延長Windows Server 2022熱修補支援至2027年10月",
       "link": "https://www.ithome.com.tw/news/176967",
       "publishedAt": "2026-06-30 12:06:22",
       "summary": "6月26日微軟（Microsoft）宣布，Windows Server 2022 Datacenter: Azure Edition的熱修補（Hotpatch）支援期限，將從原本的2026年10月延長至2027年10月。這項調整即日起生效，已啟用此功能的伺服器不需要額外採取行動，仍會依照既有的每月更新週期，接收以熱修補形式發布的安全更新。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Dell修補Wyse管理平臺重大漏洞，未更新可能導致遠端程式碼執行",
-      "link": "https://www.ithome.com.tw/news/176964",
-      "publishedAt": "2026-06-30 12:06:04",
-      "summary": "Dell近日發布資安公告，修補精簡型電腦（Thin Client）集中管理平臺Wyse Management Suite（WMS）的兩項漏洞。其中最嚴重的CVE-2026-41120，CVSS嚴重性評分達9.8分，問題源自WMS未能妥善區分可信任與非可信任資料，攻擊者僅需具備低權限遠端存取能力，即可利用漏洞在WMS伺服器執行任意程式碼，Dell已於WMS 5.5 HF1版完成修補。",
       "source": "iThome",
       "tag": "繁中"
     }
