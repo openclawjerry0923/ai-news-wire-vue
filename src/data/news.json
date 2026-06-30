@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-06-30T20:00:34.667Z",
+  "generatedAt": "2026-06-30T22:15:23.738Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(usage): reject inverted startDate-endDate range in usage.cost and…",
-      "link": "https://github.com/openclaw/openclaw/commit/640258d7b31d47e9bec3ad15e1e41f2096726070",
-      "publishedAt": "2026-06-30T19:55:43Z",
-      "summary": "fix(usage): reject inverted startDate-endDate range in usage.cost and sessions.usage (#94096) * fix(usage): reject inverted startDate-endDate range * chore: retrigger CI for real behavior proof check * refactor(usage): resolve validated date ranges once --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(exec): bind Windows allowlist execution path (#98260)",
+      "link": "https://github.com/openclaw/openclaw/commit/3811001d278300adaf52fa70f009b08a5b1cbad5",
+      "publishedAt": "2026-06-30T21:33:08Z",
+      "summary": "fix(exec): bind Windows allowlist execution path (#98260) * fix(exec): bind windows allowlist execution path * fix(exec): add windows shadow execution proof * fix(exec): preserve wildcard allowlist behavior * fix(exec): correct blocked plan test fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(usage): reject inverted startDate-endDate range in usage.cost and…",
-      "summaryZh": "重點：修正(usage): reject inverted startDate-endDate range in usage.cost and sessions.usage (#94096) * 修正(usage): reject inverte..."
+      "titleZh": "OpenClaw 程式碼更新：修正(exec): bind Windows allowlist execution path (#98260)",
+      "summaryZh": "重點：修正(exec): bind Windows allowlist execution path (#98260) * 修正(exec): bind windows allowlist execution path * 修正(exec): a..."
     },
     {
       "id": 2,
-      "title": "fix(imessage): recognize MiniMax mm: reasoning tags in reflection gua…",
-      "link": "https://github.com/openclaw/openclaw/commit/076da567f434388e03153692fdce099f1e6c5ca5",
-      "publishedAt": "2026-06-30T19:41:42Z",
-      "summary": "fix(imessage): recognize MiniMax mm: reasoning tags in reflection guard (completes #93767) (#93820) * fix(imessage): detect MiniMax mm: namespaced reasoning tags in reflection guard The iMessage reflection guard's THINKING_TAG_RE only matched bare `/` tags, so MiniMax's `` namespaced reasoning tags (and Anthropic's `antml:` prefix) were not recognized as reflected assistant content. When such reasoning leaked back inbound, the guard treated it as a normal user message instead of dropping it, allowing recursive echo amplification. Accept the known reasoning-tag namespace prefixes `(?:antml:|mm:)?` on the think/thought alternatives, mirroring the shared reasoning-tag contract in src/shared/text/reasoning-tags.ts (PR #93767). This is the remaining channel-monitor complement of #93767 for the iMessage path; the optional prefix is a pure recognition enhancement with no change to the bare-tag, code-region exemption, or other reflection patterns. Verified by driving the real detectReflectedContent export: secretvisible -> isReflection=true (was false) ... -> isReflection=true secret -> isReflection=true (no regression) \"thinking about minimax algorithms\" -> isReflection=false (no false-positive) `x` in code -> isReflection=false (code exemption kept) * chore: retrigger CI for real behavior proof check * refactor(imessage): tighten reflection guard coverage --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(cli): stop `pairing list` crashing with empty channel enum (#98142)",
+      "link": "https://github.com/openclaw/openclaw/commit/44ec7580e2f0d61cd7f830ddb6b7dac67faa0f7e",
+      "publishedAt": "2026-06-30T21:15:19Z",
+      "summary": "fix(cli): stop `pairing list` crashing with empty channel enum (#98142) When no chat DM pairing channels are configured, `openclaw pairing list` (no channel argument) threw `Channel required ... (expected one of: )` with an empty enum that reads like a bug. Users who hit this are usually trying to approve a TUI/device or scope-upgrade request, which lives under `openclaw devices`, not `openclaw pairing` (which only handles chat DM pairing). - Guard the channel hint in help text and errors so an empty channel list no longer renders a bare `()` / `(expected one of: )`. - When no pairing channels exist, redirect to `openclaw devices list` / `openclaw devices approve` instead of failing opaquely. AI-assisted (Claude Code).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(imessage): recognize MiniMax mm: reasoning tags in reflection gua…",
-      "summaryZh": "重點：修正(imessage): recognize MiniMax mm: reasoning tags in reflection guard (completes #93767) (#93820) * 修正(imessage): detec..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): stop `pairing list` crashing with empty channel enum (#98142)",
+      "summaryZh": "重點：修正(cli): stop `pairing list` crashing with empty channel enum (#98142) When no chat DM pairing channels are configured, ..."
     },
     {
       "id": 3,
-      "title": "fix: preserve legacy ClawHub plugin family (#98249)",
-      "link": "https://github.com/openclaw/openclaw/commit/5a89484eb31dd2a8863c5c49aabbad06ecb0e48d",
-      "publishedAt": "2026-06-30T19:20:08Z",
-      "summary": "fix: preserve legacy ClawHub plugin family (#98249)",
+      "title": "fix(mcp): require owner for Claude permission replies (#98256)",
+      "link": "https://github.com/openclaw/openclaw/commit/b885c81479d022502785671b4ed8daf2b42977d7",
+      "publishedAt": "2026-06-30T20:58:02Z",
+      "summary": "fix(mcp): require owner for Claude permission replies (#98256) * fix(mcp): require owner for Claude permission replies * fix(mcp): prove owner-gated permission replies",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve legacy ClawHub plugin family (#98249)",
-      "summaryZh": "重點：修正: preserve legacy ClawHub plugin family (#98249)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): require owner for Claude permission replies (#98256)",
+      "summaryZh": "重點：修正(mcp): require owner for Claude permission replies (#98256) * 修正(mcp): require owner for Claude permission replies * 修..."
     },
     {
       "id": 4,
-      "title": "fix(moonshot): bound video description JSON response reads (#96502)",
-      "link": "https://github.com/openclaw/openclaw/commit/765d05c2e4a891873b782c969957c6eddc163405",
-      "publishedAt": "2026-06-30T19:12:46Z",
-      "summary": "fix(moonshot): bound video description JSON response reads (#96502) * fix(moonshot): bound video description JSON response reads The Moonshot video description endpoint used an unbounded await res.json() to parse the media understanding response. Route through readProviderJsonResponse (16 MiB cap) to match the bound already in place for other media understanding providers (xai, openrouter). AI-assisted. Co-authored-by: Cursor * test(moonshot): add bounds and malformed-JSON coverage for video description --------- Co-authored-by: Cursor",
+      "title": "Doctor: expose auth profile findings (#97125)",
+      "link": "https://github.com/openclaw/openclaw/commit/9f07b21e6231ddb5db3fa845e4fc2763fcdecf86",
+      "publishedAt": "2026-06-30T20:28:26Z",
+      "summary": "Doctor: expose auth profile findings (#97125) Expose `core/doctor/auth-profiles` as a default-disabled structured Doctor lint check. This maps the existing auth-profile health diagnostics into structured findings while preserving legacy Doctor repair behavior. The check remains opt-in through `--only core/doctor/auth-profiles` or `--all`; default `doctor --lint` behavior is unchanged. Validation: - focused auth-profile/hints/contribution Vitest passed - changed-file oxfmt and oxlint passed - core tsgo passed - git diff --check passed - exact-head hosted CI/Testbox gates passed Co-authored-by: giodl73-repo",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(moonshot): bound video description JSON response reads (#96502)",
-      "summaryZh": "重點：修正(moonshot): bound video description JSON response reads (#96502) * 修正(moonshot): bound video description JSON response..."
+      "titleZh": "OpenClaw 文件更新：文件tor: expose auth profile findings (#97125)",
+      "summaryZh": "重點：文件tor: expose auth profile findings (#97125) Expose `core/文件tor/auth-profiles` as a default-disabled structured 文件tor li..."
     },
     {
       "id": 5,
