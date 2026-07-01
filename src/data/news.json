@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T05:21:32.120Z",
+  "generatedAt": "2026-07-01T09:49:17.304Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "improve(ios): clarify Control and Talk visual hierarchy (#98423)",
-      "link": "https://github.com/openclaw/openclaw/commit/c230ab3c924e18c49b44f95be8101054bd4f9c81",
-      "publishedAt": "2026-07-01T05:19:58Z",
-      "summary": "improve(ios): clarify Control and Talk visual hierarchy (#98423) * feat(ios): refine control and talk visual hierarchy * feat(ios): refine control and talk visual hierarchy * feat(ios): refine control and talk visual hierarchy",
+      "title": "feat(imessage): native poll support — create, read, vote (#98421)",
+      "link": "https://github.com/openclaw/openclaw/commit/c92c33d1080617a8ee5b7a78fa1d27e6da8d5944",
+      "publishedAt": "2026-07-01T09:48:32Z",
+      "summary": "feat(imessage): native poll support — create, read, vote (#98421) * feat(imessage): add native poll action Wire the imsg CLI 'poll send' bridge command into the iMessage channel message-tool action surface, mirroring the existing Discord poll action. Adds the 'poll' action (gate: polls), a sendPoll runtime, selector-gated capability advertisement (pollPayloadMessage), config type + zod schema, regenerated channel metadata, docs, and tests. * feat(imessage): read inbound polls, vote, and suppress vote echo Builds on the native poll send action: - Inbound polls now render to the agent as a readable line (question + numbered options + tallies) instead of the raw 0xFFFD balloon placeholder, so a received poll no longer reads as an empty message. - New `poll-vote` action casts a vote via `imsg poll vote`, resolving a 1-based option index / text / UUID to the poll's option identifier. - message_tool_only echo guard: the model tends to narrate its choice in a text reply right after voting (\"Blue.\"), which is redundant since the vote shows on the poll. A new `poll_vote_echo` suppression reason (alongside inbound_metadata_echo / internal_runtime_context_echo) drops a send/reply that exactly restates the just-cast vote, using the option label imsg returns. Extra content passes through untouched. * fix(imessage): gate poll-vote on imsg poll.vote rpc capability Released imsg carries the pollPayloadMessage selector (poll create) but predates the poll.vote CLI/RPC. Gating both poll and poll-vote on that selector alone would advertise a vote action the released CLI rejects. Gate poll-vote additionally on the advertised poll.vote rpc method so this plugin can ship ahead of the imsg release. * fix(imessage): enforce poll.vote capability at execution, not just discovery Codex review flagged the discovery gate as bypassable: a caller that already knows action=poll-vote skips describeMessageTool and reaches handleAction directly. Add the same imessageRpcSupportsMethod(status, 'poll.vote') check in the poll-vote execution path (after assertPrivateApiEnabled), so a direct dispatch on released imsg fails closed with a clear message instead of an opaque CLI rejection. Adds a negative handleAction test. * fix(imessage): harden native poll support * fix(message): validate targets before channel discovery * fix(message): validate targets before channel discovery --------- Co-authored-by: Omar Shahine Co-authored-by: Omar Shahine Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ios): clarify Control and Talk visual hierarchy (#98423)",
-      "summaryZh": "重點：improve(ios): clarify Control and Talk visual hierarchy (#98423) * 新功能(ios): refine control and talk visual hierarchy * ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(imessage): native poll support — create, read, vote (#98421)",
+      "summaryZh": "重點：新功能(imessage): native poll support — create, read, vote (#98421) * 新功能(imessage): add native poll action Wire the imsg C..."
     },
     {
       "id": 8,
-      "title": "fix(cli): explain how to recover from device approve deadlock (#98146)",
-      "link": "https://github.com/openclaw/openclaw/commit/9003042c5fa0e6fba7b4494c663cbebc086861ac",
-      "publishedAt": "2026-07-01T05:17:42Z",
-      "summary": "fix(cli): explain how to recover from device approve deadlock (#98146) * fix(cli): explain how to recover from device approve deadlock `openclaw devices approve` could fail two ways with no path forward: - When the calling device can't approve its own scope upgrade (it lacks operator.approvals) and no loopback local fallback is available (e.g. a remote --url gateway), the raw \"scope upgrade pending approval\" error propagated with no guidance. - When the request id wasn't found in pending state (already approved, expired, or superseded), it printed only \"unknown requestId\". Surface actionable guidance instead: - On an authorization failure, explain that the device can't approve its own upgrade and point to `--token`/`--password` (gateway owner creds) or approving from a device that already holds operator.approvals. - On a missing request, point to `openclaw devices list` and `openclaw devices approve --latest`. AI-assisted (Claude Code). * fix(cli): clarify device approval recovery * fix(cli): avoid unusable approval credential advice",
+      "title": "test: repair hosted CI baseline assertions (#98533)",
+      "link": "https://github.com/openclaw/openclaw/commit/aae1189d90f15a2a1b9cd96fbd629c8d60d1ae04",
+      "publishedAt": "2026-07-01T09:34:23Z",
+      "summary": "test: repair hosted CI baseline assertions (#98533)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): explain how to recover from device approve deadlock (#98146)",
-      "summaryZh": "重點：修正(cli): explain how to recover from device approve deadlock (#98146) * 修正(cli): explain how to recover from device appr..."
+      "titleZh": "OpenClaw 程式碼更新：test: repair hosted CI baseline assertions (#98533)",
+      "summaryZh": "重點：test: repair hosted CI baseline assertions (#98533)..."
     },
     {
       "id": 9,
-      "title": "fix: show actionable mobile protocol mismatch recovery (#98385)",
-      "link": "https://github.com/openclaw/openclaw/commit/ad59492d3ca9261a941721c864b2bc2278b63957",
-      "publishedAt": "2026-07-01T05:11:03Z",
-      "summary": "fix: show actionable mobile protocol mismatch recovery (#98385) * Fix mobile protocol mismatch recovery * Test iOS protocol mismatch connect failures * Fix iOS protocol mismatch problem actions",
+      "title": "docs(gateway): fix Telegram streaming default in config-channels.md (…",
+      "link": "https://github.com/openclaw/openclaw/commit/cf2efbe5d515856ca901a48527ebadf827f74cc7",
+      "publishedAt": "2026-07-01T09:33:24Z",
+      "summary": "docs(gateway): fix Telegram streaming default in config-channels.md (#98453) The config example in docs/gateway/config-channels.md incorrectly listed streaming default as \"off\". The actual runtime default is \"partial\", as confirmed by the Telegram plugin's default resolver. docs/channels/telegram.md already correctly documents the default as \"partial\". Co-authored-by: Claude",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show actionable mobile protocol mismatch recovery (#98385)",
-      "summaryZh": "重點：修正: show actionable mobile protocol mismatch recovery (#98385) * 修正 mobile protocol mismatch recovery * Test iOS protoco..."
+      "titleZh": "OpenClaw 文件更新：文件(Gateway): 修正 Telegram streaming default in config-channels.md (…",
+      "summaryZh": "重點：文件(Gateway): 修正 Telegram streaming default in config-channels.md (#98453) The config example in 文件/Gateway/config-channe..."
     },
     {
       "id": 10,
-      "title": "Suppress expired exec approval followup warnings (#66685)",
-      "link": "https://github.com/openclaw/openclaw/commit/d68ba5edc59837f01586cffb1a2f5cffc8693600",
-      "publishedAt": "2026-07-01T04:39:06Z",
-      "summary": "Suppress expired exec approval followup warnings (#66685) * fix(agents): suppress expired approval followup warnings * fix(agents): suppress expired approval followup warnings --------- Co-authored-by: openclaw-clownfish[bot]",
+      "title": "docs(config-agents): correct built-in alias table for opus and gpt (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/2d9aa92d7e691d93ca0cae12c8edf103b65127f5",
+      "publishedAt": "2026-07-01T09:32:14Z",
+      "summary": "docs(config-agents): correct built-in alias table for opus and gpt (#96375) The built-in alias shorthands table listed stale model ids that no longer match src/config/defaults.ts (DEFAULT_MODEL_ALIASES): opus: anthropic/claude-opus-4-6 -> anthropic/claude-opus-4-8 gpt: openai/gpt-5.5 -> openai/gpt-5.4 These now match defaults.ts and the help/faq-models alias table, and resolve an internal contradiction on this same page (its runtime-policy example already uses anthropic/claude-opus-4-8).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Suppress expired exec approval followup warnings (#66685)",
-      "summaryZh": "重點：Suppress expired exec approval followup warnings (#66685) * 修正(agents): suppress expired approval followup warnings * 修正..."
+      "titleZh": "OpenClaw 文件更新：文件(config-agents): correct built-in alias table for opus and gpt (#…",
+      "summaryZh": "重點：文件(config-agents): correct built-in alias table for opus and gpt (#96375) The built-in alias shorthands table listed sta..."
     }
   ]
 }
