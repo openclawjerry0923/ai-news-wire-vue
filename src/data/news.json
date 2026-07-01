@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-06-30T22:15:23.738Z",
+  "generatedAt": "2026-07-01T00:05:26.504Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(exec): bind Windows allowlist execution path (#98260)",
-      "link": "https://github.com/openclaw/openclaw/commit/3811001d278300adaf52fa70f009b08a5b1cbad5",
-      "publishedAt": "2026-06-30T21:33:08Z",
-      "summary": "fix(exec): bind Windows allowlist execution path (#98260) * fix(exec): bind windows allowlist execution path * fix(exec): add windows shadow execution proof * fix(exec): preserve wildcard allowlist behavior * fix(exec): correct blocked plan test fixture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): bind Windows allowlist execution path (#98260)",
-      "summaryZh": "重點：修正(exec): bind Windows allowlist execution path (#98260) * 修正(exec): bind windows allowlist execution path * 修正(exec): a..."
+      "title": "三星、SK 海力士大擴產，台灣記憶體廠抗韓流「以守代攻」",
+      "link": "https://finance.technews.tw/2026/07/01/taiwan-memory-makers-counter-korean-competition-defense-offense/",
+      "publishedAt": "Wed, 01 Jul 2026 00:00:19 +0000",
+      "summary": "韓國政府主導三星、SK 海力士展開史上最大規模半導體投資，喊出五年記憶體產能翻倍，大舉擴建 DRAM 與儲存型 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(cli): stop `pairing list` crashing with empty channel enum (#98142)",
-      "link": "https://github.com/openclaw/openclaw/commit/44ec7580e2f0d61cd7f830ddb6b7dac67faa0f7e",
-      "publishedAt": "2026-06-30T21:15:19Z",
-      "summary": "fix(cli): stop `pairing list` crashing with empty channel enum (#98142) When no chat DM pairing channels are configured, `openclaw pairing list` (no channel argument) threw `Channel required ... (expected one of: )` with an empty enum that reads like a bug. Users who hit this are usually trying to approve a TUI/device or scope-upgrade request, which lives under `openclaw devices`, not `openclaw pairing` (which only handles chat DM pairing). - Guard the channel hint in help text and errors so an empty channel list no longer renders a bare `()` / `(expected one of: )`. - When no pairing channels exist, redirect to `openclaw devices list` / `openclaw devices approve` instead of failing opaquely. AI-assisted (Claude Code).",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): stop `pairing list` crashing with empty channel enum (#98142)",
-      "summaryZh": "重點：修正(cli): stop `pairing list` crashing with empty channel enum (#98142) When no chat DM pairing channels are configured, ..."
+      "title": "記憶體價格上漲，難成為美國政府鬆綁中國管制的理由",
+      "link": "https://finance.technews.tw/2026/07/01/rising-memory-prices-unlikely-justify-us-government-easing-china-restrictions/",
+      "publishedAt": "Tue, 30 Jun 2026 23:50:42 +0000",
+      "summary": "AI 伺服器對高頻寬記憶體（HBM）需求快速成長，SK 海力士（SK Hynix）、三星（Samsung El [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(mcp): require owner for Claude permission replies (#98256)",
-      "link": "https://github.com/openclaw/openclaw/commit/b885c81479d022502785671b4ed8daf2b42977d7",
-      "publishedAt": "2026-06-30T20:58:02Z",
-      "summary": "fix(mcp): require owner for Claude permission replies (#98256) * fix(mcp): require owner for Claude permission replies * fix(mcp): prove owner-gated permission replies",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mcp): require owner for Claude permission replies (#98256)",
-      "summaryZh": "重點：修正(mcp): require owner for Claude permission replies (#98256) * 修正(mcp): require owner for Claude permission replies * 修..."
+      "title": "imec 公布製程藍圖：摩爾定律轉向，2038 年挑戰 0.3 奈米",
+      "link": "https://technews.tw/2026/07/01/imec-roadmap-chip-density-drivers-cfet-vertical-integration-advanced-packaging-a3-process-2038/",
+      "publishedAt": "Tue, 30 Jun 2026 23:40:07 +0000",
+      "summary": "荷蘭半導體研究機構 imec 公布最新製程藍圖，宣告先進晶片演化重心將有大轉變。未來將不再局限「單純縮小電晶體 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "Doctor: expose auth profile findings (#97125)",
-      "link": "https://github.com/openclaw/openclaw/commit/9f07b21e6231ddb5db3fa845e4fc2763fcdecf86",
-      "publishedAt": "2026-06-30T20:28:26Z",
-      "summary": "Doctor: expose auth profile findings (#97125) Expose `core/doctor/auth-profiles` as a default-disabled structured Doctor lint check. This maps the existing auth-profile health diagnostics into structured findings while preserving legacy Doctor repair behavior. The check remains opt-in through `--only core/doctor/auth-profiles` or `--all`; default `doctor --lint` behavior is unchanged. Validation: - focused auth-profile/hints/contribution Vitest passed - changed-file oxfmt and oxlint passed - core tsgo passed - git diff --check passed - exact-head hosted CI/Testbox gates passed Co-authored-by: giodl73-repo",
+      "title": "fix(slack): prefer current thread session for inherited outbound repl…",
+      "link": "https://github.com/openclaw/openclaw/commit/5e572dcf781a03376ddb587828a1d711c420e1f8",
+      "publishedAt": "2026-06-30T23:38:34Z",
+      "summary": "fix(slack): prefer current thread session for inherited outbound replies (#97168) * fix(slack): prefer current thread session for inherited outbound replies to avoid delivery-mirror session sprawl * fix(slack): require explicit replyToIsExplicit===false for current-session precedence * fix(slack): canonicalize inherited thread replies --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件tor: expose auth profile findings (#97125)",
-      "summaryZh": "重點：文件tor: expose auth profile findings (#97125) Expose `core/文件tor/auth-profiles` as a default-disabled structured 文件tor li..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): prefer current thread session for inherited outbound repl…",
+      "summaryZh": "重點：修正(slack): prefer current thread session for inherited outbound replies (#97168) * 修正(slack): prefer current thread sess..."
     },
     {
       "id": 5,
-      "title": "Google 強化 AI 生成戰力，新版 Nano Banana、Gemini Omni 上線",
-      "link": "https://technews.tw/2026/07/01/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/",
-      "publishedAt": "Tue, 30 Jun 2026 18:44:54 +0000",
-      "summary": "運用生成式 AI 進行創作，往往可以在創意上反覆嘗試。Google 提供了 Nano Banana、Gemin [&#8230;]",
+      "title": "AI 化不如預期，福特聘用資深前員工回鍋省下數億美元",
+      "link": "https://technews.tw/2026/07/01/ford-rehires-gray-beard-engineers-after-ai-falls-short/",
+      "publishedAt": "Tue, 30 Jun 2026 23:30:04 +0000",
+      "summary": "雖然當前有愈來愈多的公司運用 AI 與自動化系統來進行更進一步的數化轉型，但並非所有的公司都能成功轉型並看到成 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "密度比棉花糖還低！罕見「超蓬鬆」氣巨行星或揭露形成演化之謎",
-      "link": "https://technews.tw/2026/06/30/tess-spots-puffiest-exoplanets-ever-found/",
-      "publishedAt": "Tue, 30 Jun 2026 14:11:22 +0000",
-      "summary": "天文學家新發現兩顆極為罕見的「超蓬鬆」（super-puff）系外行星 TOI-791b 與 TOI-791c [&#8230;]",
+      "title": "OLED 技術再進化，為何 2026 年已不需擔心「烙印」風險？",
+      "link": "https://ccc.technews.tw/2026/07/01/oled-burn-in-risk-mitigated/",
+      "publishedAt": "Tue, 30 Jun 2026 23:20:41 +0000",
+      "summary": "OLED 螢幕以每畫素都能「自發光」的獨特優勢，展現極致深邃的純黑、超高對比度及極快反應速度，深受許多追求頂級 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "Google在美免費開放Nano Banana為基礎的個人化AI圖像生成工具",
-      "link": "https://www.ithome.com.tw/news/176969",
-      "publishedAt": "2026-06-30 12:06:43",
-      "summary": "Google本周宣布將免費個人化AI圖像生成功能部署到Gemini App，不過首先提供給美國用戶。",
-      "source": "iThome",
+      "title": "Android 地震警報系統又立功，委內瑞拉千萬人提前收到警告",
+      "link": "https://technews.tw/2026/07/01/how-phones-alerted-millions-before-earthquakes-shook-venezuela/",
+      "publishedAt": "Tue, 30 Jun 2026 23:10:04 +0000",
+      "summary": "6 月 24 日南美洲委內瑞拉西北部相繼發生 7.2 及 7.5 級強烈地震，死亡人數截稿前升至逾 1,450 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "美最高法院裁定地理圍欄搜索令受第四修正案規範",
-      "link": "https://www.ithome.com.tw/news/176965",
-      "publishedAt": "2026-06-30 12:06:43",
-      "summary": "美國最高法院周一（6/29）裁定，警方透過地理圍欄搜索令（Geofence Warrant）向Google調取特定時間及地點範圍內的手機位置資料，屬於《美國憲法第四修正案》所稱的「搜索」（Search），須受憲法隱私保障規範。 這是美國最高法院首次將地理圍欄搜索令納入第四修正案的搜索範圍，也使這類搜索令日後須接受更完整的憲法審查；至於法院將如何認定其適用範圍、時間長度及相當理由，仍有待後續判例進一步釐清。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "ci(release): stabilize anthropic live smoke selection",
+      "link": "https://github.com/openclaw/openclaw/commit/a841c2788202c10a5daa250e998a6d8a01a0836e",
+      "publishedAt": "2026-06-30T22:54:12Z",
+      "summary": "ci(release): stabilize anthropic live smoke selection (cherry picked from commit e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：ci(版本發布): stabilize anthropic live smoke selection",
+      "summaryZh": "重點：ci(版本發布): stabilize anthropic live smoke selection (cherry picked from 提交 e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2)..."
     },
     {
       "id": 9,
-      "title": "一張打卡照，讓你的假期與演唱會門票落入他人之手",
-      "link": "https://www.ithome.com.tw/news/176968",
-      "publishedAt": "2026-06-30 12:06:23",
-      "summary": "許多人習慣在社群軟體上分享自己的動態，不論旅遊或參加演唱會，都會手拿票券開心地拍照。只不過，手中拿到的票券，若未妥善遮蔽將儲存許多票券和個人訊息的QR Code（二維條碼），就有可能會被黃牛或有心人士利用，導致旅遊行程被取消或惡意更動，甚至演唱會的票券被黃牛一票多賣並讓他人先入場後，還被檢舉而成為黃牛，必須應付許多後續的問題。 為了提高民眾的防範意識，數位發展部資通安全署於日前（6月26日）召開記者會，資安署署長蔡福隆表示，社群媒體上習以為常的「曬票打卡」行為，看似無害地分享喜悅，實則可能在瞬間讓個人旅遊行程、訂位資訊、乃至入場資格拱手讓人。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test(qa): make memory channel scenario wait for final answer",
+      "link": "https://github.com/openclaw/openclaw/commit/cb00045afca9353f9794937b6a2cb35ff1390050",
+      "publishedAt": "2026-06-30T22:54:12Z",
+      "summary": "test(qa): make memory channel scenario wait for final answer (cherry picked from commit cf64cf788ed968473a6e122128c84b6de61fe779)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(qa): make 記憶 channel scenario wait for final answer",
+      "summaryZh": "重點：test(qa): make 記憶 channel scenario wait for final answer (cherry picked from 提交 cf64cf788ed968473a6e122128c84b6de61fe779..."
     },
     {
       "id": 10,
-      "title": "微軟延長Windows Server 2022熱修補支援至2027年10月",
-      "link": "https://www.ithome.com.tw/news/176967",
-      "publishedAt": "2026-06-30 12:06:22",
-      "summary": "6月26日微軟（Microsoft）宣布，Windows Server 2022 Datacenter: Azure Edition的熱修補（Hotpatch）支援期限，將從原本的2026年10月延長至2027年10月。這項調整即日起生效，已啟用此功能的伺服器不需要額外採取行動，仍會依照既有的每月更新週期，接收以熱修補形式發布的安全更新。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(release): use workspace host deps in release lockfile",
+      "link": "https://github.com/openclaw/openclaw/commit/3e2646a7864c17dd8ba543d991e8ca1fd9e9676b",
+      "publishedAt": "2026-06-30T22:54:12Z",
+      "summary": "fix(release): use workspace host deps in release lockfile (cherry picked from commit d377c0f9103faa49c3b598d15ae844fca77586ee)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): use workspace host deps in 版本發布 lockfile",
+      "summaryZh": "重點：修正(版本發布): use workspace host deps in 版本發布 lockfile (cherry picked from 提交 d377c0f9103faa49c3b598d15ae844fca77586ee)..."
     }
   ]
 }
