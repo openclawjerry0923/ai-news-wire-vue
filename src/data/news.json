@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-01T17:57:13.034Z",
+  "generatedAt": "2026-07-01T20:03:49.436Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(cron): on-exit cron schedule kind — fire a job when a watched co…",
-      "link": "https://github.com/openclaw/openclaw/commit/68bfa42b9bfcdba928b7fb7ab6a711196b709d9a",
-      "publishedAt": "2026-07-01T17:47:01Z",
-      "summary": "feat(cron): on-exit cron schedule kind — fire a job when a watched command exits Adds an `on-exit` cron schedule kind: a job fires once when a watched command/process exits, via gateway ProcessSupervisor exit watchers. Covers CLI (`--on-exit`/`--on-exit-cwd`), tool/protocol schema, RPC list-filter, Control UI + macOS read-only display, SQLite round-trip, and origin-aware wake routing. Restart-safe one-shot (persists completion before firing); platform-aware shell; bounded watched-command execution. Squashed from 22 iterative commits for a clean rebase onto current main.",
+      "title": "fix(agents): prevent duplicate subagent announce sends",
+      "link": "https://github.com/openclaw/openclaw/commit/44cb3f7b980f96314238f3d11c8bb7e3f5d9922c",
+      "publishedAt": "2026-07-01T19:55:15Z",
+      "summary": "fix(agents): prevent duplicate subagent announce sends Fixes the subagent announce prompt-lock race by treating lock-change failures with visible-send evidence as terminal, while keeping pre-send failures retryable. Scoped proof: - node scripts/run-vitest.mjs src/agents/subagent-announce-delivery.test.ts src/agents/subagent-announce.test.ts src/agents/subagent-registry-lifecycle.test.ts - node scripts/run-tsgo.mjs -p tsconfig.core.json - node scripts/run-tsgo.mjs -p test/tsconfig/tsconfig.core.test.agents.json - oxfmt --check on touched agent files - git diff --check - .agents/skills/autoreview/scripts/autoreview --mode local Thanks @fsdwen!",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(排程): on-exit 排程 schedule kind — fire a job when a watched co…",
-      "summaryZh": "重點：新功能(排程): on-exit 排程 schedule kind — fire a job when a watched command exits Adds an `on-exit` 排程 schedule kind: a job fi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): prevent duplicate subagent announce sends",
+      "summaryZh": "重點：修正(agents): prevent duplicate subagent announce sends 修正 the subagent announce prompt-lock race by treating lock-change ..."
     },
     {
       "id": 2,
-      "title": "fix(reply): steer active non-streaming runs",
-      "link": "https://github.com/openclaw/openclaw/commit/8d9a7ab2cab6dd3151f90c655011cf48b236c5a5",
-      "publishedAt": "2026-07-01T17:34:20Z",
-      "summary": "fix(reply): steer active non-streaming runs",
+      "title": "feat: prepare scoped conversation capability profiles (#98536)",
+      "link": "https://github.com/openclaw/openclaw/commit/ab2f6f564272d1962b1b7cae0fff91d43366a165",
+      "publishedAt": "2026-07-01T19:28:58Z",
+      "summary": "feat: prepare scoped conversation capability profiles (#98536) * feat(agents): prepare scoped conversation capability profiles * fix: satisfy scoped profile lint * test: update compaction harness agent-scope mock",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): steer active non-streaming runs",
-      "summaryZh": "重點：修正(reply): steer active non-streaming runs..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: prepare scoped conversation capability profiles (#98536)",
+      "summaryZh": "重點：新功能: prepare scoped conversation capability profiles (#98536) * 新功能(agents): prepare scoped conversation capability prof..."
     },
     {
       "id": 3,
-      "title": "fix(telegram): restore active-run steering",
-      "link": "https://github.com/openclaw/openclaw/commit/bfc4e1dcb54c3bb9a611c9990c4e99c8ff9d06d8",
-      "publishedAt": "2026-07-01T17:34:20Z",
-      "summary": "fix(telegram): restore active-run steering",
+      "title": "fix: migrate QQBot credential backups to SQLite KV (#89597)",
+      "link": "https://github.com/openclaw/openclaw/commit/24d94a54a51625cad7d6f68197de76267c665da6",
+      "publishedAt": "2026-07-01T19:03:59Z",
+      "summary": "fix: migrate QQBot credential backups to SQLite KV (#89597) * fix: migrate qqbot credential backups to sqlite kv * fix: complete qqbot sqlite migration cleanup * fix: harden qqbot doctor state migration",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): restore active-run steering",
-      "summaryZh": "重點：修正(Telegram): restore active-run steering..."
+      "titleZh": "OpenClaw 程式碼更新：修正: migrate QQBot credential backups to SQLite KV (#89597)",
+      "summaryZh": "重點：修正: migrate QQBot credential backups to SQLite KV (#89597) * 修正: migrate qqbot credential backups to sqlite kv * 修正: com..."
     },
     {
       "id": 4,
-      "title": "fix(usage): tidy compact footer defaults",
-      "link": "https://github.com/openclaw/openclaw/commit/4895a00b94f06935bceb9494da1aae3d4f0783ab",
-      "publishedAt": "2026-07-01T16:59:37Z",
-      "summary": "fix(usage): tidy compact footer defaults",
+      "title": "Fix Telegram plugin callback routing (#97174)",
+      "link": "https://github.com/openclaw/openclaw/commit/5db7c3797de3094259eb43fc47c6da3f2a6cea49",
+      "publishedAt": "2026-07-01T18:49:54Z",
+      "summary": "Fix Telegram plugin callback routing (#97174) * fix telegram plugin callback routing * Add Telegram callback proof coverage * Fix proof script lint * Fix Telegram proof CI regressions * test: fix telegram callback proof CI regressions * fix: retire registry-owned callbacks * fix: retire registry-owned callbacks --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(usage): tidy compact footer defaults",
-      "summaryZh": "重點：修正(usage): tidy compact footer defaults..."
+      "titleZh": "OpenClaw 程式碼更新：修正 Telegram plugin callback routing (#97174)",
+      "summaryZh": "重點：修正 Telegram plugin callback routing (#97174) * 修正 Telegram plugin callback routing * Add Telegram callback proof coverag..."
     },
     {
       "id": 5,
