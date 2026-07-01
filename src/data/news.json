@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-01T15:42:39.268Z",
+  "generatedAt": "2026-07-01T17:57:13.034Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(codex): classify get_goal read statuses as successful dynamic too…",
-      "link": "https://github.com/openclaw/openclaw/commit/adcfebc276ccf2f1f4ddab9ef9a8e35f5011c317",
-      "publishedAt": "2026-07-01T15:36:38Z",
-      "summary": "fix(codex): classify get_goal read statuses as successful dynamic tool calls (#98659) isCodexToolResultError fail-closes any dynamic-tool result whose details.status is absent from its non-error allowlist. get_goal returns details.status \"found\" or \"missing\" (a successful read of the thread goal, or its absence), neither of which was in the allowlist, so every get_goal call was classified as an error: reported to codex as success: false and persisted on the transcript with isError: true. Sibling #96856 added the write-side goal statuses (created/updated) and the accepted spawn status but missed the read-side get_goal statuses. This adds found/missing alongside them. Genuinely failed statuses stay fail-closed.",
+      "title": "feat(cron): on-exit cron schedule kind — fire a job when a watched co…",
+      "link": "https://github.com/openclaw/openclaw/commit/68bfa42b9bfcdba928b7fb7ab6a711196b709d9a",
+      "publishedAt": "2026-07-01T17:47:01Z",
+      "summary": "feat(cron): on-exit cron schedule kind — fire a job when a watched command exits Adds an `on-exit` cron schedule kind: a job fires once when a watched command/process exits, via gateway ProcessSupervisor exit watchers. Covers CLI (`--on-exit`/`--on-exit-cwd`), tool/protocol schema, RPC list-filter, Control UI + macOS read-only display, SQLite round-trip, and origin-aware wake routing. Restart-safe one-shot (persists completion before firing); platform-aware shell; bounded watched-command execution. Squashed from 22 iterative commits for a clean rebase onto current main.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): classify get_goal read statuses as successful dynamic too…",
-      "summaryZh": "重點：修正(codex): classify get_goal read statuses as successful dynamic tool calls (#98659) isCodexToolResultError fail-closes ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(排程): on-exit 排程 schedule kind — fire a job when a watched co…",
+      "summaryZh": "重點：新功能(排程): on-exit 排程 schedule kind — fire a job when a watched command exits Adds an `on-exit` 排程 schedule kind: a job fi..."
     },
     {
       "id": 2,
-      "title": "fix(memory-wiki): disambiguate the reserved index page stem for synth…",
-      "link": "https://github.com/openclaw/openclaw/commit/9541f4e8bd3fd60d4fbafdf8f9f049b8f9ca504f",
-      "publishedAt": "2026-07-01T15:35:13Z",
-      "summary": "fix(memory-wiki): disambiguate the reserved index page stem for synthesis and ingest (#94326) * fix(memory-wiki): disambiguate the reserved index page stem for synthesis and ingest A create_synthesis or source ingest whose title slugifies to index was written to the auto-generated /index.md. That file is the only compiler-owned page filename: compile writes it per page group, and compile/query/status exclude it from page scanning. So the stored fact was both unretrievable and clobbered by the generated directory-index on the next compile. The collision only happens at the direct page-stem boundary: synthesis (syntheses/.md) and ingest (sources/.md) build a bare /.md path. The bridge, unsafe-local, and OKF callers compose slugifyWikiSegment output into prefixed and hashed identities that can never equal a bare index.md, and OKF already guards its own write path via OKF_RESERVED_FILENAMES. Add a dedicated slugifyWikiPageStem helper that escapes the reserved index stem and route only the two direct page writers through it, leaving slugifyWikiSegment output stable for the composed callers so their persisted page ids and paths do not churn on upgrade. Only index is reserved: the compiler never owns /log.md in these directories (the wiki log lives at .openclaw-wiki/log.jsonl), so a Log title keeps its existing direct path. Additive and deterministic, no migration. * fix(memory-wiki): preserve reserved-page ids --------- Co-authored-by: Vincent Koc",
+      "title": "fix(reply): steer active non-streaming runs",
+      "link": "https://github.com/openclaw/openclaw/commit/8d9a7ab2cab6dd3151f90c655011cf48b236c5a5",
+      "publishedAt": "2026-07-01T17:34:20Z",
+      "summary": "fix(reply): steer active non-streaming runs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): disambiguate the reserved index page stem for synth…",
-      "summaryZh": "重點：修正(記憶-wiki): disambiguate the reserved index page stem for synthesis and ingest (#94326) * 修正(記憶-wiki): disambiguate the..."
+      "titleZh": "OpenClaw 程式碼更新：修正(reply): steer active non-streaming runs",
+      "summaryZh": "重點：修正(reply): steer active non-streaming runs..."
     },
     {
       "id": 3,
-      "title": "fix(qa-lab): bound convex broker response bodies (#98619)",
-      "link": "https://github.com/openclaw/openclaw/commit/eb875663346048d843a4725501c7527196bbda4e",
-      "publishedAt": "2026-07-01T15:30:34Z",
-      "summary": "fix(qa-lab): bound convex broker response bodies (#98619)",
+      "title": "fix(telegram): restore active-run steering",
+      "link": "https://github.com/openclaw/openclaw/commit/bfc4e1dcb54c3bb9a611c9990c4e99c8ff9d06d8",
+      "publishedAt": "2026-07-01T17:34:20Z",
+      "summary": "fix(telegram): restore active-run steering",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): bound convex broker response bodies (#98619)",
-      "summaryZh": "重點：修正(qa-lab): bound convex broker response bodies (#98619)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): restore active-run steering",
+      "summaryZh": "重點：修正(Telegram): restore active-run steering..."
     },
     {
       "id": 4,
-      "title": "fix(ui): add overflow-y:auto to workspace rail sections, prevent file…",
-      "link": "https://github.com/openclaw/openclaw/commit/c1e88db10facf5bc458603a7a606f776565f95a6",
-      "publishedAt": "2026-07-01T15:28:45Z",
-      "summary": "fix(ui): add overflow-y:auto to workspace rail sections, prevent file list overflow (#98566) (#98611)",
+      "title": "fix(usage): tidy compact footer defaults",
+      "link": "https://github.com/openclaw/openclaw/commit/4895a00b94f06935bceb9494da1aae3d4f0783ab",
+      "publishedAt": "2026-07-01T16:59:37Z",
+      "summary": "fix(usage): tidy compact footer defaults",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): add overflow-y:auto to workspace rail sections, prevent file…",
-      "summaryZh": "重點：修正(ui): add overflow-y:auto to workspace rail sections, prevent file list overflow (#98566) (#98611)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(usage): tidy compact footer defaults",
+      "summaryZh": "重點：修正(usage): tidy compact footer defaults..."
     },
     {
       "id": 5,
