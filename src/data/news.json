@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-01T12:33:54.631Z",
+  "generatedAt": "2026-07-01T15:42:39.268Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(apple): preserve localized static labels",
-      "link": "https://github.com/openclaw/openclaw/commit/5e4d71686a6a1745635a7e1ad6caf756ab8a94bf",
-      "publishedAt": "2026-07-01T12:19:12Z",
-      "summary": "fix(apple): preserve localized static labels",
+      "title": "fix(codex): classify get_goal read statuses as successful dynamic too…",
+      "link": "https://github.com/openclaw/openclaw/commit/adcfebc276ccf2f1f4ddab9ef9a8e35f5011c317",
+      "publishedAt": "2026-07-01T15:36:38Z",
+      "summary": "fix(codex): classify get_goal read statuses as successful dynamic tool calls (#98659) isCodexToolResultError fail-closes any dynamic-tool result whose details.status is absent from its non-error allowlist. get_goal returns details.status \"found\" or \"missing\" (a successful read of the thread goal, or its absence), neither of which was in the allowlist, so every get_goal call was classified as an error: reported to codex as success: false and persisted on the transcript with isError: true. Sibling #96856 added the write-side goal statuses (created/updated) and the accepted spawn status but missed the read-side get_goal statuses. This adds found/missing alongside them. Genuinely failed statuses stay fail-closed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(apple): preserve localized static labels",
-      "summaryZh": "重點：修正(apple): preserve localized static labels..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): classify get_goal read statuses as successful dynamic too…",
+      "summaryZh": "重點：修正(codex): classify get_goal read statuses as successful dynamic tool calls (#98659) isCodexToolResultError fail-closes ..."
     },
     {
       "id": 2,
-      "title": "fix(macos): compile packaged localizations",
-      "link": "https://github.com/openclaw/openclaw/commit/d3e6d1fd6cbb15785e9f650016aa16bc459ab686",
-      "publishedAt": "2026-07-01T12:19:12Z",
-      "summary": "fix(macos): compile packaged localizations",
+      "title": "fix(memory-wiki): disambiguate the reserved index page stem for synth…",
+      "link": "https://github.com/openclaw/openclaw/commit/9541f4e8bd3fd60d4fbafdf8f9f049b8f9ca504f",
+      "publishedAt": "2026-07-01T15:35:13Z",
+      "summary": "fix(memory-wiki): disambiguate the reserved index page stem for synthesis and ingest (#94326) * fix(memory-wiki): disambiguate the reserved index page stem for synthesis and ingest A create_synthesis or source ingest whose title slugifies to index was written to the auto-generated /index.md. That file is the only compiler-owned page filename: compile writes it per page group, and compile/query/status exclude it from page scanning. So the stored fact was both unretrievable and clobbered by the generated directory-index on the next compile. The collision only happens at the direct page-stem boundary: synthesis (syntheses/.md) and ingest (sources/.md) build a bare /.md path. The bridge, unsafe-local, and OKF callers compose slugifyWikiSegment output into prefixed and hashed identities that can never equal a bare index.md, and OKF already guards its own write path via OKF_RESERVED_FILENAMES. Add a dedicated slugifyWikiPageStem helper that escapes the reserved index stem and route only the two direct page writers through it, leaving slugifyWikiSegment output stable for the composed callers so their persisted page ids and paths do not churn on upgrade. Only index is reserved: the compiler never owns /log.md in these directories (the wiki log lives at .openclaw-wiki/log.jsonl), so a Log title keeps its existing direct path. Additive and deterministic, no migration. * fix(memory-wiki): preserve reserved-page ids --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): compile packaged localizations",
-      "summaryZh": "重點：修正(macos): compile packaged localizations..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): disambiguate the reserved index page stem for synth…",
+      "summaryZh": "重點：修正(記憶-wiki): disambiguate the reserved index page stem for synthesis and ingest (#94326) * 修正(記憶-wiki): disambiguate the..."
     },
     {
       "id": 3,
-      "title": "fix(macos): package localized app resources",
-      "link": "https://github.com/openclaw/openclaw/commit/be381c27a18f221d708ab4a75e8176039019efda",
-      "publishedAt": "2026-07-01T12:19:12Z",
-      "summary": "fix(macos): package localized app resources",
+      "title": "fix(qa-lab): bound convex broker response bodies (#98619)",
+      "link": "https://github.com/openclaw/openclaw/commit/eb875663346048d843a4725501c7527196bbda4e",
+      "publishedAt": "2026-07-01T15:30:34Z",
+      "summary": "fix(qa-lab): bound convex broker response bodies (#98619)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): package localized app resources",
-      "summaryZh": "重點：修正(macos): package localized app resources..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): bound convex broker response bodies (#98619)",
+      "summaryZh": "重點：修正(qa-lab): bound convex broker response bodies (#98619)..."
     },
     {
       "id": 4,
-      "title": "test(apple): enforce phased catalog coverage",
-      "link": "https://github.com/openclaw/openclaw/commit/a53b6823c6311e05fdbe12b65984b35e7393a12b",
-      "publishedAt": "2026-07-01T12:19:12Z",
-      "summary": "test(apple): enforce phased catalog coverage",
+      "title": "fix(ui): add overflow-y:auto to workspace rail sections, prevent file…",
+      "link": "https://github.com/openclaw/openclaw/commit/c1e88db10facf5bc458603a7a606f776565f95a6",
+      "publishedAt": "2026-07-01T15:28:45Z",
+      "summary": "fix(ui): add overflow-y:auto to workspace rail sections, prevent file list overflow (#98566) (#98611)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(apple): enforce phased catalog coverage",
-      "summaryZh": "重點：test(apple): enforce phased catalog coverage..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): add overflow-y:auto to workspace rail sections, prevent file…",
+      "summaryZh": "重點：修正(ui): add overflow-y:auto to workspace rail sections, prevent file list overflow (#98566) (#98611)..."
     },
     {
       "id": 5,
+      "title": "歐幾里得拍下銀河系中心最精細影像，助未來測量系外行星質量",
+      "link": "https://technews.tw/2026/07/01/euclid-captures-the-most-detailed-image-yet-of-the-milky-way-center/",
+      "publishedAt": "Wed, 01 Jul 2026 14:05:52 +0000",
+      "summary": "歐洲太空總署（ESA）的歐幾里得（Euclid）太空望遠鏡任務近日公開了一張超高解析度的銀河系中心影像，這張照 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Google發布Chrome 150穩定版，修補382項漏洞，15項屬於重大等級",
       "link": "https://www.ithome.com.tw/news/177003",
       "publishedAt": "2026-07-01 12:07:49",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "美國保險龍頭Aflac日本分公司遭駭，438萬用戶資料外洩",
       "link": "https://www.ithome.com.tw/news/177004",
       "publishedAt": "2026-07-01 12:07:24",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "AWS成立FDE組織，派遣AI工程師進駐企業部署代理AI",
       "link": "https://www.ithome.com.tw/news/177005",
       "publishedAt": "2026-07-01 12:07:17",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "對手看不到車尾燈！外資瑞穗證券上修台積電先進製程與先進封裝產能",
       "link": "https://finance.technews.tw/2026/07/01/foreign-firm-mizuho-securities-revised-its-forecast-for-tsmcs-advanced-process-and-packaging-capacity-upwards/",
       "publishedAt": "Wed, 01 Jul 2026 11:15:42 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "新型Mistic後門疑與勒索軟體存取掮客有關，偽裝端點安全工具元件躲避偵測",
       "link": "https://www.ithome.com.tw/news/176998",
       "publishedAt": "2026-07-01 11:07:26",
       "summary": "Broadcom旗下資安部門Symantec與Carbon Black威脅獵捕團隊揭露，新的隱匿型後門程式Mistic自2026年4月起，出現在多起疑似為了財務獲利而發起的攻擊行動，受害組織涵蓋保險、教育、IT與專業服務等產業。研究人員研判，這款後門可能與初始存取掮客（Initial Access Broker，IAB）KongTuke有關，該組織也被Symantec追蹤為Woodgnat。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "勒索軟體Settra聲稱竊得PChome旗下Pi拍錢包350萬用戶資料",
-      "link": "https://www.ithome.com.tw/news/177000",
-      "publishedAt": "2026-07-01 11:07:18",
-      "summary": "去年7月有資安專家於深網論壇發現駭客販售全支付電支平臺測試環境資料，引起臺灣社會高度關注，近期有駭客團體聲稱竊得另一家電子支付平臺的資料，再度成為全臺焦點。",
       "source": "iThome",
       "tag": "繁中"
     }
