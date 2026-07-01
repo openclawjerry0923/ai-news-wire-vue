@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-01T20:03:49.436Z",
+  "generatedAt": "2026-07-01T22:17:43.785Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): prevent duplicate subagent announce sends",
-      "link": "https://github.com/openclaw/openclaw/commit/44cb3f7b980f96314238f3d11c8bb7e3f5d9922c",
-      "publishedAt": "2026-07-01T19:55:15Z",
-      "summary": "fix(agents): prevent duplicate subagent announce sends Fixes the subagent announce prompt-lock race by treating lock-change failures with visible-send evidence as terminal, while keeping pre-send failures retryable. Scoped proof: - node scripts/run-vitest.mjs src/agents/subagent-announce-delivery.test.ts src/agents/subagent-announce.test.ts src/agents/subagent-registry-lifecycle.test.ts - node scripts/run-tsgo.mjs -p tsconfig.core.json - node scripts/run-tsgo.mjs -p test/tsconfig/tsconfig.core.test.agents.json - oxfmt --check on touched agent files - git diff --check - .agents/skills/autoreview/scripts/autoreview --mode local Thanks @fsdwen!",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): prevent duplicate subagent announce sends",
-      "summaryZh": "重點：修正(agents): prevent duplicate subagent announce sends 修正 the subagent announce prompt-lock race by treating lock-change ..."
+      "title": "研究揭露AirDrop與Quick Share安全漏洞，允許駭客癱瘓分享功能",
+      "link": "https://www.ithome.com.tw/news/177024",
+      "publishedAt": "2026-07-02 05:07:28",
+      "summary": "德國CISPA Helmholtz資訊安全中心上周揭露，蘋果的AirDrop與Android陣營的Quick Share近距離檔案分享功能總計存在6個安全漏洞，駭客只要位於無線訊號範圍內，無需與使用者互動，即可能癱瘓AirDrop分享服務，或者繞過Quick Share的部分安全檢查。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat: prepare scoped conversation capability profiles (#98536)",
-      "link": "https://github.com/openclaw/openclaw/commit/ab2f6f564272d1962b1b7cae0fff91d43366a165",
-      "publishedAt": "2026-07-01T19:28:58Z",
-      "summary": "feat: prepare scoped conversation capability profiles (#98536) * feat(agents): prepare scoped conversation capability profiles * fix: satisfy scoped profile lint * test: update compaction harness agent-scope mock",
+      "title": "fix(codex): rename destructive approval mode to ask (#98501)",
+      "link": "https://github.com/openclaw/openclaw/commit/d9b5afad180b1276be788706ecee5733e5c42ec1",
+      "publishedAt": "2026-07-01T22:14:55Z",
+      "summary": "fix(codex): rename destructive approval mode to ask (#98501) * fix(codex): rename destructive approval mode to ask * fix(codex): keep ask reviewer app-scoped * test: fix current-main CI regressions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: prepare scoped conversation capability profiles (#98536)",
-      "summaryZh": "重點：新功能: prepare scoped conversation capability profiles (#98536) * 新功能(agents): prepare scoped conversation capability prof..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): rename destructive approval mode to ask (#98501)",
+      "summaryZh": "重點：修正(codex): rename destructive approval mode to ask (#98501) * 修正(codex): rename destructive approval mode to ask * 修正(co..."
     },
     {
       "id": 3,
-      "title": "fix: migrate QQBot credential backups to SQLite KV (#89597)",
-      "link": "https://github.com/openclaw/openclaw/commit/24d94a54a51625cad7d6f68197de76267c665da6",
-      "publishedAt": "2026-07-01T19:03:59Z",
-      "summary": "fix: migrate QQBot credential backups to SQLite KV (#89597) * fix: migrate qqbot credential backups to sqlite kv * fix: complete qqbot sqlite migration cleanup * fix: harden qqbot doctor state migration",
+      "title": "fix: diagnose Windows LAN Gateway firewall blocks (#98666)",
+      "link": "https://github.com/openclaw/openclaw/commit/eb417fa206e6ec76df12c500d08f8fd8691298e9",
+      "publishedAt": "2026-07-01T21:24:16Z",
+      "summary": "fix: diagnose Windows LAN Gateway firewall blocks (#98666) * Diagnose Windows LAN Gateway firewall blocks * Fix Windows firewall diagnostic lint * fix: gate gateway firewall diagnostics to local targets * fix: keep firewall inspection off critical flows",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: migrate QQBot credential backups to SQLite KV (#89597)",
-      "summaryZh": "重點：修正: migrate QQBot credential backups to SQLite KV (#89597) * 修正: migrate qqbot credential backups to sqlite kv * 修正: com..."
+      "titleZh": "OpenClaw 程式碼更新：修正: diagnose Windows LAN Gateway firewall blocks (#98666)",
+      "summaryZh": "重點：修正: diagnose Windows LAN Gateway firewall blocks (#98666) * Diagnose Windows LAN Gateway firewall blocks * 修正 Windows fi..."
     },
     {
       "id": 4,
-      "title": "Fix Telegram plugin callback routing (#97174)",
-      "link": "https://github.com/openclaw/openclaw/commit/5db7c3797de3094259eb43fc47c6da3f2a6cea49",
-      "publishedAt": "2026-07-01T18:49:54Z",
-      "summary": "Fix Telegram plugin callback routing (#97174) * fix telegram plugin callback routing * Add Telegram callback proof coverage * Fix proof script lint * Fix Telegram proof CI regressions * test: fix telegram callback proof CI regressions * fix: retire registry-owned callbacks * fix: retire registry-owned callbacks --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(install): preserve SecretRef service env values (#96065)",
+      "link": "https://github.com/openclaw/openclaw/commit/e79865569c5022db95f4707415ab28f537e07c5f",
+      "publishedAt": "2026-07-01T21:04:33Z",
+      "summary": "fix(install): preserve SecretRef service env values (#96065) * fix(install): manage config-secretref env refs via OPENCLAW_SERVICE_MANAGED_ENV_KEYS * fix(install): preserve config secret refs in launchd env * fix(install): preserve secretref env render sources --------- Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正 Telegram plugin callback routing (#97174)",
-      "summaryZh": "重點：修正 Telegram plugin callback routing (#97174) * 修正 Telegram plugin callback routing * Add Telegram callback proof coverag..."
+      "titleZh": "OpenClaw 程式碼更新：修正(install): preserve SecretRef service env values (#96065)",
+      "summaryZh": "重點：修正(install): preserve SecretRef service env values (#96065) * 修正(install): manage config-secretref env refs via OpenClaw..."
     },
     {
       "id": 5,
+      "title": "fix(cron): detach session-targeted cron runs (#98755)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc7f9a36ec5576756c44f97c3a4930679efb3a03",
+      "publishedAt": "2026-07-01T21:04:25Z",
+      "summary": "fix(cron): detach session-targeted cron runs (#98755) * fix(cron): detach session-targeted runs * fix(tasks): cancel stale childless cron rows --------- Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): detach session-targeted 排程 runs (#98755)",
+      "summaryZh": "重點：修正(排程): detach session-targeted 排程 runs (#98755) * 修正(排程): detach session-targeted runs * 修正(tasks): cancel stale childl..."
+    },
+    {
+      "id": 6,
       "title": "歐幾里得拍下銀河系中心最精細影像，助未來測量系外行星質量",
       "link": "https://technews.tw/2026/07/01/euclid-captures-the-most-detailed-image-yet-of-the-milky-way-center/",
       "publishedAt": "Wed, 01 Jul 2026 14:05:52 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Google發布Chrome 150穩定版，修補382項漏洞，15項屬於重大等級",
       "link": "https://www.ithome.com.tw/news/177003",
       "publishedAt": "2026-07-01 12:07:49",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "美國保險龍頭Aflac日本分公司遭駭，438萬用戶資料外洩",
       "link": "https://www.ithome.com.tw/news/177004",
       "publishedAt": "2026-07-01 12:07:24",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "AWS成立FDE組織，派遣AI工程師進駐企業部署代理AI",
       "link": "https://www.ithome.com.tw/news/177005",
       "publishedAt": "2026-07-01 12:07:17",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "對手看不到車尾燈！外資瑞穗證券上修台積電先進製程與先進封裝產能",
       "link": "https://finance.technews.tw/2026/07/01/foreign-firm-mizuho-securities-revised-its-forecast-for-tsmcs-advanced-process-and-packaging-capacity-upwards/",
       "publishedAt": "Wed, 01 Jul 2026 11:15:42 +0000",
       "summary": "受惠於AI驅動的伺服器CPU需求急遽上升，瑞穗證券近期大幅上修了對台積電的半導體供應模型預測。瑞穗指出，為了滿 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "新型Mistic後門疑與勒索軟體存取掮客有關，偽裝端點安全工具元件躲避偵測",
-      "link": "https://www.ithome.com.tw/news/176998",
-      "publishedAt": "2026-07-01 11:07:26",
-      "summary": "Broadcom旗下資安部門Symantec與Carbon Black威脅獵捕團隊揭露，新的隱匿型後門程式Mistic自2026年4月起，出現在多起疑似為了財務獲利而發起的攻擊行動，受害組織涵蓋保險、教育、IT與專業服務等產業。研究人員研判，這款後門可能與初始存取掮客（Initial Access Broker，IAB）KongTuke有關，該組織也被Symantec追蹤為Woodgnat。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
