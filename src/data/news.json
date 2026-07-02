@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-02T14:03:16.899Z",
+  "generatedAt": "2026-07-02T16:49:45.257Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(android): show specific gateway auth-recovery reason instead of g…",
-      "link": "https://github.com/openclaw/openclaw/commit/40d4e321105a860880657891e3a43920485dabc5",
-      "publishedAt": "2026-07-02T13:50:26Z",
-      "summary": "fix(android): show specific gateway auth-recovery reason instead of generic label (#98698) * fix(android): distinguish gateway auth-recovery reasons instead of one generic label gatewaySummary()/gatewayStatusLabel() collapsed every auth failure (expired setup QR, missing/invalid token, missing/invalid password, stale device identity) into \"Authentication needed\", discarding the already-computed MainViewModel.gatewayConnectionProblem signal consumed elsewhere in the app (OnboardingFlow's recoveryGatewayAuthDetail). Thread it into both status labels via a shared gatewayAuthNeededSummary() helper so the Overview and Settings screens tell the user which recovery action applies. Fixes #98046 * test(android): lock gateway auth-needed labels to the real unauthorized message format Verified against src/gateway/server/ws-connection/auth-messages.ts: formatGatewayAuthFailureMessage always returns strings starting with \"unauthorized\", which contains the \"auth\" substring the status-text gate checks for. Add tests using the exact real-world message text (not just synthetic \"auth failed\" strings) so this stays regression-locked. * fix(android): widen the auth-needed status gate to cover device-identity failures CONTROL_UI_DEVICE_IDENTITY_REQUIRED/DEVICE_IDENTITY_REQUIRED real gateway messages (\"device identity required\", \"control ui requires device identity...\") don't contain \"auth\", so the status.contains(\"auth\") gate never reached their specific label. Add \"device identity\" as an additional substring the gate checks for those two codes, with regression tests using the exact real message text (message-handler.ts). Verified via GitHub-style codex review round 2 (round 1's \"unauthorized doesn't contain auth\" claim was checked against source and rejected as false — \"unauthorized\" does contain \"auth\" — but this second, narrower finding about device-identity codes held up under the same source check). * fix(android): centralize gateway auth status labels * fix(android): correlate gateway connection diagnostics * chore(android): align native i18n inventory after rebase * fix(android): preserve retryable pairing guidance --------- Co-authored-by: Peter Steinberger",
+      "title": "chore(i18n): refresh native id locale",
+      "link": "https://github.com/openclaw/openclaw/commit/019603d336028c31de7c49814b45bb29314174e8",
+      "publishedAt": "2026-07-02T16:44:34Z",
+      "summary": "chore(i18n): refresh native id locale",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): show specific Gateway auth-recovery reason instead of g…",
-      "summaryZh": "重點：修正(android): show specific Gateway auth-recovery reason instead of generic label (#98698) * 修正(android): distinguish Gat..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native id locale",
+      "summaryZh": "重點：chore(i18n): refresh native id locale..."
     },
     {
       "id": 2,
-      "title": "[codex] Cancel Android gateway pending RPCs on close (#98067)",
-      "link": "https://github.com/openclaw/openclaw/commit/0ccdef5dcf76ad816d2105f47b89da5c609fab45",
-      "publishedAt": "2026-07-02T13:39:44Z",
-      "summary": "[codex] Cancel Android gateway pending RPCs on close (#98067) * fix: cancel Android gateway pending RPCs on close * fix(android): isolate pending RPCs per connection * style(android): separate RPC waiter invariant * chore(android): align native i18n inventory --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
+      "title": "chore(i18n): refresh native uk locale",
+      "link": "https://github.com/openclaw/openclaw/commit/8c5adbfe3ec4f68a49d41a3b313a3b6b059c81d3",
+      "publishedAt": "2026-07-02T16:42:44Z",
+      "summary": "chore(i18n): refresh native uk locale",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：[codex] Cancel Android Gateway pending RPCs on close (#98067)",
-      "summaryZh": "重點：[codex] Cancel Android Gateway pending RPCs on close (#98067) * 修正: cancel Android Gateway pending RPCs on close * 修正(an..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native uk locale",
+      "summaryZh": "重點：chore(i18n): refresh native uk locale..."
     },
     {
       "id": 3,
-      "title": "[codex] Gate Android Talk capture starts in background (#98055)",
-      "link": "https://github.com/openclaw/openclaw/commit/e3f46d0926da2192a8d238781aa7f70e74c499e7",
-      "publishedAt": "2026-07-02T13:22:26Z",
-      "summary": "[codex] Gate Android Talk capture starts in background (#98055) * fix: gate Android talk capture starts * refactor(android): make Talk capture policy explicit --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
+      "title": "chore(i18n): refresh native tr locale",
+      "link": "https://github.com/openclaw/openclaw/commit/0011a184786686e625268f55799bdfbb8c8c7fda",
+      "publishedAt": "2026-07-02T16:32:59Z",
+      "summary": "chore(i18n): refresh native tr locale",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：[codex] Gate Android Talk capture starts in background (#98055)",
-      "summaryZh": "重點：[codex] Gate Android Talk capture starts in background (#98055) * 修正: gate Android talk capture starts * refactor(androi..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native tr locale",
+      "summaryZh": "重點：chore(i18n): refresh native tr locale..."
     },
     {
       "id": 4,
-      "title": "ci: add process exec CodeQL security shard (#92667)",
-      "link": "https://github.com/openclaw/openclaw/commit/b60e8c48382d1ad80e2b7a6b6374823040ed714b",
-      "publishedAt": "2026-07-02T12:50:45Z",
-      "summary": "ci: add process exec CodeQL security shard (#92667) Summary: - The PR adds a `process-exec-boundary` CodeQL high-security shard, wires it into the CodeQL workflow, expands PR path triggers for process-owning plugin/script paths, and updates CI docs. - PR surface: Docs +1, Config +87. Total +88 across 3 files. - Reproducibility: not applicable. this is CI/security-scanner configuration rather than a runtime bug. The behavior is source-reviewable and the exact-head `Security High (process-exec-boundary)` check passed. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 066d54b63302dbfe78692950f47f30ba3178d2cd. - Required merge gates passed before the squash merge. Prepared head SHA: 066d54b63302dbfe78692950f47f30ba3178d2cd Review: https://github.com/openclaw/openclaw/pull/92667#issuecomment-4698545987 Co-authored-by: Mason Huang Approved-by: hxy91819",
+      "title": "fix(agents): sweep stale CLI image files",
+      "link": "https://github.com/openclaw/openclaw/commit/0633876530f3c7159b87891690203fadae906b3d",
+      "publishedAt": "2026-07-02T16:31:56Z",
+      "summary": "fix(agents): sweep stale CLI image files Fixes #98946",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: add process exec CodeQL 安全 shard (#92667)",
-      "summaryZh": "重點：ci: add process exec CodeQL 安全 shard (#92667) Summary: - The PR adds a `process-exec-boundary` CodeQL high-安全 shard, wir..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): sweep stale CLI image files",
+      "summaryZh": "重點：修正(agents): sweep stale CLI image files 修正 #98946..."
     },
     {
       "id": 5,
+      "title": "科學家證實澳洲「北極穹地」為地球太古宙時期的隕石坑",
+      "link": "https://technews.tw/2026/07/02/north-pole-dome-confirmed-as-an-archean-impact-crater/",
+      "publishedAt": "Thu, 02 Jul 2026 14:39:03 +0000",
+      "summary": "當科學界對觀測數據產生分歧時，事實往往隱藏在兩者之間。西澳洲皮爾巴拉（Pilbara）荒漠深處的一座古老撞擊結 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "英飛凌斥資 50 億歐元德勒斯登半導體工廠啟用，重點生產汽車、能源、AI 晶片",
       "link": "https://finance.technews.tw/2026/07/02/infineons-e5-billion-dresden-semiconductor-plant-has-commenced-operations/",
       "publishedAt": "Thu, 02 Jul 2026 12:40:17 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Oracle E-Business Suite最新重大漏洞，全球逾900臺執行個體曝險",
       "link": "https://www.ithome.com.tw/news/177037",
       "publishedAt": "2026-07-02 12:07:53",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "FortiBleed憑證竊取活動被用於助長勒索軟體INC Ransom與Lynx攻擊",
       "link": "https://www.ithome.com.tw/news/177035",
       "publishedAt": "2026-07-02 12:07:48",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "資安研究人員揭露AI開發工具Cursor重大漏洞，攻擊者可經由提示注入突破沙箱並執行任意程式碼",
       "link": "https://www.ithome.com.tw/news/177036",
       "publishedAt": "2026-07-02 12:07:35",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Claude Code被爆利用隱寫術暗中偵測中國用戶，Anthropic遭炎上緊急撤銷",
       "link": "https://www.ithome.com.tw/news/177034",
       "publishedAt": "2026-07-02 12:07:29",
       "summary": "Anthropic的Claude Code技術主管Thariq Shihipar周三（7/1）透露，Anthropic今日（7/2）將自Claude Code移除一項針對中國市場的實驗性防禦機制。該機制近日遭揭露會暗中偵測中國時區、網域及AI實驗室，並透過隱寫術（Steganography）將結果藏在系統提示詞中回傳，以防範未授權轉售與模型蒸餾（Distillation），但因缺乏透明度引發開發者信任危機。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "駭客冒充Booking.com攻擊日本旅館業者，利用區塊鏈技術隱匿身分",
-      "link": "https://www.ithome.com.tw/news/177038",
-      "publishedAt": "2026-07-02 12:07:06",
-      "summary": "冒充知名訂房網站Booking.com的攻擊行動時常傳出，這類活動最常見的攻擊目標有兩種，其中一種是針對想要訂房的旅客，另一種是處理客訴的旅館員工。過往相關攻擊大多出現在歐美地區，不過最新一波活動針對特定東南亞國家而來，引起研究人員的注意。",
       "source": "iThome",
       "tag": "繁中"
     }
