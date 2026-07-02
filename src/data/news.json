@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-02T16:49:45.257Z",
+  "generatedAt": "2026-07-02T18:25:23.563Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(i18n): refresh native id locale",
-      "link": "https://github.com/openclaw/openclaw/commit/019603d336028c31de7c49814b45bb29314174e8",
-      "publishedAt": "2026-07-02T16:44:34Z",
-      "summary": "chore(i18n): refresh native id locale",
+      "title": "fix(android): preserve split SMS permission grants (#99147)",
+      "link": "https://github.com/openclaw/openclaw/commit/36361fc2a0f536bd50d7768972b52c51e57b4546",
+      "publishedAt": "2026-07-02T18:21:00Z",
+      "summary": "fix(android): preserve split SMS permission grants (#99147) * fix: preserve split SMS permission grants * refactor(android): generalize split permission grant merging --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native id locale",
-      "summaryZh": "重點：chore(i18n): refresh native id locale..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): preserve split SMS permission grants (#99147)",
+      "summaryZh": "重點：修正(android): preserve split SMS permission grants (#99147) * 修正: preserve split SMS permission grants * refactor(android..."
     },
     {
       "id": 2,
-      "title": "chore(i18n): refresh native uk locale",
-      "link": "https://github.com/openclaw/openclaw/commit/8c5adbfe3ec4f68a49d41a3b313a3b6b059c81d3",
-      "publishedAt": "2026-07-02T16:42:44Z",
-      "summary": "chore(i18n): refresh native uk locale",
+      "title": "fix(android): ignore chat events with missing assistant role in voice…",
+      "link": "https://github.com/openclaw/openclaw/commit/f2a708468a1c1a9061946549f2ff6b757c9689d8",
+      "publishedAt": "2026-07-02T18:18:12Z",
+      "summary": "fix(android): ignore chat events with missing assistant role in voice text extraction (#99123) * fix(android): ignore chat events with missing assistant role in voice text extraction Voice chat event parsing now rejects messages without an explicit assistant role, matching ChatController fail-closed behavior and preventing accidental TTS playback. Co-authored-by: Cursor * fix(android): require canonical assistant role for voice events --------- Co-authored-by: Cursor Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native uk locale",
-      "summaryZh": "重點：chore(i18n): refresh native uk locale..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): ignore chat events with missing assistant role in voice…",
+      "summaryZh": "重點：修正(android): ignore chat events with missing assistant role in voice text extraction (#99123) * 修正(android): ignore chat..."
     },
     {
       "id": 3,
-      "title": "chore(i18n): refresh native tr locale",
-      "link": "https://github.com/openclaw/openclaw/commit/0011a184786686e625268f55799bdfbb8c8c7fda",
-      "publishedAt": "2026-07-02T16:32:59Z",
-      "summary": "chore(i18n): refresh native tr locale",
+      "title": "fix(config/sessions): narrow reply-session initialization revision to…",
+      "link": "https://github.com/openclaw/openclaw/commit/826c84ea19429ece853d62aba5b674cae90f5824",
+      "publishedAt": "2026-07-02T17:59:45Z",
+      "summary": "fix(config/sessions): narrow reply-session initialization revision to identity fields (#98835) * fix(config/sessions): narrow reply-session initialization revision to identity fields The initialization guard compared the full persisted session entry, so background touches to updatedAt, heartbeat timestamps, context-budget metadata, etc. produced false-positive stale-snapshot conflicts and the \"reply session initialization conflicted\" error. Only sessionId and sessionFile matter for detecting a session rotation. Narrow the revision to those identity fields and add a regression test. Fixes #98672 * fix(config/sessions): merge current metadata when reply-init identity guard passes * fix(config/sessions): preserve only snapshot-drifted metadata in reply-init commit * fix: preserve cleared reply-session metadata * fix: allow same-session reply initialization drift --------- Co-authored-by: moguangyu5-design Co-authored-by: Josh Lehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native tr locale",
-      "summaryZh": "重點：chore(i18n): refresh native tr locale..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config/sessions): narrow reply-session initialization revision to…",
+      "summaryZh": "重點：修正(config/sessions): narrow reply-session initialization revision to identity fields (#98835) * 修正(config/sessions): nar..."
     },
     {
       "id": 4,
-      "title": "fix(agents): sweep stale CLI image files",
-      "link": "https://github.com/openclaw/openclaw/commit/0633876530f3c7159b87891690203fadae906b3d",
-      "publishedAt": "2026-07-02T16:31:56Z",
-      "summary": "fix(agents): sweep stale CLI image files Fixes #98946",
+      "title": "chore(i18n): refresh native sv locale",
+      "link": "https://github.com/openclaw/openclaw/commit/55ed57a4e39b8e40628b9fcbfc982e9ac5fd86b5",
+      "publishedAt": "2026-07-02T17:37:19Z",
+      "summary": "chore(i18n): refresh native sv locale",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): sweep stale CLI image files",
-      "summaryZh": "重點：修正(agents): sweep stale CLI image files 修正 #98946..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native sv locale",
+      "summaryZh": "重點：chore(i18n): refresh native sv locale..."
     },
     {
       "id": 5,
