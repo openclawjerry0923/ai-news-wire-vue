@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-07-02T11:34:26.278Z",
+  "generatedAt": "2026-07-02T14:03:16.899Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(android): show specific gateway auth-recovery reason instead of g…",
+      "link": "https://github.com/openclaw/openclaw/commit/40d4e321105a860880657891e3a43920485dabc5",
+      "publishedAt": "2026-07-02T13:50:26Z",
+      "summary": "fix(android): show specific gateway auth-recovery reason instead of generic label (#98698) * fix(android): distinguish gateway auth-recovery reasons instead of one generic label gatewaySummary()/gatewayStatusLabel() collapsed every auth failure (expired setup QR, missing/invalid token, missing/invalid password, stale device identity) into \"Authentication needed\", discarding the already-computed MainViewModel.gatewayConnectionProblem signal consumed elsewhere in the app (OnboardingFlow's recoveryGatewayAuthDetail). Thread it into both status labels via a shared gatewayAuthNeededSummary() helper so the Overview and Settings screens tell the user which recovery action applies. Fixes #98046 * test(android): lock gateway auth-needed labels to the real unauthorized message format Verified against src/gateway/server/ws-connection/auth-messages.ts: formatGatewayAuthFailureMessage always returns strings starting with \"unauthorized\", which contains the \"auth\" substring the status-text gate checks for. Add tests using the exact real-world message text (not just synthetic \"auth failed\" strings) so this stays regression-locked. * fix(android): widen the auth-needed status gate to cover device-identity failures CONTROL_UI_DEVICE_IDENTITY_REQUIRED/DEVICE_IDENTITY_REQUIRED real gateway messages (\"device identity required\", \"control ui requires device identity...\") don't contain \"auth\", so the status.contains(\"auth\") gate never reached their specific label. Add \"device identity\" as an additional substring the gate checks for those two codes, with regression tests using the exact real message text (message-handler.ts). Verified via GitHub-style codex review round 2 (round 1's \"unauthorized doesn't contain auth\" claim was checked against source and rejected as false — \"unauthorized\" does contain \"auth\" — but this second, narrower finding about device-identity codes held up under the same source check). * fix(android): centralize gateway auth status labels * fix(android): correlate gateway connection diagnostics * chore(android): align native i18n inventory after rebase * fix(android): preserve retryable pairing guidance --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(android): show specific Gateway auth-recovery reason instead of g…",
+      "summaryZh": "重點：修正(android): show specific Gateway auth-recovery reason instead of generic label (#98698) * 修正(android): distinguish Gat..."
+    },
+    {
+      "id": 2,
+      "title": "[codex] Cancel Android gateway pending RPCs on close (#98067)",
+      "link": "https://github.com/openclaw/openclaw/commit/0ccdef5dcf76ad816d2105f47b89da5c609fab45",
+      "publishedAt": "2026-07-02T13:39:44Z",
+      "summary": "[codex] Cancel Android gateway pending RPCs on close (#98067) * fix: cancel Android gateway pending RPCs on close * fix(android): isolate pending RPCs per connection * style(android): separate RPC waiter invariant * chore(android): align native i18n inventory --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：[codex] Cancel Android Gateway pending RPCs on close (#98067)",
+      "summaryZh": "重點：[codex] Cancel Android Gateway pending RPCs on close (#98067) * 修正: cancel Android Gateway pending RPCs on close * 修正(an..."
+    },
+    {
+      "id": 3,
+      "title": "[codex] Gate Android Talk capture starts in background (#98055)",
+      "link": "https://github.com/openclaw/openclaw/commit/e3f46d0926da2192a8d238781aa7f70e74c499e7",
+      "publishedAt": "2026-07-02T13:22:26Z",
+      "summary": "[codex] Gate Android Talk capture starts in background (#98055) * fix: gate Android talk capture starts * refactor(android): make Talk capture policy explicit --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：[codex] Gate Android Talk capture starts in background (#98055)",
+      "summaryZh": "重點：[codex] Gate Android Talk capture starts in background (#98055) * 修正: gate Android talk capture starts * refactor(androi..."
+    },
+    {
+      "id": 4,
+      "title": "ci: add process exec CodeQL security shard (#92667)",
+      "link": "https://github.com/openclaw/openclaw/commit/b60e8c48382d1ad80e2b7a6b6374823040ed714b",
+      "publishedAt": "2026-07-02T12:50:45Z",
+      "summary": "ci: add process exec CodeQL security shard (#92667) Summary: - The PR adds a `process-exec-boundary` CodeQL high-security shard, wires it into the CodeQL workflow, expands PR path triggers for process-owning plugin/script paths, and updates CI docs. - PR surface: Docs +1, Config +87. Total +88 across 3 files. - Reproducibility: not applicable. this is CI/security-scanner configuration rather than a runtime bug. The behavior is source-reviewable and the exact-head `Security High (process-exec-boundary)` check passed. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 066d54b63302dbfe78692950f47f30ba3178d2cd. - Required merge gates passed before the squash merge. Prepared head SHA: 066d54b63302dbfe78692950f47f30ba3178d2cd Review: https://github.com/openclaw/openclaw/pull/92667#issuecomment-4698545987 Co-authored-by: Mason Huang Approved-by: hxy91819",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：ci: add process exec CodeQL 安全 shard (#92667)",
+      "summaryZh": "重點：ci: add process exec CodeQL 安全 shard (#92667) Summary: - The PR adds a `process-exec-boundary` CodeQL high-安全 shard, wir..."
+    },
+    {
+      "id": 5,
+      "title": "英飛凌斥資 50 億歐元德勒斯登半導體工廠啟用，重點生產汽車、能源、AI 晶片",
+      "link": "https://finance.technews.tw/2026/07/02/infineons-e5-billion-dresden-semiconductor-plant-has-commenced-operations/",
+      "publishedAt": "Thu, 02 Jul 2026 12:40:17 +0000",
+      "summary": "德國半導體製造商英飛凌（Infineon）本週二於德國德勒斯登（Dresden）正式啟用被譽為全球最大的智慧半 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Oracle E-Business Suite最新重大漏洞，全球逾900臺執行個體曝險",
       "link": "https://www.ithome.com.tw/news/177037",
       "publishedAt": "2026-07-02 12:07:53",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "FortiBleed憑證竊取活動被用於助長勒索軟體INC Ransom與Lynx攻擊",
       "link": "https://www.ithome.com.tw/news/177035",
       "publishedAt": "2026-07-02 12:07:48",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "資安研究人員揭露AI開發工具Cursor重大漏洞，攻擊者可經由提示注入突破沙箱並執行任意程式碼",
       "link": "https://www.ithome.com.tw/news/177036",
       "publishedAt": "2026-07-02 12:07:35",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "Claude Code被爆利用隱寫術暗中偵測中國用戶，Anthropic遭炎上緊急撤銷",
       "link": "https://www.ithome.com.tw/news/177034",
       "publishedAt": "2026-07-02 12:07:29",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "駭客冒充Booking.com攻擊日本旅館業者，利用區塊鏈技術隱匿身分",
       "link": "https://www.ithome.com.tw/news/177038",
       "publishedAt": "2026-07-02 12:07:06",
       "summary": "冒充知名訂房網站Booking.com的攻擊行動時常傳出，這類活動最常見的攻擊目標有兩種，其中一種是針對想要訂房的旅客，另一種是處理客訴的旅館員工。過往相關攻擊大多出現在歐美地區，不過最新一波活動針對特定東南亞國家而來，引起研究人員的注意。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Meta首設資料長，強化AI時代資料分析治理",
-      "link": "https://www.ithome.com.tw/news/177040",
-      "publishedAt": "2026-07-02 12:07:03",
-      "summary": "Axios周三（7/1）率先披露，Meta已任命現任行銷長Alex Schultz為該公司首任資料長（Chief Data Officer，CDO）。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix: clean up iOS About page copy (#98985)",
-      "link": "https://github.com/openclaw/openclaw/commit/574604e3dae6b21923192ec75c84bca1736e35e9",
-      "publishedAt": "2026-07-02T11:09:29Z",
-      "summary": "fix: clean up iOS About page copy (#98985) * fix: clean up iOS About page copy * fix(ios): sync About copy inventory --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: clean up iOS About page copy (#98985)",
-      "summaryZh": "重點：修正: clean up iOS About page copy (#98985) * 修正: clean up iOS About page copy * 修正(ios): sync About copy inventory ------..."
-    },
-    {
-      "id": 8,
-      "title": "fix(discord): gate guild metadata reads [AI] (#98966)",
-      "link": "https://github.com/openclaw/openclaw/commit/5bcd25f0fb6de3cc2ba6b6a7688a9361eb355143",
-      "publishedAt": "2026-07-02T09:56:36Z",
-      "summary": "fix(discord): gate guild metadata reads [AI] (#98966) * fix(discord): gate guild metadata reads * fix(discord): require guild-wide active thread reads",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): gate guild metadata reads [AI] (#98966)",
-      "summaryZh": "重點：修正(Discord): gate guild metadata reads [AI] (#98966) * 修正(Discord): gate guild metadata reads * 修正(Discord): require gui..."
-    },
-    {
-      "id": 9,
-      "title": "fix(feishu): include video upload duration (#98235)",
-      "link": "https://github.com/openclaw/openclaw/commit/22d686d13ee4a31701eb18c2dc96aede311452f0",
-      "publishedAt": "2026-07-02T09:28:21Z",
-      "summary": "fix(feishu): include video upload duration (#98235)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): include video upload duration (#98235)",
-      "summaryZh": "重點：修正(feishu): include video upload duration (#98235)..."
-    },
-    {
-      "id": 10,
-      "title": "fix(ios): back from settings details returns to the originating scree…",
-      "link": "https://github.com/openclaw/openclaw/commit/9d3e2633658c3aedd1b002b0d37d8b6cedc3419a",
-      "publishedAt": "2026-07-02T09:08:39Z",
-      "summary": "fix(ios): back from settings details returns to the originating screen (#98898) * fix(ios): back from settings details returns to the originating screen Detail views reachable from multiple places (gateway, voice, notifications settings) previously opened by switching to the canonical Settings tab, so Back landed on the Settings root instead of the screen the user came from. Phone tabs now push SettingsRoute details on their own NavigationStack via PhoneTabSettingsHost, the Control hub pushes the gateway detail onto its own stack, and the Approvals->Notifications shortcut appends instead of replacing the path (phone and iPad). Global flows (deep links, onboarding, problem banner, notification dialog) still jump to the canonical Settings tab. * chore(i18n): sync native app i18n inventory line references * test(ios): prove settings back navigation * test(ios): prove settings back navigation --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): back from settings details returns to the originating scree…",
-      "summaryZh": "重點：修正(ios): back from settings details returns to the originating screen (#98898) * 修正(ios): back from settings details ret..."
     }
   ]
 }
