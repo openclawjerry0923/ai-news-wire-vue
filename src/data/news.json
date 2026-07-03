@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-07-03T16:24:54.387Z",
+  "generatedAt": "2026-07-03T18:12:54.310Z",
   "items": [
     {
       "id": 1,
+      "title": "Expose stale plugin runtime symlink doctor lint findings (#98729)",
+      "link": "https://github.com/openclaw/openclaw/commit/43a7fd3839973756761a871e4d6d2411e5c2adf8",
+      "publishedAt": "2026-07-03T17:52:45Z",
+      "summary": "Expose stale plugin runtime symlink doctor lint findings (#98729) Adds a default-disabled Doctor lint check for stale plugin-runtime symlinks while keeping real deletion in the existing legacy doctor --fix cleanup path. Verification: - Focused plugin-runtime-symlink/contribution Vitest passed (65 tests). - Changed-file oxfmt passed. - Changed-file oxlint with core tsconfig passed. - SDK surface report passed. - git diff --check passed. - Exact-head hosted checks passed/skipped on 287d2230eed71d84ccd248f9cef77507b88ac312. Maintainer notes: - ClawSweeper platinum hermit / ready for maintainer look. - Accepted the new opt-in lint check id and warning copy on the PR. - Local prepare wrapper pnpm check still fails on the npm shrinkwrap guard, and the same failure reproduces on current origin/main; treated as baseline local gate noise, not PR-caused.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：Expose stale plugin runtime symlink 文件tor lint findings (#98729)",
+      "summaryZh": "重點：Expose stale plugin runtime symlink 文件tor lint findings (#98729) Adds a default-disabled 文件tor lint check for stale plug..."
+    },
+    {
+      "id": 2,
+      "title": "fix(telegram): stop duplicate fallback when dispatch fails after fina…",
+      "link": "https://github.com/openclaw/openclaw/commit/0ad58848b399ca47ab9e0c644d14e9efd1cbd222",
+      "publishedAt": "2026-07-03T16:37:48Z",
+      "summary": "fix(telegram): stop duplicate fallback when dispatch fails after final reply Telegram no longer sends a generic \"Something went wrong\" fallback after a final answer was already delivered and a later dispatch/cleanup step failed. Failures with only partial or no visible output still send the error fallback and stay retryable. Related: #87299 Closes #90152",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): stop duplicate fallback when dispatch fails after fina…",
+      "summaryZh": "重點：修正(Telegram): stop duplicate fallback when dispatch fails after final reply Telegram no longer sends a generic \"Somethin..."
+    },
+    {
+      "id": 3,
       "title": "fix(agents): keep cli session binding facts session-stable",
       "link": "https://github.com/openclaw/openclaw/commit/48e8965b1060d61beda1a52d572373a409317498",
       "publishedAt": "2026-07-03T16:01:26Z",
@@ -13,7 +35,7 @@
       "summaryZh": "重點：修正(agents): keep cli session binding facts session-stable Keep CLI session reuse hashes keyed to stable session prompt f..."
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "衝出太陽系前必經的「減速帶」，星際原子如何讓高速太陽風踩下煞車？",
       "link": "https://technews.tw/2026/07/04/nasas-new-horizons-reveals-a-hidden-interstellar-slowdown-at-the-solar-systems-edge/",
       "publishedAt": "Fri, 03 Jul 2026 16:00:36 +0000",
@@ -22,7 +44,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "挑戰現有理論，國際太空站 AMS-02 觀測 230 兆個宇宙射線事件揭開粒子奧祕",
       "link": "https://technews.tw/2026/07/04/ams-new-research-challenges-current-cosmological-model/",
       "publishedAt": "Fri, 03 Jul 2026 16:00:15 +0000",
@@ -31,7 +53,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "Expose legacy plugin dependency doctor lint findings (#98725)",
       "link": "https://github.com/openclaw/openclaw/commit/6638a575d39dee5e64ecb562695b70affca8f4b4",
       "publishedAt": "2026-07-03T15:45:07Z",
@@ -40,28 +62,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 文件更新：Expose legacy plugin dependency 文件tor lint findings (#98725)",
       "summaryZh": "重點：Expose legacy plugin dependency 文件tor lint findings (#98725) Expose default-disabled 文件tor lint findings for legacy plug..."
-    },
-    {
-      "id": 5,
-      "title": "fix: harden docs map heading rendering (#99099)",
-      "link": "https://github.com/openclaw/openclaw/commit/0d2aeb2a1e0e48b3285e9ee3f340ea5c14112ec7",
-      "publishedAt": "2026-07-03T15:36:11Z",
-      "summary": "fix: harden docs map heading rendering (#99099) Summary: - The PR changes the docs map generator to escape HTML-significant heading text, regenerates `docs/docs_map.md`, and adds a Vitest regression for HTML-like headings. - PR surface: Tests +13, Docs 0, Other +10. Total +23 across 3 files. - Reproducibility: yes. Current main has source headings such as `docs/cli/agents.md:164` with ``, while `docs/docs_map.md:1231` omits it and `scripts/generate-docs-map.mjs:90` strips `` text. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 261466a2a816779a2aea70d263f448c2eb516b15. - Required merge gates passed before the squash merge. Prepared head SHA: 261466a2a816779a2aea70d263f448c2eb516b15 Review: https://github.com/openclaw/openclaw/pull/99099#issuecomment-4866739708 Co-authored-by: Mason Huang Approved-by: hxy91819",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: harden 文件 map heading rendering (#99099)",
-      "summaryZh": "重點：修正: harden 文件 map heading rendering (#99099) Summary: - The PR changes the 文件 map generator to escape HTML-significant h..."
-    },
-    {
-      "id": 6,
-      "title": "fix: harden native i18n identifier filtering (#99098)",
-      "link": "https://github.com/openclaw/openclaw/commit/f3eccb0dfdec7a1a57be734dde73e4eff6c9b832",
-      "publishedAt": "2026-07-03T15:28:17Z",
-      "summary": "fix: harden native i18n identifier filtering (#99098) Summary: - The PR replaces native i18n conditional-branch regex filtering with an exported linear ASCII scanner and adds focused coverage. - PR surface: Tests +9, Other +36. Total +45 across 2 files. - Reproducibility: yes. from source inspection: current main routes conditional-branch native literals through the backtracking-prone regex before inventory output. I did not run a timing benchmark against current main. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 97464c96358d50445861fe325cb1609e68430989. - Required merge gates passed before the squash merge. Prepared head SHA: 97464c96358d50445861fe325cb1609e68430989 Review: https://github.com/openclaw/openclaw/pull/99098#issuecomment-4866733462 Co-authored-by: Mason Huang Approved-by: hxy91819",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: harden native i18n identifier filtering (#99098)",
-      "summaryZh": "重點：修正: harden native i18n identifier filtering (#99098) Summary: - The PR replaces native i18n conditional-branch regex fil..."
     },
     {
       "id": 7,
