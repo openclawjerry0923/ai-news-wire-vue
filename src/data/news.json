@@ -1,41 +1,52 @@
 {
-  "generatedAt": "2026-07-03T18:12:54.310Z",
+  "generatedAt": "2026-07-03T20:14:36.281Z",
   "items": [
     {
       "id": 1,
-      "title": "Expose stale plugin runtime symlink doctor lint findings (#98729)",
-      "link": "https://github.com/openclaw/openclaw/commit/43a7fd3839973756761a871e4d6d2411e5c2adf8",
-      "publishedAt": "2026-07-03T17:52:45Z",
-      "summary": "Expose stale plugin runtime symlink doctor lint findings (#98729) Adds a default-disabled Doctor lint check for stale plugin-runtime symlinks while keeping real deletion in the existing legacy doctor --fix cleanup path. Verification: - Focused plugin-runtime-symlink/contribution Vitest passed (65 tests). - Changed-file oxfmt passed. - Changed-file oxlint with core tsconfig passed. - SDK surface report passed. - git diff --check passed. - Exact-head hosted checks passed/skipped on 287d2230eed71d84ccd248f9cef77507b88ac312. Maintainer notes: - ClawSweeper platinum hermit / ready for maintainer look. - Accepted the new opt-in lint check id and warning copy on the PR. - Local prepare wrapper pnpm check still fails on the npm shrinkwrap guard, and the same failure reproduces on current origin/main; treated as baseline local gate noise, not PR-caused.",
+      "title": "test(qa): share script evidence writer (#99374)",
+      "link": "https://github.com/openclaw/openclaw/commit/5361e5a0b4553e317dd676a1fc66e82aef08d82a",
+      "publishedAt": "2026-07-03T19:59:23Z",
+      "summary": "test(qa): share script evidence writer (#99374)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：Expose stale plugin runtime symlink 文件tor lint findings (#98729)",
-      "summaryZh": "重點：Expose stale plugin runtime symlink 文件tor lint findings (#98729) Adds a default-disabled 文件tor lint check for stale plug..."
+      "titleZh": "OpenClaw 程式碼更新：test(qa): share script evidence writer (#99374)",
+      "summaryZh": "重點：test(qa): share script evidence writer (#99374)..."
     },
     {
       "id": 2,
-      "title": "fix(telegram): stop duplicate fallback when dispatch fails after fina…",
-      "link": "https://github.com/openclaw/openclaw/commit/0ad58848b399ca47ab9e0c644d14e9efd1cbd222",
-      "publishedAt": "2026-07-03T16:37:48Z",
-      "summary": "fix(telegram): stop duplicate fallback when dispatch fails after final reply Telegram no longer sends a generic \"Something went wrong\" fallback after a final answer was already delivered and a later dispatch/cleanup step failed. Failures with only partial or no visible output still send the error fallback and stay retryable. Related: #87299 Closes #90152",
+      "title": "fix ios node invoke permission prompts (#99477)",
+      "link": "https://github.com/openclaw/openclaw/commit/51859fe0e4ee2f5e3a714647a2de72eb5af0ed52",
+      "publishedAt": "2026-07-03T19:49:20Z",
+      "summary": "fix ios node invoke permission prompts (#99477) Co-authored-by: NianJiuZst",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): stop duplicate fallback when dispatch fails after fina…",
-      "summaryZh": "重點：修正(Telegram): stop duplicate fallback when dispatch fails after final reply Telegram no longer sends a generic \"Somethin..."
+      "titleZh": "OpenClaw 程式碼更新：修正 ios node invoke permission prompts (#99477)",
+      "summaryZh": "重點：修正 ios node invoke permission prompts (#99477) Co-authored-by: NianJiuZst..."
     },
     {
       "id": 3,
-      "title": "fix(agents): keep cli session binding facts session-stable",
-      "link": "https://github.com/openclaw/openclaw/commit/48e8965b1060d61beda1a52d572373a409317498",
-      "publishedAt": "2026-07-03T16:01:26Z",
-      "summary": "fix(agents): keep cli session binding facts session-stable Keep CLI session reuse hashes keyed to stable session prompt facts while preserving per-turn room-event message-tool delivery for execution and MCP scoping. Thread cliSessionBindingFacts from reply assembly through queued/followup CLI runs, make the stable CLI prompt delivery-neutral, and cover production-shaped room-event opts so forced message_tool_only delivery cannot poison binding identity. Fixes #99372 Release note: Telegram/room-event CLI backends can resume sessions across interactive turns again instead of replaying full history after system-prompt invalidations.",
+      "title": "fix(android): parse talk directive aliases case-insensitively (#99592)",
+      "link": "https://github.com/openclaw/openclaw/commit/b623ff738d93d777cd49569b380d758ee7a4b884",
+      "publishedAt": "2026-07-03T19:41:08Z",
+      "summary": "fix(android): parse talk directive aliases case-insensitively (#99592)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep cli session binding facts session-stable",
-      "summaryZh": "重點：修正(agents): keep cli session binding facts session-stable Keep CLI session reuse hashes keyed to stable session prompt f..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): parse talk directive aliases case-insensitively (#99592)",
+      "summaryZh": "重點：修正(android): parse talk directive aliases case-insensitively (#99592)..."
     },
     {
       "id": 4,
+      "title": "fix(android): block self-package notification forwarding in allowlist…",
+      "link": "https://github.com/openclaw/openclaw/commit/b6e6799755a95f9e2be33bbcb101da38d325f9aa",
+      "publishedAt": "2026-07-03T19:38:58Z",
+      "summary": "fix(android): block self-package notification forwarding in allowlist mode (#99568) Always reject the OpenClaw app package in allowsPackage, matching the blocklist fail-closed behavior and preventing gateway/node forwarding loops. Co-authored-by: Cursor",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(android): block self-package notification forwarding in allowlist…",
+      "summaryZh": "重點：修正(android): block self-package notification forwarding in allowlist mode (#99568) Always reject the OpenClaw app packag..."
+    },
+    {
+      "id": 5,
       "title": "衝出太陽系前必經的「減速帶」，星際原子如何讓高速太陽風踩下煞車？",
       "link": "https://technews.tw/2026/07/04/nasas-new-horizons-reveals-a-hidden-interstellar-slowdown-at-the-solar-systems-edge/",
       "publishedAt": "Fri, 03 Jul 2026 16:00:36 +0000",
@@ -44,24 +55,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "挑戰現有理論，國際太空站 AMS-02 觀測 230 兆個宇宙射線事件揭開粒子奧祕",
       "link": "https://technews.tw/2026/07/04/ams-new-research-challenges-current-cosmological-model/",
       "publishedAt": "Fri, 03 Jul 2026 16:00:15 +0000",
       "summary": "數百萬年前，遠方星系的一顆恆星發生劇烈的超新星爆炸，將碳、氮、氧等組成生命的元素散布到宇宙中。這些粒子成為宇宙 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Expose legacy plugin dependency doctor lint findings (#98725)",
-      "link": "https://github.com/openclaw/openclaw/commit/6638a575d39dee5e64ecb562695b70affca8f4b4",
-      "publishedAt": "2026-07-03T15:45:07Z",
-      "summary": "Expose legacy plugin dependency doctor lint findings (#98725) Expose default-disabled Doctor lint findings for legacy plugin dependency state. The check maps the existing safe cleanup-target detection into structured lint output while keeping real cleanup in the legacy doctor --fix path. Default doctor --lint remains unchanged; explicit --only and --all can include the new warning. Validation: - GitHub checks green on head 53c11a6f82c41dc03475a187e1ad3ee00b6aa7e9 - ClawSweeper: proof sufficient, platinum hermit, ready for maintainer look - Local post-rebase proof: focused Doctor Vitest, changed-file oxlint, changed-file oxfmt --check, and git diff --check all passed Maintainer note: WSL maintainer wrapper path is unavailable on this host with Wsl/Service/CreateInstance/0x80072745, so this uses the steerable head-pinned squash path allowed by the current maintainer workflow docs.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：Expose legacy plugin dependency 文件tor lint findings (#98725)",
-      "summaryZh": "重點：Expose legacy plugin dependency 文件tor lint findings (#98725) Expose default-disabled 文件tor lint findings for legacy plug..."
     },
     {
       "id": 7,
