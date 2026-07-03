@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-07-03T14:07:36.428Z",
+  "generatedAt": "2026-07-03T16:24:54.387Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(i18n): refresh native tr locale",
-      "link": "https://github.com/openclaw/openclaw/commit/0420aefb1d4eeab37bbcf7f50268c41cfb760b26",
-      "publishedAt": "2026-07-03T14:07:30Z",
-      "summary": "chore(i18n): refresh native tr locale",
+      "title": "fix(agents): keep cli session binding facts session-stable",
+      "link": "https://github.com/openclaw/openclaw/commit/48e8965b1060d61beda1a52d572373a409317498",
+      "publishedAt": "2026-07-03T16:01:26Z",
+      "summary": "fix(agents): keep cli session binding facts session-stable Keep CLI session reuse hashes keyed to stable session prompt facts while preserving per-turn room-event message-tool delivery for execution and MCP scoping. Thread cliSessionBindingFacts from reply assembly through queued/followup CLI runs, make the stable CLI prompt delivery-neutral, and cover production-shaped room-event opts so forced message_tool_only delivery cannot poison binding identity. Fixes #99372 Release note: Telegram/room-event CLI backends can resume sessions across interactive turns again instead of replaying full history after system-prompt invalidations.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native tr locale",
-      "summaryZh": "重點：chore(i18n): refresh native tr locale..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep cli session binding facts session-stable",
+      "summaryZh": "重點：修正(agents): keep cli session binding facts session-stable Keep CLI session reuse hashes keyed to stable session prompt f..."
     },
     {
       "id": 2,
-      "title": "chore(i18n): refresh native it locale",
-      "link": "https://github.com/openclaw/openclaw/commit/a1f6accef457ab9f48adff2975a853e28c291909",
-      "publishedAt": "2026-07-03T14:07:01Z",
-      "summary": "chore(i18n): refresh native it locale",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native it locale",
-      "summaryZh": "重點：chore(i18n): refresh native it locale..."
+      "title": "衝出太陽系前必經的「減速帶」，星際原子如何讓高速太陽風踩下煞車？",
+      "link": "https://technews.tw/2026/07/04/nasas-new-horizons-reveals-a-hidden-interstellar-slowdown-at-the-solar-systems-edge/",
+      "publishedAt": "Fri, 03 Jul 2026 16:00:36 +0000",
+      "summary": "美國太空總署（NASA）新視野號（New Horizons）探測器最新研究顯示，在太陽系邊緣的太陽風減速並非單 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "chore(i18n): refresh native ar locale",
-      "link": "https://github.com/openclaw/openclaw/commit/3db6fb9972768d7b4979a2649f202d8851935dd8",
-      "publishedAt": "2026-07-03T14:05:57Z",
-      "summary": "chore(i18n): refresh native ar locale",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native ar locale",
-      "summaryZh": "重點：chore(i18n): refresh native ar locale..."
+      "title": "挑戰現有理論，國際太空站 AMS-02 觀測 230 兆個宇宙射線事件揭開粒子奧祕",
+      "link": "https://technews.tw/2026/07/04/ams-new-research-challenges-current-cosmological-model/",
+      "publishedAt": "Fri, 03 Jul 2026 16:00:15 +0000",
+      "summary": "數百萬年前，遠方星系的一顆恆星發生劇烈的超新星爆炸，將碳、氮、氧等組成生命的元素散布到宇宙中。這些粒子成為宇宙 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "chore(i18n): refresh native hi locale",
-      "link": "https://github.com/openclaw/openclaw/commit/48c3f4b10326a890352ba5e7dd51fad897145c38",
-      "publishedAt": "2026-07-03T14:05:24Z",
-      "summary": "chore(i18n): refresh native hi locale",
+      "title": "Expose legacy plugin dependency doctor lint findings (#98725)",
+      "link": "https://github.com/openclaw/openclaw/commit/6638a575d39dee5e64ecb562695b70affca8f4b4",
+      "publishedAt": "2026-07-03T15:45:07Z",
+      "summary": "Expose legacy plugin dependency doctor lint findings (#98725) Expose default-disabled Doctor lint findings for legacy plugin dependency state. The check maps the existing safe cleanup-target detection into structured lint output while keeping real cleanup in the legacy doctor --fix path. Default doctor --lint remains unchanged; explicit --only and --all can include the new warning. Validation: - GitHub checks green on head 53c11a6f82c41dc03475a187e1ad3ee00b6aa7e9 - ClawSweeper: proof sufficient, platinum hermit, ready for maintainer look - Local post-rebase proof: focused Doctor Vitest, changed-file oxlint, changed-file oxfmt --check, and git diff --check all passed Maintainer note: WSL maintainer wrapper path is unavailable on this host with Wsl/Service/CreateInstance/0x80072745, so this uses the steerable head-pinned squash path allowed by the current maintainer workflow docs.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native hi locale",
-      "summaryZh": "重點：chore(i18n): refresh native hi locale..."
+      "titleZh": "OpenClaw 文件更新：Expose legacy plugin dependency 文件tor lint findings (#98725)",
+      "summaryZh": "重點：Expose legacy plugin dependency 文件tor lint findings (#98725) Expose default-disabled 文件tor lint findings for legacy plug..."
     },
     {
       "id": 5,
+      "title": "fix: harden docs map heading rendering (#99099)",
+      "link": "https://github.com/openclaw/openclaw/commit/0d2aeb2a1e0e48b3285e9ee3f340ea5c14112ec7",
+      "publishedAt": "2026-07-03T15:36:11Z",
+      "summary": "fix: harden docs map heading rendering (#99099) Summary: - The PR changes the docs map generator to escape HTML-significant heading text, regenerates `docs/docs_map.md`, and adds a Vitest regression for HTML-like headings. - PR surface: Tests +13, Docs 0, Other +10. Total +23 across 3 files. - Reproducibility: yes. Current main has source headings such as `docs/cli/agents.md:164` with ``, while `docs/docs_map.md:1231` omits it and `scripts/generate-docs-map.mjs:90` strips `` text. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 261466a2a816779a2aea70d263f448c2eb516b15. - Required merge gates passed before the squash merge. Prepared head SHA: 261466a2a816779a2aea70d263f448c2eb516b15 Review: https://github.com/openclaw/openclaw/pull/99099#issuecomment-4866739708 Co-authored-by: Mason Huang Approved-by: hxy91819",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正: harden 文件 map heading rendering (#99099)",
+      "summaryZh": "重點：修正: harden 文件 map heading rendering (#99099) Summary: - The PR changes the 文件 map generator to escape HTML-significant h..."
+    },
+    {
+      "id": 6,
+      "title": "fix: harden native i18n identifier filtering (#99098)",
+      "link": "https://github.com/openclaw/openclaw/commit/f3eccb0dfdec7a1a57be734dde73e4eff6c9b832",
+      "publishedAt": "2026-07-03T15:28:17Z",
+      "summary": "fix: harden native i18n identifier filtering (#99098) Summary: - The PR replaces native i18n conditional-branch regex filtering with an exported linear ASCII scanner and adds focused coverage. - PR surface: Tests +9, Other +36. Total +45 across 2 files. - Reproducibility: yes. from source inspection: current main routes conditional-branch native literals through the backtracking-prone regex before inventory output. I did not run a timing benchmark against current main. Automerge notes: - No ClawSweeper repair was needed after automerge opt-in. Validation: - ClawSweeper review passed for head 97464c96358d50445861fe325cb1609e68430989. - Required merge gates passed before the squash merge. Prepared head SHA: 97464c96358d50445861fe325cb1609e68430989 Review: https://github.com/openclaw/openclaw/pull/99098#issuecomment-4866733462 Co-authored-by: Mason Huang Approved-by: hxy91819",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: harden native i18n identifier filtering (#99098)",
+      "summaryZh": "重點：修正: harden native i18n identifier filtering (#99098) Summary: - The PR replaces native i18n conditional-branch regex fil..."
+    },
+    {
+      "id": 7,
+      "title": "潘健成示警：AI 需求呈幾何級爆發，記憶體產能面臨嚴重供不應求已成定局",
+      "link": "https://finance.technews.tw/2026/07/03/the-severe-supply-shortage-of-memory-chips-is-now-a-foregone-conclusion/",
+      "publishedAt": "Fri, 03 Jul 2026 14:45:19 +0000",
+      "summary": "人工智慧（AI）發展一日千里，對全球算力與記憶體市場投下震撼彈。群聯執行長潘健成示警，隨著 AI 應用格式的轉 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "投資人問群聯股票還能不能買？潘健成指公司正在耕耘期，自己已加碼 35 張",
+      "link": "https://finance.technews.tw/2026/07/03/pan-jiancheng-himself-has-already-bought-35-more-tickets/",
+      "publishedAt": "Fri, 03 Jul 2026 14:30:19 +0000",
+      "summary": "群聯（Phison）執行長潘健成在公開場合被問到群聯股票還譨不能買的問題時，潘健成表示，能不能買要讓投資人自己 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "立積6月營收3.30 億元",
       "link": "https://finance.technews.tw/2026/07/03/richwave-4968-202606-financial-report/",
       "publishedAt": "Fri, 03 Jul 2026 12:10:11 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "新鉅科6月營收1.83 億元",
       "link": "https://finance.technews.tw/2026/07/03/newmax-3630-202606-financial-report/",
       "publishedAt": "Fri, 03 Jul 2026 12:10:03 +0000",
       "summary": "新鉅科（3630）今（3）日公布 6 月營收，達 1.83 億元，較 5 月成長 -8.9%，較去年同期成長 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "加密貨幣預測市集Polymarket第三方供應鏈遭入侵，客戶損失300萬美元",
-      "link": "https://www.ithome.com.tw/news/177064",
-      "publishedAt": "2026-07-03 12:07:36",
-      "summary": "根據資安新聞網站Bleeping Computer報導，大型加密貨幣預測市場平臺Polymarket近日證實遭遇供應鏈攻擊，駭客入侵第三方供應商，在網站前端植入惡意指令碼，造成用戶損失。對此，Polymarket承諾將全額賠償受影響的客戶。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Apache修補Tomcat重大漏洞，涉及憑證驗證與安全設定資訊錯誤問題",
-      "link": "https://www.ithome.com.tw/news/177063",
-      "publishedAt": "2026-07-03 12:07:33",
-      "summary": "Apache軟體基金會近日發布資安公告，修補Java Web應用程式伺服器軟體Apache Tomcat的6個漏洞，包含憑證驗證檢查失效，以及安全設定資訊顯示錯誤的重大漏洞，9.x、10.x與11.x等分支版本都會受到影響，用戶應升級到已修補的9.0.119、10.1.56與11.0.23以上版本。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Google環境報告：AI基礎設施讓2025年用電暴增37%，但仍成功減碳2%",
-      "link": "https://www.ithome.com.tw/news/177062",
-      "publishedAt": "2026-07-03 12:07:15",
-      "summary": "「我們正處於張力之中，一方是AI帶動的高速成長，另一方是環境永續責任」，Google永續長Kate Brandt說。Google本周發布最新環境報告，揭露其在2025年面臨歷史性的電力需求成長，但仍成功壓低營運碳排放。 根據該報告，2025年Google電力需求年增37%，主要來自AI資料中心與運算基礎設施快速擴張，然而，營運碳排放仍較前一年下降2%。「這證明我們將業務的快速成長與碳排脫鉤」，Kate說。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "群聯潘健成：近期 Nor Flash 不佳早知道，AI 雲端繼續投資記憶體景氣仍持續",
-      "link": "https://finance.technews.tw/2026/07/03/ai-and-cloud-computing-continue-to-invest-and-the-memory-market-remains-bullish/",
-      "publishedAt": "Fri, 03 Jul 2026 12:00:59 +0000",
-      "summary": "記憶體產業長久以來受制於殘酷的景氣循環法則，然而這項鐵律即將在人工智慧（AI）與雲端運算的浪潮下被徹底打破。群 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
