@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-04T10:10:44.556Z",
+  "generatedAt": "2026-07-04T12:07:07.233Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(agents): require one resolved capability profile per run (#9…",
-      "link": "https://github.com/openclaw/openclaw/commit/79d2e568a0aadf54fa249f0d9af17524fb13586f",
-      "publishedAt": "2026-07-04T09:53:56Z",
-      "summary": "refactor(agents): require one resolved capability profile per run (#99817) applyFinalEffectiveToolPolicy and collectAttemptExplicitToolAllowlistSources took ~15 raw identity params each and silently re-resolved a second capability profile when callers forgot to pass one — with divergent session inputs (attempt allowlist sources resolved policy off the live session key while tool construction used the sandbox policy key). The profile param is now required, the fallback resolution stacks are deleted, and the attempt threads its single resolved profile into tool construction, the final bundled pass, and allowlist sources. Doctor and gateway tools.effective callers resolve their config-scope profile explicitly at the callsite. createOpenClawCodingTools keeps its optional self-resolve as public plugin-SDK convenience.",
+      "title": "chore(docs): refresh plugin SDK API baseline hash",
+      "link": "https://github.com/openclaw/openclaw/commit/020f44aba867e197d3840517936db2d6f2b89865",
+      "publishedAt": "2026-07-04T12:03:46Z",
+      "summary": "chore(docs): refresh plugin SDK API baseline hash",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): require one resolved capability profile per run (#9…",
-      "summaryZh": "重點：refactor(agents): require one resolved capability profile per run (#99817) applyFinalEffectiveToolPolicy and collectAtte..."
+      "titleZh": "OpenClaw 文件更新：chore(文件): refresh plugin SDK API baseline hash",
+      "summaryZh": "重點：chore(文件): refresh plugin SDK API baseline hash..."
     },
     {
       "id": 2,
-      "title": "fix(agents): derive conversation scope from trusted group facts (#99816)",
-      "link": "https://github.com/openclaw/openclaw/commit/23b878a04b0be46f0ce78f205c2e0b8d0ea60b27",
-      "publishedAt": "2026-07-04T09:53:52Z",
-      "summary": "fix(agents): derive conversation scope from trusted group facts (#99816) Scope fell back to caller-supplied groupId/groupChannel/groupSpace when chatType was unknown, while the profile publishes those same fields trust-checked (null when dropped). A dropped caller group could classify an unknown-audience conversation as shared for downstream audience and credential decisions. Scope now classifies only from live chat type, server-derived session keys (new sessionKeyNamesGroupConversation), and trust-checked group facts; dropped groups resolve to unknown.",
+      "title": "fix(test): use canonical memory fd repro config",
+      "link": "https://github.com/openclaw/openclaw/commit/d6ed2c392c1e6db4f33ebcecb7d642ac6f719f6e",
+      "publishedAt": "2026-07-04T11:49:20Z",
+      "summary": "fix(test): use canonical memory fd repro config",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): derive conversation scope from trusted group facts (#99816)",
-      "summaryZh": "重點：修正(agents): derive conversation scope from trusted group facts (#99816) Scope fell back to caller-supplied groupId/group..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): use canonical 記憶 fd repro config",
+      "summaryZh": "重點：修正(test): use canonical 記憶 fd repro config..."
     },
     {
       "id": 3,
-      "title": "chore(crabbox): default remote proof to Blacksmith Testbox",
-      "link": "https://github.com/openclaw/openclaw/commit/c160ff1aeccb204851722316675f44fd3b190c0c",
-      "publishedAt": "2026-07-04T09:51:47Z",
-      "summary": "chore(crabbox): default remote proof to Blacksmith Testbox The azure coordinator has been timing out (10m, no lease) while delegated Blacksmith Testbox leases in about a minute. Make blacksmith-testbox the .crabbox.yaml default, keep --provider aws/azure for direct VM proof, and refresh the crabbox/openclaw-testing skill text that still claimed an AWS default. Formatting proof: sibling-checkout oxfmt --check passed (hook needs node_modules this worktree lacks). Testbox proof: tbx_01kwp8h31773z2vphbcae1syzr (node --version, exit 0, 1m07s) via https://github.com/openclaw/openclaw/actions/runs/28702438266",
+      "title": "perf: reuse plugin SDK report compiler graph (#99940)",
+      "link": "https://github.com/openclaw/openclaw/commit/ed2eebd31db0f1744dbd62b90253a8e3482b67c4",
+      "publishedAt": "2026-07-04T11:41:19Z",
+      "summary": "perf: reuse plugin SDK report compiler graph (#99940)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(crabbox): default remote proof to Blacksmith Testbox",
-      "summaryZh": "重點：chore(crabbox): default remote proof to Blacksmith Testbox The azure coordinator has been timing out (10m, no lease) whi..."
+      "titleZh": "OpenClaw 程式碼更新：perf: reuse plugin SDK report compiler graph (#99940)",
+      "summaryZh": "重點：perf: reuse plugin SDK report compiler graph (#99940)..."
     },
     {
       "id": 4,
-      "title": "fix(agents): preserve mixed image attachment order (#99902)",
-      "link": "https://github.com/openclaw/openclaw/commit/a0e6048624700ce17ee0fd63ee6bba935024605e",
-      "publishedAt": "2026-07-04T09:32:03Z",
-      "summary": "fix(agents): preserve mixed image attachment order (#99902)",
+      "title": "chore(docs): refresh plugin generated baselines",
+      "link": "https://github.com/openclaw/openclaw/commit/46ad3f9ae94cec1bfa94b14974a3d32b46921080",
+      "publishedAt": "2026-07-04T11:05:58Z",
+      "summary": "chore(docs): refresh plugin generated baselines",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve mixed image attachment order (#99902)",
-      "summaryZh": "重點：修正(agents): preserve mixed image attachment order (#99902)..."
+      "titleZh": "OpenClaw 文件更新：chore(文件): refresh plugin generated baselines",
+      "summaryZh": "重點：chore(文件): refresh plugin generated baselines..."
     },
     {
       "id": 5,
