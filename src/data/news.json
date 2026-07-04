@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T21:59:17.639Z",
+  "generatedAt": "2026-07-04T23:06:22.864Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "feat: add utility models and generated session titles (#87643)",
-      "link": "https://github.com/openclaw/openclaw/commit/27d6c8816721acf515715874961cfd3963a14582",
-      "publishedAt": "2026-07-04T21:24:51Z",
-      "summary": "feat: add utility models and generated session titles (#87643) * feat: add utility model session titles * docs: clarify utility model calls * fix: budget utility title reasoning * docs: refresh config baseline * docs: refresh plugin sdk baseline * docs: refresh plugin sdk baseline --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(ui): repair router refactor regressions (#100106)",
+      "link": "https://github.com/openclaw/openclaw/commit/dd6bc2ec32faf90a0df665ac9606ed1bef87bad7",
+      "publishedAt": "2026-07-04T23:00:54Z",
+      "summary": "fix(ui): repair router refactor regressions (#100106)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: add utility 模型 and generated session titles (#87643)",
-      "summaryZh": "重點：新功能: add utility 模型 and generated session titles (#87643) * 新功能: add utility 模型 session titles * 文件: clarify utility 模型 ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): repair router refactor regressions (#100106)",
+      "summaryZh": "重點：修正(ui): repair router refactor regressions (#100106)..."
     },
     {
       "id": 3,
-      "title": "test: make the local pnpm test gate green on macOS hosts (#100069)",
-      "link": "https://github.com/openclaw/openclaw/commit/bbb744269fcbe0856a54f4ed86baea4544b7b15b",
-      "publishedAt": "2026-07-04T21:17:42Z",
-      "summary": "test: make the local pnpm test gate green on macOS hosts (#100069) Fixes 21 macOS-only failing test cases across three classes: canonicalized fixture roots (macOS /var -> /private/var tmpdir symlink vs production realpathing), load-tolerant process-spawn tests (content-gated pid files, readiness-sequenced kill windows, bounded-window timer assertions), and cross-file worker leak guards (skip-channel env, gateway token env, imessage runtime singleton). Test-only; no production changes. Fixes #100025.",
+      "title": "chore(ui): translate terminal.detached across locales",
+      "link": "https://github.com/openclaw/openclaw/commit/f5d446e483473f7bc3f96d636c0b8eeba6b89157",
+      "publishedAt": "2026-07-04T22:58:18Z",
+      "summary": "chore(ui): translate terminal.detached across locales",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: make the local pnpm test gate green on macOS hosts (#100069)",
-      "summaryZh": "重點：test: make the local pnpm test gate green on macOS hosts (#100069) 修正 21 macOS-only failing test cases across three clas..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): translate terminal.detached across locales",
+      "summaryZh": "重點：chore(ui): translate terminal.detached across locales..."
     },
     {
       "id": 4,
-      "title": "fix(release): block stale Codex runtime pins (#100015)",
-      "link": "https://github.com/openclaw/openclaw/commit/0221544190e83d52e78e47ac0f14ad584a3f484b",
-      "publishedAt": "2026-07-04T21:13:31Z",
-      "summary": "fix(release): block stale Codex runtime pins (#100015) Prevents opted-in plugin runtime dependencies from being published with stale registry pins. The same freshness assertion now guards both npm and ClawHub release paths, including the managed Codex runtime. Prepared head SHA: d5d0ecba4b423503475d8861192a48d55b7ef873 Reviewed-by: @fuller-stack-dev Closes #99951",
+      "title": "docs: fold terminal reattach into the hardened terminal docs (opt-in …",
+      "link": "https://github.com/openclaw/openclaw/commit/e57bcbca50a2c3ea410e4aa57f7997d36508776b",
+      "publishedAt": "2026-07-04T22:58:18Z",
+      "summary": "docs: fold terminal reattach into the hardened terminal docs (opt-in default)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): block stale Codex runtime pins (#100015)",
-      "summaryZh": "重點：修正(版本發布): block stale Codex runtime pins (#100015) Prevents opted-in plugin runtime dependencies from being published wi..."
+      "titleZh": "OpenClaw 文件更新：文件: fold terminal reattach into the hardened terminal 文件 (opt-in …",
+      "summaryZh": "重點：文件: fold terminal reattach into the hardened terminal 文件 (opt-in default)..."
     },
     {
       "id": 5,
-      "title": "fix(telegram): resolve local Bot API container file paths against tru…",
-      "link": "https://github.com/openclaw/openclaw/commit/ff58d23e8f5b127c3da09b65d911d6ba744bb434",
-      "publishedAt": "2026-07-04T21:07:51Z",
-      "summary": "fix(telegram): resolve local Bot API container file paths against trustedLocalFileRoots [AI-assisted] (#91984) * fix(telegram): resolve local Bot API container file paths against trustedLocalFileRoots When the self-hosted telegram-bot-api server runs with --local inside a container, getFile returns absolute file_path values rooted at the container data dir (/var/lib/telegram-bot-api/...). The host process mounts that volume at a different path, so the absolute path never matches a trustedLocalFileRoots entry and inbound media fails to materialize (messages reach the agent as bare placeholders without bytes). Map container-absolute paths back to relative candidates and resolve them under each trusted root, trying both with and without the per-token directory segment the local server uses. Relative file_path values are now also resolved against trusted roots before falling back to the HTTP file endpoint, which keeps large-file (>20MB) local-mode downloads working. Path traversal protections: candidates are normalized, NUL bytes and dot-segments are rejected, and reads stay behind the trusted-roots file-access sandbox. AI-assisted (Claude Code), validated with targeted vitest run. Co-Authored-By: Claude Fable 5 Co-Authored-By: Dizesales * fix(telegram): map local Bot API container media paths Co-authored-by: Lucas Magalhaes * chore(config): refresh channel metadata --------- Co-authored-by: Lucas Magalhaes Co-authored-by: Dizesales Co-authored-by: Peter Steinberger",
+      "title": "fix(control-ui): never close live sessions from bulk teardown; reatta…",
+      "link": "https://github.com/openclaw/openclaw/commit/619fee1b4ff1d37d6fa5c54ed39ebf6fd6f4127b",
+      "publishedAt": "2026-07-04T22:58:18Z",
+      "summary": "fix(control-ui): never close live sessions from bulk teardown; reattach owns recovery",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): resolve local Bot API container file paths against tru…",
-      "summaryZh": "重點：修正(Telegram): resolve local Bot API container file paths against trustedLocalFileRoots [AI-assisted] (#91984) * 修正(Teleg..."
+      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): never close live sessions from bulk teardown; reatta…",
+      "summaryZh": "重點：修正(control-ui): never close live sessions from bulk teardown; reattach owns recovery..."
     },
     {
       "id": 6,
