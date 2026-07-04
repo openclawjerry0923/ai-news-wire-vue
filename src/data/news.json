@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T20:09:08.329Z",
+  "generatedAt": "2026-07-04T21:59:17.639Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "fix(memory-core): treat dreaming fence marker lines as inside-fence i…",
-      "link": "https://github.com/openclaw/openclaw/commit/7a0188cbd20d304a015106cb6d0335649610c95e",
-      "publishedAt": "2026-07-04T20:01:04Z",
-      "summary": "fix(memory-core): treat dreaming fence marker lines as inside-fence in promotion guard (#83718) The lineRangeOverlapsDreamingFence guard tracked insideFence state from the marker lines but did not flag ranges that included the marker lines themselves. A relocated promotion range that ended on a start marker, began on an end marker, or covered only a marker line passed the guard, and the snippet built from those raw lines carried the marker text into MEMORY.md. Treat marker lines as inside-fence content for range overlap purposes and add unit + integration coverage. The integration test exercises the real applyShortTermPromotions path: pre-patch a recall whose stored snippet is the start-marker text produces a 'Promoted From Short-Term Memory' entry containing the literal marker; post-patch the same input yields applied=0 and no MEMORY.md write. Refs #80613.",
+      "title": "feat: add utility models and generated session titles (#87643)",
+      "link": "https://github.com/openclaw/openclaw/commit/27d6c8816721acf515715874961cfd3963a14582",
+      "publishedAt": "2026-07-04T21:24:51Z",
+      "summary": "feat: add utility models and generated session titles (#87643) * feat: add utility model session titles * docs: clarify utility model calls * fix: budget utility title reasoning * docs: refresh config baseline * docs: refresh plugin sdk baseline * docs: refresh plugin sdk baseline --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): treat dreaming fence marker lines as inside-fence i…",
-      "summaryZh": "重點：修正(記憶-core): treat dreaming fence marker lines as inside-fence in promotion guard (#83718) The lineRangeOverlapsDreaming..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: add utility 模型 and generated session titles (#87643)",
+      "summaryZh": "重點：新功能: add utility 模型 and generated session titles (#87643) * 新功能: add utility 模型 session titles * 文件: clarify utility 模型 ..."
     },
     {
       "id": 3,
-      "title": "Keep legacy WhatsApp crontab lint opt-in (#99250)",
-      "link": "https://github.com/openclaw/openclaw/commit/d5badb9e3604150640e853ddab12c2d5b5ff2c13",
-      "publishedAt": "2026-07-04T19:48:05Z",
-      "summary": "Keep legacy WhatsApp crontab lint opt-in (#99250) Keep the legacy WhatsApp crontab Doctor lint check opt-in by marking the existing core check default-disabled. Default `doctor --lint` no longer reads the user crontab for this narrow legacy diagnostic, while `--all` and `--only core/doctor/legacy-whatsapp-crontab` still run the detector. Validation: - focused Doctor contribution Vitest passed 70/70 - changed-file oxfmt and oxlint passed - git diff --check passed - pnpm build passed before the final rebase - hosted exact-head CI/Testbox gates passed on 8964ccb23931a3c0d8e09122f4dff6cfbbd960b4 after QA Smoke rerun - PR body includes real lint-module proof for default skip and explicit selected warning behavior Maintainer note: accepted ClawSweeper's default-output compatibility tradeoff for this legacy crontab probe; no public SDK/plugin/config contract changes. Co-authored-by: giodl73-repo",
+      "title": "test: make the local pnpm test gate green on macOS hosts (#100069)",
+      "link": "https://github.com/openclaw/openclaw/commit/bbb744269fcbe0856a54f4ed86baea4544b7b15b",
+      "publishedAt": "2026-07-04T21:17:42Z",
+      "summary": "test: make the local pnpm test gate green on macOS hosts (#100069) Fixes 21 macOS-only failing test cases across three classes: canonicalized fixture roots (macOS /var -> /private/var tmpdir symlink vs production realpathing), load-tolerant process-spawn tests (content-gated pid files, readiness-sequenced kill windows, bounded-window timer assertions), and cross-file worker leak guards (skip-channel env, gateway token env, imessage runtime singleton). Test-only; no production changes. Fixes #100025.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Keep legacy WhatsApp 排程tab lint opt-in (#99250)",
-      "summaryZh": "重點：Keep legacy WhatsApp 排程tab lint opt-in (#99250) Keep the legacy WhatsApp 排程tab 文件tor lint check opt-in by marking the ex..."
+      "titleZh": "OpenClaw 程式碼更新：test: make the local pnpm test gate green on macOS hosts (#100069)",
+      "summaryZh": "重點：test: make the local pnpm test gate green on macOS hosts (#100069) 修正 21 macOS-only failing test cases across three clas..."
     },
     {
       "id": 4,
-      "title": "improve(web-fetch): speed up provider fallback loading (#98559)",
-      "link": "https://github.com/openclaw/openclaw/commit/2f6459093ad3abe4369f686b517b5d78568af35a",
-      "publishedAt": "2026-07-04T19:47:10Z",
-      "summary": "improve(web-fetch): speed up provider fallback loading (#98559) * perf(web-fetch): add web fetch benchmark * perf(web-fetch): cache provider fallback resolution * perf(firecrawl): avoid duplicate scrape payload wrapping * perf(web-readability): reuse void tag lookup * fix(web-fetch): keep provider cache live * fix(web-fetch): invalidate provider cache on registry swap * perf(web-fetch): reduce html extraction overhead * fix(web-fetch): bound provider discovery cache * perf(web-fetch): avoid full plugin load on fallback",
+      "title": "fix(release): block stale Codex runtime pins (#100015)",
+      "link": "https://github.com/openclaw/openclaw/commit/0221544190e83d52e78e47ac0f14ad584a3f484b",
+      "publishedAt": "2026-07-04T21:13:31Z",
+      "summary": "fix(release): block stale Codex runtime pins (#100015) Prevents opted-in plugin runtime dependencies from being published with stale registry pins. The same freshness assertion now guards both npm and ClawHub release paths, including the managed Codex runtime. Prepared head SHA: d5d0ecba4b423503475d8861192a48d55b7ef873 Reviewed-by: @fuller-stack-dev Closes #99951",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(web-fetch): speed up provider fallback loading (#98559)",
-      "summaryZh": "重點：improve(web-fetch): speed up provider fallback loading (#98559) * perf(web-fetch): add web fetch benchmark * perf(web-fe..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): block stale Codex runtime pins (#100015)",
+      "summaryZh": "重點：修正(版本發布): block stale Codex runtime pins (#100015) Prevents opted-in plugin runtime dependencies from being published wi..."
     },
     {
       "id": 5,
-      "title": "refactor: consolidate unique string lists (#99785)",
-      "link": "https://github.com/openclaw/openclaw/commit/1d839d33397da14648f48eaad6c1a3f0bc5a6359",
-      "publishedAt": "2026-07-04T19:38:23Z",
-      "summary": "refactor: consolidate unique string lists (#99785)",
+      "title": "fix(telegram): resolve local Bot API container file paths against tru…",
+      "link": "https://github.com/openclaw/openclaw/commit/ff58d23e8f5b127c3da09b65d911d6ba744bb434",
+      "publishedAt": "2026-07-04T21:07:51Z",
+      "summary": "fix(telegram): resolve local Bot API container file paths against trustedLocalFileRoots [AI-assisted] (#91984) * fix(telegram): resolve local Bot API container file paths against trustedLocalFileRoots When the self-hosted telegram-bot-api server runs with --local inside a container, getFile returns absolute file_path values rooted at the container data dir (/var/lib/telegram-bot-api/...). The host process mounts that volume at a different path, so the absolute path never matches a trustedLocalFileRoots entry and inbound media fails to materialize (messages reach the agent as bare placeholders without bytes). Map container-absolute paths back to relative candidates and resolve them under each trusted root, trying both with and without the per-token directory segment the local server uses. Relative file_path values are now also resolved against trusted roots before falling back to the HTTP file endpoint, which keeps large-file (>20MB) local-mode downloads working. Path traversal protections: candidates are normalized, NUL bytes and dot-segments are rejected, and reads stay behind the trusted-roots file-access sandbox. AI-assisted (Claude Code), validated with targeted vitest run. Co-Authored-By: Claude Fable 5 Co-Authored-By: Dizesales * fix(telegram): map local Bot API container media paths Co-authored-by: Lucas Magalhaes * chore(config): refresh channel metadata --------- Co-authored-by: Lucas Magalhaes Co-authored-by: Dizesales Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: consolidate unique string lists (#99785)",
-      "summaryZh": "重點：refactor: consolidate unique string lists (#99785)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): resolve local Bot API container file paths against tru…",
+      "summaryZh": "重點：修正(Telegram): resolve local Bot API container file paths against trustedLocalFileRoots [AI-assisted] (#91984) * 修正(Teleg..."
     },
     {
       "id": 6,
