@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-07-04T07:47:00.978Z",
+  "generatedAt": "2026-07-04T10:10:44.556Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(agents): require one resolved capability profile per run (#9…",
+      "link": "https://github.com/openclaw/openclaw/commit/79d2e568a0aadf54fa249f0d9af17524fb13586f",
+      "publishedAt": "2026-07-04T09:53:56Z",
+      "summary": "refactor(agents): require one resolved capability profile per run (#99817) applyFinalEffectiveToolPolicy and collectAttemptExplicitToolAllowlistSources took ~15 raw identity params each and silently re-resolved a second capability profile when callers forgot to pass one — with divergent session inputs (attempt allowlist sources resolved policy off the live session key while tool construction used the sandbox policy key). The profile param is now required, the fallback resolution stacks are deleted, and the attempt threads its single resolved profile into tool construction, the final bundled pass, and allowlist sources. Doctor and gateway tools.effective callers resolve their config-scope profile explicitly at the callsite. createOpenClawCodingTools keeps its optional self-resolve as public plugin-SDK convenience.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): require one resolved capability profile per run (#9…",
+      "summaryZh": "重點：refactor(agents): require one resolved capability profile per run (#99817) applyFinalEffectiveToolPolicy and collectAtte..."
+    },
+    {
+      "id": 2,
+      "title": "fix(agents): derive conversation scope from trusted group facts (#99816)",
+      "link": "https://github.com/openclaw/openclaw/commit/23b878a04b0be46f0ce78f205c2e0b8d0ea60b27",
+      "publishedAt": "2026-07-04T09:53:52Z",
+      "summary": "fix(agents): derive conversation scope from trusted group facts (#99816) Scope fell back to caller-supplied groupId/groupChannel/groupSpace when chatType was unknown, while the profile publishes those same fields trust-checked (null when dropped). A dropped caller group could classify an unknown-audience conversation as shared for downstream audience and credential decisions. Scope now classifies only from live chat type, server-derived session keys (new sessionKeyNamesGroupConversation), and trust-checked group facts; dropped groups resolve to unknown.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): derive conversation scope from trusted group facts (#99816)",
+      "summaryZh": "重點：修正(agents): derive conversation scope from trusted group facts (#99816) Scope fell back to caller-supplied groupId/group..."
+    },
+    {
+      "id": 3,
+      "title": "chore(crabbox): default remote proof to Blacksmith Testbox",
+      "link": "https://github.com/openclaw/openclaw/commit/c160ff1aeccb204851722316675f44fd3b190c0c",
+      "publishedAt": "2026-07-04T09:51:47Z",
+      "summary": "chore(crabbox): default remote proof to Blacksmith Testbox The azure coordinator has been timing out (10m, no lease) while delegated Blacksmith Testbox leases in about a minute. Make blacksmith-testbox the .crabbox.yaml default, keep --provider aws/azure for direct VM proof, and refresh the crabbox/openclaw-testing skill text that still claimed an AWS default. Formatting proof: sibling-checkout oxfmt --check passed (hook needs node_modules this worktree lacks). Testbox proof: tbx_01kwp8h31773z2vphbcae1syzr (node --version, exit 0, 1m07s) via https://github.com/openclaw/openclaw/actions/runs/28702438266",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(crabbox): default remote proof to Blacksmith Testbox",
+      "summaryZh": "重點：chore(crabbox): default remote proof to Blacksmith Testbox The azure coordinator has been timing out (10m, no lease) whi..."
+    },
+    {
+      "id": 4,
+      "title": "fix(agents): preserve mixed image attachment order (#99902)",
+      "link": "https://github.com/openclaw/openclaw/commit/a0e6048624700ce17ee0fd63ee6bba935024605e",
+      "publishedAt": "2026-07-04T09:32:03Z",
+      "summary": "fix(agents): preserve mixed image attachment order (#99902)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve mixed image attachment order (#99902)",
+      "summaryZh": "重點：修正(agents): preserve mixed image attachment order (#99902)..."
+    },
+    {
+      "id": 5,
       "title": "惡意軟體Amadey用於散布超過1萬種惡意程式",
       "link": "https://www.ithome.com.tw/news/177087",
       "publishedAt": "2026-07-04 09:07:47",
@@ -11,51 +55,25 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "chore(i18n): refresh native fr locale",
-      "link": "https://github.com/openclaw/openclaw/commit/4352eaf6ade181654d5a729e5632a1681385b1e6",
-      "publishedAt": "2026-07-04T07:45:49Z",
-      "summary": "chore(i18n): refresh native fr locale",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native fr locale",
-      "summaryZh": "重點：chore(i18n): refresh native fr locale..."
-    },
-    {
-      "id": 3,
-      "title": "feat: declutter the Control UI shell — reasoning effort slider, borde…",
-      "link": "https://github.com/openclaw/openclaw/commit/384828770b02f6c46159aa06b1c503984d755a35",
-      "publishedAt": "2026-07-04T07:45:44Z",
-      "summary": "feat: declutter the Control UI shell — reasoning effort slider, borderless composer controls, version out of the sidebar (#99838) The chat composer's model picker and provider-usage pill become quiet borderless text controls; the reasoning flyout swaps its button list for a discrete Faster–Smarter slider (native range input) with stop dots, filled track, inherited-default marker, ghosted off-scale defaults, live value label, and one-click 'Use default' reset — single-level models render a toggle instead. The persistent sidebar VERSION pill is replaced by a slim connection-status line; the gateway version remains in Settings' Quick Settings footer. Includes review fixes from Codex autoreview (singleton level selectable) and the GitHub Codex review (off-scale default thumb), plus a 40px mobile touch target. Closes #99837",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: declutter the Control UI shell — reasoning effort slider, borde…",
-      "summaryZh": "重點：新功能: declutter the Control UI shell — reasoning effort slider, borderless composer controls, version out of the sidebar ..."
-    },
-    {
-      "id": 4,
-      "title": "chore(i18n): refresh native ko locale",
-      "link": "https://github.com/openclaw/openclaw/commit/7838bc82b6df287946b9d45afd52f507c1e1463c",
-      "publishedAt": "2026-07-04T07:45:27Z",
-      "summary": "chore(i18n): refresh native ko locale",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native ko locale",
-      "summaryZh": "重點：chore(i18n): refresh native ko locale..."
-    },
-    {
-      "id": 5,
-      "title": "refactor(usage): fold pricing fingerprint check into cache read",
-      "link": "https://github.com/openclaw/openclaw/commit/16861088b702dbf8017b6f242e371a1deeb3cb69",
-      "publishedAt": "2026-07-04T07:44:36Z",
-      "summary": "refactor(usage): fold pricing fingerprint check into cache read",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(usage): fold pricing fingerprint check into cache read",
-      "summaryZh": "重點：refactor(usage): fold pricing fingerprint check into cache read..."
-    },
-    {
       "id": 6,
+      "title": "封印兩千年，AI 首次完整解碼 1.5 公尺維蘇威火山碳化古卷",
+      "link": "https://technews.tw/2026/07/04/ai-first-complete-digital-unrolling-vesuvius-charred-scrolls/",
+      "publishedAt": "Sat, 04 Jul 2026 09:00:28 +0000",
+      "summary": "科學家首度結合高解析度 X 光掃描與人工智慧（AI）技術，成功將西元 79 年因維蘇威火山（Vesuvius） [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "最新研究破除川普警告：孕期服用乙醯胺酚，不會增加子女過動與自閉風險",
+      "link": "https://technews.tw/2026/07/04/700k-mother-child-study-prenatal-acetaminophen-autism-adhd-risk-no-increase/",
+      "publishedAt": "Sat, 04 Jul 2026 08:00:12 +0000",
+      "summary": "孕婦發燒、頭痛時常用的止痛退燒藥成分，究竟會不會影響胎兒發育？《JAMA Internal Medicine》 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "歐洲軍工市場劇烈波動，法德合資軍工大廠 KNDS 宣布無限期延後 IPO",
       "link": "https://technews.tw/2026/07/04/knds-postpond-its-ipo-indefinitely-due-to-maket-volatility/",
       "publishedAt": "Sat, 04 Jul 2026 07:03:21 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "FIFA 新賽局：科技紅利背後，AI 假直播與世界盃的信任經濟",
       "link": "https://infosecu.technews.tw/2026/07/04/inside-fifas-high-tech-2026-world-cup/",
       "publishedAt": "Sat, 04 Jul 2026 07:00:25 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "擺脫預算卡關陰霾，英義日簽署 46 億英鎊合約全力推進 GCAP 六代戰機研發",
       "link": "https://technews.tw/2026/07/04/uk-italy-and-japan-signed-4-6-billion-contract-for-gcap-development/",
       "publishedAt": "Sat, 04 Jul 2026 06:50:48 +0000",
       "summary": "在歷經數個月的預算僵局與外交施壓後，由英國、義大利與日本三國聯手打造的下一代隱形戰機「全球空中作戰計劃」（GC [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "UNICEF 調查：全球已有 2,000 萬兒童使用 AI，學習速度比成人快 3 倍",
-      "link": "https://technews.tw/2026/07/04/20-million-children-worldwide-are-already-using-ai/",
-      "publishedAt": "Sat, 04 Jul 2026 06:30:18 +0000",
-      "summary": "聯合國兒童基金會（UNICEF）發表最新調查，指出全球 10 個國家中已有約 2,000 萬名兒童曾使用 AI [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "IBM 推出全球首見的次奈米晶片技術，推動半導體產業未來十年發展",
-      "link": "https://technews.tw/2026/07/04/ibm-sub-1nm-7angstrom-chip/",
-      "publishedAt": "Sat, 04 Jul 2026 06:00:56 +0000",
-      "summary": "IBM 25日發表一項半導體業的重大突破—推出全球第一個次奈米（Sub-1nm）晶片技術。該技術採用具革新性的 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
