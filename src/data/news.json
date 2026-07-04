@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T18:01:39.834Z",
+  "generatedAt": "2026-07-04T20:09:08.329Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "refactor(voice-call): reuse webhook path normalization (#99766)",
-      "link": "https://github.com/openclaw/openclaw/commit/d96db362bd964188459d78212730c533856a7deb",
-      "publishedAt": "2026-07-04T17:53:07Z",
-      "summary": "refactor(voice-call): reuse webhook path normalization (#99766)",
+      "title": "fix(memory-core): treat dreaming fence marker lines as inside-fence i…",
+      "link": "https://github.com/openclaw/openclaw/commit/7a0188cbd20d304a015106cb6d0335649610c95e",
+      "publishedAt": "2026-07-04T20:01:04Z",
+      "summary": "fix(memory-core): treat dreaming fence marker lines as inside-fence in promotion guard (#83718) The lineRangeOverlapsDreamingFence guard tracked insideFence state from the marker lines but did not flag ranges that included the marker lines themselves. A relocated promotion range that ended on a start marker, began on an end marker, or covered only a marker line passed the guard, and the snippet built from those raw lines carried the marker text into MEMORY.md. Treat marker lines as inside-fence content for range overlap purposes and add unit + integration coverage. The integration test exercises the real applyShortTermPromotions path: pre-patch a recall whose stored snippet is the start-marker text produces a 'Promoted From Short-Term Memory' entry containing the literal marker; post-patch the same input yields applied=0 and no MEMORY.md write. Refs #80613.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(voice-call): reuse webhook path normalization (#99766)",
-      "summaryZh": "重點：refactor(voice-call): reuse webhook path normalization (#99766)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): treat dreaming fence marker lines as inside-fence i…",
+      "summaryZh": "重點：修正(記憶-core): treat dreaming fence marker lines as inside-fence in promotion guard (#83718) The lineRangeOverlapsDreaming..."
     },
     {
       "id": 3,
-      "title": "fix(agents): replay images across cli fallback (#100035)",
-      "link": "https://github.com/openclaw/openclaw/commit/3d3a29413a0dba510bb7a562948860c88d219278",
-      "publishedAt": "2026-07-04T17:50:42Z",
-      "summary": "fix(agents): replay images across cli fallback (#100035)",
+      "title": "Keep legacy WhatsApp crontab lint opt-in (#99250)",
+      "link": "https://github.com/openclaw/openclaw/commit/d5badb9e3604150640e853ddab12c2d5b5ff2c13",
+      "publishedAt": "2026-07-04T19:48:05Z",
+      "summary": "Keep legacy WhatsApp crontab lint opt-in (#99250) Keep the legacy WhatsApp crontab Doctor lint check opt-in by marking the existing core check default-disabled. Default `doctor --lint` no longer reads the user crontab for this narrow legacy diagnostic, while `--all` and `--only core/doctor/legacy-whatsapp-crontab` still run the detector. Validation: - focused Doctor contribution Vitest passed 70/70 - changed-file oxfmt and oxlint passed - git diff --check passed - pnpm build passed before the final rebase - hosted exact-head CI/Testbox gates passed on 8964ccb23931a3c0d8e09122f4dff6cfbbd960b4 after QA Smoke rerun - PR body includes real lint-module proof for default skip and explicit selected warning behavior Maintainer note: accepted ClawSweeper's default-output compatibility tradeoff for this legacy crontab probe; no public SDK/plugin/config contract changes. Co-authored-by: giodl73-repo",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): replay images across cli fallback (#100035)",
-      "summaryZh": "重點：修正(agents): replay images across cli fallback (#100035)..."
+      "titleZh": "OpenClaw 程式碼更新：Keep legacy WhatsApp 排程tab lint opt-in (#99250)",
+      "summaryZh": "重點：Keep legacy WhatsApp 排程tab lint opt-in (#99250) Keep the legacy WhatsApp 排程tab 文件tor lint check opt-in by marking the ex..."
     },
     {
       "id": 4,
-      "title": "test(qa): exercise real cli channel picker (#99717)",
-      "link": "https://github.com/openclaw/openclaw/commit/fab30c352e3dfa56ac8bc57179662490cf8c6fa2",
-      "publishedAt": "2026-07-04T17:48:49Z",
-      "summary": "test(qa): exercise real cli channel picker (#99717)",
+      "title": "improve(web-fetch): speed up provider fallback loading (#98559)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f6459093ad3abe4369f686b517b5d78568af35a",
+      "publishedAt": "2026-07-04T19:47:10Z",
+      "summary": "improve(web-fetch): speed up provider fallback loading (#98559) * perf(web-fetch): add web fetch benchmark * perf(web-fetch): cache provider fallback resolution * perf(firecrawl): avoid duplicate scrape payload wrapping * perf(web-readability): reuse void tag lookup * fix(web-fetch): keep provider cache live * fix(web-fetch): invalidate provider cache on registry swap * perf(web-fetch): reduce html extraction overhead * fix(web-fetch): bound provider discovery cache * perf(web-fetch): avoid full plugin load on fallback",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): exercise real cli channel picker (#99717)",
-      "summaryZh": "重點：test(qa): exercise real cli channel picker (#99717)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(web-fetch): speed up provider fallback loading (#98559)",
+      "summaryZh": "重點：improve(web-fetch): speed up provider fallback loading (#98559) * perf(web-fetch): add web fetch benchmark * perf(web-fe..."
     },
     {
       "id": 5,
-      "title": "fix: verify GitHub auth without REST quota",
-      "link": "https://github.com/openclaw/openclaw/commit/66b2c5cfd8ba57fe81b05c60efd1d87471b7737f",
-      "publishedAt": "2026-07-04T17:38:53Z",
-      "summary": "fix: verify GitHub auth without REST quota",
+      "title": "refactor: consolidate unique string lists (#99785)",
+      "link": "https://github.com/openclaw/openclaw/commit/1d839d33397da14648f48eaad6c1a3f0bc5a6359",
+      "publishedAt": "2026-07-04T19:38:23Z",
+      "summary": "refactor: consolidate unique string lists (#99785)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: verify GitHub auth without REST quota",
-      "summaryZh": "重點：修正: verify GitHub auth without REST quota..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: consolidate unique string lists (#99785)",
+      "summaryZh": "重點：refactor: consolidate unique string lists (#99785)..."
     },
     {
       "id": 6,
