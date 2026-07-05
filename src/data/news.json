@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-05T10:14:01.807Z",
+  "generatedAt": "2026-07-05T12:16:42.474Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(ci): fail CI when gateway events go unhandled by the mobile app…",
-      "link": "https://github.com/openclaw/openclaw/commit/5af24d16bf01fe78e324d7d65d9c1cd63f6dd974",
-      "publishedAt": "2026-07-05T10:06:52Z",
-      "summary": "chore(ci): fail CI when gateway events go unhandled by the mobile apps (#100206) * ci: guard gateway protocol event coverage for iOS/Android clients (#100198) Adds scripts/check-protocol-event-coverage.mjs, which derives the server->client event catalog from GATEWAY_EVENTS in src/gateway/server-methods-list.ts, extracts the events each mobile app handles from Swift/Kotlin dispatch sites, and fails on gateway events no client handles unless allowlisted with a reason in scripts/protocol-event-coverage.allowlist.json. Wired as pnpm check:protocol-coverage in the CI guards shard. * fix(ci): scope Kotlin event extraction to handle*Event dispatch functions (#100198) Bare event == \"...\" literals in predicate helpers outside the dispatch path (gatewayEventInvalidatesNodesDevices in NodeRuntime.kt, which has no production caller) counted as Android coverage, silently masking that node.pair.requested/resolved have no live handler. Kotlin extraction now only reads when(event) labels and event comparisons inside fun handle*Event(...) bodies; node.pair.* moved to the Android allowlist with a truthful reason. Swift extraction stays tree-wide because consumption there always reads .event off a received EventFrame. * fix(android): remove dead node pairing event helper * fix(ci): preserve protocol allowlist parse errors * test(ci): align tooling import plan",
+      "title": "fix: narrow secret target fast-path types",
+      "link": "https://github.com/openclaw/openclaw/commit/e490171ff24b4165b68b9835e76c1baf8903a149",
+      "publishedAt": "2026-07-05T12:08:37Z",
+      "summary": "fix: narrow secret target fast-path types",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ci): fail CI when Gateway events go unhandled by the mobile app…",
-      "summaryZh": "重點：chore(ci): fail CI when Gateway events go unhandled by the mobile apps (#100206) * ci: guard Gateway protocol event cove..."
+      "titleZh": "OpenClaw 程式碼更新：修正: narrow secret target fast-path types",
+      "summaryZh": "重點：修正: narrow secret target fast-path types..."
     },
     {
       "id": 2,
-      "title": "fix(tui): keep skill approvals in the terminal (#100251)",
-      "link": "https://github.com/openclaw/openclaw/commit/29857e25aaee07225ef917feac7141480dd99c8e",
-      "publishedAt": "2026-07-05T10:06:44Z",
-      "summary": "fix(tui): keep skill approvals in the terminal (#100251) * fix(tui): keep skill approvals in the terminal * fix(tui): keep skill approvals in the terminal",
+      "title": "test: speed up and stabilize full suite",
+      "link": "https://github.com/openclaw/openclaw/commit/1f484a8dbde92fbee0c27a7588a9a7d6ca3673ce",
+      "publishedAt": "2026-07-05T12:00:23Z",
+      "summary": "test: speed up and stabilize full suite",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): keep skill approvals in the terminal (#100251)",
-      "summaryZh": "重點：修正(tui): keep skill approvals in the terminal (#100251) * 修正(tui): keep skill approvals in the terminal * 修正(tui): keep ..."
+      "titleZh": "OpenClaw 程式碼更新：test: speed up and stabilize full suite",
+      "summaryZh": "重點：test: speed up and stabilize full suite..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): reuse startup channel manifests",
-      "link": "https://github.com/openclaw/openclaw/commit/10ca94ef1a6a98a0033574ba537492453b6b3c4f",
-      "publishedAt": "2026-07-05T09:58:58Z",
-      "summary": "fix(gateway): reuse startup channel manifests",
+      "title": "test(tooling): route package-git-fixture through the temp-dir helper …",
+      "link": "https://github.com/openclaw/openclaw/commit/785ab74779827bdde4e1072f7318c7872d971c18",
+      "publishedAt": "2026-07-05T11:56:00Z",
+      "summary": "test(tooling): route package-git-fixture through the temp-dir helper plan 694f5ac7e55 added a temp-dir import to test/scripts/package-git-fixture.test.ts without updating the top-level helper routing expectation, breaking the checks-node-compact-small-whole-2 shard on main and PR merge runs (same class as 824d8af0d61).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reuse startup channel manifests",
-      "summaryZh": "重點：修正(Gateway): reuse startup channel manifests..."
+      "titleZh": "OpenClaw 程式碼更新：test(tooling): route package-git-修正ture through the temp-dir helper …",
+      "summaryZh": "重點：test(tooling): route package-git-修正ture through the temp-dir helper plan 694f5ac7e55 added a temp-dir import to test/scr..."
     },
     {
       "id": 4,
-      "title": "docs(maint): raise PR close batch limit (#100253)",
-      "link": "https://github.com/openclaw/openclaw/commit/7137be38e877afd41f27331c2808691c204dee69",
-      "publishedAt": "2026-07-05T09:57:18Z",
-      "summary": "docs(maint): raise PR close batch limit (#100253) * docs(maint): raise PR close batch limit * docs(maint): raise PR close batch limit",
+      "title": "fix(e2e): provide crestodian rescue gateway token",
+      "link": "https://github.com/openclaw/openclaw/commit/0fc29969d960e119510347d1d260a4794605152a",
+      "publishedAt": "2026-07-05T11:36:27Z",
+      "summary": "fix(e2e): provide crestodian rescue gateway token",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(maint): raise PR close batch limit (#100253)",
-      "summaryZh": "重點：文件(maint): raise PR close batch limit (#100253) * 文件(maint): raise PR close batch limit * 文件(maint): raise PR close batc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): provide crestodian rescue Gateway token",
+      "summaryZh": "重點：修正(e2e): provide crestodian rescue Gateway token..."
     },
     {
       "id": 5,
