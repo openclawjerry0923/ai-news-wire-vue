@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T20:14:32.179Z",
+  "generatedAt": "2026-07-05T22:02:51.010Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "test: shorten daemon timeout proof",
-      "link": "https://github.com/openclaw/openclaw/commit/426010dfb9a2ab383c1a2e8456a523b4441b4b8d",
-      "publishedAt": "2026-07-05T20:13:25Z",
-      "summary": "test: shorten daemon timeout proof",
+      "title": "fix(imessage): plain-send fallback for threaded replies + db-scoped r…",
+      "link": "https://github.com/openclaw/openclaw/commit/91f5a65df9f8c4bb80f4cbc9d74dc44d6f139292",
+      "publishedAt": "2026-07-05T21:58:38Z",
+      "summary": "fix(imessage): plain-send fallback for threaded replies + db-scoped recovery cursor (#99638) (#100446) * fix(imessage): retry unthreaded when a threaded reply is unsupported (#99638) * fix(imessage): scope downtime-recovery cursor to the watched database (#99638) --------- Co-authored-by: Omar Shahine",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: shorten daemon timeout proof",
-      "summaryZh": "重點：test: shorten daemon timeout proof..."
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): plain-send fallback for threaded replies + db-scoped r…",
+      "summaryZh": "重點：修正(imessage): plain-send fallback for threaded replies + db-scoped recovery cursor (#99638) (#100446) * 修正(imessage): re..."
     },
     {
       "id": 3,
-      "title": "fix(voice-call): avoid OpenAI realtime double greeting (#86285)",
-      "link": "https://github.com/openclaw/openclaw/commit/85ad4cb20028f3feba04c681cc20f7ddd4877c40",
-      "publishedAt": "2026-07-05T20:13:20Z",
-      "summary": "fix(voice-call): avoid OpenAI realtime double greeting (#86285) * fix(voice-call): avoid OpenAI realtime double greeting * fix(voice-call): keep openai greeting proactive * fix(openai): preserve deferred realtime instructions * fix(openai): preserve instructions across response retry * fix(openai): clear stale deferred response instructions * fix(openai): keep latest deferred response intent * fix(openai): keep base instructions for explicit speech * fix(openai): only dedupe prefixed response instructions * test(openai): narrow realtime user message callback * fix(voice-call): suppress duplicate OpenAI realtime greeting * fix(voice-call): keep OpenAI manual speech semantics * fix(voice-call): keep OpenAI greeting trigger active * fix(openai): suppress realtime auto responses during manual turns * test(openai): import realtime bridge type * refactor(openai): narrow realtime response suppression * refactor(openai): share realtime turn detection config * fix(openai): correlate realtime response errors * fix(openai): flush queued realtime responses * fix(openai): correlate realtime cancellation errors --------- Co-authored-by: Peter Steinberger",
+      "title": "ci(sdk): refresh realtime tool api baseline hash",
+      "link": "https://github.com/openclaw/openclaw/commit/1a37cafd63b6b463af4a77a1a19d2d1e0d77adf4",
+      "publishedAt": "2026-07-05T21:51:26Z",
+      "summary": "ci(sdk): refresh realtime tool api baseline hash",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): avoid OpenAI realtime double greeting (#86285)",
-      "summaryZh": "重點：修正(voice-call): avoid OpenAI realtime double greeting (#86285) * 修正(voice-call): avoid OpenAI realtime double greeting *..."
+      "titleZh": "OpenClaw 程式碼更新：ci(sdk): refresh realtime tool api baseline hash",
+      "summaryZh": "重點：ci(sdk): refresh realtime tool api baseline hash..."
     },
     {
       "id": 4,
-      "title": "fix(browser): resolve act targetId aliases before mismatch check (#96…",
-      "link": "https://github.com/openclaw/openclaw/commit/d405cda95acc03d5ed584ede82937ab1bc9a1325",
-      "publishedAt": "2026-07-05T20:12:13Z",
-      "summary": "fix(browser): resolve act targetId aliases before mismatch check (#96178) * fix(browser): resolve act targetId aliases before mismatch check The /act top-level and batch targetId guards compared the caller-supplied targetId against the resolved canonical tab.targetId with raw string equality. Any supported alias form (tabId, label, suggestedTargetId, or a unique id prefix) resolves to a different canonical id, so act requests that followed the documented 'prefer suggestedTargetId/tabId/label' guidance were rejected with 403 ACT_TARGET_ID_MISMATCH even though they named the correct tab. snapshot/open/close/tabs lack this guard and kept working, matching the reported symptom matrix. Resolve the action targetId through the same tab alias resolution the route used and reject only ids that resolve to a different tab. * fix(browser): canonicalize act targetId aliases before Playwright dispatch The /act gate accepted tabId/label/suggested/prefix aliases of the request tab but left them on action.targetId. The managed executor reads action.targetId ?? targetId for an exact page lookup (executeSingleAction -> getPageForTargetId), so an alias missed the lookup and broke the action at runtime whenever more than one page was open (single-page masked it via the pages.length===1 fallback). Canonicalize the action targetId (top-level and nested batch sub-actions) to the resolved tab id before dispatch; reject ids that resolve to a different tab. Replace the mock-masked contract assertions with executor-action assertions plus direct canonicalizer unit tests. * test(browser): brace act-targetId guard clauses for curly lint * docs(changelog): note browser target alias fix * docs(changelog): note browser target alias fix * fix(browser): reject ambiguous batch target aliases * test(browser): type targetless act fixture * docs(changelog): move browser alias fix to unreleased * chore: drop nonessential browser changelog entry --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
+      "title": "feat(qa-lab): add Codex Slack approval scenarios (#91519)",
+      "link": "https://github.com/openclaw/openclaw/commit/5fdaa04ecaa84ad9422db74c848c7e8863e66b82",
+      "publishedAt": "2026-07-05T21:47:18Z",
+      "summary": "feat(qa-lab): add Codex Slack approval scenarios (#91519) * feat(qa-lab): add codex slack approval scenarios * fix(qa-lab): harden Codex Slack approval proof * fix(qa-lab): validate Codex approval model * test(qa-lab): verify approved Codex operation * fix(qa-lab): normalize Slack QA account routing * fix(qa-lab): read Codex tool result transcripts * fix(qa-lab): harden Codex approval cleanup * fix(qa-lab): support Codex Mantis checkpoints * fix(qa-lab): repair Mantis pnpm bootstrap * fix(qa-lab): normalize Codex tool result text * fix(qa-lab): scope Mantis pnpm fallback * fix(qa-lab): bootstrap pinned pnpm without npm * fix(qa-lab): terminate pnpm metadata record * fix(qa-lab): bootstrap official node for mantis * fix(qa-lab): make mantis pnpm shim executable --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): resolve act targetId aliases before mismatch check (#96…",
-      "summaryZh": "重點：修正(browser): resolve act targetId aliases before mismatch check (#96178) * 修正(browser): resolve act targetId aliases bef..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(qa-lab): add Codex Slack approval scenarios (#91519)",
+      "summaryZh": "重點：新功能(qa-lab): add Codex Slack approval scenarios (#91519) * 新功能(qa-lab): add codex slack approval scenarios * 修正(qa-lab):..."
     },
     {
       "id": 5,
-      "title": "test: stabilize load-sensitive test families that break gates under p…",
-      "link": "https://github.com/openclaw/openclaw/commit/a04b6ced4f96ada314b859c667cd0ba66a1055b6",
-      "publishedAt": "2026-07-05T19:53:06Z",
-      "summary": "test: stabilize load-sensitive test families that break gates under parallel load (#100420) * test: stabilize process-heavy fixtures under load * test: stabilize channel mocks under load",
+      "title": "chore(i18n): refresh native locales",
+      "link": "https://github.com/openclaw/openclaw/commit/45f561ab6c24de9848b70823c80b7ac770531c41",
+      "publishedAt": "2026-07-05T21:41:36Z",
+      "summary": "chore(i18n): refresh native locales",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: stabilize load-sensitive test families that break gates under p…",
-      "summaryZh": "重點：test: stabilize load-sensitive test families that break gates under parallel load (#100420) * test: stabilize process-he..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales",
+      "summaryZh": "重點：chore(i18n): refresh native locales..."
     },
     {
       "id": 6,
