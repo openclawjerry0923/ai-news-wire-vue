@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T18:04:15.321Z",
+  "generatedAt": "2026-07-05T20:14:32.179Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "improve: keep isolated tests under one second (#100019)",
-      "link": "https://github.com/openclaw/openclaw/commit/c757675f348db5eb1c33e6da57741813eee1d3d2",
-      "publishedAt": "2026-07-05T17:57:19Z",
-      "summary": "improve: keep isolated tests under one second (#100019) * test: speed up isolated test suite * test: finish isolated latency cleanup * test: eliminate remaining isolated latency spikes * test: remove final isolated timing outliers * test: bound full-suite tooling processes * test: bound native test process lifetime * test: warm isolated runtime suites * test: eliminate final isolated timing outliers * test: fix isolated timing fixture types * test: make timeout cleanup timing deterministic * test: pin media manifests to source checkout * test: isolate provider manifest contracts * test: eliminate residual isolated timing spikes * test: restore final isolated timing fixes * test: eliminate remaining isolated timing spikes * test: warm Zalo lifecycle imports * test: keep isolated suites below one second * test: use readable browser response fixtures",
+      "title": "test: shorten daemon timeout proof",
+      "link": "https://github.com/openclaw/openclaw/commit/426010dfb9a2ab383c1a2e8456a523b4441b4b8d",
+      "publishedAt": "2026-07-05T20:13:25Z",
+      "summary": "test: shorten daemon timeout proof",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: keep isolated tests under one second (#100019)",
-      "summaryZh": "重點：improve: keep isolated tests under one second (#100019) * test: speed up isolated test suite * test: finish isolated lat..."
+      "titleZh": "OpenClaw 程式碼更新：test: shorten daemon timeout proof",
+      "summaryZh": "重點：test: shorten daemon timeout proof..."
     },
     {
       "id": 3,
-      "title": "docs: explain remote Android screen mirroring (#100398)",
-      "link": "https://github.com/openclaw/openclaw/commit/91f188301d9c93ca77cfb5e89abe7b7af3adc7a5",
-      "publishedAt": "2026-07-05T17:55:03Z",
-      "summary": "docs: explain remote Android screen mirroring (#100398) * docs(android): document remote screen mirroring * docs: refresh documentation map",
+      "title": "fix(voice-call): avoid OpenAI realtime double greeting (#86285)",
+      "link": "https://github.com/openclaw/openclaw/commit/85ad4cb20028f3feba04c681cc20f7ddd4877c40",
+      "publishedAt": "2026-07-05T20:13:20Z",
+      "summary": "fix(voice-call): avoid OpenAI realtime double greeting (#86285) * fix(voice-call): avoid OpenAI realtime double greeting * fix(voice-call): keep openai greeting proactive * fix(openai): preserve deferred realtime instructions * fix(openai): preserve instructions across response retry * fix(openai): clear stale deferred response instructions * fix(openai): keep latest deferred response intent * fix(openai): keep base instructions for explicit speech * fix(openai): only dedupe prefixed response instructions * test(openai): narrow realtime user message callback * fix(voice-call): suppress duplicate OpenAI realtime greeting * fix(voice-call): keep OpenAI manual speech semantics * fix(voice-call): keep OpenAI greeting trigger active * fix(openai): suppress realtime auto responses during manual turns * test(openai): import realtime bridge type * refactor(openai): narrow realtime response suppression * refactor(openai): share realtime turn detection config * fix(openai): correlate realtime response errors * fix(openai): flush queued realtime responses * fix(openai): correlate realtime cancellation errors --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: explain remote Android screen mirroring (#100398)",
-      "summaryZh": "重點：文件: explain remote Android screen mirroring (#100398) * 文件(android): 文件ument remote screen mirroring * 文件: refresh 文件ume..."
+      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): avoid OpenAI realtime double greeting (#86285)",
+      "summaryZh": "重點：修正(voice-call): avoid OpenAI realtime double greeting (#86285) * 修正(voice-call): avoid OpenAI realtime double greeting *..."
     },
     {
       "id": 4,
-      "title": "feat(ui): show provider costs in context popover (#100379)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a187447f94aa19ec1a53f7a0f9b5bfd03f319cf",
-      "publishedAt": "2026-07-05T17:49:06Z",
-      "summary": "feat(ui): show provider costs in context popover (#100379) * feat(ui): show estimated run cost * feat(ui): show provider cost breakdown",
+      "title": "fix(browser): resolve act targetId aliases before mismatch check (#96…",
+      "link": "https://github.com/openclaw/openclaw/commit/d405cda95acc03d5ed584ede82937ab1bc9a1325",
+      "publishedAt": "2026-07-05T20:12:13Z",
+      "summary": "fix(browser): resolve act targetId aliases before mismatch check (#96178) * fix(browser): resolve act targetId aliases before mismatch check The /act top-level and batch targetId guards compared the caller-supplied targetId against the resolved canonical tab.targetId with raw string equality. Any supported alias form (tabId, label, suggestedTargetId, or a unique id prefix) resolves to a different canonical id, so act requests that followed the documented 'prefer suggestedTargetId/tabId/label' guidance were rejected with 403 ACT_TARGET_ID_MISMATCH even though they named the correct tab. snapshot/open/close/tabs lack this guard and kept working, matching the reported symptom matrix. Resolve the action targetId through the same tab alias resolution the route used and reject only ids that resolve to a different tab. * fix(browser): canonicalize act targetId aliases before Playwright dispatch The /act gate accepted tabId/label/suggested/prefix aliases of the request tab but left them on action.targetId. The managed executor reads action.targetId ?? targetId for an exact page lookup (executeSingleAction -> getPageForTargetId), so an alias missed the lookup and broke the action at runtime whenever more than one page was open (single-page masked it via the pages.length===1 fallback). Canonicalize the action targetId (top-level and nested batch sub-actions) to the resolved tab id before dispatch; reject ids that resolve to a different tab. Replace the mock-masked contract assertions with executor-action assertions plus direct canonicalizer unit tests. * test(browser): brace act-targetId guard clauses for curly lint * docs(changelog): note browser target alias fix * docs(changelog): note browser target alias fix * fix(browser): reject ambiguous batch target aliases * test(browser): type targetless act fixture * docs(changelog): move browser alias fix to unreleased * chore: drop nonessential browser changelog entry --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): show provider costs in context popover (#100379)",
-      "summaryZh": "重點：新功能(ui): show provider costs in context popover (#100379) * 新功能(ui): show estimated run cost * 新功能(ui): show provider co..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): resolve act targetId aliases before mismatch check (#96…",
+      "summaryZh": "重點：修正(browser): resolve act targetId aliases before mismatch check (#96178) * 修正(browser): resolve act targetId aliases bef..."
     },
     {
       "id": 5,
-      "title": "fix(ui): reveal message context on timestamp hover (#100391)",
-      "link": "https://github.com/openclaw/openclaw/commit/d84314d6b7cc46b6e263d0ecc4ff2be58ecfb84b",
-      "publishedAt": "2026-07-05T17:48:22Z",
-      "summary": "fix(ui): reveal message context on timestamp hover (#100391) * fix(ui): reveal message context from timestamp * fix(ui): paint message context preview * docs(changelog): note timestamp context reveal",
+      "title": "test: stabilize load-sensitive test families that break gates under p…",
+      "link": "https://github.com/openclaw/openclaw/commit/a04b6ced4f96ada314b859c667cd0ba66a1055b6",
+      "publishedAt": "2026-07-05T19:53:06Z",
+      "summary": "test: stabilize load-sensitive test families that break gates under parallel load (#100420) * test: stabilize process-heavy fixtures under load * test: stabilize channel mocks under load",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): reveal message context on timestamp hover (#100391)",
-      "summaryZh": "重點：修正(ui): reveal message context on timestamp hover (#100391) * 修正(ui): reveal message context from timestamp * 修正(ui): pa..."
+      "titleZh": "OpenClaw 程式碼更新：test: stabilize load-sensitive test families that break gates under p…",
+      "summaryZh": "重點：test: stabilize load-sensitive test families that break gates under parallel load (#100420) * test: stabilize process-he..."
     },
     {
       "id": 6,
