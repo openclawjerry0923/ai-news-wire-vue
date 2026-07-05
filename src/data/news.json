@@ -1,41 +1,88 @@
 {
-  "generatedAt": "2026-07-05T07:27:04.927Z",
+  "generatedAt": "2026-07-05T10:14:01.807Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(discord): fall back to text when voice delivery fails (#89962)",
-      "link": "https://github.com/openclaw/openclaw/commit/f4908e60fdcdbe92b06c6e89d94795ea787f6691",
-      "publishedAt": "2026-07-05T07:19:53Z",
-      "summary": "fix(discord): fall back to text when voice delivery fails (#89962) * fix(discord): fall back to text when voice delivery fails * fix(discord): preserve reply target on voice fallback * fix(discord): suppress duplicate delivered TTS fallback * refactor(discord): bound voice fallback handling --------- Co-authored-by: Peter Steinberger",
+      "title": "chore(ci): fail CI when gateway events go unhandled by the mobile app…",
+      "link": "https://github.com/openclaw/openclaw/commit/5af24d16bf01fe78e324d7d65d9c1cd63f6dd974",
+      "publishedAt": "2026-07-05T10:06:52Z",
+      "summary": "chore(ci): fail CI when gateway events go unhandled by the mobile apps (#100206) * ci: guard gateway protocol event coverage for iOS/Android clients (#100198) Adds scripts/check-protocol-event-coverage.mjs, which derives the server->client event catalog from GATEWAY_EVENTS in src/gateway/server-methods-list.ts, extracts the events each mobile app handles from Swift/Kotlin dispatch sites, and fails on gateway events no client handles unless allowlisted with a reason in scripts/protocol-event-coverage.allowlist.json. Wired as pnpm check:protocol-coverage in the CI guards shard. * fix(ci): scope Kotlin event extraction to handle*Event dispatch functions (#100198) Bare event == \"...\" literals in predicate helpers outside the dispatch path (gatewayEventInvalidatesNodesDevices in NodeRuntime.kt, which has no production caller) counted as Android coverage, silently masking that node.pair.requested/resolved have no live handler. Kotlin extraction now only reads when(event) labels and event comparisons inside fun handle*Event(...) bodies; node.pair.* moved to the Android allowlist with a truthful reason. Swift extraction stays tree-wide because consumption there always reads .event off a received EventFrame. * fix(android): remove dead node pairing event helper * fix(ci): preserve protocol allowlist parse errors * test(ci): align tooling import plan",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): fall back to text when voice delivery fails (#89962)",
-      "summaryZh": "重點：修正(Discord): fall back to text when voice delivery fails (#89962) * 修正(Discord): fall back to text when voice delivery f..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ci): fail CI when Gateway events go unhandled by the mobile app…",
+      "summaryZh": "重點：chore(ci): fail CI when Gateway events go unhandled by the mobile apps (#100206) * ci: guard Gateway protocol event cove..."
     },
     {
       "id": 2,
-      "title": "fix(cron): keep default toolsAllow marker when edits echo an unchange…",
-      "link": "https://github.com/openclaw/openclaw/commit/cfdc2b3ff90870979f116ecffb4f675447241db4",
-      "publishedAt": "2026-07-05T07:18:12Z",
-      "summary": "fix(cron): keep default toolsAllow marker when edits echo an unchanged list",
+      "title": "fix(tui): keep skill approvals in the terminal (#100251)",
+      "link": "https://github.com/openclaw/openclaw/commit/29857e25aaee07225ef917feac7141480dd99c8e",
+      "publishedAt": "2026-07-05T10:06:44Z",
+      "summary": "fix(tui): keep skill approvals in the terminal (#100251) * fix(tui): keep skill approvals in the terminal * fix(tui): keep skill approvals in the terminal",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): keep default toolsAllow marker when edits echo an unchange…",
-      "summaryZh": "重點：修正(排程): keep default toolsAllow marker when edits echo an unchanged list..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): keep skill approvals in the terminal (#100251)",
+      "summaryZh": "重點：修正(tui): keep skill approvals in the terminal (#100251) * 修正(tui): keep skill approvals in the terminal * 修正(tui): keep ..."
     },
     {
       "id": 3,
-      "title": "fix(ui): simplify selectable tool error rows (#100199)",
-      "link": "https://github.com/openclaw/openclaw/commit/e72a2c825d942b468bcb2ae9f886ef8b62f5f06a",
-      "publishedAt": "2026-07-05T07:08:21Z",
-      "summary": "fix(ui): simplify selectable tool error rows (#100199) Co-authored-by: Peter Steinberger",
+      "title": "fix(gateway): reuse startup channel manifests",
+      "link": "https://github.com/openclaw/openclaw/commit/10ca94ef1a6a98a0033574ba537492453b6b3c4f",
+      "publishedAt": "2026-07-05T09:58:58Z",
+      "summary": "fix(gateway): reuse startup channel manifests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): simplify selectable tool error rows (#100199)",
-      "summaryZh": "重點：修正(ui): simplify selectable tool error rows (#100199) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reuse startup channel manifests",
+      "summaryZh": "重點：修正(Gateway): reuse startup channel manifests..."
     },
     {
       "id": 4,
+      "title": "docs(maint): raise PR close batch limit (#100253)",
+      "link": "https://github.com/openclaw/openclaw/commit/7137be38e877afd41f27331c2808691c204dee69",
+      "publishedAt": "2026-07-05T09:57:18Z",
+      "summary": "docs(maint): raise PR close batch limit (#100253) * docs(maint): raise PR close batch limit * docs(maint): raise PR close batch limit",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(maint): raise PR close batch limit (#100253)",
+      "summaryZh": "重點：文件(maint): raise PR close batch limit (#100253) * 文件(maint): raise PR close batch limit * 文件(maint): raise PR close batc..."
+    },
+    {
+      "id": 5,
+      "title": "當野生動物來敲門：告別傳統防護手段，全球重塑「人獸共存」新防線",
+      "link": "https://technews.tw/2026/07/05/globally-redefining-new-defense-line-human-animal-coexistence/",
+      "publishedAt": "Sun, 05 Jul 2026 09:00:39 +0000",
+      "summary": "近幾年棕熊、灰狼等野生動物頻繁進入人類活動區，全球「如何降低人獸衝突」討論也加速轉向科技化與非致命手段。最新報 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "萊茵金屬 Skynex 反無人機系統遭爆實戰表現落漆，烏克蘭內部報告揭致命故障",
+      "link": "https://technews.tw/2026/07/05/rheinmetalls-skynex-failed-in-ukraine-according-to-der-stern-citing-ukrainian-army-reports/",
+      "publishedAt": "Sun, 05 Jul 2026 08:14:27 +0000",
+      "summary": "由德國軍工大廠萊茵金屬（Rheinmetall）研發的 Skynex 近程防空系統，過去一直被宣傳為反制無人機 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "鴻海6月營收8,217.63 億元",
+      "link": "https://finance.technews.tw/2026/07/05/hon-hai-2317-202606-financial-report/",
+      "publishedAt": "Sun, 05 Jul 2026 08:10:06 +0000",
+      "summary": "鴻海（2317）今（5）日公布 6 月營收，達 8,217.63 億元，較 5 月成長 -4.4%，較去年同期 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "拒絕思考外包，AI 時代教養關鍵：刻意為孩子保留「找答案的不方便」",
+      "link": "https://technews.tw/2026/07/05/parenting-strategies-ai-era-encourage-kids-think-verify-not-rely-ai-all-answers/",
+      "publishedAt": "Sun, 05 Jul 2026 08:00:45 +0000",
+      "summary": "一位任職於 Google、專門協助企業導入人工智慧（AI）解決方案的母親 Carolaine Pino，近日分 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "當浪漫巴黎熱成烤箱，法國熱浪釀千死！為何光靠塞納河降溫不夠，冷氣之爭反升溫？",
       "link": "https://technews.tw/2026/07/05/over-1000-die-in-france-heatwave-as-air-conditioning-sparks-debate/",
       "publishedAt": "Sun, 05 Jul 2026 07:00:57 +0000",
@@ -44,58 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "fix(discord): reuse stored sessionId across voice (stt-tts) turns (#9…",
-      "link": "https://github.com/openclaw/openclaw/commit/6cc534bbad7b593b701f133daee275cfca67ff86",
-      "publishedAt": "2026-07-05T07:00:08Z",
-      "summary": "fix(discord): reuse stored sessionId across voice (stt-tts) turns (#97746) * fix(discord): reuse stored sessionId across voice (stt-tts) turns Discord voice turns previously called agentCommandFromIngress without a sessionId, so the core session resolver minted a fresh UUID per turn. Because the codex app-server thread is bound beside the per-session file, every voice turn produced a new codex thread, a brand-new rollout-*.jsonl, and lost all prior context. The fix reads the persisted session entry for the route's sessionKey (the same supervisor entry already used for the route) and threads that sessionId into agentCommandFromIngress, mirroring how voice-call's response-generator and the gateway 'voice.transcript' dispatcher already keep voice conversations stable. Adds extensions/discord/src/voice/ingress.test.ts covering both directions: reuses the stored id when present, and lets core mint a fresh one when the store is empty. Fixes #97688 * fix(discord): preserve voice session after rollover * refactor(discord): keep voice session ownership in core --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): reuse stored sessionId across voice (stt-tts) turns (#9…",
-      "summaryZh": "重點：修正(Discord): reuse stored sessionId across voice (stt-tts) turns (#97746) * 修正(Discord): reuse stored sessionId across v..."
-    },
-    {
-      "id": 6,
+      "id": 10,
       "title": "83.5 兆美元迎世紀大移轉，未來 20 年全球財富將重新洗牌",
       "link": "https://finance.technews.tw/2026/07/05/largest-wealth-transfer-history-83-5-trillion-globally-next-20-years/",
       "publishedAt": "Sun, 05 Jul 2026 06:30:53 +0000",
       "summary": "現代史上規模最大的跨世代財富傳承，正在拉開序幕。根據瑞銀集團（UBS）報告，未來 20 年內，預計將有高達 8 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "英國皇家海軍首度海上試射 Nyan 自殺無人機，加速催生低成本不對稱「混合艦隊」",
-      "link": "https://technews.tw/2026/07/05/royal-navy-successfully-test-launced-nyan-kamikaze-drones-from-ships/",
-      "publishedAt": "Sun, 05 Jul 2026 06:15:13 +0000",
-      "summary": "為了應對現代不對稱戰爭威脅，英國皇家海軍在英格蘭南部海岸成功完成了一項里程碑試驗。 Nyan &#8211; [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "DJI 發表全新雙主鏡頭口袋電影機 Osmo Pocket 4P：靈眸成雙，遠見非凡",
-      "link": "https://ccc.technews.tw/2026/07/05/dji-osmo-pocket-4p-2/",
-      "publishedAt": "Sun, 05 Jul 2026 06:00:12 +0000",
-      "summary": "DJI 6 月 29 日正式發表全新雙主鏡頭口袋電影機 Osmo Pocket 4P，它將 DJI 多年沉澱的 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "賓州大學最新研究：廢棄 PET 寶特瓶成功轉化為「電池級合成石墨」",
-      "link": "https://technews.tw/2026/07/05/pet-bottles-to-battery-grade-graphite/",
-      "publishedAt": "Sun, 05 Jul 2026 05:30:22 +0000",
-      "summary": "全球廢棄塑膠垃圾迎接高價值轉型的新契機！美國賓州州立大學近日發表綠色創新，成功證明日常生活常見的廢棄 PET（ [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "先唱衰 CPO 再推 ETF 撈底？分析機構 SemiAnalysis 遭爆「球員兼裁判」",
-      "link": "https://finance.technews.tw/2026/07/05/semianalysis-being-accused-of-false-reports-on-cpo-for-selling-short/",
-      "publishedAt": "Sun, 05 Jul 2026 03:00:18 +0000",
-      "summary": "知名半導體研究機構 SemiAnalysis 近期因「精準的時間差」深陷輿論風暴。 該機構在 6 月初發布報告 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
