@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T22:02:51.010Z",
+  "generatedAt": "2026-07-06T00:08:13.208Z",
   "items": [
     {
       "id": 1,
@@ -12,90 +12,90 @@
     },
     {
       "id": 2,
-      "title": "fix(imessage): plain-send fallback for threaded replies + db-scoped r…",
-      "link": "https://github.com/openclaw/openclaw/commit/91f5a65df9f8c4bb80f4cbc9d74dc44d6f139292",
-      "publishedAt": "2026-07-05T21:58:38Z",
-      "summary": "fix(imessage): plain-send fallback for threaded replies + db-scoped recovery cursor (#99638) (#100446) * fix(imessage): retry unthreaded when a threaded reply is unsupported (#99638) * fix(imessage): scope downtime-recovery cursor to the watched database (#99638) --------- Co-authored-by: Omar Shahine",
+      "title": "fix(build): make tsdown configs self-contained (#100499)",
+      "link": "https://github.com/openclaw/openclaw/commit/c9349d1fb4db863bffcf0ba2b5b2c323ec7f3151",
+      "publishedAt": "2026-07-06T00:06:02Z",
+      "summary": "fix(build): make tsdown configs self-contained (#100499) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(imessage): plain-send fallback for threaded replies + db-scoped r…",
-      "summaryZh": "重點：修正(imessage): plain-send fallback for threaded replies + db-scoped recovery cursor (#99638) (#100446) * 修正(imessage): re..."
+      "titleZh": "OpenClaw 程式碼更新：修正(build): make tsdown configs self-contained (#100499)",
+      "summaryZh": "重點：修正(build): make tsdown configs self-contained (#100499) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 3,
-      "title": "ci(sdk): refresh realtime tool api baseline hash",
-      "link": "https://github.com/openclaw/openclaw/commit/1a37cafd63b6b463af4a77a1a19d2d1e0d77adf4",
-      "publishedAt": "2026-07-05T21:51:26Z",
-      "summary": "ci(sdk): refresh realtime tool api baseline hash",
+      "title": "feat(ios): read-only offline cache for chat sessions and transcripts …",
+      "link": "https://github.com/openclaw/openclaw/commit/5d8293c1fe404f607b3ecddcb9f12d1753a4de51",
+      "publishedAt": "2026-07-06T00:02:15Z",
+      "summary": "feat(ios): read-only offline cache for chat sessions and transcripts (#100219) * feat(ios): read-only offline cache for chat sessions and transcripts Cache-first cold open for the iOS chat tab: the last known transcript and session list render immediately from a local SQLite cache, then live gateway history replaces them wholesale through the existing reconciliation path. When the gateway is unreachable, recent sessions and transcripts stay browsable read-only; sending remains gated by the existing connection state. - New OpenClawChatTranscriptCache protocol seam plus SQLite-backed store in OpenClawChatUI (raw SQLite3, no new dependencies), scoped per gateway stableID so transcripts never leak across paired gateways. - Bounds: 50 sessions, 50 transcripts, 200 messages per session; text rows only (attachment/binary payloads and tool arguments are stripped). - Disposable cache: schema versioned via user_version; any open/schema/decode mismatch drops and rebuilds silently. File protection completeUntilFirstUserAuthentication on iOS. - View model pre-paints from cache only until a live response applies (hasAppliedLiveHistory/hasAppliedLiveSessions guards); write-through is chained and off the render path. - iOS wiring keys the chat view model identity on transport mode plus cache gateway ID so switching paired gateways rebuilds the view model. Part of #100194 * fix(ios): harden offline transcript cache * fix(ios): expose offline cached sessions * fix(ios): isolate transcript caches by gateway * chore(i18n): sync native inventory * fix(ios): allow cache extension to replace messages",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci(sdk): refresh realtime tool api baseline hash",
-      "summaryZh": "重點：ci(sdk): refresh realtime tool api baseline hash..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ios): read-only offline cache for chat sessions and transcripts …",
+      "summaryZh": "重點：新功能(ios): read-only offline cache for chat sessions and transcripts (#100219) * 新功能(ios): read-only offline cache for ch..."
     },
     {
       "id": 4,
-      "title": "feat(qa-lab): add Codex Slack approval scenarios (#91519)",
-      "link": "https://github.com/openclaw/openclaw/commit/5fdaa04ecaa84ad9422db74c848c7e8863e66b82",
-      "publishedAt": "2026-07-05T21:47:18Z",
-      "summary": "feat(qa-lab): add Codex Slack approval scenarios (#91519) * feat(qa-lab): add codex slack approval scenarios * fix(qa-lab): harden Codex Slack approval proof * fix(qa-lab): validate Codex approval model * test(qa-lab): verify approved Codex operation * fix(qa-lab): normalize Slack QA account routing * fix(qa-lab): read Codex tool result transcripts * fix(qa-lab): harden Codex approval cleanup * fix(qa-lab): support Codex Mantis checkpoints * fix(qa-lab): repair Mantis pnpm bootstrap * fix(qa-lab): normalize Codex tool result text * fix(qa-lab): scope Mantis pnpm fallback * fix(qa-lab): bootstrap pinned pnpm without npm * fix(qa-lab): terminate pnpm metadata record * fix(qa-lab): bootstrap official node for mantis * fix(qa-lab): make mantis pnpm shim executable --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(qa-lab): add Codex Slack approval scenarios (#91519)",
-      "summaryZh": "重點：新功能(qa-lab): add Codex Slack approval scenarios (#91519) * 新功能(qa-lab): add codex slack approval scenarios * 修正(qa-lab):..."
-    },
-    {
-      "id": 5,
-      "title": "chore(i18n): refresh native locales",
-      "link": "https://github.com/openclaw/openclaw/commit/45f561ab6c24de9848b70823c80b7ac770531c41",
-      "publishedAt": "2026-07-05T21:41:36Z",
-      "summary": "chore(i18n): refresh native locales",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales",
-      "summaryZh": "重點：chore(i18n): refresh native locales..."
-    },
-    {
-      "id": 6,
-      "title": "愛普*6月營收月增8.4%",
-      "link": "https://finance.technews.tw/2026/07/05/ap-memory-6531-202606-financial-report/",
-      "publishedAt": "Sun, 05 Jul 2026 14:10:03 +0000",
-      "summary": "愛普*（6531）公布 6 月合併營收 8.11 億元，較上（5）月成長 8.4%，與去年同期相比為年增 59 [&#8230;]",
+      "title": "當大學變成頂級包租公：東京科學大學聯手 70 家巨頭，用 AI 與機器人建構東京天際線",
+      "link": "https://finance.technews.tw/2026/07/06/how-tokyo-university-science-became-top-landlord-partnering-70-giants-build-tokyo-skyline-ai-robots/",
+      "publishedAt": "Mon, 06 Jul 2026 00:00:33 +0000",
+      "summary": "未來的城市進化，正在跳脫傳統的鋼筋水泥框架。過去大眾談到都市更新，焦點多半放在容積率獎勵、頂級商辦的招商，或是 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
+      "id": 5,
+      "title": "fix(gateway-protocol): trim connect error detail codes in readConnect…",
+      "link": "https://github.com/openclaw/openclaw/commit/5199f55ebe64b6b12384884038c31d784ca776f6",
+      "publishedAt": "2026-07-05T23:59:12Z",
+      "summary": "fix(gateway-protocol): trim connect error detail codes in readConnectErrorDetailCode (#99555) * fix(gateway-protocol): trim connect error detail codes in readConnectErrorDetailCode Co-authored-by: Cursor * chore: add connect error detail code trim proof script Co-authored-by: Cursor * chore(gateway-protocol): drop proof-only trim script --------- Co-authored-by: Cursor",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway-protocol): trim connect error detail codes in readConnect…",
+      "summaryZh": "重點：修正(Gateway-protocol): trim connect error detail codes in readConnectErrorDetailCode (#99555) * 修正(Gateway-protocol): tri..."
+    },
+    {
+      "id": 6,
+      "title": "fix(browser): time out remote tab enumeration (#80147)",
+      "link": "https://github.com/openclaw/openclaw/commit/bacd1c512a4f922c645da8944f0055bf3b7139f9",
+      "publishedAt": "2026-07-05T23:56:05Z",
+      "summary": "fix(browser): time out remote tab enumeration (#80147) * fix(browser): time out remote tab enumeration * chore: remove stale changelog entry * fix(browser): isolate timed-out read cleanup * fix(browser): isolate timed-out read cleanup * test(browser): satisfy connection regression lint --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): time out remote tab enumeration (#80147)",
+      "summaryZh": "重點：修正(browser): time out remote tab enumeration (#80147) * 修正(browser): time out remote tab enumeration * chore: remove sta..."
+    },
+    {
       "id": 7,
-      "title": "當野生動物來敲門：告別傳統防護手段，全球重塑「人獸共存」新防線",
-      "link": "https://technews.tw/2026/07/05/globally-redefining-new-defense-line-human-animal-coexistence/",
-      "publishedAt": "Sun, 05 Jul 2026 09:00:39 +0000",
-      "summary": "近幾年棕熊、灰狼等野生動物頻繁進入人類活動區，全球「如何降低人獸衝突」討論也加速轉向科技化與非致命手段。最新報 [&#8230;]",
+      "title": "九個月生出自研 AI 晶片 Jalapeño，OpenAI 背後的神祕推手竟來自 Google",
+      "link": "https://technews.tw/2026/07/06/openai-mysterious-backer-developed-self-designed-ai-chip-jalapeno-9-months-from-google/",
+      "publishedAt": "Sun, 05 Jul 2026 23:50:18 +0000",
+      "summary": "OpenAI 與晶片業者博通合作，聯手推出第一顆自研 AI 推論晶片 Jalapeño，證明了當年 OpenA [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "萊茵金屬 Skynex 反無人機系統遭爆實戰表現落漆，烏克蘭內部報告揭致命故障",
-      "link": "https://technews.tw/2026/07/05/rheinmetalls-skynex-failed-in-ukraine-according-to-der-stern-citing-ukrainian-army-reports/",
-      "publishedAt": "Sun, 05 Jul 2026 08:14:27 +0000",
-      "summary": "由德國軍工大廠萊茵金屬（Rheinmetall）研發的 Skynex 近程防空系統，過去一直被宣傳為反制無人機 [&#8230;]",
+      "title": "人工幾十年只找到 20 種，AI 一出手就發現兩種室溫超導體新材料",
+      "link": "https://technews.tw/2026/07/06/the-search-for-room-temperature-superconductors-just-got-a-huge-ai-boost/",
+      "publishedAt": "Sun, 05 Jul 2026 23:40:31 +0000",
+      "summary": "國際團隊近日展示結合機器學習與量子物理的超導材料搜尋法，加速尋找更實用、甚至可室溫運作的超導體。芬蘭阿爾托大學 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "鴻海6月營收8,217.63 億元",
-      "link": "https://finance.technews.tw/2026/07/05/hon-hai-2317-202606-financial-report/",
-      "publishedAt": "Sun, 05 Jul 2026 08:10:06 +0000",
-      "summary": "鴻海（2317）今（5）日公布 6 月營收，達 8,217.63 億元，較 5 月成長 -4.4%，較去年同期 [&#8230;]",
+      "title": "AirDrop 與 Quick Share 雙雙「落漆」，附近駭客能讓無線分享功能癱瘓",
+      "link": "https://infosecu.technews.tw/2026/07/06/airdrop-and-quick-share-flaws-let-nearby-attackers-trigger-crashes-and-bypass-checks/",
+      "publishedAt": "Sun, 05 Jul 2026 23:30:30 +0000",
+      "summary": "蘋果 AirDrop 與 Google/三星 Quick Share 是運行於擁有超過 50 億台 Apple [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "拒絕思考外包，AI 時代教養關鍵：刻意為孩子保留「找答案的不方便」",
-      "link": "https://technews.tw/2026/07/05/parenting-strategies-ai-era-encourage-kids-think-verify-not-rely-ai-all-answers/",
-      "publishedAt": "Sun, 05 Jul 2026 08:00:45 +0000",
-      "summary": "一位任職於 Google、專門協助企業導入人工智慧（AI）解決方案的母親 Carolaine Pino，近日分 [&#8230;]",
+      "title": "AI 與晶片重塑財富版圖，私人飛機市場迎接年輕化商機",
+      "link": "https://finance.technews.tw/2026/07/06/ai-crypto-wealth-fuel-private-jet-demand-young-buyers-primary-force/",
+      "publishedAt": "Sun, 05 Jul 2026 23:20:15 +0000",
+      "summary": "近期全球私人飛機市場需求呈現顯著的升溫趨勢。知名私人飛機營運商 Flexjet 指出，由人工智慧（AI）與加密 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
