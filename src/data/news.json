@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-06T21:43:55.558Z",
+  "generatedAt": "2026-07-06T23:09:08.031Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(device-pair): mobile pairing rejects local IPv6 cleartext URLs (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/e80e8a2b67307c4e83e7192f234c31522b3464b2",
-      "publishedAt": "2026-07-06T21:35:09Z",
-      "summary": "fix(device-pair): mobile pairing rejects local IPv6 cleartext URLs (#101008) * fix(device-pair): allow local IPv6 pairing URLs * test(device-pair): cover IPv6 cleartext lower bound",
+      "title": "fix(install): raise postinstall dist scan budget so npm upgrades cann…",
+      "link": "https://github.com/openclaw/openclaw/commit/4c6c9660c3ed6bc1af3c4c9ead0b9090052f1707",
+      "publishedAt": "2026-07-06T23:07:05Z",
+      "summary": "fix(install): raise postinstall dist scan budget so npm upgrades cannot trip the shared cap (#101206) The single InstalledDistScanBudget is consumed across all three prune walks (legacy-deps prepass, dist file listing, empty-dir sweep). During an npm upgrade the dist dir transiently holds old+new content-hashed files, so a real upgrade scan totals ~24k entries against the 25k cap; one more release of dist growth would make 'npm install -g openclaw' throw InstalledDistScanLimitError for every upgrading user. Raise the cap to 100k for real headroom while keeping the unbounded-scan guard, and ratchet the cap in the test so it cannot be lowered back.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(device-pair): mobile pairing rejects local IPv6 cleartext URLs (#…",
-      "summaryZh": "重點：修正(device-pair): mobile pairing rejects local IPv6 cleartext URLs (#101008) * 修正(device-pair): allow local IPv6 pairing ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(install): raise postinstall dist scan budget so npm upgrades cann…",
+      "summaryZh": "重點：修正(install): raise postinstall dist scan budget so npm upgrades cannot trip the shared cap (#101206) The single Installe..."
     },
     {
       "id": 2,
-      "title": "perf(test): run docs i18n partitions concurrently",
-      "link": "https://github.com/openclaw/openclaw/commit/246b5bbccae12f809c75756d1b932555f10f9643",
-      "publishedAt": "2026-07-06T21:31:23Z",
-      "summary": "perf(test): run docs i18n partitions concurrently",
+      "title": "feat(models): add Claude Sonnet 5 support (#98254)",
+      "link": "https://github.com/openclaw/openclaw/commit/1f6ddb5df089904d3f935f9ad50b75d8a778ac2b",
+      "publishedAt": "2026-07-06T23:05:35Z",
+      "summary": "feat(models): add Claude Sonnet 5 support (#98254) * feat(models): add Claude Sonnet 5 support Co-authored-by: Ariel Bravy * fix(models): align Sonnet 5 validation baselines * fix(models): satisfy Sonnet 5 CI contracts * fix(models): enforce Sonnet 5 provider contracts * docs(changelog): defer Sonnet 5 release note --------- Co-authored-by: Peter Steinberger Co-authored-by: Ariel Bravy",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：perf(test): run 文件 i18n partitions concurrently",
-      "summaryZh": "重點：perf(test): run 文件 i18n partitions concurrently..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(模型): add Claude Sonnet 5 support (#98254)",
+      "summaryZh": "重點：新功能(模型): add Claude Sonnet 5 support (#98254) * 新功能(模型): add Claude Sonnet 5 support Co-authored-by: Ariel Bravy * 修正(模型..."
     },
     {
       "id": 3,
-      "title": "chore(scripts): add debt ratchet to the session-accessor boundary gua…",
-      "link": "https://github.com/openclaw/openclaw/commit/c7295e417d5daec76c18fb452d117f7b8eadc4d6",
-      "publishedAt": "2026-07-06T20:55:16Z",
-      "summary": "chore(scripts): add debt ratchet to the session-accessor boundary guard (#101178) * chore(scripts): add debt ratchet baseline to session-accessor boundary gate * fix(scripts): fail session-accessor debt gate until baseline ratchets down",
+      "title": "feat(android): server-backed session search with offline fallback (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/93eaf5affb650cf108b8bccda6b54bd3195ca06d",
+      "publishedAt": "2026-07-06T23:03:28Z",
+      "summary": "feat(android): server-backed session search with offline fallback (#101102) The sessions screen gains a debounced search field under the filter pills, wired to server-side sessions.list search in Recent and Archived scopes. Results flow through the existing filter/sort/grouping pipeline so pinned and grouped rendering stay intact while searching. ChatController.fetchSessionList performs the one-shot search without touching live list state, falls back to locally filtering the cached active list when the gateway is unreachable (archived rows exist only server-side, so archived search is empty offline), and rethrows CancellationException before the fallback so a superseded search never repaints stale rows over a newer query. Refs #100712",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(scripts): add debt ratchet to the session-accessor boundary gua…",
-      "summaryZh": "重點：chore(scripts): add debt ratchet to the session-accessor boundary guard (#101178) * chore(scripts): add debt ratchet bas..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(android): server-backed session search with offline fallback (#1…",
+      "summaryZh": "重點：新功能(android): server-backed session search with offline fallback (#101102) The sessions screen gains a debounced search ..."
     },
     {
       "id": 4,
-      "title": "ci: temporarily disable QA smoke (#101185)",
-      "link": "https://github.com/openclaw/openclaw/commit/6bffda416614780b1b129891615b4a43cadb4080",
-      "publishedAt": "2026-07-06T20:38:33Z",
-      "summary": "ci: temporarily disable QA smoke (#101185)",
+      "title": "fix: preserve preflight overflow token counts into recovery budgeting…",
+      "link": "https://github.com/openclaw/openclaw/commit/d5e9b4d1a32f5c708aa38b3693debad23a9b1403",
+      "publishedAt": "2026-07-06T22:58:11Z",
+      "summary": "fix: preserve preflight overflow token counts into recovery budgeting (#101181) Budget context engine assembly against the reserve and rendered prompt pressure, and carry the preflight estimated prompt tokens, prompt budget, and overflow tokens into the outer overflow recovery loop so compaction engines compact against the prompt OpenClaw actually rendered instead of a minimally over-budget guess.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: temporarily disable QA smoke (#101185)",
-      "summaryZh": "重點：ci: temporarily disable QA smoke (#101185)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve preflight overflow token counts into recovery budgeting…",
+      "summaryZh": "重點：修正: preserve preflight overflow token counts into recovery budgeting (#101181) Budget context engine assembly against th..."
     },
     {
       "id": 5,
+      "title": "TeraWulf 拿下 Anthropic 20 年算力長約，190 億美元合約收入落袋",
+      "link": "https://finance.technews.tw/2026/07/07/terawulf-announces-anthropic-lease-at-justified-data-campus/",
+      "publishedAt": "Mon, 06 Jul 2026 21:59:39 +0000",
+      "summary": "在 2021 年成立的 TeraWulf 是一家數位資產技術公司，核心業務為比特幣挖礦，以及 HPC / AI [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "逃過紅巨星吞噬的系外行星，韋伯望遠鏡靠「殘餘熱能」破解不死之謎",
       "link": "https://technews.tw/2026/07/06/webb-unravels-exoplanet-survival-mystery/",
       "publishedAt": "Mon, 06 Jul 2026 14:26:37 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "駭客團體Armored Likho鎖定政府機關、能源產業，散布竊資軟體BusySnake Stealer",
       "link": "https://www.ithome.com.tw/news/177101",
       "publishedAt": "2026-07-06 12:07:51",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "AWS為Amazon OpenSearch Service新增日誌分析引擎，改善儲存與查詢效率",
       "link": "https://www.ithome.com.tw/news/177099",
       "publishedAt": "2026-07-06 12:07:16",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "小型嵌入式裝置檔案系統元件FatFs存在7個弱點，恐影響大量隨身碟與SD記憶卡，以及配備這些儲存裝置的各種物聯網設備",
       "link": "https://www.ithome.com.tw/news/177089",
       "publishedAt": "2026-07-06 12:07:11",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "JetBrains修補開發環境身分管理平臺重大漏洞，未更新恐導致帳號接管與權限提升",
       "link": "https://www.ithome.com.tw/news/177100",
       "publishedAt": "2026-07-06 12:07:09",
       "summary": "軟體開發工具業者JetBrains近日發布資安公告，修補其身分與存取管理平臺JetBrains Hub的三項重大漏洞。在JetBrains的開發環境中，JetBrains Hub用於提供使用者帳號、驗證、授權及單一登入（SSO）的集中管理，可為其他JetBrains產品提供身分驗證服務，一旦遭到入侵，可能影響整個開發環境的帳號與權限管理，用戶應儘速升級至已修補的2026.1到2024.2等分支版本。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "聚焦合規上雲、數據治理與顧客經營，助金控業實現數據驅動成長",
-      "link": "https://finance.technews.tw/2026/07/06/focusing-on-compliance-with-cloud-adoption-data-governance-and-customer-management/",
-      "publishedAt": "Mon, 06 Jul 2026 11:50:07 +0000",
-      "summary": "隨著生成式 AI、Agentic AI 與即時個人化互動逐漸成為金融業競爭關鍵，台灣金融產業正迎來雲端數據與 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
