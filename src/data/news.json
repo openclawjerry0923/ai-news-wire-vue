@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T05:12:58.267Z",
+  "generatedAt": "2026-07-06T10:24:25.092Z",
   "items": [
     {
       "id": 1,
@@ -48,7 +48,7 @@
     },
     {
       "id": 6,
-      "title": "研究人員未通報開發單位即公開PoC，涉及SSH函式庫libssh2重大漏洞",
+      "title": "研究人員未通報開發團隊即公開PoC，涉及SSH函式庫libssh2重大漏洞",
       "link": "https://www.ithome.com.tw/news/177097",
       "publishedAt": "2026-07-06 11:07:39",
       "summary": "資安媒體Infosecurity Magazine報導，一名匿名資安研究人員近日以bikini帳號，在GitHub公開名為Exploitarium的儲存庫，釋出多項漏洞研究與概念驗證（Proof of Concept，PoC）程式，至少涉及30項軟體產品與開源專案。",
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "perf(gateway): skip redundant startup policy loads",
-      "link": "https://github.com/openclaw/openclaw/commit/b18af41f52d401223cad5913ed06650828aacdd6",
-      "publishedAt": "2026-07-06T05:10:00Z",
-      "summary": "perf(gateway): skip redundant startup policy loads",
+      "title": "fix(protocol): export managed worktree session result types (#100804)",
+      "link": "https://github.com/openclaw/openclaw/commit/704c58468667a4e89b17dc4f693c6f3d621cf1bf",
+      "publishedAt": "2026-07-06T10:23:58Z",
+      "summary": "fix(protocol): export managed worktree session result types (#100804) * fix: complete managed worktree surfaces * chore: drop landed locale changes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): skip redundant startup policy loads",
-      "summaryZh": "重點：perf(Gateway): skip redundant startup policy loads..."
+      "titleZh": "OpenClaw 程式碼更新：修正(protocol): export managed worktree session result types (#100804)",
+      "summaryZh": "重點：修正(protocol): export managed worktree session result types (#100804) * 修正: complete managed worktree surfaces * chore: d..."
     },
     {
       "id": 8,
-      "title": "feat(macos): adopt the shared read-only chat transcript cache (#100275)",
-      "link": "https://github.com/openclaw/openclaw/commit/d5371395218c0f88318656502a2c471aab21b596",
-      "publishedAt": "2026-07-06T04:57:16Z",
-      "summary": "feat(macos): adopt the shared read-only chat transcript cache (#100275) * feat(macos): adopt shared read-only chat transcript cache Cache-first cold open for the macOS chat window/panel: the last known transcript and session list paint immediately from the shared SQLite transcript cache, then live gateway history replaces them wholesale. Recent chats stay browsable read-only while the gateway is unreachable; sending remains gated by connection state. - Wires OpenClawChatSQLiteTranscriptCache into WebChatSwiftUIWindowController; DB at ~/Library/Application Support/OpenClaw/chat-cache.sqlite. - Gateway identity (MacChatTranscriptCache.gatewayID), derivable offline: local keys on the canonical gateway state dir; remote/direct keys on the full canonical URL (scheme, host, resolved port, percent-encoded path/query); remote/ssh keys on the SSH target plus the resolved remote gateway port, mirroring the tunnel port resolution. Unconfigured mode gets no cache. - macOS file protection: no per-file Data Protection classes; iOS-only attribute stays gated behind #if os(iOS) in the shared store, and the per-user container plus FileVault protect at rest. - Onboarding chat stays uncached (transient guided setup session). Part of #100194 * feat(macos): wire the offline command outbox into chat windows * style(macos): fix orphaned doc comment; regenerate docs map * style(macos): doc-comment lint fix; regenerate docs map on current main",
+      "title": "fix(protocol): export session worktree result types (#100793)",
+      "link": "https://github.com/openclaw/openclaw/commit/fda01a64a70470af180f1e1868ac0e82c52cc1f7",
+      "publishedAt": "2026-07-06T10:21:38Z",
+      "summary": "fix(protocol): export session worktree result types (#100793)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(macos): adopt the shared read-only chat transcript cache (#100275)",
-      "summaryZh": "重點：新功能(macos): adopt the shared read-only chat transcript cache (#100275) * 新功能(macos): adopt shared read-only chat transcr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(protocol): export session worktree result types (#100793)",
+      "summaryZh": "重點：修正(protocol): export session worktree result types (#100793)..."
     },
     {
       "id": 9,
-      "title": "fix(ui): restore sidebar navigation exports",
-      "link": "https://github.com/openclaw/openclaw/commit/55a0012c44b52af2f22982cc85568e6e5d0df5c7",
-      "publishedAt": "2026-07-06T04:56:09Z",
-      "summary": "fix(ui): restore sidebar navigation exports",
+      "title": "fix(memory): add batch completed log after embedding batch finishes (…",
+      "link": "https://github.com/openclaw/openclaw/commit/738654d20c7ea853929975d0b3bb1a725d83a3ad",
+      "publishedAt": "2026-07-06T10:10:51Z",
+      "summary": "fix(memory): add batch completed log after embedding batch finishes (#94732) * [AI] fix(memory): add batch completed and batch failed logs for embedding ops The embedBatchWithRetry function logged 'batch start' but never logged 'batch completed' or 'batch failed' after the embedding batch call, leaving operators with no post-request feedback. When batches hang or time out, only 'batch start' appears in logs with no diagnostic signal. Add 'batch completed' log after runEmbeddingOperationWithTimeout success and 'batch failed' log in the catch handler. This is an observability improvement, not a functional fix for the underlying hang (#93312). Related to #93312 * [AI] fix(memory): use formatErrorMessage for embedding batch error log Replace String(err) with formatErrorMessage(err) in the batch failed catch handler to redact sensitive provider error text (e.g. API keys and tokens embedded in error messages) before logging. Related to #94732 --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore sidebar navigation exports",
-      "summaryZh": "重點：修正(ui): restore sidebar navigation exports..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): add batch completed log after embedding batch finishes (…",
+      "summaryZh": "重點：修正(記憶): add batch completed log after embedding batch finishes (#94732) * [AI] 修正(記憶): add batch completed and batch fai..."
     },
     {
       "id": 10,
-      "title": "docs(changelog): credit Vincent replay fixes (#100609)",
-      "link": "https://github.com/openclaw/openclaw/commit/3b33613868a81dda45d7b2b5c1b3007836316c09",
-      "publishedAt": "2026-07-06T04:53:35Z",
-      "summary": "docs(changelog): credit Vincent replay fixes (#100609)",
+      "title": "fix(android): add missing new_chat_in_worktree locale strings (#100805)",
+      "link": "https://github.com/openclaw/openclaw/commit/7f29380d21e45b72a16f53fe37cf56a8eb9753e3",
+      "publishedAt": "2026-07-06T10:03:26Z",
+      "summary": "fix(android): add missing new_chat_in_worktree locale strings (#100805) Co-authored-by: Alex Knight",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(changelog): credit Vincent replay 修正 (#100609)",
-      "summaryZh": "重點：文件(changelog): credit Vincent replay 修正 (#100609)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): add missing new_chat_in_worktree locale strings (#100805)",
+      "summaryZh": "重點：修正(android): add missing new_chat_in_worktree locale strings (#100805) Co-authored-by: Alex Knight..."
     }
   ]
 }
