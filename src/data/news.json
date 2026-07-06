@@ -1,8 +1,26 @@
 {
-  "generatedAt": "2026-07-06T00:08:13.208Z",
+  "generatedAt": "2026-07-06T05:12:58.267Z",
   "items": [
     {
       "id": 1,
+      "title": "駭客團體Armored Likho鎖定政府機關、能源產業，散布竊資軟體BusySnake Stealer",
+      "link": "https://www.ithome.com.tw/news/177101",
+      "publishedAt": "2026-07-06 12:07:51",
+      "summary": "資安公司卡巴斯基發現目標式網路釣魚活動，被稱為Armored Likho、Eagle Werewolf的APT駭客組織於俄羅斯、巴西與哈薩克從事攻擊，對象包括政府機構與電力部門組織，利用以Python打造的竊資軟體BusySnake Stealer，從事竊取帳密資料、Cookie，並在受害電腦建立反向SSH隧道進行通訊。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "AWS為Amazon OpenSearch Service新增日誌分析引擎，改善儲存與查詢效率",
+      "link": "https://www.ithome.com.tw/news/177099",
+      "publishedAt": "2026-07-06 12:07:16",
+      "summary": "7月1日AWS宣布，旗下託管式搜尋與分析服務Amazon OpenSearch Service新增專為日誌分析設計的最佳化引擎，協助企業降低大量日誌資料的分析與儲存成本。AWS表示，這項功能不會額外收取引擎費用，目標是改善大量日誌資料的攝取、查詢與儲存效率，因應企業可觀測性需求，以及安全監控資料量持續成長所帶來的壓力。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
       "title": "小型嵌入式裝置檔案系統元件FatFs存在7個弱點，恐影響大量隨身碟與SD記憶卡，以及配備這些儲存裝置的各種物聯網設備",
       "link": "https://www.ithome.com.tw/news/177089",
       "publishedAt": "2026-07-06 12:07:11",
@@ -11,93 +29,75 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(build): make tsdown configs self-contained (#100499)",
-      "link": "https://github.com/openclaw/openclaw/commit/c9349d1fb4db863bffcf0ba2b5b2c323ec7f3151",
-      "publishedAt": "2026-07-06T00:06:02Z",
-      "summary": "fix(build): make tsdown configs self-contained (#100499) Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(build): make tsdown configs self-contained (#100499)",
-      "summaryZh": "重點：修正(build): make tsdown configs self-contained (#100499) Co-authored-by: Peter Steinberger..."
-    },
-    {
-      "id": 3,
-      "title": "feat(ios): read-only offline cache for chat sessions and transcripts …",
-      "link": "https://github.com/openclaw/openclaw/commit/5d8293c1fe404f607b3ecddcb9f12d1753a4de51",
-      "publishedAt": "2026-07-06T00:02:15Z",
-      "summary": "feat(ios): read-only offline cache for chat sessions and transcripts (#100219) * feat(ios): read-only offline cache for chat sessions and transcripts Cache-first cold open for the iOS chat tab: the last known transcript and session list render immediately from a local SQLite cache, then live gateway history replaces them wholesale through the existing reconciliation path. When the gateway is unreachable, recent sessions and transcripts stay browsable read-only; sending remains gated by the existing connection state. - New OpenClawChatTranscriptCache protocol seam plus SQLite-backed store in OpenClawChatUI (raw SQLite3, no new dependencies), scoped per gateway stableID so transcripts never leak across paired gateways. - Bounds: 50 sessions, 50 transcripts, 200 messages per session; text rows only (attachment/binary payloads and tool arguments are stripped). - Disposable cache: schema versioned via user_version; any open/schema/decode mismatch drops and rebuilds silently. File protection completeUntilFirstUserAuthentication on iOS. - View model pre-paints from cache only until a live response applies (hasAppliedLiveHistory/hasAppliedLiveSessions guards); write-through is chained and off the render path. - iOS wiring keys the chat view model identity on transport mode plus cache gateway ID so switching paired gateways rebuilds the view model. Part of #100194 * fix(ios): harden offline transcript cache * fix(ios): expose offline cached sessions * fix(ios): isolate transcript caches by gateway * chore(i18n): sync native inventory * fix(ios): allow cache extension to replace messages",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ios): read-only offline cache for chat sessions and transcripts …",
-      "summaryZh": "重點：新功能(ios): read-only offline cache for chat sessions and transcripts (#100219) * 新功能(ios): read-only offline cache for ch..."
-    },
-    {
       "id": 4,
-      "title": "當大學變成頂級包租公：東京科學大學聯手 70 家巨頭，用 AI 與機器人建構東京天際線",
-      "link": "https://finance.technews.tw/2026/07/06/how-tokyo-university-science-became-top-landlord-partnering-70-giants-build-tokyo-skyline-ai-robots/",
-      "publishedAt": "Mon, 06 Jul 2026 00:00:33 +0000",
-      "summary": "未來的城市進化，正在跳脫傳統的鋼筋水泥框架。過去大眾談到都市更新，焦點多半放在容積率獎勵、頂級商辦的招商，或是 [&#8230;]",
-      "source": "TechNews",
+      "title": "JetBrains修補開發環境身分管理平臺重大漏洞，未更新恐導致帳號接管與權限提升",
+      "link": "https://www.ithome.com.tw/news/177100",
+      "publishedAt": "2026-07-06 12:07:09",
+      "summary": "軟體開發工具業者JetBrains近日發布資安公告，修補其身分與存取管理平臺JetBrains Hub的三項重大漏洞。在JetBrains的開發環境中，JetBrains Hub用於提供使用者帳號、驗證、授權及單一登入（SSO）的集中管理，可為其他JetBrains產品提供身分驗證服務，一旦遭到入侵，可能影響整個開發環境的帳號與權限管理，用戶應儘速升級至已修補的2026.1到2024.2等分支版本。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "fix(gateway-protocol): trim connect error detail codes in readConnect…",
-      "link": "https://github.com/openclaw/openclaw/commit/5199f55ebe64b6b12384884038c31d784ca776f6",
-      "publishedAt": "2026-07-05T23:59:12Z",
-      "summary": "fix(gateway-protocol): trim connect error detail codes in readConnectErrorDetailCode (#99555) * fix(gateway-protocol): trim connect error detail codes in readConnectErrorDetailCode Co-authored-by: Cursor * chore: add connect error detail code trim proof script Co-authored-by: Cursor * chore(gateway-protocol): drop proof-only trim script --------- Co-authored-by: Cursor",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway-protocol): trim connect error detail codes in readConnect…",
-      "summaryZh": "重點：修正(Gateway-protocol): trim connect error detail codes in readConnectErrorDetailCode (#99555) * 修正(Gateway-protocol): tri..."
+      "title": "Google與FBI打擊NetNut常駐代理網路，涉及至少200萬臺家用連網裝置",
+      "link": "https://www.ithome.com.tw/news/177098",
+      "publishedAt": "2026-07-06 11:07:42",
+      "summary": "繼今年1月打擊IPIDEA常駐網路（residential proxy network）後，7月初Google宣布與美國聯邦調查局（FBI）、電信業者Lumen等單位合作，針對大型常駐代理網路NetNut採取行動，削弱其營運能力。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "fix(browser): time out remote tab enumeration (#80147)",
-      "link": "https://github.com/openclaw/openclaw/commit/bacd1c512a4f922c645da8944f0055bf3b7139f9",
-      "publishedAt": "2026-07-05T23:56:05Z",
-      "summary": "fix(browser): time out remote tab enumeration (#80147) * fix(browser): time out remote tab enumeration * chore: remove stale changelog entry * fix(browser): isolate timed-out read cleanup * fix(browser): isolate timed-out read cleanup * test(browser): satisfy connection regression lint --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): time out remote tab enumeration (#80147)",
-      "summaryZh": "重點：修正(browser): time out remote tab enumeration (#80147) * 修正(browser): time out remote tab enumeration * chore: remove sta..."
+      "title": "研究人員未通報開發單位即公開PoC，涉及SSH函式庫libssh2重大漏洞",
+      "link": "https://www.ithome.com.tw/news/177097",
+      "publishedAt": "2026-07-06 11:07:39",
+      "summary": "資安媒體Infosecurity Magazine報導，一名匿名資安研究人員近日以bikini帳號，在GitHub公開名為Exploitarium的儲存庫，釋出多項漏洞研究與概念驗證（Proof of Concept，PoC）程式，至少涉及30項軟體產品與開源專案。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "九個月生出自研 AI 晶片 Jalapeño，OpenAI 背後的神祕推手竟來自 Google",
-      "link": "https://technews.tw/2026/07/06/openai-mysterious-backer-developed-self-designed-ai-chip-jalapeno-9-months-from-google/",
-      "publishedAt": "Sun, 05 Jul 2026 23:50:18 +0000",
-      "summary": "OpenAI 與晶片業者博通合作，聯手推出第一顆自研 AI 推論晶片 Jalapeño，證明了當年 OpenA [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "perf(gateway): skip redundant startup policy loads",
+      "link": "https://github.com/openclaw/openclaw/commit/b18af41f52d401223cad5913ed06650828aacdd6",
+      "publishedAt": "2026-07-06T05:10:00Z",
+      "summary": "perf(gateway): skip redundant startup policy loads",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): skip redundant startup policy loads",
+      "summaryZh": "重點：perf(Gateway): skip redundant startup policy loads..."
     },
     {
       "id": 8,
-      "title": "人工幾十年只找到 20 種，AI 一出手就發現兩種室溫超導體新材料",
-      "link": "https://technews.tw/2026/07/06/the-search-for-room-temperature-superconductors-just-got-a-huge-ai-boost/",
-      "publishedAt": "Sun, 05 Jul 2026 23:40:31 +0000",
-      "summary": "國際團隊近日展示結合機器學習與量子物理的超導材料搜尋法，加速尋找更實用、甚至可室溫運作的超導體。芬蘭阿爾托大學 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "feat(macos): adopt the shared read-only chat transcript cache (#100275)",
+      "link": "https://github.com/openclaw/openclaw/commit/d5371395218c0f88318656502a2c471aab21b596",
+      "publishedAt": "2026-07-06T04:57:16Z",
+      "summary": "feat(macos): adopt the shared read-only chat transcript cache (#100275) * feat(macos): adopt shared read-only chat transcript cache Cache-first cold open for the macOS chat window/panel: the last known transcript and session list paint immediately from the shared SQLite transcript cache, then live gateway history replaces them wholesale. Recent chats stay browsable read-only while the gateway is unreachable; sending remains gated by connection state. - Wires OpenClawChatSQLiteTranscriptCache into WebChatSwiftUIWindowController; DB at ~/Library/Application Support/OpenClaw/chat-cache.sqlite. - Gateway identity (MacChatTranscriptCache.gatewayID), derivable offline: local keys on the canonical gateway state dir; remote/direct keys on the full canonical URL (scheme, host, resolved port, percent-encoded path/query); remote/ssh keys on the SSH target plus the resolved remote gateway port, mirroring the tunnel port resolution. Unconfigured mode gets no cache. - macOS file protection: no per-file Data Protection classes; iOS-only attribute stays gated behind #if os(iOS) in the shared store, and the per-user container plus FileVault protect at rest. - Onboarding chat stays uncached (transient guided setup session). Part of #100194 * feat(macos): wire the offline command outbox into chat windows * style(macos): fix orphaned doc comment; regenerate docs map * style(macos): doc-comment lint fix; regenerate docs map on current main",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(macos): adopt the shared read-only chat transcript cache (#100275)",
+      "summaryZh": "重點：新功能(macos): adopt the shared read-only chat transcript cache (#100275) * 新功能(macos): adopt shared read-only chat transcr..."
     },
     {
       "id": 9,
-      "title": "AirDrop 與 Quick Share 雙雙「落漆」，附近駭客能讓無線分享功能癱瘓",
-      "link": "https://infosecu.technews.tw/2026/07/06/airdrop-and-quick-share-flaws-let-nearby-attackers-trigger-crashes-and-bypass-checks/",
-      "publishedAt": "Sun, 05 Jul 2026 23:30:30 +0000",
-      "summary": "蘋果 AirDrop 與 Google/三星 Quick Share 是運行於擁有超過 50 億台 Apple [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): restore sidebar navigation exports",
+      "link": "https://github.com/openclaw/openclaw/commit/55a0012c44b52af2f22982cc85568e6e5d0df5c7",
+      "publishedAt": "2026-07-06T04:56:09Z",
+      "summary": "fix(ui): restore sidebar navigation exports",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore sidebar navigation exports",
+      "summaryZh": "重點：修正(ui): restore sidebar navigation exports..."
     },
     {
       "id": 10,
-      "title": "AI 與晶片重塑財富版圖，私人飛機市場迎接年輕化商機",
-      "link": "https://finance.technews.tw/2026/07/06/ai-crypto-wealth-fuel-private-jet-demand-young-buyers-primary-force/",
-      "publishedAt": "Sun, 05 Jul 2026 23:20:15 +0000",
-      "summary": "近期全球私人飛機市場需求呈現顯著的升溫趨勢。知名私人飛機營運商 Flexjet 指出，由人工智慧（AI）與加密 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "docs(changelog): credit Vincent replay fixes (#100609)",
+      "link": "https://github.com/openclaw/openclaw/commit/3b33613868a81dda45d7b2b5c1b3007836316c09",
+      "publishedAt": "2026-07-06T04:53:35Z",
+      "summary": "docs(changelog): credit Vincent replay fixes (#100609)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(changelog): credit Vincent replay 修正 (#100609)",
+      "summaryZh": "重點：文件(changelog): credit Vincent replay 修正 (#100609)..."
     }
   ]
 }
