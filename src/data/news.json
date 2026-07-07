@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-07-06T23:09:08.031Z",
+  "generatedAt": "2026-07-07T03:31:02.662Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(install): raise postinstall dist scan budget so npm upgrades cann…",
-      "link": "https://github.com/openclaw/openclaw/commit/4c6c9660c3ed6bc1af3c4c9ead0b9090052f1707",
-      "publishedAt": "2026-07-06T23:07:05Z",
-      "summary": "fix(install): raise postinstall dist scan budget so npm upgrades cannot trip the shared cap (#101206) The single InstalledDistScanBudget is consumed across all three prune walks (legacy-deps prepass, dist file listing, empty-dir sweep). During an npm upgrade the dist dir transiently holds old+new content-hashed files, so a real upgrade scan totals ~24k entries against the 25k cap; one more release of dist growth would make 'npm install -g openclaw' throw InstalledDistScanLimitError for every upgrading user. Raise the cap to 100k for real headroom while keeping the unbounded-scan guard, and ratchet the cap in the test so it cannot be lowered back.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(install): raise postinstall dist scan budget so npm upgrades cann…",
-      "summaryZh": "重點：修正(install): raise postinstall dist scan budget so npm upgrades cannot trip the shared cap (#101206) The single Installe..."
+      "title": "AI重塑紅隊演練執行模式，DEVCORE指出未來轉變路線",
+      "link": "https://www.ithome.com.tw/news/177115",
+      "publishedAt": "2026-07-07 11:07:57",
+      "summary": "隨著AI技術重塑資安攻防格局，紅隊演練（Red Team Assessment）也正邁向全新的發展階段。臺灣該領域指標性廠商戴夫寇爾（DEVCORE）近日對此提出最新觀察，指出人機協作將打破過往紅隊演練難以規模化的限制，實現更具持續性與深度的防禦體系缺口評估。 DEVCORE執行長翁浩正強調，紅隊演練的執行方式正迎來一場深刻的典範轉移。過去，多數企業的資安檢測多遵循固定的頻率與範圍，例如每年進行兩次滲透測試、一次紅隊演練；然而，隨著AI技術的介入，紅隊演練的執行方式正在發生根本性的質變。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat(models): add Claude Sonnet 5 support (#98254)",
-      "link": "https://github.com/openclaw/openclaw/commit/1f6ddb5df089904d3f935f9ad50b75d8a778ac2b",
-      "publishedAt": "2026-07-06T23:05:35Z",
-      "summary": "feat(models): add Claude Sonnet 5 support (#98254) * feat(models): add Claude Sonnet 5 support Co-authored-by: Ariel Bravy * fix(models): align Sonnet 5 validation baselines * fix(models): satisfy Sonnet 5 CI contracts * fix(models): enforce Sonnet 5 provider contracts * docs(changelog): defer Sonnet 5 release note --------- Co-authored-by: Peter Steinberger Co-authored-by: Ariel Bravy",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(模型): add Claude Sonnet 5 support (#98254)",
-      "summaryZh": "重點：新功能(模型): add Claude Sonnet 5 support (#98254) * 新功能(模型): add Claude Sonnet 5 support Co-authored-by: Ariel Bravy * 修正(模型..."
+      "title": "AWS Certificate Manager支援ACME，自動化公開TLS憑證管理",
+      "link": "https://www.ithome.com.tw/news/177134",
+      "publishedAt": "2026-07-07 11:07:55",
+      "summary": "隨著公開TLS憑證有效期限持續縮短，企業若仍以人工方式追蹤與續約憑證，將更容易因憑證過期、遺漏或設定錯誤影響服務運作。Let&#039;s Encrypt等憑證機構採用的自動化協定ACME（Automatic Certificate Management Environment）可將TLS憑證申請、網域驗證、續約與撤銷流程自動化與標準化，降低人工管理憑證生命週期的負擔。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "feat(android): server-backed session search with offline fallback (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/93eaf5affb650cf108b8bccda6b54bd3195ca06d",
-      "publishedAt": "2026-07-06T23:03:28Z",
-      "summary": "feat(android): server-backed session search with offline fallback (#101102) The sessions screen gains a debounced search field under the filter pills, wired to server-side sessions.list search in Recent and Archived scopes. Results flow through the existing filter/sort/grouping pipeline so pinned and grouped rendering stay intact while searching. ChatController.fetchSessionList performs the one-shot search without touching live list state, falls back to locally filtering the cached active list when the gateway is unreachable (archived rows exist only server-side, so archived search is empty offline), and rethrows CancellationException before the fallback so a superseded search never repaints stale rows over a newer query. Refs #100712",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(android): server-backed session search with offline fallback (#1…",
-      "summaryZh": "重點：新功能(android): server-backed session search with offline fallback (#101102) The sessions screen gains a debounced search ..."
+      "title": "NIST更新系統規畫指引，強化安全、隱私與供應鏈風險治理",
+      "link": "https://www.ithome.com.tw/news/177133",
+      "publishedAt": "2026-07-07 11:07:43",
+      "summary": "美國國家標準暨技術研究院（NIST）針對組織建立與維護系統規畫文件的指引NIST SP 800-18，6月30日發布更新版本為Rev. 2，文件全名為《Developing Security, Privacy, and Cybersecurity Supply Chain Risk Management Plans for Systems》。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix: preserve preflight overflow token counts into recovery budgeting…",
-      "link": "https://github.com/openclaw/openclaw/commit/d5e9b4d1a32f5c708aa38b3693debad23a9b1403",
-      "publishedAt": "2026-07-06T22:58:11Z",
-      "summary": "fix: preserve preflight overflow token counts into recovery budgeting (#101181) Budget context engine assembly against the reserve and rendered prompt pressure, and carry the preflight estimated prompt tokens, prompt budget, and overflow tokens into the outer overflow recovery loop so compaction engines compact against the prompt OpenClaw actually rendered instead of a minimally over-budget guess.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve preflight overflow token counts into recovery budgeting…",
-      "summaryZh": "重點：修正: preserve preflight overflow token counts into recovery budgeting (#101181) Budget context engine assembly against th..."
+      "title": "Adobe揭露的滿分ColdFusion漏洞傳出兩小時後就出現實際攻擊",
+      "link": "https://www.ithome.com.tw/news/177132",
+      "publishedAt": "2026-07-07 10:07:11",
+      "summary": "6月底Adobe發布網頁應用開發平臺ColdFusion、行銷自動化平臺Campaign Classic更新，修補多達7個10分滿分漏洞成為焦點，有資安公司警告，他們在Adobe公布不久之後，就發現有人試圖利用的情形。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "TeraWulf 拿下 Anthropic 20 年算力長約，190 億美元合約收入落袋",
-      "link": "https://finance.technews.tw/2026/07/07/terawulf-announces-anthropic-lease-at-justified-data-campus/",
-      "publishedAt": "Mon, 06 Jul 2026 21:59:39 +0000",
-      "summary": "在 2021 年成立的 TeraWulf 是一家數位資產技術公司，核心業務為比特幣挖礦，以及 HPC / AI [&#8230;]",
-      "source": "TechNews",
+      "title": "微軟宣布裁撤4,800名員工，主要集中於企業業務與Xbox",
+      "link": "https://www.ithome.com.tw/news/177130",
+      "publishedAt": "2026-07-07 10:07:06",
+      "summary": "微軟本周一（7/6）宣布，為了重新配置人力、投資與資源，以因應快速變化的產業，正裁撤4,800個職位，約占微軟全球員工數的2.1%，主要集中於微軟企業業務（Microsoft Commercial Business）及Xbox部門。微軟人資長Amy Coleman強調，這次被取消的職位並不會被AI取代。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "逃過紅巨星吞噬的系外行星，韋伯望遠鏡靠「殘餘熱能」破解不死之謎",
-      "link": "https://technews.tw/2026/07/06/webb-unravels-exoplanet-survival-mystery/",
-      "publishedAt": "Mon, 06 Jul 2026 14:26:37 +0000",
-      "summary": "數十億年前，一顆類太陽恆星步入死亡，在膨脹為「紅巨星」吞噬周圍行星後，外層瓦解並留下一顆核心殘骸──「白矮星」 [&#8230;]",
-      "source": "TechNews",
+      "title": "Akira勒索軟體攻擊者以搜尋引擎最佳化中毒手法，誘導IT管理員下載惡意安裝程式",
+      "link": "https://www.ithome.com.tw/news/177131",
+      "publishedAt": "2026-07-07 10:07:01",
+      "summary": "一起涉及Akira勒索軟體的攻擊案例顯示，駭客透過針對Bing的搜尋引擎最佳化中毒（SEO Poisoning）手法，假冒企業IT維運工具下載頁，鎖定正在搜尋相關工具的IT管理人員，藉此接觸可能具備高權限的企業帳號。 資安事件分析團隊The DFIR Report指出，攻擊者透過仿冒網路監控工具ManageEngine OpManager的下載頁，誘使受害者下載並執行木馬化MSI安裝程式。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "駭客團體Armored Likho鎖定政府機關、能源產業，散布竊資軟體BusySnake Stealer",
-      "link": "https://www.ithome.com.tw/news/177101",
-      "publishedAt": "2026-07-06 12:07:51",
-      "summary": "資安公司卡巴斯基發現目標式網路釣魚活動，被稱為Armored Likho、Eagle Werewolf的APT駭客組織於俄羅斯、巴西與哈薩克從事攻擊，對象包括政府機構與電力部門組織，利用以Python打造的竊資軟體BusySnake Stealer，從事竊取帳密資料、Cookie，並在受害電腦建立反向SSH隧道進行通訊。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(diagnostics-otel): surface error message on run/harness error spa…",
+      "link": "https://github.com/openclaw/openclaw/commit/87a17920a0b0bef375dd6fd7e712f5df0b070429",
+      "publishedAt": "2026-07-07T03:29:39Z",
+      "summary": "fix(diagnostics-otel): surface error message on run/harness error spans (#101244) * fix(diagnostics-otel): surface error message on run/harness error spans Errored openclaw.run / openclaw.harness.run spans only carried a low-cardinality errorCategory (or a hardcoded \"error\"), so trace UIs showed \"outcome error\" with no message. Thread the redacted error message through run.completed / harness.run.completed / harness.run.error onto an openclaw.error span attribute + span status, mirroring recordWebhookError. The raw message stays off metric attrs to preserve cardinality; support-bundle redaction covers the new error field by name. * fix(diagnostics-otel): harden run failure telemetry Co-authored-by: Alex Knight * test(diagnostics-otel): assert wire-level redaction * chore(changelog): defer release note to release process --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics-otel): surface error message on run/harness error spa…",
+      "summaryZh": "重點：修正(diagnostics-otel): surface error message on run/harness error spans (#101244) * 修正(diagnostics-otel): surface error m..."
     },
     {
       "id": 8,
-      "title": "AWS為Amazon OpenSearch Service新增日誌分析引擎，改善儲存與查詢效率",
-      "link": "https://www.ithome.com.tw/news/177099",
-      "publishedAt": "2026-07-06 12:07:16",
-      "summary": "7月1日AWS宣布，旗下託管式搜尋與分析服務Amazon OpenSearch Service新增專為日誌分析設計的最佳化引擎，協助企業降低大量日誌資料的分析與儲存成本。AWS表示，這項功能不會額外收取引擎費用，目標是改善大量日誌資料的攝取、查詢與儲存效率，因應企業可觀測性需求，以及安全監控資料量持續成長所帶來的壓力。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(agents): harden tool search child streams (#101295)",
+      "link": "https://github.com/openclaw/openclaw/commit/118e5bd76223605bef1b7427b3f471c4a2bc34e8",
+      "publishedAt": "2026-07-07T03:25:16Z",
+      "summary": "fix(agents): harden tool search child streams (#101295) Co-authored-by: 陈宪彪0668000387",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): harden tool search child streams (#101295)",
+      "summaryZh": "重點：修正(agents): harden tool search child streams (#101295) Co-authored-by: 陈宪彪0668000387..."
     },
     {
       "id": 9,
-      "title": "小型嵌入式裝置檔案系統元件FatFs存在7個弱點，恐影響大量隨身碟與SD記憶卡，以及配備這些儲存裝置的各種物聯網設備",
-      "link": "https://www.ithome.com.tw/news/177089",
-      "publishedAt": "2026-07-06 12:07:11",
-      "summary": "以網路曝險管理見長的資安廠商runZero，7月初揭露FatFs R0.16與更早的版本存在7個資安漏洞，它們分別是CVSS嚴重程度評為高風險7.6分的CVE-2026-6682、CVE-2026-6687",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(proxy): handle aborted upstream responses (#101315)",
+      "link": "https://github.com/openclaw/openclaw/commit/ae16704864d04726505e70f7603dff714317e5d6",
+      "publishedAt": "2026-07-07T03:24:23Z",
+      "summary": "fix(proxy): handle aborted upstream responses (#101315) Co-authored-by: Sebastien Tardif",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(proxy): handle aborted upstream responses (#101315)",
+      "summaryZh": "重點：修正(proxy): handle aborted upstream responses (#101315) Co-authored-by: Sebastien Tardif..."
     },
     {
       "id": 10,
-      "title": "JetBrains修補開發環境身分管理平臺重大漏洞，未更新恐導致帳號接管與權限提升",
-      "link": "https://www.ithome.com.tw/news/177100",
-      "publishedAt": "2026-07-06 12:07:09",
-      "summary": "軟體開發工具業者JetBrains近日發布資安公告，修補其身分與存取管理平臺JetBrains Hub的三項重大漏洞。在JetBrains的開發環境中，JetBrains Hub用於提供使用者帳號、驗證、授權及單一登入（SSO）的集中管理，可為其他JetBrains產品提供身分驗證服務，一旦遭到入侵，可能影響整個開發環境的帳號與權限管理，用戶應儘速升級至已修補的2026.1到2024.2等分支版本。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "perf(test): reuse extension test inventory",
+      "link": "https://github.com/openclaw/openclaw/commit/a78538dc2a16149bf2df2f01426c698b861ec101",
+      "publishedAt": "2026-07-07T03:23:09Z",
+      "summary": "perf(test): reuse extension test inventory",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse extension test inventory",
+      "summaryZh": "重點：perf(test): reuse extension test inventory..."
     }
   ]
 }
