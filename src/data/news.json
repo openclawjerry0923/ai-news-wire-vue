@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T07:39:32.315Z",
+  "generatedAt": "2026-07-07T10:57:49.651Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(memory-host-sdk): handle stdout/stderr stream errors in runCliCom…",
-      "link": "https://github.com/openclaw/openclaw/commit/5c4b63964cc3c68afc84529adda07cd3f7e9dcd4",
-      "publishedAt": "2026-07-07T07:37:21Z",
-      "summary": "fix(memory-host-sdk): handle stdout/stderr stream errors in runCliCommand (#101402) * fix(memory-host-sdk): handle stdout/stderr stream errors in runCliCommand Register error handlers on stdout and stderr streams in runCliCommand() to prevent uncaught exceptions when a pipe breaks (e.g. EPIPE after child process exit). Without these listeners, Node.js throws an uncaught exception that crashes the process. Co-Authored-By: Claude * fix(memory-host-sdk): extract listenForChildOutputErrors helper Refactor the inline stream error handling into a reusable listenForChildOutputErrors helper, matching the pattern established in the merged #101370 (agent-core). The helper registers error listeners on stdout/stderr via a shared loop, keeping the pattern consistent across the codebase. Co-Authored-By: Claude * fix(memory-host-sdk): harden qmd stream failures * fix(memory-host-sdk): harden qmd stream failures * docs(changelog): note qmd stream hardening * chore: keep release changelog out of contributor PR --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
+      "title": "feat(android): render LaTeX display math in chat via bundled KaTeX (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/16348ddec3adea2a085167234697b9bbcff0adeb",
+      "publishedAt": "2026-07-07T10:57:24Z",
+      "summary": "feat(android): render LaTeX display math in chat via bundled KaTeX (#101435) * feat(android): render LaTeX display math in chat via bundled KaTeX * fix(android): preserve fallback for invalid math * docs(changelog): note Android display math * Revert \"docs(changelog): note Android display math\" This reverts commit 40356286a30ac1a7208e10ca33e6501858c82578.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-host-sdk): handle stdout/stderr stream errors in runCliCom…",
-      "summaryZh": "重點：修正(記憶-host-sdk): handle stdout/stderr stream errors in runCliCommand (#101402) * 修正(記憶-host-sdk): handle stdout/stderr s..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(android): render LaTeX display math in chat via bundled KaTeX (#…",
+      "summaryZh": "重點：新功能(android): render LaTeX display math in chat via bundled KaTeX (#101435) * 新功能(android): render LaTeX display math in..."
     },
     {
       "id": 8,
-      "title": "refactor(plugins): localize private config types (#101452)",
-      "link": "https://github.com/openclaw/openclaw/commit/1aeed5ec26d034720b5aba77f315049890a47283",
-      "publishedAt": "2026-07-07T07:34:46Z",
-      "summary": "refactor(plugins): localize private config types (#101452)",
+      "title": "fix(browser): keep screenshots private by default (#101434)",
+      "link": "https://github.com/openclaw/openclaw/commit/454fccd7843b01424e03009c2d59a8fe61bad1e1",
+      "publishedAt": "2026-07-07T10:56:49Z",
+      "summary": "fix(browser): keep screenshots private by default (#101434) * fix(browser): keep screenshots private by default * fix(browser): preserve screenshot share handles * fix(browser): stage explicit screenshot shares * test(browser): avoid screenshot share temp files",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): localize private config types (#101452)",
-      "summaryZh": "重點：refactor(plugins): localize private config types (#101452)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): keep screenshots private by default (#101434)",
+      "summaryZh": "重點：修正(browser): keep screenshots private by default (#101434) * 修正(browser): keep screenshots private by default * 修正(brows..."
     },
     {
       "id": 9,
-      "title": "fix(voice-call): handle tunnel child stream errors and stop-after-exi…",
-      "link": "https://github.com/openclaw/openclaw/commit/735b7b2f34ade6e06f750bd7a29e1640dd6c7b16",
-      "publishedAt": "2026-07-07T07:30:02Z",
-      "summary": "fix(voice-call): handle tunnel child stream errors and stop-after-exit hang (#101394) * fix(voice-call): handle tunnel child stream errors and stop-after-exit hang * fix(voice-call): stop children after stream failures * style(voice-call): satisfy timer lint --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(infra): handle detached respawn child errors (#101489)",
+      "link": "https://github.com/openclaw/openclaw/commit/695fa4e112f1e60371ec6aeadf7cca6ef86609e6",
+      "publishedAt": "2026-07-07T10:51:55Z",
+      "summary": "fix(infra): handle detached respawn child errors (#101489) * fix(infra): handle detached respawn child errors * docs(infra): explain detached respawn error listener * fix(infra): handle detached respawn child errors * fix(infra): handle detached respawn child errors --------- Co-authored-by: clawsweeper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): handle tunnel child stream errors and stop-after-exi…",
-      "summaryZh": "重點：修正(voice-call): handle tunnel child stream errors and stop-after-exit hang (#101394) * 修正(voice-call): handle tunnel chi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): handle detached respawn child errors (#101489)",
+      "summaryZh": "重點：修正(infra): handle detached respawn child errors (#101489) * 修正(infra): handle detached respawn child errors * 文件(infra):..."
     },
     {
       "id": 10,
-      "title": "fix(doctor): expose default account routing in lint (#96147)",
-      "link": "https://github.com/openclaw/openclaw/commit/41c0540bdcabc0c7f434ba735bdff7e5e3782889",
-      "publishedAt": "2026-07-07T07:26:30Z",
-      "summary": "fix(doctor): expose default account routing in lint (#96147) Co-authored-by: Vincent Koc Co-authored-by: Pick-cat",
+      "title": "fix(feishu): support drive folder pagination (#101572)",
+      "link": "https://github.com/openclaw/openclaw/commit/69b9932fae45423e5ee6b391406a3f09eb466a4c",
+      "publishedAt": "2026-07-07T10:48:04Z",
+      "summary": "fix(feishu): support drive folder pagination (#101572) Co-authored-by: 张贵萍0668001030",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): expose default account routing in lint (#96147)",
-      "summaryZh": "重點：修正(文件tor): expose default account routing in lint (#96147) Co-authored-by: Vincent Koc Co-authored-by: Pick-cat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(feishu): support drive folder pagination (#101572)",
+      "summaryZh": "重點：修正(feishu): support drive folder pagination (#101572) Co-authored-by: 张贵萍0668001030..."
     }
   ]
 }
