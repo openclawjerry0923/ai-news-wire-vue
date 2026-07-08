@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-08T14:10:58.464Z",
+  "generatedAt": "2026-07-08T16:39:44.583Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: restore translated docs tooltip (#101017)",
-      "link": "https://github.com/openclaw/openclaw/commit/fc05a8103b721334070e2ba791e5c8b43b406107",
-      "publishedAt": "2026-07-08T13:51:26Z",
-      "summary": "fix: restore translated docs tooltip (#101017)",
+      "title": "fix: bind package-manager exec approvals to inner commands [AI] (#102…",
+      "link": "https://github.com/openclaw/openclaw/commit/534ace4d8a4988c8fbcd54ada1209a86eb12dcc4",
+      "publishedAt": "2026-07-08T15:59:02Z",
+      "summary": "fix: bind package-manager exec approvals to inner commands [AI] (#102035) * fix: bind package-manager exec approvals to inner commands * fix: fail closed package manager exec approval gaps * chore: refresh pr branch metadata * fix: cover npm exec alias approvals * fix: fail closed hidden package manager exec aliases * fix: unwrap chained package manager approvals * fix: cover yarn package manager approvals * fix: preserve yarn run approval compatibility * fix: bind package manager script argv checks * test: fix package manager script argv type check * fix: fail closed pnpm shorthand approvals * fix: preserve pnpm built-in approvals * fix: preserve pnpm script shortcuts * fix: preserve npm cwd exec unwrapping * fix: fail closed cwd and yarn package shorthands",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: restore translated 文件 tooltip (#101017)",
-      "summaryZh": "重點：修正: restore translated 文件 tooltip (#101017)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: bind package-manager exec approvals to inner commands [AI] (#102…",
+      "summaryZh": "重點：修正: bind package-manager exec approvals to inner commands [AI] (#102035) * 修正: bind package-manager exec approvals to in..."
     },
     {
       "id": 2,
-      "title": "fix: preserve theme mode cycling",
-      "link": "https://github.com/openclaw/openclaw/commit/d9e44714e6e2fdebf1e790844612c4b4f7ca05aa",
-      "publishedAt": "2026-07-08T13:51:26Z",
-      "summary": "fix: preserve theme mode cycling",
+      "title": "fix(skills): correct invalid install kinds in xurl and github [AI] (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/c69724ef3b508eb42189d1731c1bcd85027ddb22",
+      "publishedAt": "2026-07-08T15:07:09Z",
+      "summary": "fix(skills): correct invalid install kinds in xurl and github [AI] (#102158) * fix(xurl): use install kind \"node\" instead of invalid \"npm\" [AI] The xurl skill's second installer declares kind \"npm\", which is not a valid install kind. The installer switches on spec.kind with cases for brew/node/go/uv/download and a default of \"unsupported installer\", so the entry is dropped -- `openclaw skills info xurl` only offers the brew option, leaving no install path on machines without Homebrew. npm-backed installs use kind \"node\" (which honors skills.install.nodeManager, default npm). Only kind is changed; id/package/bins are left as-is. Verified against openclaw 2026.6.11 in a container: before (kind: npm): Install options: → Install xurl (brew) after (kind: node): Install options: → Install @xdevplatform/xurl (npm) * fix(github): drop non-functional \"apt\" install entry [AI] The github skill's second installer declares kind \"apt\", which is not a supported install kind (installer switch handles brew/node/go/uv/download + default \"unsupported installer\"). openclaw silently drops it -- `skills info github` only ever surfaces the brew option -- so the entry is dead, misleading metadata rather than a working Linux path. The remaining brew installer is cross-platform (Homebrew runs on Linux), so removing the dead entry loses no working path. Improving install paths for Linux users without Homebrew is tracked separately in #57555 (needs-product-decision).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve theme mode cycling",
-      "summaryZh": "重點：修正: preserve theme mode cycling..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): correct invalid install kinds in xurl and github [AI] (#…",
+      "summaryZh": "重點：修正(skills): correct invalid install kinds in xurl and github [AI] (#102158) * 修正(xurl): use install kind \"node\" instead ..."
     },
     {
       "id": 3,
-      "title": "fix: normalize terminal availability",
-      "link": "https://github.com/openclaw/openclaw/commit/43bcd9ab3eee57be5637e8abacb904181a644f4f",
-      "publishedAt": "2026-07-08T13:51:26Z",
-      "summary": "fix: normalize terminal availability",
+      "title": "feat(release): preflight all extended-stable npm packages (#101757)",
+      "link": "https://github.com/openclaw/openclaw/commit/9eeebf7cb13ada247ae94d8e3ab6810dc1b3070a",
+      "publishedAt": "2026-07-08T15:01:00Z",
+      "summary": "feat(release): preflight all extended-stable npm packages (#101757) * feat(release): preflight all extended-stable npm packages * fix(release): install packed ai runtime in smoke * fix(release): install sibling tarballs before core * fix(release): verify unpublished tarballs locally * fix(release): declare local preflight dependencies * fix(release): pack workspace dependencies for smoke * fix(release): accept pnpm pack artifact path * fix(release): seed ai in sdk smoke * fix(release): preserve prepublish verifier compatibility",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: normalize terminal availability",
-      "summaryZh": "重點：修正: normalize terminal availability..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(版本發布): preflight all extended-stable npm packages (#101757)",
+      "summaryZh": "重點：新功能(版本發布): preflight all extended-stable npm packages (#101757) * 新功能(版本發布): preflight all extended-stable npm packages ..."
     },
     {
       "id": 4,
-      "title": "fix: align sidebar branding controls",
-      "link": "https://github.com/openclaw/openclaw/commit/8190b3bd16487dea54b250990c1c89ed78021476",
-      "publishedAt": "2026-07-08T13:51:26Z",
-      "summary": "fix: align sidebar branding controls",
+      "title": "fix: focus composer when typing (#102210)",
+      "link": "https://github.com/openclaw/openclaw/commit/9d7a6b5da61bee35bd6ab0ec141439cd4d810a12",
+      "publishedAt": "2026-07-08T14:50:40Z",
+      "summary": "fix: focus composer when typing (#102210)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: align sidebar branding controls",
-      "summaryZh": "重點：修正: align sidebar branding controls..."
+      "titleZh": "OpenClaw 程式碼更新：修正: focus composer when typing (#102210)",
+      "summaryZh": "重點：修正: focus composer when typing (#102210)..."
     },
     {
       "id": 5,
+      "title": "太空牛仔出任務，老舊衛星「雨燕天文台」將實施在軌延壽首例",
+      "link": "https://technews.tw/2026/07/08/link-spacecraft-set-for-mission-to-boost-nasas-swift-observatory/",
+      "publishedAt": "Wed, 08 Jul 2026 14:32:13 +0000",
+      "summary": "美國國家航空暨太空總署（NASA）近日展開一場罕見的太空救援行動。一艘由民間商業太空公司 Katalyst S [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "群聯 6 月營收年增逾 300% 創新高，潘健成指 NAND 需求仍高度成長",
       "link": "https://finance.technews.tw/2026/07/08/phisons-june-revenue-increased-by-over-300-year-on-year-setting-a-new-record/",
       "publishedAt": "Wed, 08 Jul 2026 12:20:01 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "維護公司信用及股東權益，威盛董事會決議第五次買回庫藏股",
       "link": "https://finance.technews.tw/2026/07/08/via-technologies-board-of-directors-resolved-to-repurchase-treasury-shares-for-the-fifth-time/",
       "publishedAt": "Wed, 08 Jul 2026 12:10:59 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "駭客團體UAT-7810打造新的惡意軟體架設ORB網路",
       "link": "https://www.ithome.com.tw/news/177172",
       "publishedAt": "2026-07-08 12:07:59",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "調查商業間諜軟體濫用，歐洲議會PEGA委員會成員反遭Pegasus入侵",
       "link": "https://www.ithome.com.tw/news/177169",
       "publishedAt": "2026-07-08 12:07:32",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "騰達路由器韌體存在隱藏後門，可繞過驗證取得管理員權限",
       "link": "https://www.ithome.com.tw/news/177173",
       "publishedAt": "2026-07-08 12:07:12",
       "summary": "美國CERT/CC於7月6日發布警示，揭露中國網通設備廠商騰達（Tenda）多款路由器韌體存在隱藏後門漏洞CVE-2026-11405，攻擊者可繞過正常密碼驗證流程，直接取得網頁管理介面的管理者權限，騰達的FH1201、W15E、AC10、AC5及AC6 等路由器產品均受影響。目前該漏洞尚無修補程式，CERT/CC建議受影響用戶停用遠端網頁管理介面，降低遭攻擊風險。由於騰達的路由器產品也在臺灣市場流通，momo與PChome等購物平臺均有銷售，臺灣用戶也須注意前述漏洞帶來的風險。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "報告揭露美國政府機關支付100萬美元平息資料勒索",
-      "link": "https://www.ithome.com.tw/news/177171",
-      "publishedAt": "2026-07-08 12:07:08",
-      "summary": "專門追蹤勒索軟體與資料勒索活動的威脅情報組織Ransom-ISAC上周揭露，一個自稱資源有限的美國小型郡政府在遭資料勒索集團Kairos竊取資料後，最終支付100萬美元贖金，以避免敏感資料遭公開。",
       "source": "iThome",
       "tag": "繁中"
     }
