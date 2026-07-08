@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-08T16:39:44.583Z",
+  "generatedAt": "2026-07-08T18:18:13.899Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: bind package-manager exec approvals to inner commands [AI] (#102…",
-      "link": "https://github.com/openclaw/openclaw/commit/534ace4d8a4988c8fbcd54ada1209a86eb12dcc4",
-      "publishedAt": "2026-07-08T15:59:02Z",
-      "summary": "fix: bind package-manager exec approvals to inner commands [AI] (#102035) * fix: bind package-manager exec approvals to inner commands * fix: fail closed package manager exec approval gaps * chore: refresh pr branch metadata * fix: cover npm exec alias approvals * fix: fail closed hidden package manager exec aliases * fix: unwrap chained package manager approvals * fix: cover yarn package manager approvals * fix: preserve yarn run approval compatibility * fix: bind package manager script argv checks * test: fix package manager script argv type check * fix: fail closed pnpm shorthand approvals * fix: preserve pnpm built-in approvals * fix: preserve pnpm script shortcuts * fix: preserve npm cwd exec unwrapping * fix: fail closed cwd and yarn package shorthands",
+      "title": "policy: preview review-required gateway repairs (#99776)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa27ae9d9f37ee1127f89952e1dfeb9fb8577b99",
+      "publishedAt": "2026-07-08T17:44:56Z",
+      "summary": "policy: preview review-required gateway repairs (#99776) * policy: preview review-required gateway repairs * docs(policy): document gateway review previews * docs(policy): document gateway review previews * docs(policy): document gateway review previews * docs(policy): document gateway review previews --------- Co-authored-by: Gio Della-Libera",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: bind package-manager exec approvals to inner commands [AI] (#102…",
-      "summaryZh": "重點：修正: bind package-manager exec approvals to inner commands [AI] (#102035) * 修正: bind package-manager exec approvals to in..."
+      "titleZh": "OpenClaw 程式碼更新：policy: preview review-required Gateway repairs (#99776)",
+      "summaryZh": "重點：policy: preview review-required Gateway repairs (#99776) * policy: preview review-required Gateway repairs * 文件(policy):..."
     },
     {
       "id": 2,
-      "title": "fix(skills): correct invalid install kinds in xurl and github [AI] (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/c69724ef3b508eb42189d1731c1bcd85027ddb22",
-      "publishedAt": "2026-07-08T15:07:09Z",
-      "summary": "fix(skills): correct invalid install kinds in xurl and github [AI] (#102158) * fix(xurl): use install kind \"node\" instead of invalid \"npm\" [AI] The xurl skill's second installer declares kind \"npm\", which is not a valid install kind. The installer switches on spec.kind with cases for brew/node/go/uv/download and a default of \"unsupported installer\", so the entry is dropped -- `openclaw skills info xurl` only offers the brew option, leaving no install path on machines without Homebrew. npm-backed installs use kind \"node\" (which honors skills.install.nodeManager, default npm). Only kind is changed; id/package/bins are left as-is. Verified against openclaw 2026.6.11 in a container: before (kind: npm): Install options: → Install xurl (brew) after (kind: node): Install options: → Install @xdevplatform/xurl (npm) * fix(github): drop non-functional \"apt\" install entry [AI] The github skill's second installer declares kind \"apt\", which is not a supported install kind (installer switch handles brew/node/go/uv/download + default \"unsupported installer\"). openclaw silently drops it -- `skills info github` only ever surfaces the brew option -- so the entry is dead, misleading metadata rather than a working Linux path. The remaining brew installer is cross-platform (Homebrew runs on Linux), so removing the dead entry loses no working path. Improving install paths for Linux users without Homebrew is tracked separately in #57555 (needs-product-decision).",
+      "title": "fix(ci): stabilize Go and TUI PTY shards",
+      "link": "https://github.com/openclaw/openclaw/commit/0d86f64e602e8c29b87787d823ce498e283ea225",
+      "publishedAt": "2026-07-08T17:28:06Z",
+      "summary": "fix(ci): stabilize Go and TUI PTY shards",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): correct invalid install kinds in xurl and github [AI] (#…",
-      "summaryZh": "重點：修正(skills): correct invalid install kinds in xurl and github [AI] (#102158) * 修正(xurl): use install kind \"node\" instead ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): stabilize Go and TUI PTY shards",
+      "summaryZh": "重點：修正(ci): stabilize Go and TUI PTY shards..."
     },
     {
       "id": 3,
-      "title": "feat(release): preflight all extended-stable npm packages (#101757)",
-      "link": "https://github.com/openclaw/openclaw/commit/9eeebf7cb13ada247ae94d8e3ab6810dc1b3070a",
-      "publishedAt": "2026-07-08T15:01:00Z",
-      "summary": "feat(release): preflight all extended-stable npm packages (#101757) * feat(release): preflight all extended-stable npm packages * fix(release): install packed ai runtime in smoke * fix(release): install sibling tarballs before core * fix(release): verify unpublished tarballs locally * fix(release): declare local preflight dependencies * fix(release): pack workspace dependencies for smoke * fix(release): accept pnpm pack artifact path * fix(release): seed ai in sdk smoke * fix(release): preserve prepublish verifier compatibility",
+      "title": "ci: temporarily disable QA smoke again (#102256)",
+      "link": "https://github.com/openclaw/openclaw/commit/f093c0f2e3c62d9cda68d26b600e9033e2dd8a4c",
+      "publishedAt": "2026-07-08T17:21:38Z",
+      "summary": "ci: temporarily disable QA smoke again (#102256)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(版本發布): preflight all extended-stable npm packages (#101757)",
-      "summaryZh": "重點：新功能(版本發布): preflight all extended-stable npm packages (#101757) * 新功能(版本發布): preflight all extended-stable npm packages ..."
+      "titleZh": "OpenClaw 程式碼更新：ci: temporarily disable QA smoke again (#102256)",
+      "summaryZh": "重點：ci: temporarily disable QA smoke again (#102256)..."
     },
     {
       "id": 4,
-      "title": "fix: focus composer when typing (#102210)",
-      "link": "https://github.com/openclaw/openclaw/commit/9d7a6b5da61bee35bd6ab0ec141439cd4d810a12",
-      "publishedAt": "2026-07-08T14:50:40Z",
-      "summary": "fix: focus composer when typing (#102210)",
+      "title": "refactor(gateway): consolidate client contracts (#101012)",
+      "link": "https://github.com/openclaw/openclaw/commit/8fa83d27420b4b2320e8a29c7691f1abefca4b92",
+      "publishedAt": "2026-07-08T16:56:31Z",
+      "summary": "refactor(gateway): consolidate client contracts (#101012)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: focus composer when typing (#102210)",
-      "summaryZh": "重點：修正: focus composer when typing (#102210)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): consolidate client contracts (#101012)",
+      "summaryZh": "重點：refactor(Gateway): consolidate client contracts (#101012)..."
     },
     {
       "id": 5,
