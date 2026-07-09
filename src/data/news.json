@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-09T19:57:47.402Z",
+  "generatedAt": "2026-07-09T21:35:43.850Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ci): restore Kova managed-service scenarios (#103085)",
-      "link": "https://github.com/openclaw/openclaw/commit/7d5eba31060d5c268b5bff9acec5ea88949d16d6",
-      "publishedAt": "2026-07-09T19:56:26Z",
-      "summary": "fix(ci): restore Kova managed-service scenarios (#103085)",
+      "title": "ci(release): retry transient MiniMax image failures (#103114)",
+      "link": "https://github.com/openclaw/openclaw/commit/676cf03f7d2db3b0dad63e5438b1cb373f2a3f04",
+      "publishedAt": "2026-07-09T21:33:33Z",
+      "summary": "ci(release): retry transient MiniMax image failures (#103114)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore Kova managed-service scenarios (#103085)",
-      "summaryZh": "重點：修正(ci): restore Kova managed-service scenarios (#103085)..."
+      "titleZh": "OpenClaw 程式碼更新：ci(版本發布): retry transient MiniMax image failures (#103114)",
+      "summaryZh": "重點：ci(版本發布): retry transient MiniMax image failures (#103114)..."
     },
     {
       "id": 2,
-      "title": "fix(ci): verify live provider traffic in performance runs (#103073)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee9d9ea6dbb70bf7674544f657072897bdb37dfe",
-      "publishedAt": "2026-07-09T19:39:41Z",
-      "summary": "fix(ci): verify live provider traffic in performance runs (#103073) * fix(diagnostics): emit provider request timeline events * fix(ci): verify Kova live provider evidence",
+      "title": "fix(device-pair): resolve QR senders by own key (#101652)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4ae95c1c6efe150ffb1d1e93309db4b580da143",
+      "publishedAt": "2026-07-09T21:31:07Z",
+      "summary": "fix(device-pair): resolve QR senders by own key (#101652) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): verify live provider traffic in performance runs (#103073)",
-      "summaryZh": "重點：修正(ci): verify live provider traffic in performance runs (#103073) * 修正(diagnostics): emit provider request timeline eve..."
+      "titleZh": "OpenClaw 程式碼更新：修正(device-pair): resolve QR senders by own key (#101652)",
+      "summaryZh": "重點：修正(device-pair): resolve QR senders by own key (#101652) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 3,
-      "title": "fix(qqbot): render safe exec approval previews (#102119)",
-      "link": "https://github.com/openclaw/openclaw/commit/1b03e51e18dd9cf67ee9594ceac6318f609acedf",
-      "publishedAt": "2026-07-09T19:31:57Z",
-      "summary": "fix(qqbot): render safe exec approval previews (#102119) Render pending approvals from shared typed views, add marked grapheme-safe display wraps for QQ Desktop, preserve the 300 UTF-16-unit cap, fence command and metadata safely, and report plugin expiry from the runtime clock. Fixes #101979",
+      "title": "fix(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/a1c16f0a3dcf1d470e1b92ae602bf2d25c05d3e6",
+      "publishedAt": "2026-07-09T21:29:12Z",
+      "summary": "fix(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#102659) * fix(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache Replace unbounded warnedTemplateOverrides Set with createDedupeCache(maxSize=256) for consistency with the bounded fileCache Map (MAX_CACHED_TEMPLATE_FILES=64) already present in the same file. Co-Authored-By: Claude * fix(usage-bar): bound invalid-template warnings Co-authored-by: ZengWen-DT --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qqbot): render safe exec approval previews (#102119)",
-      "summaryZh": "重點：修正(qqbot): render safe exec approval previews (#102119) Render pending approvals from shared typed views, add marked gra..."
+      "titleZh": "OpenClaw 程式碼更新：修正(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#…",
+      "summaryZh": "重點：修正(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#102659) * 修正(usage-bar): cap warnedTemplateOverrides..."
     },
     {
       "id": 4,
-      "title": "fix(ci): remove duplicate Kova gate helper (#103082)",
-      "link": "https://github.com/openclaw/openclaw/commit/d64b9a30cb9164788be04e86a9f0a0a7b7657e55",
-      "publishedAt": "2026-07-09T19:28:35Z",
-      "summary": "fix(ci): remove duplicate Kova gate helper (#103082)",
+      "title": "fix(infra): cap session-maintenance-warning dedupe cache with LRU evi…",
+      "link": "https://github.com/openclaw/openclaw/commit/8dedb0ebcaef2bbe6dcd7b9ad137554b62ac1d21",
+      "publishedAt": "2026-07-09T21:21:11Z",
+      "summary": "fix(infra): cap session-maintenance-warning dedupe cache with LRU eviction (#101643) * fix(infra): cap session-maintenance-warning dedupe cache with LRU eviction The warnedContexts Map accumulated every warned session key forever with no eviction, TTL, or size cap. A long-running gateway would grow this unboundedly. Add a 4 096-entry LRU cache with touch-on-read so frequently re-warned sessions survive and old entries are evicted on overflow. * fix(test): restore original unicode escapes and add LRU eviction tests * fix(test): seed eviction entries with real warning context keys ClawSweeper P3: the eviction test seeded but the production buildWarningContext computes . The mismatch meant params1 could redeliver because the context changed, not because LRU eviction actually worked. Seed the exact context pattern so the test fails when eviction breaks. * fix(infra): bound maintenance warning cache Co-authored-by: sunlit-deng --------- Co-authored-by: Peter Steinberger Co-authored-by: sunlit-deng",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): remove duplicate Kova gate helper (#103082)",
-      "summaryZh": "重點：修正(ci): remove duplicate Kova gate helper (#103082)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): cap session-maintenance-warning dedupe cache with LRU evi…",
+      "summaryZh": "重點：修正(infra): cap session-maintenance-warning dedupe cache with LRU eviction (#101643) * 修正(infra): cap session-maintenance..."
     },
     {
       "id": 5,
