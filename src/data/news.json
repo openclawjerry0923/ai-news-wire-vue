@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-07-09T21:35:43.850Z",
+  "generatedAt": "2026-07-09T23:12:21.145Z",
   "items": [
     {
       "id": 1,
-      "title": "ci(release): retry transient MiniMax image failures (#103114)",
-      "link": "https://github.com/openclaw/openclaw/commit/676cf03f7d2db3b0dad63e5438b1cb373f2a3f04",
-      "publishedAt": "2026-07-09T21:33:33Z",
-      "summary": "ci(release): retry transient MiniMax image failures (#103114)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci(版本發布): retry transient MiniMax image failures (#103114)",
-      "summaryZh": "重點：ci(版本發布): retry transient MiniMax image failures (#103114)..."
+      "title": "為核動力太空船發展鋪路，SpaceX 發射全球第一顆核動力商用衛星",
+      "link": "https://technews.tw/2026/07/10/spacex-just-launched-the-1st-ever-nuclear-powered-commercial-satellite/",
+      "publishedAt": "Thu, 09 Jul 2026 23:11:35 +0000",
+      "summary": "由美國佛羅里達州氚動力系統（tritium-powered systems）開發商 City Labs 製造的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(device-pair): resolve QR senders by own key (#101652)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4ae95c1c6efe150ffb1d1e93309db4b580da143",
-      "publishedAt": "2026-07-09T21:31:07Z",
-      "summary": "fix(device-pair): resolve QR senders by own key (#101652) Co-authored-by: Peter Steinberger",
+      "title": "feat(ui): add settings sidebar search (#103138)",
+      "link": "https://github.com/openclaw/openclaw/commit/fe2486247b6f10b493fb667790c37eb2a3663a2e",
+      "publishedAt": "2026-07-09T23:08:13Z",
+      "summary": "feat(ui): add settings sidebar search (#103138) * feat(ui): add settings sidebar search * chore: keep release notes in PR body * fix(i18n): translate settings search labels",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(device-pair): resolve QR senders by own key (#101652)",
-      "summaryZh": "重點：修正(device-pair): resolve QR senders by own key (#101652) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add settings sidebar search (#103138)",
+      "summaryZh": "重點：新功能(ui): add settings sidebar search (#103138) * 新功能(ui): add settings sidebar search * chore: keep 版本發布 notes in PR bod..."
     },
     {
       "id": 3,
-      "title": "fix(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/a1c16f0a3dcf1d470e1b92ae602bf2d25c05d3e6",
-      "publishedAt": "2026-07-09T21:29:12Z",
-      "summary": "fix(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#102659) * fix(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache Replace unbounded warnedTemplateOverrides Set with createDedupeCache(maxSize=256) for consistency with the bounded fileCache Map (MAX_CACHED_TEMPLATE_FILES=64) already present in the same file. Co-Authored-By: Claude * fix(usage-bar): bound invalid-template warnings Co-authored-by: ZengWen-DT --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#…",
-      "summaryZh": "重點：修正(usage-bar): cap warnedTemplateOverrides warn-once dedupe cache (#102659) * 修正(usage-bar): cap warnedTemplateOverrides..."
+      "title": "「夢幻雇主」光環褪色，Google 員工出走潮揭示「好工作」新指標",
+      "link": "https://technews.tw/2026/07/10/google-dream-employer-halo-fading/",
+      "publishedAt": "Thu, 09 Jul 2026 23:08:13 +0000",
+      "summary": "曾被無數求職者視為科技業「夢幻雇主」的 Google，如今在人工智慧（AI）浪潮的衝擊下，正面臨嚴峻的內部心態 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(infra): cap session-maintenance-warning dedupe cache with LRU evi…",
-      "link": "https://github.com/openclaw/openclaw/commit/8dedb0ebcaef2bbe6dcd7b9ad137554b62ac1d21",
-      "publishedAt": "2026-07-09T21:21:11Z",
-      "summary": "fix(infra): cap session-maintenance-warning dedupe cache with LRU eviction (#101643) * fix(infra): cap session-maintenance-warning dedupe cache with LRU eviction The warnedContexts Map accumulated every warned session key forever with no eviction, TTL, or size cap. A long-running gateway would grow this unboundedly. Add a 4 096-entry LRU cache with touch-on-read so frequently re-warned sessions survive and old entries are evicted on overflow. * fix(test): restore original unicode escapes and add LRU eviction tests * fix(test): seed eviction entries with real warning context keys ClawSweeper P3: the eviction test seeded but the production buildWarningContext computes . The mismatch meant params1 could redeliver because the context changed, not because LRU eviction actually worked. Seed the exact context pattern so the test fails when eviction breaks. * fix(infra): bound maintenance warning cache Co-authored-by: sunlit-deng --------- Co-authored-by: Peter Steinberger Co-authored-by: sunlit-deng",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(infra): cap session-maintenance-warning dedupe cache with LRU evi…",
-      "summaryZh": "重點：修正(infra): cap session-maintenance-warning dedupe cache with LRU eviction (#101643) * 修正(infra): cap session-maintenance..."
+      "title": "台積電 ADR 表現落後費半漲勢，市場聚焦下周法說會後走勢",
+      "link": "https://finance.technews.tw/2026/07/10/tsmc-adr-performance-lagged-behind-the-rise-in-the-philadelphia-semiconductor-price-index-hspi/",
+      "publishedAt": "Thu, 09 Jul 2026 23:00:41 +0000",
+      "summary": "7月10日，台北股市雖然因為巴威颱風來襲放颱風價而休市一天，然而市場仍高度關注台積電即將公布的6月份營收表現， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "神盾處分部分芯鼎持股，活化股權攜手祥碩擴大 AI 影像與車用合作",
+      "link": "https://finance.technews.tw/2026/07/10/aegis-disposes-of-part-of-coredings-shares/",
+      "publishedAt": "Thu, 09 Jul 2026 23:00:39 +0000",
+      "summary": "IC設計公司神盾宣布出售部分芯鼎科技持股，作為集團整體股權配置的例行調整。此次交易主要目的為活化股權結構、優化 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "refactor(android): align talk levels and thinking state with iOS/macO…",
+      "link": "https://github.com/openclaw/openclaw/commit/c6d70880350d05a76584292e86d3bf6e69edb3e3",
+      "publishedAt": "2026-07-09T22:59:12Z",
+      "summary": "refactor(android): align talk levels and thinking state with iOS/macOS (#103130) * refactor(android): align talk levels and thinking state with iOS/macOS TalkAudioLevel.kt ports OpenClawKit's level scale exactly: PCM16 RMS through the shared 50 dB window replaces mean-abs (mic/talk/playback) and linear peak (voice notes), so Android waveforms read identically to iOS/macOS at the same loudness. The waveform's Thinking phase now comes from a typed awaitingAgent StateFlow set alongside every status change in TalkModeManager instead of the UI matching status string literals; forgetting the flag at a new status site fails safe to Listening/Idle. * fix(android): keep awaiting-agent flag intact on no-op status republishes * chore(i18n): resync native inventory",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(android): align talk levels and thinking state with iOS/macO…",
+      "summaryZh": "重點：refactor(android): align talk levels and thinking state with iOS/macOS (#103130) * refactor(android): align talk levels ..."
+    },
+    {
+      "id": 7,
+      "title": "chore(pairing): retire vestigial node token plumbing and flatten clea…",
+      "link": "https://github.com/openclaw/openclaw/commit/e7a6ed8eb6a537a08f0e94621ab110422df0c54b",
+      "publishedAt": "2026-07-09T22:48:01Z",
+      "summary": "chore(pairing): retire vestigial node token plumbing and flatten cleanup claims (#103140)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(pairing): retire vestigial node token plumbing and flatten clea…",
+      "summaryZh": "重點：chore(pairing): retire vestigial node token plumbing and flatten cleanup claims (#103140)..."
+    },
+    {
+      "id": 8,
+      "title": "improve(webchat): compact the model picker reasoning and speed rows (…",
+      "link": "https://github.com/openclaw/openclaw/commit/5a93880d7df1da21cd79f1cfb31f371e9a212f72",
+      "publishedAt": "2026-07-09T22:46:37Z",
+      "summary": "improve(webchat): compact the model picker reasoning and speed rows (#103127) Reasoning header drops the '(Default is Off)' reset text and the verbose 'Default (Off)' value: inherited defaults render as a muted level word with no reset, overrides render strong with an icon-only reset. The Faster/ Smarter scale row is removed along with its i18n keys, and the menu gets tighter dimensions (392px wide, shorter model rows). Screen readers keep the verbose default phrasing via aria-valuetext.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(webchat): compact the 模型 picker reasoning and speed rows (…",
+      "summaryZh": "重點：improve(webchat): compact the 模型 picker reasoning and speed rows (#103127) Reasoning header drops the '(Default is Off)'..."
+    },
+    {
+      "id": 9,
       "title": "海韻電6月營收1.41 億元",
       "link": "https://finance.technews.tw/2026/07/09/sea-sonic-6203-202606-financial-report/",
       "publishedAt": "Thu, 09 Jul 2026 14:10:03 +0000",
@@ -55,48 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "確保美國關鍵製造材料穩定，美光宣布投資環球晶圓 5 億美元",
       "link": "https://finance.technews.tw/2026/07/09/micron-announces-500-million-investment-in-globalwafers/",
       "publishedAt": "Thu, 09 Jul 2026 13:00:37 +0000",
       "summary": "美商記憶體大廠美光宣布，計畫投入最高達 30 億美元，以強化美國半導體供應鏈生態系，並建立未來技術創新所需的關 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "久元6月營收3.90 億元",
-      "link": "https://finance.technews.tw/2026/07/09/ytec-6261-202606-financial-report/",
-      "publishedAt": "Thu, 09 Jul 2026 12:10:05 +0000",
-      "summary": "久元（6261）今（9）日公布 6 月營收，達 3.90 億元，較 5 月成長 11.8%，較去年同期成長 3 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Ubiquiti修補UniFi OS與多款應用程式漏洞，含7項重大漏洞",
-      "link": "https://www.ithome.com.tw/news/177204",
-      "publishedAt": "2026-07-09 12:07:52",
-      "summary": "主打中小企業與個人用戶的網通設備商Ubiquiti，近日發布資安公告，修補旗下UniFi OS管理平臺的25項漏洞，其中7項為重大漏洞，涵蓋UniFi OS平臺本身，以及UniFi Connect、UniFi Talk、UniFi Access及UniFi Protect等應用程式，用戶須儘速更新至已修補版本，以降低遭攻擊風險。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "中國駭客Mustang Panda鎖定印度政府，濫用Zoho WorkDrive從事網路間諜活動",
-      "link": "https://www.ithome.com.tw/news/177205",
-      "publishedAt": "2026-07-09 12:07:22",
-      "summary": "被稱為Mustang Panda、Earth Preta、RedDelta、TA416的中國駭客組織，多次為了中國政府的戰略利益從事網路間諜活動，如今有資安公司發現，這些駭客針對與臺灣有簽訂合作協議（MOU）的政府機構下手。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "中國駭客假借提供印度稅務申報工具，散布木馬程式DcRAT",
-      "link": "https://www.ithome.com.tw/news/177201",
-      "publishedAt": "2026-07-09 12:07:21",
-      "summary": "近年來多次針對臺灣，以稅務問題為幌子發動攻擊的中國駭客組織Silver Fox，近期疑似故技重施，於印度發動相關攻擊。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
