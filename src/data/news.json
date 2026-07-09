@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-09T15:55:57.988Z",
+  "generatedAt": "2026-07-09T17:58:20.835Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(launchd): verify profile updater jobs by metadata (#97264)",
-      "link": "https://github.com/openclaw/openclaw/commit/4f9a371c9530e9d2eb2912a44054a44228a59612",
-      "publishedAt": "2026-07-09T15:55:23Z",
-      "summary": "fix(launchd): verify profile updater jobs by metadata (#97264) * fix(launchd): verify profile updater jobs by metadata * fix(launchd): bind updater proof to job metadata --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
+      "title": "Verify signed marketplace feed refresh (#98338)",
+      "link": "https://github.com/openclaw/openclaw/commit/9f248969f6c81141f8a513cb8b9209fe09d29b33",
+      "publishedAt": "2026-07-09T17:46:06Z",
+      "summary": "Verify signed marketplace feed refresh (#98338) * feat: verify signed marketplace feed refresh * test: fix signed marketplace feed CI * Guard signed feed refresh trust state * test(feeds): sign decoded hosted feed payloads * fix(feeds): make signed snapshot writes monotonic --------- Co-authored-by: Patrick Erichsen Co-authored-by: Gio Della-Libera",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(launchd): verify profile updater jobs by metadata (#97264)",
-      "summaryZh": "重點：修正(launchd): verify profile updater jobs by metadata (#97264) * 修正(launchd): verify profile updater jobs by metadata * 修..."
+      "titleZh": "OpenClaw 程式碼更新：Verify signed marketplace feed refresh (#98338)",
+      "summaryZh": "重點：Verify signed marketplace feed refresh (#98338) * 新功能: verify signed marketplace feed refresh * test: 修正 signed marketpl..."
     },
     {
       "id": 2,
-      "title": "fix(agents): isolated cron busts prompt prefix cache via per-run sess…",
-      "link": "https://github.com/openclaw/openclaw/commit/f6c16d22b478f80b37bc27efc61a95629cc088d7",
-      "publishedAt": "2026-07-09T15:51:04Z",
-      "summary": "fix(agents): isolated cron busts prompt prefix cache via per-run session id (#96686) * fix(agents): isolated cron busts prompt prefix cache via per-run session id Isolated cron runs carry a per-run :run: session scope (#91685) rendered verbatim into the cached system-prompt Runtime line, re-busting byte-exact prefix caching for the tool catalog after it every run (#96677, #43148 class). buildRuntimeLine now renders the stable base session key and drops the per-run id the run scope duplicates; parseCronRunScopeSuffix is gated to the isolated-cron key shape so a :run: segment in any other session key is never truncated. * fix(agents): preserve mixed-case cron run markers * test(agents): cover rotated cron session identity --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(codex-supervisor): ship CLI metadata entry (#102803)",
+      "link": "https://github.com/openclaw/openclaw/commit/745b8c315eaa5c40d49307d388e75f54884cfeb3",
+      "publishedAt": "2026-07-09T17:31:47Z",
+      "summary": "fix(codex-supervisor): ship CLI metadata entry (#102803) * fix(codex-supervisor): ship CLI metadata entry * chore: keep release notes in PR body --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): isolated 排程 busts prompt pre修正 cache via per-run sess…",
-      "summaryZh": "重點：修正(agents): isolated 排程 busts prompt pre修正 cache via per-run session id (#96686) * 修正(agents): isolated 排程 busts prompt ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex-supervisor): ship CLI metadata entry (#102803)",
+      "summaryZh": "重點：修正(codex-supervisor): ship CLI metadata entry (#102803) * 修正(codex-supervisor): ship CLI metadata entry * chore: keep 版本..."
     },
     {
       "id": 3,
-      "title": "fix(oauth): remove base64 obfuscation from public OAuth client IDs (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/ef53c20497e1fc109771e707e87da1c87007c76a",
-      "publishedAt": "2026-07-09T15:45:03Z",
-      "summary": "fix(oauth): remove base64 obfuscation from public OAuth client IDs (#96537)",
+      "title": "fix(sandbox): keep redacted session keys UTF-16 safe (#102969)",
+      "link": "https://github.com/openclaw/openclaw/commit/b714fdb3ae47708e9a78c0790c06894f18fa891f",
+      "publishedAt": "2026-07-09T17:31:21Z",
+      "summary": "fix(sandbox): keep redacted session keys UTF-16 safe (#102969) * fix(sandbox): keep redacted session keys UTF-16 safe * test(sandbox): cover UTF-16 redaction boundaries --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(oauth): remove base64 obfuscation from public OAuth client IDs (#…",
-      "summaryZh": "重點：修正(oauth): remove base64 obfuscation from public OAuth client IDs (#96537)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): keep redacted session keys UTF-16 safe (#102969)",
+      "summaryZh": "重點：修正(sandbox): keep redacted session keys UTF-16 safe (#102969) * 修正(sandbox): keep redacted session keys UTF-16 safe * te..."
     },
     {
       "id": 4,
-      "title": "fix(ci): sync Nodes raw-copy baseline (#102968)",
-      "link": "https://github.com/openclaw/openclaw/commit/491e1e5f10545a44ae807ae0323ebb4f733238e4",
-      "publishedAt": "2026-07-09T15:43:00Z",
-      "summary": "fix(ci): sync Nodes raw-copy baseline (#102968)",
+      "title": "feat(providers): add Meta Model API - muse-spark-1.1 (#102873)",
+      "link": "https://github.com/openclaw/openclaw/commit/08a957e0ae1739e50b57483685c26b0760ad8342",
+      "publishedAt": "2026-07-09T17:27:09Z",
+      "summary": "feat(providers): add Meta Model API - muse-spark-1.1 (#102873) * feat(providers): add Meta Model API - muse-spark-1.1 Adds meta-model-api provider via bundled extension: - extensions/meta-model-api/ (provider, catalog, stream, thinking, onboarding) - docs/providers/meta-model-api.md - core wiring: env-api-keys, zod-schema, provider-display-names, dotenv, provider-env-vars Model: meta-model-api/muse-spark-1.1 (Responses API at https://api.ai.meta.com/v1) Auth: MODEL_API_KEY (Bearer) Default reasoning: high, maps --thinking off -> minimal (model rejects none) Fix: bump live test maxTokens 200->4000 (high reasoning uses ~300 tokens for reasoning alone) Co-authored-by: Meta * fix(meta-model-api): clean reasoning lint * test(meta-model-api): align live proof checks * chore(meta-model-api): bundle provider metadata * docs: fix Meta Model API setup wording * docs: format Meta Model API provider page --------- Co-authored-by: Dave Morin Co-authored-by: Colin Co-authored-by: Josh Lehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): sync Nodes raw-copy baseline (#102968)",
-      "summaryZh": "重點：修正(ci): sync Nodes raw-copy baseline (#102968)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(providers): add Meta 模型 API - muse-spark-1.1 (#102873)",
+      "summaryZh": "重點：新功能(providers): add Meta 模型 API - muse-spark-1.1 (#102873) * 新功能(providers): add Meta 模型 API - muse-spark-1.1 Adds meta-..."
     },
     {
       "id": 5,
