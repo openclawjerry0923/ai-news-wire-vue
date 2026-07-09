@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T04:53:41.899Z",
+  "generatedAt": "2026-07-09T08:29:16.473Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(secrets): prevent capture and sentinel credential retention (#102…",
-      "link": "https://github.com/openclaw/openclaw/commit/d6ec1c6ceab37950ad3265f529b7aa2e03aa5e0a",
-      "publishedAt": "2026-07-09T04:50:28Z",
-      "summary": "fix(secrets): prevent capture and sentinel credential retention (#102420) * fix(secrets): harden sentinel capture lifecycle * chore: leave release notes to release automation",
+      "title": "fix(config): use truncateUtf16Safe for allowed-values hint text (#102…",
+      "link": "https://github.com/openclaw/openclaw/commit/720aeb1547fec89ad030dc2d8f2ef151e6ce65f7",
+      "publishedAt": "2026-07-09T08:28:25Z",
+      "summary": "fix(config): use truncateUtf16Safe for allowed-values hint text (#102512) * fix(config): use truncateUtf16Safe for allowed-values hint text Replace naive .slice(0, N) with truncateUtf16Safe() to prevent surrogate pair splitting in config validation hint messages shown to users. Co-Authored-By: Claude * test(config): prove UTF-16 allowed-value hint boundary --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(secrets): prevent capture and sentinel credential retention (#102…",
-      "summaryZh": "重點：修正(secrets): prevent capture and sentinel credential retention (#102420) * 修正(secrets): harden sentinel capture lifecycl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): use truncateUtf16Safe for allowed-values hint text (#102…",
+      "summaryZh": "重點：修正(config): use truncateUtf16Safe for allowed-values hint text (#102512) * 修正(config): use truncateUtf16Safe for allowed..."
     },
     {
       "id": 8,
-      "title": "[AI] fix(memory): use truncateUtf16Safe for dreaming snippet truncati…",
-      "link": "https://github.com/openclaw/openclaw/commit/1d4d8474da853845687ed0d0a5b18870b3f0ddd3",
-      "publishedAt": "2026-07-09T04:40:22Z",
-      "summary": "[AI] fix(memory): use truncateUtf16Safe for dreaming snippet truncation (#101946) * [AI] fix(memory): use truncateUtf16Safe for dreaming snippet truncation Replace .slice(0, N) with truncateUtf16Safe() at 5 call sites in dreaming-phases.ts so complex emoji and surrogate pairs near the truncation boundary are not split into lone surrogates. truncateUtf16Safe is the standard SDK helper, already used in session-cost-usage, cron, exec-approval, and node-host modules for the same purpose. * [AI] fix(memory): use SDK facade import for truncateUtf16Safe, add surrogate-proof test Replace direct @openclaw/normalization-core/utf16-slice import with openclaw/plugin-sdk/memory-core-host-engine-foundation SDK facade, matching manager-search.ts in the same extension. Add surrogate-proof.test.ts that runs a full dreaming ingestion sweep with emoji at the 280-char boundary and verifies zero lone surrogates. * [AI] fix(memory-proof): use relative imports in surrogate-proof test * [AI] fix(memory-proof): place emoji at post-prefix 280-char boundary, assert session corpus file * [AI] fix(memory-proof): avoid unnecessary String callback in oxlint * [AI] fix(memory-proof): add curly braces per eslint curly rule * [AI] feat(proof): add standalone dreaming surrogate truncation proof script * [AI] chore(proof): remove unused SQLite-dependent proof script * [AI] fix(proof): correct emoji boundary placement for all 5 call sites * [AI] fix(proof): add curly braces per eslint curly rule in proof script * [AI] fix(proof): session emoji at actual corpus 280-char boundary * test: streamline memory dreaming UTF-16 coverage --------- Co-authored-by: hailory Co-authored-by: Peter Steinberger",
+      "title": "fix(codex): avoid broken emoji in dynamic tool timeout logs (#102509)",
+      "link": "https://github.com/openclaw/openclaw/commit/b23fdcfac953d80b2e7d29bcf311e7f64b45ab7b",
+      "publishedAt": "2026-07-09T08:26:22Z",
+      "summary": "fix(codex): avoid broken emoji in dynamic tool timeout logs (#102509) * fix(codex): keep dynamic tool log fields UTF-16 safe * test(codex): narrow dynamic tool response item --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：[AI] 修正(記憶): use truncateUtf16Safe for dreaming snippet truncati…",
-      "summaryZh": "重點：[AI] 修正(記憶): use truncateUtf16Safe for dreaming snippet truncation (#101946) * [AI] 修正(記憶): use truncateUtf16Safe for dr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): avoid broken emoji in dynamic tool timeout logs (#102509)",
+      "summaryZh": "重點：修正(codex): avoid broken emoji in dynamic tool timeout logs (#102509) * 修正(codex): keep dynamic tool log fields UTF-16 sa..."
     },
     {
       "id": 9,
-      "title": "Suppress failed tool progress in Discord (#92517)",
-      "link": "https://github.com/openclaw/openclaw/commit/b502554f6c627e30adb63e3c876d06207c6b77f1",
-      "publishedAt": "2026-07-09T04:39:59Z",
-      "summary": "Suppress failed tool progress in Discord (#92517) * fix(discord): suppress failed tool progress Co-authored-by: davefano-agents@teal-03-mst-m2u-wheeljack * chore: leave changelog to release --------- Co-authored-by: Peter Steinberger Co-authored-by: davefano-agents@teal-03-mst-m2u-wheeljack",
+      "title": "fix(memory-host): reject queued worker requests on shutdown (#102451)",
+      "link": "https://github.com/openclaw/openclaw/commit/d5a31888edeb70e9f24bc4fc9fa7ea027703f66a",
+      "publishedAt": "2026-07-09T08:26:05Z",
+      "summary": "fix(memory-host): reject queued worker requests on shutdown (#102451) * fix(memory-host): reject queued worker requests on shutdown * fix(memory-host): settle queued requests on shutdown --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Suppress failed tool progress in Discord (#92517)",
-      "summaryZh": "重點：Suppress failed tool progress in Discord (#92517) * 修正(Discord): suppress failed tool progress Co-authored-by: davefano-..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-host): reject queued worker requests on shutdown (#102451)",
+      "summaryZh": "重點：修正(記憶-host): reject queued worker requests on shutdown (#102451) * 修正(記憶-host): reject queued worker requests on shutdow..."
     },
     {
       "id": 10,
-      "title": "docs(slack): explain voice input and audio clips (#102410)",
-      "link": "https://github.com/openclaw/openclaw/commit/e2a4973edf3b1684624bc9df29a2239c72abda30",
-      "publishedAt": "2026-07-09T04:28:49Z",
-      "summary": "docs(slack): explain voice input and audio clips (#102410) * docs(slack): document voice input support * docs: refresh generated map --------- Co-authored-by: Peter Steinberger",
+      "title": "refactor(ui): drop the divider line above the sidebar More section (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/c96163b6ca642415790ee95c3b609303f1b9c833",
+      "publishedAt": "2026-07-09T08:25:08Z",
+      "summary": "refactor(ui): drop the divider line above the sidebar More section (#102531)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(slack): explain voice input and audio clips (#102410)",
-      "summaryZh": "重點：文件(slack): explain voice input and audio clips (#102410) * 文件(slack): 文件ument voice input support * 文件: refresh generate..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): drop the divider line above the sidebar More section (#…",
+      "summaryZh": "重點：refactor(ui): drop the divider line above the sidebar More section (#102531)..."
     }
   ]
 }
