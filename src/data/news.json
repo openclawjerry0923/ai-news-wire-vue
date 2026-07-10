@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-10T13:12:28.028Z",
+  "generatedAt": "2026-07-10T16:25:49.947Z",
   "items": [
     {
       "id": 1,
-      "title": "test(qa): require web fetch after discovery (#103685)",
-      "link": "https://github.com/openclaw/openclaw/commit/9ef833f4ed16bdb86f3b4866b0d312700f2ad6d2",
-      "publishedAt": "2026-07-10T13:01:10Z",
-      "summary": "test(qa): require web fetch after discovery (#103685)",
+      "title": "fix(agents): scope silent-error retry safety to current attempt (#97966)",
+      "link": "https://github.com/openclaw/openclaw/commit/b7e7c27ef094de95947cfa637b5eecf906053038",
+      "publishedAt": "2026-07-10T16:25:14Z",
+      "summary": "fix(agents): scope silent-error retry safety to current attempt (#97966) * fix(agents): gate empty-error-retry on per-attempt side effects, not cumulative (#97877) Derive currentAttemptReplayMetadata from per-attempt fields via buildAttemptReplayMetadata so the retry gate can distinguish \"this model call had no tool side effects\" from \"cumulative session replayMetadata carries prior-turn history\". Previously raw.replayMetadata was saved as currentAttemptReplayMetadata, but attempt.ts already merges observedReplayMetadata with accumulated session state before returning, so both fields carried the same cumulative value — making the per-attempt check ineffective. shouldRetrySilentErrorAssistantTurn prefers currentAttemptReplayMetadata when available, falling back to replayMetadata for legacy harnesses. Add regression coverage: - 22→23 empty-error-retry tests (prior-side-effects + clean 5xx scenario) - 111→114 incomplete-turn tests (currentAttemptReplayMetadata unit tests) * fix(agents): harden silent retry replay gating --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): require web fetch after discovery (#103685)",
-      "summaryZh": "重點：test(qa): require web fetch after discovery (#103685)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): scope silent-error retry safety to current attempt (#97966)",
+      "summaryZh": "重點：修正(agents): scope silent-error retry safety to current attempt (#97966) * 修正(agents): gate empty-error-retry on per-atte..."
     },
     {
       "id": 2,
-      "title": "test(qa): accept structured gateway restart outcomes (#103681)",
-      "link": "https://github.com/openclaw/openclaw/commit/5a451f92f993daee8e3fdf9d57625985c913d149",
-      "publishedAt": "2026-07-10T12:57:59Z",
-      "summary": "test(qa): accept structured gateway restart outcomes (#103681)",
+      "title": "fix(compaction): allow compaction under aws-sdk auth with no static k…",
+      "link": "https://github.com/openclaw/openclaw/commit/40b3bbbba9d9adc4ecd67e508f3ceff70026aa37",
+      "publishedAt": "2026-07-10T16:24:52Z",
+      "summary": "fix(compaction): allow compaction under aws-sdk auth with no static key (#103638) The compaction safeguard treated a successful keyless auth resolution (ok: true with neither apiKey nor headers) as missing credentials and cancelled compaction. Bedrock providers using auth: \"aws-sdk\" sign requests with SigV4 at send time and legitimately return no static key or header, so every message on a session large enough to need compaction failed with a false \"could not resolve request credentials\" error. Trust the registry's ok:true success signal; it already returns ok:false when auth genuinely cannot resolve. Add regression coverage for the keyless SDK-managed auth path. Co-authored-by: Roy Osherove",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): accept structured Gateway restart outcomes (#103681)",
-      "summaryZh": "重點：test(qa): accept structured Gateway restart outcomes (#103681)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(compaction): allow compaction under aws-sdk auth with no static k…",
+      "summaryZh": "重點：修正(compaction): allow compaction under aws-sdk auth with no static key (#103638) The compaction safeguard treated a succ..."
     },
     {
       "id": 3,
-      "title": "chore(i18n): refresh native locales (#103689)",
-      "link": "https://github.com/openclaw/openclaw/commit/40dc7e5bd2b097afaa3a4384e27a68cfbbbdaa43",
-      "publishedAt": "2026-07-10T12:52:12Z",
-      "summary": "chore(i18n): refresh native locales (#103689) Co-authored-by: github-actions[bot]",
+      "title": "fix(signal): clean up signal-cli download temp dir on every exit path…",
+      "link": "https://github.com/openclaw/openclaw/commit/bedcba2b9bde56541b8b6027e969bd26640e1355",
+      "publishedAt": "2026-07-10T16:20:03Z",
+      "summary": "fix(signal): clean up signal-cli download temp dir on every exit path (#103339) * fix(signal): clean up signal-cli download temp dir on every exit path installSignalCliFromRelease created a temp dir with fs.mkdtemp for the download archive but never removed it. Every return path — including the success return and the extraction-failure / binary-not-found errors — leaked the directory plus the downloaded archive (signal-cli Linux-native archives are ~50-130 MB). Repeated installs or retries accumulated multi-hundred-MB temp dirs under the preferred tmp dir. Wrap the body after mkdtemp in try/finally that recursively removes the temp dir. The extracted binary is installed under CONFIG_DIR and is unaffected. Co-Authored-By: Claude * style(signal): drop unnecessary String() conversion in test spy dir is already a string (mkdtemp return); String(dir) triggers the no-unnecessary-type-conversion lint rule. Co-Authored-By: Claude * test(signal): cover success-path temp dir cleanup with real archive Add a success-path test that mocks the network fetch to return a real tar.gz archive (containing a signal-cli binary) so installSignalCliFromRelease runs the full download -> extract -> find-binary -> chmod path against real bytes, then asserts the temp dir and downloaded archive are removed by the finally clause. This complements the existing error-path test so both exit paths are covered. Co-Authored-By: Claude * fix(signal): use owned temp download workspace * fix(signal): allow bounded native extraction --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#103689)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#103689) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正(signal): clean up signal-cli download temp dir on every exit path…",
+      "summaryZh": "重點：修正(signal): clean up signal-cli download temp dir on every exit path (#103339) * 修正(signal): clean up signal-cli downloa..."
     },
     {
       "id": 4,
-      "title": "fix(pr): prevent same-PR operations from overlapping (#103669)",
-      "link": "https://github.com/openclaw/openclaw/commit/ea6aa1dc7591c0a383cff41210c5d2d62580f46c",
-      "publishedAt": "2026-07-10T12:34:03Z",
-      "summary": "fix(pr): prevent same-PR operations from overlapping (#103669) * fix(pr): serialize operations per pull request * fix(pr): tighten supervisor error handling",
+      "title": "fix(audit): audit filters select wrong intervals when dates are inval…",
+      "link": "https://github.com/openclaw/openclaw/commit/cbfa7d4aa73c4639523f5675a4db3853a0c90e37",
+      "publishedAt": "2026-07-10T16:14:26Z",
+      "summary": "fix(audit): audit filters select wrong intervals when dates are invalid (#103433) * fix(audit): reject invalid ISO timestamps in filters * test(audit): cover strict date filter semantics Co-authored-by: qingminlong --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(pr): prevent same-PR operations from overlapping (#103669)",
-      "summaryZh": "重點：修正(pr): prevent same-PR operations from overlapping (#103669) * 修正(pr): serialize operations per pull request * 修正(pr): ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(audit): audit filters select wrong intervals when dates are inval…",
+      "summaryZh": "重點：修正(audit): audit filters select wrong intervals when dates are invalid (#103433) * 修正(audit): reject invalid ISO timesta..."
     },
     {
       "id": 5,
+      "title": "史密森尼 VR 導覽帶你親眼見證，大霹靂誕生的瞬間與恆星之死",
+      "link": "https://technews.tw/2026/07/10/smithsonian-starstruck-vr-explore-black-holes-supernovae/",
+      "publishedAt": "Fri, 10 Jul 2026 14:59:00 +0000",
+      "summary": "史密森尼學會（Smithsonian）於今年 5 月在華盛頓特區推出了一項名為「史密森尼 Starstruck [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "眾達-KY6月營收8,228.00 萬元",
       "link": "https://finance.technews.tw/2026/07/10/pcl-4977-202606-financial-report/",
       "publishedAt": "Fri, 10 Jul 2026 12:30:03 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "研究揭LLM攻擊新手法HalluSquatting，可誘使AI程式開發助理安裝惡意程式",
       "link": "https://www.ithome.com.tw/news/177230",
       "publishedAt": "2026-07-10 12:07:54",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "OpenAI升級ChatGPT桌面程式，ChatGPT Atlas瀏覽器將退場",
       "link": "https://www.ithome.com.tw/news/177228",
       "publishedAt": "2026-07-10 12:07:44",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "OpenAI獲准全面推出GPT-5.6系列，登上GitHub Copilot、M365 Copilot",
       "link": "https://www.ithome.com.tw/news/177229",
       "publishedAt": "2026-07-10 12:07:41",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "金融詐欺攻擊利用ClickFix手法散布SCMBANKER工具包",
       "link": "https://www.ithome.com.tw/news/177227",
       "publishedAt": "2026-07-10 12:07:36",
       "summary": "社交工程手法ClickFix過去常被用於散布竊資軟體與遠端存取木馬，如今也被攻擊者用於金融詐欺。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "GuardFall攻擊鎖定開源AI程式開發代理，可繞過Shell命令防護",
-      "link": "https://www.ithome.com.tw/news/177226",
-      "publishedAt": "2026-07-10 11:07:58",
-      "summary": "AI安全業者Adversa AI於6月30日揭露名為GuardFall的攻擊手法。研究指出，多款開源AI程式開發代理與電腦操作型AI代理在執行Shell命令前，安全檢查主要仰賴原始命令字串比對或阻擋清單，攻擊者可利用Bash等命令列直譯器（Shell）的特性，在實際執行命令前，先展開變數、移除引號並重新解析命令，避開代理程式檢查，讓惡意命令以開發者帳號權限，在開發者主機或CI環境執行。",
       "source": "iThome",
       "tag": "繁中"
     }
