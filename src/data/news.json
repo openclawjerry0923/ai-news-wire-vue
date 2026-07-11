@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T19:04:30.214Z",
+  "generatedAt": "2026-07-11T20:49:37.534Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "fix(outbound): preserve attributed inline formatting (#104118)",
-      "link": "https://github.com/openclaw/openclaw/commit/aa12e71de7b4ef80f6275b9c4a7d3485d6f250e0",
-      "publishedAt": "2026-07-11T19:03:11Z",
-      "summary": "fix(outbound): preserve attributed inline formatting (#104118) * fix(outbound): preserve backticks on tags with attributes The plain-text sanitizer only matched bare openers, so attributed variants such as lost their backtick wrapping and were stripped to raw text before channel delivery. Allow optional attributes on the opening tag, consistent with the existing handling for and in the same function. Fixes #104117 * fix(outbound): preserve attributed inline formatting Co-authored-by: chengzhichao-xydt * test(outbound): compact attributed tag coverage * fix(outbound): normalize attributed formatting tags * docs(outbound): clarify attribute normalization invariant * fix(outbound): preserve native formatting semantics * docs(plugin-sdk): document sanitizer markup styles * docs(plugin-sdk): refresh docs map --------- Co-authored-by: moguangyu5-design Co-authored-by: Peter Steinberger Co-authored-by: chengzhichao-xydt",
+      "title": "fix(maint): reuse docs-only parent gate evidence (#104696)",
+      "link": "https://github.com/openclaw/openclaw/commit/1c4041bf72df514c4cdd04cfc3e375f5d8058d15",
+      "publishedAt": "2026-07-11T20:49:01Z",
+      "summary": "fix(maint): reuse docs-only parent gate evidence (#104696)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(outbound): preserve attributed inline formatting (#104118)",
-      "summaryZh": "重點：修正(outbound): preserve attributed inline formatting (#104118) * 修正(outbound): preserve backticks on tags with attributes..."
+      "titleZh": "OpenClaw 文件更新：修正(maint): reuse 文件-only parent gate evidence (#104696)",
+      "summaryZh": "重點：修正(maint): reuse 文件-only parent gate evidence (#104696)..."
     },
     {
       "id": 3,
-      "title": "feat(tooling): complete packages/* noUncheckedIndexedAccess adoption …",
-      "link": "https://github.com/openclaw/openclaw/commit/4b751ce48ab6a7edbda8e80ae0d088519fc00923",
-      "publishedAt": "2026-07-11T18:54:06Z",
-      "summary": "feat(tooling): complete packages/* noUncheckedIndexedAccess adoption (phase 2) (#104626) * feat(tooling): extend strict-ratchet lane to all remaining leaf packages * fix(packages): burn down indexed-access debt in ai and agent-core All 196 noUncheckedIndexedAccess errors fixed behavior-identically (iteration, .at()/slices, DataView byte math, guarded queue peeks) plus cleanup finds: a sparse-tool diagnostic bug, deduplicated Responses call/item ID parsing with an honest string|undefined splitter, and a clearer local failure for redacted-thinking blocks missing signatures. Removes all 17 remaining non-null assertions across ai, gateway-client, and llm-core so the assertion ban aligns 1:1 with the ratchet lane. speech-core joins memory-host-sdk as structurally deferred (imports src/** via plugin-sdk path mappings).",
+      "title": "fix(ui): hide web sidebar toggles when the macOS titlebar hosts the t…",
+      "link": "https://github.com/openclaw/openclaw/commit/da257661f3c7551dc548d21ad3149658b55e2b8e",
+      "publishedAt": "2026-07-11T20:46:15Z",
+      "summary": "fix(ui): hide web sidebar toggles when the macOS titlebar hosts the toggle (#104694)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(tooling): complete packages/* noUncheckedIndexedAccess adoption …",
-      "summaryZh": "重點：新功能(tooling): complete packages/* noUncheckedIndexedAccess adoption (phase 2) (#104626) * 新功能(tooling): extend strict-ra..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): hide web sidebar toggles when the macOS titlebar hosts the t…",
+      "summaryZh": "重點：修正(ui): hide web sidebar toggles when the macOS titlebar hosts the toggle (#104694)..."
     },
     {
       "id": 4,
-      "title": "fix(ui): shift the split-view pane header beside the macOS window con…",
-      "link": "https://github.com/openclaw/openclaw/commit/8fff38479e92b26d71ed65bf910450c94754b56b",
-      "publishedAt": "2026-07-11T18:51:02Z",
-      "summary": "fix(ui): shift the split-view pane header beside the macOS window controls instead of reserving a titlebar band (#104628)",
+      "title": "feat(cloud-workers): authenticated worker protocol with closed ingres…",
+      "link": "https://github.com/openclaw/openclaw/commit/b80ab618c3deb13093762abaf861468a20a25518",
+      "publishedAt": "2026-07-11T20:45:14Z",
+      "summary": "feat(cloud-workers): authenticated worker protocol with closed ingress and minted credentials (#104688) * feat(cloud-workers): add authenticated worker protocol * feat(cloud-workers): add worker credential primitives * docs(gateway): document closed worker protocol * test(cloud-workers): keep protocol fixtures lean * fix(cloud-workers): bound live worker connections * fix(cloud-workers): close admission and cleanup gaps * docs: regenerate docs map for worker protocol page",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): shift the split-view pane header beside the macOS window con…",
-      "summaryZh": "重點：修正(ui): shift the split-view pane header beside the macOS window controls instead of reserving a titlebar band (#104628)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(cloud-workers): authenticated worker protocol with closed ingres…",
+      "summaryZh": "重點：新功能(cloud-workers): authenticated worker protocol with closed ingress and minted credentials (#104688) * 新功能(cloud-worke..."
     },
     {
       "id": 5,
-      "title": "fix(gateway): demote startup close transport races (#104625)",
-      "link": "https://github.com/openclaw/openclaw/commit/78fca7b0c4f6e18c666e47531b7280f5b007f5d9",
-      "publishedAt": "2026-07-11T18:49:27Z",
-      "summary": "fix(gateway): demote startup close transport races (#104625) * fix(gateway): demote startup close transport races * fix(gateway): remove stale startup close import",
+      "title": "fix(ui): dock the chat background-tasks rail to the bottom of narrow …",
+      "link": "https://github.com/openclaw/openclaw/commit/0ae3de7c6f7d7839ff0dedf2f5be6de5a00a8bd5",
+      "publishedAt": "2026-07-11T20:40:08Z",
+      "summary": "fix(ui): dock the chat background-tasks rail to the bottom of narrow panes (#104107) The tasks rail (from #104010) only rendered as a right-docked 230-280px column and vanished with its toggles below a 1120px viewport, so narrow split-view panes got a crushed thread and compact windows lost access to background tasks entirely — the same bug class #104033 fixed for the workspace rail and detail panel. The rail now follows the pane's measured width: it presents as a full-width bottom strip (sections side by side like the workspace rail's bottom dock) when the pane is too narrow for a side column, and the workspace rail keeps first claim on the side slot when only one column fits. Side-docked rails, not bottom strips, now count against the width available to the chat + detail split. Proof: check:changed + 212 focused tests green on Testbox at this exact content; codex autoreview clean; chromium+webkit visual verification at seven window widths plus split view with zero geometry overlaps. Landed with maintainer CI override. Closes #104091",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): demote startup close transport races (#104625)",
-      "summaryZh": "重點：修正(Gateway): demote startup close transport races (#104625) * 修正(Gateway): demote startup close transport races * 修正(Gat..."
+      "titleZh": "OpenClaw 文件更新：修正(ui): 文件k the chat background-tasks rail to the bottom of narrow …",
+      "summaryZh": "重點：修正(ui): 文件k the chat background-tasks rail to the bottom of narrow panes (#104107) The tasks rail (from #104010) only re..."
     },
     {
       "id": 6,
