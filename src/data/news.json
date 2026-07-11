@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-11T15:56:57.573Z",
+  "generatedAt": "2026-07-11T17:03:21.331Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(agents): converge run staleness policy onto diagnostic activ…",
-      "link": "https://github.com/openclaw/openclaw/commit/4b33199a65af2ad65c1d948f6e3473f186504173",
-      "publishedAt": "2026-07-11T15:29:37Z",
-      "summary": "refactor(agents): converge run staleness policy onto diagnostic activity owner One RUN_STALE_TAKEOVER_MS constant and one resolveRunStaleThresholdMs in diagnostic-run-activity.ts replace the hand-paired constants and duplicated blocked-tool-floor derivations in the reply and embedded run registries. Thresholds are byte-identical before and after; zero behavior change. Part of #104219 (seam 4).",
+      "title": "fix(node-pairing): require operator.admin to approve browser.proxy no…",
+      "link": "https://github.com/openclaw/openclaw/commit/68c18caca06cebdc8eee55b1a73b03e996bc4764",
+      "publishedAt": "2026-07-11T16:58:00Z",
+      "summary": "fix(node-pairing): require operator.admin to approve browser.proxy nodes (#104491) Approving a node whose pairing surface advertises browser.proxy only required operator.write, while invoking browser.proxy already requires operator.admin (server-methods/nodes.ts). resolveNodePairApprovalScopes bumped the approval scope to operator.admin only for NODE_SYSTEM_RUN_COMMANDS, so a write-scoped operator could trust a browser.proxy-capable node that later routes bundled browser-tool traffic. Add NODE_BROWSER_PROXY_COMMAND to the admin-approval set so approval scope matches the invoke-time gate.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): converge run staleness policy onto diagnostic activ…",
-      "summaryZh": "重點：refactor(agents): converge run staleness policy onto diagnostic activity owner One RUN_STALE_TAKEOVER_MS constant and on..."
+      "titleZh": "OpenClaw 程式碼更新：修正(node-pairing): require operator.admin to approve browser.proxy no…",
+      "summaryZh": "重點：修正(node-pairing): require operator.admin to approve browser.proxy nodes (#104491) Approving a node whose pairing surface..."
     },
     {
       "id": 2,
-      "title": "feat: add Claude session fleet (#104528)",
-      "link": "https://github.com/openclaw/openclaw/commit/c3b426f280a92bfe9db0701b61cf75461755bab7",
-      "publishedAt": "2026-07-11T15:22:59Z",
-      "summary": "feat: add Claude session fleet (#104528) * feat: add Claude session fleet * chore: leave release notes to release automation * chore: refresh generated catalogs * fix: satisfy session catalog lint gates",
+      "title": "fix(browser): reject hex click coordinates in act route (#104440)",
+      "link": "https://github.com/openclaw/openclaw/commit/834c1469581c0eed9b001d506f37645e0029043f",
+      "publishedAt": "2026-07-11T16:56:09Z",
+      "summary": "fix(browser): reject hex click coordinates in act route (#104440) * fix(browser): reject hex click coordinates in act route * refactor(browser): use route parser for click coordinates --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: add Claude session fleet (#104528)",
-      "summaryZh": "重點：新功能: add Claude session fleet (#104528) * 新功能: add Claude session fleet * chore: leave 版本發布 notes to 版本發布 automation * c..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): reject hex click coordinates in act route (#104440)",
+      "summaryZh": "重點：修正(browser): reject hex click coordinates in act route (#104440) * 修正(browser): reject hex click coordinates in act rout..."
     },
     {
       "id": 3,
-      "title": "feat(cloud-workers): worker bundle production, pinned SSH bootstrap, …",
-      "link": "https://github.com/openclaw/openclaw/commit/03cab29505254de6d9aca4ebfc81f5b28b645600",
-      "publishedAt": "2026-07-11T15:14:30Z",
-      "summary": "feat(cloud-workers): worker bundle production, pinned SSH bootstrap, and admission handshake (#104532) * feat(gateway-protocol): add worker admission handshake * feat(cloud-workers): build and bootstrap worker bundles * feat(cloud-workers): wire bootstrap lifecycle * fix(cloud-workers): state host-key TOFU fallback without warning-comment suppression * test(cloud-workers): assemble host-key fixture to satisfy review secret scanner * test(cloud-workers): assemble redaction fixture to satisfy review secret scanner * fix(cloud-workers): require pinned SSH host keys * fix(state): add ssh_host_key to additive worker_environments migration",
+      "title": "fix(slack): preserve canonical block receipts (#104563)",
+      "link": "https://github.com/openclaw/openclaw/commit/7ef22875ad5ea72f895f507e7852b9f5cf4005bd",
+      "publishedAt": "2026-07-11T16:51:02Z",
+      "summary": "fix(slack): preserve canonical block receipts (#104563)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(cloud-workers): worker bundle production, pinned SSH bootstrap, …",
-      "summaryZh": "重點：新功能(cloud-workers): worker bundle production, pinned SSH bootstrap, and admission handshake (#104532) * 新功能(Gateway-prot..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): preserve canonical block receipts (#104563)",
+      "summaryZh": "重點：修正(slack): preserve canonical block receipts (#104563)..."
     },
     {
       "id": 4,
-      "title": "improve(ci): shorten compact PR test critical path (#104508)",
-      "link": "https://github.com/openclaw/openclaw/commit/f5060701881b05a1893b1d1be64f3363b86aa91b",
-      "publishedAt": "2026-07-11T15:02:59Z",
-      "summary": "improve(ci): shorten compact PR test critical path (#104508) * perf(ci): rebalance compact PR test jobs * fix(ci): preserve compact whole-job timeout",
+      "title": "fix(ci): handle missing temp report merge base (#104557)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc239a85161881d2261a0c23eff6222224670e65",
+      "publishedAt": "2026-07-11T16:44:19Z",
+      "summary": "fix(ci): handle missing temp report merge base (#104557)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ci): shorten compact PR test critical path (#104508)",
-      "summaryZh": "重點：improve(ci): shorten compact PR test critical path (#104508) * perf(ci): rebalance compact PR test jobs * 修正(ci): preser..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): handle missing temp report merge base (#104557)",
+      "summaryZh": "重點：修正(ci): handle missing temp report merge base (#104557)..."
     },
     {
       "id": 5,
+      "title": "NASA 衛星捕捉罕見地質奇景！俾斯麥海火山噴發，新島嶼有望成形",
+      "link": "https://technews.tw/2026/07/12/nasa-satellite-submarine-volcano-eruption-new-island-emerges/",
+      "publishedAt": "Sat, 11 Jul 2026 16:04:00 +0000",
+      "summary": "巴布亞紐幾內亞北部的俾斯麥海（Bismarck Sea）近日發生罕見的海底火山噴發。科學家以多顆衛星密切監測這 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "美國放寬對阿聯 AI 晶片與軍備出口，民主黨痛批新制淪為川普腐敗交易",
       "link": "https://finance.technews.tw/2026/07/11/the-united-states-has-eased-restrictions-on-exports-of-ai-chips-and-military-equipment-to-the-united-arab-emirates/",
       "publishedAt": "Sat, 11 Jul 2026 10:00:08 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "代工廠晶合集成登陸港交所掛牌，穩居中國第三大晶圓代工廠位階",
       "link": "https://finance.technews.tw/2026/07/11/nexchip-a-contract-manufacturer-listed-on-the-hong-kong-stock-exchange/",
       "publishedAt": "Sat, 11 Jul 2026 09:15:41 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "微軟打造AI視覺化中介語言Flint，以語意規格簡化圖表生成",
       "link": "https://www.ithome.com.tw/news/177236",
       "publishedAt": "2026-07-11 07:07:37",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "英特爾大秀 EMIB-T 先進封裝技術，挑戰台積電 CoWoS 先進封裝技術",
       "link": "https://finance.technews.tw/2026/07/11/intel-showcases-its-advanced-emib-t-packaging-technology/",
       "publishedAt": "Sat, 11 Jul 2026 07:00:02 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "「Academic Humanizer」問世，抹除 AI 寫作痕跡引發學界爭議",
       "link": "https://technews.tw/2026/07/11/ai-papers-tool-academic-humanizer/",
       "publishedAt": "Sat, 11 Jul 2026 06:38:51 +0000",
       "summary": "人工智慧（AI）在學術領域的應用日益普及，如何辨識與規範 AI 生成內容已成為熱門議題。近日新創公司 Morp [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "遇 25 年最大危機，維基百科力抗 AI 掠奪、政治砲火與威權打壓",
-      "link": "https://technews.tw/2026/07/11/wikipedia-fights-for-survival/",
-      "publishedAt": "Sat, 11 Jul 2026 06:35:06 +0000",
-      "summary": "走過 25 年歲月的維基百科（Wikipedia），正面臨近年來罕見的多重生存壓力。在全球對可信資訊信任度下滑 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
