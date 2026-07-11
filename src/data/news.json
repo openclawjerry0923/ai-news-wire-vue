@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T21:50:56.713Z",
+  "generatedAt": "2026-07-11T22:49:57.439Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "refactor: flip sessions and transcripts to sqlite storage (#98236)",
-      "link": "https://github.com/openclaw/openclaw/commit/0a8e3604ba24de4791d3505b7a442e8017276dd0",
-      "publishedAt": "2026-07-11T21:50:37Z",
-      "summary": "refactor: flip sessions and transcripts to sqlite storage (#98236) * refactor(sessions): migrate runtime storage to sqlite * test(sessions): fix sqlite CI regressions * test(sessions): align remaining sqlite fixtures * fix(codex): require sqlite trajectory recorder * test(sessions): align orphan recovery sqlite fixture * test(sessions): align sqlite rebase fixtures * fix(sessions): finish current-main integration of the sqlite flip Resolve the whole-store SDK removal across its owner boundary: drop the loadSessionStore re-export and the registry whole-store wrappers, wire hasTrackedActiveSessionRun into gateway chat, complete the preserveLockedHarnessIds cleanup contract, flip the codex thread-history import to storePath targets, and port remaining main-side tests from file-store helpers to session accessor reads. * chore: drop committed pebbles log, revert plugin-inspector bump, refresh generated docs Remove the 1.8k-line .pebbles/events.jsonl work log from the branch, restore the plugin-inspector advisory lane to main's pinned 0.3.10 so the supply-chain bump gets its own review, and regenerate docs_map, the plugin SDK API baseline, and the export-surface ratchet for the merged tree. * feat(sessions): keep archived transcripts by default with zstd cold storage Codex-style retention: deleting or resetting a session archives its transcript as a zstd-compressed JSONL artifact (plain when the runtime lacks node:zlib zstd) and keeps it until the disk budget evicts oldest first. resetArchiveRetention now governs both deleted and reset archives and defaults to keep; maxDiskBytes defaults to 2gb so retention stays bounded, with archives evicted before live sessions. The cron reaper follows the same knob instead of deleting archives on its own timer. * fix(state): converge agent DB migration lineages and bound database growth Merge coherence: run both structure-gated legacy memory-schema repairs (flip-lineage drop, main-lineage identity rebuild) before the flip migration so pre-flip v1/v2 and pre-merge flip v1/v4 databases all converge, and hoist foreign_keys=OFF outside the schema transaction where the pragma was silently ignored and the v1 sessions rebuild cascade-deleted session_entries. Growth guards: fresh agent DBs enable auto_vacuum=INCREMENTAL, WAL maintenance releases freed pages in bounded passes (never a blocking full VACUUM), and doctor reports state/agent DB bloat from freelist stats. * fix(codex): resolve the store path for thread-history import via the SDK The supervision catalog passed the legacy sessionFile locator to the storePath-targeted transcript mirror; resolve the agent store path with the session-store SDK helper instead of a runtime-object seam so test fakes and headless callers need no extra surface. Drop the obsolete missing-session-id preprocessing case: sessions rows are NOT NULL on session_id and upsert repairs id-less patches at write time. * fix(sessions): fail safe on malformed disk-budget config and doctor stat errors A malformed explicit maxDiskBytes disables the budget instead of falling back to the destructive 2gb default the user never chose, and the doctor bloat check skips databases whose paths stat-fail instead of aborting doctor. * fix(sessions): complete sqlite conflict translations * test(sqlite): align hardening checks with maintenance * test(sessions): inspect compressed transcript archives * fix(tests): await session seeds and drop unused helpers flagged by CI lint The five unawaited writeSessionStoreSeed calls raced their SQLite seeds against the assertions, failing compact shards; the bloat probe drops a useless initializer and the merged tests drop now-unused helpers. * test(sessions): type legacy proof events directly * test(sessions): align hardening contracts * perf(sessions): read usage transcript sizes from SQL aggregates Usage/cost scans walked every session and materialized every transcript event just to re-stringify it for a byte estimate — the #86718 stall class reborn on the DB. readTranscriptStatsSync sums stored JSON bytes in SQLite without loading a single row. * fix(sessions): re-root foreign-root transcript paths onto the current sessions dir Restored backups, moved OPENCLAW_STATE_DIR, and rehearsal copies carry absolute sessionFile paths from the old root; the containment fallback kept those foreign paths, so migration read (and would archive) files in the original root and reported local copies missing. Re-root the canonical agents//sessions suffix onto the current dir when the file exists there; genuine cross-root layouts still fall through unchanged. * test(agents): seed harness admission through sqlite * fix(sqlite): close agent db on pragma setup failure * fix(doctor): compact and retrofit incremental auto-vacuum after session import The migration is the sanctioned offline window: post-import compact reclaims import churn and applies auto_vacuum=INCREMENTAL to databases created before the fresh-DB pragma existed, so runtime maintenance can release pages in bounded passes on every install. --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(sessions): prevent corrupted Unicode in persisted tool details (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/4a0086d08565e074316883fe778f71892f5b7c66",
+      "publishedAt": "2026-07-11T22:49:43Z",
+      "summary": "fix(sessions): prevent corrupted Unicode in persisted tool details (#104540) * fix(sessions): prevent corrupted Unicode in persisted tool details * test(sessions): consolidate UTF-16 persistence coverage * test(sessions): build redaction fixture from placeholder --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: flip sessions and transcripts to sqlite storage (#98236)",
-      "summaryZh": "重點：refactor: flip sessions and transcripts to sqlite storage (#98236) * refactor(sessions): migrate runtime storage to sqli..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): prevent corrupted Unicode in persisted tool details (#…",
+      "summaryZh": "重點：修正(sessions): prevent corrupted Unicode in persisted tool details (#104540) * 修正(sessions): prevent corrupted Unicode in..."
     },
     {
       "id": 3,
-      "title": "fix(android): refresh notification access on resume (#104460)",
-      "link": "https://github.com/openclaw/openclaw/commit/ca09fcaff1b5c5402f770a556ec7652159a3c7be",
-      "publishedAt": "2026-07-11T21:49:33Z",
-      "summary": "fix(android): refresh notification access on resume (#104460) Co-authored-by: IWhatsskill",
+      "title": "fix(discord): refresh model picker after default changes (#104635)",
+      "link": "https://github.com/openclaw/openclaw/commit/088a9dc33557648556a13642b381beb15aa5d261",
+      "publishedAt": "2026-07-11T22:47:34Z",
+      "summary": "fix(discord): refresh model picker after default changes (#104635) * fix(discord): refresh model picker component config * test(discord): model full hot-reload snapshot state * fix(discord): keep pending model selection stable * fix(discord): stabilize recent model actions --------- Co-authored-by: compoodment Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): refresh notification access on resume (#104460)",
-      "summaryZh": "重點：修正(android): refresh notification access on resume (#104460) Co-authored-by: IWhatsskill..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): refresh 模型 picker after default changes (#104635)",
+      "summaryZh": "重點：修正(Discord): refresh 模型 picker after default changes (#104635) * 修正(Discord): refresh 模型 picker component config * test(..."
     },
     {
       "id": 4,
-      "title": "fix(ui): hide pinned session action until hover (#104622)",
-      "link": "https://github.com/openclaw/openclaw/commit/c901e37e57e84b45b1e9cf728f19da5680ec2450",
-      "publishedAt": "2026-07-11T21:47:22Z",
-      "summary": "fix(ui): hide pinned session action until hover (#104622)",
+      "title": "fix(reply): prevent hung pre-delivery hooks from blocking lanes (#104…",
+      "link": "https://github.com/openclaw/openclaw/commit/da6a24d7dc41d2e19d2c9bfd095ae8b6c850c4fb",
+      "publishedAt": "2026-07-11T22:47:15Z",
+      "summary": "fix(reply): prevent hung pre-delivery hooks from blocking lanes (#104256) * fix(reply): bound pre-delivery hook settlement * test(plugins): preserve hook timeout fixtures * fix(reply): preserve declared pre-delivery budgets * chore(reply): finalize pre-delivery recovery * fix(reply): preserve per-final recovery semantics * fix(reply): guard pending-final settlement identity * test(reply): align pending-final store fixture * fix(reply): bind settlement to originating intent * test(reply): satisfy timeout fixture lint * chore(plugin-sdk): refresh rebased baseline * fix(reply): preserve normalized retry ownership * fix(reply): narrow pending retry metadata * fix: align reply dispatch state access * chore(plugin-sdk): refresh rebased surface baseline * test(reply): align rebased accessor assertion * chore(plugin-sdk): regenerate drifted API baseline --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): hide pinned session action until hover (#104622)",
-      "summaryZh": "重點：修正(ui): hide pinned session action until hover (#104622)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(reply): prevent hung pre-delivery hooks from blocking lanes (#104…",
+      "summaryZh": "重點：修正(reply): prevent hung pre-delivery hooks from blocking lanes (#104256) * 修正(reply): bound pre-delivery hook settlement..."
     },
     {
       "id": 5,
-      "title": "fix(browser): apply profile proxy policy to tab list redaction (#104715)",
-      "link": "https://github.com/openclaw/openclaw/commit/5a6d684019d968f44d8be45e3241b13ef1afd426",
-      "publishedAt": "2026-07-11T21:47:02Z",
-      "summary": "fix(browser): apply profile proxy policy to tab list redaction (#104715) * fix(browser): apply profile proxy policy to tab list redaction * test(browser): cover proxy tab redaction route proof * test(browser): streamline proxy tab redaction coverage * fix(browser): scope proxy inference to managed profiles --------- Co-authored-by: llagy007",
+      "title": "fix(agents): keep failover detail truncation UTF-16 safe (#104487)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa8f78788c76d5eea60ce40e2a18efcb4cb0ef87",
+      "publishedAt": "2026-07-11T22:43:52Z",
+      "summary": "fix(agents): keep failover detail truncation UTF-16 safe (#104487) * fix(agents): keep failover detail truncation UTF-16 safe Replace raw .slice(0, MAX_FAILOVER_DETAIL_CHARS) with truncateUtf16Safe so provider error details containing emoji or other non-BMP characters are not split at a surrogate-pair boundary before failover classification. Adds a regression test via extractFailoverSignalDetails. * test(agents): tighten failover UTF-16 coverage --------- Co-authored-by: chengzhichao-xydt Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): apply profile proxy policy to tab list redaction (#104715)",
-      "summaryZh": "重點：修正(browser): apply profile proxy policy to tab list redaction (#104715) * 修正(browser): apply profile proxy policy to tab..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep failover detail truncation UTF-16 safe (#104487)",
+      "summaryZh": "重點：修正(agents): keep failover detail truncation UTF-16 safe (#104487) * 修正(agents): keep failover detail truncation UTF-16 s..."
     },
     {
       "id": 6,
