@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T22:49:57.439Z",
+  "generatedAt": "2026-07-11T23:55:42.867Z",
   "items": [
     {
       "id": 1,
@@ -12,50 +12,77 @@
     },
     {
       "id": 2,
-      "title": "fix(sessions): prevent corrupted Unicode in persisted tool details (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/4a0086d08565e074316883fe778f71892f5b7c66",
-      "publishedAt": "2026-07-11T22:49:43Z",
-      "summary": "fix(sessions): prevent corrupted Unicode in persisted tool details (#104540) * fix(sessions): prevent corrupted Unicode in persisted tool details * test(sessions): consolidate UTF-16 persistence coverage * test(sessions): build redaction fixture from placeholder --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): prevent corrupted Unicode in persisted tool details (#…",
-      "summaryZh": "重點：修正(sessions): prevent corrupted Unicode in persisted tool details (#104540) * 修正(sessions): prevent corrupted Unicode in..."
+      "title": "台製無人機獲美烏軍大單，靠「可信任」打破低價競爭",
+      "link": "https://technews.tw/2026/07/12/can-taiwan-drone-supply-chain-become-a-long-term-market/",
+      "publishedAt": "Sat, 11 Jul 2026 23:55:29 +0000",
+      "summary": "烏俄戰爭 2022 年開打，推升全球無人機需求量。短短兩、三年間，台灣無人機廠商不只打入美國市場，也在烏克蘭的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(discord): refresh model picker after default changes (#104635)",
-      "link": "https://github.com/openclaw/openclaw/commit/088a9dc33557648556a13642b381beb15aa5d261",
-      "publishedAt": "2026-07-11T22:47:34Z",
-      "summary": "fix(discord): refresh model picker after default changes (#104635) * fix(discord): refresh model picker component config * test(discord): model full hot-reload snapshot state * fix(discord): keep pending model selection stable * fix(discord): stabilize recent model actions --------- Co-authored-by: compoodment Co-authored-by: Peter Steinberger",
+      "title": "feat(gateway): persist operator approvals (#103579)",
+      "link": "https://github.com/openclaw/openclaw/commit/02dc25a1b51f8e663405d80209ef2688238be9fd",
+      "publishedAt": "2026-07-11T23:53:49Z",
+      "summary": "feat(gateway): persist operator approvals (#103579) * feat(gateway): persist operator approvals * fix(gateway): preserve approval ids exactly * fix(gateway): enforce approval reviewer bindings * fix(gateway): reconcile durable approvals with exec revocation hardening Map #103515 semantics onto the durable lifecycle: resolutionSource and one-shot consumeAskFallback stay process-local record facts, trusted auto-review resolves through the durable CAS as a runtime resolver, and lost races settle with the winner's operator source. Also: derive the audience walker cap from the store cap, report APPROVAL_ALREADY_RESOLVED for a resolve that loses the CAS race, document approval.get/resolve in the protocol docs, and regenerate Swift models on the new base. * fix(approvals): validate resolver kind * docs(approvals): explain malformed verdict denial * fix(protocol): regenerate approval models after rebase * chore: leave changelog entry to release generation * fix(gateway): preserve approval registration boundaries * test(gateway): prove multi-device approval races * test(gateway): keep approval order assertion stable * docs: index operator approval architecture * fix(protocol): bound approval declaration exports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): refresh 模型 picker after default changes (#104635)",
-      "summaryZh": "重點：修正(Discord): refresh 模型 picker after default changes (#104635) * 修正(Discord): refresh 模型 picker component config * test(..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): persist operator approvals (#103579)",
+      "summaryZh": "重點：新功能(Gateway): persist operator approvals (#103579) * 新功能(Gateway): persist operator approvals * 修正(Gateway): preserve ap..."
     },
     {
       "id": 4,
-      "title": "fix(reply): prevent hung pre-delivery hooks from blocking lanes (#104…",
-      "link": "https://github.com/openclaw/openclaw/commit/da6a24d7dc41d2e19d2c9bfd095ae8b6c850c4fb",
-      "publishedAt": "2026-07-11T22:47:15Z",
-      "summary": "fix(reply): prevent hung pre-delivery hooks from blocking lanes (#104256) * fix(reply): bound pre-delivery hook settlement * test(plugins): preserve hook timeout fixtures * fix(reply): preserve declared pre-delivery budgets * chore(reply): finalize pre-delivery recovery * fix(reply): preserve per-final recovery semantics * fix(reply): guard pending-final settlement identity * test(reply): align pending-final store fixture * fix(reply): bind settlement to originating intent * test(reply): satisfy timeout fixture lint * chore(plugin-sdk): refresh rebased baseline * fix(reply): preserve normalized retry ownership * fix(reply): narrow pending retry metadata * fix: align reply dispatch state access * chore(plugin-sdk): refresh rebased surface baseline * test(reply): align rebased accessor assertion * chore(plugin-sdk): regenerate drifted API baseline --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
+      "title": "fix(parallel): stop MCP search when initialized ack fails (#104554)",
+      "link": "https://github.com/openclaw/openclaw/commit/8e216310b8b83f634bef9d636eeaa3d018e62ebc",
+      "publishedAt": "2026-07-11T23:52:23Z",
+      "summary": "fix(parallel): stop MCP search when initialized ack fails (#104554) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): prevent hung pre-delivery hooks from blocking lanes (#104…",
-      "summaryZh": "重點：修正(reply): prevent hung pre-delivery hooks from blocking lanes (#104256) * 修正(reply): bound pre-delivery hook settlement..."
+      "titleZh": "OpenClaw 程式碼更新：修正(parallel): stop MCP search when initialized ack fails (#104554)",
+      "summaryZh": "重點：修正(parallel): stop MCP search when initialized ack fails (#104554) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 5,
-      "title": "fix(agents): keep failover detail truncation UTF-16 safe (#104487)",
-      "link": "https://github.com/openclaw/openclaw/commit/aa8f78788c76d5eea60ce40e2a18efcb4cb0ef87",
-      "publishedAt": "2026-07-11T22:43:52Z",
-      "summary": "fix(agents): keep failover detail truncation UTF-16 safe (#104487) * fix(agents): keep failover detail truncation UTF-16 safe Replace raw .slice(0, MAX_FAILOVER_DETAIL_CHARS) with truncateUtf16Safe so provider error details containing emoji or other non-BMP characters are not split at a surrogate-pair boundary before failover classification. Adds a regression test via extractFailoverSignalDetails. * test(agents): tighten failover UTF-16 coverage --------- Co-authored-by: chengzhichao-xydt Co-authored-by: Peter Steinberger",
+      "title": "feat(ui): chat background-tasks rail detects running work eagerly and…",
+      "link": "https://github.com/openclaw/openclaw/commit/f929fd98657ceec94882be0901521b8c89d703ab",
+      "publishedAt": "2026-07-11T23:51:48Z",
+      "summary": "feat(ui): chat background-tasks rail detects running work eagerly and shows live tool activity (#104776) * feat(ui): detect background tasks eagerly and show live tool activity in the chat rail Track tool-start counts and the last tool name per task run in the task registry, persist them on task_runs, and expose them as additive optional TaskSummary fields. The chat background-tasks rail now loads its snapshot eagerly so the collapsed toggle badge detects running work immediately, and rows show a live elapsed timer, tool-use count, and the tool currently in use (run duration for finished rows). Issue: #104775 * fix(ui): translate background-task activity strings and refresh generated protocol models The singular tool-use label is literal (\"1 tool use\") because several locales legitimately drop the count placeholder in singular forms, which fail-closes the placeholder guard in the i18n sync. Locale bundles are the authenticated ui:i18n:sync output (fallbacks=0); GatewayModels.swift is protocol:gen:swift output for the new TaskSummary fields. * chore(ui): refresh i18n raw-copy baseline after rebase",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep failover detail truncation UTF-16 safe (#104487)",
-      "summaryZh": "重點：修正(agents): keep failover detail truncation UTF-16 safe (#104487) * 修正(agents): keep failover detail truncation UTF-16 s..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): chat background-tasks rail detects running work eagerly and…",
+      "summaryZh": "重點：新功能(ui): chat background-tasks rail detects running work eagerly and shows live tool activity (#104776) * 新功能(ui): detec..."
     },
     {
       "id": 6,
+      "title": "fix(cron): make condition watcher authoring reliable (#104787)",
+      "link": "https://github.com/openclaw/openclaw/commit/447c9868c34fd8383dd6903b94bc9014c33d8ba5",
+      "publishedAt": "2026-07-11T23:50:39Z",
+      "summary": "fix(cron): make condition watcher authoring reliable (#104787) * fix(cron): teach agents condition watcher contract * chore: defer cron note to release closeout",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): make condition watcher authoring reliable (#104787)",
+      "summaryZh": "重點：修正(排程): make condition watcher authoring reliable (#104787) * 修正(排程): teach agents condition watcher contract * chore: d..."
+    },
+    {
+      "id": 7,
+      "title": "OpenAI 推語音模型 GPT‑Live，AI 聆聽、回應對話還會適時插話",
+      "link": "https://technews.tw/2026/07/12/openai-introduces-gpt%e2%80%91live/",
+      "publishedAt": "Sat, 11 Jul 2026 23:29:43 +0000",
+      "summary": "OpenAI 近日推出新一代語音模型 GPT‑Live 系列，與 ChatGPT 對話更能接近真人交流。 GP [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "AI 是救星還是毀滅創意？Epic 執行長與開發商對「生成式遊戲」態度兩極",
+      "link": "https://technews.tw/2026/07/12/epic-ceo-ai-save-destiny-devs-worry-ai-kill-creative-soul/",
+      "publishedAt": "Sat, 11 Jul 2026 23:19:59 +0000",
+      "summary": "遊戲產業對於人工智慧（AI）的應用，正陷入兩極化的激烈辯論。Epic Games 執行長蒂姆·斯維尼 （Tim [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "NASA 衛星捕捉罕見地質奇景！俾斯麥海火山噴發，新島嶼有望成形",
       "link": "https://technews.tw/2026/07/12/nasa-satellite-submarine-volcano-eruption-new-island-emerges/",
       "publishedAt": "Sat, 11 Jul 2026 16:04:00 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "美國放寬對阿聯 AI 晶片與軍備出口，民主黨痛批新制淪為川普腐敗交易",
       "link": "https://finance.technews.tw/2026/07/11/the-united-states-has-eased-restrictions-on-exports-of-ai-chips-and-military-equipment-to-the-united-arab-emirates/",
       "publishedAt": "Sat, 11 Jul 2026 10:00:08 +0000",
       "summary": "美國商務部於日前宣布，正式放寬對阿拉伯聯合大公國（UAE）的出口管制，使輝達（Nvidia）AI晶片、軍事設備 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "代工廠晶合集成登陸港交所掛牌，穩居中國第三大晶圓代工廠位階",
-      "link": "https://finance.technews.tw/2026/07/11/nexchip-a-contract-manufacturer-listed-on-the-hong-kong-stock-exchange/",
-      "publishedAt": "Sat, 11 Jul 2026 09:15:41 +0000",
-      "summary": "7月10日，中國境內的12吋純晶圓代工廠商-晶合集成正式在香港交易所掛牌上市，成功達成A+H兩地上市佈局，也是 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "微軟打造AI視覺化中介語言Flint，以語意規格簡化圖表生成",
-      "link": "https://www.ithome.com.tw/news/177236",
-      "publishedAt": "2026-07-11 07:07:37",
-      "summary": "微軟研究院發布開源視覺化中介語言Flint，讓AI代理程式以可由人員直接修改的規格描述圖表，再由編譯器自動補齊日期解析、座標軸、色階、標籤與版面配置等細節。Flint目前能將同一份規格轉換為Vega-Lite、Apache ECharts或Chart.js格式，降低AI直接產生完整圖表規格時容易出錯及難以維護的問題。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "英特爾大秀 EMIB-T 先進封裝技術，挑戰台積電 CoWoS 先進封裝技術",
-      "link": "https://finance.technews.tw/2026/07/11/intel-showcases-its-advanced-emib-t-packaging-technology/",
-      "publishedAt": "Sat, 11 Jul 2026 07:00:02 +0000",
-      "summary": "隨著人工智慧與高效能運算的需求暴增，半導體先進封裝技術成為推動算力進步的關鍵。半導體大廠英特爾 (Intel) [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
