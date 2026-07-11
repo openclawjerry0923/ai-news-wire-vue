@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-11T17:03:21.331Z",
+  "generatedAt": "2026-07-11T19:04:30.214Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(node-pairing): require operator.admin to approve browser.proxy no…",
-      "link": "https://github.com/openclaw/openclaw/commit/68c18caca06cebdc8eee55b1a73b03e996bc4764",
-      "publishedAt": "2026-07-11T16:58:00Z",
-      "summary": "fix(node-pairing): require operator.admin to approve browser.proxy nodes (#104491) Approving a node whose pairing surface advertises browser.proxy only required operator.write, while invoking browser.proxy already requires operator.admin (server-methods/nodes.ts). resolveNodePairApprovalScopes bumped the approval scope to operator.admin only for NODE_SYSTEM_RUN_COMMANDS, so a write-scoped operator could trust a browser.proxy-capable node that later routes bundled browser-tool traffic. Add NODE_BROWSER_PROXY_COMMAND to the admin-approval set so approval scope matches the invoke-time gate.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(node-pairing): require operator.admin to approve browser.proxy no…",
-      "summaryZh": "重點：修正(node-pairing): require operator.admin to approve browser.proxy nodes (#104491) Approving a node whose pairing surface..."
+      "title": "Binarly研究人員揭露開源開機載入程式U-Boot存在6個資安漏洞，大量伺服器、網路設備、物聯網設備均可能受到影響",
+      "link": "https://www.ithome.com.tw/news/177240",
+      "publishedAt": "2026-07-12 01:07:48",
+      "summary": "專精韌體與軟體供應鏈安全的資安研究機構Binarly，7月初揭露開放原始碼開機載入程式（bootloader）U-Boot存在6個漏洞，當中兩個（BRLY-2026-037、BRLY-2026-038）可能導致任意程式碼執行，其餘4個漏洞（",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(browser): reject hex click coordinates in act route (#104440)",
-      "link": "https://github.com/openclaw/openclaw/commit/834c1469581c0eed9b001d506f37645e0029043f",
-      "publishedAt": "2026-07-11T16:56:09Z",
-      "summary": "fix(browser): reject hex click coordinates in act route (#104440) * fix(browser): reject hex click coordinates in act route * refactor(browser): use route parser for click coordinates --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(outbound): preserve attributed inline formatting (#104118)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa12e71de7b4ef80f6275b9c4a7d3485d6f250e0",
+      "publishedAt": "2026-07-11T19:03:11Z",
+      "summary": "fix(outbound): preserve attributed inline formatting (#104118) * fix(outbound): preserve backticks on tags with attributes The plain-text sanitizer only matched bare openers, so attributed variants such as lost their backtick wrapping and were stripped to raw text before channel delivery. Allow optional attributes on the opening tag, consistent with the existing handling for and in the same function. Fixes #104117 * fix(outbound): preserve attributed inline formatting Co-authored-by: chengzhichao-xydt * test(outbound): compact attributed tag coverage * fix(outbound): normalize attributed formatting tags * docs(outbound): clarify attribute normalization invariant * fix(outbound): preserve native formatting semantics * docs(plugin-sdk): document sanitizer markup styles * docs(plugin-sdk): refresh docs map --------- Co-authored-by: moguangyu5-design Co-authored-by: Peter Steinberger Co-authored-by: chengzhichao-xydt",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): reject hex click coordinates in act route (#104440)",
-      "summaryZh": "重點：修正(browser): reject hex click coordinates in act route (#104440) * 修正(browser): reject hex click coordinates in act rout..."
+      "titleZh": "OpenClaw 程式碼更新：修正(outbound): preserve attributed inline formatting (#104118)",
+      "summaryZh": "重點：修正(outbound): preserve attributed inline formatting (#104118) * 修正(outbound): preserve backticks on tags with attributes..."
     },
     {
       "id": 3,
-      "title": "fix(slack): preserve canonical block receipts (#104563)",
-      "link": "https://github.com/openclaw/openclaw/commit/7ef22875ad5ea72f895f507e7852b9f5cf4005bd",
-      "publishedAt": "2026-07-11T16:51:02Z",
-      "summary": "fix(slack): preserve canonical block receipts (#104563)",
+      "title": "feat(tooling): complete packages/* noUncheckedIndexedAccess adoption …",
+      "link": "https://github.com/openclaw/openclaw/commit/4b751ce48ab6a7edbda8e80ae0d088519fc00923",
+      "publishedAt": "2026-07-11T18:54:06Z",
+      "summary": "feat(tooling): complete packages/* noUncheckedIndexedAccess adoption (phase 2) (#104626) * feat(tooling): extend strict-ratchet lane to all remaining leaf packages * fix(packages): burn down indexed-access debt in ai and agent-core All 196 noUncheckedIndexedAccess errors fixed behavior-identically (iteration, .at()/slices, DataView byte math, guarded queue peeks) plus cleanup finds: a sparse-tool diagnostic bug, deduplicated Responses call/item ID parsing with an honest string|undefined splitter, and a clearer local failure for redacted-thinking blocks missing signatures. Removes all 17 remaining non-null assertions across ai, gateway-client, and llm-core so the assertion ban aligns 1:1 with the ratchet lane. speech-core joins memory-host-sdk as structurally deferred (imports src/** via plugin-sdk path mappings).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): preserve canonical block receipts (#104563)",
-      "summaryZh": "重點：修正(slack): preserve canonical block receipts (#104563)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(tooling): complete packages/* noUncheckedIndexedAccess adoption …",
+      "summaryZh": "重點：新功能(tooling): complete packages/* noUncheckedIndexedAccess adoption (phase 2) (#104626) * 新功能(tooling): extend strict-ra..."
     },
     {
       "id": 4,
-      "title": "fix(ci): handle missing temp report merge base (#104557)",
-      "link": "https://github.com/openclaw/openclaw/commit/bc239a85161881d2261a0c23eff6222224670e65",
-      "publishedAt": "2026-07-11T16:44:19Z",
-      "summary": "fix(ci): handle missing temp report merge base (#104557)",
+      "title": "fix(ui): shift the split-view pane header beside the macOS window con…",
+      "link": "https://github.com/openclaw/openclaw/commit/8fff38479e92b26d71ed65bf910450c94754b56b",
+      "publishedAt": "2026-07-11T18:51:02Z",
+      "summary": "fix(ui): shift the split-view pane header beside the macOS window controls instead of reserving a titlebar band (#104628)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): handle missing temp report merge base (#104557)",
-      "summaryZh": "重點：修正(ci): handle missing temp report merge base (#104557)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): shift the split-view pane header beside the macOS window con…",
+      "summaryZh": "重點：修正(ui): shift the split-view pane header beside the macOS window controls instead of reserving a titlebar band (#104628)..."
     },
     {
       "id": 5,
+      "title": "fix(gateway): demote startup close transport races (#104625)",
+      "link": "https://github.com/openclaw/openclaw/commit/78fca7b0c4f6e18c666e47531b7280f5b007f5d9",
+      "publishedAt": "2026-07-11T18:49:27Z",
+      "summary": "fix(gateway): demote startup close transport races (#104625) * fix(gateway): demote startup close transport races * fix(gateway): remove stale startup close import",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): demote startup close transport races (#104625)",
+      "summaryZh": "重點：修正(Gateway): demote startup close transport races (#104625) * 修正(Gateway): demote startup close transport races * 修正(Gat..."
+    },
+    {
+      "id": 6,
       "title": "NASA 衛星捕捉罕見地質奇景！俾斯麥海火山噴發，新島嶼有望成形",
       "link": "https://technews.tw/2026/07/12/nasa-satellite-submarine-volcano-eruption-new-island-emerges/",
       "publishedAt": "Sat, 11 Jul 2026 16:04:00 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "美國放寬對阿聯 AI 晶片與軍備出口，民主黨痛批新制淪為川普腐敗交易",
       "link": "https://finance.technews.tw/2026/07/11/the-united-states-has-eased-restrictions-on-exports-of-ai-chips-and-military-equipment-to-the-united-arab-emirates/",
       "publishedAt": "Sat, 11 Jul 2026 10:00:08 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "代工廠晶合集成登陸港交所掛牌，穩居中國第三大晶圓代工廠位階",
       "link": "https://finance.technews.tw/2026/07/11/nexchip-a-contract-manufacturer-listed-on-the-hong-kong-stock-exchange/",
       "publishedAt": "Sat, 11 Jul 2026 09:15:41 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "微軟打造AI視覺化中介語言Flint，以語意規格簡化圖表生成",
       "link": "https://www.ithome.com.tw/news/177236",
       "publishedAt": "2026-07-11 07:07:37",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "英特爾大秀 EMIB-T 先進封裝技術，挑戰台積電 CoWoS 先進封裝技術",
       "link": "https://finance.technews.tw/2026/07/11/intel-showcases-its-advanced-emib-t-packaging-technology/",
       "publishedAt": "Sat, 11 Jul 2026 07:00:02 +0000",
       "summary": "隨著人工智慧與高效能運算的需求暴增，半導體先進封裝技術成為推動算力進步的關鍵。半導體大廠英特爾 (Intel) [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "「Academic Humanizer」問世，抹除 AI 寫作痕跡引發學界爭議",
-      "link": "https://technews.tw/2026/07/11/ai-papers-tool-academic-humanizer/",
-      "publishedAt": "Sat, 11 Jul 2026 06:38:51 +0000",
-      "summary": "人工智慧（AI）在學術領域的應用日益普及，如何辨識與規範 AI 生成內容已成為熱門議題。近日新創公司 Morp [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
