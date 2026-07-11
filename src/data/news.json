@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-11T08:47:44.015Z",
+  "generatedAt": "2026-07-11T10:15:27.408Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: address update-card review findings (channel normalization, hidd…",
-      "link": "https://github.com/openclaw/openclaw/commit/88c563b241e19090fb20d132ce56044032deea42",
-      "publishedAt": "2026-07-11T08:44:26Z",
-      "summary": "fix: address update-card review findings (channel normalization, hidden-nav affordance, prerelease pinning, policy-aware bridge) (#104316) * fix(mac): prerelease-exact launch resolution and policy-aware update ownership * fix(ui): keep update affordance when nav is hidden and fall back on native decline * chore(i18n): sync native inventory",
+      "title": "ci(release): expose Telegram runtime preflight stage (#104387)",
+      "link": "https://github.com/openclaw/openclaw/commit/8d96790b4410829c08d40347c9ddcc392974028f",
+      "publishedAt": "2026-07-11T10:12:41Z",
+      "summary": "ci(release): expose Telegram runtime preflight stage (#104387)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: address update-card review findings (channel normalization, hidd…",
-      "summaryZh": "重點：修正: address update-card review findings (channel normalization, hidden-nav affordance, pre版本發布 pinning, policy-aware bri..."
+      "titleZh": "OpenClaw 程式碼更新：ci(版本發布): expose Telegram runtime preflight stage (#104387)",
+      "summaryZh": "重點：ci(版本發布): expose Telegram runtime preflight stage (#104387)..."
     },
     {
       "id": 2,
-      "title": "feat(control-ui): selection popup with More details and Ask in side c…",
-      "link": "https://github.com/openclaw/openclaw/commit/236d1b2484ca49cc3225cb0e6cd8eb5cd6ab6c52",
-      "publishedAt": "2026-07-11T08:42:17Z",
-      "summary": "feat(control-ui): selection popup with More details and Ask in side chat via /btw (#104205) * feat(control-ui): add chat selection popup with More details and Ask in side chat * fix(control-ui): keep BTW pending card visible and clear it on resultless terminal runs * fix(control-ui): route failed BTW runs to an error side-result card and ignore stale side results * fix(control-ui): correlate BTW pending cards by pre-generated run id and suppress superseded runs * fix(control-ui): retire abandoned BTW runs so late side events never reach the transcript * chore(docs): regenerate docs map for btw selection-popup section; fix selection-popup test lint",
+      "title": "fix(status): avoid false shell-wrapper audit warnings (#81778)",
+      "link": "https://github.com/openclaw/openclaw/commit/410e6db74c5b45cd9ee016aab4a9bc2fab3a1ea0",
+      "publishedAt": "2026-07-11T10:12:32Z",
+      "summary": "fix(status): avoid false shell-wrapper audit warnings (#81778)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(control-ui): selection popup with More details and Ask in side c…",
-      "summaryZh": "重點：新功能(control-ui): selection popup with More details and Ask in side chat via /btw (#104205) * 新功能(control-ui): add chat s..."
+      "titleZh": "OpenClaw 程式碼更新：修正(status): avoid false shell-wrapper audit warnings (#81778)",
+      "summaryZh": "重點：修正(status): avoid false shell-wrapper audit warnings (#81778)..."
     },
     {
       "id": 3,
-      "title": "feat: harden live gateway and mac restarts (#104314)",
-      "link": "https://github.com/openclaw/openclaw/commit/2ed24246182f0a02677ffc9abe745927f610f7d5",
-      "publishedAt": "2026-07-11T08:41:27Z",
-      "summary": "feat: harden live gateway and mac restarts (#104314) * feat: audit gateway logs after live restarts * fix: keep mac app running during replacement build",
+      "title": "fix: retry live Gateway readiness proof (#104374)",
+      "link": "https://github.com/openclaw/openclaw/commit/5e8a534fadb9093f04cec2b09bc6af18f316dd6b",
+      "publishedAt": "2026-07-11T10:11:34Z",
+      "summary": "fix: retry live Gateway readiness proof (#104374) * fix: retry live Gateway readiness proof * style: format live updater readiness helper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: harden live Gateway and mac restarts (#104314)",
-      "summaryZh": "重點：新功能: harden live Gateway and mac restarts (#104314) * 新功能: audit Gateway logs after live restarts * 修正: keep mac app run..."
+      "titleZh": "OpenClaw 程式碼更新：修正: retry live Gateway readiness proof (#104374)",
+      "summaryZh": "重點：修正: retry live Gateway readiness proof (#104374) * 修正: retry live Gateway readiness proof * style: format live updater r..."
     },
     {
       "id": 4,
-      "title": "docs: refresh llama diagnostics map",
-      "link": "https://github.com/openclaw/openclaw/commit/b01affeaee7fa6a1806e425728dc8fe35cfb3c72",
-      "publishedAt": "2026-07-11T08:40:14Z",
-      "summary": "docs: refresh llama diagnostics map",
+      "title": "fix(exec-approval): stop misattributing Allow Always unavailability t…",
+      "link": "https://github.com/openclaw/openclaw/commit/cbc84767bd7ed9400a94e51466b71fbb7b168b10",
+      "publishedAt": "2026-07-11T10:09:51Z",
+      "summary": "fix(exec-approval): stop misattributing Allow Always unavailability to policy (#97740) * fix(exec-approval): stop misattributing Allow Always unavailability to policy Allow Always is dropped both when policy ask=always AND when a command is non-persistable (e.g. shell redirect `2>&amp;1` -> one-shot), but the prompt always claimed 'effective approval policy requires approval every time'. That's misleading for the non-persistable case (#97069). Reword to reason-neutral 'Allow Always is unavailable for this command.' across all approval surfaces, update en + 20 locale bundles, refresh i18n meta, and the matching tests. Closes #97069 * fix(exec-approval): stop misattributing Allow Always unavailability to policy * test(ui): await exec approval render updates * chore(ui): sync approval i18n metadata --------- Co-authored-by: saju01 Co-authored-by: openclaw-clownfish[bot] Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: refresh llama diagnostics map",
-      "summaryZh": "重點：文件: refresh llama diagnostics map..."
+      "titleZh": "OpenClaw 程式碼更新：修正(exec-approval): stop misattributing Allow Always unavailability t…",
+      "summaryZh": "重點：修正(exec-approval): stop misattributing Allow Always unavailability to policy (#97740) * 修正(exec-approval): stop misattri..."
     },
     {
       "id": 5,
+      "title": "美國放寬對阿聯 AI 晶片與軍備出口，民主黨痛批新制淪為川普腐敗交易",
+      "link": "https://finance.technews.tw/2026/07/11/the-united-states-has-eased-restrictions-on-exports-of-ai-chips-and-military-equipment-to-the-united-arab-emirates/",
+      "publishedAt": "Sat, 11 Jul 2026 10:00:08 +0000",
+      "summary": "美國商務部於日前宣布，正式放寬對阿拉伯聯合大公國（UAE）的出口管制，使輝達（Nvidia）AI晶片、軍事設備 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "代工廠晶合集成登陸港交所掛牌，穩居中國第三大晶圓代工廠位階",
+      "link": "https://finance.technews.tw/2026/07/11/nexchip-a-contract-manufacturer-listed-on-the-hong-kong-stock-exchange/",
+      "publishedAt": "Sat, 11 Jul 2026 09:15:41 +0000",
+      "summary": "7月10日，中國境內的12吋純晶圓代工廠商-晶合集成正式在香港交易所掛牌上市，成功達成A+H兩地上市佈局，也是 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "微軟打造AI視覺化中介語言Flint，以語意規格簡化圖表生成",
       "link": "https://www.ithome.com.tw/news/177236",
       "publishedAt": "2026-07-11 07:07:37",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "英特爾大秀 EMIB-T 先進封裝技術，挑戰台積電 CoWoS 先進封裝技術",
       "link": "https://finance.technews.tw/2026/07/11/intel-showcases-its-advanced-emib-t-packaging-technology/",
       "publishedAt": "Sat, 11 Jul 2026 07:00:02 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "「Academic Humanizer」問世，抹除 AI 寫作痕跡引發學界爭議",
       "link": "https://technews.tw/2026/07/11/ai-papers-tool-academic-humanizer/",
       "publishedAt": "Sat, 11 Jul 2026 06:38:51 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "遇 25 年最大危機，維基百科力抗 AI 掠奪、政治砲火與威權打壓",
       "link": "https://technews.tw/2026/07/11/wikipedia-fights-for-survival/",
       "publishedAt": "Sat, 11 Jul 2026 06:35:06 +0000",
       "summary": "走過 25 年歲月的維基百科（Wikipedia），正面臨近年來罕見的多重生存壓力。在全球對可信資訊信任度下滑 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "雄三飛彈空射成功，台灣反艦戰力邁向多層次打擊體系",
-      "link": "https://technews.tw/2026/07/11/taiwan-hsiung-feng-iii-missile-air-launch-success-anti-ship-multi-layered-strike-system/",
-      "publishedAt": "Sat, 11 Jul 2026 06:05:32 +0000",
-      "summary": "國軍又有一款新彈藥曝光！台灣自研自製、過去只能由陸地、軍艦發射的雄風三型反艦飛彈，克服微型化挑戰，近日正式掛載 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Hyundai Motor 在首次現場比賽環境機器人整合中，將 Atlas 人形機器人帶到 FIFA World Cup 2026",
-      "link": "https://technews.tw/2026/07/11/hyundai-motor-_fifa-2026_boston-dynamics-atlas/",
-      "publishedAt": "Sat, 11 Jul 2026 06:00:41 +0000",
-      "summary": "Hyundai Motor Company 8 日在紐約紐澤西球場的 FIFA 十六強比賽中，把 Boston [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
