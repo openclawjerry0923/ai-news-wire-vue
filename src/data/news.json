@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-12T19:17:19.081Z",
+  "generatedAt": "2026-07-12T20:50:22.975Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(matrix): preserve UTF-8 bootstrap output tails (#105475)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a595dafe49a208cabe16f2352d15c0aa36d3058",
-      "publishedAt": "2026-07-12T19:12:55Z",
-      "summary": "fix(matrix): preserve UTF-8 bootstrap output tails (#105475) * fix(matrix): preserve UTF-8 in bootstrap output tails * fix(matrix): satisfy deps output tail types * docs(changelog): note Matrix UTF-8 tail fix Co-authored-by: qingminlong --------- Co-authored-by: Peter Steinberger",
+      "title": "fix: segment localized settings queries (#104675)",
+      "link": "https://github.com/openclaw/openclaw/commit/b640718204b1628dcc9ed0b8d652c729c82cb46b",
+      "publishedAt": "2026-07-12T20:46:50Z",
+      "summary": "fix: segment localized settings queries (#104675)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(matrix): preserve UTF-8 bootstrap output tails (#105475)",
-      "summaryZh": "重點：修正(matrix): preserve UTF-8 bootstrap output tails (#105475) * 修正(matrix): preserve UTF-8 in bootstrap output tails * 修正(..."
+      "titleZh": "OpenClaw 程式碼更新：修正: segment localized settings queries (#104675)",
+      "summaryZh": "重點：修正: segment localized settings queries (#104675)..."
     },
     {
       "id": 2,
-      "title": "fix(retry): avoid status code substring matches (#105258)",
-      "link": "https://github.com/openclaw/openclaw/commit/ca90a59370a691fe8b1dab406e853fbc4dd76267",
-      "publishedAt": "2026-07-12T19:12:32Z",
-      "summary": "fix(retry): avoid status code substring matches (#105258) * fix(retry): avoid status code substring matches * fix(retry): parse leading HTTP statuses * style(retry): format status classifier * test(retry): cover session retry behavior * test(retry): emit error stream events * fix(retry): share rate-limit window classification Co-authored-by: destire-mio * docs(changelog): note session retry fix Co-authored-by: destire-mio * refactor(retry): keep window type internal Co-authored-by: destire-mio --------- Co-authored-by: destire-mio Co-authored-by: Peter Steinberger",
+      "title": "fix: complete recursive settings search",
+      "link": "https://github.com/openclaw/openclaw/commit/89ccb5a90d6bf40e1fd23fefcd7946fea34c9064",
+      "publishedAt": "2026-07-12T20:46:50Z",
+      "summary": "fix: complete recursive settings search",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(retry): avoid status code substring matches (#105258)",
-      "summaryZh": "重點：修正(retry): avoid status code substring matches (#105258) * 修正(retry): avoid status code substring matches * 修正(retry): p..."
+      "titleZh": "OpenClaw 程式碼更新：修正: complete recursive settings search",
+      "summaryZh": "重點：修正: complete recursive settings search..."
     },
     {
       "id": 3,
-      "title": "fix(terminal): keep C1 CSI and BEL-terminated OSC-8 links intact when…",
-      "link": "https://github.com/openclaw/openclaw/commit/840f349d5d3f5174e2015e5cd32ab4f5e58f3e0b",
-      "publishedAt": "2026-07-12T19:10:35Z",
-      "summary": "fix(terminal): keep C1 CSI and BEL-terminated OSC-8 links intact when wrapping table cells (#103717) * fix(terminal): keep C1 CSI and BEL-terminated OSC-8 links intact when wrapping table cells * fix(terminal): close and reopen OSC-8 links at table wrap boundaries * fix(terminal): carry leading OSC-8 state through table wrap state machine A cell shaped like `${link} after` left the OSC-8 opener in `prefixAnsi` (prepended to every wrapped line) while its closer sat inside `coreTokens`. Continuation lines got an opener with no matching closer, reopening the hyperlink onto trailing plain text and padding and bleeding link state past the cell border. Exclude OSC-8 tokens from `prefixAnsi`/`suffixAnsi` (SGR-only, unchanged) and seed leading openers / trailing closers into `coreTokens` so the `flushAt` close/reopen logic owns hyperlink state end to end. Adds a `${link} after` regression across BEL, ESC-backslash, and C1-ST terminators. Addresses the ClawSweeper P2 finding on #103717: carry leading OSC-8 state into wrapped lines. * chore: trigger CI re-run * chore: trigger CI re-run * fix(terminal): preserve ANSI state across table wraps Co-authored-by: Pick-cat --------- Co-authored-by: Peter Steinberger",
+      "title": "fix: contain settings config load failures",
+      "link": "https://github.com/openclaw/openclaw/commit/7d2694d7fcddf838cc008a6ca5fb1e7497603b6a",
+      "publishedAt": "2026-07-12T20:46:50Z",
+      "summary": "fix: contain settings config load failures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(terminal): keep C1 CSI and BEL-terminated OSC-8 links intact when…",
-      "summaryZh": "重點：修正(terminal): keep C1 CSI and BEL-terminated OSC-8 links intact when wrapping table cells (#103717) * 修正(terminal): keep..."
+      "titleZh": "OpenClaw 程式碼更新：修正: contain settings config load failures",
+      "summaryZh": "重點：修正: contain settings config load failures..."
     },
     {
       "id": 4,
-      "title": "refactor(agents): trim private export surface (#105631)",
-      "link": "https://github.com/openclaw/openclaw/commit/e45f2f6ca670bedc46beebf5a3f4ddb2e5ab9f6e",
-      "publishedAt": "2026-07-12T19:08:56Z",
-      "summary": "refactor(agents): trim private export surface (#105631)",
+      "title": "style: format settings search changes",
+      "link": "https://github.com/openclaw/openclaw/commit/378862e575d842259427820dc774815648a37738",
+      "publishedAt": "2026-07-12T20:46:50Z",
+      "summary": "style: format settings search changes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): trim private export surface (#105631)",
-      "summaryZh": "重點：refactor(agents): trim private export surface (#105631)..."
+      "titleZh": "OpenClaw 程式碼更新：style: format settings search changes",
+      "summaryZh": "重點：style: format settings search changes..."
     },
     {
       "id": 5,
