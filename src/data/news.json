@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-12T09:02:14.432Z",
+  "generatedAt": "2026-07-12T11:10:12.361Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(plugins): remove obsolete plain-file installer (#105205)",
-      "link": "https://github.com/openclaw/openclaw/commit/e7f9a430e3fb7c87287c0f16c7115eab1f64c486",
-      "publishedAt": "2026-07-12T09:00:50Z",
-      "summary": "refactor(plugins): remove obsolete plain-file installer (#105205)",
+      "title": "improve(ui): fold the New session target controls into click menus (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/f94a35933830d385028de96f42efd2283f79c884",
+      "publishedAt": "2026-07-12T11:09:53Z",
+      "summary": "improve(ui): fold the New session target controls into click menus (#105265) * improve(ui): fold the new-session targets into click menus The /new target controls become Cursor-style trigger menus instead of an inline control row: a folder trigger opens the directory browser as a floating panel (with editable path in its head for manual entry), and a where trigger opens one menu holding Gateway/node selection plus the worktree toggle with labeled base-branch/name fields; the agent picker becomes a menu when several agents exist. Triggers show live labels (folder basename, node name, a branch badge when a worktree is on), so the row stays one quiet line even on phones. Menus reuse the shared session-menu item styles and the chat composer's details/summary dismissal contract (outside pointerdown, Escape restores trigger focus). Node-bound drafts no longer show an inert worktree toggle; the item disappears because managed worktrees are Gateway-only. * fix(ui): harden the new-session trigger menus Review fixes: the folder trigger no longer shows the Gateway workspace basename for node sessions (an empty node folder means that node's default directory); sibling menus now close on the details toggle so keyboard-opened menus stay mutually exclusive; and phone menus anchor to the trigger row full-width so a wide browser panel under a non-leftmost trigger cannot overflow the viewport. * fix(ui): keep filesystem roots visible in the folder trigger folderDisplayName falls back to the raw path so picking '/' (or a drive root) labels the trigger instead of leaving it blank. * fix(ui): give the new-session menus the native-select keyboard contract Opening a menu moves focus to its first item, ArrowUp/Down wrap through the items (browser rows included), and Home/End jump to the edges, restoring what the replaced native selects provided. Re-picking the checked agent no longer resets the draft (the native select never fired change for the same option). * fix(ui): keep native key behavior in menu text fields Menu arrow/Home/End navigation now ignores events from text inputs so the browser path, base-branch (datalist), and worktree-name fields keep their native caret and picker behavior. * fix(ui): let typed paths apply without a directory listing Admins on hosts without a working fs.listDir keep manual folder entry: the browser head input tracks a draft path and Use this folder applies a typed absolute path even when listing fails; shapeless fs.listDir payloads render as an empty directory instead of crashing the render. The folder menu also initializes browser state before the focus hook captures updateComplete, so keyboard-opened menus focus their first row as advertised. * fix(ui): apply exactly the shown browser path Use this folder now applies the head input's absolute path only; the draft syncs to every listed directory, so browsing is unchanged while an edited path can never lose to a stale listing. * fix(ui): let the browser express host-default directories Review fixes: a cleared path input now applies '' — the host's default directory (workspace on the Gateway, home on a node) — restoring the state the replaced clearable folder textbox could express, and directory results no longer overwrite a path the user typed while the listing was in flight. E2E covers clearing back to the node default. * fix(ui): apply the requested directory during browser navigation loadBrowser assigns the head input the destination it is fetching, so a mid-flight Use this folder applies where the user is heading instead of the directory they just left.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): remove obsolete plain-file installer (#105205)",
-      "summaryZh": "重點：refactor(plugins): remove obsolete plain-file installer (#105205)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): fold the New session target controls into click menus (#…",
+      "summaryZh": "重點：improve(ui): fold the New session target controls into click menus (#105265) * improve(ui): fold the new-session targets..."
     },
     {
       "id": 2,
-      "title": "fix(secrets): preserve partial gateway assignments (#105160)",
-      "link": "https://github.com/openclaw/openclaw/commit/00cab8d42b8bd6da2c868180d429b39368edf31c",
-      "publishedAt": "2026-07-12T08:58:33Z",
-      "summary": "fix(secrets): preserve partial gateway assignments (#105160) Co-authored-by: SunnyShu",
+      "title": "fix(qa): wait for Control UI composer readiness (#105309)",
+      "link": "https://github.com/openclaw/openclaw/commit/6f820f9e6c8ed568cfec504cfc80414129af41a6",
+      "publishedAt": "2026-07-12T11:05:32Z",
+      "summary": "fix(qa): wait for Control UI composer readiness (#105309)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(secrets): preserve partial Gateway assignments (#105160)",
-      "summaryZh": "重點：修正(secrets): preserve partial Gateway assignments (#105160) Co-authored-by: SunnyShu..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): wait for Control UI composer readiness (#105309)",
+      "summaryZh": "重點：修正(qa): wait for Control UI composer readiness (#105309)..."
     },
     {
       "id": 3,
-      "title": "fix(sqlite): validate agent state before schema setup (#105179)",
-      "link": "https://github.com/openclaw/openclaw/commit/cf2af03d02b8cb79899537761e56b63efa76fde3",
-      "publishedAt": "2026-07-12T08:57:18Z",
-      "summary": "fix(sqlite): validate agent state before schema setup (#105179)",
+      "title": "fix(ui): default worktrees to current branch (#105304)",
+      "link": "https://github.com/openclaw/openclaw/commit/04e8aeb78447f49013f87c5d2bff6ccfe3f25ae1",
+      "publishedAt": "2026-07-12T10:54:15Z",
+      "summary": "fix(ui): default worktrees to current branch (#105304)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): validate agent state before schema setup (#105179)",
-      "summaryZh": "重點：修正(sqlite): validate agent state before schema setup (#105179)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): default worktrees to current branch (#105304)",
+      "summaryZh": "重點：修正(ui): default worktrees to current branch (#105304)..."
     },
     {
       "id": 4,
-      "title": "test(release): harden shared UI and performance proof (#105061)",
-      "link": "https://github.com/openclaw/openclaw/commit/f84b6f6091a550316a763051ce8fa90cd3c2929f",
-      "publishedAt": "2026-07-12T08:55:21Z",
-      "summary": "test(release): harden shared UI and performance proof (#105061) * ci(perf): pin PID-aware Kova evaluator * test(ui): follow localized automation labels * ci(perf): pin compatible Kova runner * test(ui): bound chat hover browser wait * docs(agents): require release validation helper * ci(perf): retain redacted Kova reports * style(ui): format chat hover test * docs(agents): avoid dependency scripts in PR worktrees * docs(agents): guard shared checkout branches * docs(agents): quote gh api query endpoints",
+      "title": "test(memory): repair SQLite session fixtures (#105303)",
+      "link": "https://github.com/openclaw/openclaw/commit/66d9ec535e29af7aabd8344fb0f890d22c19d7a6",
+      "publishedAt": "2026-07-12T10:53:35Z",
+      "summary": "test(memory): repair SQLite session fixtures (#105303)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(版本發布): harden shared UI and performance proof (#105061)",
-      "summaryZh": "重點：test(版本發布): harden shared UI and performance proof (#105061) * ci(perf): pin PID-aware Kova evaluator * test(ui): follow..."
+      "titleZh": "OpenClaw 程式碼更新：test(記憶): repair SQLite session 修正tures (#105303)",
+      "summaryZh": "重點：test(記憶): repair SQLite session 修正tures (#105303)..."
     },
     {
       "id": 5,
+      "title": "蘋果告 OpenAI 竊密，馬斯克加入戰局嗆奧特曼「詐騙全新境界」",
+      "link": "https://ccc.technews.tw/2026/07/12/elon-musk-sam-altman-openai-apple/",
+      "publishedAt": "Sun, 12 Jul 2026 09:29:59 +0000",
+      "summary": "馬斯克不會放過任何一次可以言語攻擊 OpenAI 執行長奧特曼的機會。最近蘋果對 OpenAI 提起訴訟，指控 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "一台 100 美元口袋型探測器，就能偵測穿越你身體的宇宙粒子",
       "link": "https://technews.tw/2026/07/12/cosmicwatch-particle-muon/",
       "publishedAt": "Sun, 12 Jul 2026 07:20:23 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "嘉義科學園區二期基地正式動土，台積電先進封裝擴產進入新里程",
       "link": "https://finance.technews.tw/2026/07/12/the-groundbreaking-ceremony-for-the-second-phase-of-the-chiayi-science-park-was-officially-held/",
       "publishedAt": "Sun, 12 Jul 2026 07:00:57 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "男性脖子上的「青春期化石」，生物學家解密喉結真實作用",
       "link": "https://technews.tw/2026/07/12/why-do-men-have-adams-apple/",
       "publishedAt": "Sun, 12 Jul 2026 06:32:33 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "AI 眼鏡掀全球「智慧作弊潮」，常春藤名校、台大都淪陷",
       "link": "https://technews.tw/2026/07/12/ai-glasses-cheating-frequently-reported-globally/",
       "publishedAt": "Sun, 12 Jul 2026 06:01:27 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "IBM 推出全新 z17 與 LinuxONE 系統，協助企業應對資料中心空間及成本壓力",
       "link": "https://technews.tw/2026/07/12/ibm-new-z17-linuxone-systems-address-data-center-space-cost-pressures/",
       "publishedAt": "Sun, 12 Jul 2026 06:00:14 +0000",
       "summary": "IBM 近日宣布，推出全新 IBM z17 及 IBM LinuxONE 5 緊湊型版本；這是 IBM 首次於 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "打造數位分身：渥太華大學推 AI 助理「UbiMyTherapist」攔截情緒低谷",
-      "link": "https://technews.tw/2026/07/12/ai-mental-assistant-ubimytherapist/",
-      "publishedAt": "Sun, 12 Jul 2026 05:02:39 +0000",
-      "summary": "加拿大渥太華大學研究團隊近日推出名為「UbiMyTherapist」（You Be My Therapist， [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
