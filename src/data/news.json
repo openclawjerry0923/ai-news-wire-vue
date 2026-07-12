@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-12T11:10:12.361Z",
+  "generatedAt": "2026-07-12T13:21:34.046Z",
   "items": [
     {
       "id": 1,
-      "title": "improve(ui): fold the New session target controls into click menus (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/f94a35933830d385028de96f42efd2283f79c884",
-      "publishedAt": "2026-07-12T11:09:53Z",
-      "summary": "improve(ui): fold the New session target controls into click menus (#105265) * improve(ui): fold the new-session targets into click menus The /new target controls become Cursor-style trigger menus instead of an inline control row: a folder trigger opens the directory browser as a floating panel (with editable path in its head for manual entry), and a where trigger opens one menu holding Gateway/node selection plus the worktree toggle with labeled base-branch/name fields; the agent picker becomes a menu when several agents exist. Triggers show live labels (folder basename, node name, a branch badge when a worktree is on), so the row stays one quiet line even on phones. Menus reuse the shared session-menu item styles and the chat composer's details/summary dismissal contract (outside pointerdown, Escape restores trigger focus). Node-bound drafts no longer show an inert worktree toggle; the item disappears because managed worktrees are Gateway-only. * fix(ui): harden the new-session trigger menus Review fixes: the folder trigger no longer shows the Gateway workspace basename for node sessions (an empty node folder means that node's default directory); sibling menus now close on the details toggle so keyboard-opened menus stay mutually exclusive; and phone menus anchor to the trigger row full-width so a wide browser panel under a non-leftmost trigger cannot overflow the viewport. * fix(ui): keep filesystem roots visible in the folder trigger folderDisplayName falls back to the raw path so picking '/' (or a drive root) labels the trigger instead of leaving it blank. * fix(ui): give the new-session menus the native-select keyboard contract Opening a menu moves focus to its first item, ArrowUp/Down wrap through the items (browser rows included), and Home/End jump to the edges, restoring what the replaced native selects provided. Re-picking the checked agent no longer resets the draft (the native select never fired change for the same option). * fix(ui): keep native key behavior in menu text fields Menu arrow/Home/End navigation now ignores events from text inputs so the browser path, base-branch (datalist), and worktree-name fields keep their native caret and picker behavior. * fix(ui): let typed paths apply without a directory listing Admins on hosts without a working fs.listDir keep manual folder entry: the browser head input tracks a draft path and Use this folder applies a typed absolute path even when listing fails; shapeless fs.listDir payloads render as an empty directory instead of crashing the render. The folder menu also initializes browser state before the focus hook captures updateComplete, so keyboard-opened menus focus their first row as advertised. * fix(ui): apply exactly the shown browser path Use this folder now applies the head input's absolute path only; the draft syncs to every listed directory, so browsing is unchanged while an edited path can never lose to a stale listing. * fix(ui): let the browser express host-default directories Review fixes: a cleared path input now applies '' — the host's default directory (workspace on the Gateway, home on a node) — restoring the state the replaced clearable folder textbox could express, and directory results no longer overwrite a path the user typed while the listing was in flight. E2E covers clearing back to the node default. * fix(ui): apply the requested directory during browser navigation loadBrowser assigns the head input the destination it is fetching, so a mid-flight Use this folder applies where the user is heading instead of the directory they just left.",
+      "title": "refactor(channels): remove obsolete testing alias (#105385)",
+      "link": "https://github.com/openclaw/openclaw/commit/b84f42c27fe3358e7dffe5c629229a44b0d3fb75",
+      "publishedAt": "2026-07-12T13:18:03Z",
+      "summary": "refactor(channels): remove obsolete testing alias (#105385)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): fold the New session target controls into click menus (#…",
-      "summaryZh": "重點：improve(ui): fold the New session target controls into click menus (#105265) * improve(ui): fold the new-session targets..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(channels): remove obsolete testing alias (#105385)",
+      "summaryZh": "重點：refactor(channels): remove obsolete testing alias (#105385)..."
     },
     {
       "id": 2,
-      "title": "fix(qa): wait for Control UI composer readiness (#105309)",
-      "link": "https://github.com/openclaw/openclaw/commit/6f820f9e6c8ed568cfec504cfc80414129af41a6",
-      "publishedAt": "2026-07-12T11:05:32Z",
-      "summary": "fix(qa): wait for Control UI composer readiness (#105309)",
+      "title": "fix(test): bound agents-core full-suite processes (#105382)",
+      "link": "https://github.com/openclaw/openclaw/commit/ef3a0cf1fc7dec103c3f30d05bc174b2ddae6972",
+      "publishedAt": "2026-07-12T13:11:08Z",
+      "summary": "fix(test): bound agents-core full-suite processes (#105382)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): wait for Control UI composer readiness (#105309)",
-      "summaryZh": "重點：修正(qa): wait for Control UI composer readiness (#105309)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): bound agents-core full-suite processes (#105382)",
+      "summaryZh": "重點：修正(test): bound agents-core full-suite processes (#105382)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): default worktrees to current branch (#105304)",
-      "link": "https://github.com/openclaw/openclaw/commit/04e8aeb78447f49013f87c5d2bff6ccfe3f25ae1",
-      "publishedAt": "2026-07-12T10:54:15Z",
-      "summary": "fix(ui): default worktrees to current branch (#105304)",
+      "title": "fix(sqlite): preserve complete database file sets during recovery (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/720774aa676924f92fa95bc356cc948399b9e893",
+      "publishedAt": "2026-07-12T13:10:11Z",
+      "summary": "fix(sqlite): preserve complete database file sets during recovery (#105370) * fix(sqlite): harden agent database recovery * chore(sqlite): allow recovery maintenance primitive",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): default worktrees to current branch (#105304)",
-      "summaryZh": "重點：修正(ui): default worktrees to current branch (#105304)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): preserve complete database file sets during recovery (#1…",
+      "summaryZh": "重點：修正(sqlite): preserve complete database file sets during recovery (#105370) * 修正(sqlite): harden agent database recovery ..."
     },
     {
       "id": 4,
-      "title": "test(memory): repair SQLite session fixtures (#105303)",
-      "link": "https://github.com/openclaw/openclaw/commit/66d9ec535e29af7aabd8344fb0f890d22c19d7a6",
-      "publishedAt": "2026-07-12T10:53:35Z",
-      "summary": "test(memory): repair SQLite session fixtures (#105303)",
+      "title": "fix(ci): retain failed Telegram QA evidence (#105367)",
+      "link": "https://github.com/openclaw/openclaw/commit/eb9bd4e457f252df07b5bf20d68865c9fd6f9be1",
+      "publishedAt": "2026-07-12T13:09:07Z",
+      "summary": "fix(ci): retain failed Telegram QA evidence (#105367) * fix(ci): retain failed Telegram QA evidence * docs(agents): clarify gh jq boundary * docs(agents): require full checkout SHAs * docs(agents): quote zsh Git object refs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(記憶): repair SQLite session 修正tures (#105303)",
-      "summaryZh": "重點：test(記憶): repair SQLite session 修正tures (#105303)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): retain failed Telegram QA evidence (#105367)",
+      "summaryZh": "重點：修正(ci): retain failed Telegram QA evidence (#105367) * 修正(ci): retain failed Telegram QA evidence * 文件(agents): clarify ..."
     },
     {
       "id": 5,
