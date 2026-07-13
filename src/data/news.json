@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-13T16:34:24.420Z",
+  "generatedAt": "2026-07-13T18:43:54.839Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(active-memory): split recall helpers (#106539)",
-      "link": "https://github.com/openclaw/openclaw/commit/c87941e523f2424c85616165e9711fa68c72c564",
-      "publishedAt": "2026-07-13T16:33:39Z",
-      "summary": "refactor(active-memory): split recall helpers (#106539)",
+      "title": "refactor(ui): privatize default model view props (#106728)",
+      "link": "https://github.com/openclaw/openclaw/commit/bab9c6502a98fb4252617a34c1e4272cb0e3d2b8",
+      "publishedAt": "2026-07-13T18:43:37Z",
+      "summary": "refactor(ui): privatize default model view props (#106728)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(active-記憶): split recall helpers (#106539)",
-      "summaryZh": "重點：refactor(active-記憶): split recall helpers (#106539)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): privatize default 模型 view props (#106728)",
+      "summaryZh": "重點：refactor(ui): privatize default 模型 view props (#106728)..."
     },
     {
       "id": 2,
-      "title": "fix: show catalog pagination failures (#106518)",
-      "link": "https://github.com/openclaw/openclaw/commit/3ffd0ac8d8000bd28bed241e2a4c65738f3e9e0e",
-      "publishedAt": "2026-07-13T16:32:52Z",
-      "summary": "fix: show catalog pagination failures (#106518) * fix(ui): surface catalog pagination failures * test(ui): scope catalog retry assertion",
+      "title": "docs(cron): remove retired run-log settings",
+      "link": "https://github.com/openclaw/openclaw/commit/246cb488497d7f73952889bd9063347509b0f90a",
+      "publishedAt": "2026-07-13T18:41:27Z",
+      "summary": "docs(cron): remove retired run-log settings",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show catalog pagination failures (#106518)",
-      "summaryZh": "重點：修正: show catalog pagination failures (#106518) * 修正(ui): surface catalog pagination failures * test(ui): scope catalog r..."
+      "titleZh": "OpenClaw 文件更新：文件(排程): remove retired run-log settings",
+      "summaryZh": "重點：文件(排程): remove retired run-log settings..."
     },
     {
       "id": 3,
-      "title": "refactor(qa): split WhatsApp live runtime (#106547)",
-      "link": "https://github.com/openclaw/openclaw/commit/11cd600c2da35143a470b7994f018fee0b2ac0b0",
-      "publishedAt": "2026-07-13T16:31:51Z",
-      "summary": "refactor(qa): split WhatsApp live runtime (#106547)",
+      "title": "refactor(cron): retire cron_run_logs; ledger-owned retention and canc…",
+      "link": "https://github.com/openclaw/openclaw/commit/59003634ade36c53fad755532a680a35e6068ebc",
+      "publishedAt": "2026-07-13T18:41:27Z",
+      "summary": "refactor(cron): retire cron_run_logs; ledger-owned retention and cancellation Stops the legacy run-log dual-write, auto-imports remaining rows and drops the table at state-DB open (table-presence guard: self-heals downgrade round-trips), keeps the newest 2000 terminal runs per job in the ledger, retires cron.runLog config via doctor, and moves live-run cancellation to src/cron behind the shared task control seam. Part 2 of 2 for #106041.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(qa): split WhatsApp live runtime (#106547)",
-      "summaryZh": "重點：refactor(qa): split WhatsApp live runtime (#106547)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(排程): retire 排程_run_logs; ledger-owned retention and canc…",
+      "summaryZh": "重點：refactor(排程): retire 排程_run_logs; ledger-owned retention and cancellation Stops the legacy run-log dual-write, auto-impo..."
     },
     {
       "id": 4,
-      "title": "feat(crabbox): run an optional profile setup command on provisioned l…",
-      "link": "https://github.com/openclaw/openclaw/commit/5a37cdbae13e3002879632cd5114120ed7c8ceba",
-      "publishedAt": "2026-07-13T16:31:37Z",
-      "summary": "feat(crabbox): run an optional profile setup command on provisioned leases Live AWS E2E hit the designed fail-stop: worker bootstrap requires Node on the leased host, and bare AWS leases ship without it. Implement the plan's provider setup phase as an opt-in `setup` profile key: after the lease is SSH-ready the provider runs the command via `crabbox run --keep=true`, gets its own timeout budget on top of provision, and stops the lease before surfacing a failure so no unbootstrapped box leaks. Setup runs on every provision attempt (including replay adoption), so commands must be idempotent.",
+      "title": "refactor(gateway): extract command reply folding (#106708)",
+      "link": "https://github.com/openclaw/openclaw/commit/c82d840d1f427fcc9ec072315f50c8baa6787965",
+      "publishedAt": "2026-07-13T18:36:58Z",
+      "summary": "refactor(gateway): extract command reply folding (#106708)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(crabbox): run an optional profile setup command on provisioned l…",
-      "summaryZh": "重點：新功能(crabbox): run an optional profile setup command on provisioned leases Live AWS E2E hit the designed fail-stop: worke..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): extract command reply folding (#106708)",
+      "summaryZh": "重點：refactor(Gateway): extract command reply folding (#106708)..."
     },
     {
       "id": 5,
