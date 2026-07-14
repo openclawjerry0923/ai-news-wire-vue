@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-14T20:12:17.301Z",
+  "generatedAt": "2026-07-14T21:58:16.314Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: privatize Twitch and SMS internals (#107737)",
-      "link": "https://github.com/openclaw/openclaw/commit/b93f4bb3ac03f758cf807d109cdd3ef1702fdd6a",
-      "publishedAt": "2026-07-14T19:55:35Z",
-      "summary": "refactor: privatize Twitch and SMS internals (#107737) * refactor(twitch): privatize internal plugin surfaces * refactor(sms): privatize internal plugin surfaces * chore(deadcode): refresh unused-export baseline",
+      "title": "test: isolate provider ownership fixture (#107762)",
+      "link": "https://github.com/openclaw/openclaw/commit/9e1a1f22960ad167faee90445d723a7afc570934",
+      "publishedAt": "2026-07-14T21:56:39Z",
+      "summary": "test: isolate provider ownership fixture (#107762) * test: isolate harness auth planning * test: isolate provider ownership fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: privatize Twitch and SMS internals (#107737)",
-      "summaryZh": "重點：refactor: privatize Twitch and SMS internals (#107737) * refactor(twitch): privatize internal plugin surfaces * refactor..."
+      "titleZh": "OpenClaw 程式碼更新：test: isolate provider ownership 修正ture (#107762)",
+      "summaryZh": "重點：test: isolate provider ownership 修正ture (#107762) * test: isolate harness auth planning * test: isolate provider ownersh..."
     },
     {
       "id": 2,
-      "title": "fix(feishu): preserve line breaks in post markdown (#99394)",
-      "link": "https://github.com/openclaw/openclaw/commit/98e88ab1a6b7e86844c581ed6dd8d3b9a5de6a68",
-      "publishedAt": "2026-07-14T19:46:03Z",
-      "summary": "fix(feishu): preserve line breaks in post markdown (#99394) * fix(feishu): upgrade single newlines to paragraph breaks in post md messages * fix(feishu): move post-md normalization out of adapter chunker, add card-mode regression test * fix(feishu): normalize post-md newlines before chunk/limit decisions * fix(feishu): remove post-md normalization from outbound chunker Move newline normalization out of feishuOutbound.chunker so card and document-comment text paths are not affected. Post-md normalization remains scoped to sendOutboundText, buildFeishuPostMessagePayload, and editMessageFeishu where the render mode is known. Add regression test verifying the chunker preserves single newlines unchanged. Ref: https://github.com/openclaw/openclaw/pull/99394#issuecomment-4873230477 * fix(feishu): route card on raw text, add post-md expansion length guards * fix(feishu): scope reply target to first subchunk in expanded post fanout * fix(feishu): skip redundant post-md normalization for pre-chunked outbound and reply text ClawSweeper review identified that subchunks from already-normalized post-md text re-enter sendMessageFeishu which normalizes again. If a chunk boundary falls inside a fenced code block the second chunk lacks the opening fence, so findCodeRegions treats code newlines as prose and expands them to paragraph breaks. Add alreadyNormalized flag to buildFeishuPostMessagePayload and sendMessageFeishu so pre-normalized callers (sendOutboundText overflow path and reply-dispatcher sendChunkedTextReply) can skip the redundant normalization pass. * fix(feishu): convert markdown tables before post-md newline normalization in outbound path ClawSweeper identified that sendOutboundText normalizes newlines before sendMessageFeishu runs convertMarkdownTables. The blank lines inserted by normalization break markdown table row contiguity, so raw-mode Feishu accounts can lose table rendering while fixing paragraph spacing. Convert tables before the newline upgrader so the converter sees the original table structure. sendMessageFeishu runs convertMarkdownTables again internally, but that is a no-op on already-converted text. This matches the reply-dispatcher path which already converts tables before normalization. * chore(feishu): avoid exporting internal card builders, test through public send API The card-mode newline preservation tests now exercise sendMarkdownCardFeishu and sendStructuredCardFeishu instead of calling buildMarkdownCard and buildStructuredCard directly. This keeps the SDK surface unchanged from upstream/main. The schema-2.0 width config and buildStructuredCard header-fallback tests are removed because upstream/main already covers them under the sends cards with schema-2.0 width config describe. * fix(feishu): preserve markdown newlines in posts * fix(feishu): preserve multiline markdown structure * fix(feishu): preserve markdown structure while chunking * fix(feishu): satisfy package and type gates * fix(feishu): chunk posts within byte envelope * fix(feishu): restore channel chunker contract * chore(feishu): leave release notes release-owned * chore(feishu): shrink max-lines baseline --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(logs): preserve log tails across short reads (#105066)",
+      "link": "https://github.com/openclaw/openclaw/commit/c94da0df6f38fcbc26b6562e98119809d29654a3",
+      "publishedAt": "2026-07-14T21:47:53Z",
+      "summary": "fix(logs): preserve log tails across short reads (#105066) * fix(logs): preserve log tails across short reads * test(logging): track log-tail temp files --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(feishu): preserve line breaks in post markdown (#99394)",
-      "summaryZh": "重點：修正(feishu): preserve line breaks in post markdown (#99394) * 修正(feishu): upgrade single newlines to paragraph breaks in ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(logs): preserve log tails across short reads (#105066)",
+      "summaryZh": "重點：修正(logs): preserve log tails across short reads (#105066) * 修正(logs): preserve log tails across short reads * test(loggi..."
     },
     {
       "id": 3,
-      "title": "feat(ui): run sessions on cloud workers (#107670)",
-      "link": "https://github.com/openclaw/openclaw/commit/4f0e131cd270769ea7b6e2d97c3915fa0bbb8c95",
-      "publishedAt": "2026-07-14T19:44:11Z",
-      "summary": "feat(ui): run sessions on cloud workers (#107670) * feat(ui): add cloud session targets * test(ui): cover cloud session attachments * test(ui): use recovery token fixture * test(ui): record cloud locale fallbacks * fix(ui): harden cloud session recovery * fix(ui): track cloud handoff phase * fix(ui): close cloud recovery escape paths * fix(ui): finish cloud recovery hardening * fix(ui): recover ambiguous cloud session creation * fix(ui): isolate stale cloud creation recovery * test(ui): preserve cloud recovery literals * fix(ui): complete cloud session release artifacts * chore: move cloud release note to PR body * docs(ui): name cloud session menu exactly",
+      "title": "fix(ui): space compact macOS titlebar brand (#107783)",
+      "link": "https://github.com/openclaw/openclaw/commit/cea0d98efba59abbf056b65bac0f54717be9a77c",
+      "publishedAt": "2026-07-14T21:44:40Z",
+      "summary": "fix(ui): space compact macOS titlebar brand (#107783)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): run sessions on cloud workers (#107670)",
-      "summaryZh": "重點：新功能(ui): run sessions on cloud workers (#107670) * 新功能(ui): add cloud session targets * test(ui): cover cloud session at..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): space compact macOS titlebar brand (#107783)",
+      "summaryZh": "重點：修正(ui): space compact macOS titlebar brand (#107783)..."
     },
     {
       "id": 4,
-      "title": "refactor(markdown): use yaml document nodes",
-      "link": "https://github.com/openclaw/openclaw/commit/8d739dff86547e12b82a4227b40251795a75812a",
-      "publishedAt": "2026-07-14T19:43:37Z",
-      "summary": "refactor(markdown): use yaml document nodes",
+      "title": "fix(telegram): Mini App hangs on Opening dashboard when auth never re…",
+      "link": "https://github.com/openclaw/openclaw/commit/dd16c9e8ba7393d003b668de75bbd0cef838af48",
+      "publishedAt": "2026-07-14T21:44:21Z",
+      "summary": "fix(telegram): Mini App hangs on Opening dashboard when auth never responds (#104629) * fix(telegram): bound Mini App auth fetch with AbortController timeout * test(telegram): exercise generated Mini App timeout --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor(markdown): use yaml 文件ument nodes",
-      "summaryZh": "重點：refactor(markdown): use yaml 文件ument nodes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): Mini App hangs on Opening dashboard when auth never re…",
+      "summaryZh": "重點：修正(Telegram): Mini App hangs on Opening dashboard when auth never responds (#104629) * 修正(Telegram): bound Mini App auth..."
     },
     {
       "id": 5,
