@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T08:06:41.560Z",
+  "generatedAt": "2026-07-14T10:46:56.665Z",
   "items": [
     {
       "id": 1,
@@ -30,7 +30,7 @@
     },
     {
       "id": 4,
-      "title": "IBM與紅帽正式推出Lightwell，首波提供逾6,500項完成安全修補與驗證的相依套件",
+      "title": "IBM與紅帽正式推出Lightwell，首波提供逾6,500個完成安全修補與驗證的相依套件",
       "link": "https://www.ithome.com.tw/news/177285",
       "publishedAt": "2026-07-14 11:07:59",
       "summary": "IBM與紅帽（Red Hat）於7月8日宣布，正式推出企業開放原始碼軟體供應鏈安全服務Lightwell，延續兩家公司先前公布的Project Lightwell計畫，將紅帽長期累積的企業開放原始碼工程與漏洞修補能力，擴大應用於第三方開放原始碼軟體。",
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "refactor(channels): deprecate the never-consumed group intro hint ada…",
-      "link": "https://github.com/openclaw/openclaw/commit/5bcee076a5ed172fb525f6e1b5d32d8cfa204db7",
-      "publishedAt": "2026-07-14T08:06:13Z",
-      "summary": "refactor(channels): deprecate the never-consumed group intro hint adapter (#107252) * refactor(channels): deprecate the never-consumed group intro hint adapter * chore(channels): compress the intro-hint deprecation note to satisfy the size ratchet",
+      "title": "refactor(ui): use highlight.js native registry",
+      "link": "https://github.com/openclaw/openclaw/commit/e0fd84b019abe68029c5cc9e6aaca8aca88fe24d",
+      "publishedAt": "2026-07-14T10:46:42Z",
+      "summary": "refactor(ui): use highlight.js native registry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(channels): deprecate the never-consumed group intro hint ada…",
-      "summaryZh": "重點：refactor(channels): deprecate the never-consumed group intro hint adapter (#107252) * refactor(channels): deprecate the ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): use highlight.js native registry",
+      "summaryZh": "重點：refactor(ui): use highlight.js native registry..."
     },
     {
       "id": 8,
-      "title": "fix(workboard): grant dispatch workers required tools",
-      "link": "https://github.com/openclaw/openclaw/commit/202dea59bdf5d0bf3bb1b50424ee8a68af9efae8",
-      "publishedAt": "2026-07-14T08:00:37Z",
-      "summary": "fix(workboard): grant dispatch workers required tools",
+      "title": "fix(gateway): never leave the restart admission fence closed without …",
+      "link": "https://github.com/openclaw/openclaw/commit/319a796079162a7b4d0fa588c291ef9891d44830",
+      "publishedAt": "2026-07-14T10:44:48Z",
+      "summary": "fix(gateway): never leave the restart admission fence closed without a restart A failed, refused, superseded, or thrown restart emission could leave the reversible restart-signal admission fence closed forever: concurrent emitters could overwrite the live rollback lease with a dead stand-in, the fenced body had no try/finally, and the outer catch swallowed errors precisely because the stuck fence made isGatewayRestartDraining() true. The gateway then rejected every new task with GatewayDrainingError - silently - until an operator restarted the process. beginGatewayRestartSignalAdmission now returns null instead of stand-in leases (single fence owner), emitPreparedGatewayRestart reopens the fence on every non-delivery path via try/finally while preserving it whenever a queued SIGUSR1 is unconsumed, refused-signal cleanup force-clears orphaned fences, and admission close/reopen transitions are logged with their reason. The self-contained SQLite restart-intent persistence moves to restart-intent.ts to keep restart.ts within the LOC ratchet. Fixes #107322",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(workboard): grant dispatch workers required tools",
-      "summaryZh": "重點：修正(workboard): grant dispatch workers required tools..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): never leave the restart admission fence closed without …",
+      "summaryZh": "重點：修正(Gateway): never leave the restart admission fence closed without a restart A failed, refused, superseded, or thrown r..."
     },
     {
       "id": 9,
-      "title": "fix: use plain agent progress labels (#107260)",
-      "link": "https://github.com/openclaw/openclaw/commit/b940339c3207b34da48b4bb451eb19b85eabde6d",
-      "publishedAt": "2026-07-14T08:00:24Z",
-      "summary": "fix: use plain agent progress labels (#107260) * fix(channels): simplify agent progress labels * chore: keep changelog release-owned * chore: refresh bundled channel metadata",
+      "title": "refactor(audit): trim internal input types (#107390)",
+      "link": "https://github.com/openclaw/openclaw/commit/26fe6e8ea3ce77f55ad5d8e1c19b39dd0f197fc7",
+      "publishedAt": "2026-07-14T10:43:49Z",
+      "summary": "refactor(audit): trim internal input types (#107390)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: use plain agent progress labels (#107260)",
-      "summaryZh": "重點：修正: use plain agent progress labels (#107260) * 修正(channels): simplify agent progress labels * chore: keep changelog 版本發..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(audit): trim internal input types (#107390)",
+      "summaryZh": "重點：refactor(audit): trim internal input types (#107390)..."
     },
     {
       "id": 10,
-      "title": "fix(test): drop deleted runner.credentials test from unit-fast forced…",
-      "link": "https://github.com/openclaw/openclaw/commit/9da229c8bacbdb7640c8763de59e0821bfbc0f7d",
-      "publishedAt": "2026-07-14T08:00:06Z",
-      "summary": "fix(test): drop deleted runner.credentials test from unit-fast forced list src/node-host/runner.credentials.test.ts was removed in 4dff4e95b17 (#107270) but stayed in forcedUnitFastTestFiles, breaking test/vitest-unit-fast-config.test.ts on every branch.",
+      "title": "fix(config): render Feishu group policy in Form mode (#107336)",
+      "link": "https://github.com/openclaw/openclaw/commit/3229fbdc480b506d5cb439cb4c97eda5daa5c82d",
+      "publishedAt": "2026-07-14T10:42:43Z",
+      "summary": "fix(config): render Feishu group policy in Form mode (#107336) * fix(ui): scope unsupported config guidance to fields * fix(config): export Feishu transform inputs * chore: remove release-owned changelog entry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): drop deleted runner.credentials test from unit-fast forced…",
-      "summaryZh": "重點：修正(test): drop deleted runner.credentials test from unit-fast forced list src/node-host/runner.credentials.test.ts was r..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): render Feishu group policy in Form mode (#107336)",
+      "summaryZh": "重點：修正(config): render Feishu group policy in Form mode (#107336) * 修正(ui): scope unsupported config guidance to fields * 修正..."
     }
   ]
 }
