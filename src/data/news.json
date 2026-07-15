@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T05:32:31.964Z",
+  "generatedAt": "2026-07-15T08:12:02.030Z",
   "items": [
     {
       "id": 1,
@@ -39,7 +39,7 @@
     },
     {
       "id": 5,
-      "title": "聚焦自主AI代理交易，FIDO聯盟啟動Agentic Commerce標準制定，OpenAI亦加入理事會",
+      "title": "聚焦自主AI代理交易，FIDO聯盟啟動Agentic Commerce標準制定，OpenAI亦加入理事會推動AI代理驗證",
       "link": "https://www.ithome.com.tw/news/177321",
       "publishedAt": "2026-07-15 12:07:06",
       "summary": "致力於建構安全無密碼世界的FIDO聯盟，近年在金融支付方面的推動與合作相當積極，從早年與國際信用卡組織EMVCo合作，到支持Payment Passkey與W3C安全支付確認（SPC）候選標準，2026年再度迎來重大發展，當中最受矚目的趨勢，莫過於針對自主AI代理交易行為建立可信基礎，因為已有市場數據指出：2030年AI代理商務（Agentic Commerce）規模將上看5兆美元。",
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(github-copilot): reject unsupported OAuth enterprise domain befor…",
-      "link": "https://github.com/openclaw/openclaw/commit/d576881390f9db084d1999c9192116e810d84fc4",
-      "publishedAt": "2026-07-15T05:29:35Z",
-      "summary": "fix(github-copilot): reject unsupported OAuth enterprise domain before refresh and model routing (#105584) * fix(github-copilot): reject unsupported OAuth enterprise domain before refresh and model routing Legacy github-copilot OAuth credentials can carry a non-github.com enterpriseUrl. The token-refresh path templated it into the endpoint and sent the bearer refresh token there with no allowlist, and the model routing path derived a base URL from the same credential, so an unexpired credential kept routing its access token to that origin without ever reaching a refresh. A persisted credential origin that is not on the Copilot host allowlist is now rejected before any request is issued and before any model URL is produced. Because an off-allowlist origin means the stored access token may itself have been minted by that origin, the credential is refused as a whole rather than coerced to github.com: modifyModels withholds the github-copilot models so the token has no route, and its proxy-ep is never trusted. Login rejects an unsupported host up front, so every path that turns a domain into a bearer-bearing URL validates first. formatAuthDoctorHint guides affected users to re-authenticate, mirroring the qwen-portal hint. Supported hosts are unchanged: github.com and *.ghe.com data-residency tenants still route and refresh as before. The allowlist plus a new isSupportedGithubCopilotDomain predicate move to a dependency-free plugin-sdk leaf so the core OAuth runtime can share them without closing a module cycle; plugin-sdk/provider-auth re-exports normalizeGithubCopilotDomain, so the plugin-owned GitHub Copilot provider keeps its existing import. Fixes #103078. * fix(github-copilot): resolve provider auth base conflict * fix(github-copilot): resolve provider auth base conflict * fix(github-copilot): validate token proxy endpoint * fix(github-copilot): remove stale helper import --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
+      "title": "fix: npm 12 global updates no longer stop at the candidate guard (#10…",
+      "link": "https://github.com/openclaw/openclaw/commit/0be803ebc0f9b6a392084596228780607df9921e",
+      "publishedAt": "2026-07-15T08:10:32Z",
+      "summary": "fix: npm 12 global updates no longer stop at the candidate guard (#108100) * fix(update): approve candidate lifecycle on npm 12 * test(update): align npm lifecycle argv expectations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(github-copilot): reject unsupported OAuth enterprise domain befor…",
-      "summaryZh": "重點：修正(github-copilot): reject unsupported OAuth enterprise domain before refresh and 模型 routing (#105584) * 修正(github-copil..."
+      "titleZh": "OpenClaw 程式碼更新：修正: npm 12 global updates no longer stop at the candidate guard (#10…",
+      "summaryZh": "重點：修正: npm 12 global updates no longer stop at the candidate guard (#108100) * 修正(update): approve candidate lifecycle on n..."
     },
     {
       "id": 8,
-      "title": "fix(logbook): bound background refresh concurrency (#106397)",
-      "link": "https://github.com/openclaw/openclaw/commit/ebb1e83b648a3dc024089c8f43dbb74e9f216f1d",
-      "publishedAt": "2026-07-15T05:27:20Z",
-      "summary": "fix(logbook): bound background refresh concurrency (#106397) * fix(logbook): bound background refresh concurrency * fix(logbook): unify refresh ownership * style(logbook): format type import * test(logbook): use typed rejection error --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(ui): preserve explicit steer queue mode (#108121)",
+      "link": "https://github.com/openclaw/openclaw/commit/f3e604211940e0400ce2e6b99a5fa39e76214859",
+      "publishedAt": "2026-07-15T08:09:55Z",
+      "summary": "fix(ui): preserve explicit steer queue mode (#108121)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(logbook): bound background refresh concurrency (#106397)",
-      "summaryZh": "重點：修正(logbook): bound background refresh concurrency (#106397) * 修正(logbook): bound background refresh concurrency * 修正(log..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve explicit steer queue mode (#108121)",
+      "summaryZh": "重點：修正(ui): preserve explicit steer queue mode (#108121)..."
     },
     {
       "id": 9,
-      "title": "refactor(agents): split agent session responsibilities (#107948)",
-      "link": "https://github.com/openclaw/openclaw/commit/b9a837ec8da0b9781d7cfc560a83e35e1b34e791",
-      "publishedAt": "2026-07-15T05:25:08Z",
-      "summary": "refactor(agents): split agent session responsibilities (#107948)",
+      "title": "refactor(proxy-capture): privatize server helpers (#108139)",
+      "link": "https://github.com/openclaw/openclaw/commit/a7456edf945333f51848a88b775e87761c263836",
+      "publishedAt": "2026-07-15T08:07:57Z",
+      "summary": "refactor(proxy-capture): privatize server helpers (#108139) * refactor(proxy-capture): privatize server helpers * chore(deadcode): refresh export baseline",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): split agent session responsibilities (#107948)",
-      "summaryZh": "重點：refactor(agents): split agent session responsibilities (#107948)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(proxy-capture): privatize server helpers (#108139)",
+      "summaryZh": "重點：refactor(proxy-capture): privatize server helpers (#108139) * refactor(proxy-capture): privatize server helpers * chore(..."
     },
     {
       "id": 10,
-      "title": "fix(release): retry flaky fresh Parallels lanes",
-      "link": "https://github.com/openclaw/openclaw/commit/9275f476f421931db35873fb8c3233279262c83f",
-      "publishedAt": "2026-07-15T05:24:32Z",
-      "summary": "fix(release): retry flaky fresh Parallels lanes",
+      "title": "fix: clear stale task and OAuth doctor warnings (#108123)",
+      "link": "https://github.com/openclaw/openclaw/commit/f1e2e5bc251169bd45c9a6059d214f4cde0c3df0",
+      "publishedAt": "2026-07-15T08:03:53Z",
+      "summary": "fix: clear stale task and OAuth doctor warnings (#108123) * fix(doctor): repair taskflow and oauth warnings * chore: keep release changelog out of PR",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): retry flaky fresh Parallels lanes",
-      "summaryZh": "重點：修正(版本發布): retry flaky fresh Parallels lanes..."
+      "titleZh": "OpenClaw 文件更新：修正: clear stale task and OAuth 文件tor warnings (#108123)",
+      "summaryZh": "重點：修正: clear stale task and OAuth 文件tor warnings (#108123) * 修正(文件tor): repair taskflow and oauth warnings * chore: keep 版本..."
     }
   ]
 }
