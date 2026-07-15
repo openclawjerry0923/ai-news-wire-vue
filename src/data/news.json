@@ -1,19 +1,61 @@
 {
-  "generatedAt": "2026-07-15T12:15:36.975Z",
+  "generatedAt": "2026-07-15T14:50:59.736Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(agents): privatize state reset seams (#108285)",
-      "link": "https://github.com/openclaw/openclaw/commit/855659a1dd0542f6fc76dcc8343335e983f9189c",
-      "publishedAt": "2026-07-15T12:09:45Z",
-      "summary": "refactor(agents): privatize state reset seams (#108285) * refactor(agents): privatize state reset seams * chore(deadcode): shrink agents state seam baseline",
+      "title": "fix(plugins): keep official plugin config across bundled-to-external …",
+      "link": "https://github.com/openclaw/openclaw/commit/e4fe96983c7a5da65c2ccd94fc14298f3cb14e92",
+      "publishedAt": "2026-07-15T14:35:59Z",
+      "summary": "fix(plugins): keep official plugin config across bundled-to-external moves, harden npm metadata parsing (#108336) * fix(plugins): keep official plugin config across bundled-to-external moves, harden npm metadata parsing - doctor --fix and plugin auto-enable treat official-catalog plugin ids as known configuration even when the external package is not installed yet, so a bundled-to-external transition (codex) no longer silently drops the plugins.allow entry and unregisters the agent harness; garbage ids are still pruned, and the codex-specific diagnostic suppression in the doctor scan is replaced by the generic official-catalog rule (#107226) - npm view metadata normalization handles object and multi-version array output, flat dist.* keys and nested dist objects, absent openclaw blocks, selects the maximum satisfying semver (publication order is not semver order), fails closed when a recognized range has no satisfying entry, and names the missing fields in the error (#107842) The #107219 register-crash fix (lazy binding-store opening so plugin registration never touches runtime.state under the base runtime) landed with #108311 alongside its regression test. * style: format install-source-utils imports",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): privatize state reset seams (#108285)",
-      "summaryZh": "重點：refactor(agents): privatize state reset seams (#108285) * refactor(agents): privatize state reset seams * chore(deadcode..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): keep official plugin config across bundled-to-external …",
+      "summaryZh": "重點：修正(plugins): keep official plugin config across bundled-to-external moves, harden npm metadata parsing (#108336) * 修正(pl..."
     },
     {
       "id": 2,
+      "title": "refactor(deadcode): privatize runtime test seams (#108338)",
+      "link": "https://github.com/openclaw/openclaw/commit/3d76a4af92035b7b897ac596be651cb642e9ea31",
+      "publishedAt": "2026-07-15T14:27:10Z",
+      "summary": "refactor(deadcode): privatize runtime test seams (#108338) * refactor(sessions): privatize runtime test seams * refactor(commitments): privatize extraction test seams * refactor(flows): privatize doctor health seams * refactor(tasks): privatize registry test seams * build(commitments): bundle Docker test support * chore(deadcode): shrink runtime export baseline",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(deadcode): privatize runtime test seams (#108338)",
+      "summaryZh": "重點：refactor(deadcode): privatize runtime test seams (#108338) * refactor(sessions): privatize runtime test seams * refactor..."
+    },
+    {
+      "id": 3,
+      "title": "docs: explain ClickClack post-add verification (#108332)",
+      "link": "https://github.com/openclaw/openclaw/commit/8d5592548bf9ac7f8ec74b2013b53ee23d1f6585",
+      "publishedAt": "2026-07-15T14:20:33Z",
+      "summary": "docs: explain ClickClack post-add verification (#108332)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: explain ClickClack post-add verification (#108332)",
+      "summaryZh": "重點：文件: explain ClickClack post-add verification (#108332)..."
+    },
+    {
+      "id": 4,
+      "title": "feat: verify ClickClack after channel setup",
+      "link": "https://github.com/openclaw/openclaw/commit/752567dbc8ed9dfbe27633e72274b8ec09d5ebdf",
+      "publishedAt": "2026-07-15T14:20:33Z",
+      "summary": "feat: verify ClickClack after channel setup",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能: verify ClickClack after channel setup",
+      "summaryZh": "重點：新功能: verify ClickClack after channel setup..."
+    },
+    {
+      "id": 5,
+      "title": "不必推翻宇宙演化論，「超愛丁頓吸積」模型成功破解早期黑洞快速成長謎團",
+      "link": "https://technews.tw/2026/07/15/early-black-holes-may-not-be-as-massive-as-once-thought/",
+      "publishedAt": "Wed, 15 Jul 2026 14:03:23 +0000",
+      "summary": "詹姆斯‧韋伯太空望遠鏡（James Webb Space Telescope）自投入觀測以來，在宇宙誕生後不到 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "NIST發布ICT供應商盡職調查指南，提出5類調查項目",
       "link": "https://www.ithome.com.tw/news/177333",
       "publishedAt": "2026-07-15 12:07:58",
@@ -22,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "Adobe修補12款產品漏洞，ColdFusion與Commerce更新優先度最高",
       "link": "https://www.ithome.com.tw/news/177334",
       "publishedAt": "2026-07-15 12:07:32",
@@ -31,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Grok Build被發現偷偷把用戶整個程式庫上傳到雲端，馬斯克承諾將刪除",
       "link": "https://www.ithome.com.tw/news/177331",
       "publishedAt": "2026-07-15 12:07:26",
@@ -40,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "CISA將SonicWall防火牆、微軟ADFS與SharePoint資安漏洞列KEV",
       "link": "https://www.ithome.com.tw/news/177332",
       "publishedAt": "2026-07-15 12:07:10",
@@ -49,53 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "聚焦自主AI代理交易，FIDO聯盟啟動Agentic Commerce標準制定，OpenAI亦加入理事會推動AI代理驗證",
       "link": "https://www.ithome.com.tw/news/177321",
       "publishedAt": "2026-07-15 12:07:06",
       "summary": "致力於建構安全無密碼世界的FIDO聯盟，近年在金融支付方面的推動與合作相當積極，從早年與國際信用卡組織EMVCo合作，到支持Payment Passkey與W3C安全支付確認（SPC）候選標準，2026年再度迎來重大發展，當中最受矚目的趨勢，莫過於針對自主AI代理交易行為建立可信基礎，因為已有市場數據指出：2030年AI代理商務（Agentic Commerce）規模將上看5兆美元。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "docs: sync ClickClack secret credential registry (#108271)",
-      "link": "https://github.com/openclaw/openclaw/commit/611e7ddfe334ceef0cc378f7f73d430e5436de44",
-      "publishedAt": "2026-07-15T12:05:10Z",
-      "summary": "docs: sync ClickClack secret credential registry (#108271)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: sync ClickClack secret credential registry (#108271)",
-      "summaryZh": "重點：文件: sync ClickClack secret credential registry (#108271)..."
-    },
-    {
-      "id": 8,
-      "title": "docs: refresh ClickClack docs map (#108271)",
-      "link": "https://github.com/openclaw/openclaw/commit/f281b74e49cfcb6f74817309a84995f856136d2d",
-      "publishedAt": "2026-07-15T12:05:10Z",
-      "summary": "docs: refresh ClickClack docs map (#108271)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: refresh ClickClack 文件 map (#108271)",
-      "summaryZh": "重點：文件: refresh ClickClack 文件 map (#108271)..."
-    },
-    {
-      "id": 9,
-      "title": "test: use public ClickClack test helpers",
-      "link": "https://github.com/openclaw/openclaw/commit/728ac14a9a1dcbff70af4b8dd3d0ca342149b0dc",
-      "publishedAt": "2026-07-15T12:05:10Z",
-      "summary": "test: use public ClickClack test helpers",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: use public ClickClack test helpers",
-      "summaryZh": "重點：test: use public ClickClack test helpers..."
-    },
-    {
-      "id": 10,
-      "title": "Google更新Chrome 150穩定版，修補15項漏洞，兩項屬於重大等級",
-      "link": "https://www.ithome.com.tw/news/177328",
-      "publishedAt": "2026-07-15 11:07:50",
-      "summary": "Google發布Chrome瀏覽器新版本，將Windows與Mac平臺穩定版更新至150.0.7871.124與150.0.7871.125，Linux版本更新至150.0.7871.124，同時Android版也更新為150.0.7871.124。此次改版共納入15項資安漏洞的修補。",
       "source": "iThome",
       "tag": "繁中"
     }
