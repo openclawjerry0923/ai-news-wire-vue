@@ -1,19 +1,52 @@
 {
-  "generatedAt": "2026-07-15T16:22:43.927Z",
+  "generatedAt": "2026-07-15T18:08:25.139Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: eliminate dead-export baseline (#108376)",
-      "link": "https://github.com/openclaw/openclaw/commit/9497450511d2996dae6632305ee2111a93377657",
-      "publishedAt": "2026-07-15T16:05:07Z",
-      "summary": "refactor: eliminate dead-export baseline (#108376) Burn the grandfathered unused-export baseline to zero and enforce a hard-zero Knip gate.",
+      "title": "fix(docs-i18n): protect split product links",
+      "link": "https://github.com/openclaw/openclaw/commit/2d7be9e84ffc699510a7ab93f459a13fb211d793",
+      "publishedAt": "2026-07-15T17:50:06Z",
+      "summary": "fix(docs-i18n): protect split product links",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: eliminate dead-export baseline (#108376)",
-      "summaryZh": "重點：refactor: eliminate dead-export baseline (#108376) Burn the grandfathered unused-export baseline to zero and enforce a h..."
+      "titleZh": "OpenClaw 文件更新：修正(文件-i18n): protect split product links",
+      "summaryZh": "重點：修正(文件-i18n): protect split product links..."
     },
     {
       "id": 2,
+      "title": "test: tighten more async polling (#108385)",
+      "link": "https://github.com/openclaw/openclaw/commit/506bb14d2223e8f58df5063e449cb131b9d7462e",
+      "publishedAt": "2026-07-15T17:49:43Z",
+      "summary": "test: tighten more async polling (#108385)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: tighten more async polling (#108385)",
+      "summaryZh": "重點：test: tighten more async polling (#108385)..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(telegram): split message dispatch test suite (#108377)",
+      "link": "https://github.com/openclaw/openclaw/commit/163a9ab5bfbc3426e3e21e694acdf80699cac157",
+      "publishedAt": "2026-07-15T17:38:37Z",
+      "summary": "refactor(telegram): split message dispatch test suite (#108377) * refactor(telegram): split message dispatch test suite * chore: prune stale max-lines baseline",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(Telegram): split message dispatch test suite (#108377)",
+      "summaryZh": "重點：refactor(Telegram): split message dispatch test suite (#108377) * refactor(Telegram): split message dispatch test suite ..."
+    },
+    {
+      "id": 4,
+      "title": "fix(synology-chat): bound outbound NAS response bodies to prevent Gat…",
+      "link": "https://github.com/openclaw/openclaw/commit/30c257f6b45ea9002a70652fb0170ba33e3eb068",
+      "publishedAt": "2026-07-15T17:38:01Z",
+      "summary": "fix(synology-chat): bound outbound NAS response bodies to prevent Gateway OOM (#105089) * fix(synology-chat): settle user_list overflow without hanging Cap reads at 1 MiB with Buffer concat. On overflow, finish the promise before destroy() — bare destroy often skips end/error and hung the test. * fix(synology-chat): share bounded user-list reader Co-authored-by: zw-xysk --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(synology-chat): bound outbound NAS response bodies to prevent Gat…",
+      "summaryZh": "重點：修正(synology-chat): bound outbound NAS response bodies to prevent Gateway OOM (#105089) * 修正(synology-chat): settle user_..."
+    },
+    {
+      "id": 5,
       "title": "既怕依賴又怕落後，德勤調查揭家長對孩子用 AI 的矛盾心情",
       "link": "https://technews.tw/2026/07/16/half-of-parents-are-worried-their-kids-are-too-hooked-on-ai/",
       "publishedAt": "Wed, 15 Jul 2026 16:00:49 +0000",
@@ -22,46 +55,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "NASA 前署長轟阿提米絲登月計畫「過度複雜」，登陸器難產成致命傷",
       "link": "https://technews.tw/2026/07/16/former-nasa-administrator-artemis-program-too-complex/",
       "publishedAt": "Wed, 15 Jul 2026 16:00:19 +0000",
       "summary": "美國國家航空暨太空總署（NASA）前局長吉姆·布萊登斯坦（Jim Bridenstine）近日拋出震撼彈，直指 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "fix(qa-channel): add timeout to qa-bus state guarded fetch (#106538)",
-      "link": "https://github.com/openclaw/openclaw/commit/d11f30451925d8ee3f647d1147f62b99fc2ab19a",
-      "publishedAt": "2026-07-15T15:50:53Z",
-      "summary": "fix(qa-channel): add timeout to qa-bus state guarded fetch (#106538) * fix(qa-channel): add timeout to qa-bus state guarded fetch * test(qa-channel): add executable negative control for bus-state hang * test(qa-channel): oxfmt negative-control bus-client test * fix(qa-channel): sync SDK facade type with getQaBusState options parameter Co-Authored-By: nebulacoder-v8.0 * test(qa-channel): add standalone production-path proof for bus-state timeout Proof exercises the real getQaBusState code path against loopback TCP peers that accept but never return HTTP headers: - Negative control: fetchWithSsrFGuard without timeoutMs stays pending - Positive control: getQaBusState with timeout rejects with TimeoutError - Valid response: normal server still resolves within the timeout floor Co-Authored-By: nebulacoder-v8.0 * test(qa-channel): log node version and head SHA in bus-state timeout proof Co-Authored-By: nebulacoder-v8.0 * fix(qa-channel): drop test timeout from public Plugin SDK facade type Keep the `timeoutMs` option internal to `getQaBusState` for test-only short floors. The public facade callers do not need it and the SDK surface should not expose test-only parameters. Co-Authored-By: nebulacoder-v8.0 * chore(qa-channel): remove standalone proof script per review The negative, timeout, and responsive cases are already durably covered in bus-client.test.ts. The executed live output remains in the PR body as evidence. Co-Authored-By: nebulacoder-v8.0 * chore: trigger CI after rebase onto main * chore: trigger CI after rebase onto main * test(qa-channel): keep state timeout internal --------- Co-authored-by: nebulacoder-v8.0 Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa-channel): add timeout to qa-bus state guarded fetch (#106538)",
-      "summaryZh": "重點：修正(qa-channel): add timeout to qa-bus state guarded fetch (#106538) * 修正(qa-channel): add timeout to qa-bus state guarde..."
-    },
-    {
-      "id": 5,
-      "title": "refactor(state): move skill upload staging to SQLite (#108346)",
-      "link": "https://github.com/openclaw/openclaw/commit/f41c143345f26ec31e2f8a268687828db2762909",
-      "publishedAt": "2026-07-15T15:40:46Z",
-      "summary": "refactor(state): move skill upload staging to SQLite (#108346) * refactor(state): move skill upload staging to sqlite * test(skills): make archive mode assertion portable * fix(skills): fence upload finalization by lease owner * fix(skills): handle nullable lease expiry * fix(skills): bound upload install leases",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(state): move skill upload staging to SQLite (#108346)",
-      "summaryZh": "重點：refactor(state): move skill upload staging to SQLite (#108346) * refactor(state): move skill upload staging to sqlite * ..."
-    },
-    {
-      "id": 6,
-      "title": "test(codex): bound guarded shared-client requests (#108363)",
-      "link": "https://github.com/openclaw/openclaw/commit/09ce4afd16a17c3c7dec28d7a002ae0920159aab",
-      "publishedAt": "2026-07-15T15:39:23Z",
-      "summary": "test(codex): bound guarded shared-client requests (#108363)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(codex): bound guarded shared-client requests (#108363)",
-      "summaryZh": "重點：test(codex): bound guarded shared-client requests (#108363)..."
     },
     {
       "id": 7,
