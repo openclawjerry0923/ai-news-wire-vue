@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-15T14:50:59.736Z",
+  "generatedAt": "2026-07-15T16:22:43.927Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(plugins): keep official plugin config across bundled-to-external …",
-      "link": "https://github.com/openclaw/openclaw/commit/e4fe96983c7a5da65c2ccd94fc14298f3cb14e92",
-      "publishedAt": "2026-07-15T14:35:59Z",
-      "summary": "fix(plugins): keep official plugin config across bundled-to-external moves, harden npm metadata parsing (#108336) * fix(plugins): keep official plugin config across bundled-to-external moves, harden npm metadata parsing - doctor --fix and plugin auto-enable treat official-catalog plugin ids as known configuration even when the external package is not installed yet, so a bundled-to-external transition (codex) no longer silently drops the plugins.allow entry and unregisters the agent harness; garbage ids are still pruned, and the codex-specific diagnostic suppression in the doctor scan is replaced by the generic official-catalog rule (#107226) - npm view metadata normalization handles object and multi-version array output, flat dist.* keys and nested dist objects, absent openclaw blocks, selects the maximum satisfying semver (publication order is not semver order), fails closed when a recognized range has no satisfying entry, and names the missing fields in the error (#107842) The #107219 register-crash fix (lazy binding-store opening so plugin registration never touches runtime.state under the base runtime) landed with #108311 alongside its regression test. * style: format install-source-utils imports",
+      "title": "refactor: eliminate dead-export baseline (#108376)",
+      "link": "https://github.com/openclaw/openclaw/commit/9497450511d2996dae6632305ee2111a93377657",
+      "publishedAt": "2026-07-15T16:05:07Z",
+      "summary": "refactor: eliminate dead-export baseline (#108376) Burn the grandfathered unused-export baseline to zero and enforce a hard-zero Knip gate.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): keep official plugin config across bundled-to-external …",
-      "summaryZh": "重點：修正(plugins): keep official plugin config across bundled-to-external moves, harden npm metadata parsing (#108336) * 修正(pl..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: eliminate dead-export baseline (#108376)",
+      "summaryZh": "重點：refactor: eliminate dead-export baseline (#108376) Burn the grandfathered unused-export baseline to zero and enforce a h..."
     },
     {
       "id": 2,
-      "title": "refactor(deadcode): privatize runtime test seams (#108338)",
-      "link": "https://github.com/openclaw/openclaw/commit/3d76a4af92035b7b897ac596be651cb642e9ea31",
-      "publishedAt": "2026-07-15T14:27:10Z",
-      "summary": "refactor(deadcode): privatize runtime test seams (#108338) * refactor(sessions): privatize runtime test seams * refactor(commitments): privatize extraction test seams * refactor(flows): privatize doctor health seams * refactor(tasks): privatize registry test seams * build(commitments): bundle Docker test support * chore(deadcode): shrink runtime export baseline",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(deadcode): privatize runtime test seams (#108338)",
-      "summaryZh": "重點：refactor(deadcode): privatize runtime test seams (#108338) * refactor(sessions): privatize runtime test seams * refactor..."
+      "title": "既怕依賴又怕落後，德勤調查揭家長對孩子用 AI 的矛盾心情",
+      "link": "https://technews.tw/2026/07/16/half-of-parents-are-worried-their-kids-are-too-hooked-on-ai/",
+      "publishedAt": "Wed, 15 Jul 2026 16:00:49 +0000",
+      "summary": "人工智慧工具快速進入校園，家長對孩子使用 AI 的態度也呈一體兩面的矛盾。德勤（Deloitte）年度返校調查 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "docs: explain ClickClack post-add verification (#108332)",
-      "link": "https://github.com/openclaw/openclaw/commit/8d5592548bf9ac7f8ec74b2013b53ee23d1f6585",
-      "publishedAt": "2026-07-15T14:20:33Z",
-      "summary": "docs: explain ClickClack post-add verification (#108332)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: explain ClickClack post-add verification (#108332)",
-      "summaryZh": "重點：文件: explain ClickClack post-add verification (#108332)..."
+      "title": "NASA 前署長轟阿提米絲登月計畫「過度複雜」，登陸器難產成致命傷",
+      "link": "https://technews.tw/2026/07/16/former-nasa-administrator-artemis-program-too-complex/",
+      "publishedAt": "Wed, 15 Jul 2026 16:00:19 +0000",
+      "summary": "美國國家航空暨太空總署（NASA）前局長吉姆·布萊登斯坦（Jim Bridenstine）近日拋出震撼彈，直指 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "feat: verify ClickClack after channel setup",
-      "link": "https://github.com/openclaw/openclaw/commit/752567dbc8ed9dfbe27633e72274b8ec09d5ebdf",
-      "publishedAt": "2026-07-15T14:20:33Z",
-      "summary": "feat: verify ClickClack after channel setup",
+      "title": "fix(qa-channel): add timeout to qa-bus state guarded fetch (#106538)",
+      "link": "https://github.com/openclaw/openclaw/commit/d11f30451925d8ee3f647d1147f62b99fc2ab19a",
+      "publishedAt": "2026-07-15T15:50:53Z",
+      "summary": "fix(qa-channel): add timeout to qa-bus state guarded fetch (#106538) * fix(qa-channel): add timeout to qa-bus state guarded fetch * test(qa-channel): add executable negative control for bus-state hang * test(qa-channel): oxfmt negative-control bus-client test * fix(qa-channel): sync SDK facade type with getQaBusState options parameter Co-Authored-By: nebulacoder-v8.0 * test(qa-channel): add standalone production-path proof for bus-state timeout Proof exercises the real getQaBusState code path against loopback TCP peers that accept but never return HTTP headers: - Negative control: fetchWithSsrFGuard without timeoutMs stays pending - Positive control: getQaBusState with timeout rejects with TimeoutError - Valid response: normal server still resolves within the timeout floor Co-Authored-By: nebulacoder-v8.0 * test(qa-channel): log node version and head SHA in bus-state timeout proof Co-Authored-By: nebulacoder-v8.0 * fix(qa-channel): drop test timeout from public Plugin SDK facade type Keep the `timeoutMs` option internal to `getQaBusState` for test-only short floors. The public facade callers do not need it and the SDK surface should not expose test-only parameters. Co-Authored-By: nebulacoder-v8.0 * chore(qa-channel): remove standalone proof script per review The negative, timeout, and responsive cases are already durably covered in bus-client.test.ts. The executed live output remains in the PR body as evidence. Co-Authored-By: nebulacoder-v8.0 * chore: trigger CI after rebase onto main * chore: trigger CI after rebase onto main * test(qa-channel): keep state timeout internal --------- Co-authored-by: nebulacoder-v8.0 Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: verify ClickClack after channel setup",
-      "summaryZh": "重點：新功能: verify ClickClack after channel setup..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa-channel): add timeout to qa-bus state guarded fetch (#106538)",
+      "summaryZh": "重點：修正(qa-channel): add timeout to qa-bus state guarded fetch (#106538) * 修正(qa-channel): add timeout to qa-bus state guarde..."
     },
     {
       "id": 5,
+      "title": "refactor(state): move skill upload staging to SQLite (#108346)",
+      "link": "https://github.com/openclaw/openclaw/commit/f41c143345f26ec31e2f8a268687828db2762909",
+      "publishedAt": "2026-07-15T15:40:46Z",
+      "summary": "refactor(state): move skill upload staging to SQLite (#108346) * refactor(state): move skill upload staging to sqlite * test(skills): make archive mode assertion portable * fix(skills): fence upload finalization by lease owner * fix(skills): handle nullable lease expiry * fix(skills): bound upload install leases",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(state): move skill upload staging to SQLite (#108346)",
+      "summaryZh": "重點：refactor(state): move skill upload staging to SQLite (#108346) * refactor(state): move skill upload staging to sqlite * ..."
+    },
+    {
+      "id": 6,
+      "title": "test(codex): bound guarded shared-client requests (#108363)",
+      "link": "https://github.com/openclaw/openclaw/commit/09ce4afd16a17c3c7dec28d7a002ae0920159aab",
+      "publishedAt": "2026-07-15T15:39:23Z",
+      "summary": "test(codex): bound guarded shared-client requests (#108363)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(codex): bound guarded shared-client requests (#108363)",
+      "summaryZh": "重點：test(codex): bound guarded shared-client requests (#108363)..."
+    },
+    {
+      "id": 7,
       "title": "不必推翻宇宙演化論，「超愛丁頓吸積」模型成功破解早期黑洞快速成長謎團",
       "link": "https://technews.tw/2026/07/15/early-black-holes-may-not-be-as-massive-as-once-thought/",
       "publishedAt": "Wed, 15 Jul 2026 14:03:23 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "NIST發布ICT供應商盡職調查指南，提出5類調查項目",
       "link": "https://www.ithome.com.tw/news/177333",
       "publishedAt": "2026-07-15 12:07:58",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "Adobe修補12款產品漏洞，ColdFusion與Commerce更新優先度最高",
       "link": "https://www.ithome.com.tw/news/177334",
       "publishedAt": "2026-07-15 12:07:32",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Grok Build被發現偷偷把用戶整個程式庫上傳到雲端，馬斯克承諾將刪除",
       "link": "https://www.ithome.com.tw/news/177331",
       "publishedAt": "2026-07-15 12:07:26",
       "summary": "研究人員發現SpaceXAI的AI程式撰寫工具Grok Build會偷偷將用戶Git程式庫及其他紀錄，甚至是開發中的專案上傳到雲端平臺。消息公開後，馬斯克承諾將把這些資料刪除，SpaceXAI並增加零資料保留設定（zero data retention，ZDR）。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "CISA將SonicWall防火牆、微軟ADFS與SharePoint資安漏洞列KEV",
-      "link": "https://www.ithome.com.tw/news/177332",
-      "publishedAt": "2026-07-15 12:07:10",
-      "summary": "7月14日美國網路安全與基礎設施安全局（CISA）發布公告，表示他們已掌握微軟及SonicWall本週修補的部分資安漏洞被積極利用的跡象，將這些",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "聚焦自主AI代理交易，FIDO聯盟啟動Agentic Commerce標準制定，OpenAI亦加入理事會推動AI代理驗證",
-      "link": "https://www.ithome.com.tw/news/177321",
-      "publishedAt": "2026-07-15 12:07:06",
-      "summary": "致力於建構安全無密碼世界的FIDO聯盟，近年在金融支付方面的推動與合作相當積極，從早年與國際信用卡組織EMVCo合作，到支持Payment Passkey與W3C安全支付確認（SPC）候選標準，2026年再度迎來重大發展，當中最受矚目的趨勢，莫過於針對自主AI代理交易行為建立可信基礎，因為已有市場數據指出：2030年AI代理商務（Agentic Commerce）規模將上看5兆美元。",
       "source": "iThome",
       "tag": "繁中"
     }
