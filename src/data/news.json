@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T09:14:53.969Z",
+  "generatedAt": "2026-07-16T11:40:08.947Z",
   "items": [
     {
       "id": 1,
@@ -48,56 +48,56 @@
     },
     {
       "id": 6,
-      "title": "F5以單輪越獄評測26款頂尖AI模型，平均攻擊成功率達71.3%",
-      "link": "https://www.ithome.com.tw/news/177360",
-      "publishedAt": "2026-07-16 11:07:37",
-      "summary": "資安業者F5旗下研究團隊公布7月AI模型安全評測結果，共納入55款模型。這項評測採用綜合AI安全指數（Comprehensive AI Security Index，CASI），衡量模型抵禦常見提示注入及越獄攻擊的能力，分數越高代表防護表現越好。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(doctor): stop duplicating state schema migration labels (#108947)",
+      "link": "https://github.com/openclaw/openclaw/commit/3f25f4b5fc0cf41e209179902310ec5d6d41d19f",
+      "publishedAt": "2026-07-16T11:37:36Z",
+      "summary": "fix(doctor): stop duplicating state schema migration labels (#108947) * fix(doctor): distinguish state schema migrations * fix(doctor): enforce migration formatter exhaustiveness * docs(changelog): note state schema reporting fix * docs(changelog): keep release note in PR body",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): stop duplicating state schema migration labels (#108947)",
+      "summaryZh": "重點：修正(文件tor): stop duplicating state schema migration labels (#108947) * 修正(文件tor): distinguish state schema migrations * 修..."
     },
     {
       "id": 7,
-      "title": "fix(discord): resolve named agent delivery targets (#108584)",
-      "link": "https://github.com/openclaw/openclaw/commit/e322edccfaf5359808c1a1d090d0ce20f1542067",
-      "publishedAt": "2026-07-16T09:13:10Z",
-      "summary": "fix(discord): resolve named agent delivery targets (#108584) * fix(discord): resolve agent delivery targets * fix(outbound): preserve heuristic target fallback * fix(outbound): keep delivery helpers private",
+      "title": "refactor(agents): simplify provider key normalization (#108950)",
+      "link": "https://github.com/openclaw/openclaw/commit/7c262eaae7f9bd1b7d3e449bf7df0ba4d39de504",
+      "publishedAt": "2026-07-16T11:36:15Z",
+      "summary": "refactor(agents): simplify provider key normalization (#108950) Co-authored-by: Pick-cat",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): resolve named agent delivery targets (#108584)",
-      "summaryZh": "重點：修正(Discord): resolve named agent delivery targets (#108584) * 修正(Discord): resolve agent delivery targets * 修正(outbound)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): simplify provider key normalization (#108950)",
+      "summaryZh": "重點：refactor(agents): simplify provider key normalization (#108950) Co-authored-by: Pick-cat..."
     },
     {
       "id": 8,
-      "title": "fix(android): stop killing long chat runs with hardcoded timeouts (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/5c1857fc55dc14e4fc623ea53d4138aaaea83f0e",
-      "publishedAt": "2026-07-16T09:12:45Z",
-      "summary": "fix(android): stop killing long chat runs with hardcoded timeouts (#106863) (#106864) * fix(android): stop killing long chat runs with hardcoded timeouts Two independent timeouts made any agent turn longer than ~2 minutes fail when started from the Android app, while the same turn worked over Telegram (#106863): - chat.send hardcoded timeoutMs=30000, which the gateway turns into the server-side run expiry; the maintenance sweep then aborts longer runs (\"CLI run aborted\" / \"Embedded agent failed before reply\"). Omit the override so app runs get the configured default like other channels. - armPendingRunTimeout declared a timeout after 120s even when the refreshed history snapshot confirmed the run was still in flight, showing a spurious error and dropping the optimistic bubble mid-run. Re-arm the timer in that case; terminal events and the server-side expiry remain the liveness backstop. Fixes #106863 Co-Authored-By: Claude Fable 5 * chore(i18n): sync native inventory after ChatController line shifts Co-Authored-By: Claude Fable 5 * test(android): run ChatController on backgroundScope in reconnect tests The pending-run watchdog now re-arms while a run is confirmed in flight, so reconnect scenarios that end with a restored in-flight run keep a timer coroutine alive. Launch the controller on runTest's backgroundScope so that timer is cancelled at test end instead of failing the suite with UncompletedCoroutinesError. Co-Authored-By: Claude Fable 5 * fix(android): bound pending-run watchdog recovery Distinguish applied, superseded, and failed history refreshes so recovered runs neither expire during a newer authoritative load nor rearm forever after refresh failure. Co-authored-by: Léandre Chamberland-Dozois --------- Co-authored-by: Claude Fable 5 Co-authored-by: Peter Steinberger",
+      "title": "feat(presentation): hosted-widget launch via typed web-app actions (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/990e8d24b0d68ce4fe01cf42bb831eed945cbf9b",
+      "publishedAt": "2026-07-16T11:35:31Z",
+      "summary": "feat(presentation): hosted-widget launch via typed web-app actions (#108927) * feat(presentation): support hosted widget actions * refactor(discord): route widget launches through presentation * chore: keep changelog release-owned * test(interactive): type the invalid web-app boundary case explicitly * test: type web-app action fixtures against the split union The two-member web-app union no longer accepts a distributed type: \"url\" | \"web-app\" literal or an empty receipt in typed callbacks; use explicit action casts and the Discord receipt factory.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): stop killing long chat runs with hardcoded timeouts (#1…",
-      "summaryZh": "重點：修正(android): stop killing long chat runs with hardcoded timeouts (#106863) (#106864) * 修正(android): stop killing long ch..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(presentation): hosted-widget launch via typed web-app actions (#…",
+      "summaryZh": "重點：新功能(presentation): hosted-widget launch via typed web-app actions (#108927) * 新功能(presentation): support hosted widget a..."
     },
     {
       "id": 9,
-      "title": "fix(ci): bound Android SDK downloads (#108723)",
-      "link": "https://github.com/openclaw/openclaw/commit/47dd90c5eabae9cdf7a024404ba3ef0c766e123f",
-      "publishedAt": "2026-07-16T09:12:07Z",
-      "summary": "fix(ci): bound Android SDK downloads (#108723)",
+      "title": "fix(cli): add 10s timeout to port-inspection subprocess calls (#108706)",
+      "link": "https://github.com/openclaw/openclaw/commit/eb8cdf6419c4d7f0ecb45cf6e6fab4724925e2c6",
+      "publishedAt": "2026-07-16T11:33:58Z",
+      "summary": "fix(cli): add 10s timeout to port-inspection subprocess calls (#108706) * fix(cli): add 10s timeout to port-inspection subprocess calls fuser, netstat, and lsof can hang on a busy or misbehaving system. Node.js execFileSync already supports a timeout option; use 10s to match the existing convention in debug-claude-usage.ts. Co-Authored-By: Claude Sonnet 4.6 * fix(cli): harden port subprocess deadlines --------- Co-authored-by: Claude Sonnet 4.6 Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): bound Android SDK downloads (#108723)",
-      "summaryZh": "重點：修正(ci): bound Android SDK downloads (#108723)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): add 10s timeout to port-inspection subprocess calls (#108706)",
+      "summaryZh": "重點：修正(cli): add 10s timeout to port-inspection subprocess calls (#108706) * 修正(cli): add 10s timeout to port-inspection sub..."
     },
     {
       "id": 10,
-      "title": "fix(oc-path): reject oversized non-ASCII path URIs (#108576)",
-      "link": "https://github.com/openclaw/openclaw/commit/cb7f37d0faaa40545398c880497b32476d9baa87",
-      "publishedAt": "2026-07-16T09:11:39Z",
-      "summary": "fix(oc-path): reject oversized non-ASCII path URIs (#108576) * fix(oc-path): reject oversized non-ASCII path URIs * test(oc-path): cover exact UTF-8 byte limit Co-authored-by: zhang-guiping --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(oc-path): reject oversized non-ASCII path URIs (#108576)",
-      "summaryZh": "重點：修正(oc-path): reject oversized non-ASCII path URIs (#108576) * 修正(oc-path): reject oversized non-ASCII path URIs * test(o..."
+      "title": "Thinking Machines 首款開放權重模型發表，制衡中國模型擴張",
+      "link": "https://technews.tw/2026/07/16/thinking-machines-lab-introduces-its-first-open-weights-model-named-inkling/",
+      "publishedAt": "Thu, 16 Jul 2026 11:19:13 +0000",
+      "summary": "由 OpenAI 前技術長 Mira Murati 共同創辦的 AI 研究實驗室 Thinking Machi [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
