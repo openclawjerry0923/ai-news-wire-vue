@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T06:19:18.230Z",
+  "generatedAt": "2026-07-16T09:14:53.969Z",
   "items": [
     {
       "id": 1,
@@ -24,7 +24,7 @@
       "title": "資安業者揭露RabbitMQ重大漏洞，可能導致OAuth金鑰外洩與訊息中介伺服器遭接管",
       "link": "https://www.ithome.com.tw/news/177365",
       "publishedAt": "2026-07-16 12:07:41",
-      "summary": "資安業者Miggo近日揭露，廣泛應用於微服務及雲端架構的開源訊息中介軟體RabbitMQ，存在兩個漏洞，可能導致OAuth驗證資訊外洩，讓未經驗證的攻擊者取得管理權限，3.13.x、4.0.x、4.1.x與4.2.x等分支版本都受影響，用戶應升級至",
+      "summary": "廣泛應用於微服務及雲端架構的開源訊息中介軟體RabbitMQ，近日由資安業者Miggo揭露存在兩個漏洞，可能導致OAuth驗證資訊外洩，讓未經身分認證的攻擊者取得管理權限，3.13.x、4.0.x、4.1.x與4.2.x等分支版本都受影響，用戶應升級至已修補的3.13.15、4.0.20、4.1.11與",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(ci): settle deadcode hard-zero sweep debt across guard lanes",
-      "link": "https://github.com/openclaw/openclaw/commit/7181233320ffddcc9227727c2b6cf49e442d4d72",
-      "publishedAt": "2026-07-16T06:16:10Z",
-      "summary": "fix(ci): settle deadcode hard-zero sweep debt across guard lanes The repository hard-zero sweep (bae9752c5ae, #108641) left five CI lanes red on every PR: a stale max-lines baseline entry for the shrunken live-cache-regression-runner, session-accessor debt baseline above the real count, two sqlite-reliability contract types un-exported while scripts/lib still imports them, a deleted-file entry on the production lint-suppression allowlist, and a stale wildcard-barrel assertion in the parallels smoke model test.",
+      "title": "fix(discord): resolve named agent delivery targets (#108584)",
+      "link": "https://github.com/openclaw/openclaw/commit/e322edccfaf5359808c1a1d090d0ce20f1542067",
+      "publishedAt": "2026-07-16T09:13:10Z",
+      "summary": "fix(discord): resolve named agent delivery targets (#108584) * fix(discord): resolve agent delivery targets * fix(outbound): preserve heuristic target fallback * fix(outbound): keep delivery helpers private",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): settle deadcode hard-zero sweep debt across guard lanes",
-      "summaryZh": "重點：修正(ci): settle deadcode hard-zero sweep debt across guard lanes The repository hard-zero sweep (bae9752c5ae, #108641) le..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): resolve named agent delivery targets (#108584)",
+      "summaryZh": "重點：修正(Discord): resolve named agent delivery targets (#108584) * 修正(Discord): resolve agent delivery targets * 修正(outbound)..."
     },
     {
       "id": 8,
-      "title": "fix(voice-call): bound stale-call reaper concurrency (#106396)",
-      "link": "https://github.com/openclaw/openclaw/commit/2d719a669cec7a7225acb5dc5939da7bf58d101a",
-      "publishedAt": "2026-07-16T06:15:53Z",
-      "summary": "fix(voice-call): bound stale-call reaper concurrency (#106396) * fix(voice-call): bound stale-call reaper concurrency * test(voice-call): prove provider-bound stale reaping * test(voice-call): preserve stale call state literals",
+      "title": "fix(android): stop killing long chat runs with hardcoded timeouts (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/5c1857fc55dc14e4fc623ea53d4138aaaea83f0e",
+      "publishedAt": "2026-07-16T09:12:45Z",
+      "summary": "fix(android): stop killing long chat runs with hardcoded timeouts (#106863) (#106864) * fix(android): stop killing long chat runs with hardcoded timeouts Two independent timeouts made any agent turn longer than ~2 minutes fail when started from the Android app, while the same turn worked over Telegram (#106863): - chat.send hardcoded timeoutMs=30000, which the gateway turns into the server-side run expiry; the maintenance sweep then aborts longer runs (\"CLI run aborted\" / \"Embedded agent failed before reply\"). Omit the override so app runs get the configured default like other channels. - armPendingRunTimeout declared a timeout after 120s even when the refreshed history snapshot confirmed the run was still in flight, showing a spurious error and dropping the optimistic bubble mid-run. Re-arm the timer in that case; terminal events and the server-side expiry remain the liveness backstop. Fixes #106863 Co-Authored-By: Claude Fable 5 * chore(i18n): sync native inventory after ChatController line shifts Co-Authored-By: Claude Fable 5 * test(android): run ChatController on backgroundScope in reconnect tests The pending-run watchdog now re-arms while a run is confirmed in flight, so reconnect scenarios that end with a restored in-flight run keep a timer coroutine alive. Launch the controller on runTest's backgroundScope so that timer is cancelled at test end instead of failing the suite with UncompletedCoroutinesError. Co-Authored-By: Claude Fable 5 * fix(android): bound pending-run watchdog recovery Distinguish applied, superseded, and failed history refreshes so recovered runs neither expire during a newer authoritative load nor rearm forever after refresh failure. Co-authored-by: Léandre Chamberland-Dozois --------- Co-authored-by: Claude Fable 5 Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): bound stale-call reaper concurrency (#106396)",
-      "summaryZh": "重點：修正(voice-call): bound stale-call reaper concurrency (#106396) * 修正(voice-call): bound stale-call reaper concurrency * te..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): stop killing long chat runs with hardcoded timeouts (#1…",
+      "summaryZh": "重點：修正(android): stop killing long chat runs with hardcoded timeouts (#106863) (#106864) * 修正(android): stop killing long ch..."
     },
     {
       "id": 9,
-      "title": "fix(installer): time out stalled runtime downloads (#108619)",
-      "link": "https://github.com/openclaw/openclaw/commit/5f2828b50adadfe2ac51b3d575bd270afe3858ab",
-      "publishedAt": "2026-07-16T06:01:31Z",
-      "summary": "fix(installer): time out stalled runtime downloads (#108619) * fix(installer): bound curl download stalls * chore: format installer timeout tests * fix(installer): limit timeout to true download stalls * fix(installer): scope timeout to transfer stalls",
+      "title": "fix(ci): bound Android SDK downloads (#108723)",
+      "link": "https://github.com/openclaw/openclaw/commit/47dd90c5eabae9cdf7a024404ba3ef0c766e123f",
+      "publishedAt": "2026-07-16T09:12:07Z",
+      "summary": "fix(ci): bound Android SDK downloads (#108723)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(installer): time out stalled runtime downloads (#108619)",
-      "summaryZh": "重點：修正(installer): time out stalled runtime downloads (#108619) * 修正(installer): bound curl download stalls * chore: format ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): bound Android SDK downloads (#108723)",
+      "summaryZh": "重點：修正(ci): bound Android SDK downloads (#108723)..."
     },
     {
       "id": 10,
-      "title": "fix: channel turns recover safely after gateway restart (#108283)",
-      "link": "https://github.com/openclaw/openclaw/commit/d8b723fb00c2b37e0b451b435caaa5af4de0cb94",
-      "publishedAt": "2026-07-16T06:01:26Z",
-      "summary": "fix: channel turns recover safely after gateway restart (#108283) * fix(gateway): recover channel turns safely after restart * refactor(gateway): keep recovery identity internal * refactor(gateway): keep recovery metadata private * fix(gateway): preserve recovery action authority * fix(gateway): close recovery lifecycle gaps * fix(gateway): fail closed on missing delivery receipts * fix(gateway): fail closed on unmirrorable replies * fix(gateway): persist terminal delivery intent * fix(gateway): align recovery lifecycle types * fix(gateway): require exact terminal thread receipt * fix(gateway): close recovered terminal tool calls * test(gateway): type terminal tool correlation * fix(gateway): satisfy restart recovery CI contracts * fix(gateway): require terminal tool correlation * fix(agents): scope recovery receipts to source turns * fix(gateway): fail closed without restart correlation * fix(gateway): dedupe terminal source redelivery * fix(agents): keep recovery tool results causal * test(auto-reply): clean recovery fixture directories * fix(gateway): allow live terminal sends without recovery claims * fix(agents): reconcile delivered sends through restart aborts * fix(agents): keep recovery continuations in source turns * fix(agents): keep source-less sends non-terminal * fix(auto-reply): dedupe active source redelivery * fix(agents): harden recovery receipt contracts * fix(agents): admit terminal recovery successors * docs(recovery): document canonical receipt ownership * fix(agents): fail closed on stale turn authority * test(auto-reply): assert rebound session state * fix(plugins): keep restart recovery hook list internal",
+      "title": "fix(oc-path): reject oversized non-ASCII path URIs (#108576)",
+      "link": "https://github.com/openclaw/openclaw/commit/cb7f37d0faaa40545398c880497b32476d9baa87",
+      "publishedAt": "2026-07-16T09:11:39Z",
+      "summary": "fix(oc-path): reject oversized non-ASCII path URIs (#108576) * fix(oc-path): reject oversized non-ASCII path URIs * test(oc-path): cover exact UTF-8 byte limit Co-authored-by: zhang-guiping --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: channel turns recover safely after Gateway restart (#108283)",
-      "summaryZh": "重點：修正: channel turns recover safely after Gateway restart (#108283) * 修正(Gateway): recover channel turns safely after resta..."
+      "titleZh": "OpenClaw 程式碼更新：修正(oc-path): reject oversized non-ASCII path URIs (#108576)",
+      "summaryZh": "重點：修正(oc-path): reject oversized non-ASCII path URIs (#108576) * 修正(oc-path): reject oversized non-ASCII path URIs * test(o..."
     }
   ]
 }
