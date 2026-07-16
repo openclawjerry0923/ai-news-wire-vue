@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-16T19:12:25.276Z",
+  "generatedAt": "2026-07-16T21:00:04.019Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: reply hooks can claim ordinary agent turns (#108353)",
-      "link": "https://github.com/openclaw/openclaw/commit/63b0cac9f08357176adccb1b99571f6bcea2e971",
-      "publishedAt": "2026-07-16T18:50:43Z",
-      "summary": "fix: reply hooks can claim ordinary agent turns (#108353) * fix: honor reply hooks for user agent turns * fix: preserve reply hook turn context * fix: gate CLI reply hooks by trigger * fix(plugins): run reply hooks once per admitted turn Co-authored-by: Clive (OpenClaw) * fix(plugins): reconcile reply hooks after rebase * fix(auto-reply): dispatch hooks for active steers * test: use valid channel context shape in steer hook test --------- Co-authored-by: Clive (OpenClaw) Co-authored-by: Peter Steinberger",
+      "title": "test(cli): distinguish silent hook relay completion (#109339)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a0fcc2ff92b680612a0df96cdc7337a1759d820",
+      "publishedAt": "2026-07-16T20:59:34Z",
+      "summary": "test(cli): distinguish silent hook relay completion (#109339)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: reply hooks can claim ordinary agent turns (#108353)",
-      "summaryZh": "重點：修正: reply hooks can claim ordinary agent turns (#108353) * 修正: honor reply hooks for user agent turns * 修正: preserve rep..."
+      "titleZh": "OpenClaw 程式碼更新：test(cli): distinguish silent hook relay completion (#109339)",
+      "summaryZh": "重點：test(cli): distinguish silent hook relay completion (#109339)..."
     },
     {
       "id": 2,
-      "title": "fix(release): repair frozen validation compatibility (#109272)",
-      "link": "https://github.com/openclaw/openclaw/commit/c4b2183db66f0f8f8b60edaf09f9c33b2f349a03",
-      "publishedAt": "2026-07-16T18:45:31Z",
-      "summary": "fix(release): repair frozen validation compatibility (#109272)",
+      "title": "fix(sandbox): use Buffer.byteLength for env var value size limit (#10…",
+      "link": "https://github.com/openclaw/openclaw/commit/84fb48c3be9eed458f9b052a43575735d8788459",
+      "publishedAt": "2026-07-16T20:56:23Z",
+      "summary": "fix(sandbox): use Buffer.byteLength for env var value size limit (#105017) * fix(sandbox): use Buffer.byteLength for env var value size limit validateEnvVarValue checked value.length (UTF-16 code units) against the 32768-byte limit, so multi-byte CJK values like \"值\".repeat(11000) passed the check despite exceeding 33 KB in UTF-8. Switch to Buffer.byteLength(value, \"utf8\") so the limit matches the actual byte count the OS and child processes see. * test(sandbox): simplify env byte-limit coverage Co-authored-by: 唐梓夷0668001293 --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): repair frozen validation compatibility (#109272)",
-      "summaryZh": "重點：修正(版本發布): repair frozen validation compatibility (#109272)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): use Buffer.byteLength for env var value size limit (#10…",
+      "summaryZh": "重點：修正(sandbox): use Buffer.byteLength for env var value size limit (#105017) * 修正(sandbox): use Buffer.byteLength for env v..."
     },
     {
       "id": 3,
-      "title": "feat(kimi): add Kimi K3 support (#109202)",
-      "link": "https://github.com/openclaw/openclaw/commit/42ff5ec75474980c0154155ff17e7bf0a9319896",
-      "publishedAt": "2026-07-16T18:41:12Z",
-      "summary": "feat(kimi): add Kimi K3 support (#109202) * feat(moonshot): add Kimi K3 support * feat(kimi): add K3 subscription models --------- Co-authored-by: NianJiuZst Co-authored-by: Peter Steinberger",
+      "title": "refactor: reduce plugin SDK test import overhead (#109333)",
+      "link": "https://github.com/openclaw/openclaw/commit/0631252f4b66b0b958c44638fec2bf1afeab2672",
+      "publishedAt": "2026-07-16T20:55:23Z",
+      "summary": "refactor: reduce plugin SDK test import overhead (#109333) * refactor(test): split plugin SDK test helpers * fix(test): align plugin SDK test subpaths",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(kimi): add Kimi K3 support (#109202)",
-      "summaryZh": "重點：新功能(kimi): add Kimi K3 support (#109202) * 新功能(moonshot): add Kimi K3 support * 新功能(kimi): add K3 subscription 模型 ------..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: reduce plugin SDK test import overhead (#109333)",
+      "summaryZh": "重點：refactor: reduce plugin SDK test import overhead (#109333) * refactor(test): split plugin SDK test helpers * 修正(test): a..."
     },
     {
       "id": 4,
-      "title": "fix(ci): bound release evidence dispatch (#108898)",
-      "link": "https://github.com/openclaw/openclaw/commit/e9b974e18bd23b6d3be4e2d71b8980ceb0769b15",
-      "publishedAt": "2026-07-16T18:38:19Z",
-      "summary": "fix(ci): bound release evidence dispatch (#108898)",
+      "title": "fix(release): align Codex discovery and Telegram traces",
+      "link": "https://github.com/openclaw/openclaw/commit/cfaa30a08f00ebd750c328209c37710f2bbc7dc0",
+      "publishedAt": "2026-07-16T20:54:11Z",
+      "summary": "fix(release): align Codex discovery and Telegram traces",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): bound 版本發布 evidence dispatch (#108898)",
-      "summaryZh": "重點：修正(ci): bound 版本發布 evidence dispatch (#108898)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): align Codex discovery and Telegram traces",
+      "summaryZh": "重點：修正(版本發布): align Codex discovery and Telegram traces..."
     },
     {
       "id": 5,
