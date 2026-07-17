@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-17T22:55:00.610Z",
+  "generatedAt": "2026-07-17T23:53:38.177Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(hooks): prevent rejected inbound conversation claims (#109857)",
-      "link": "https://github.com/openclaw/openclaw/commit/6caf63716397bd7e22c13acd6e2a61eb75acbbc5",
-      "publishedAt": "2026-07-17T22:52:58Z",
-      "summary": "fix(hooks): prevent rejected inbound conversation claims (#109857) * fix(hooks): honor rejected inbound conversations * test(hooks): trim rejection fixture --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(sessions): enforce maintenance cap ownership (#110241)",
+      "link": "https://github.com/openclaw/openclaw/commit/d7d358d3f6a72d1ef2fe4bafcf58fde90a88dc6a",
+      "publishedAt": "2026-07-17T23:52:17Z",
+      "summary": "fix(sessions): enforce maintenance cap ownership (#110241)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(hooks): prevent rejected inbound conversation claims (#109857)",
-      "summaryZh": "重點：修正(hooks): prevent rejected inbound conversation claims (#109857) * 修正(hooks): honor rejected inbound conversations * te..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): enforce maintenance cap ownership (#110241)",
+      "summaryZh": "重點：修正(sessions): enforce maintenance cap ownership (#110241)..."
     },
     {
       "id": 2,
-      "title": "fix(ios): keep system rsync paired during export",
-      "link": "https://github.com/openclaw/openclaw/commit/6a053f59cd7ee77c529dd7906af8133f4171ec1c",
-      "publishedAt": "2026-07-17T22:51:10Z",
-      "summary": "fix(ios): keep system rsync paired during export",
+      "title": "fix: Claude CLI turns avoid observability overhead when unused (#110246)",
+      "link": "https://github.com/openclaw/openclaw/commit/1607da89b714a74628529b1b0218fdbf52234828",
+      "publishedAt": "2026-07-17T23:51:32Z",
+      "summary": "fix: Claude CLI turns avoid observability overhead when unused (#110246) * perf(agents): gate Claude CLI diagnostics on listeners * refactor(infra): keep diagnostic listener state private * fix(agents): bound serialized Claude diagnostics * chore: remove release-owned changelog entry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep system rsync paired during export",
-      "summaryZh": "重點：修正(ios): keep system rsync paired during export..."
+      "titleZh": "OpenClaw 程式碼更新：修正: Claude CLI turns avoid observability overhead when unused (#110246)",
+      "summaryZh": "重點：修正: Claude CLI turns avoid observability overhead when unused (#110246) * perf(agents): gate Claude CLI diagnostics on l..."
     },
     {
       "id": 3,
-      "title": "fix(google-meet): harden talkback bridge recovery (#110092)",
-      "link": "https://github.com/openclaw/openclaw/commit/72d597c202a0c9ec8d6a2cf57a6e0f3b26efb108",
-      "publishedAt": "2026-07-17T22:50:30Z",
-      "summary": "fix(google-meet): harden talkback bridge recovery (#110092) * fix(meeting-bot): harden deferred runtime findings * fix(google-meet): gate paired-node talkback bridge * fix(google-meet): preserve tracked tab during bridge recovery * docs(google-meet): explain external bridge exception",
+      "title": "perf(ci): recalibrate compact shard hints to post-whale loaded-fleet …",
+      "link": "https://github.com/openclaw/openclaw/commit/f0f06ea9c2a76fcc3b56c1d8db852cceffe3eb78",
+      "publishedAt": "2026-07-17T23:48:49Z",
+      "summary": "perf(ci): recalibrate compact shard hints to post-whale loaded-fleet walls (#110172) Second calibration pass after the cli-runner reliability whale fix (#109772) and the stripe-wall correction (#109899): the compact group hints drifted below loaded-fleet reality, so FFD packed the heaviest groups into ~300s bins (checks-node-compact-large-2 at 242-314s shard wall, up to 389s job wall) while tail bins idled. Method: parsed [shard:*] begin/end timestamps from all 147 compact job logs across seven green CI runs whose head SHAs carry the whale-fix hints (runs 29605136624, 29605203485, 29605983019, 29606701461, 29611308972, 29611457693, 29611500865; 7 samples per group). Each hint is the per-group mean after dropping cache-warm/contention outliers outside [median/1.5, median*1.5]. Packing cap: with honest loaded walls a 220s cap no longer fits either pool (adds one job to each); 235s keeps the same job count (6 large + 15 small + dist) and flattens the ceiling. Median job setup overhead measured 60s (p90 87s), so a 235s bin stays near the 5-minute PR budget. Predicted bin shard walls (sum of measured group means): before: large 220/301/200/219/257/112, small heavies 251/235/218/217/215, max 301 after: large 235/232/229/228/228/156, small heavies 236/234/234/234/233, max 236 large-pool max/mean 1.38 -> 1.08 Biggest hint deltas (old -> new): startup-core 98->156, core-tooling-4 71->125, core-unit-fast-isolated 50->90, core-tooling-3 82->108, runtime-server 14->29, storage-state 55->70, media-ui 113->124, tui-pty 103->116, runner-cli-1 18->8, unit-src-security 108->95. Exclusive bins keep their 150s cap and 5-bin count: tui-pty (116) no longer shares a bin with tooling-isolated (166s combined measured); FFD now pairs tooling-2 with tooling-isolated at 144s. STRIPE_FILE_SECONDS_HINTS left unchanged: measured stripe walls sit in exclusive bins far below the packing ceiling (tooling stripes 94-125s), and refitting per-file hints would reshuffle stripe membership and invalidate the measured group means above.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google-meet): harden talkback bridge recovery (#110092)",
-      "summaryZh": "重點：修正(google-meet): harden talkback bridge recovery (#110092) * 修正(meeting-bot): harden deferred runtime findings * 修正(goog..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ci): recalibrate compact shard hints to post-whale loaded-fleet …",
+      "summaryZh": "重點：perf(ci): recalibrate compact shard hints to post-whale loaded-fleet walls (#110172) Second calibration pass after the c..."
     },
     {
       "id": 4,
-      "title": "feat(onboard): recommendations store with once-semantics and self-nam…",
-      "link": "https://github.com/openclaw/openclaw/commit/9a93a52a8a2467e8436b334e5280967c6bbb0c4e",
-      "publishedAt": "2026-07-17T22:42:01Z",
-      "summary": "feat(onboard): recommendations store with once-semantics and self-naming bootstrap (#110173) * feat(onboarding): persist app recommendations once * feat(onboarding): add self-naming birth sequence * chore(wizard): hoist bootstrap-defer imports to the top of the module * docs(bootstrap): persist agreed identity into IDENTITY.md and SOUL.md as well * docs: regenerate docs map after onboarding plan merge * fix(wizard): reuse a pending stored offer instead of rescanning apps * fix(onboard): deduplicate bootstrap recommendations",
+      "title": "fix(config): render validation array indices with brackets (#104935)",
+      "link": "https://github.com/openclaw/openclaw/commit/af917f9235004a35b1ae661bf7568bfae7edb391",
+      "publishedAt": "2026-07-17T23:48:39Z",
+      "summary": "fix(config): render validation array indices with brackets (#104935) * fix(config): format validation indexes at display boundary Co-authored-by: chatgpt-codex-connector[bot] Co-authored-by: clawsweeper[bot] * fix(config): preserve identity avatar issue paths Co-authored-by: VectorPeak --------- Co-authored-by: clawsweeper[bot] Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(onboard): recommendations store with once-semantics and self-nam…",
-      "summaryZh": "重點：新功能(onboard): recommendations store with once-semantics and self-naming bootstrap (#110173) * 新功能(onboarding): persist a..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): render validation array indices with brackets (#104935)",
+      "summaryZh": "重點：修正(config): render validation array indices with brackets (#104935) * 修正(config): format validation indexes at display b..."
     },
     {
       "id": 5,
+      "title": "買得起更要「懂得買」，AI 熱潮催生科技圈新時尚",
+      "link": "https://technews.tw/2026/07/18/ai-boom-tech-trend/",
+      "publishedAt": "Fri, 17 Jul 2026 23:30:03 +0000",
+      "summary": "人工智慧（AI）熱潮正催生一批新的科技富裕族群，他們的穿著選擇也開始改寫矽谷的時尚語言。過去象徵科技圈的隨性背 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "旋轉快到看不見，美國西北大學找到新方法開發「隱形無人機」",
+      "link": "https://technews.tw/2026/07/18/northwestern-university-developed-new-spinning-drones-that-can-be-invisible/",
+      "publishedAt": "Fri, 17 Jul 2026 23:00:34 +0000",
+      "summary": "科學家為了打造「隱形」無人機，過去嘗試過迷彩塗裝、透明材質或是複雜的光學折射系統，但效果往往相當有限，不過美國 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "解開宇宙燈塔之謎，NASA 探測器首度成功測量脈衝星磁場",
       "link": "https://technews.tw/2026/07/18/ixpe-first-maps-magnetic-field-structure-lighthouse-nebula-pulsar/",
       "publishedAt": "Fri, 17 Jul 2026 16:00:58 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "最新研究運用「光回波」精準測距，證實銀河系螺旋臂比預期更遙遠",
       "link": "https://technews.tw/2026/07/18/milky-way-spiral-arms-farther-than-expected/",
       "publishedAt": "Fri, 17 Jul 2026 16:00:30 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "延續亞股下跌走勢，美股開盤持續走低考驗投資人信心",
       "link": "https://finance.technews.tw/2026/07/17/us-stocks-continued-to-decline-at-the-open-testing-investor-confidence/",
       "publishedAt": "Fri, 17 Jul 2026 14:15:15 +0000",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Pat Gelsinger 持續示警晶片對台灣依賴風險，還指英特爾該讓有技術背景者領導",
       "link": "https://finance.technews.tw/2026/07/17/pat-gelsinger-continues-to-warn-of-the-risks-of-chip-dependence-on-taiwan/",
       "publishedAt": "Fri, 17 Jul 2026 13:50:05 +0000",
       "summary": "英特爾（Intel）前執行長Pat Gelsinger近期對全球過度依賴台灣晶片供應提出嚴厲警告。他表示，在中 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "美國戰爭部暫停CMMC第二階段，檢討國防承包商資安認證制度",
-      "link": "https://www.ithome.com.tw/news/177389",
-      "publishedAt": "2026-07-17 12:07:24",
-      "summary": "7月13日美國戰爭部宣布，立即暫停網路安全成熟度模型認證（Cybersecurity Maturity Model Certification，CMMC）第二階段要求。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "高階後門Daxin、Stupig鎖定臺灣製造業發動攻擊",
-      "link": "https://www.ithome.com.tw/news/177390",
-      "publishedAt": "2026-07-17 12:07:23",
-      "summary": "4年前資安公司賽門鐵克揭露中國高階後門程式Daxin，並指出相關活動可追溯至2013年，攻擊目標多半為各國政府或是與中國利益有關的企業組織，當時賽門鐵克指出是他們看過最先進中國的惡意程式，因而引起高度關注，如今傳出駭客將其用於臺灣企業。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
