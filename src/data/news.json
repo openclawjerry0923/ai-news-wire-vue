@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-17T15:14:02.814Z",
+  "generatedAt": "2026-07-17T17:12:53.113Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(i18n): restore masked list marker structure",
-      "link": "https://github.com/openclaw/openclaw/commit/edef9822eefc0cef68b2c7b2e965a2daf32341d9",
-      "publishedAt": "2026-07-17T15:11:42Z",
-      "summary": "fix(i18n): restore masked list marker structure",
+      "title": "test(mcp): exercise subscribed gateway events",
+      "link": "https://github.com/openclaw/openclaw/commit/8a8706cb5d0448fe2a15b1afae81bfe419322e55",
+      "publishedAt": "2026-07-17T17:00:24Z",
+      "summary": "test(mcp): exercise subscribed gateway events",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(i18n): restore masked list marker structure",
-      "summaryZh": "重點：修正(i18n): restore masked list marker structure..."
+      "titleZh": "OpenClaw 程式碼更新：test(mcp): exercise subscribed Gateway events",
+      "summaryZh": "重點：test(mcp): exercise subscribed Gateway events..."
     },
     {
       "id": 2,
-      "title": "feat(macos): session detail parity — row actions, unread auto-clear, …",
-      "link": "https://github.com/openclaw/openclaw/commit/75697ad3bf6c14ec31c8aa95637f5b5cd9f5fd34",
-      "publishedAt": "2026-07-17T14:54:08Z",
-      "summary": "feat(macos): session detail parity — row actions, unread auto-clear, and subagent tree in native chat (#110019) * feat(clients): session detail parity — row actions, unread auto-clear, and subagent tree in the native chat sidebar * fix(clients): overlay pending explicit unread values over stale session snapshots * chore(i18n): translate new session action strings and regenerate Apple/Android catalogs * chore(clients): delete dead pin helper and worktree memberwise init",
+      "title": "fix(compaction): previous summary is duplicated when a later split de…",
+      "link": "https://github.com/openclaw/openclaw/commit/12e7f91047e6eec6edfe21b88b5710aaa7bccd3d",
+      "publishedAt": "2026-07-17T16:50:22Z",
+      "summary": "fix(compaction): previous summary is duplicated when a later split degrades (#109828) * fix(compaction): stop duplicating the previous summary when a later split degrades summarizeInStages stamped a merged result as generic-fallback whenever ANY split degraded. compaction-safeguard reads that kind to decide whether to restore the previous summary, on the documented assumption that \"a generic fallback means redistillation never happened\". That assumption only holds for chunk 0. summarizeViaLLM prepends the previous summary as the first message, so it always lands in the oldest chunk. When that chunk summarizes fine but a later one degrades, the merge already carries the redistilled summary — and the safeguard prepends it a second time. Every subsequent compaction that has any degraded split re-adds it again, so a PR that exists to stop token burn compounds it instead. The kind now reports whether the oldest split degraded, which is exactly the question the only consumer asks. The coarse \"any chunk\" flag is gone rather than kept alongside the precise one, so there is a single source of truth. Behavior for a degraded oldest split is unchanged: the previous summary is genuinely lost there and restoring it is still correct. * test(compaction): pin previous-summary restoration boundary --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(macos): session detail parity — row actions, unread auto-clear, …",
-      "summaryZh": "重點：新功能(macos): session detail parity — row actions, unread auto-clear, and subagent tree in native chat (#110019) * 新功能(cli..."
+      "titleZh": "OpenClaw 程式碼更新：修正(compaction): previous summary is duplicated when a later split de…",
+      "summaryZh": "重點：修正(compaction): previous summary is duplicated when a later split degrades (#109828) * 修正(compaction): stop duplicating ..."
     },
     {
       "id": 3,
-      "title": "feat(macos): honor the selected microphone in Talk and show live voic…",
-      "link": "https://github.com/openclaw/openclaw/commit/311f5bfbaa5c866ff72f86e0292d133c9beaf112",
-      "publishedAt": "2026-07-17T14:45:46Z",
-      "summary": "feat(macos): honor the selected microphone in Talk and show live voice activity in chat (#109995) * feat(macos): honor the selected microphone in Talk and surface live level, transcript, and mic picker in chat * chore(i18n): translate new talk activity strings and regenerate Apple/Android catalogs",
+      "title": "fix(azure): responses model aliases route correctly (#93833)",
+      "link": "https://github.com/openclaw/openclaw/commit/2e64628a2355011b2251cf707cfb236d25356b73",
+      "publishedAt": "2026-07-17T16:47:08Z",
+      "summary": "fix(azure): responses model aliases route correctly (#93833) * fix(agents): keep Azure Responses model aliases routed * Fix Azure Responses alias owner fallback * Fix provider-level Azure alias owner * Fix Azure custom deployment alias ownership * Fix Azure alias endpoint ownership * fix: remove redundant static catalog boolean wrapper * fix(azure): preserve alias tests after main sync * fix(azure): infer transport from retained alias * fix(azure): derive transport from manifest alias * chore: drop local CodeGraph metadata * fix(azure): keep alias transport ownership consistent * fix(azure): preserve alias ownership across fallbacks * fix(agents): keep codex-only model suppression authoritative * refactor(agents): split model compatibility helpers * fix(agents): preserve conditional suppression ownership * test(agents): deduplicate alias resolution assertions * fix(agents): reject ambiguous model aliases * test(agents): keep alias regressions within lint caps * fix(agents): preserve alias target transport * fix(agents): honor configured alias transports * fix(agents): preserve retained alias transport * fix(agents): narrow alias transport precedence * test(agents): complete alias transport fixture * test(agents): trim redundant alias fixture fields --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(macos): honor the selected microphone in Talk and show live voic…",
-      "summaryZh": "重點：新功能(macos): honor the selected microphone in Talk and show live voice activity in chat (#109995) * 新功能(macos): honor the..."
+      "titleZh": "OpenClaw 程式碼更新：修正(azure): responses 模型 aliases route correctly (#93833)",
+      "summaryZh": "重點：修正(azure): responses 模型 aliases route correctly (#93833) * 修正(agents): keep Azure Responses 模型 aliases routed * 修正 Azure..."
     },
     {
       "id": 4,
-      "title": "improve: speed up native session loading from paired Macs (#110030)",
-      "link": "https://github.com/openclaw/openclaw/commit/2c1c5b3a97a3a86cf9ebd3d05494605706f04398",
-      "publishedAt": "2026-07-17T14:39:40Z",
-      "summary": "improve: speed up native session loading from paired Macs (#110030) * perf(macos): accelerate native session catalogs * fix(macos): preserve Codex catalog completeness * fix(macos): bound Claude catalog work * fix(macos): type catalog continuation result * refactor(macos): satisfy session catalog lint",
+      "title": "refactor: store gateway restart recovery in SQLite (#110014)",
+      "link": "https://github.com/openclaw/openclaw/commit/5366b6de81714b803ec113eaec4ed00588f9c8b8",
+      "publishedAt": "2026-07-17T16:43:22Z",
+      "summary": "refactor: store gateway restart recovery in SQLite (#110014) * refactor: move restart sentinel state to sqlite * fix: satisfy restart sentinel architecture gates * test: avoid cold startup migration timeout * fix: bound durable restart notice retries * test: type restart notice contention mock * fix: detect legacy restart sentinel before reads * fix: keep delivery attempt result internal * fix: narrow restart sentinel preflight guard",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: speed up native session loading from paired Macs (#110030)",
-      "summaryZh": "重點：improve: speed up native session loading from paired Macs (#110030) * perf(macos): accelerate native session catalogs * ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: store Gateway restart recovery in SQLite (#110014)",
+      "summaryZh": "重點：refactor: store Gateway restart recovery in SQLite (#110014) * refactor: move restart sentinel state to sqlite * 修正: sat..."
     },
     {
       "id": 5,
+      "title": "解開宇宙燈塔之謎，NASA 探測器首度成功測量脈衝星磁場",
+      "link": "https://technews.tw/2026/07/18/ixpe-first-maps-magnetic-field-structure-lighthouse-nebula-pulsar/",
+      "publishedAt": "Fri, 17 Jul 2026 16:00:58 +0000",
+      "summary": "近日科學家利用 NASA 的 X 射線成像偏振探測器（IXPE），首度成功直接測量「燈塔星雲」（Lightho [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "最新研究運用「光回波」精準測距，證實銀河系螺旋臂比預期更遙遠",
+      "link": "https://technews.tw/2026/07/18/milky-way-spiral-arms-farther-than-expected/",
+      "publishedAt": "Fri, 17 Jul 2026 16:00:30 +0000",
+      "summary": "透過觀測宇宙中最劇烈爆炸所產生的光線，在銀河系螺旋臂塵埃雲中折射出的反射現象，天文學家發現，我們的銀河系範圍可 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "延續亞股下跌走勢，美股開盤持續走低考驗投資人信心",
       "link": "https://finance.technews.tw/2026/07/17/us-stocks-continued-to-decline-at-the-open-testing-investor-confidence/",
       "publishedAt": "Fri, 17 Jul 2026 14:15:15 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "Pat Gelsinger 持續示警晶片對台灣依賴風險，還指英特爾該讓有技術背景者領導",
       "link": "https://finance.technews.tw/2026/07/17/pat-gelsinger-continues-to-warn-of-the-risks-of-chip-dependence-on-taiwan/",
       "publishedAt": "Fri, 17 Jul 2026 13:50:05 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "美國戰爭部暫停CMMC第二階段，檢討國防承包商資安認證制度",
       "link": "https://www.ithome.com.tw/news/177389",
       "publishedAt": "2026-07-17 12:07:24",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "高階後門Daxin、Stupig鎖定臺灣製造業發動攻擊",
       "link": "https://www.ithome.com.tw/news/177390",
       "publishedAt": "2026-07-17 12:07:23",
       "summary": "4年前資安公司賽門鐵克揭露中國高階後門程式Daxin，並指出相關活動可追溯至2013年，攻擊目標多半為各國政府或是與中國利益有關的企業組織，當時賽門鐵克指出是他們看過最先進中國的惡意程式，因而引起高度關注，如今傳出駭客將其用於臺灣企業。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Cloudflare以eBPF整合DDoS防護、流量分流與系統觀測",
-      "link": "https://www.ithome.com.tw/news/177391",
-      "publishedAt": "2026-07-17 12:07:21",
-      "summary": "提供網路安全、效能與可靠性服務的Cloudflare，將Linux核心可程式化技術eBPF導入全球邊緣網路，用於DDoS防護、流量分流、服務不中斷的重新啟動，以及系統運作狀態觀測，根據Linux基金會旗下eBPF基金會本週公布的Cloudflare eBPF部署案例，這套架構可因應Anycast網路及數百萬個IP位址的管理需求，並減少Cloudflare對客製化Linux核心修補及特定硬體的依賴。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "近8成組織將AI用於資安，但僅36%建立正式AI風險管理計畫",
-      "link": "https://www.ithome.com.tw/news/177383",
-      "publishedAt": "2026-07-17 11:07:58",
-      "summary": "資安教育與研究機構SANS Institute於7月發布調查報告指出，企業在資安工作中採用AI的比例大幅上升，但AI治理機制尚未同步成熟。 調查顯示，將AI納入資安策略的組織比例，從2025年的50%升至2026年的78%；建立正式AI風險管理與法規遵循計畫的組織比例，則僅從2025年的35%微幅增至2026年的36%。在已採用AI的組織中，僅27%的受訪者表示，AI部署已進入成熟階段，並融入日常作業。",
       "source": "iThome",
       "tag": "繁中"
     }
