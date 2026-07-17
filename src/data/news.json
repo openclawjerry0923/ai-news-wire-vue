@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-17T19:10:46.694Z",
+  "generatedAt": "2026-07-17T20:56:42.895Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ci): default package acceptance omission flag",
-      "link": "https://github.com/openclaw/openclaw/commit/69b83b515a8ff4b51019ab0916076e8dc96b736b",
-      "publishedAt": "2026-07-17T19:01:07Z",
-      "summary": "fix(ci): default package acceptance omission flag",
+      "title": "fix(ui): guard page custom-element registrations against re-registration",
+      "link": "https://github.com/openclaw/openclaw/commit/76e97ddcdb515f2af781a4b146d9e47eaacdf9e2",
+      "publishedAt": "2026-07-17T20:56:24Z",
+      "summary": "fix(ui): guard page custom-element registrations against re-registration The shared jsdom registry persists across test files under isolate:false while modules re-evaluate per file, so any page imported by two test files threw NotSupportedError at import time (ui/src/pages/usage/usage-page.test.ts started failing when gateway-source-replacement.test.ts became a second importer). All other components already guard with customElements.get; these nine pages were the only bare defines.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): default package acceptance omission flag",
-      "summaryZh": "重點：修正(ci): default package acceptance omission flag..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): guard page custom-element registrations against re-registration",
+      "summaryZh": "重點：修正(ui): guard page custom-element registrations against re-registration The shared jsdom registry persists across test f..."
     },
     {
       "id": 2,
-      "title": "fix(ci): let cancelled main runs trigger the cache warm writer",
-      "link": "https://github.com/openclaw/openclaw/commit/8367253f61692f8e0f785ed52c823facae4548a6",
-      "publishedAt": "2026-07-17T18:51:36Z",
-      "summary": "fix(ci): let cancelled main runs trigger the cache warm writer Success-only gating starved the deps/vitest snapshots: under merge traffic every main push cancels the prior CI run, so the deadline writer skipped for hours (15:34->18:45 observed) while PRs paid full reinstalls against stale fingerprints. The warm job checks out main tip regardless of the triggering run, so cancelled completions are safe refresh signals; failed runs still skip.",
+      "title": "test(release): avoid secret-like fixture literal",
+      "link": "https://github.com/openclaw/openclaw/commit/b7dd330bd33273766d6c45040019f20dad422aaa",
+      "publishedAt": "2026-07-17T20:55:27Z",
+      "summary": "test(release): avoid secret-like fixture literal",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): let cancelled main runs trigger the cache warm writer",
-      "summaryZh": "重點：修正(ci): let cancelled main runs trigger the cache warm writer Success-only gating starved the deps/vitest snapshots: und..."
+      "titleZh": "OpenClaw 程式碼更新：test(版本發布): avoid secret-like 修正ture literal",
+      "summaryZh": "重點：test(版本發布): avoid secret-like 修正ture literal..."
     },
     {
       "id": 3,
-      "title": "fix(release): resolve package tools from source checkout",
-      "link": "https://github.com/openclaw/openclaw/commit/7e705ed7c4718c743db381480ccf4fd25f88f2b3",
-      "publishedAt": "2026-07-17T18:49:20Z",
-      "summary": "fix(release): resolve package tools from source checkout",
+      "title": "fix(release): fail fast on flaky beta QA",
+      "link": "https://github.com/openclaw/openclaw/commit/e7801deb57d9d7ef90ea1c30794609c512a70612",
+      "publishedAt": "2026-07-17T20:55:27Z",
+      "summary": "fix(release): fail fast on flaky beta QA",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): resolve package tools from source checkout",
-      "summaryZh": "重點：修正(版本發布): resolve package tools from source checkout..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): fail fast on flaky beta QA",
+      "summaryZh": "重點：修正(版本發布): fail fast on flaky beta QA..."
     },
     {
       "id": 4,
-      "title": "perf(session-catalog): bound slow node fan-out (#110106)",
-      "link": "https://github.com/openclaw/openclaw/commit/67a5ffab778a65cae14d92fb09848bd7cb77e32e",
-      "publishedAt": "2026-07-17T18:24:27Z",
-      "summary": "perf(session-catalog): bound slow node fan-out (#110106)",
+      "title": "test(release): align synthetic credential assertion",
+      "link": "https://github.com/openclaw/openclaw/commit/78b489ec89dd2d51c7646e39dae5f5ba1e5eab90",
+      "publishedAt": "2026-07-17T20:55:27Z",
+      "summary": "test(release): align synthetic credential assertion",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(session-catalog): bound slow node fan-out (#110106)",
-      "summaryZh": "重點：perf(session-catalog): bound slow node fan-out (#110106)..."
+      "titleZh": "OpenClaw 程式碼更新：test(版本發布): align synthetic credential assertion",
+      "summaryZh": "重點：test(版本發布): align synthetic credential assertion..."
     },
     {
       "id": 5,
