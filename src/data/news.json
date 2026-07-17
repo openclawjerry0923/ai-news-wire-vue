@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-17T17:12:53.113Z",
+  "generatedAt": "2026-07-17T19:10:46.694Z",
   "items": [
     {
       "id": 1,
-      "title": "test(mcp): exercise subscribed gateway events",
-      "link": "https://github.com/openclaw/openclaw/commit/8a8706cb5d0448fe2a15b1afae81bfe419322e55",
-      "publishedAt": "2026-07-17T17:00:24Z",
-      "summary": "test(mcp): exercise subscribed gateway events",
+      "title": "fix(ci): default package acceptance omission flag",
+      "link": "https://github.com/openclaw/openclaw/commit/69b83b515a8ff4b51019ab0916076e8dc96b736b",
+      "publishedAt": "2026-07-17T19:01:07Z",
+      "summary": "fix(ci): default package acceptance omission flag",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(mcp): exercise subscribed Gateway events",
-      "summaryZh": "重點：test(mcp): exercise subscribed Gateway events..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): default package acceptance omission flag",
+      "summaryZh": "重點：修正(ci): default package acceptance omission flag..."
     },
     {
       "id": 2,
-      "title": "fix(compaction): previous summary is duplicated when a later split de…",
-      "link": "https://github.com/openclaw/openclaw/commit/12e7f91047e6eec6edfe21b88b5710aaa7bccd3d",
-      "publishedAt": "2026-07-17T16:50:22Z",
-      "summary": "fix(compaction): previous summary is duplicated when a later split degrades (#109828) * fix(compaction): stop duplicating the previous summary when a later split degrades summarizeInStages stamped a merged result as generic-fallback whenever ANY split degraded. compaction-safeguard reads that kind to decide whether to restore the previous summary, on the documented assumption that \"a generic fallback means redistillation never happened\". That assumption only holds for chunk 0. summarizeViaLLM prepends the previous summary as the first message, so it always lands in the oldest chunk. When that chunk summarizes fine but a later one degrades, the merge already carries the redistilled summary — and the safeguard prepends it a second time. Every subsequent compaction that has any degraded split re-adds it again, so a PR that exists to stop token burn compounds it instead. The kind now reports whether the oldest split degraded, which is exactly the question the only consumer asks. The coarse \"any chunk\" flag is gone rather than kept alongside the precise one, so there is a single source of truth. Behavior for a degraded oldest split is unchanged: the previous summary is genuinely lost there and restoring it is still correct. * test(compaction): pin previous-summary restoration boundary --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(ci): let cancelled main runs trigger the cache warm writer",
+      "link": "https://github.com/openclaw/openclaw/commit/8367253f61692f8e0f785ed52c823facae4548a6",
+      "publishedAt": "2026-07-17T18:51:36Z",
+      "summary": "fix(ci): let cancelled main runs trigger the cache warm writer Success-only gating starved the deps/vitest snapshots: under merge traffic every main push cancels the prior CI run, so the deadline writer skipped for hours (15:34->18:45 observed) while PRs paid full reinstalls against stale fingerprints. The warm job checks out main tip regardless of the triggering run, so cancelled completions are safe refresh signals; failed runs still skip.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(compaction): previous summary is duplicated when a later split de…",
-      "summaryZh": "重點：修正(compaction): previous summary is duplicated when a later split degrades (#109828) * 修正(compaction): stop duplicating ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): let cancelled main runs trigger the cache warm writer",
+      "summaryZh": "重點：修正(ci): let cancelled main runs trigger the cache warm writer Success-only gating starved the deps/vitest snapshots: und..."
     },
     {
       "id": 3,
-      "title": "fix(azure): responses model aliases route correctly (#93833)",
-      "link": "https://github.com/openclaw/openclaw/commit/2e64628a2355011b2251cf707cfb236d25356b73",
-      "publishedAt": "2026-07-17T16:47:08Z",
-      "summary": "fix(azure): responses model aliases route correctly (#93833) * fix(agents): keep Azure Responses model aliases routed * Fix Azure Responses alias owner fallback * Fix provider-level Azure alias owner * Fix Azure custom deployment alias ownership * Fix Azure alias endpoint ownership * fix: remove redundant static catalog boolean wrapper * fix(azure): preserve alias tests after main sync * fix(azure): infer transport from retained alias * fix(azure): derive transport from manifest alias * chore: drop local CodeGraph metadata * fix(azure): keep alias transport ownership consistent * fix(azure): preserve alias ownership across fallbacks * fix(agents): keep codex-only model suppression authoritative * refactor(agents): split model compatibility helpers * fix(agents): preserve conditional suppression ownership * test(agents): deduplicate alias resolution assertions * fix(agents): reject ambiguous model aliases * test(agents): keep alias regressions within lint caps * fix(agents): preserve alias target transport * fix(agents): honor configured alias transports * fix(agents): preserve retained alias transport * fix(agents): narrow alias transport precedence * test(agents): complete alias transport fixture * test(agents): trim redundant alias fixture fields --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(release): resolve package tools from source checkout",
+      "link": "https://github.com/openclaw/openclaw/commit/7e705ed7c4718c743db381480ccf4fd25f88f2b3",
+      "publishedAt": "2026-07-17T18:49:20Z",
+      "summary": "fix(release): resolve package tools from source checkout",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(azure): responses 模型 aliases route correctly (#93833)",
-      "summaryZh": "重點：修正(azure): responses 模型 aliases route correctly (#93833) * 修正(agents): keep Azure Responses 模型 aliases routed * 修正 Azure..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): resolve package tools from source checkout",
+      "summaryZh": "重點：修正(版本發布): resolve package tools from source checkout..."
     },
     {
       "id": 4,
-      "title": "refactor: store gateway restart recovery in SQLite (#110014)",
-      "link": "https://github.com/openclaw/openclaw/commit/5366b6de81714b803ec113eaec4ed00588f9c8b8",
-      "publishedAt": "2026-07-17T16:43:22Z",
-      "summary": "refactor: store gateway restart recovery in SQLite (#110014) * refactor: move restart sentinel state to sqlite * fix: satisfy restart sentinel architecture gates * test: avoid cold startup migration timeout * fix: bound durable restart notice retries * test: type restart notice contention mock * fix: detect legacy restart sentinel before reads * fix: keep delivery attempt result internal * fix: narrow restart sentinel preflight guard",
+      "title": "perf(session-catalog): bound slow node fan-out (#110106)",
+      "link": "https://github.com/openclaw/openclaw/commit/67a5ffab778a65cae14d92fb09848bd7cb77e32e",
+      "publishedAt": "2026-07-17T18:24:27Z",
+      "summary": "perf(session-catalog): bound slow node fan-out (#110106)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: store Gateway restart recovery in SQLite (#110014)",
-      "summaryZh": "重點：refactor: store Gateway restart recovery in SQLite (#110014) * refactor: move restart sentinel state to sqlite * 修正: sat..."
+      "titleZh": "OpenClaw 程式碼更新：perf(session-catalog): bound slow node fan-out (#110106)",
+      "summaryZh": "重點：perf(session-catalog): bound slow node fan-out (#110106)..."
     },
     {
       "id": 5,
