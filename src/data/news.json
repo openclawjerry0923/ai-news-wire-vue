@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-18T20:50:05.984Z",
+  "generatedAt": "2026-07-18T21:52:01.631Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(stt-live-audio): cancel ElevenLabs error response body (#110759)",
-      "link": "https://github.com/openclaw/openclaw/commit/09c46fb6822f4402aa14892adcce76b34d2d30a7",
-      "publishedAt": "2026-07-18T20:48:04Z",
-      "summary": "fix(stt-live-audio): cancel ElevenLabs error response body (#110759) Avoid buffering unbounded provider error streams and cover the resource lifecycle with a deterministic cancellation contract. Co-authored-by: Peter Steinberger",
+      "title": "Bound diagnostic config file read with size cap (#110591)",
+      "link": "https://github.com/openclaw/openclaw/commit/87de81a5fd4a2d4e3ef8bff9af22a3ed2ab8b4e8",
+      "publishedAt": "2026-07-18T21:48:29Z",
+      "summary": "Bound diagnostic config file read with size cap (#110591) * Bound diagnostic config read with size cap * fix: use buffer.toString for readRegularFileSync result in diagnostic export * test: verify normal and oversized diagnostic config export behavior PR #110591 — Add focused regression coverage for the bounded diagnostic config read: - Test: normal config file (8MB) produces parseOk: false with graceful error handling - Both tests verify the support bundle zip is still written with all expected contents * refactor(logging): clarify support export config limit Co-authored-by: 陈宪彪0668000387 --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(stt-live-audio): cancel ElevenLabs error response body (#110759)",
-      "summaryZh": "重點：修正(stt-live-audio): cancel ElevenLabs error response body (#110759) Avoid buffering unbounded provider error streams and..."
+      "titleZh": "OpenClaw 程式碼更新：Bound diagnostic config file read with size cap (#110591)",
+      "summaryZh": "重點：Bound diagnostic config file read with size cap (#110591) * Bound diagnostic config read with size cap * 修正: use buffer...."
     },
     {
       "id": 2,
-      "title": "fix(thread-ownership): ignore blank forwarder URL env overrides (#110…",
-      "link": "https://github.com/openclaw/openclaw/commit/6646719c052ad0db714f163f4df1d7354ca69f44",
-      "publishedAt": "2026-07-18T20:45:35Z",
-      "summary": "fix(thread-ownership): ignore blank forwarder URL env overrides (#110675)",
+      "title": "feat(ui): sidebar rows use full width; actions overlay with a hover f…",
+      "link": "https://github.com/openclaw/openclaw/commit/8ff15124546819f612dbb480e129ea35c4d4d7d0",
+      "publishedAt": "2026-07-18T21:47:46Z",
+      "summary": "feat(ui): sidebar rows use full width; actions overlay with a hover fade (#110959) Session-row titles run to the sidebar edge instead of reserving the hover action cluster's width in-flow. The trailing aside overlays the row (pointer-events off at rest so link clicks pass through) and the link content fades out beneath the surfaced controls via a mask, which stays correct over rest/hover/active/selected backgrounds. Rows with a child toggle keep it rightmost; actions land at the link edge either way. Child rows keep the in-flow aside since their runtime trail is resting content. Touch keeps actions visible, so the fade is permanent there.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(thread-ownership): ignore blank forwarder URL env overrides (#110…",
-      "summaryZh": "重點：修正(thread-ownership): ignore blank forwarder URL env overrides (#110675)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): sidebar rows use full width; actions overlay with a hover f…",
+      "summaryZh": "重點：新功能(ui): sidebar rows use full width; actions overlay with a hover fade (#110959) Session-row titles run to the sidebar ..."
     },
     {
       "id": 3,
-      "title": "feat(ui): call chat sessions threads and quiet the sidebar sections (…",
-      "link": "https://github.com/openclaw/openclaw/commit/42bacaa112c5b5a77828739fda1029229796c51e",
-      "publishedAt": "2026-07-18T20:42:52Z",
-      "summary": "feat(ui): call chat sessions threads and quiet the sidebar sections (#110933) * feat(ui): call chat sessions threads and quiet the sidebar sections Thread naming on every creation surface (new-thread page, draft row, + tooltips, untitled-thread fallback, New Chat guard toasts). The draft placeholder now renders as the first item inside the Threads section and genuinely expands a collapsed section so the header toggle stays honest. Empty sidebar sections no longer render (Coding keeps its CLI-catalog exception); expanded section headers reveal their chevron only on hover/focus while collapsed headers keep chevron + count. The new-thread button moves from the macOS titlebar strip into the sidebar brand row next to the agent picker (bigger, offline-aware); the titlebar + renders only while the rail is collapsed. Mobile drawer shows the new + as well. * fix(ui): keep empty custom groups and the mid-drag Threads drop target Empty-section hiding narrows to the Threads zone at rest: user-created categories stay visible when empty (New group… creation and drag-into-group flows depend on them), and an empty Threads section reappears while a session drag is in flight so drag-to-unpin keeps its drop target. * test(ui): drag-to-unpin targets the sessions surface The empty Threads section only materializes mid-drag, so Playwright cannot pre-resolve it as a drop target; the sessions container's drop handler owns the unpin and sends {pinned:false} without a category reset.",
+      "title": "fix(process): UTF-8 command output corrupts at Windows byte limits (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/4e11da2872eccadeaf4fbd9b7c8a6bf4b229adbe",
+      "publishedAt": "2026-07-18T21:44:12Z",
+      "summary": "fix(process): UTF-8 command output corrupts at Windows byte limits (#105274) * fix(process): preserve byte-capped UTF-8 output on Windows * fix(process): skip codepage probe for UTF-8 output Co-authored-by: 杨浩宇0668001029 --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): call chat sessions threads and quiet the sidebar sections (…",
-      "summaryZh": "重點：新功能(ui): call chat sessions threads and quiet the sidebar sections (#110933) * 新功能(ui): call chat sessions threads and q..."
+      "titleZh": "OpenClaw 程式碼更新：修正(process): UTF-8 command output corrupts at Windows byte limits (#…",
+      "summaryZh": "重點：修正(process): UTF-8 command output corrupts at Windows byte limits (#105274) * 修正(process): preserve byte-capped UTF-8 ou..."
     },
     {
       "id": 4,
-      "title": "feat(apps,ui): question surface parity and composer takeover (#110681)",
-      "link": "https://github.com/openclaw/openclaw/commit/81362bf643077ac001869a4854a13912131c5edc",
-      "publishedAt": "2026-07-18T20:42:15Z",
-      "summary": "feat(apps,ui): question surface parity and composer takeover (#110681) * feat(apple): question parity — persistent summaries, skip, reconnect fallback, macOS keyboard * feat(android): question parity — persistent summaries, skip, reconnect fallback * feat(ui): question panel replaces composer while expanded * fix(apps): regenerate question parity contracts * fix(apps): preserve question reconciliation state * fix(apps): keep question terminal state monotonic * test(android): satisfy question test formatting * fix(security): restore skill audit file reads * fix(apps): harden question parity edge cases * fix(apps): preserve expired question summaries * fix(apps): keep question recovery retries current * fix(apps): retry stale question recovery snapshots * fix(android): reset stale question retry budgets * docs(tools): clarify question composer takeover * fix(apps): satisfy question recovery release gates * fix(apps): preserve unknown question outcomes * fix(apps): harden question action state * fix(apps): keep unavailable questions terminal * fix(apps): finalize local question outcomes * fix(apps): preserve question card API * fix(apps): reconcile external question answers * fix(apps): reset question backoff budget * chore(apps): refresh native i18n inventory * fix(android): distinguish question skip progress * fix(android): reconcile locally expired questions * fix(apps): keep question recovery state fresh * docs: note question surface parity * fix(ui): reconcile IME draft before question takeover * docs: leave question parity notes to release workflow",
+      "title": "fix(vault): aggregate provider outage diagnostics (#110908)",
+      "link": "https://github.com/openclaw/openclaw/commit/7a551bff0c9df015b0c47b6727dc398845a9eb4a",
+      "publishedAt": "2026-07-18T21:44:06Z",
+      "summary": "fix(vault): aggregate provider outage diagnostics (#110908) * fix(vault): aggregate provider outage diagnostics * fix(vault): classify revoked token outages * fix(vault): preserve scoped ACL failures * fix(vault): keep token probes advisory * test(vault): satisfy gateway proof gates * fix(secrets): attribute web provider outages * test(secrets): prove web outage fan-out in owner suite * fix(vault): scope malformed responses per secret * test(secrets): harden exec fanout fixtures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(apps,ui): question surface parity and composer takeover (#110681)",
-      "summaryZh": "重點：新功能(apps,ui): question surface parity and composer takeover (#110681) * 新功能(apple): question parity — persistent summari..."
+      "titleZh": "OpenClaw 程式碼更新：修正(vault): aggregate provider outage diagnostics (#110908)",
+      "summaryZh": "重點：修正(vault): aggregate provider outage diagnostics (#110908) * 修正(vault): aggregate provider outage diagnostics * 修正(vault..."
     },
     {
       "id": 5,
