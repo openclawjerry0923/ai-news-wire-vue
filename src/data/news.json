@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-18T19:05:15.698Z",
+  "generatedAt": "2026-07-18T20:50:05.984Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(ui): split lobster-pet into look/plans/element modules (#110…",
-      "link": "https://github.com/openclaw/openclaw/commit/64019bc0c2c3ce196428bf2db93a33baf44caa8f",
-      "publishedAt": "2026-07-18T19:02:24Z",
-      "summary": "refactor(ui): split lobster-pet into look/plans/element modules (#110816) * refactor(ui): split lobster-pet into look/plans/element modules Move existing behavior along appearance and seeded visit-planning ownership seams without changing runtime behavior. Extract only the bounded logo stand-in, WebAudio chirp, and pure render-template helpers while keeping the state machine in the element. Remove the grandfathered max-lines suppression and baseline entry. * style(ui): format lobster-pet split modules * fix(ui): keep lobster split internals unexported, refresh i18n raw-copy baseline knip flags the split's newly exported internals (strangerLookFor, renderCrabSvg, lobsterPetSpriteStyle, LobsterPasserKind) — they have no external consumers; the html-text raw-copy baseline is file-keyed, so the sprite z/Z markup moving into lobster-pet-look.ts needs a regen. * fix(ui): satisfy lint for the lobster-pet split (param reassign, max-lines) * fix(ui): keep moved act-profile internals unexported",
+      "title": "fix(stt-live-audio): cancel ElevenLabs error response body (#110759)",
+      "link": "https://github.com/openclaw/openclaw/commit/09c46fb6822f4402aa14892adcce76b34d2d30a7",
+      "publishedAt": "2026-07-18T20:48:04Z",
+      "summary": "fix(stt-live-audio): cancel ElevenLabs error response body (#110759) Avoid buffering unbounded provider error streams and cover the resource lifecycle with a deterministic cancellation contract. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split lobster-pet into look/plans/element modules (#110…",
-      "summaryZh": "重點：refactor(ui): split lobster-pet into look/plans/element modules (#110816) * refactor(ui): split lobster-pet into look/pl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(stt-live-audio): cancel ElevenLabs error response body (#110759)",
+      "summaryZh": "重點：修正(stt-live-audio): cancel ElevenLabs error response body (#110759) Avoid buffering unbounded provider error streams and..."
     },
     {
       "id": 2,
-      "title": "fix(ui): defer remembered camera auto-enable until talk reaches liste…",
-      "link": "https://github.com/openclaw/openclaw/commit/9a9f5919e5f1d60bbd147dcc79231a027f6a9eb2",
-      "publishedAt": "2026-07-18T19:00:40Z",
-      "summary": "fix(ui): defer remembered camera auto-enable until talk reaches listening (#110874)",
+      "title": "fix(thread-ownership): ignore blank forwarder URL env overrides (#110…",
+      "link": "https://github.com/openclaw/openclaw/commit/6646719c052ad0db714f163f4df1d7354ca69f44",
+      "publishedAt": "2026-07-18T20:45:35Z",
+      "summary": "fix(thread-ownership): ignore blank forwarder URL env overrides (#110675)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): defer remembered camera auto-enable until talk reaches liste…",
-      "summaryZh": "重點：修正(ui): defer remembered camera auto-enable until talk reaches listening (#110874)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(thread-ownership): ignore blank forwarder URL env overrides (#110…",
+      "summaryZh": "重點：修正(thread-ownership): ignore blank forwarder URL env overrides (#110675)..."
     },
     {
       "id": 3,
-      "title": "feat(synology-chat): add durable ingress (#110899)",
-      "link": "https://github.com/openclaw/openclaw/commit/bef8a82762f25c91831d1d8f04862a585569a494",
-      "publishedAt": "2026-07-18T19:00:06Z",
-      "summary": "feat(synology-chat): add durable ingress (#110899)",
+      "title": "feat(ui): call chat sessions threads and quiet the sidebar sections (…",
+      "link": "https://github.com/openclaw/openclaw/commit/42bacaa112c5b5a77828739fda1029229796c51e",
+      "publishedAt": "2026-07-18T20:42:52Z",
+      "summary": "feat(ui): call chat sessions threads and quiet the sidebar sections (#110933) * feat(ui): call chat sessions threads and quiet the sidebar sections Thread naming on every creation surface (new-thread page, draft row, + tooltips, untitled-thread fallback, New Chat guard toasts). The draft placeholder now renders as the first item inside the Threads section and genuinely expands a collapsed section so the header toggle stays honest. Empty sidebar sections no longer render (Coding keeps its CLI-catalog exception); expanded section headers reveal their chevron only on hover/focus while collapsed headers keep chevron + count. The new-thread button moves from the macOS titlebar strip into the sidebar brand row next to the agent picker (bigger, offline-aware); the titlebar + renders only while the rail is collapsed. Mobile drawer shows the new + as well. * fix(ui): keep empty custom groups and the mid-drag Threads drop target Empty-section hiding narrows to the Threads zone at rest: user-created categories stay visible when empty (New group… creation and drag-into-group flows depend on them), and an empty Threads section reappears while a session drag is in flight so drag-to-unpin keeps its drop target. * test(ui): drag-to-unpin targets the sessions surface The empty Threads section only materializes mid-drag, so Playwright cannot pre-resolve it as a drop target; the sessions container's drop handler owns the unpin and sends {pinned:false} without a category reset.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(synology-chat): add durable ingress (#110899)",
-      "summaryZh": "重點：新功能(synology-chat): add durable ingress (#110899)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): call chat sessions threads and quiet the sidebar sections (…",
+      "summaryZh": "重點：新功能(ui): call chat sessions threads and quiet the sidebar sections (#110933) * 新功能(ui): call chat sessions threads and q..."
     },
     {
       "id": 4,
-      "title": "fix(reef): stop leaking the inbox loop across channel crash restarts …",
-      "link": "https://github.com/openclaw/openclaw/commit/e80b0b5aa5031a417ec91f13c442eb105919ba97",
-      "publishedAt": "2026-07-18T18:59:58Z",
-      "summary": "fix(reef): stop leaking the inbox loop across channel crash restarts (#110870) * fix(reef): stop leaking the inbox loop across channel crash restarts * fix(reef): move channel lifecycle helper to its own module for lint/deadcode gates",
+      "title": "feat(apps,ui): question surface parity and composer takeover (#110681)",
+      "link": "https://github.com/openclaw/openclaw/commit/81362bf643077ac001869a4854a13912131c5edc",
+      "publishedAt": "2026-07-18T20:42:15Z",
+      "summary": "feat(apps,ui): question surface parity and composer takeover (#110681) * feat(apple): question parity — persistent summaries, skip, reconnect fallback, macOS keyboard * feat(android): question parity — persistent summaries, skip, reconnect fallback * feat(ui): question panel replaces composer while expanded * fix(apps): regenerate question parity contracts * fix(apps): preserve question reconciliation state * fix(apps): keep question terminal state monotonic * test(android): satisfy question test formatting * fix(security): restore skill audit file reads * fix(apps): harden question parity edge cases * fix(apps): preserve expired question summaries * fix(apps): keep question recovery retries current * fix(apps): retry stale question recovery snapshots * fix(android): reset stale question retry budgets * docs(tools): clarify question composer takeover * fix(apps): satisfy question recovery release gates * fix(apps): preserve unknown question outcomes * fix(apps): harden question action state * fix(apps): keep unavailable questions terminal * fix(apps): finalize local question outcomes * fix(apps): preserve question card API * fix(apps): reconcile external question answers * fix(apps): reset question backoff budget * chore(apps): refresh native i18n inventory * fix(android): distinguish question skip progress * fix(android): reconcile locally expired questions * fix(apps): keep question recovery state fresh * docs: note question surface parity * fix(ui): reconcile IME draft before question takeover * docs: leave question parity notes to release workflow",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reef): stop leaking the inbox loop across channel crash restarts …",
-      "summaryZh": "重點：修正(reef): stop leaking the inbox loop across channel crash restarts (#110870) * 修正(reef): stop leaking the inbox loop ac..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(apps,ui): question surface parity and composer takeover (#110681)",
+      "summaryZh": "重點：新功能(apps,ui): question surface parity and composer takeover (#110681) * 新功能(apple): question parity — persistent summari..."
     },
     {
       "id": 5,
