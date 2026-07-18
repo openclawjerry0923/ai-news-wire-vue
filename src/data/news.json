@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-18T13:17:10.371Z",
+  "generatedAt": "2026-07-18T14:53:33.416Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(mac): show native notification permission in dashboard Notificat…",
-      "link": "https://github.com/openclaw/openclaw/commit/42133d0c3c3ed95e4c791c4d2ecf461df2497f0a",
-      "publishedAt": "2026-07-18T13:13:06Z",
-      "summary": "feat(mac): show native notification permission in dashboard Notifications settings (#110646) * feat(mac): show native notification permission in dashboard Notifications settings The Mac app's embedded Control UI showed the web-push section as Unsupported/Not subscribed even though the app delivers notifications natively. The dashboard now installs an openclawNotifications WebKit bridge (status / request-permission / send-test) and the Notifications settings page renders native permission state with Enable, Open System Settings, and Send test actions when hosted in the Mac app. Browsers keep the existing web-push UI. The notifications section renderer moved out of the oversized config view module. * fix(ui): break config view import cycle and satisfy lint/deadcode/i18n gates Move the notifications section props to a leaf contract (no view.ts type import), unexport the status-event constant, use bracket access for the injected dunder global, default-case the status switch, and refresh the native i18n inventory line offset.",
+      "title": "fix(apns): keep diagnostics valid when response capture reaches its b…",
+      "link": "https://github.com/openclaw/openclaw/commit/33151cbc40a6bb717535e1beb64104c5fee913ba",
+      "publishedAt": "2026-07-18T14:51:31Z",
+      "summary": "fix(apns): keep diagnostics valid when response capture reaches its byte limit (#110483) * fix(apns): preserve UTF-8 response captures * test(apns): cover UTF-8 at the real capture limit * fix(apns): preserve UTF-8 in bounded response captures Co-authored-by: zhang-guiping --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(mac): show native notification permission in dashboard Notificat…",
-      "summaryZh": "重點：新功能(mac): show native notification permission in dashboard Notifications settings (#110646) * 新功能(mac): show native noti..."
+      "titleZh": "OpenClaw 程式碼更新：修正(apns): keep diagnostics valid when response capture reaches its b…",
+      "summaryZh": "重點：修正(apns): keep diagnostics valid when response capture reaches its byte limit (#110483) * 修正(apns): preserve UTF-8 respo..."
     },
     {
       "id": 2,
-      "title": "fix(memory): bound qmd taskkill cleanup (#109265)",
-      "link": "https://github.com/openclaw/openclaw/commit/ad3b8e0b6f140d432ad26c8cac93b94d7f3372ac",
-      "publishedAt": "2026-07-18T13:11:14Z",
-      "summary": "fix(memory): bound qmd taskkill cleanup (#109265) * fix(memory): bound qmd taskkill cleanup * test(memory): satisfy qmd process lint",
+      "title": "feat(ui): add reactive OpenClaw health nudges (#110708)",
+      "link": "https://github.com/openclaw/openclaw/commit/a115af277410a91fb039d2ed699eafad706f5c73",
+      "publishedAt": "2026-07-18T14:44:29Z",
+      "summary": "feat(ui): add reactive OpenClaw health nudges (#110708) * feat(ui): add reactive custodian health nudges * fix(ui): distinguish stopped channels from startup failures * test(ui): update custodian route gateway fixture * fix(ui): preserve current channel health failures * fix(ui): ignore recovered channel errors",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): bound qmd taskkill cleanup (#109265)",
-      "summaryZh": "重點：修正(記憶): bound qmd taskkill cleanup (#109265) * 修正(記憶): bound qmd taskkill cleanup * test(記憶): satisfy qmd process lint..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add reactive OpenClaw health nudges (#110708)",
+      "summaryZh": "重點：新功能(ui): add reactive OpenClaw health nudges (#110708) * 新功能(ui): add reactive custodian health nudges * 修正(ui): disting..."
     },
     {
       "id": 3,
-      "title": "feat(clients): session groups, batch actions, inspector, and worktree…",
-      "link": "https://github.com/openclaw/openclaw/commit/1cddec35f4b70612d373902243b59795efc9fdf5",
-      "publishedAt": "2026-07-18T13:09:42Z",
-      "summary": "feat(clients): session groups, batch actions, inspector, and worktree-aware creation for native chat (#110347) * feat(clients): gateway session groups, batch operations, session inspector, and new-session options * chore(i18n): translate session management strings and regenerate catalogs * chore(i18n): complete translation artifacts for session management strings * fix(clients): fail closed when a transport cannot honor agent or base-ref session options * fix(clients): authoritative agent identity for new-session parents and revision-keyed sidebar group refresh * fix(clients): refetch session groups on remote catalog events and correct Swedish repository-root translation * fix(clients): resilient new-session popover, revision-keyed group manager, and popover string translations * fix(clients): scope reset fallback to plain new-session requests and revision-key the inspector groups * fix(clients): reject empty agent catalogs and refresh sessions on remote group events * refactor(clients): drop unused agents fetch wrapper and runtime memberwise init flagged by periphery * chore(i18n): realign locale artifacts after rebase onto model-controls main * chore(clients): split session creation into the session-actions extension and realign i18n after ask-user main rebase * chore(i18n): resync derived artifacts after question-card main rebase",
+      "title": "refactor(cli): read-only database access for pure-read commands (#110…",
+      "link": "https://github.com/openclaw/openclaw/commit/d8846a1dcb88e1e2c124435cda30e9a01b62e660",
+      "publishedAt": "2026-07-18T14:42:28Z",
+      "summary": "refactor(cli): read-only database access for pure-read commands (#110732)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(clients): session groups, batch actions, inspector, and worktree…",
-      "summaryZh": "重點：新功能(clients): session groups, batch actions, inspector, and worktree-aware creation for native chat (#110347) * 新功能(clie..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(cli): read-only database access for pure-read commands (#110…",
+      "summaryZh": "重點：refactor(cli): read-only database access for pure-read commands (#110732)..."
     },
     {
       "id": 4,
-      "title": "fix(doctor): bound AGENTS.md and root-memory file reads (#101448)",
-      "link": "https://github.com/openclaw/openclaw/commit/881b0a619f56dcb64c7b173eeeaf68b7bbb27052",
-      "publishedAt": "2026-07-18T13:05:51Z",
-      "summary": "fix(doctor): bound AGENTS.md and root-memory file reads (#101448) * fix(doctor): bound AGENTS.md and root-memory file reads * chore(doctor): retrigger CI after QA smoke flake * fix(doctor): validate root-memory inputs before archiving * fix(doctor): distinguish oversized root-memory reads from other read failures * fix(doctor): preserve legacy memory on bounded-read races Co-authored-by: 陈宪彪0668000387 * fix(doctor): preserve archives on restoration failure Co-authored-by: 陈宪彪0668000387 * fix(doctor): keep independent archive on migration races Co-authored-by: 陈宪彪0668000387 * fix(doctor): preserve symlinked workspace guidance Co-authored-by: 陈宪彪0668000387 * fix(doctor): report atomic archive failures Co-authored-by: 陈宪彪0668000387 --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): bound AGENTS.md and root-記憶 file reads (#101448)",
-      "summaryZh": "重點：修正(文件tor): bound AGENTS.md and root-記憶 file reads (#101448) * 修正(文件tor): bound AGENTS.md and root-記憶 file reads * chore(..."
+      "title": "揭開「宇宙煉金術」之謎，AI 模型 RHINE 還原重元素誕生瞬間",
+      "link": "https://technews.tw/2026/07/18/ai-model-rhine/",
+      "publishedAt": "Sat, 18 Jul 2026 14:35:39 +0000",
+      "summary": "宇宙中許多重元素的誕生過程一直以來都是天文物理學界的一大謎題。近日，來自德國 GSI/FAIR 的國際研究團隊 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "fix(shared): bound ignore-file reads during workspace scans (#101429)",
+      "link": "https://github.com/openclaw/openclaw/commit/593423ecc0d3c1d883e247a6fca568e312791eec",
+      "publishedAt": "2026-07-18T14:31:42Z",
+      "summary": "fix(shared): bound ignore-file reads during workspace scans (#101429) * fix(shared): bound ignore-file reads during workspace scans * fix(shared): import bounded reader through infra policy wrapper * fix(shared): preserve chained-symlink ignore files while bounding reads * fix(shared): correct ignore-rules test calls and remove dead return * fix(shared): restore ignore matcher return value from addIgnoreRules * fix(shared): fail closed on oversized ignore files during scans * style(shared): format ignore-rules signature * test(shared): rename misleading under-cap ignore-file test * chore: retrigger CI for unrelated flaky run-with-env shutdown test * fix(shared): make oversized ignore-file exclusion terminal * test(shared): remove loadSkillsFromDir dependency for main compat * chore: retrigger dead-code scan after Periphery/Homebrew flake * fix(scans): fail closed on ignore read races * fix(scans): treat fail-closed ignore paths literally Co-authored-by: 陈宪彪0668000387 * fix(scans): preserve native ignore path semantics Co-authored-by: 陈宪彪0668000387 * fix(scans): bound ignore rule amplification Co-authored-by: 陈宪彪0668000387 * fix(scans): preserve case-insensitive fail-closed matching Co-authored-by: 陈宪彪0668000387 * fix(scans): preserve bounded ignore composition Co-authored-by: 陈宪彪0668000387 * fix(scans): satisfy matcher method binding lint Co-authored-by: 陈宪彪0668000387 * fix(scans): preserve ignore matcher case mode Co-authored-by: 陈宪彪0668000387 * fix(scans): keep matcher options internal Co-authored-by: 陈宪彪0668000387 * fix(scans): require matcher case contract Co-authored-by: 陈宪彪0668000387 --------- Co-authored-by: Peter Steinberger Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(shared): bound ignore-file reads during workspace scans (#101429)",
+      "summaryZh": "重點：修正(shared): bound ignore-file reads during workspace scans (#101429) * 修正(shared): bound ignore-file reads during worksp..."
+    },
+    {
+      "id": 6,
       "title": "1Password替Claude加上受控登入功能，AI代理能登入網站卻看不到密碼",
       "link": "https://www.ithome.com.tw/news/177407",
       "publishedAt": "2026-07-18 10:07:25",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "DeepSeek 時刻重演？中國最新開源模型 Kimi K3，嚇倒美半導體類股",
       "link": "https://technews.tw/2026/07/18/china-new-ai-model-kimi-k3/",
       "publishedAt": "Sat, 18 Jul 2026 10:02:02 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "免吃藥開刀！美大學首創「智慧睡眠貼片」，精準延長 REM 睡眠抗憂鬱",
       "link": "https://technews.tw/2026/07/18/neusleep-quick-rem-sleep/",
       "publishedAt": "Sat, 18 Jul 2026 08:00:02 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "中國稀土禁令發威！氧化釔驚現 150 倍價差，西方半導體與軍工臨斷鏈危機",
       "link": "https://technews.tw/2026/07/18/china-rare-earth-controls-tighten/",
       "publishedAt": "Sat, 18 Jul 2026 07:00:47 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "AI 光收發模組市場進入高速成長階段，LPO、矽光子技術受關注",
       "link": "https://technews.tw/2026/07/18/trendforce-counterpoint-research-see-ai-datacenter/",
       "publishedAt": "Sat, 18 Jul 2026 06:31:13 +0000",
       "summary": "隨著 AI 資料中心持續擴張，傳輸速率 800G 以上、用於 AI 伺服器叢集互聯的光收發模組需求大幅提升。調 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "效率狂飆的副作用，AI 生成程式碼引爆「當責危機」與職場「AI 罰則」",
-      "link": "https://technews.tw/2026/07/18/ai-code-efficiency-side-effects-accountability-crisis/",
-      "publishedAt": "Sat, 18 Jul 2026 06:30:17 +0000",
-      "summary": "隨著人工智慧（AI）逐步接管大量程式撰寫工作，企業內部被放大的早已不只是「開發效率」，還有一個更核心、更具挑戰 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
