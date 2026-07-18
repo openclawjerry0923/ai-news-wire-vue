@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T07:51:46.098Z",
+  "generatedAt": "2026-07-18T09:26:25.528Z",
   "items": [
     {
       "id": 1,
@@ -12,50 +12,59 @@
     },
     {
       "id": 2,
-      "title": "fix(exec): track background commands as tasks (#110468)",
-      "link": "https://github.com/openclaw/openclaw/commit/09963412d1704ef54a36029e28aa40cae7c79dab",
-      "publishedAt": "2026-07-18T07:51:23Z",
-      "summary": "fix(exec): track background commands as tasks (#110468)",
+      "title": "fix(cli): restore terminal state before exit in logs and hooks comman…",
+      "link": "https://github.com/openclaw/openclaw/commit/c791e2b1280e77b521a890893d0e875c1b4a8af6",
+      "publishedAt": "2026-07-18T09:25:13Z",
+      "summary": "fix(cli): restore terminal state before exit in logs and hooks commands (#105863) * fix(cli): restore terminal state before exit in logs and hooks commands * fix(cli): route logs/hooks error exit through canonical defaultRuntime.exit * fix(cli): route terminal reset to stderr in JSON mode to keep stdout parseable * fix(cli): centralize stream-aware terminal reset exit Add optional resetStream parameter to RuntimeEnv.exit so JSON-mode callers can route the terminal reset to stderr through the shared defaultRuntime.exit path, keeping structured stdout parseable. - Extend RuntimeEnv.exit signature with optional resetStream option - Route JSON-mode logs fatal exit through unified defaultRuntime.exit instead of manually pairing restoreTerminalState with process.exit - Update test mock to exercise real terminal restore during exit * refactor(cli): tighten terminal exit contract Co-authored-by: Peter Lee --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): track background commands as tasks (#110468)",
-      "summaryZh": "重點：修正(exec): track background commands as tasks (#110468)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): restore terminal state before exit in logs and hooks comman…",
+      "summaryZh": "重點：修正(cli): restore terminal state before exit in logs and hooks commands (#105863) * 修正(cli): restore terminal state befor..."
     },
     {
       "id": 3,
-      "title": "fix: prevent repeated tool-call IDs from poisoning sessions (#110518)",
-      "link": "https://github.com/openclaw/openclaw/commit/6def1a9c04d6cd539318733ef19160671dac6afd",
-      "publishedAt": "2026-07-18T07:49:40Z",
-      "summary": "fix: prevent repeated tool-call IDs from poisoning sessions (#110518) * fix(agents): pair repeated tool calls by occurrence * docs: regenerate docs map",
+      "title": "fix(security): restore fs import dropped by bounded manifest-read cha…",
+      "link": "https://github.com/openclaw/openclaw/commit/0234cf5f7f8cfd36635b0b12067a99d56d57434b",
+      "publishedAt": "2026-07-18T09:22:50Z",
+      "summary": "fix(security): restore fs import dropped by bounded manifest-read change (#110585) aa0c92186b67c (#101773) removed the file-wide node:fs/promises import while converting the plugin-manifest read to fs-safe helpers, but getSkillCodeSafetySummary still calls fs.readFile for skill content. Every main push since fails check-prod-types/lint/test-types and the security shard (TS2304 + runtime ReferenceError). Restore the import; migrating the skill read to bounded fs-safe helpers is the PR author's follow-up.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent repeated tool-call IDs from poisoning sessions (#110518)",
-      "summaryZh": "重點：修正: prevent repeated tool-call IDs from poisoning sessions (#110518) * 修正(agents): pair repeated tool calls by occurrenc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(安全): restore fs import dropped by bounded manifest-read cha…",
+      "summaryZh": "重點：修正(安全): restore fs import dropped by bounded manifest-read change (#110585) aa0c92186b67c (#101773) removed the file-wid..."
     },
     {
       "id": 4,
-      "title": "perf(ci): split straggler bin pairings and drop needless jsdom enviro…",
-      "link": "https://github.com/openclaw/openclaw/commit/f594a8f7c6c7e2a8e6a80d3cb96ee5de235c6677",
-      "publishedAt": "2026-07-18T07:49:37Z",
-      "summary": "perf(ci): split straggler bin pairings and drop needless jsdom environments (#110477) * perf(ci): drop compact bin cap to 190s to split straggler pairings Fresh census from green run 29633628994: every fan-out job queues 65s, the pack sits at ~160s, but compact-large-3 ran 195s because the 235s cap let core-runtime-media-ui (hint 124) and core-unit-src-security (hint 95) share one bin. A 190s cap forbids such pairings; the plan goes from 21 to 25 compact bins and the hinted max drops accordingly, so the run wall tracks the pack instead of one straggler. Costs ~4 extra runners per run; wall is the optimization target. * perf(test): run DOM-free Control UI tests in the node environment 35 ui/src test files whose transitive import closure never touches DOM APIs or the lit runtime carried the ui config's jsdom default anyway; on CI the per-file jsdom construction dominates the shard (environment 95.2s vs tests 59.4s in run 29633628994). Annotate them with the repo-standard @vitest-environment node docblock (29 files in ui/ already use it). Verified: full ui config run passes with the annotations; the only failing files are three storage tests that fail identically on a clean checkout under local Node 26 and are untouched here. * chore: kick dropped push event for PR head ingest",
+      "title": "fix(cli): reject --channel/--to for systemEvent cron jobs with a clea…",
+      "link": "https://github.com/openclaw/openclaw/commit/953ae8163a2ece4f75977c1ff4197ad73e802a9e",
+      "publishedAt": "2026-07-18T09:19:07Z",
+      "summary": "fix(cli): reject --channel/--to for systemEvent cron jobs with a clear error (#105910) * fix(cli): reject --channel/--to for systemEvent cron jobs with a clear error * test(cli): add regression coverage for cron-add delivery-option validation * fix(cli): fix optionSource reference and add chat-delivery guard to cron edit - Fix bare optionSource() call in cron-add guard to use cmd.getOptionValueSource() - Add equivalent resulting-job validation to cron edit: reject --channel/--to/--account/--thread-id when the resolved job is a main-session systemEvent - Add parity tests covering fast-path reject, existing-job reject, isolated allow, and clear-flag allow cases * test(cli): return a real CronJob from default cron.get mock * fix(cli): reject dropped cron delivery targets Co-authored-by: Peter Lee --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ci): split straggler bin pairings and drop needless jsdom enviro…",
-      "summaryZh": "重點：perf(ci): split straggler bin pairings and drop needless jsdom environments (#110477) * perf(ci): drop compact bin cap t..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): reject --channel/--to for systemEvent 排程 jobs with a clea…",
+      "summaryZh": "重點：修正(cli): reject --channel/--to for systemEvent 排程 jobs with a clear error (#105910) * 修正(cli): reject --channel/--to for..."
     },
     {
       "id": 5,
-      "title": "refactor(discord): authorize widgets by channel audience (#110522)",
-      "link": "https://github.com/openclaw/openclaw/commit/18a49b3a7825cdfea14d7b49cf8bf32e1ad9d418",
-      "publishedAt": "2026-07-18T07:42:40Z",
-      "summary": "refactor(discord): authorize widgets by channel audience (#110522) * refactor(discord): authorize widgets by channel audience * docs: refresh Discord Activity map",
+      "title": "fix(gateway): trim whitespace in audit.list cursor parsing (#110551)",
+      "link": "https://github.com/openclaw/openclaw/commit/f0312bc97963d89d95b573e43e5c3a48840b0dbb",
+      "publishedAt": "2026-07-18T09:17:57Z",
+      "summary": "fix(gateway): trim whitespace in audit.list cursor parsing (#110551) parseAuditCursor in audit.ts did not trim whitespace before running the digit regex, while the parallel parseCursor in tasks.ts did. A client passing \" 11 \" (e.g. URL-decoded from query strings) would get a 400 INVALID_REQUEST instead of the correct page. Trim the cursor before validation so behavior matches tasks.list and the gateway cursor contract. Co-authored-by: Patrick Erichsen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): authorize widgets by channel audience (#110522)",
-      "summaryZh": "重點：refactor(Discord): authorize widgets by channel audience (#110522) * refactor(Discord): authorize widgets by channel aud..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): trim whitespace in audit.list cursor parsing (#110551)",
+      "summaryZh": "重點：修正(Gateway): trim whitespace in audit.list cursor parsing (#110551) parseAuditCursor in audit.ts did not trim whitespace..."
     },
     {
       "id": 6,
+      "title": "免吃藥開刀！美大學首創「智慧睡眠貼片」，精準延長 REM 睡眠抗憂鬱",
+      "link": "https://technews.tw/2026/07/18/neusleep-quick-rem-sleep/",
+      "publishedAt": "Sat, 18 Jul 2026 08:00:02 +0000",
+      "summary": "美國德州大學奧斯汀分校的研究團隊近期開發出一款名為「NEUSLeeP」的柔性生物電子貼片。這款可輕鬆貼附於皮膚 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "中國稀土禁令發威！氧化釔驚現 150 倍價差，西方半導體與軍工臨斷鏈危機",
       "link": "https://technews.tw/2026/07/18/china-rare-earth-controls-tighten/",
       "publishedAt": "Sat, 18 Jul 2026 07:00:47 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "AI 光收發模組市場進入高速成長階段，LPO、矽光子技術受關注",
       "link": "https://technews.tw/2026/07/18/trendforce-counterpoint-research-see-ai-datacenter/",
       "publishedAt": "Sat, 18 Jul 2026 06:31:13 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "效率狂飆的副作用，AI 生成程式碼引爆「當責危機」與職場「AI 罰則」",
       "link": "https://technews.tw/2026/07/18/ai-code-efficiency-side-effects-accountability-crisis/",
       "publishedAt": "Sat, 18 Jul 2026 06:30:17 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "虛擬資產邁入專法時代！XREX 交易所：定期定額用戶有八成配置比特幣",
       "link": "https://finance.technews.tw/2026/07/18/xrex-80-of-dca-users-allocate-to-bitcoin/",
       "publishedAt": "Sat, 18 Jul 2026 06:00:10 +0000",
       "summary": "台灣《虛擬資產服務法》於 2026 年 6 月 30 日完成三讀，虛擬資產服務商（Virtual Asset [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "宛如吉卜力精靈走入現實，日本全新「飄浮 AI 伴侶」打造無聲溫柔陪伴",
-      "link": "https://technews.tw/2026/07/18/japan-develops-floating-ai-companion/",
-      "publishedAt": "Sat, 18 Jul 2026 05:00:17 +0000",
-      "summary": "日本團隊近期公開受動畫風格啟發的「飄浮式 AI 伴侶機器人」原型，以安靜、柔軟且極具親和力的互動方式，徹底打破 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
