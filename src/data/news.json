@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T05:27:26.092Z",
+  "generatedAt": "2026-07-18T07:51:46.098Z",
   "items": [
     {
       "id": 1,
@@ -12,90 +12,90 @@
     },
     {
       "id": 2,
-      "title": "feat(agents): contract filesystem tools for code mode (#110395)",
-      "link": "https://github.com/openclaw/openclaw/commit/b9c5c7c9fc9683379e2218f16104566ba7c1871b",
-      "publishedAt": "2026-07-18T05:26:04Z",
-      "summary": "feat(agents): contract filesystem tools for code mode (#110395)",
+      "title": "fix(exec): track background commands as tasks (#110468)",
+      "link": "https://github.com/openclaw/openclaw/commit/09963412d1704ef54a36029e28aa40cae7c79dab",
+      "publishedAt": "2026-07-18T07:51:23Z",
+      "summary": "fix(exec): track background commands as tasks (#110468)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(agents): contract filesystem tools for code mode (#110395)",
-      "summaryZh": "重點：新功能(agents): contract filesystem tools for code mode (#110395)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(exec): track background commands as tasks (#110468)",
+      "summaryZh": "重點：修正(exec): track background commands as tasks (#110468)..."
     },
     {
       "id": 3,
-      "title": "fix(codex): bound app-server resume history (#110396)",
-      "link": "https://github.com/openclaw/openclaw/commit/3997a996d40adea473bcc9acad64493133869351",
-      "publishedAt": "2026-07-18T05:25:17Z",
-      "summary": "fix(codex): bound app-server resume history (#110396) * fix(codex): harden app-server resume protocol * chore(codex): defer release note to release process * fix(codex): align bounded resume checks",
+      "title": "fix: prevent repeated tool-call IDs from poisoning sessions (#110518)",
+      "link": "https://github.com/openclaw/openclaw/commit/6def1a9c04d6cd539318733ef19160671dac6afd",
+      "publishedAt": "2026-07-18T07:49:40Z",
+      "summary": "fix: prevent repeated tool-call IDs from poisoning sessions (#110518) * fix(agents): pair repeated tool calls by occurrence * docs: regenerate docs map",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): bound app-server resume history (#110396)",
-      "summaryZh": "重點：修正(codex): bound app-server resume history (#110396) * 修正(codex): harden app-server resume protocol * chore(codex): defe..."
+      "titleZh": "OpenClaw 程式碼更新：修正: prevent repeated tool-call IDs from poisoning sessions (#110518)",
+      "summaryZh": "重點：修正: prevent repeated tool-call IDs from poisoning sessions (#110518) * 修正(agents): pair repeated tool calls by occurrenc..."
     },
     {
       "id": 4,
-      "title": "feat(ui): complete Control UI MCP App bridge (#109807)",
-      "link": "https://github.com/openclaw/openclaw/commit/923d92bdd0e3ddb978ab566efe29a737dc204edf",
-      "publishedAt": "2026-07-18T05:21:10Z",
-      "summary": "feat(ui): complete Control UI MCP App bridge (#109807) * feat(ui): complete MCP App message bridge * fix(ui): gate reconstructed MCP App messaging * fix(ui): register MCP message handler without suppression * fix(ui): use public MCP Apps message schema export * chore: realign PR branch with canonical main * fix(ui): register MCP messages through public bridge API",
+      "title": "perf(ci): split straggler bin pairings and drop needless jsdom enviro…",
+      "link": "https://github.com/openclaw/openclaw/commit/f594a8f7c6c7e2a8e6a80d3cb96ee5de235c6677",
+      "publishedAt": "2026-07-18T07:49:37Z",
+      "summary": "perf(ci): split straggler bin pairings and drop needless jsdom environments (#110477) * perf(ci): drop compact bin cap to 190s to split straggler pairings Fresh census from green run 29633628994: every fan-out job queues 65s, the pack sits at ~160s, but compact-large-3 ran 195s because the 235s cap let core-runtime-media-ui (hint 124) and core-unit-src-security (hint 95) share one bin. A 190s cap forbids such pairings; the plan goes from 21 to 25 compact bins and the hinted max drops accordingly, so the run wall tracks the pack instead of one straggler. Costs ~4 extra runners per run; wall is the optimization target. * perf(test): run DOM-free Control UI tests in the node environment 35 ui/src test files whose transitive import closure never touches DOM APIs or the lit runtime carried the ui config's jsdom default anyway; on CI the per-file jsdom construction dominates the shard (environment 95.2s vs tests 59.4s in run 29633628994). Annotate them with the repo-standard @vitest-environment node docblock (29 files in ui/ already use it). Verified: full ui config run passes with the annotations; the only failing files are three storage tests that fail identically on a clean checkout under local Node 26 and are untouched here. * chore: kick dropped push event for PR head ingest",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): complete Control UI MCP App bridge (#109807)",
-      "summaryZh": "重點：新功能(ui): complete Control UI MCP App bridge (#109807) * 新功能(ui): complete MCP App message bridge * 修正(ui): gate reconstr..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ci): split straggler bin pairings and drop needless jsdom enviro…",
+      "summaryZh": "重點：perf(ci): split straggler bin pairings and drop needless jsdom environments (#110477) * perf(ci): drop compact bin cap t..."
     },
     {
       "id": 5,
-      "title": "fix: stop node alerts replaying after Gateway restart (#110391)",
-      "link": "https://github.com/openclaw/openclaw/commit/f31de78ba6ad7e109b8e47a6b8df64e5a528284a",
-      "publishedAt": "2026-07-18T05:20:24Z",
-      "summary": "fix: stop node alerts replaying after Gateway restart (#110391) * fix(gateway): silence known node reconnect alerts * fix(gateway): atomically claim node connections * fix(gateway): type node connection claim results * test(gateway): cover legacy node identity migration * test(gateway): satisfy node migration lint",
+      "title": "refactor(discord): authorize widgets by channel audience (#110522)",
+      "link": "https://github.com/openclaw/openclaw/commit/18a49b3a7825cdfea14d7b49cf8bf32e1ad9d418",
+      "publishedAt": "2026-07-18T07:42:40Z",
+      "summary": "refactor(discord): authorize widgets by channel audience (#110522) * refactor(discord): authorize widgets by channel audience * docs: refresh Discord Activity map",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: stop node alerts replaying after Gateway restart (#110391)",
-      "summaryZh": "重點：修正: stop node alerts replaying after Gateway restart (#110391) * 修正(Gateway): silence known node reconnect alerts * 修正(G..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): authorize widgets by channel audience (#110522)",
+      "summaryZh": "重點：refactor(Discord): authorize widgets by channel audience (#110522) * refactor(Discord): authorize widgets by channel aud..."
     },
     {
       "id": 6,
-      "title": "宛如吉卜力精靈走入現實，日本全新「飄浮 AI 伴侶」打造無聲溫柔陪伴",
-      "link": "https://technews.tw/2026/07/18/japan-develops-floating-ai-companion/",
-      "publishedAt": "Sat, 18 Jul 2026 05:00:17 +0000",
-      "summary": "日本團隊近期公開受動畫風格啟發的「飄浮式 AI 伴侶機器人」原型，以安靜、柔軟且極具親和力的互動方式，徹底打破 [&#8230;]",
+      "title": "中國稀土禁令發威！氧化釔驚現 150 倍價差，西方半導體與軍工臨斷鏈危機",
+      "link": "https://technews.tw/2026/07/18/china-rare-earth-controls-tighten/",
+      "publishedAt": "Sat, 18 Jul 2026 07:00:47 +0000",
+      "summary": "中國政府因不滿日本首相高市早苗先前提出的「台灣有事論」，以及美國祭出的關稅政策，進一步收緊關鍵稀土礦物出口管制 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "黃仁勳在東京辦「居酒屋峰會」！日 AI 供應鏈高層齊聚，完整名單曝光",
-      "link": "https://technews.tw/2026/07/18/nvidia-ceo-jensen-meet-japan-companies-ceo/",
-      "publishedAt": "Sat, 18 Jul 2026 03:56:03 +0000",
-      "summary": "輝達（NVIDIA）執行長黃仁勳近期赴日本東京秋葉原參加活動，並與多間日企高層一同飲酒。根據官方分享的照片，這 [&#8230;]",
+      "title": "AI 光收發模組市場進入高速成長階段，LPO、矽光子技術受關注",
+      "link": "https://technews.tw/2026/07/18/trendforce-counterpoint-research-see-ai-datacenter/",
+      "publishedAt": "Sat, 18 Jul 2026 06:31:13 +0000",
+      "summary": "隨著 AI 資料中心持續擴張，傳輸速率 800G 以上、用於 AI 伺服器叢集互聯的光收發模組需求大幅提升。調 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "演算法偷走了「共同回憶」！從重溫《六人行》到狂聽老歌，解析分眾時代的懷舊狂熱",
-      "link": "https://technews.tw/2026/07/18/the-10-billion-nostalgia-boom-sweeping-the-globe/",
-      "publishedAt": "Sat, 18 Jul 2026 03:00:44 +0000",
-      "summary": "最近，你身邊也有人開始重聽 S.H.E，回頭追《惡作劇之吻》，甚至翻出有線耳機、滑蓋手機和 MP3 播放器嗎？ [&#8230;]",
+      "title": "效率狂飆的副作用，AI 生成程式碼引爆「當責危機」與職場「AI 罰則」",
+      "link": "https://technews.tw/2026/07/18/ai-code-efficiency-side-effects-accountability-crisis/",
+      "publishedAt": "Sat, 18 Jul 2026 06:30:17 +0000",
+      "summary": "隨著人工智慧（AI）逐步接管大量程式撰寫工作，企業內部被放大的早已不只是「開發效率」，還有一個更核心、更具挑戰 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "開會用 AI 做筆記要當心，專家警告：「聲紋」與商業機密恐成資安新破口",
-      "link": "https://infosecu.technews.tw/2026/07/18/ai-meeting-note-tools-efficiency-privacy-trap/",
-      "publishedAt": "Sat, 18 Jul 2026 02:30:22 +0000",
-      "summary": "在遠距與混合辦公持續普及的當下，能自動錄音、轉寫並整理重點的「AI 會議筆記工具」已成為許多企業與上班族的效率 [&#8230;]",
+      "title": "虛擬資產邁入專法時代！XREX 交易所：定期定額用戶有八成配置比特幣",
+      "link": "https://finance.technews.tw/2026/07/18/xrex-80-of-dca-users-allocate-to-bitcoin/",
+      "publishedAt": "Sat, 18 Jul 2026 06:00:10 +0000",
+      "summary": "台灣《虛擬資產服務法》於 2026 年 6 月 30 日完成三讀，虛擬資產服務商（Virtual Asset [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "iPhone 殺了諾基亞、AI 卻沒殺死資安，關鍵差在「補充性資產」重估",
-      "link": "https://infosecu.technews.tw/2026/07/18/iphone-killed-nokia-ai-didnt-kill-cybersecurity-key-re-evaluating-complementary-assets/",
-      "publishedAt": "Sat, 18 Jul 2026 02:00:42 +0000",
-      "summary": "還記得幾個月前的「軟體末日論」嗎？ 當時市場論調是，AI出現後大部分軟體公司都會消滅，因AI可輕鬆寫程式。於是 [&#8230;]",
+      "title": "宛如吉卜力精靈走入現實，日本全新「飄浮 AI 伴侶」打造無聲溫柔陪伴",
+      "link": "https://technews.tw/2026/07/18/japan-develops-floating-ai-companion/",
+      "publishedAt": "Sat, 18 Jul 2026 05:00:17 +0000",
+      "summary": "日本團隊近期公開受動畫風格啟發的「飄浮式 AI 伴侶機器人」原型，以安靜、柔軟且極具親和力的互動方式，徹底打破 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
