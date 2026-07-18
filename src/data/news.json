@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-18T21:52:01.631Z",
+  "generatedAt": "2026-07-18T22:50:58.197Z",
   "items": [
     {
       "id": 1,
-      "title": "Bound diagnostic config file read with size cap (#110591)",
-      "link": "https://github.com/openclaw/openclaw/commit/87de81a5fd4a2d4e3ef8bff9af22a3ed2ab8b4e8",
-      "publishedAt": "2026-07-18T21:48:29Z",
-      "summary": "Bound diagnostic config file read with size cap (#110591) * Bound diagnostic config read with size cap * fix: use buffer.toString for readRegularFileSync result in diagnostic export * test: verify normal and oversized diagnostic config export behavior PR #110591 — Add focused regression coverage for the bounded diagnostic config read: - Test: normal config file (8MB) produces parseOk: false with graceful error handling - Both tests verify the support bundle zip is still written with all expected contents * refactor(logging): clarify support export config limit Co-authored-by: 陈宪彪0668000387 --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
+      "title": "release-publish/556a2ee276f0-20260718: feat(cron): add per-job dynamic cadence (#110978)",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F556a2ee276f0-20260718",
+      "publishedAt": "2026-07-18T22:43:39Z",
+      "summary": "Add optional per-job pacing bounds across the cron API, CLI, tool schema, public output, and SQLite job envelope, requiring at least one bound. Allow only the currently running paced job to record a one-shot next_check proposal and carry it through isolated-run completion. After successful runs, clamp the proposal to the job bounds and persist an exact one-shot slot marker so maintenance preserves only that timestamp. Clear the marker on runs, edits, and schedule normalization; preserve existing no-proposal, skip, timeout, and error scheduling behavior.",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Bound diagnostic config file read with size cap (#110591)",
-      "summaryZh": "重點：Bound diagnostic config file read with size cap (#110591) * Bound diagnostic config read with size cap * 修正: use buffer...."
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/556a2ee276f0-20260718: 新功能(排程): add per-job dynamic cadence (#110978)",
+      "summaryZh": "重點：Add optional per-job pacing bounds across the 排程 API, CLI, tool schema, public output, and SQLite job envelope, requirin..."
     },
     {
       "id": 2,
-      "title": "feat(ui): sidebar rows use full width; actions overlay with a hover f…",
-      "link": "https://github.com/openclaw/openclaw/commit/8ff15124546819f612dbb480e129ea35c4d4d7d0",
-      "publishedAt": "2026-07-18T21:47:46Z",
-      "summary": "feat(ui): sidebar rows use full width; actions overlay with a hover fade (#110959) Session-row titles run to the sidebar edge instead of reserving the hover action cluster's width in-flow. The trailing aside overlays the row (pointer-events off at rest so link clicks pass through) and the link content fades out beneath the surfaced controls via a mask, which stays correct over rest/hover/active/selected backgrounds. Rows with a child toggle keep it rightmost; actions land at the link edge either way. Child rows keep the in-flow aside since their runtime trail is resting content. Touch keeps actions visible, so the fade is permanent there.",
+      "title": "feat(cron): add per-job dynamic cadence (#110978)",
+      "link": "https://github.com/openclaw/openclaw/commit/556a2ee276f08192bd1644a4f4f40b8812ef37dd",
+      "publishedAt": "2026-07-18T22:43:39Z",
+      "summary": "feat(cron): add per-job dynamic cadence (#110978) Add optional per-job pacing bounds across the cron API, CLI, tool schema, public output, and SQLite job envelope, requiring at least one bound. Allow only the currently running paced job to record a one-shot next_check proposal and carry it through isolated-run completion. After successful runs, clamp the proposal to the job bounds and persist an exact one-shot slot marker so maintenance preserves only that timestamp. Clear the marker on runs, edits, and schedule normalization; preserve existing no-proposal, skip, timeout, and error scheduling behavior.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): sidebar rows use full width; actions overlay with a hover f…",
-      "summaryZh": "重點：新功能(ui): sidebar rows use full width; actions overlay with a hover fade (#110959) Session-row titles run to the sidebar ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(排程): add per-job dynamic cadence (#110978)",
+      "summaryZh": "重點：新功能(排程): add per-job dynamic cadence (#110978) Add optional per-job pacing bounds across the 排程 API, CLI, tool schema, p..."
     },
     {
       "id": 3,
-      "title": "fix(process): UTF-8 command output corrupts at Windows byte limits (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/4e11da2872eccadeaf4fbd9b7c8a6bf4b229adbe",
-      "publishedAt": "2026-07-18T21:44:12Z",
-      "summary": "fix(process): UTF-8 command output corrupts at Windows byte limits (#105274) * fix(process): preserve byte-capped UTF-8 output on Windows * fix(process): skip codepage probe for UTF-8 output Co-authored-by: 杨浩宇0668001029 --------- Co-authored-by: Peter Steinberger",
+      "title": "chore(canvas): compact show_widget tool description with pattern anch…",
+      "link": "https://github.com/openclaw/openclaw/commit/5114b459272529cf47f90ea7364fbcae01fd0f4c",
+      "publishedAt": "2026-07-18T22:41:29Z",
+      "summary": "chore(canvas): compact show_widget tool description with pattern anchor (-40% tokens) (#110999)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(process): UTF-8 command output corrupts at Windows byte limits (#…",
-      "summaryZh": "重點：修正(process): UTF-8 command output corrupts at Windows byte limits (#105274) * 修正(process): preserve byte-capped UTF-8 ou..."
+      "titleZh": "OpenClaw 程式碼更新：chore(canvas): compact show_widget tool description with pattern anch…",
+      "summaryZh": "重點：chore(canvas): compact show_widget tool description with pattern anchor (-40% tokens) (#110999)..."
     },
     {
       "id": 4,
-      "title": "fix(vault): aggregate provider outage diagnostics (#110908)",
-      "link": "https://github.com/openclaw/openclaw/commit/7a551bff0c9df015b0c47b6727dc398845a9eb4a",
-      "publishedAt": "2026-07-18T21:44:06Z",
-      "summary": "fix(vault): aggregate provider outage diagnostics (#110908) * fix(vault): aggregate provider outage diagnostics * fix(vault): classify revoked token outages * fix(vault): preserve scoped ACL failures * fix(vault): keep token probes advisory * test(vault): satisfy gateway proof gates * fix(secrets): attribute web provider outages * test(secrets): prove web outage fan-out in owner suite * fix(vault): scope malformed responses per secret * test(secrets): harden exec fanout fixtures",
+      "title": "fix(ios): keep unified voice controls recoverable (#110906)",
+      "link": "https://github.com/openclaw/openclaw/commit/d343216510d1ef2951f5ecc304aa8bc325e5a9b6",
+      "publishedAt": "2026-07-18T22:41:00Z",
+      "summary": "fix(ios): keep unified voice controls recoverable (#110906) * docs(ios): align unified chat voice copy * fix(ios): keep active dictation control available * fix(ios): keep active talk control available * fix(ios): restore unified voice recovery * fix(ios): keep pending dictation cancel visible * chore(ios): refresh native i18n inventory * chore(ios): sync unified voice locale memory * fix(ios): return unified mic label view * test(ios): lock dictation cancellation ordering",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(vault): aggregate provider outage diagnostics (#110908)",
-      "summaryZh": "重點：修正(vault): aggregate provider outage diagnostics (#110908) * 修正(vault): aggregate provider outage diagnostics * 修正(vault..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep unified voice controls recoverable (#110906)",
+      "summaryZh": "重點：修正(ios): keep unified voice controls recoverable (#110906) * 文件(ios): align unified chat voice copy * 修正(ios): keep acti..."
     },
     {
       "id": 5,
