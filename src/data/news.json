@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-18T17:05:30.227Z",
+  "generatedAt": "2026-07-18T19:05:15.698Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(ui): session dashboard shell — board face, chat dock, reset guar…",
-      "link": "https://github.com/openclaw/openclaw/commit/e9fe7c748bb884271bde18c073262d77c7d7b46e",
-      "publishedAt": "2026-07-18T17:01:47Z",
-      "summary": "feat(ui): session dashboard shell — board face, chat dock, reset guard (#110728) * feat(ui): add session dashboard shell * fix(ui): defer confirmed reset during active runs * fix(ui): align dashboard shell with shared controls --------- Co-authored-by: copilot-swe-agent[bot]",
+      "title": "refactor(ui): split lobster-pet into look/plans/element modules (#110…",
+      "link": "https://github.com/openclaw/openclaw/commit/64019bc0c2c3ce196428bf2db93a33baf44caa8f",
+      "publishedAt": "2026-07-18T19:02:24Z",
+      "summary": "refactor(ui): split lobster-pet into look/plans/element modules (#110816) * refactor(ui): split lobster-pet into look/plans/element modules Move existing behavior along appearance and seeded visit-planning ownership seams without changing runtime behavior. Extract only the bounded logo stand-in, WebAudio chirp, and pure render-template helpers while keeping the state machine in the element. Remove the grandfathered max-lines suppression and baseline entry. * style(ui): format lobster-pet split modules * fix(ui): keep lobster split internals unexported, refresh i18n raw-copy baseline knip flags the split's newly exported internals (strangerLookFor, renderCrabSvg, lobsterPetSpriteStyle, LobsterPasserKind) — they have no external consumers; the html-text raw-copy baseline is file-keyed, so the sprite z/Z markup moving into lobster-pet-look.ts needs a regen. * fix(ui): satisfy lint for the lobster-pet split (param reassign, max-lines) * fix(ui): keep moved act-profile internals unexported",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：新功能(ui): session dashboard shell — board face, chat 文件k, reset guar…",
-      "summaryZh": "重點：新功能(ui): session dashboard shell — board face, chat 文件k, reset guard (#110728) * 新功能(ui): add session dashboard shell * ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split lobster-pet into look/plans/element modules (#110…",
+      "summaryZh": "重點：refactor(ui): split lobster-pet into look/plans/element modules (#110816) * refactor(ui): split lobster-pet into look/pl..."
     },
     {
       "id": 2,
-      "title": "fix(ui): reject widget command prompts (#110808)",
-      "link": "https://github.com/openclaw/openclaw/commit/f328250fa9fbf10a07a38f1b035cb766d0be9672",
-      "publishedAt": "2026-07-18T16:56:41Z",
-      "summary": "fix(ui): reject widget command prompts (#110808)",
+      "title": "fix(ui): defer remembered camera auto-enable until talk reaches liste…",
+      "link": "https://github.com/openclaw/openclaw/commit/9a9f5919e5f1d60bbd147dcc79231a027f6a9eb2",
+      "publishedAt": "2026-07-18T19:00:40Z",
+      "summary": "fix(ui): defer remembered camera auto-enable until talk reaches listening (#110874)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): reject widget command prompts (#110808)",
-      "summaryZh": "重點：修正(ui): reject widget command prompts (#110808)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): defer remembered camera auto-enable until talk reaches liste…",
+      "summaryZh": "重點：修正(ui): defer remembered camera auto-enable until talk reaches listening (#110874)..."
     },
     {
       "id": 3,
-      "title": "test(macos): remove ChatViewModel timing races (#110798)",
-      "link": "https://github.com/openclaw/openclaw/commit/837db49ebb2446ab62be27741d1ffabcad93189a",
-      "publishedAt": "2026-07-18T16:47:51Z",
-      "summary": "test(macos): remove ChatViewModel timing races (#110798)",
+      "title": "feat(synology-chat): add durable ingress (#110899)",
+      "link": "https://github.com/openclaw/openclaw/commit/bef8a82762f25c91831d1d8f04862a585569a494",
+      "publishedAt": "2026-07-18T19:00:06Z",
+      "summary": "feat(synology-chat): add durable ingress (#110899)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(macos): remove ChatView模型 timing races (#110798)",
-      "summaryZh": "重點：test(macos): remove ChatView模型 timing races (#110798)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(synology-chat): add durable ingress (#110899)",
+      "summaryZh": "重點：新功能(synology-chat): add durable ingress (#110899)..."
     },
     {
       "id": 4,
-      "title": "refactor(chat-ui): render iOS tool calls as flat expandable rows (#11…",
-      "link": "https://github.com/openclaw/openclaw/commit/915d5360b5e77a87647cf45d26703e84409761a7",
-      "publishedAt": "2026-07-18T16:46:44Z",
-      "summary": "refactor(chat-ui): render iOS tool calls as flat expandable rows (#110618) * refactor(chat-ui): render tool calls as flat expandable rows Replace the nested ToolCallCard/ToolResultCard/pending-tool cards inside assistant bubbles with flat rows that mirror the web Control UI: chevron + kind icon + title + one-line mono detail, result folded into the row and revealed on tap (Show all for long outputs). Tool-only messages no longer render bubble chrome. * chore(i18n): sync native inventory + translations for tool-row strings",
+      "title": "fix(reef): stop leaking the inbox loop across channel crash restarts …",
+      "link": "https://github.com/openclaw/openclaw/commit/e80b0b5aa5031a417ec91f13c442eb105919ba97",
+      "publishedAt": "2026-07-18T18:59:58Z",
+      "summary": "fix(reef): stop leaking the inbox loop across channel crash restarts (#110870) * fix(reef): stop leaking the inbox loop across channel crash restarts * fix(reef): move channel lifecycle helper to its own module for lint/deadcode gates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(chat-ui): render iOS tool calls as flat expandable rows (#11…",
-      "summaryZh": "重點：refactor(chat-ui): render iOS tool calls as flat expandable rows (#110618) * refactor(chat-ui): render tool calls as fla..."
+      "titleZh": "OpenClaw 程式碼更新：修正(reef): stop leaking the inbox loop across channel crash restarts …",
+      "summaryZh": "重點：修正(reef): stop leaking the inbox loop across channel crash restarts (#110870) * 修正(reef): stop leaking the inbox loop ac..."
     },
     {
       "id": 5,
