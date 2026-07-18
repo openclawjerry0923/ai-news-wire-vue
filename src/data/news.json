@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-18T22:50:58.197Z",
+  "generatedAt": "2026-07-18T23:54:41.856Z",
   "items": [
     {
       "id": 1,
-      "title": "release-publish/556a2ee276f0-20260718: feat(cron): add per-job dynamic cadence (#110978)",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F556a2ee276f0-20260718",
-      "publishedAt": "2026-07-18T22:43:39Z",
-      "summary": "Add optional per-job pacing bounds across the cron API, CLI, tool schema, public output, and SQLite job envelope, requiring at least one bound. Allow only the currently running paced job to record a one-shot next_check proposal and carry it through isolated-run completion. After successful runs, clamp the proposal to the job bounds and persist an exact one-shot slot marker so maintenance preserves only that timestamp. Clear the marker on runs, edits, and schedule normalization; preserve existing no-proposal, skip, timeout, and error scheduling behavior.",
-      "source": "OpenClaw Releases",
+      "title": "fix(gateway): cancel run-bound approvals on abort and expose approval…",
+      "link": "https://github.com/openclaw/openclaw/commit/8853217ec72f3b3c357da18ad6b519510f1cfce6",
+      "publishedAt": "2026-07-18T23:52:21Z",
+      "summary": "fix(gateway): cancel run-bound approvals on abort and expose approval-park lifecycle (#110993) * fix: harden approval abort lifecycle * fix(gateway): recheck abort before committing detached exec authorization * fix(gateway): recheck abort after inline exec authorization commit * fix(gateway): propagate run-abort cancellation on the inline approval path * fix(ci): refresh approval protocol bindings",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：版本發布-publish/556a2ee276f0-20260718: 新功能(排程): add per-job dynamic cadence (#110978)",
-      "summaryZh": "重點：Add optional per-job pacing bounds across the 排程 API, CLI, tool schema, public output, and SQLite job envelope, requirin..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): cancel run-bound approvals on abort and expose approval…",
+      "summaryZh": "重點：修正(Gateway): cancel run-bound approvals on abort and expose approval-park lifecycle (#110993) * 修正: harden approval abor..."
     },
     {
       "id": 2,
-      "title": "feat(cron): add per-job dynamic cadence (#110978)",
-      "link": "https://github.com/openclaw/openclaw/commit/556a2ee276f08192bd1644a4f4f40b8812ef37dd",
-      "publishedAt": "2026-07-18T22:43:39Z",
-      "summary": "feat(cron): add per-job dynamic cadence (#110978) Add optional per-job pacing bounds across the cron API, CLI, tool schema, public output, and SQLite job envelope, requiring at least one bound. Allow only the currently running paced job to record a one-shot next_check proposal and carry it through isolated-run completion. After successful runs, clamp the proposal to the job bounds and persist an exact one-shot slot marker so maintenance preserves only that timestamp. Clear the marker on runs, edits, and schedule normalization; preserve existing no-proposal, skip, timeout, and error scheduling behavior.",
+      "title": "fix(litellm): guard loopback hostname auto-allow with isIP to prevent…",
+      "link": "https://github.com/openclaw/openclaw/commit/3d03b60da99da2d638109821fbaa707828d038e8",
+      "publishedAt": "2026-07-18T23:51:50Z",
+      "summary": "fix(litellm): guard loopback hostname auto-allow with isIP to prevent DNS SSRF bypass (#110693) * fix(litellm): guard loopback hostname auto-allow with isIP to prevent DNS bypass The isAutoAllowedLitellmHostname helper auto-enables private-network access for loopback-style hosts. Before this fix, lowered.startsWith(\"127.\") matched DNS hostnames like 127.evil.com, letting remote endpoints bypass the explicit allowPrivateNetwork opt-in — a SSRF risk. Add isIP(host)===4 guard so only literal IPv4 loopback addresses qualify. Same canonical pattern as extensions/slack/src/monitor/relay-source.ts:271 and the codex loopback fix. Co-Authored-By: Claude * test(litellm): cover loopback endpoint policy --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(排程): add per-job dynamic cadence (#110978)",
-      "summaryZh": "重點：新功能(排程): add per-job dynamic cadence (#110978) Add optional per-job pacing bounds across the 排程 API, CLI, tool schema, p..."
+      "titleZh": "OpenClaw 程式碼更新：修正(litellm): guard loopback hostname auto-allow with isIP to prevent…",
+      "summaryZh": "重點：修正(litellm): guard loopback hostname auto-allow with isIP to prevent DNS SSRF bypass (#110693) * 修正(litellm): guard loop..."
     },
     {
       "id": 3,
-      "title": "chore(canvas): compact show_widget tool description with pattern anch…",
-      "link": "https://github.com/openclaw/openclaw/commit/5114b459272529cf47f90ea7364fbcae01fd0f4c",
-      "publishedAt": "2026-07-18T22:41:29Z",
-      "summary": "chore(canvas): compact show_widget tool description with pattern anchor (-40% tokens) (#110999)",
+      "title": "fix(cron): support current and session: targets in initial delivery r…",
+      "link": "https://github.com/openclaw/openclaw/commit/8899940d5ac167c4653b87a1ec686eb2b84af4bb",
+      "publishedAt": "2026-07-18T23:51:05Z",
+      "summary": "fix(cron): support current and session: targets in initial delivery resolution (#99115) * fix(cron): support current and session: targets in initial delivery resolution resolveInitialCronDelivery only checked sessionTarget === 'isolated' for default announce delivery. All other cron paths (delivery-plan.ts:106-114, normalize.ts:680-684, jobs.ts:288-298) already treat 'isolated', 'current', and 'session:' as equivalent. This gap meant cron jobs created with --session-target current or --session-target session:... would not get default announce delivery at creation time. Real behavior proof: Input: sessionTarget='current', payload.kind='agentTurn' OLD: undefined * test(cron): add typed initial delivery resolution tests for all session targets * test(cron): document direct-service delivery contract and cover service callers * refactor(cron): centralize detached-delivery-target predicate into shared helper Extract isDetachedDeliveryTarget(sessionTarget, payloadKind) in normalize.ts and use it from all three callers: - normalizeCronJobInput (write-time default, normalize.ts) - resolveCronDeliveryPlan (read-time default, delivery-plan.ts) - resolveInitialCronDelivery (service-bypass default, initial-delivery.ts) This removes the third manually synchronized copy that the original PR added, addressing ClawSweeper P1 finding. * fix(cron): align initial delivery targets Co-authored-by: 陈宪彪0668000387 * test(cron): consolidate initial delivery coverage Co-authored-by: 陈宪彪0668000387 * test(cron): keep delivery matrix type-safe Co-authored-by: 陈宪彪0668000387 * chore: keep release note in PR metadata --------- Co-authored-by: Claude Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(canvas): compact show_widget tool description with pattern anch…",
-      "summaryZh": "重點：chore(canvas): compact show_widget tool description with pattern anchor (-40% tokens) (#110999)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): support current and session: targets in initial delivery r…",
+      "summaryZh": "重點：修正(排程): support current and session: targets in initial delivery resolution (#99115) * 修正(排程): support current and sessi..."
     },
     {
       "id": 4,
-      "title": "fix(ios): keep unified voice controls recoverable (#110906)",
-      "link": "https://github.com/openclaw/openclaw/commit/d343216510d1ef2951f5ecc304aa8bc325e5a9b6",
-      "publishedAt": "2026-07-18T22:41:00Z",
-      "summary": "fix(ios): keep unified voice controls recoverable (#110906) * docs(ios): align unified chat voice copy * fix(ios): keep active dictation control available * fix(ios): keep active talk control available * fix(ios): restore unified voice recovery * fix(ios): keep pending dictation cancel visible * chore(ios): refresh native i18n inventory * chore(ios): sync unified voice locale memory * fix(ios): return unified mic label view * test(ios): lock dictation cancellation ordering",
+      "title": "feat: allow standalone MCP Apps to use bound tools and resources (#11…",
+      "link": "https://github.com/openclaw/openclaw/commit/7c070d6df67a92a086bd65a7f9b8b8bb3c7cc1d4",
+      "publishedAt": "2026-07-18T23:50:37Z",
+      "summary": "feat: allow standalone MCP Apps to use bound tools and resources (#110515) * Gateway: enable ticketed MCP App bridge * Gateway: make MCP App operation switch exhaustive * refactor(gateway): drop no-op MCP App route change * fix(gateway): enforce standalone MCP App tool authority * docs(gateway): clarify standalone MCP App ticket authority * fix(gateway): require standalone MCP App initialization * refactor(gateway): keep standalone route load explicit",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep unified voice controls recoverable (#110906)",
-      "summaryZh": "重點：修正(ios): keep unified voice controls recoverable (#110906) * 文件(ios): align unified chat voice copy * 修正(ios): keep acti..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: allow standalone MCP Apps to use bound tools and resources (#11…",
+      "summaryZh": "重點：新功能: allow standalone MCP Apps to use bound tools and resources (#110515) * Gateway: enable ticketed MCP App bridge * Ga..."
     },
     {
       "id": 5,
+      "title": "曬娃貼文可能成為 AI 犯罪素材，三步驟防範孩子照片遭惡意深偽",
+      "link": "https://infosecu.technews.tw/2026/07/19/parents-warned-not-to-publicly-share-childrens-images-amid-ai-abuse-risks/",
+      "publishedAt": "Sat, 18 Jul 2026 23:30:39 +0000",
+      "summary": "隨著人工智慧（AI）技術的迅速發展，利用公開照片合成兒童性虐待影像的犯罪威脅正日益加劇。英國國家打擊犯罪局（N [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "半人馬座 ω 首見恆星級黑洞，揭開 120 億年星團面紗",
       "link": "https://technews.tw/2026/07/19/astronomers-finally-discover-stellar-mass-black-hole-in-omega-centauri/",
       "publishedAt": "Sat, 18 Jul 2026 16:00:56 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "NASA 釋出私人太空站計畫草案，3,000 項繁雜要求引發業界疑慮",
       "link": "https://technews.tw/2026/07/19/nasa-draft-private-space-station-plan/",
       "publishedAt": "Sat, 18 Jul 2026 16:00:09 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "揭開「宇宙煉金術」之謎，AI 模型 RHINE 還原重元素誕生瞬間",
       "link": "https://technews.tw/2026/07/18/ai-model-rhine/",
       "publishedAt": "Sat, 18 Jul 2026 14:35:39 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "1Password替Claude加上受控登入功能，AI代理能登入網站卻看不到密碼",
       "link": "https://www.ithome.com.tw/news/177407",
       "publishedAt": "2026-07-18 10:07:25",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "DeepSeek 時刻重演？中國最新開源模型 Kimi K3，嚇倒美半導體類股",
       "link": "https://technews.tw/2026/07/18/china-new-ai-model-kimi-k3/",
       "publishedAt": "Sat, 18 Jul 2026 10:02:02 +0000",
       "summary": "中國新創「月之暗面」（Moonshot AI）於 17 日發布最新人工智慧模型 Kimi K3，僅憑開源工具便 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "免吃藥開刀！美大學首創「智慧睡眠貼片」，精準延長 REM 睡眠抗憂鬱",
-      "link": "https://technews.tw/2026/07/18/neusleep-quick-rem-sleep/",
-      "publishedAt": "Sat, 18 Jul 2026 08:00:02 +0000",
-      "summary": "美國德州大學奧斯汀分校的研究團隊近期開發出一款名為「NEUSLeeP」的柔性生物電子貼片。這款可輕鬆貼附於皮膚 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
