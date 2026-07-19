@@ -1,50 +1,88 @@
 {
-  "generatedAt": "2026-07-19T02:48:42.739Z",
+  "generatedAt": "2026-07-19T05:54:25.815Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(line): deliver rich replies on the reply token instead of the pus…",
-      "link": "https://github.com/openclaw/openclaw/commit/8365383391472831f5a425a35de13b56adabc839",
-      "publishedAt": "2026-07-19T02:41:43Z",
-      "summary": "fix(line): deliver rich replies on the reply token instead of the push quota (#109011) * fix(line): deliver rich replies on the reply token instead of the push quota A reply token carries five messages for free, while push spends the account's monthly quota. Text rode the token and the rich/media bubbles were pushed after it, so an extracted table vanished with a 429 once that quota was gone. Bundle both onto the token and push only the overflow. Quick replies now ride the trailing message instead of the last reply-token slot: LINE hides them as soon as a newer message arrives, so an overflowing batch pushed its bubbles after the buttons and wiped them. * refactor(line): unify auto-reply batching * test(line): remove unused token fixture * refactor(line): delete legacy reply chunk path * fix(line): recover text from rejected mixed batches * test(line): split auto-reply recovery coverage --------- Co-authored-by: Peter Steinberger",
+      "title": "feat(agents): canonical agent creation with Custodian hatch flow (#11…",
+      "link": "https://github.com/openclaw/openclaw/commit/932e8be06cfefe1abc4578c27f61c145803acf3e",
+      "publishedAt": "2026-07-19T05:50:02Z",
+      "summary": "feat(agents): canonical agent creation with Custodian hatch flow (#111052) * refactor(agents): centralize agent creation * feat(ui): add new agent hatch flow * refactor(agents): keep creation paths lean * fix(agents): hide internal creation types",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(line): deliver rich replies on the reply token instead of the pus…",
-      "summaryZh": "重點：修正(line): deliver rich replies on the reply token instead of the push quota (#109011) * 修正(line): deliver rich replies o..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(agents): canonical agent creation with Custodian hatch flow (#11…",
+      "summaryZh": "重點：新功能(agents): canonical agent creation with Custodian hatch flow (#111052) * refactor(agents): centralize agent creation ..."
     },
     {
       "id": 2,
-      "title": "聯電榮譽副董事長宣明智驚傳意識不清送醫，院方緊急安排手術",
-      "link": "https://technews.tw/2026/07/19/hsuan-min-chih-20260719/",
-      "publishedAt": "Sun, 19 Jul 2026 02:39:57 +0000",
-      "summary": "74 歲的聯電榮譽副董事長宣明智驚傳意識不清、緊急送醫。 綜合媒體報導，宣明智 19 日上午由於不明原因意識不 [&#8230;]",
+      "title": "docs(gateway): document x-openclaw-scopes cap on trusted-proxy device…",
+      "link": "https://github.com/openclaw/openclaw/commit/30e2129ace2eae59339025ec6e817b16b0428142",
+      "publishedAt": "2026-07-19T05:35:32Z",
+      "summary": "docs(gateway): document x-openclaw-scopes cap on trusted-proxy device auto-approval (#111228)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(Gateway): 文件ument x-OpenClaw-scopes cap on trusted-proxy device…",
+      "summaryZh": "重點：文件(Gateway): 文件ument x-OpenClaw-scopes cap on trusted-proxy device auto-approval (#111228)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(browser): close tracked tabs after gateway restart (#110797)",
+      "link": "https://github.com/openclaw/openclaw/commit/4074e0cae15c2570d45a09cc9e0c39b6c4fca3d9",
+      "publishedAt": "2026-07-19T05:24:20Z",
+      "summary": "fix(browser): close tracked tabs after gateway restart (#110797) * fix(browser): preserve tab cleanup across restarts * fix(browser): disambiguate restart tab aliases * fix(browser): keep untrack selection type private --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): close tracked tabs after Gateway restart (#110797)",
+      "summaryZh": "重點：修正(browser): close tracked tabs after Gateway restart (#110797) * 修正(browser): preserve tab cleanup across restarts * 修正..."
+    },
+    {
+      "id": 4,
+      "title": "feat(mcp-apps): support bounded model context updates (#111212)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f7da3057c059a65a6a5c600493993154a8ad4d6",
+      "publishedAt": "2026-07-19T05:08:35Z",
+      "summary": "feat(mcp-apps): support bounded model context updates (#111212) * feat(mcp-apps): support model context updates * fix(mcp-apps): satisfy protocol and runtime guards",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(mcp-apps): support bounded 模型 context updates (#111212)",
+      "summaryZh": "重點：新功能(mcp-apps): support bounded 模型 context updates (#111212) * 新功能(mcp-apps): support 模型 context updates * 修正(mcp-apps): ..."
+    },
+    {
+      "id": 5,
+      "title": "砸 300 億美元卻換來認知衰退？美國「校園數位化」20 年為何淪為教育災難",
+      "link": "https://ccc.technews.tw/2026/07/19/digital-education-gen-z-cognitive-decline/",
+      "publishedAt": "Sun, 19 Jul 2026 05:00:54 +0000",
+      "summary": "美國多年來大力推動校園數位化，試圖將網路與資訊帶進課堂，但這項立意良善的政策，卻可能帶來意想不到的反效果。經過 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(channels): preserve single-account setup labels (#111134)",
-      "link": "https://github.com/openclaw/openclaw/commit/075030c19eb288aa8edef9a80cf073481808cbce",
-      "publishedAt": "2026-07-19T02:32:31Z",
-      "summary": "fix(channels): preserve single-account setup labels (#111134) Fixes #111130",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): preserve single-account setup labels (#111134)",
-      "summaryZh": "重點：修正(channels): preserve single-account setup labels (#111134) 修正 #111130..."
+      "id": 6,
+      "title": "Claude 高階訂閱可用 Fable 5 模型，但使用額度大幅縮水",
+      "link": "https://technews.tw/2026/07/19/claude-fable-5-will-be-included-in-all-max-and-team-premium-plans/",
+      "publishedAt": "Sun, 19 Jul 2026 03:14:16 +0000",
+      "summary": "Claude Fable 5 模型恢復上線的推廣活動結束後，自 7 月 20 日起正式納入 Claude Ma [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "fix(tlon): preserve shutdown when body cancellation fails (#111106)",
-      "link": "https://github.com/openclaw/openclaw/commit/5bb969f7de6cb07747e746e90d6444bb935dcb8e",
-      "publishedAt": "2026-07-19T02:32:04Z",
-      "summary": "fix(tlon): preserve shutdown when body cancellation fails (#111106) * fix(tlon): observe shutdown body cancellation failures * test(tlon): streamline shutdown cleanup proof * test(tlon): narrow shutdown fixtures --------- Co-authored-by: ZengWen-DT Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tlon): preserve shutdown when body cancellation fails (#111106)",
-      "summaryZh": "重點：修正(tlon): preserve shutdown when body cancellation fails (#111106) * 修正(tlon): observe shutdown body cancellation failur..."
+      "id": 7,
+      "title": "全球首款「太空級項圈」結合星鏈技術，深山斷網也能精準找回毛孩",
+      "link": "https://technews.tw/2026/07/19/worlds-first-space-grade-collar-starlink-tech-accurate-pet-retrieval-remote-no-internet/",
+      "publishedAt": "Sun, 19 Jul 2026 03:00:20 +0000",
+      "summary": "想讓狗狗在大自然奔跑，又擔心牠在山林、郊區的環境會走失，一去就不見蹤影嗎？來自紐約的寵物穿戴品牌 Fi，近期推 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 8,
+      "title": "聯電榮譽副董事長宣明智驚傳意識不清送醫，院方緊急安排手術",
+      "link": "https://technews.tw/2026/07/19/hsuan-min-chih-20260719/",
+      "publishedAt": "Sun, 19 Jul 2026 02:39:57 +0000",
+      "summary": "74 歲的聯華電子榮譽副董事長宣明智驚傳意識不清、緊急送醫。 綜合媒體報導，宣明智 19 日上午由於不明原因意 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "當 AI 面試官「膚色不同」，落選求職者更容易質疑被偏見刷掉",
       "link": "https://technews.tw/2026/07/19/the-face-on-an-ai-interviewer-may-matter-as-much-as-the-decision-it-makes/",
       "publishedAt": "Sun, 19 Jul 2026 02:30:48 +0000",
@@ -53,49 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "fix(gateway): bound busy channel health by real run age (#103793)",
-      "link": "https://github.com/openclaw/openclaw/commit/18b79d99abb95e4d5b773df6ca645f4333b4a8cb",
-      "publishedAt": "2026-07-19T02:26:17Z",
-      "summary": "fix(gateway): bound busy channel health by real run age (#103793) * fix(gateway): bound busy channel health by real run age The channel health policy treats a channel as healthy-busy even while disconnected, bounded only by a 25 minute stale ceiling measured from lastRunActivityAt. The run-state heartbeat refreshes lastRunActivityAt every 60 seconds for as long as any run is active, so a run that hangs forever (for example a send blocking on a dead socket after the transport already reported connected:false) keeps that timestamp fresh and the stuck ceiling is never reached. The account is then reported healthy forever by the health monitor, readiness probe, and health CLI, and no restart ever fires. createRunStateMachine now tracks each in-flight run's start time keyed by an opaque run handle and publishes the oldest still-active run's start as activeRunStartedAt. The health policy busy override keys its ceiling off the real run age, so a run stuck longer than the threshold reports stuck and the monitor can restart it. Because the reported start is the oldest active run and advances to the next-oldest as runs complete, a channel churning through many short overlapping runs (activeRuns above 1 across concurrent queue keys) stays healthy; only a genuinely hung run breaches the ceiling. Short and active runs stay healthy and the existing lastRunActivityAt fallback is preserved for snapshots without a start time. * fix(channels): retain run-state callback compatibility Keep the released zero-argument onRunEnd callback source-compatible while allowing internal queue callers to pass a run handle for exact concurrent-run accounting. The compatibility path closes the oldest active run, preserving existing lifecycle behavior for consumers that do not use handles. * fix(channels): keep anonymous runs out of age tracking The zero-argument lifecycle callbacks cannot identify which concurrent run completed, so they must not update the identity-sensitive run start used by channel health. Keep their busy count separately and reserve exact start tracking for the shared queue's handle-aware lifecycle path. * fix(channels): keep tracked runs internal Keep the public run-state lifecycle callbacks unchanged. The channel queue now owns opaque run identity and augments its status updates with the oldest active queue run, so implementation details do not expand the SDK surface. * fix(channels): type queue run start status Keep activeRunStartedAt in the internal status patch type so the queue can publish its private tracked-run age through the existing status sink. * fix(channels): wrap isActive to satisfy unbound-method lint * fix(gateway): gate busy run-age ceiling on disconnected transport",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): bound busy channel health by real run age (#103793)",
-      "summaryZh": "重點：修正(Gateway): bound busy channel health by real run age (#103793) * 修正(Gateway): bound busy channel health by real run ag..."
-    },
-    {
-      "id": 7,
+      "id": 10,
       "title": "Z 世代掀「安靜儲蓄」與「大聲預算」風潮，追求財務安全感成主流",
       "link": "https://finance.technews.tw/2026/07/19/why-gen-z-is-prioritising-stability-over-luxury-in-2026/",
       "publishedAt": "Sun, 19 Jul 2026 02:00:22 +0000",
       "summary": "最近「2026 年是新的 2016 年」話題，在各大社群平台上爆紅，顯示人們懷念 AI 盛行前生活更簡單的時光 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "專家揭密：語音 AI 成功的關鍵不在「聽懂」，而是「接話節奏」",
-      "link": "https://technews.tw/2026/07/19/voice-ai-challenge/",
-      "publishedAt": "Sun, 19 Jul 2026 01:30:42 +0000",
-      "summary": "語音 AI 的核心挑戰，早已超越單純的「聽懂」，而是精準掌握「何時接話」。根據《Forbes》報導指出，許多自 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "「科學的終點就是神學」！七宮廟遶境為台積電嘉義封裝廠祈福，信眾也是股東",
-      "link": "https://technews.tw/2026/07/19/tsmc-chiayi/",
-      "publishedAt": "Sun, 19 Jul 2026 01:00:42 +0000",
-      "summary": "當全球最先進的 AI 晶片先進封裝廠，遇上台灣最具代表性的民間信仰「遶境」，會擦出什麼火花？ 《財訊》報導，7 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "淋巴癌治療重大突破：CAR-T 細胞療法十年追蹤，證實具長期治癒潛力",
-      "link": "https://technews.tw/2026/07/19/car-t-cell-therapy-10-year-follow-up/",
-      "publishedAt": "Sun, 19 Jul 2026 00:30:09 +0000",
-      "summary": "一項長達近十年的追蹤研究為淋巴瘤治療帶來振奮人心的好消息。最新研究顯示，CAR-T 細胞療法能為部分患者帶來罕 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
