@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-19T20:50:57.565Z",
+  "generatedAt": "2026-07-19T21:53:44.819Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(onboard): honor remote flags in interactive setup (#111517)",
-      "link": "https://github.com/openclaw/openclaw/commit/1a574923cb1032e8355f8fc6af820e6f2649066c",
-      "publishedAt": "2026-07-19T20:25:46Z",
-      "summary": "fix(onboard): honor remote flags in interactive setup (#111517) * fix(onboard): honor interactive remote flags * fix(onboard): clear credentials for changed gateway * fix(onboard): validate remote URL before probe * test(onboard): mark synthetic remote tokens * test(onboard): avoid literal credential fixtures * refactor(onboard): name remote probe auth role * refactor(onboard): keep remote probe seed canonical * test(onboard): type remote URL validator mock",
+      "title": "feat(ios): replace the tab bar with a black overlay sidebar (web pari…",
+      "link": "https://github.com/openclaw/openclaw/commit/0fff74c800edd71970b0b72f229d34887ee21734",
+      "publishedAt": "2026-07-19T21:50:39Z",
+      "summary": "feat(ios): replace the tab bar with a black overlay sidebar (web parity + dashboard) (#111339) * feat(ios): unify navigation on a black overlay sidebar and drop the phone tab bar * test(ios): rework navigation tests and snapshot UITests for the sidebar shell * chore(i18n): sync derived native catalogs for sidebar strings * feat(ios): reveal the sidebar beneath a push-away rounded content card * feat(ios): web-parity sidebar — agent switcher, pinned pages, sessions vocabulary, uniform content card * chore(i18n): translate sidebar and session strings across native catalogs * fix(ios): sidebar footer shows connection dot only when degraded, like the web * feat(ios): sidebar toggle top-left with edge-swipe open; card surface owns the drawer chrome * fix(ios): single sidebar refresh owner, alias-aware Home badges, RM tap-close, user pin order, drop vestigial idiom shims * feat(ios): align sidebar with the mobile prototype — agent roster, theme-following palette, web session subtitles, row badges * chore(i18n): translate agent roster and Recent strings across native catalogs * feat(ios): frosted-glass agent picker with uniform drawer insets * fix(ios): address sidebar review findings — settings toggle edge, per-agent scoping, alias-aware selection, cron paging, refresh cadence * fix(ios): clear landing CI blockers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): honor remote flags in interactive setup (#111517)",
-      "summaryZh": "重點：修正(onboard): honor remote flags in interactive setup (#111517) * 修正(onboard): honor interactive remote flags * 修正(onboar..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ios): replace the tab bar with a black overlay sidebar (web pari…",
+      "summaryZh": "重點：新功能(ios): replace the tab bar with a black overlay sidebar (web parity + dashboard) (#111339) * 新功能(ios): unify navigati..."
     },
     {
       "id": 2,
-      "title": "fix: update debugging skill file references (#111474)",
-      "link": "https://github.com/openclaw/openclaw/commit/cb0bbcb1772c15f2812d636977439f264a19528f",
-      "publishedAt": "2026-07-19T19:59:01Z",
-      "summary": "fix: update debugging skill file references (#111474)",
+      "title": "feat(clickclack): session discussions — bound channels, side agent, l…",
+      "link": "https://github.com/openclaw/openclaw/commit/5420c5c409cdd493607fc4d4f897aa206aa44022",
+      "publishedAt": "2026-07-19T21:47:14Z",
+      "summary": "feat(clickclack): session discussions — bound channels, side agent, lifecycle sync (#111503) * feat(clickclack): add session discussions * chore: remove release-owned changelog entry * refactor(clickclack): split discussion service workflows * fix(clickclack): satisfy plugin surface gates * fix: narrow routing peer in inbound test and refresh docs map",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: update debugging skill file references (#111474)",
-      "summaryZh": "重點：修正: update debugging skill file references (#111474)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(clickclack): session discussions — bound channels, side agent, l…",
+      "summaryZh": "重點：新功能(clickclack): session discussions — bound channels, side agent, lifecycle sync (#111503) * 新功能(clickclack): add sessi..."
     },
     {
       "id": 3,
-      "title": "fix(plugins): load active generation after upgrades (#111141)",
-      "link": "https://github.com/openclaw/openclaw/commit/22c336c0b46bde43f41f577cc3d033e9affcbc75",
-      "publishedAt": "2026-07-19T19:50:35Z",
-      "summary": "fix(plugins): load active generation after upgrades (#111141) * fix(plugins): load newest managed generation when a prior install lingers An upgrade writes a plugin's new version into a distinct managed project directory (an `__openclaw-generation__` dir) without removing the previous one. The persisted install record keeps pointing at the older, still-present directory, so `mergeRecoveredManagedNpmRecord` falls through to returning the persisted record and the runtime imports the stale version even though the newer generation is installed. `isUnavailableManagedNpmInstallRecord` only self-heals when the persisted path is gone, so an upgrading install (both directories present) is not covered — `plugins inspect --runtime` reports the old version and `install`/`update` appear to silently no-op. - Recovery now selects the highest-version record per plugin id across the legacy flat dir and any generation dirs, instead of whichever project root sorts last (generation-dir suffixes are hashes, so on-disk order is unrelated to version). - When the recovered managed install is a strictly newer version at a different path, repoint to it, reusing the metadata merge the unavailable-path branch uses. The repoint is gated to persisted records that live inside the managed npm root, so intentional custom/outside npm installs are left untouched. This is a recovery-layer self-heal, so it also repairs installs that already diverged from an earlier upgrade. Refs #107228 Co-Authored-By: Claude Opus 4.8 * fix(plugins): honor active managed generations Recover ambiguous managed installs by package recency only when no usable active ledger path exists, and let doctor retire non-authoritative generations safely. Co-authored-by: Peter Lindsey * test(plugins): use shared temp cleanup * fix(plugins): compare active paths per platform * fix(plugins): use managed install timestamps * test(plugins): timestamp managed project roots * test(plugins): exclude retired legacy recovery * refactor(plugins): keep recovery candidate private --------- Co-authored-by: Peter Lindsey Co-authored-by: Claude Opus 4.8 Co-authored-by: Peter Steinberger",
+      "title": "fix(gateway): avoid macOS startup freeze during worker reconciliation…",
+      "link": "https://github.com/openclaw/openclaw/commit/c45e3dd3157bccd93b09a24c8b595dd5ab83b987",
+      "publishedAt": "2026-07-19T21:39:25Z",
+      "summary": "fix(gateway): avoid macOS startup freeze during worker reconciliation (#111533) * fix(gateway): warm system CA before worker reconciliation * fix(gateway): tolerate denied worker warmup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): load active generation after upgrades (#111141)",
-      "summaryZh": "重點：修正(plugins): load active generation after upgrades (#111141) * 修正(plugins): load newest managed generation when a prior ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): avoid macOS startup freeze during worker reconciliation…",
+      "summaryZh": "重點：修正(Gateway): avoid macOS startup freeze during worker reconciliation (#111533) * 修正(Gateway): warm system CA before work..."
     },
     {
       "id": 4,
-      "title": "fix(test): recognize CI env aliases (#111521)",
-      "link": "https://github.com/openclaw/openclaw/commit/50114c51630dfbf0a5f55ed1f24fd24a07b982a8",
-      "publishedAt": "2026-07-19T19:44:18Z",
-      "summary": "fix(test): recognize CI env aliases (#111521)",
+      "title": "fix(onboard): make first-run hatch reliable (#111465)",
+      "link": "https://github.com/openclaw/openclaw/commit/6a408983d07fad091b8bf841b2991b65fda03caa",
+      "publishedAt": "2026-07-19T21:38:58Z",
+      "summary": "fix(onboard): make first-run hatch reliable (#111465) * fix(onboard): harden first-run handoff * style(ui): avoid onboarding comparator shadowing * fix(agents): preserve mixed refresh failures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): recognize CI env aliases (#111521)",
-      "summaryZh": "重點：修正(test): recognize CI env aliases (#111521)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): make first-run hatch reliable (#111465)",
+      "summaryZh": "重點：修正(onboard): make first-run hatch reliable (#111465) * 修正(onboard): harden first-run handoff * style(ui): avoid onboardi..."
     },
     {
       "id": 5,
