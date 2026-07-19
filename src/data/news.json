@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-19T19:14:57.951Z",
+  "generatedAt": "2026-07-19T20:50:57.565Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(install): isolate source postinstall state (#111514)",
-      "link": "https://github.com/openclaw/openclaw/commit/5ec3b2dab4760458d20938abfdb1bee87065cbb7",
-      "publishedAt": "2026-07-19T19:14:21Z",
-      "summary": "fix(install): isolate source postinstall state (#111514)",
+      "title": "fix(onboard): honor remote flags in interactive setup (#111517)",
+      "link": "https://github.com/openclaw/openclaw/commit/1a574923cb1032e8355f8fc6af820e6f2649066c",
+      "publishedAt": "2026-07-19T20:25:46Z",
+      "summary": "fix(onboard): honor remote flags in interactive setup (#111517) * fix(onboard): honor interactive remote flags * fix(onboard): clear credentials for changed gateway * fix(onboard): validate remote URL before probe * test(onboard): mark synthetic remote tokens * test(onboard): avoid literal credential fixtures * refactor(onboard): name remote probe auth role * refactor(onboard): keep remote probe seed canonical * test(onboard): type remote URL validator mock",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(install): isolate source postinstall state (#111514)",
-      "summaryZh": "重點：修正(install): isolate source postinstall state (#111514)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): honor remote flags in interactive setup (#111517)",
+      "summaryZh": "重點：修正(onboard): honor remote flags in interactive setup (#111517) * 修正(onboard): honor interactive remote flags * 修正(onboar..."
     },
     {
       "id": 2,
-      "title": "fix(system-agent): preserve setup success on audit failure (#111504)",
-      "link": "https://github.com/openclaw/openclaw/commit/1ddb6f1bbb421cac648677f55bda2588a17fe594",
-      "publishedAt": "2026-07-19T19:06:59Z",
-      "summary": "fix(system-agent): preserve setup success on audit failure (#111504)",
+      "title": "fix: update debugging skill file references (#111474)",
+      "link": "https://github.com/openclaw/openclaw/commit/cb0bbcb1772c15f2812d636977439f264a19528f",
+      "publishedAt": "2026-07-19T19:59:01Z",
+      "summary": "fix: update debugging skill file references (#111474)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(system-agent): preserve setup success on audit failure (#111504)",
-      "summaryZh": "重點：修正(system-agent): preserve setup success on audit failure (#111504)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: update debugging skill file references (#111474)",
+      "summaryZh": "重點：修正: update debugging skill file references (#111474)..."
     },
     {
       "id": 3,
-      "title": "feat(gateway): allow explicit operator.admin in device auto-approval …",
-      "link": "https://github.com/openclaw/openclaw/commit/31e52dc5c5318d971543d4b8b50c5b6abf8451d7",
-      "publishedAt": "2026-07-19T19:05:04Z",
-      "summary": "feat(gateway): allow explicit operator.admin in device auto-approval with critical audit finding (#111509)",
+      "title": "fix(plugins): load active generation after upgrades (#111141)",
+      "link": "https://github.com/openclaw/openclaw/commit/22c336c0b46bde43f41f577cc3d033e9affcbc75",
+      "publishedAt": "2026-07-19T19:50:35Z",
+      "summary": "fix(plugins): load active generation after upgrades (#111141) * fix(plugins): load newest managed generation when a prior install lingers An upgrade writes a plugin's new version into a distinct managed project directory (an `__openclaw-generation__` dir) without removing the previous one. The persisted install record keeps pointing at the older, still-present directory, so `mergeRecoveredManagedNpmRecord` falls through to returning the persisted record and the runtime imports the stale version even though the newer generation is installed. `isUnavailableManagedNpmInstallRecord` only self-heals when the persisted path is gone, so an upgrading install (both directories present) is not covered — `plugins inspect --runtime` reports the old version and `install`/`update` appear to silently no-op. - Recovery now selects the highest-version record per plugin id across the legacy flat dir and any generation dirs, instead of whichever project root sorts last (generation-dir suffixes are hashes, so on-disk order is unrelated to version). - When the recovered managed install is a strictly newer version at a different path, repoint to it, reusing the metadata merge the unavailable-path branch uses. The repoint is gated to persisted records that live inside the managed npm root, so intentional custom/outside npm installs are left untouched. This is a recovery-layer self-heal, so it also repairs installs that already diverged from an earlier upgrade. Refs #107228 Co-Authored-By: Claude Opus 4.8 * fix(plugins): honor active managed generations Recover ambiguous managed installs by package recency only when no usable active ledger path exists, and let doctor retire non-authoritative generations safely. Co-authored-by: Peter Lindsey * test(plugins): use shared temp cleanup * fix(plugins): compare active paths per platform * fix(plugins): use managed install timestamps * test(plugins): timestamp managed project roots * test(plugins): exclude retired legacy recovery * refactor(plugins): keep recovery candidate private --------- Co-authored-by: Peter Lindsey Co-authored-by: Claude Opus 4.8 Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): allow explicit operator.admin in device auto-approval …",
-      "summaryZh": "重點：新功能(Gateway): allow explicit operator.admin in device auto-approval with critical audit finding (#111509)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): load active generation after upgrades (#111141)",
+      "summaryZh": "重點：修正(plugins): load active generation after upgrades (#111141) * 修正(plugins): load newest managed generation when a prior ..."
     },
     {
       "id": 4,
-      "title": "fix(qa): align runner inbound dispatch contract (#111507)",
-      "link": "https://github.com/openclaw/openclaw/commit/5a6a19c13393529647895793861de2298d5573ad",
-      "publishedAt": "2026-07-19T18:51:24Z",
-      "summary": "fix(qa): align runner inbound dispatch contract (#111507)",
+      "title": "fix(test): recognize CI env aliases (#111521)",
+      "link": "https://github.com/openclaw/openclaw/commit/50114c51630dfbf0a5f55ed1f24fd24a07b982a8",
+      "publishedAt": "2026-07-19T19:44:18Z",
+      "summary": "fix(test): recognize CI env aliases (#111521)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): align runner inbound dispatch contract (#111507)",
-      "summaryZh": "重點：修正(qa): align runner inbound dispatch contract (#111507)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): recognize CI env aliases (#111521)",
+      "summaryZh": "重點：修正(test): recognize CI env aliases (#111521)..."
     },
     {
       "id": 5,
