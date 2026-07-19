@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-19T17:57:17.651Z",
+  "generatedAt": "2026-07-19T19:14:57.951Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): stop chat normalizers throwing on null/undefined message ent…",
-      "link": "https://github.com/openclaw/openclaw/commit/e6d7aee41d684371f64cd2c309922af0e3f5e56d",
-      "publishedAt": "2026-07-19T17:54:55Z",
-      "summary": "fix(ui): stop chat normalizers throwing on null/undefined message entries (#111494) normalizeMessage / isToolResultMessage / isStandaloneToolMessageForDisplay cast their unknown input to a record and then read `typeof m.role`. That still evaluates `m.role`, so an undefined entry (e.g. groupMessages calling normalizeMessage(item.message) with an absent message on a pending or malformed transcript row) threw \"Cannot read properties of undefined (reading 'role')\" inside the gateway event handler — a caught but recurring error storm on the live team instance. Coerce non-object input to {} at the source so every downstream `typeof m.` check works and role degrades to \"unknown\". The existing safeNormalizeMessage try/catch wrapper existed precisely for this hazard; the guard now lives in normalizeMessage itself.",
+      "title": "fix(install): isolate source postinstall state (#111514)",
+      "link": "https://github.com/openclaw/openclaw/commit/5ec3b2dab4760458d20938abfdb1bee87065cbb7",
+      "publishedAt": "2026-07-19T19:14:21Z",
+      "summary": "fix(install): isolate source postinstall state (#111514)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop chat normalizers throwing on null/undefined message ent…",
-      "summaryZh": "重點：修正(ui): stop chat normalizers throwing on null/undefined message entries (#111494) normalizeMessage / isToolResultMessag..."
+      "titleZh": "OpenClaw 程式碼更新：修正(install): isolate source postinstall state (#111514)",
+      "summaryZh": "重點：修正(install): isolate source postinstall state (#111514)..."
     },
     {
       "id": 2,
-      "title": "fix(android): improve Wear thread follow behavior (#111459)",
-      "link": "https://github.com/openclaw/openclaw/commit/50ce5dedeaff006db9fd522dd4e9dcbd5792c113",
-      "publishedAt": "2026-07-19T17:54:10Z",
-      "summary": "fix(android): improve Wear thread follow behavior (#111459) * improve(android): move Wear agent, session, and model pickers to Home * fix(android): improve Wear thread follow behavior * fix(android): stabilize Wear thread follow lifecycle * fix(android): keep streamed Wear tail visible Co-authored-by: JARVIS-Glasses --------- Co-authored-by: Colin Co-authored-by: Peter Steinberger",
+      "title": "fix(system-agent): preserve setup success on audit failure (#111504)",
+      "link": "https://github.com/openclaw/openclaw/commit/1ddb6f1bbb421cac648677f55bda2588a17fe594",
+      "publishedAt": "2026-07-19T19:06:59Z",
+      "summary": "fix(system-agent): preserve setup success on audit failure (#111504)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): improve Wear thread follow behavior (#111459)",
-      "summaryZh": "重點：修正(android): improve Wear thread follow behavior (#111459) * improve(android): move Wear agent, session, and 模型 pickers ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(system-agent): preserve setup success on audit failure (#111504)",
+      "summaryZh": "重點：修正(system-agent): preserve setup success on audit failure (#111504)..."
     },
     {
       "id": 3,
-      "title": "fix: preserve message-only terminal output (#111493)",
-      "link": "https://github.com/openclaw/openclaw/commit/8e0c50380c10289992c83f9973a6613dda8212e4",
-      "publishedAt": "2026-07-19T17:51:06Z",
-      "summary": "fix: preserve message-only terminal output (#111493)",
+      "title": "feat(gateway): allow explicit operator.admin in device auto-approval …",
+      "link": "https://github.com/openclaw/openclaw/commit/31e52dc5c5318d971543d4b8b50c5b6abf8451d7",
+      "publishedAt": "2026-07-19T19:05:04Z",
+      "summary": "feat(gateway): allow explicit operator.admin in device auto-approval with critical audit finding (#111509)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve message-only terminal output (#111493)",
-      "summaryZh": "重點：修正: preserve message-only terminal output (#111493)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): allow explicit operator.admin in device auto-approval …",
+      "summaryZh": "重點：新功能(Gateway): allow explicit operator.admin in device auto-approval with critical audit finding (#111509)..."
     },
     {
       "id": 4,
-      "title": "feat(channels): batch 1 producers drop media placeholder bodies (#111…",
-      "link": "https://github.com/openclaw/openclaw/commit/83303f1ba874dd8e09ac66dc919286442ec842e9",
-      "publishedAt": "2026-07-19T17:32:09Z",
-      "summary": "feat(channels): batch 1 producers drop media placeholder bodies (#111447) * feat(channels): batch 1 producers drop media placeholder bodies Media-placeholder program batch 1: Google Chat, Zalo, LINE, and Mattermost stop minting placeholder bodies. Media-only messages carry an empty caption plus one structured fact per native attachment (type-only when a download fails or is rejected, so payload positions and kind signals stay aligned). The shared formatMediaPlaceholderText SDK formatter renders text-only carriers (Mattermost pending-room lines) from structured facts; per-channel placeholder builders and the expected-count side channel are deleted. * fix(mattermost): satisfy type, deadcode, and SDK manifest gates",
+      "title": "fix(qa): align runner inbound dispatch contract (#111507)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a6a19c13393529647895793861de2298d5573ad",
+      "publishedAt": "2026-07-19T18:51:24Z",
+      "summary": "fix(qa): align runner inbound dispatch contract (#111507)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(channels): batch 1 producers drop media placeholder bodies (#111…",
-      "summaryZh": "重點：新功能(channels): batch 1 producers drop media placeholder bodies (#111447) * 新功能(channels): batch 1 producers drop media p..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): align runner inbound dispatch contract (#111507)",
+      "summaryZh": "重點：修正(qa): align runner inbound dispatch contract (#111507)..."
     },
     {
       "id": 5,
