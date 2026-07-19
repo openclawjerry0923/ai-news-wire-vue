@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-19T14:56:28.200Z",
+  "generatedAt": "2026-07-19T16:00:21.630Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(qa): wait for active config revision after restart (#111073)",
-      "link": "https://github.com/openclaw/openclaw/commit/6dc6d5efeeb78dd475351090cec6ed76cab81f9b",
-      "publishedAt": "2026-07-19T14:46:32Z",
-      "summary": "fix(qa): wait for active config revision after restart (#111073)",
+      "title": "fix: complete lint toolchain reuse in worktrees (#111467)",
+      "link": "https://github.com/openclaw/openclaw/commit/87fbc19fe373bed4bcf1e8a0ca2c5ea4eb0b6611",
+      "publishedAt": "2026-07-19T15:58:43Z",
+      "summary": "fix: complete lint toolchain reuse in worktrees (#111467) * fix(scripts): complete worktree lint toolchain * fix(scripts): prepare complete lint pipeline",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): wait for active config revision after restart (#111073)",
-      "summaryZh": "重點：修正(qa): wait for active config revision after restart (#111073)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: complete lint toolchain reuse in worktrees (#111467)",
+      "summaryZh": "重點：修正: complete lint toolchain reuse in worktrees (#111467) * 修正(scripts): complete worktree lint toolchain * 修正(scripts): ..."
     },
     {
       "id": 2,
-      "title": "refactor(plugin-sdk): retire global provider publication (#111426)",
-      "link": "https://github.com/openclaw/openclaw/commit/adf02e8de40784d6c9ac15d8f32645e250bddfbc",
-      "publishedAt": "2026-07-19T14:44:11Z",
-      "summary": "refactor(plugin-sdk): retire global provider publication (#111426) * refactor(plugin-sdk): retire global provider publication * docs: refresh SDK migration map",
+      "title": "feat: avatar upload UI, self-service profiles, server-side avatar rou…",
+      "link": "https://github.com/openclaw/openclaw/commit/f8e35afecc67dd8a0429eff8190a9d02177edfab",
+      "publishedAt": "2026-07-19T15:52:01Z",
+      "summary": "feat: avatar upload UI, self-service profiles, server-side avatar route (#111421) * feat: avatar upload UI, self-service profiles, server-side avatar proxy * refactor(ui): make resolveAvatar synchronous so avatar updates render immediately resolveAvatar no longer does async work (gravatar moved server-side), so the until()-deferred render left the identity chip img stale after updateSelfUser. Rendering synchronously reuses the img element and reflects avatarUrl changes on the next render. * fix(gateway): bound avatar Gravatar lookup to one timeout budget Linked-email Gravatar lookups ran sequentially, each with its own 5s timeout, so an upstream outage stalled the held connection for 5s x linked-email-count. Resolve them concurrently and pick the first hit in email order, keeping primary-email precedence while capping the request to a single timeout budget. * fix(gateway): cap per-profile Gravatar fan-out to bound sockets and memory A profile with many linked emails would fan out one concurrent fetch per email with no bound, each able to buffer up to MAX_GRAVATAR_BYTES before the cache budget applies. Cap the lookups to the first 8 primary-ordered emails so a single avatar request holds a bounded number of sockets and transient bytes. * test: reconcile avatar tests with server-side gravatar model after merge main landed a client-side Gravatar path (browser computes the gravatar.com URL); this branch resolves avatars through the same-origin gateway route, which is the only approach that works under the Control UI CSP (img-src 'self'). Update the identity-section, app-sidebar footer chip, and profile-page e2e expectations to assert the canonical /api/users//avatar route (gateway serves the Gravatar fallback behind it) instead of a CSP-blocked direct gravatar.com image. * test(gateway): fix fetchImpl mock param type for check-test-types The Gravatar mock typed its param as (url: string), narrower than the fetchImpl signature (URL | RequestInfo); function-param contravariance made it unassignable under tsgo:test. Widen to the fetch input type and extract the URL via a small helper that avoids no-base-to-string on a Request. * fix(gateway): short-circuit Gravatar lookups and version presence avatar URL Two autoreview findings on the avatar path: - Privacy: the concurrent Promise.all fan-out queried every linked email's hash against Gravatar even when the primary already had one, exposing secondary work/personal addresses. Resolve sequentially with short-circuit so a later hash is disclosed only after the earlier email is a definite miss, under one shared request deadline that still bounds total latency. - Staleness: presence published an unversioned /api/users//avatar, so a reconnecting viewer's kept the stale cached image after an upload. Carry the profile revision as ?v= so a changed avatar refetches.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugin-sdk): retire global provider publication (#111426)",
-      "summaryZh": "重點：refactor(plugin-sdk): retire global provider publication (#111426) * refactor(plugin-sdk): retire global provider public..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: avatar upload UI, self-service profiles, server-side avatar rou…",
+      "summaryZh": "重點：新功能: avatar upload UI, self-service profiles, server-side avatar route (#111421) * 新功能: avatar upload UI, self-service p..."
     },
     {
       "id": 3,
-      "title": "refactor(config): purge numeric tuning knobs behind built-in defaults…",
-      "link": "https://github.com/openclaw/openclaw/commit/783a5d21cfc1a6338b50997d90307e6c7e00efe7",
-      "publishedAt": "2026-07-19T14:35:45Z",
-      "summary": "refactor(config): purge numeric tuning knobs behind built-in defaults (#111382)",
+      "title": "feat(agents): authoritative write diffs end to end (#111456)",
+      "link": "https://github.com/openclaw/openclaw/commit/1ef99e6dfbda74b5439a4f7ebee25f262b9e5ace",
+      "publishedAt": "2026-07-19T15:48:26Z",
+      "summary": "feat(agents): authoritative write diffs end to end (#111456) * feat(agents): authoritative write diffs end to end The write tool now reports what actually happened: no-op (changed:false), created files (created:true with a bounded numbered diff), and overwrites (created:false with a real old-to-new diff when the old content is readable text within byte, line, and edit-distance budgets — unknown removals are never fabricated). The gateway history projection forwards the changed/created flags, the web and iOS write rows prefer the authoritative diff and suppress the +N -0 stat when creation is not proven, and the iOS transcript cache persists one bounded apply_patch envelope so patch diffs survive cold opens. * chore(i18n): sync native inventory",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): purge numeric tuning knobs behind built-in defaults…",
-      "summaryZh": "重點：refactor(config): purge numeric tuning knobs behind built-in defaults (#111382)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(agents): authoritative write diffs end to end (#111456)",
+      "summaryZh": "重點：新功能(agents): authoritative write diffs end to end (#111456) * 新功能(agents): authoritative write diffs end to end The writ..."
     },
     {
       "id": 4,
-      "title": "feat(ui): gravatar fallback in shared avatar primitive (#111418)",
-      "link": "https://github.com/openclaw/openclaw/commit/ec01949d86281746f6c2e1c1ba3c8b63b0b18298",
-      "publishedAt": "2026-07-19T14:12:11Z",
-      "summary": "feat(ui): gravatar fallback in shared avatar primitive (#111418) * feat(ui): gravatar fallback in shared avatar primitive * fix(ui): expire gravatar negative cache instead of page-lifetime poisoning * docs(ui): name gravatar retry tradeoff at the negative cache * fix(ui): scope avatar failures to current viewer",
+      "title": "test(signal): make status reaction timing deterministic (#111477)",
+      "link": "https://github.com/openclaw/openclaw/commit/218c8a54967e21b283fdd856b25a0f3bff9971c5",
+      "publishedAt": "2026-07-19T15:43:10Z",
+      "summary": "test(signal): make status reaction timing deterministic (#111477)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): gravatar fallback in shared avatar primitive (#111418)",
-      "summaryZh": "重點：新功能(ui): gravatar fallback in shared avatar primitive (#111418) * 新功能(ui): gravatar fallback in shared avatar primitive ..."
+      "titleZh": "OpenClaw 程式碼更新：test(signal): make status reaction timing deterministic (#111477)",
+      "summaryZh": "重點：test(signal): make status reaction timing deterministic (#111477)..."
     },
     {
       "id": 5,
+      "title": "彙整、強化與擴展旗下多種資安產品線，Sophos打造AI原生網路安全防禦系統",
+      "link": "https://www.ithome.com.tw/news/177421",
+      "publishedAt": "2026-07-19 11:07:13",
+      "summary": "AI帶來更多商機，也大幅驅動網路威脅與防護領域的發展，針對強化AI安全（Security for AI）與AI強化資安（AI for Security）這兩大應用趨勢，以及具備強大資安攻防能力的頂尖AI模型快速崛起，為了滿足熱烈的市場期待與需求，當前的資安廠商必須設法發展更專業的產品或服務，這幾年以來，紛紛推出主打AI防禦的解決方案。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "阿里巴巴開源 T-Head SAIL，挑戰 NVIDIA CUDA 生態系",
       "link": "https://technews.tw/2026/07/19/t-head-sail-open-sourced/",
       "publishedAt": "Sun, 19 Jul 2026 10:44:02 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Meta 平台當機，Facebook、Instagram 同步受影響",
       "link": "https://technews.tw/2026/07/19/facebook-outage-hits-users-worldwide/",
       "publishedAt": "Sun, 19 Jul 2026 10:09:42 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "蘋果 Face ID 發明者轉戰醫療 AI，立志讓大腦健康檢測像驗血簡單",
       "link": "https://technews.tw/2026/07/19/hemispheric-brain-ai-diagnostics/",
       "publishedAt": "Sun, 19 Jul 2026 08:00:04 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "股神巴菲特的四大財富分配金律，為何父母都該提早學？",
       "link": "https://finance.technews.tw/2026/07/19/buffett-on-wealth-distribution/",
       "publishedAt": "Sun, 19 Jul 2026 07:00:37 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Kimi K3 引熱議，開放權重模型恐推向「AI 共產主義」",
       "link": "https://technews.tw/2026/07/19/dean-ball-shares-his-thoughts-on-kimi-k3/",
       "publishedAt": "Sun, 19 Jul 2026 06:59:45 +0000",
       "summary": "月之暗面（Moonshot AI）最新發表的開放權重模型 Kimi K3，這款模型被視為規模龐大的開放 AI [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AI 省了時間卻失去方向？三大職場研究揭企業導入 AI 盲點",
-      "link": "https://finance.technews.tw/2026/07/19/3-ai-workplace-research-studies-every-leader-should-know-this-week/",
-      "publishedAt": "Sun, 19 Jul 2026 06:30:43 +0000",
-      "summary": "人工智慧（AI）正改變工作型態，但成功導入 AI 不只是給員工工具而已。近期三份職場研究指出，企業若缺乏策略與 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
