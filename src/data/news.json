@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-19T16:00:21.630Z",
+  "generatedAt": "2026-07-19T17:57:17.651Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: complete lint toolchain reuse in worktrees (#111467)",
-      "link": "https://github.com/openclaw/openclaw/commit/87fbc19fe373bed4bcf1e8a0ca2c5ea4eb0b6611",
-      "publishedAt": "2026-07-19T15:58:43Z",
-      "summary": "fix: complete lint toolchain reuse in worktrees (#111467) * fix(scripts): complete worktree lint toolchain * fix(scripts): prepare complete lint pipeline",
+      "title": "fix(ui): stop chat normalizers throwing on null/undefined message ent…",
+      "link": "https://github.com/openclaw/openclaw/commit/e6d7aee41d684371f64cd2c309922af0e3f5e56d",
+      "publishedAt": "2026-07-19T17:54:55Z",
+      "summary": "fix(ui): stop chat normalizers throwing on null/undefined message entries (#111494) normalizeMessage / isToolResultMessage / isStandaloneToolMessageForDisplay cast their unknown input to a record and then read `typeof m.role`. That still evaluates `m.role`, so an undefined entry (e.g. groupMessages calling normalizeMessage(item.message) with an absent message on a pending or malformed transcript row) threw \"Cannot read properties of undefined (reading 'role')\" inside the gateway event handler — a caught but recurring error storm on the live team instance. Coerce non-object input to {} at the source so every downstream `typeof m.` check works and role degrades to \"unknown\". The existing safeNormalizeMessage try/catch wrapper existed precisely for this hazard; the guard now lives in normalizeMessage itself.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: complete lint toolchain reuse in worktrees (#111467)",
-      "summaryZh": "重點：修正: complete lint toolchain reuse in worktrees (#111467) * 修正(scripts): complete worktree lint toolchain * 修正(scripts): ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop chat normalizers throwing on null/undefined message ent…",
+      "summaryZh": "重點：修正(ui): stop chat normalizers throwing on null/undefined message entries (#111494) normalizeMessage / isToolResultMessag..."
     },
     {
       "id": 2,
-      "title": "feat: avatar upload UI, self-service profiles, server-side avatar rou…",
-      "link": "https://github.com/openclaw/openclaw/commit/f8e35afecc67dd8a0429eff8190a9d02177edfab",
-      "publishedAt": "2026-07-19T15:52:01Z",
-      "summary": "feat: avatar upload UI, self-service profiles, server-side avatar route (#111421) * feat: avatar upload UI, self-service profiles, server-side avatar proxy * refactor(ui): make resolveAvatar synchronous so avatar updates render immediately resolveAvatar no longer does async work (gravatar moved server-side), so the until()-deferred render left the identity chip img stale after updateSelfUser. Rendering synchronously reuses the img element and reflects avatarUrl changes on the next render. * fix(gateway): bound avatar Gravatar lookup to one timeout budget Linked-email Gravatar lookups ran sequentially, each with its own 5s timeout, so an upstream outage stalled the held connection for 5s x linked-email-count. Resolve them concurrently and pick the first hit in email order, keeping primary-email precedence while capping the request to a single timeout budget. * fix(gateway): cap per-profile Gravatar fan-out to bound sockets and memory A profile with many linked emails would fan out one concurrent fetch per email with no bound, each able to buffer up to MAX_GRAVATAR_BYTES before the cache budget applies. Cap the lookups to the first 8 primary-ordered emails so a single avatar request holds a bounded number of sockets and transient bytes. * test: reconcile avatar tests with server-side gravatar model after merge main landed a client-side Gravatar path (browser computes the gravatar.com URL); this branch resolves avatars through the same-origin gateway route, which is the only approach that works under the Control UI CSP (img-src 'self'). Update the identity-section, app-sidebar footer chip, and profile-page e2e expectations to assert the canonical /api/users//avatar route (gateway serves the Gravatar fallback behind it) instead of a CSP-blocked direct gravatar.com image. * test(gateway): fix fetchImpl mock param type for check-test-types The Gravatar mock typed its param as (url: string), narrower than the fetchImpl signature (URL | RequestInfo); function-param contravariance made it unassignable under tsgo:test. Widen to the fetch input type and extract the URL via a small helper that avoids no-base-to-string on a Request. * fix(gateway): short-circuit Gravatar lookups and version presence avatar URL Two autoreview findings on the avatar path: - Privacy: the concurrent Promise.all fan-out queried every linked email's hash against Gravatar even when the primary already had one, exposing secondary work/personal addresses. Resolve sequentially with short-circuit so a later hash is disclosed only after the earlier email is a definite miss, under one shared request deadline that still bounds total latency. - Staleness: presence published an unversioned /api/users//avatar, so a reconnecting viewer's kept the stale cached image after an upload. Carry the profile revision as ?v= so a changed avatar refetches.",
+      "title": "fix(android): improve Wear thread follow behavior (#111459)",
+      "link": "https://github.com/openclaw/openclaw/commit/50ce5dedeaff006db9fd522dd4e9dcbd5792c113",
+      "publishedAt": "2026-07-19T17:54:10Z",
+      "summary": "fix(android): improve Wear thread follow behavior (#111459) * improve(android): move Wear agent, session, and model pickers to Home * fix(android): improve Wear thread follow behavior * fix(android): stabilize Wear thread follow lifecycle * fix(android): keep streamed Wear tail visible Co-authored-by: JARVIS-Glasses --------- Co-authored-by: Colin Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: avatar upload UI, self-service profiles, server-side avatar rou…",
-      "summaryZh": "重點：新功能: avatar upload UI, self-service profiles, server-side avatar route (#111421) * 新功能: avatar upload UI, self-service p..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): improve Wear thread follow behavior (#111459)",
+      "summaryZh": "重點：修正(android): improve Wear thread follow behavior (#111459) * improve(android): move Wear agent, session, and 模型 pickers ..."
     },
     {
       "id": 3,
-      "title": "feat(agents): authoritative write diffs end to end (#111456)",
-      "link": "https://github.com/openclaw/openclaw/commit/1ef99e6dfbda74b5439a4f7ebee25f262b9e5ace",
-      "publishedAt": "2026-07-19T15:48:26Z",
-      "summary": "feat(agents): authoritative write diffs end to end (#111456) * feat(agents): authoritative write diffs end to end The write tool now reports what actually happened: no-op (changed:false), created files (created:true with a bounded numbered diff), and overwrites (created:false with a real old-to-new diff when the old content is readable text within byte, line, and edit-distance budgets — unknown removals are never fabricated). The gateway history projection forwards the changed/created flags, the web and iOS write rows prefer the authoritative diff and suppress the +N -0 stat when creation is not proven, and the iOS transcript cache persists one bounded apply_patch envelope so patch diffs survive cold opens. * chore(i18n): sync native inventory",
+      "title": "fix: preserve message-only terminal output (#111493)",
+      "link": "https://github.com/openclaw/openclaw/commit/8e0c50380c10289992c83f9973a6613dda8212e4",
+      "publishedAt": "2026-07-19T17:51:06Z",
+      "summary": "fix: preserve message-only terminal output (#111493)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(agents): authoritative write diffs end to end (#111456)",
-      "summaryZh": "重點：新功能(agents): authoritative write diffs end to end (#111456) * 新功能(agents): authoritative write diffs end to end The writ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve message-only terminal output (#111493)",
+      "summaryZh": "重點：修正: preserve message-only terminal output (#111493)..."
     },
     {
       "id": 4,
-      "title": "test(signal): make status reaction timing deterministic (#111477)",
-      "link": "https://github.com/openclaw/openclaw/commit/218c8a54967e21b283fdd856b25a0f3bff9971c5",
-      "publishedAt": "2026-07-19T15:43:10Z",
-      "summary": "test(signal): make status reaction timing deterministic (#111477)",
+      "title": "feat(channels): batch 1 producers drop media placeholder bodies (#111…",
+      "link": "https://github.com/openclaw/openclaw/commit/83303f1ba874dd8e09ac66dc919286442ec842e9",
+      "publishedAt": "2026-07-19T17:32:09Z",
+      "summary": "feat(channels): batch 1 producers drop media placeholder bodies (#111447) * feat(channels): batch 1 producers drop media placeholder bodies Media-placeholder program batch 1: Google Chat, Zalo, LINE, and Mattermost stop minting placeholder bodies. Media-only messages carry an empty caption plus one structured fact per native attachment (type-only when a download fails or is rejected, so payload positions and kind signals stay aligned). The shared formatMediaPlaceholderText SDK formatter renders text-only carriers (Mattermost pending-room lines) from structured facts; per-channel placeholder builders and the expected-count side channel are deleted. * fix(mattermost): satisfy type, deadcode, and SDK manifest gates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(signal): make status reaction timing deterministic (#111477)",
-      "summaryZh": "重點：test(signal): make status reaction timing deterministic (#111477)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(channels): batch 1 producers drop media placeholder bodies (#111…",
+      "summaryZh": "重點：新功能(channels): batch 1 producers drop media placeholder bodies (#111447) * 新功能(channels): batch 1 producers drop media p..."
     },
     {
       "id": 5,
