@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T08:30:17.495Z",
+  "generatedAt": "2026-07-21T11:09:19.055Z",
   "items": [
     {
       "id": 1,
@@ -24,7 +24,7 @@
       "title": "開源LLM推理框架SGLang存在重大反序列化漏洞，可能導致遠端執行程式碼攻擊",
       "link": "https://www.ithome.com.tw/news/177479",
       "publishedAt": "2026-07-21 12:07:29",
-      "summary": "美國CERT/CC近日揭露，開源大型語言模型（LLM）與多模態AI模型推理框架SGLang，存在可能導致遠端執行程式碼的重大漏洞CVE-2026-14890，CVSS嚴重性評分達9.1分，問題源自Expert-Parallel backup子系統缺乏適當驗證與反序列防護，若該功能啟用且SGLang服務可從網路存取，未經身分驗證的攻擊者即可傳送惡意Pickle檔案，在伺服器上執行任意程式碼。",
+      "summary": "美國CERT/CC近日揭露，開源大型語言模型（LLM）與多模態AI模型推理框架SGLang，存在可能導致遠端執行程式碼的重大漏洞CVE-2026-14890，CVSS嚴重性評分達9.1分，問題源自Expert-Parallel backup子系統缺乏適當驗證與反序列化防護，若該功能啟用且SGLang服務可從網路存取，未經身分驗證的攻擊者即可傳送惡意Pickle檔案，在伺服器上執行任意程式碼。",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(ui): tighten Labs settings spacing (#112038)",
-      "link": "https://github.com/openclaw/openclaw/commit/3d3fd97c7d03c14bd532dfbb1181bbf51e038a87",
-      "publishedAt": "2026-07-21T08:28:32Z",
-      "summary": "fix(ui): tighten Labs settings spacing (#112038)",
+      "title": "feat(gateway): session observer digests over the utility model (#112216)",
+      "link": "https://github.com/openclaw/openclaw/commit/89fe452991229132b1a4195fb9d139c5007d5ef6",
+      "publishedAt": "2026-07-21T11:04:13Z",
+      "summary": "feat(gateway): session observer digests over the utility model (#112216) * feat(gateway): session observer digests over the utility model * fix(gateway): split session-observer modules and satisfy ci gates * fix(gateway): observer reads session entries without materializing agent state",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): tighten Labs settings spacing (#112038)",
-      "summaryZh": "重點：修正(ui): tighten Labs settings spacing (#112038)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): session observer digests over the utility 模型 (#112216)",
+      "summaryZh": "重點：新功能(Gateway): session observer digests over the utility 模型 (#112216) * 新功能(Gateway): session observer digests over the u..."
     },
     {
       "id": 8,
-      "title": "fix(acp): skip oneshot startup identity reconcile (#86711)",
-      "link": "https://github.com/openclaw/openclaw/commit/9349bb4c415825dc206343c6effcc47c676def65",
-      "publishedAt": "2026-07-21T08:25:54Z",
-      "summary": "fix(acp): skip oneshot startup identity reconcile (#86711) Terminal oneshot ACP rows can retain pending identity metadata; exclude them from startup reconciliation while keeping persistent pending sessions eligible. Closes #72013 Co-authored-by: Peter Steinberger",
+      "title": "fix(ollama): bound DNS preflight with guard-owned request timeouts (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/aa9cf01b5602f9c731912421467b7fb7c3a2a288",
+      "publishedAt": "2026-07-21T10:47:09Z",
+      "summary": "fix(ollama): bound DNS preflight with guard-owned request timeouts (#111835) * fix(ollama): bound DNS preflight with guard-owned request timeouts Five ollama call sites passed their deadline as init.signal, which fetchWithSsrFGuard only forwards to the final fetch. The DNS/proxy preflight and dispatcher connect timeout read the top-level timeoutMs, so a stalled lookup hung past the intended 3s/5s/15s deadline. Move each deadline to the guard-owned timeoutMs. Values unchanged. * test(ollama): assert preflight lookup ran and deadline bound both ways Use plain counters instead of vi.fn for the injected lookup: vi.fn is not assignable to the overloaded LookupFn type, which passed vitest but failed the extension test-types lane.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(acp): skip oneshot startup identity reconcile (#86711)",
-      "summaryZh": "重點：修正(acp): skip oneshot startup identity reconcile (#86711) Terminal oneshot ACP rows can retain pending identity metadata..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ollama): bound DNS preflight with guard-owned request timeouts (#…",
+      "summaryZh": "重點：修正(ollama): bound DNS preflight with guard-owned request timeouts (#111835) * 修正(ollama): bound DNS preflight with guard..."
     },
     {
       "id": 9,
-      "title": "improve: clarify web search setup choices (#112199)",
-      "link": "https://github.com/openclaw/openclaw/commit/8ed12acbd5f8c11579c5ac010b387abe2512d163",
-      "publishedAt": "2026-07-21T08:16:26Z",
-      "summary": "improve: clarify web search setup choices (#112199) * improve: clarify web search setup choices * improve: refine web search setup wording",
+      "title": "test(i18n): cover generated Wear lint attributes",
+      "link": "https://github.com/openclaw/openclaw/commit/dc1abfb4a652797fcae4a33004ce654854da2a12",
+      "publishedAt": "2026-07-21T10:42:12Z",
+      "summary": "test(i18n): cover generated Wear lint attributes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: clarify web search setup choices (#112199)",
-      "summaryZh": "重點：improve: clarify web search setup choices (#112199) * improve: clarify web search setup choices * improve: refine web se..."
+      "titleZh": "OpenClaw 程式碼更新：test(i18n): cover generated Wear lint attributes",
+      "summaryZh": "重點：test(i18n): cover generated Wear lint attributes..."
     },
     {
       "id": 10,
-      "title": "fix(macos): localize settings surfaces (#112185)",
-      "link": "https://github.com/openclaw/openclaw/commit/d4021c351c3f6766a41a38ead3ef2076fab01108",
-      "publishedAt": "2026-07-21T08:15:40Z",
-      "summary": "fix(macos): localize settings surfaces (#112185)",
+      "title": "fix(i18n): suppress lint on generated Wear translations",
+      "link": "https://github.com/openclaw/openclaw/commit/1908ea1df498592f5de57420e27308979e6e536e",
+      "publishedAt": "2026-07-21T10:42:12Z",
+      "summary": "fix(i18n): suppress lint on generated Wear translations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): localize settings surfaces (#112185)",
-      "summaryZh": "重點：修正(macos): localize settings surfaces (#112185)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(i18n): suppress lint on generated Wear translations",
+      "summaryZh": "重點：修正(i18n): suppress lint on generated Wear translations..."
     }
   ]
 }
