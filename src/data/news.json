@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-21T17:21:05.571Z",
+  "generatedAt": "2026-07-21T19:23:52.375Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(browser): retire durable tab rows whose browser never returns (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/1096b74ab748dc0373b0d9bbbb55cb2227257953",
-      "publishedAt": "2026-07-21T17:10:28Z",
-      "summary": "fix(browser): retire durable tab rows whose browser never returns (#111307) * fix(browser): retire durable tab rows whose browser never returns Durable cleanup defers whenever ownership cannot be proven, so a browser that never comes back at the same cdpUrl leaves its rows behind forever: each sweep re-claims them, fails the identity lookup, warns, and defers again. Nothing in the subsystem removes a row by age. The `browser.session-tabs` namespace is opened with a 5000-row cap and `reject-new`, so once those rows accumulate to the cap, tracking a new tab throws PLUGIN_STATE_LIMIT_EXCEEDED. That propagates into the compensation path in browser-tool-session-tabs.ts, which closes the tab the user just opened and rethrows -- every `browser open` on that profile then opens a tab, closes it again, and errors, with no self-healing path. Bound the retry: when a close attempt reports the target unavailable and the tab has been unused for longer than the retire window, drop the row instead of deferring again. A browser returning after that long almost always carries a fresh instance fingerprint, which retires the row through the ownership-mismatch path anyway. closeTrackedBrowserTabsForSessions now accepts `now` like the sweep does, so lifecycle cleanup can be exercised on a coherent clock. * refactor(browser): split session tab cleanup claim and test harness check-lint failed on max-lines: session-tab-registry.ts was at 699 of its 700-line budget and the durable registry test at 982 of 1000, so the retire branch and its regression test pushed both over. Extract the cleanup claim bookkeeping (claim, ownership match, delete) into session-tab-cleanup-claim.ts, and the durable registry test shapes into session-tab-registry.sqlite.test-helpers.ts, matching the existing *.test-helpers.ts convention in this directory. No behavior change. * test(browser): protect unreachable retirement races Co-authored-by: Yigtwxx --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(qqbot): preserve group announce routes (#98053)",
+      "link": "https://github.com/openclaw/openclaw/commit/e1ec51b1a4ad52117aa5ebc04005d19463690e16",
+      "publishedAt": "2026-07-21T19:15:24Z",
+      "summary": "fix(qqbot): preserve group announce routes (#98053) Persist qualified QQBot group and guild routes so session announcements return to the originating conversation without letting direct-message turns overwrite the shared route. Co-authored-by: Peter Steinberger Co-authored-by: lzyyzznl",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): retire durable tab rows whose browser never returns (#1…",
-      "summaryZh": "重點：修正(browser): retire durable tab rows whose browser never returns (#111307) * 修正(browser): retire durable tab rows whose ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qqbot): preserve group announce routes (#98053)",
+      "summaryZh": "重點：修正(qqbot): preserve group announce routes (#98053) Persist qualified QQBot group and guild routes so session announcemen..."
     },
     {
       "id": 2,
-      "title": "fix(doctor): migrate MCP flags in included config (#103970)",
-      "link": "https://github.com/openclaw/openclaw/commit/13348cad1aee0ec9baab03792a294e0ff4069316",
-      "publishedAt": "2026-07-21T17:06:19Z",
-      "summary": "fix(doctor): migrate MCP flags in included config (#103970) Co-authored-by: Peter Steinberger",
+      "title": "fix(cron): hint after disable about list filtering disabled jobs (#78…",
+      "link": "https://github.com/openclaw/openclaw/commit/4400f4ca91b2a58096353197337427d824856963",
+      "publishedAt": "2026-07-21T19:04:15Z",
+      "summary": "fix(cron): hint after disable about list filtering disabled jobs (#78139) * fix(cron): hint after disable about list filtering disabled jobs by default * fix(cron): use !params.enabled in disable-hint guard for oxlint compliance * docs(cron): clarify disabled jobs in list output * fix(cron): keep disable hint interactive * test(cron): use exported store snapshot helper * test(cron): create disable-list regression job via service * docs(cron): defer list default contract wording * test(cron): tighten disable list coverage Co-authored-by: Kate Stahnke * docs(cron): document enabled-only list default Co-authored-by: Kate Stahnke --------- Co-authored-by: Kate Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): migrate MCP flags in included config (#103970)",
-      "summaryZh": "重點：修正(文件tor): migrate MCP flags in included config (#103970) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): hint after disable about list filtering disabled jobs (#78…",
+      "summaryZh": "重點：修正(排程): hint after disable about list filtering disabled jobs (#78139) * 修正(排程): hint after disable about list filtering..."
     },
     {
       "id": 3,
-      "title": "fix(system-agent): reject non-decimal wizard option numbers (#108140)",
-      "link": "https://github.com/openclaw/openclaw/commit/f79d7a36361335456dd21f08e602898c6ea7b378",
-      "publishedAt": "2026-07-21T17:04:58Z",
-      "summary": "fix(system-agent): reject non-decimal wizard option numbers (#108140) * fix(system-agent): reject non-decimal wizard option numbers * style(system-agent): format wizard choice regression --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(ios): keep snapshot results outside upload tree",
+      "link": "https://github.com/openclaw/openclaw/commit/a69ebf3067c36e78c9a9b46b7d9162f898e17c98",
+      "publishedAt": "2026-07-21T18:44:11Z",
+      "summary": "fix(ios): keep snapshot results outside upload tree",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(system-agent): reject non-decimal wizard option numbers (#108140)",
-      "summaryZh": "重點：修正(system-agent): reject non-decimal wizard option numbers (#108140) * 修正(system-agent): reject non-decimal wizard optio..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep snapshot results outside upload tree",
+      "summaryZh": "重點：修正(ios): keep snapshot results outside upload tree..."
     },
     {
       "id": 4,
-      "title": "fix(config): allow historyLimit: 0 in GroupChatSchema (#65359)",
-      "link": "https://github.com/openclaw/openclaw/commit/40c2d2792400bdfd94033a686871a78fb7fb4f67",
-      "publishedAt": "2026-07-21T16:54:31Z",
-      "summary": "fix(config): allow historyLimit: 0 in GroupChatSchema (#65359) GroupChatSchema used .positive() which rejects 0, while all other historyLimit schemas use .min(0). This caused a silent config reload failure when setting messages.groupChat.historyLimit to 0. Change .positive() to .min(0) and add test coverage. Fixes https://github.com/openclaw/openclaw/issues/65305",
+      "title": "test(ios): stabilize appearance screenshot",
+      "link": "https://github.com/openclaw/openclaw/commit/b3cdb49acadc0044d65ff351d7c7ef758bdc9f0c",
+      "publishedAt": "2026-07-21T18:44:11Z",
+      "summary": "test(ios): stabilize appearance screenshot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): allow historyLimit: 0 in GroupChatSchema (#65359)",
-      "summaryZh": "重點：修正(config): allow historyLimit: 0 in GroupChatSchema (#65359) GroupChatSchema used .positive() which rejects 0, while al..."
+      "titleZh": "OpenClaw 程式碼更新：test(ios): stabilize appearance screenshot",
+      "summaryZh": "重點：test(ios): stabilize appearance screenshot..."
     },
     {
       "id": 5,
