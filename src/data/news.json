@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-21T15:44:18.946Z",
+  "generatedAt": "2026-07-21T17:21:05.571Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(tailscale): retry status json after serve startup (#91553)",
-      "link": "https://github.com/openclaw/openclaw/commit/3a5b2764f8a5e98e574d4e45d6d782048d1306df",
-      "publishedAt": "2026-07-21T15:43:56Z",
-      "summary": "fix(tailscale): retry status json after serve startup (#91553) * fix(tailscale): restrict status retries * test(tailscale): cover retry eligibility * refactor(tailscale): add status retry helper * refactor(tailscale): split status retry helper * fix(tailscale): scope status retry to serve startup Co-authored-by: TUARAN * fix(tailscale): recognize app service startup errors Co-authored-by: TUARAN --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(browser): retire durable tab rows whose browser never returns (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/1096b74ab748dc0373b0d9bbbb55cb2227257953",
+      "publishedAt": "2026-07-21T17:10:28Z",
+      "summary": "fix(browser): retire durable tab rows whose browser never returns (#111307) * fix(browser): retire durable tab rows whose browser never returns Durable cleanup defers whenever ownership cannot be proven, so a browser that never comes back at the same cdpUrl leaves its rows behind forever: each sweep re-claims them, fails the identity lookup, warns, and defers again. Nothing in the subsystem removes a row by age. The `browser.session-tabs` namespace is opened with a 5000-row cap and `reject-new`, so once those rows accumulate to the cap, tracking a new tab throws PLUGIN_STATE_LIMIT_EXCEEDED. That propagates into the compensation path in browser-tool-session-tabs.ts, which closes the tab the user just opened and rethrows -- every `browser open` on that profile then opens a tab, closes it again, and errors, with no self-healing path. Bound the retry: when a close attempt reports the target unavailable and the tab has been unused for longer than the retire window, drop the row instead of deferring again. A browser returning after that long almost always carries a fresh instance fingerprint, which retires the row through the ownership-mismatch path anyway. closeTrackedBrowserTabsForSessions now accepts `now` like the sweep does, so lifecycle cleanup can be exercised on a coherent clock. * refactor(browser): split session tab cleanup claim and test harness check-lint failed on max-lines: session-tab-registry.ts was at 699 of its 700-line budget and the durable registry test at 982 of 1000, so the retire branch and its regression test pushed both over. Extract the cleanup claim bookkeeping (claim, ownership match, delete) into session-tab-cleanup-claim.ts, and the durable registry test shapes into session-tab-registry.sqlite.test-helpers.ts, matching the existing *.test-helpers.ts convention in this directory. No behavior change. * test(browser): protect unreachable retirement races Co-authored-by: Yigtwxx --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tailscale): retry status json after serve startup (#91553)",
-      "summaryZh": "重點：修正(tailscale): retry status json after serve startup (#91553) * 修正(tailscale): restrict status retries * test(tailscale)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): retire durable tab rows whose browser never returns (#1…",
+      "summaryZh": "重點：修正(browser): retire durable tab rows whose browser never returns (#111307) * 修正(browser): retire durable tab rows whose ..."
     },
     {
       "id": 2,
-      "title": "fix(web-fetch): case-distinct URLs return the wrong cached page (#111…",
-      "link": "https://github.com/openclaw/openclaw/commit/f9ede1e39aee26d763d52e71cc129a0aa75c0c7f",
-      "publishedAt": "2026-07-21T15:41:55Z",
-      "summary": "fix(web-fetch): case-distinct URLs return the wrong cached page (#111281) * fix(web-fetch): keep case-distinct URLs from sharing cached responses * fix(web-fetch): canonicalize fetch cache URLs Co-authored-by: 杨浩宇0668001029 * test(gateway): stabilize startup responsiveness guard --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(doctor): migrate MCP flags in included config (#103970)",
+      "link": "https://github.com/openclaw/openclaw/commit/13348cad1aee0ec9baab03792a294e0ff4069316",
+      "publishedAt": "2026-07-21T17:06:19Z",
+      "summary": "fix(doctor): migrate MCP flags in included config (#103970) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(web-fetch): case-distinct URLs return the wrong cached page (#111…",
-      "summaryZh": "重點：修正(web-fetch): case-distinct URLs return the wrong cached page (#111281) * 修正(web-fetch): keep case-distinct URLs from s..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): migrate MCP flags in included config (#103970)",
+      "summaryZh": "重點：修正(文件tor): migrate MCP flags in included config (#103970) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 3,
-      "title": "fix(ios): smooth sidebar drags and remove background seams (#112299)",
-      "link": "https://github.com/openclaw/openclaw/commit/26165bbe80752b609c605b5b34567d629515bc13",
-      "publishedAt": "2026-07-21T15:40:30Z",
-      "summary": "fix(ios): smooth sidebar drags and remove background seams (#112299) * fix(ios): polish sidebar drawer interaction * fix(ios): latch sidebar drag direction",
+      "title": "fix(system-agent): reject non-decimal wizard option numbers (#108140)",
+      "link": "https://github.com/openclaw/openclaw/commit/f79d7a36361335456dd21f08e602898c6ea7b378",
+      "publishedAt": "2026-07-21T17:04:58Z",
+      "summary": "fix(system-agent): reject non-decimal wizard option numbers (#108140) * fix(system-agent): reject non-decimal wizard option numbers * style(system-agent): format wizard choice regression --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): smooth sidebar drags and remove background seams (#112299)",
-      "summaryZh": "重點：修正(ios): smooth sidebar drags and remove background seams (#112299) * 修正(ios): polish sidebar drawer interaction * 修正(io..."
+      "titleZh": "OpenClaw 程式碼更新：修正(system-agent): reject non-decimal wizard option numbers (#108140)",
+      "summaryZh": "重點：修正(system-agent): reject non-decimal wizard option numbers (#108140) * 修正(system-agent): reject non-decimal wizard optio..."
     },
     {
       "id": 4,
-      "title": "fix(transcript): keep pagination cursors out of secret masking on res…",
-      "link": "https://github.com/openclaw/openclaw/commit/60c9b49dfde41752e833881d971bceee5c610b67",
-      "publishedAt": "2026-07-21T15:35:15Z",
-      "summary": "fix(transcript): keep pagination cursors out of secret masking on resume (#105039) * fix(transcript): keep pagination cursors out of secret masking on resume Persisted transcripts masked any `*_token` tool-call argument to `***` via the generic secret-key heuristic, including pagination cursors like `page_token`/`next_page_token`. On resume the model replays the mask as a real cursor and the platform silently pages from the start, returning wrong data with no error (#104992). Exempt only unambiguous page cursors in the transcript redaction path (the `page` marker rules out credentials); value-pattern redaction still runs so an embedded real secret is masked, and logs keep redacting these keys. Genuine credential args stay masked. Refs #104992 * fix(transcript): keep cursor redaction tests type-safe * refactor(transcript): trim cursor redaction path --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(config): allow historyLimit: 0 in GroupChatSchema (#65359)",
+      "link": "https://github.com/openclaw/openclaw/commit/40c2d2792400bdfd94033a686871a78fb7fb4f67",
+      "publishedAt": "2026-07-21T16:54:31Z",
+      "summary": "fix(config): allow historyLimit: 0 in GroupChatSchema (#65359) GroupChatSchema used .positive() which rejects 0, while all other historyLimit schemas use .min(0). This caused a silent config reload failure when setting messages.groupChat.historyLimit to 0. Change .positive() to .min(0) and add test coverage. Fixes https://github.com/openclaw/openclaw/issues/65305",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(transcript): keep pagination cursors out of secret masking on res…",
-      "summaryZh": "重點：修正(transcript): keep pagination cursors out of secret masking on resume (#105039) * 修正(transcript): keep pagination curs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): allow historyLimit: 0 in GroupChatSchema (#65359)",
+      "summaryZh": "重點：修正(config): allow historyLimit: 0 in GroupChatSchema (#65359) GroupChatSchema used .positive() which rejects 0, while al..."
     },
     {
       "id": 5,
