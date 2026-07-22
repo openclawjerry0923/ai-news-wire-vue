@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-22T19:21:07.645Z",
+  "generatedAt": "2026-07-22T21:08:41.420Z",
   "items": [
     {
       "id": 1,
-      "title": "Add experimental Claw lifecycle diagnostics (#102427)",
-      "link": "https://github.com/openclaw/openclaw/commit/31ff00fe82306342689a93d6136c80b7c5f3a2a9",
-      "publishedAt": "2026-07-22T18:55:47Z",
-      "summary": "Add experimental Claw lifecycle diagnostics (#102427) * Add experimental Claw lifecycle diagnostics * test(claws): cover lifecycle diagnostics * docs(claws): document doctor diagnostics * test(claws): derive future state schema version * test(claws): clean doctor restack fixture * test(claws): align doctor drift fixture with agent entries --------- Co-authored-by: Patrick Erichsen",
+      "title": "fix(discord): keep voice participant labels UTF-16 safe at truncation…",
+      "link": "https://github.com/openclaw/openclaw/commit/38d1a727f4eb75d3677fdb4b9f1daacf7d7a3561",
+      "publishedAt": "2026-07-22T21:07:43Z",
+      "summary": "fix(discord): keep voice participant labels UTF-16 safe at truncation boundary (#108278) normalizeLabel truncated external member display names (nick / global_name / username) with a raw .slice(0, 100). When the cut landed on a UTF-16 surrogate pair, the label kept a lone high surrogate that corrupted the JSON-quoted roster line fed into the agent's voice-roster prompt. Use truncateUtf16Safe so the boundary backs off the split pair, matching the same surrogate-safe truncation already applied to other discord truncation sites. Co-authored-by: ben.li Co-authored-by: 刘伟勤0668000710",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Add experimental Claw lifecycle diagnostics (#102427)",
-      "summaryZh": "重點：Add experimental Claw lifecycle diagnostics (#102427) * Add experimental Claw lifecycle diagnostics * test(claws): cover..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): keep voice participant labels UTF-16 safe at truncation…",
+      "summaryZh": "重點：修正(Discord): keep voice participant labels UTF-16 safe at truncation boundary (#108278) normalizeLabel truncated externa..."
     },
     {
       "id": 2,
-      "title": "fix(doctor): merge legacy flat auth repair into existing SQLite store…",
-      "link": "https://github.com/openclaw/openclaw/commit/5419a945875ba90fcbddd84a3b50866fd64716a8",
-      "publishedAt": "2026-07-22T18:37:26Z",
-      "summary": "fix(doctor): merge legacy flat auth repair into existing SQLite store (#98245) maybeRepairLegacyFlatAuthProfileStores rewrote the per-agent SQLite auth profile store with a store built solely from the legacy flat auth-profiles.json, and backed up only that flat JSON. Any credential present in SQLite but absent from the flat file (for example an OAuth refresh token from a login after the SQLite migration) was destroyed and was not in the backup, so a routine openclaw doctor caused unrecoverable credential loss. Load the existing SQLite store and merge the legacy flat profiles into it, preserving credentials already present, then verify the imported profiles persisted before removing the flat file, mirroring the SQLite migration path.",
+      "title": "feat(cron): system-owned heartbeat monitor jobs replace the dedicated…",
+      "link": "https://github.com/openclaw/openclaw/commit/4e9ae9fbff9177e107136431dceff36b6ffde876",
+      "publishedAt": "2026-07-22T21:03:29Z",
+      "summary": "feat(cron): system-owned heartbeat monitor jobs replace the dedicated interval scheduler (#112585) * feat(cron): system-owned heartbeat monitor jobs replace the interval scheduler - new internal cron payload kind {kind:\"heartbeat\"}: execution pokes requestHeartbeat({source:\"interval\"}); reported in the protocol job schema, not accepted from client create/patch - gateway converges one declaration-keyed monitor job per heartbeat-enabled agent (schedule every+deterministic phase anchor) at startup and on config reload; removes monitors for unconfigured agents - heartbeat runner loses its interval setTimeout machinery; nextDueMs stays as the cooldown gate, event wakes unchanged * test(cron): heartbeat monitor regressions; docs for cron-owned cadence - converge/prune/failure-containment tests for heartbeat monitor jobs - heartbeat payload run fires an interval wake, no system event - scheduler tests converted from timer self-fire to wake-queue pokes; timer-mechanics-only tests deleted with the timer - persisted-shape accepts the heartbeat payload kind - docs: heartbeat cadence ownership + system payload kind * fix(cron): heartbeat monitor review round 1 - targeted cron-monitor interval ticks use the full per-agent path so due-commitment sessions still deliver - cron-disabled gateways keep a local fallback interval timer (shipped cron.enabled=false contract; removed when heartbeat config folds into cron in #110950) - heartbeat job reconciliations serialize with latest-wins epochs and a bounded 30s retry after a failed convergence pass * fix(cron): chain clamped fallback heartbeat timers past the setTimeout cap * fix(cron): heartbeat monitor review round 3 - targeted monitor redirect skips wakes carrying heartbeat overrides and surfaces the per-agent terminal skip reason instead of not-due - cron-disabled fallback timer re-arms with a 1s floor after each firing so a dropped wake cannot end the chain - heartbeat payloads are system-owned at the service boundary: add requires the gateway opt-in, patches to the kind are rejected * fix(cron): heartbeat monitor review round 4 — full ownership enforcement - prune only jobs proven to be monitors (prefix AND heartbeat payload) - existing monitors reject every update patch; declarative upserts on the monitor key require the gateway opt-in even with a different payload * fix(cron): complete heartbeat monitor ownership boundary - converge scopes declarative matching to real monitors so a colliding user job with the same key is never adopted or overwritten - monitor removal requires the gateway systemOwned opt-in; ad-hoc API/CLI deletion is rejected, reconciliation cleanup still prunes * docs(cron): record intentional enrollment-snapshot semantics for monitor ticks * fix(cron): repair heartbeat monitor CI gates",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): merge legacy flat auth repair into existing SQLite store…",
-      "summaryZh": "重點：修正(文件tor): merge legacy flat auth repair into existing SQLite store (#98245) maybeRepairLegacyFlatAuthProfileStores rewr..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(排程): system-owned heartbeat monitor jobs replace the dedicated…",
+      "summaryZh": "重點：新功能(排程): system-owned heartbeat monitor jobs replace the dedicated interval scheduler (#112585) * 新功能(排程): system-owned ..."
     },
     {
       "id": 3,
-      "title": "ci: update Kova release fixture pin (#112715)",
-      "link": "https://github.com/openclaw/openclaw/commit/df551c10a160b30ea00e0d69b173d782016e94e5",
-      "publishedAt": "2026-07-22T18:27:00Z",
-      "summary": "ci: update Kova release fixture pin (#112715)",
+      "title": "fix: treat EPERM as alive in isPidAlive (#110235)",
+      "link": "https://github.com/openclaw/openclaw/commit/7cf6bd5e4b69db5d0edd0ac8f3226c43fefdf982",
+      "publishedAt": "2026-07-22T20:56:09Z",
+      "summary": "fix: treat EPERM as alive in isPidAlive (#110235) * fix(pid): treat EPERM as alive in isPidAlive Match isPidDefinitelyDead: process.kill(pid, 0) throwing EPERM means the PID exists but cannot be signaled, so it should not look dead. Co-authored-by: Cursor * fix(pid): check Linux zombies after EPERM existence probe EPERM means the PID exists but cannot be signaled; still run the zombie check so Linux zombies are not reported as alive. Co-authored-by: Cursor * test(pid): isolate EPERM liveness probe Co-authored-by: stantheman0128 --------- Co-authored-by: Cursor Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: update Kova 版本發布 修正ture pin (#112715)",
-      "summaryZh": "重點：ci: update Kova 版本發布 修正ture pin (#112715)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: treat EPERM as alive in isPidAlive (#110235)",
+      "summaryZh": "重點：修正: treat EPERM as alive in isPidAlive (#110235) * 修正(pid): treat EPERM as alive in isPidAlive Match isPidDefinitelyDead..."
     },
     {
       "id": 4,
-      "title": "fix(plugins): refresh prepared provider metadata (#112699)",
-      "link": "https://github.com/openclaw/openclaw/commit/2b405755b1bcb48bdecd713ecc16f0afb73291df",
-      "publishedAt": "2026-07-22T18:07:35Z",
-      "summary": "fix(plugins): refresh prepared provider metadata (#112699) * fix(plugins): refresh prepared provider metadata * test(agents): tolerate minimal metadata snapshots * test(agents): cover snapshot endpoint precedence",
+      "title": "chore(claude): auto-install deps on new Claude Code worktree startup",
+      "link": "https://github.com/openclaw/openclaw/commit/9e8bcd1134efdacb5726e0095d8dabf8f6846932",
+      "publishedAt": "2026-07-22T20:47:40Z",
+      "summary": "chore(claude): auto-install deps on new Claude Code worktree startup Claude Code worktrees under .claude/worktrees/ are created without their own node_modules (git worktrees don't materialize gitignored dirs), so tooling silently resolves up to the parent checkout's node_modules. That breaks when the parent sits on a divergent branch missing a newer dependency (observed: tsgo failing on libphonenumber-js in a fresh worktree). Track a minimal .claude/settings.json with a SessionStart(startup) hook that runs an idempotent `pnpm install --frozen-lockfile --ignore-scripts` in the worktree root on first entry, so each worktree is self-contained. Hardening: - resolves the worktree root via `git rev-parse --show-toplevel` (not cwd), so it works when Claude launches from a subdirectory; - --ignore-scripts: a branch-controlled package lifecycle script cannot gain code execution merely because Claude starts a session in that worktree; - --frozen-lockfile: no lockfile mutation; skips cleanly when pnpm or the lockfile is absent; warns instead of blocking the session on failure. Only .claude/settings.json is un-ignored; .claude/worktrees, skills, and settings.local.json stay ignored. Claude Code only — CI and Codex worktrees do not read this file.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): refresh prepared provider metadata (#112699)",
-      "summaryZh": "重點：修正(plugins): refresh prepared provider metadata (#112699) * 修正(plugins): refresh prepared provider metadata * test(agent..."
+      "titleZh": "OpenClaw 程式碼更新：chore(claude): auto-install deps on new Claude Code worktree startup",
+      "summaryZh": "重點：chore(claude): auto-install deps on new Claude Code worktree startup Claude Code worktrees under .claude/worktrees/ are ..."
     },
     {
       "id": 5,
