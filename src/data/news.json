@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T06:28:46.846Z",
+  "generatedAt": "2026-07-22T09:26:37.994Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "feat(config): tier settings as common and advanced (#112538)",
-      "link": "https://github.com/openclaw/openclaw/commit/e01f3e18a7f78d31f8156f1b6b755687247942a3",
-      "publishedAt": "2026-07-22T06:17:47Z",
-      "summary": "feat(config): tier settings as common and advanced (#112538)",
+      "title": "refactor(agents): share eligibility-aware node resolution across tool…",
+      "link": "https://github.com/openclaw/openclaw/commit/c3776739901b02f693f8c8f5199a9c90b3ff70af",
+      "publishedAt": "2026-07-22T09:21:01Z",
+      "summary": "refactor(agents): share eligibility-aware node resolution across tools (#112613) computer-tool and mobile-ui-tool hand-rolled the same node-resolution guard (exact node-id match against the full list → reject an ineligible exact match → display-name resolution only among eligible nodes → reject ambiguity). Extract it into resolveEligibleNodeFromList in nodes-utils, so the wrong-device footgun lives once at the owner boundary: any capability-gated tool now resolves through the shared helper instead of handing a pre-filtered list to resolveNodeIdFromList. Each tool keeps its own eligibility predicate and error wording via an EligibleNodeMessages config; error strings are unchanged, so existing node- resolution tests pass as-is. bash-tools already resolves against the full list and is left untouched.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(config): tier settings as common and advanced (#112538)",
-      "summaryZh": "重點：新功能(config): tier settings as common and advanced (#112538)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): share eligibility-aware node resolution across tool…",
+      "summaryZh": "重點：refactor(agents): share eligibility-aware node resolution across tools (#112613) computer-tool and mobile-ui-tool hand-r..."
     },
     {
       "id": 8,
-      "title": "fix(memory-wiki): resolve keyed agent vaults (#112541)",
-      "link": "https://github.com/openclaw/openclaw/commit/d1d3acbd9861117fdd23ddc436fb9d2f32890ba2",
-      "publishedAt": "2026-07-22T06:14:22Z",
-      "summary": "fix(memory-wiki): resolve keyed agent vaults (#112541) Ensure doctor runtime tool schema checks and wiki CLI resolve agent-scoped vaults from canonical agents.entries while retaining the internal list projection fallback.",
+      "title": "fix(ui): unify tooltip arrows and rework sidebar footer hover cards (…",
+      "link": "https://github.com/openclaw/openclaw/commit/a67b937fce4e77ff8e4211256268bdf1ecc725d7",
+      "publishedAt": "2026-07-22T09:17:35Z",
+      "summary": "fix(ui): unify tooltip arrows and rework sidebar footer hover cards (#112602) * fix(ui): unify tooltip arrows and rework sidebar footer hover cards * fix(ui): keep rich tooltips open while trigger or card retains hover or focus * fix(ui): type trigger slot query and drop unused build-card export * test(ui): type usage hint button query for test-types lane",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): resolve keyed agent vaults (#112541)",
-      "summaryZh": "重點：修正(記憶-wiki): resolve keyed agent vaults (#112541) Ensure 文件tor runtime tool schema checks and wiki CLI resolve agent-sco..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): unify tooltip arrows and rework sidebar footer hover cards (…",
+      "summaryZh": "重點：修正(ui): unify tooltip arrows and rework sidebar footer hover cards (#112602) * 修正(ui): unify tooltip arrows and rework s..."
     },
     {
       "id": 9,
-      "title": "docs(agents): spell out script declaration contract and fail-loud wra…",
-      "link": "https://github.com/openclaw/openclaw/commit/8d1267dbc152298dfcffabe910149d13cc86257d",
-      "publishedAt": "2026-07-22T06:13:18Z",
-      "summary": "docs(agents): spell out script declaration contract and fail-loud wrapper rule (#112543) Codex readers only reliably see the root AGENTS.md, so the .d.mts declaration contract, the wrapper fail-loud convention, and the stale-node_modules crash signature move from tribal knowledge into the root file's Commands section.",
+      "title": "fix(ai): preserve Unicode in provider error bodies (#109786)",
+      "link": "https://github.com/openclaw/openclaw/commit/7767203be39e376c2f6d4727b4d2dff132f09b08",
+      "publishedAt": "2026-07-22T09:15:50Z",
+      "summary": "fix(ai): preserve Unicode in provider error bodies (#109786)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(agents): spell out script declaration contract and fail-loud wra…",
-      "summaryZh": "重點：文件(agents): spell out script declaration contract and fail-loud wrapper rule (#112543) Codex readers only reliably see t..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ai): preserve Unicode in provider error bodies (#109786)",
+      "summaryZh": "重點：修正(ai): preserve Unicode in provider error bodies (#109786)..."
     },
     {
       "id": 10,
-      "title": "fix(gateway): keep dashboard sessions spawn-capable after auto-parent…",
-      "link": "https://github.com/openclaw/openclaw/commit/3cd1906e6b087eca7334c48f17e2299c7dda8920",
-      "publishedAt": "2026-07-22T06:10:43Z",
-      "summary": "fix(gateway): keep dashboard sessions spawn-capable after auto-parenting to main (#112527) Auto-parenting operator dashboard sessions to the agent main session (#110913) collided with subagent depth recovery, which walks parentSessionKey as spawn lineage for visible spawn children. Every WebChat dashboard session resolved to spawn depth 1 and lost all sessions_spawn rights at the default maxSpawnDepth of 1, breaking swarm collectors and the swarm dashboard from the web UI. Record an explicit spawnDepth 0 on auto-parented dashboard creations so depth recovery classifies them as roots; explicitly parented creations (visible spawn children, forks) keep deriving depth from lineage.",
+      "title": "refactor(models): own compat in provider catalogs (#112542)",
+      "link": "https://github.com/openclaw/openclaw/commit/5808b72ed61451beb0f9a83b38b811a2e869f8bc",
+      "publishedAt": "2026-07-22T09:14:29Z",
+      "summary": "refactor(models): own compat in provider catalogs (#112542)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep dashboard sessions spawn-capable after auto-parent…",
-      "summaryZh": "重點：修正(Gateway): keep dashboard sessions spawn-capable after auto-parenting to main (#112527) Auto-parenting operator dashbo..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(模型): own compat in provider catalogs (#112542)",
+      "summaryZh": "重點：refactor(模型): own compat in provider catalogs (#112542)..."
     }
   ]
 }
