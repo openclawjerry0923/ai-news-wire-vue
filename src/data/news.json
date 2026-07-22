@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-22T17:20:29.293Z",
+  "generatedAt": "2026-07-22T19:21:07.645Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(i18n): refresh native locales (#112662)",
-      "link": "https://github.com/openclaw/openclaw/commit/a3a08a6db0e594fbb80261dbe6b998710b93560e",
-      "publishedAt": "2026-07-22T16:38:17Z",
-      "summary": "chore(i18n): refresh native locales (#112662) Co-authored-by: github-actions[bot]",
+      "title": "Add experimental Claw lifecycle diagnostics (#102427)",
+      "link": "https://github.com/openclaw/openclaw/commit/31ff00fe82306342689a93d6136c80b7c5f3a2a9",
+      "publishedAt": "2026-07-22T18:55:47Z",
+      "summary": "Add experimental Claw lifecycle diagnostics (#102427) * Add experimental Claw lifecycle diagnostics * test(claws): cover lifecycle diagnostics * docs(claws): document doctor diagnostics * test(claws): derive future state schema version * test(claws): clean doctor restack fixture * test(claws): align doctor drift fixture with agent entries --------- Co-authored-by: Patrick Erichsen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#112662)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#112662) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：Add experimental Claw lifecycle diagnostics (#102427)",
+      "summaryZh": "重點：Add experimental Claw lifecycle diagnostics (#102427) * Add experimental Claw lifecycle diagnostics * test(claws): cover..."
     },
     {
       "id": 2,
-      "title": "test(macos): stabilize parallel Swift tests (#112651)",
-      "link": "https://github.com/openclaw/openclaw/commit/692310de0b3797e992dba38f8205fec218b53a56",
-      "publishedAt": "2026-07-22T16:04:25Z",
-      "summary": "test(macos): stabilize parallel Swift tests (#112651) * test(macos): stabilize parallel Swift tests * test(macos): use async catalog start barrier * test(macos): expose identity test seam",
+      "title": "fix(doctor): merge legacy flat auth repair into existing SQLite store…",
+      "link": "https://github.com/openclaw/openclaw/commit/5419a945875ba90fcbddd84a3b50866fd64716a8",
+      "publishedAt": "2026-07-22T18:37:26Z",
+      "summary": "fix(doctor): merge legacy flat auth repair into existing SQLite store (#98245) maybeRepairLegacyFlatAuthProfileStores rewrote the per-agent SQLite auth profile store with a store built solely from the legacy flat auth-profiles.json, and backed up only that flat JSON. Any credential present in SQLite but absent from the flat file (for example an OAuth refresh token from a login after the SQLite migration) was destroyed and was not in the backup, so a routine openclaw doctor caused unrecoverable credential loss. Load the existing SQLite store and merge the legacy flat profiles into it, preserving credentials already present, then verify the imported profiles persisted before removing the flat file, mirroring the SQLite migration path.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(macos): stabilize parallel Swift tests (#112651)",
-      "summaryZh": "重點：test(macos): stabilize parallel Swift tests (#112651) * test(macos): stabilize parallel Swift tests * test(macos): use a..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): merge legacy flat auth repair into existing SQLite store…",
+      "summaryZh": "重點：修正(文件tor): merge legacy flat auth repair into existing SQLite store (#98245) maybeRepairLegacyFlatAuthProfileStores rewr..."
     },
     {
       "id": 3,
-      "title": "fix(ui): discussion button stays open on second click (#112671)",
-      "link": "https://github.com/openclaw/openclaw/commit/96d16c3c46a5eaecd19684d530a29d02978a8a2d",
-      "publishedAt": "2026-07-22T15:38:36Z",
-      "summary": "fix(ui): discussion button stays open on second click (#112671) * fix(ui): toggle discussion sidebar from header * test(ui): cover discussion sidebar toggle",
+      "title": "ci: update Kova release fixture pin (#112715)",
+      "link": "https://github.com/openclaw/openclaw/commit/df551c10a160b30ea00e0d69b173d782016e94e5",
+      "publishedAt": "2026-07-22T18:27:00Z",
+      "summary": "ci: update Kova release fixture pin (#112715)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): discussion button stays open on second click (#112671)",
-      "summaryZh": "重點：修正(ui): discussion button stays open on second click (#112671) * 修正(ui): toggle discussion sidebar from header * test(ui..."
+      "titleZh": "OpenClaw 程式碼更新：ci: update Kova 版本發布 修正ture pin (#112715)",
+      "summaryZh": "重點：ci: update Kova 版本發布 修正ture pin (#112715)..."
     },
     {
       "id": 4,
-      "title": "Manage Claw MCP server ownership (#102406)",
-      "link": "https://github.com/openclaw/openclaw/commit/b56006babf071ea9c9274ef1710e8f3ed8b9d21d",
-      "publishedAt": "2026-07-22T15:37:44Z",
-      "summary": "Manage Claw MCP server ownership (#102406) * Manage Claw MCP server ownership * test(claws): cover MCP resource lifecycle * docs(claws): document MCP resources * fix(claws): preserve lifecycle status contracts * fix(claws): reconcile missing MCP removals * fix(claws): recheck restored MCP before releasing provenance * fix(claws): protect restored MCP identity * refactor(claws): isolate MCP removal lifecycle * fix(claws): export lifecycle status record * style(claws): remove obsolete lifecycle lint exemption * fix(claws): read MCP status from agent entries * test(claws): clean MCP restack fixtures * fix(claws): repair MCP state schema restack * test(claws): remove stale MCP status import --------- Co-authored-by: Patrick Erichsen",
+      "title": "fix(plugins): refresh prepared provider metadata (#112699)",
+      "link": "https://github.com/openclaw/openclaw/commit/2b405755b1bcb48bdecd713ecc16f0afb73291df",
+      "publishedAt": "2026-07-22T18:07:35Z",
+      "summary": "fix(plugins): refresh prepared provider metadata (#112699) * fix(plugins): refresh prepared provider metadata * test(agents): tolerate minimal metadata snapshots * test(agents): cover snapshot endpoint precedence",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Manage Claw MCP server ownership (#102406)",
-      "summaryZh": "重點：Manage Claw MCP server ownership (#102406) * Manage Claw MCP server ownership * test(claws): cover MCP resource lifecycl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): refresh prepared provider metadata (#112699)",
+      "summaryZh": "重點：修正(plugins): refresh prepared provider metadata (#112699) * 修正(plugins): refresh prepared provider metadata * test(agent..."
     },
     {
       "id": 5,
