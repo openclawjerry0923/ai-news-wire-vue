@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-07-23T11:10:39.104Z",
+  "generatedAt": "2026-07-23T14:02:17.301Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(ui): model gateway connection state as one closed phase unio…",
+      "link": "https://github.com/openclaw/openclaw/commit/1e3192c0b47b45cc1c157c8426f47374ccfb48a7",
+      "publishedAt": "2026-07-23T14:00:26Z",
+      "summary": "refactor(ui): model gateway connection state as one closed phase union (#112909) * refactor(ui): model gateway connection state as one closed phase union ApplicationGatewaySnapshot carried connected + reconnecting as parallel booleans whose illegal combination (both true) was representable, and every consumer re-derived the same flag logic. The snapshot now carries phase: \"stopped\" | \"connecting\" | \"connected\" | \"reconnecting\" | \"offline\"; offlineStable stays as the store-owned 2s debounced presentation boolean, and lastError/lastErrorCode are unchanged. Mapping preserves shipped behavior exactly: never-connected terminal closes return to \"stopped\" (login gate), established-connection drops with retry are \"reconnecting\" (shell stays mounted), without retry \"offline\". Component props stay boolean, derived once at the app-host boundary; no compat aliases remain on the snapshot. Closes #112741. * fix(ui): migrate rebased-in test fixtures to the gateway phase union * fix(ui): migrate post-rebase gateway snapshot readers to the phase union * fix(ui): migrate document-title test harness snapshot to the phase union",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): 模型 Gateway connection state as one closed phase unio…",
+      "summaryZh": "重點：refactor(ui): 模型 Gateway connection state as one closed phase union (#112909) * refactor(ui): 模型 Gateway connection stat..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(system-agent): split setup inference phases (#113028)",
+      "link": "https://github.com/openclaw/openclaw/commit/5bd719fb9c08da82badc884153e2c8d90320455f",
+      "publishedAt": "2026-07-23T13:52:23Z",
+      "summary": "refactor(system-agent): split setup inference phases (#113028) * refactor(system-agent): split setup inference phases * fix(system-agent): preserve activation helper types * fix(system-agent): keep read-only inference verification * test(system-agent): track moved lint suppressions",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(system-agent): split setup inference phases (#113028)",
+      "summaryZh": "重點：refactor(system-agent): split setup inference phases (#113028) * refactor(system-agent): split setup inference phases * ..."
+    },
+    {
+      "id": 3,
+      "title": "fix: preserve Discord bold and Mattermost tables (#113037)",
+      "link": "https://github.com/openclaw/openclaw/commit/8108b9637b01e4d9aced806cb64ae30d44feaf28",
+      "publishedAt": "2026-07-23T13:42:22Z",
+      "summary": "fix: preserve Discord bold and Mattermost tables (#113037) * refactor(channels): unify Discord and Mattermost markdown * build(discord): refresh shrinkwrap * refactor(discord): split markdown formatter",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve Discord bold and Mattermost tables (#113037)",
+      "summaryZh": "重點：修正: preserve Discord bold and Mattermost tables (#113037) * refactor(channels): unify Discord and Mattermost markdown * ..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(ui): split terminal panel into chrome renderers and a PTY co…",
+      "link": "https://github.com/openclaw/openclaw/commit/babf04ca0fcb97f9ce54d2056e47388a35f8b85e",
+      "publishedAt": "2026-07-23T13:35:27Z",
+      "summary": "refactor(ui): split terminal panel into chrome renderers and a PTY controller (#113020)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split terminal panel into chrome renderers and a PTY co…",
+      "summaryZh": "重點：refactor(ui): split terminal panel into chrome renderers and a PTY controller (#113020)..."
+    },
+    {
+      "id": 5,
       "title": "雅詩蘭黛終於證實Oracle EBS被駭，員工資料遭竊",
       "link": "https://www.ithome.com.tw/news/177556",
       "publishedAt": "2026-07-23 12:07:59",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Alphabet公布Q2財報，Gemini App每月活躍用戶數成長至9.5億",
       "link": "https://www.ithome.com.tw/news/177554",
       "publishedAt": "2026-07-23 12:07:36",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "Oracle發布2026年7月關鍵安全修補更新，共修補1,235個漏洞，含多個CVSS滿分重大漏洞",
       "link": "https://www.ithome.com.tw/news/177555",
       "publishedAt": "2026-07-23 12:07:30",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "可口可樂旗下乳製品品牌Fairlife遭駭，勒索軟體Anubis宣稱是他們所為",
       "link": "https://www.ithome.com.tw/news/177552",
       "publishedAt": "2026-07-23 11:07:59",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "開源威脅知識庫PR3TACK收錄潛在攻擊技術，協助資安團隊提前部署防禦",
       "link": "https://www.ithome.com.tw/news/177546",
       "publishedAt": "2026-07-23 11:07:49",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Mozilla發布Firefox 153版更新，修補63個漏洞",
       "link": "https://www.ithome.com.tw/news/177549",
       "publishedAt": "2026-07-23 11:07:34",
       "summary": "Mozilla近日發布Firefox瀏覽器的資安公告，揭露63個漏洞，並提供已修補完成的153版，建議用戶儘速升級，以降低風險。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "feat(onboard): stage migration imports before promotion (#112798)",
-      "link": "https://github.com/openclaw/openclaw/commit/852548ce059fa65526e0744714e4e54f84e6fa36",
-      "publishedAt": "2026-07-23T11:06:01Z",
-      "summary": "feat(onboard): stage migration imports before promotion (#112798) * feat(onboard): stage migration imports before promotion * fix(onboard): harden migration recovery * fix(onboard): commit promoted config with CAS * fix(onboard): resume setup after migration recovery * test(onboard): split noninteractive migration coverage * refactor(onboard): split migration promotion helpers * fix(onboard): normalize migration preparation cleanup * fix(onboard): preserve recovered inference ownership * fix(codex): complete empty deferred plugin config * fix(codex): reconcile deferred plugin config retries * fix(onboard): resolve verification target after rebase * refactor(onboard): trim retired migration exports * test(onboard): assert read-only auth prompt store",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(onboard): stage migration imports before promotion (#112798)",
-      "summaryZh": "重點：新功能(onboard): stage migration imports before promotion (#112798) * 新功能(onboard): stage migration imports before promotio..."
-    },
-    {
-      "id": 8,
-      "title": "fix(telegram): preserve valid tg-time markup (#112911)",
-      "link": "https://github.com/openclaw/openclaw/commit/9ffebcadeabc520ce959338744e3b3ea8d48819e",
-      "publishedAt": "2026-07-23T11:00:00Z",
-      "summary": "fix(telegram): preserve valid tg-time markup (#112911)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): preserve valid tg-time markup (#112911)",
-      "summaryZh": "重點：修正(Telegram): preserve valid tg-time markup (#112911)..."
-    },
-    {
-      "id": 9,
-      "title": "fix(docs-i18n): escape model-added list markers",
-      "link": "https://github.com/openclaw/openclaw/commit/7f550eaf5019da86e46389906c8dad7828c8b3d9",
-      "publishedAt": "2026-07-23T10:54:27Z",
-      "summary": "fix(docs-i18n): escape model-added list markers",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件-i18n): escape 模型-added list markers",
-      "summaryZh": "重點：修正(文件-i18n): escape 模型-added list markers..."
-    },
-    {
-      "id": 10,
-      "title": "fix: preserve transcript cursors across session resets (#112988)",
-      "link": "https://github.com/openclaw/openclaw/commit/9ae9fcb1cdd245e801315e0aea32f1c17d94cc61",
-      "publishedAt": "2026-07-23T10:22:43Z",
-      "summary": "fix: preserve transcript cursors across session resets (#112988) * feat: add reset transcript boundaries * feat: project reset boundaries in history * refactor: reset sessions in place * fix: fence reset runtime caches by lifecycle * fix: preserve reset filtering during compaction * fix: anchor compaction after reset boundaries * fix: budget reset preludes during compaction * fix: honor reset visibility in bounded history * fix: couple reset boundaries to lifecycle commits * fix: commit reset boundaries atomically * fix: preserve reset boundary transition states * fix: preserve concurrent reset lifecycle owners * fix: preserve reset boundary storage compatibility * fix: preserve reset windows across persisted histories * fix: fence legacy reset lifecycle state * fix: keep stale appends behind reset boundaries * perf: index reset descendants linearly * fix: bound reset history projection reads * fix: narrow invalid leaf control types * test: use typed cron lifecycle revision * style: keep acp lifecycle helper within limit * style: satisfy reset boundary lint rules * test: split reset concurrency coverage * style: satisfy compaction fixture lint * refactor: remove retired reset replay exports * test: assert in-place reply session resets * test: assert reset boundary persistence * test: mock session boundary counts",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve transcript cursors across session resets (#112988)",
-      "summaryZh": "重點：修正: preserve transcript cursors across session resets (#112988) * 新功能: add reset transcript boundaries * 新功能: project re..."
     }
   ]
 }
