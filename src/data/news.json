@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-23T14:02:17.301Z",
+  "generatedAt": "2026-07-23T16:27:18.959Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(ui): model gateway connection state as one closed phase unio…",
-      "link": "https://github.com/openclaw/openclaw/commit/1e3192c0b47b45cc1c157c8426f47374ccfb48a7",
-      "publishedAt": "2026-07-23T14:00:26Z",
-      "summary": "refactor(ui): model gateway connection state as one closed phase union (#112909) * refactor(ui): model gateway connection state as one closed phase union ApplicationGatewaySnapshot carried connected + reconnecting as parallel booleans whose illegal combination (both true) was representable, and every consumer re-derived the same flag logic. The snapshot now carries phase: \"stopped\" | \"connecting\" | \"connected\" | \"reconnecting\" | \"offline\"; offlineStable stays as the store-owned 2s debounced presentation boolean, and lastError/lastErrorCode are unchanged. Mapping preserves shipped behavior exactly: never-connected terminal closes return to \"stopped\" (login gate), established-connection drops with retry are \"reconnecting\" (shell stays mounted), without retry \"offline\". Component props stay boolean, derived once at the app-host boundary; no compat aliases remain on the snapshot. Closes #112741. * fix(ui): migrate rebased-in test fixtures to the gateway phase union * fix(ui): migrate post-rebase gateway snapshot readers to the phase union * fix(ui): migrate document-title test harness snapshot to the phase union",
+      "title": "fix(elevenlabs): reject blank realtime transcription keys (#108916)",
+      "link": "https://github.com/openclaw/openclaw/commit/f20e747c8f5918efde4b9ce554c68074bc0b1127",
+      "publishedAt": "2026-07-23T16:22:17Z",
+      "summary": "fix(elevenlabs): reject blank realtime transcription keys (#108916) * fix(elevenlabs): treat blank env API key as unconfigured in speech and transcription providers * fix(elevenlabs): normalize realtime auth lookup Co-authored-by: RileyJJY --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): 模型 Gateway connection state as one closed phase unio…",
-      "summaryZh": "重點：refactor(ui): 模型 Gateway connection state as one closed phase union (#112909) * refactor(ui): 模型 Gateway connection stat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(elevenlabs): reject blank realtime transcription keys (#108916)",
+      "summaryZh": "重點：修正(elevenlabs): reject blank realtime transcription keys (#108916) * 修正(elevenlabs): treat blank env API key as unconfig..."
     },
     {
       "id": 2,
-      "title": "refactor(system-agent): split setup inference phases (#113028)",
-      "link": "https://github.com/openclaw/openclaw/commit/5bd719fb9c08da82badc884153e2c8d90320455f",
-      "publishedAt": "2026-07-23T13:52:23Z",
-      "summary": "refactor(system-agent): split setup inference phases (#113028) * refactor(system-agent): split setup inference phases * fix(system-agent): preserve activation helper types * fix(system-agent): keep read-only inference verification * test(system-agent): track moved lint suppressions",
+      "title": "chore(deps): refresh repository dependencies (#112453)",
+      "link": "https://github.com/openclaw/openclaw/commit/acd92f6a3d619fddae9b2f78eb2862ff75a432e6",
+      "publishedAt": "2026-07-23T16:17:13Z",
+      "summary": "chore(deps): refresh repository dependencies (#112453) * build(deps): update QA broker dependency * build(deps): refresh repository dependencies * build(deps): reconcile rebased shrinkwraps * test(plugins): remove stale loader test state * test(deps): stabilize updated dependency coverage * fix(swift): use caller-isolated TaskLocal overload * build(deps): regenerate rebased shrinkwraps * test(msteams): preserve DNS validation in fetch helper * fix(deps): avoid vulnerable optional image stack * test(deps): validate generated LRU override * refactor(ui): extract chat resizable divider * test(ui): update divider ownership path * fix(matrix): retain restart-compatible SDK * style(cron): format update test",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(system-agent): split setup inference phases (#113028)",
-      "summaryZh": "重點：refactor(system-agent): split setup inference phases (#113028) * refactor(system-agent): split setup inference phases * ..."
+      "titleZh": "OpenClaw 程式碼更新：chore(deps): refresh repository dependencies (#112453)",
+      "summaryZh": "重點：chore(deps): refresh repository dependencies (#112453) * build(deps): update QA broker dependency * build(deps): refresh..."
     },
     {
       "id": 3,
-      "title": "fix: preserve Discord bold and Mattermost tables (#113037)",
-      "link": "https://github.com/openclaw/openclaw/commit/8108b9637b01e4d9aced806cb64ae30d44feaf28",
-      "publishedAt": "2026-07-23T13:42:22Z",
-      "summary": "fix: preserve Discord bold and Mattermost tables (#113037) * refactor(channels): unify Discord and Mattermost markdown * build(discord): refresh shrinkwrap * refactor(discord): split markdown formatter",
+      "title": "test(outbound): close queue SQLite fixtures (#113058)",
+      "link": "https://github.com/openclaw/openclaw/commit/693e44b1259a07b8252b1f75cef2ad353f7f5350",
+      "publishedAt": "2026-07-23T16:14:39Z",
+      "summary": "test(outbound): close queue SQLite fixtures (#113058)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve Discord bold and Mattermost tables (#113037)",
-      "summaryZh": "重點：修正: preserve Discord bold and Mattermost tables (#113037) * refactor(channels): unify Discord and Mattermost markdown * ..."
+      "titleZh": "OpenClaw 程式碼更新：test(outbound): close queue SQLite 修正tures (#113058)",
+      "summaryZh": "重點：test(outbound): close queue SQLite 修正tures (#113058)..."
     },
     {
       "id": 4,
-      "title": "refactor(ui): split terminal panel into chrome renderers and a PTY co…",
-      "link": "https://github.com/openclaw/openclaw/commit/babf04ca0fcb97f9ce54d2056e47388a35f8b85e",
-      "publishedAt": "2026-07-23T13:35:27Z",
-      "summary": "refactor(ui): split terminal panel into chrome renderers and a PTY controller (#113020)",
+      "title": "fix(ios): harden release screenshot capture",
+      "link": "https://github.com/openclaw/openclaw/commit/b85c0e20644b8e54cde3294a00de0e8640a6503d",
+      "publishedAt": "2026-07-23T16:09:06Z",
+      "summary": "fix(ios): harden release screenshot capture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split terminal panel into chrome renderers and a PTY co…",
-      "summaryZh": "重點：refactor(ui): split terminal panel into chrome renderers and a PTY controller (#113020)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): harden 版本發布 screenshot capture",
+      "summaryZh": "重點：修正(ios): harden 版本發布 screenshot capture..."
     },
     {
       "id": 5,
+      "title": "神祕天體 1998 SH2 軌道異常之謎解開，科學家首次直擊暗彗星活動",
+      "link": "https://technews.tw/2026/07/23/asteroid-that-strayed-off-course-turns-out-to-be-a-dark-comet/",
+      "publishedAt": "Thu, 23 Jul 2026 14:07:10 +0000",
+      "summary": "天文學家通常藉由「彗髮」與「彗尾」來辨識彗星。當太陽加熱冰層，氣體逸出時會產生微小的推力，常常導致彗星路徑發生 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "雅詩蘭黛終於證實Oracle EBS被駭，員工資料遭竊",
       "link": "https://www.ithome.com.tw/news/177556",
       "publishedAt": "2026-07-23 12:07:59",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Alphabet公布Q2財報，Gemini App每月活躍用戶數成長至9.5億",
       "link": "https://www.ithome.com.tw/news/177554",
       "publishedAt": "2026-07-23 12:07:36",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Oracle發布2026年7月關鍵安全修補更新，共修補1,235個漏洞，含多個CVSS滿分重大漏洞",
       "link": "https://www.ithome.com.tw/news/177555",
       "publishedAt": "2026-07-23 12:07:30",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "可口可樂旗下乳製品品牌Fairlife遭駭，勒索軟體Anubis宣稱是他們所為",
       "link": "https://www.ithome.com.tw/news/177552",
       "publishedAt": "2026-07-23 11:07:59",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "開源威脅知識庫PR3TACK收錄潛在攻擊技術，協助資安團隊提前部署防禦",
       "link": "https://www.ithome.com.tw/news/177546",
       "publishedAt": "2026-07-23 11:07:49",
       "summary": "現有資安知識庫多半聚焦已知攻擊手法，但面對尚未出現的新型威脅，資安團隊仍缺乏可供提前部署防禦的系統化資料。Atlassian資安研究人員Vishal Thakur因此發起開源「預先防禦戰術與反制措施知識庫」（Preemptive Tactics &amp; Countermeasures Knowledgebase，PR3TACK），並於FIRST國際資安應變組織年度大會FIRSTCON26公開發表。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Mozilla發布Firefox 153版更新，修補63個漏洞",
-      "link": "https://www.ithome.com.tw/news/177549",
-      "publishedAt": "2026-07-23 11:07:34",
-      "summary": "Mozilla近日發布Firefox瀏覽器的資安公告，揭露63個漏洞，並提供已修補完成的153版，建議用戶儘速升級，以降低風險。",
       "source": "iThome",
       "tag": "繁中"
     }
