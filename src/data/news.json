@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-23T16:27:18.959Z",
+  "generatedAt": "2026-07-23T18:12:37.883Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(elevenlabs): reject blank realtime transcription keys (#108916)",
-      "link": "https://github.com/openclaw/openclaw/commit/f20e747c8f5918efde4b9ce554c68074bc0b1127",
-      "publishedAt": "2026-07-23T16:22:17Z",
-      "summary": "fix(elevenlabs): reject blank realtime transcription keys (#108916) * fix(elevenlabs): treat blank env API key as unconfigured in speech and transcription providers * fix(elevenlabs): normalize realtime auth lookup Co-authored-by: RileyJJY --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(ui): prevent duplicate image prompt and flicker (#113113)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f5e7cfc5d981814c5364c559f7b32486ce9670c",
+      "publishedAt": "2026-07-23T18:11:52Z",
+      "summary": "fix(ui): prevent duplicate image prompt and flicker (#113113) * fix(ui): stabilize initial image prompt handoff * chore(protocol): refresh sessions create model * chore(i18n): refresh native source inventory",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(elevenlabs): reject blank realtime transcription keys (#108916)",
-      "summaryZh": "重點：修正(elevenlabs): reject blank realtime transcription keys (#108916) * 修正(elevenlabs): treat blank env API key as unconfig..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent duplicate image prompt and flicker (#113113)",
+      "summaryZh": "重點：修正(ui): prevent duplicate image prompt and flicker (#113113) * 修正(ui): stabilize initial image prompt handoff * chore(pr..."
     },
     {
       "id": 2,
-      "title": "chore(deps): refresh repository dependencies (#112453)",
-      "link": "https://github.com/openclaw/openclaw/commit/acd92f6a3d619fddae9b2f78eb2862ff75a432e6",
-      "publishedAt": "2026-07-23T16:17:13Z",
-      "summary": "chore(deps): refresh repository dependencies (#112453) * build(deps): update QA broker dependency * build(deps): refresh repository dependencies * build(deps): reconcile rebased shrinkwraps * test(plugins): remove stale loader test state * test(deps): stabilize updated dependency coverage * fix(swift): use caller-isolated TaskLocal overload * build(deps): regenerate rebased shrinkwraps * test(msteams): preserve DNS validation in fetch helper * fix(deps): avoid vulnerable optional image stack * test(deps): validate generated LRU override * refactor(ui): extract chat resizable divider * test(ui): update divider ownership path * fix(matrix): retain restart-compatible SDK * style(cron): format update test",
+      "title": "refactor(telegram): deduplicate polling session tests (#113117)",
+      "link": "https://github.com/openclaw/openclaw/commit/fefeff2b36661445ff9ffd874a9a3a0faa2c8826",
+      "publishedAt": "2026-07-23T18:11:13Z",
+      "summary": "refactor(telegram): deduplicate polling session tests (#113117) * test(telegram): deduplicate polling session scenarios * test(telegram): type interleaving labels as tuples",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(deps): refresh repository dependencies (#112453)",
-      "summaryZh": "重點：chore(deps): refresh repository dependencies (#112453) * build(deps): update QA broker dependency * build(deps): refresh..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Telegram): deduplicate polling session tests (#113117)",
+      "summaryZh": "重點：refactor(Telegram): deduplicate polling session tests (#113117) * test(Telegram): deduplicate polling session scenarios ..."
     },
     {
       "id": 3,
-      "title": "test(outbound): close queue SQLite fixtures (#113058)",
-      "link": "https://github.com/openclaw/openclaw/commit/693e44b1259a07b8252b1f75cef2ad353f7f5350",
-      "publishedAt": "2026-07-23T16:14:39Z",
-      "summary": "test(outbound): close queue SQLite fixtures (#113058)",
+      "title": "feat(cron): database-backed heartbeat monitor scratch replaces HEARTB…",
+      "link": "https://github.com/openclaw/openclaw/commit/3e2b3ea4d5ee6f7d3e3e7c7b168a258ae4db57ba",
+      "publishedAt": "2026-07-23T18:10:49Z",
+      "summary": "feat(cron): database-backed heartbeat monitor scratch replaces HEARTBEAT.md (#112967) * feat(cron): move heartbeat context into database-backed per-job cron scratch - new additive cron_job_scratch SQLite table (revision tombstones keep compare-and-swap monotonic across unset/recreate; 256KiB cap) - heartbeat runner reads monitor scratch instead of workspace HEARTBEAT.md; heartbeat_respond gains a private scratch replacement parameter - openclaw doctor --fix migrates HEARTBEAT.md into scratch (hash-verified, archived under state backups, idempotent, symlink-contained) - gateway cron.scratch.get/set admin RPCs + openclaw cron scratch CLI - workspace bootstrap no longer seeds HEARTBEAT.md; Codex heartbeat file guidance removed; docs and prompt snapshots updated * fix(cron): review round 2 — shared-workspace heartbeat migration and non-default agent monitors - doctor migration groups agents by heartbeat source file and imports into every monitor before archiving/removing the shared file once - exempt heartbeat payloads from the main-session default-agent restriction: monitors only poke the wake bus, so non-default agents converge again - document why disabled monitors retain their last cadence (config default already resolves before the fallback) * fix(cron): honor configured cron store, legacy heartbeat fallback, and safer doctor claim * fix(cron): claim HEARTBEAT.md before committing scratch and restore without clobbering * fix(cron): pin migration CAS to precondition revision, re-verify claim on release, archive first, report scratch as pending * docs(heartbeat): remove retired config options * fix(cron): crash-recoverable migration claims, partial-import rollback, latest-response scratch pairing * test(heartbeat): keep latest scratch proposal paired * fix(cron): roll back committed scratch on changed-claim release and restore no-row state * fix(cron): revision-guarded rollback delete and recreated-file detection on claim release * fix(cron): treat every failed claim re-verification as a migration conflict * test(heartbeat): rename ack test after ackMaxChars retirement * fix(heartbeat): keep monitor scratch out of bypass-scope runs * fix(cron): resolve claimed symlinks on release and gate legacy fallback on proven scratch state * fix(cron): strict claim-name recovery and per-entry migration grouping * fix(ci): heartbeat scratch gate repairs — lint causes, dead exports, since-train, inventory path, prompt snapshot, regenerated docs map, SDK baseline, protocol bindings * fix(cron): live-owner claim guard and canonical entry-key migration grouping * fix(cron): archive claimed inode on release and flag orphan claims beside recreated files * docs(cron): document process-global state-db invariant for scratch service ops * chore(i18n): refresh native inventory line numbers after protocol binding regen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(outbound): close queue SQLite 修正tures (#113058)",
-      "summaryZh": "重點：test(outbound): close queue SQLite 修正tures (#113058)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(排程): database-backed heartbeat monitor scratch replaces HEARTB…",
+      "summaryZh": "重點：新功能(排程): database-backed heartbeat monitor scratch replaces HEARTBEAT.md (#112967) * 新功能(排程): move heartbeat context int..."
     },
     {
       "id": 4,
-      "title": "fix(ios): harden release screenshot capture",
-      "link": "https://github.com/openclaw/openclaw/commit/b85c0e20644b8e54cde3294a00de0e8640a6503d",
-      "publishedAt": "2026-07-23T16:09:06Z",
-      "summary": "fix(ios): harden release screenshot capture",
+      "title": "fix: keep model catalog coherent across config reloads (#112331)",
+      "link": "https://github.com/openclaw/openclaw/commit/78b987aa2eaa7c0efcd16b26f2a28a61e7b2e413",
+      "publishedAt": "2026-07-23T17:54:27Z",
+      "summary": "fix: keep model catalog coherent across config reloads (#112331) * fix(gateway): keep model catalog reads generation-safe * fix(gateway): type owner-aware catalog snapshots * fix(sessions): break lifecycle accessor import cycle * fix(gateway): preserve requested catalog owner * fix(gateway): keep catalog owner identity explicit * fix(gateway): isolate catalog snapshot types * fix(gateway): respect published catalog owner * fix(gateway): reject mismatched catalog owners * test(apple): gate unread patch timing explicitly * fix(gateway): keep startup metadata bounded * fix(gateway): forbid startup catalog fallback * test(apple): wait for terminal outbox flush * fix(cron): follow published model catalog owner * test(cron): align catalog runtime mocks * test(system-agent): isolate TUI catalog metadata * test(gateway): refresh deletion session snapshot * fix(gateway): preserve authoritative catalog owners * fix(gateway): retain equivalent catalog preload * fix(gateway): reject ownerless catalog projections * fix(gateway): scope catalog loads to resolved agent * fix(gateway): restore canonical catalog owner identity * fix(cron): preserve published catalog owner * test(cron): align owner snapshot mocks * fix(cron): preserve replacement owner workspace * fix(runtime): reject explicit catalog owner mismatch * fix(runtime): preserve implicit owner fallback * test(cron): resolve implicit owner fixtures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): harden 版本發布 screenshot capture",
-      "summaryZh": "重點：修正(ios): harden 版本發布 screenshot capture..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep 模型 catalog coherent across config reloads (#112331)",
+      "summaryZh": "重點：修正: keep 模型 catalog coherent across config reloads (#112331) * 修正(Gateway): keep 模型 catalog reads generation-safe * 修正(G..."
     },
     {
       "id": 5,
