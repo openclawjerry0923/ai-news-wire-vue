@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T10:18:53.398Z",
+  "generatedAt": "2026-07-24T12:19:18.812Z",
   "items": [
     {
       "id": 1,
@@ -21,6 +21,50 @@
     },
     {
       "id": 3,
+      "title": "fix(test): release SQLite fixtures before Windows cleanup (#113316)",
+      "link": "https://github.com/openclaw/openclaw/commit/48d65f94a13cb7f0a2fec46465888f187e52ab5f",
+      "publishedAt": "2026-07-24T12:04:57Z",
+      "summary": "fix(test): release SQLite fixtures before Windows cleanup (#113316) * fix(test): close SQLite fixtures before Windows cleanup * test(windows): extend fixture cleanup retries * fix(test): avoid registry reads during fixture cleanup",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): 版本發布 SQLite 修正tures before Windows cleanup (#113316)",
+      "summaryZh": "重點：修正(test): 版本發布 SQLite 修正tures before Windows cleanup (#113316) * 修正(test): close SQLite 修正tures before Windows cleanup *..."
+    },
+    {
+      "id": 4,
+      "title": "fix(i18n): unwrap invented inline code",
+      "link": "https://github.com/openclaw/openclaw/commit/43028966389b5db34b65aa9d2e9c2bbdaa99bc2f",
+      "publishedAt": "2026-07-24T11:48:30Z",
+      "summary": "fix(i18n): unwrap invented inline code",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(i18n): unwrap invented inline code",
+      "summaryZh": "重點：修正(i18n): unwrap invented inline code..."
+    },
+    {
+      "id": 5,
+      "title": "refactor(agents): split subagent registry internals (#113297)",
+      "link": "https://github.com/openclaw/openclaw/commit/4cd327e31fe2c151a053f8e11c31743bc7ef492a",
+      "publishedAt": "2026-07-24T11:44:37Z",
+      "summary": "refactor(agents): split subagent registry internals (#113297) * refactor(agents): split subagent registry * fix(agents): defer registry restore until exports initialize",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): split subagent registry internals (#113297)",
+      "summaryZh": "重點：refactor(agents): split subagent registry internals (#113297) * refactor(agents): split subagent registry * 修正(agents): ..."
+    },
+    {
+      "id": 6,
+      "title": "fix(backup): publish archives durably (#113302)",
+      "link": "https://github.com/openclaw/openclaw/commit/3bfc23c6760bf94f691805f2b2f950b11035cd9f",
+      "publishedAt": "2026-07-24T11:12:11Z",
+      "summary": "fix(backup): publish archives durably (#113302)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(backup): publish archives durably (#113302)",
+      "summaryZh": "重點：修正(backup): publish archives durably (#113302)..."
+    },
+    {
+      "id": 7,
       "title": "LG顯示器暗中透過Windows Update於用戶電腦安裝McAfee軟體試用版，微軟強力介入阻止",
       "link": "https://www.ithome.com.tw/news/177597",
       "publishedAt": "2026-07-24 11:07:39",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "2026上半年漏洞揭露量增51%，供應鏈攻擊擴及軟體開發生態系",
       "link": "https://www.ithome.com.tw/news/177593",
       "publishedAt": "2026-07-24 11:07:38",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "OpenAI在美國公開推出ChatGPT Health，可串接病歷與Apple Health",
       "link": "https://www.ithome.com.tw/news/177595",
       "publishedAt": "2026-07-24 11:07:35",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Linux核心開發團隊24小時內修補440個漏洞，大量CVE密集發布引發關注",
       "link": "https://www.ithome.com.tw/news/177599",
       "publishedAt": "2026-07-24 11:07:27",
       "summary": "Linux核心開發團隊近日在不到24小時內密集發布資安公告，從7月19日至20日共修補約440個漏洞，涵蓋Linux核心多個子系統、網路功能、檔案系統、硬體驅動程式等，這些漏洞是透過核心程式碼修補，並依不同發行版納入更新，使用者應依所採用的Linux發行版，安裝供應商提供的核心安全更新。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix: reusable exec approvals apply to approved arguments (#112946)",
-      "link": "https://github.com/openclaw/openclaw/commit/1fc81c20548e3323c2f5ab05cd41338b5647c726",
-      "publishedAt": "2026-07-24T10:08:38Z",
-      "summary": "fix: reusable exec approvals apply to approved arguments (#112946) * fix: bind allow-always exec approvals to argv * test: update exec approval persistence expectations * fix: hash reusable exec approval arguments * test: pin POSIX exec approval hash expectation * fix: match hashed exec approvals in macOS * fix: encode exec approval argv hashes unambiguously * fix: bind native exec approval grants to argv * test: expect hashed exec approval patterns * fix: ignore legacy broad exec approval grants * fix: hash shell script allow-always grants * fix: require argv binding for package manager grants * fix: bind positional carrier approval grants * fix: address approval check failures * fix: format approval policy test * fix: reject context-changing package manager grants * fix: keep build-enabled pnpm dlx grants one-shot * fix: reject npm exec context grants * fix: catch npm exec tail context options * fix: block npm package context approvals * fix: block leading pnpm dlx context grants * fix: restrict durable positional carrier grants * docs: clarify generated exec approvals * fix: block post-dlx pnpm context grants",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: reusable exec approvals apply to approved arguments (#112946)",
-      "summaryZh": "重點：修正: reusable exec approvals apply to approved arguments (#112946) * 修正: bind allow-always exec approvals to argv * test:..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(agents): split tool search internals (#113296)",
-      "link": "https://github.com/openclaw/openclaw/commit/050475b9de8f008e4985bbb00d6aa5363bfa1f0d",
-      "publishedAt": "2026-07-24T10:04:14Z",
-      "summary": "refactor(agents): split tool search internals (#113296)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): split tool search internals (#113296)",
-      "summaryZh": "重點：refactor(agents): split tool search internals (#113296)..."
-    },
-    {
-      "id": 9,
-      "title": "fix: keep inline eval approvals one-shot [AI] (#112956)",
-      "link": "https://github.com/openclaw/openclaw/commit/dc4c5887fa8702e442dd8cd8f835ebd3bb23a13a",
-      "publishedAt": "2026-07-24T09:51:24Z",
-      "summary": "fix: keep inline eval approvals one-shot [AI] (#112956) * fix: classify inline eval interpreters * fix: cover inline eval flag variants * fix: handle snippet eval option aliases * fix: classify debugger and runtime callbacks * fix: tighten interpreter eval matching * fix: cover gdb early init eval flags * fix: cover bundled eval option forms * fix: cover gdb eval abbreviations * fix: cover iex and guile eval forms",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep inline eval approvals one-shot [AI] (#112956)",
-      "summaryZh": "重點：修正: keep inline eval approvals one-shot [AI] (#112956) * 修正: classify inline eval interpreters * 修正: cover inline eval f..."
-    },
-    {
-      "id": 10,
-      "title": "refactor(normalization): reuse trimmed list helpers (#113295)",
-      "link": "https://github.com/openclaw/openclaw/commit/e3636852ba6ec03330f025dad1b99f17083539ad",
-      "publishedAt": "2026-07-24T09:43:22Z",
-      "summary": "refactor(normalization): reuse trimmed list helpers (#113295)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(normalization): reuse trimmed list helpers (#113295)",
-      "summaryZh": "重點：refactor(normalization): reuse trimmed list helpers (#113295)..."
     }
   ]
 }
