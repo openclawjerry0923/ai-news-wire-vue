@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T18:18:12.596Z",
+  "generatedAt": "2026-07-24T20:19:57.487Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "fix(snapshot): make SQLite publication crash recoverable (#113367)",
-      "link": "https://github.com/openclaw/openclaw/commit/0920946f8356c529c073ce7185588f4a84068821",
-      "publishedAt": "2026-07-24T17:56:05Z",
-      "summary": "fix(snapshot): make SQLite publication crash recoverable (#113367) * fix(sqlite): pin directory durability checks * fix(snapshot): make publication crash recoverable * fix(snapshot): revalidate committed publication * fix(sqlite): pin durable directory ancestry * test(sqlite): target directory sync fault * fix(sqlite): pin every durability edge * test(sqlite): target pinned sync failures * fix(snapshot): reject markerless partial state * fix(sqlite): harden durable directory opens * test(snapshot): accept hardened redirect rejection * test(sqlite): accept optional open flags * fix(sqlite): repair pinned directory permissions * fix(sqlite): bind publication and trusted repair * fix(snapshot): preserve safe repository mode repair * fix(sqlite): keep sync outcome internal",
+      "title": "fix(sqlite): repair canonical indexes before database use (#113390)",
+      "link": "https://github.com/openclaw/openclaw/commit/663c4fba10536a7148749f2b35fb5af6d54d3cb7",
+      "publishedAt": "2026-07-24T20:18:06Z",
+      "summary": "fix(sqlite): repair canonical indexes before database use (#113390) * fix(sqlite): recover canonical indexes before open * chore(sqlite): keep index contract types internal * test(sqlite): keep unsafe index corruption fail closed",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(snapshot): make SQLite publication crash recoverable (#113367)",
-      "summaryZh": "重點：修正(snapshot): make SQLite publication crash recoverable (#113367) * 修正(sqlite): pin directory durability checks * 修正(sna..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): repair canonical indexes before database use (#113390)",
+      "summaryZh": "重點：修正(sqlite): repair canonical indexes before database use (#113390) * 修正(sqlite): recover canonical indexes before open *..."
     },
     {
       "id": 3,
-      "title": "feat(sdk): always persist media facts and ship facts-first replacemen…",
-      "link": "https://github.com/openclaw/openclaw/commit/1e9d918037c14d8b406045a9cc0f5bd36b6af194",
-      "publishedAt": "2026-07-24T17:42:17Z",
-      "summary": "feat(sdk): always persist media facts and ship facts-first replacements for legacy Media* surfaces (#113355) * feat(sdk): always persist media facts and ship facts-first replacements for legacy Media* surfaces PR 1 of the media legacy retirement program (audit-frozen, 4 PRs). - Every media-bearing user turn now persists normalized __openclaw.media facts unconditionally while continuing to emit the legacy top-level Media* projection byte-identically (dual-write bridge; the conditional shouldPersistStructuredMediaEntries gate now always includes media). - New replacement APIs, shipped before any removal: typed hook media facts (media[], originalMedia[], mediaStagingPending) on message events; {{AttachmentPath}}/{{AttachmentUrl}}/{{AttachmentContentType}}/ {{AttachmentDir}}/{{AttachmentIndex}} template variables; focused openclaw/plugin-sdk/media-local-roots subpath split out of the deprecated agent-media-payload facade. - Every legacy surface carries @deprecated naming its replacement, under one named compatibility record media-legacy-projection with the operator-approved removeAfter 2026-10-01 (two release trains; deletion additionally gates on a clean published-plugin artifact sweep). - Generic transcript append invariant documented; SDK migration, hooks, and configuration docs updated to the facts-first path. Writer golden matrix proves legacy bytes and model prompt bytes are unchanged while nested facts become unconditional. 2,189 broad media tests green; SDK api-baseline regenerated on fresh-env Testbox. * feat(sdk): register media-local-roots subpath exports and deprecation metadata Completes PR 1: package export map for openclaw/plugin-sdk/media-local-roots plus the deprecated-subpath inventory and doc metadata entries for the media-legacy-projection record. * chore(sdk): track media-local-roots entrypoint and deprecated-export budgets * fix(sdk): keep deprecated MSTeams buildMediaPayload re-export through the compat window Deleting shipped runtime-api re-exports belongs to retirement PR 4 after the media-legacy-projection window; PR 1 only deprecates. Also formats the migration-guide schedule table. * docs: regenerate docs map for media migration additions",
+      "title": "fix(ui): preserve session identity across gateway snapshots (#113322)",
+      "link": "https://github.com/openclaw/openclaw/commit/5e3007cc23007abc12db142df537c971cac7fb66",
+      "publishedAt": "2026-07-24T20:17:23Z",
+      "summary": "fix(ui): preserve session identity across gateway snapshots (#113322) * fix(ui): preserve session identity across gateway snapshots Co-authored-by: openclaw-repo-broker[bot] * test(ui): cover session identity transitions Co-authored-by: openclaw-repo-broker[bot] * test(ui): model identity reconnect snapshot accurately * style(ui): format session identity test import * test(ui): isolate assistant identity snapshot coverage --------- Co-authored-by: openclaw-repo-broker[bot] Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(sdk): always persist media facts and ship facts-first replacemen…",
-      "summaryZh": "重點：新功能(sdk): always persist media facts and ship facts-first replacements for legacy Media* surfaces (#113355) * 新功能(sdk): ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve session identity across Gateway snapshots (#113322)",
+      "summaryZh": "重點：修正(ui): preserve session identity across Gateway snapshots (#113322) * 修正(ui): preserve session identity across Gateway ..."
     },
     {
       "id": 4,
-      "title": "fix(release): repair plugin prerelease regressions (#113373)",
-      "link": "https://github.com/openclaw/openclaw/commit/756b6f70090b5ba9d83ff73b9df1b6d6afe81a87",
-      "publishedAt": "2026-07-24T17:20:32Z",
-      "summary": "fix(release): repair plugin prerelease regressions (#113373)",
+      "title": "fix: stop selected channel sessions from WebChat (#111108)",
+      "link": "https://github.com/openclaw/openclaw/commit/2900026b333d0181fbcd7e54ce503bddbf36f8fb",
+      "publishedAt": "2026-07-24T19:36:18Z",
+      "summary": "fix: stop selected channel sessions from WebChat (#111108) * fix: stop selected channel sessions from WebChat * fix: clear channel working state after stop * fix: cancel queued turns before session abort * fix: replay pending stops after reconnect * fix: align stop lifecycle test fixtures * fix(ui): bind pending aborts to gateway client * test(ui): keep chat pane specs within line limit * chore(ios): refresh native i18n inventory * chore: retrigger PR checks * fix(system-agent): avoid blocking TUI catalog discovery * fix: preserve session abort ownership * test: align abort coverage with current main * test: assert scoped session abort broadcast * fix(agent-runs): expose SDK runtime abort state * fix(ui): clear queued main-session stops by scope * fix(ui): replay only exact run aborts * fix(gateway): protect session abort cleanup * fix(ui): narrow session abort intent * test(ui): avoid unbound request assertions --------- Co-authored-by: scotthuang Co-authored-by: Patrick Erichsen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): repair plugin pre版本發布 regressions (#113373)",
-      "summaryZh": "重點：修正(版本發布): repair plugin pre版本發布 regressions (#113373)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: stop selected channel sessions from WebChat (#111108)",
+      "summaryZh": "重點：修正: stop selected channel sessions from WebChat (#111108) * 修正: stop selected channel sessions from WebChat * 修正: clear ..."
     },
     {
       "id": 5,
-      "title": "refactor(ui): split chat message rendering (#113363)",
-      "link": "https://github.com/openclaw/openclaw/commit/9c2ae380bc024fd8feb3482306dc824a2d45c7df",
-      "publishedAt": "2026-07-24T16:41:53Z",
-      "summary": "refactor(ui): split chat message rendering (#113363) * refactor(ui): split chat message rendering * refactor(ui): tighten chat message exports",
+      "title": "test(google-meet): remove release validation races (#113387)",
+      "link": "https://github.com/openclaw/openclaw/commit/4aa9c9f916ba0e84320aa180d352fce90ea2e1a0",
+      "publishedAt": "2026-07-24T19:28:22Z",
+      "summary": "test(google-meet): remove release validation races (#113387)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split chat message rendering (#113363)",
-      "summaryZh": "重點：refactor(ui): split chat message rendering (#113363) * refactor(ui): split chat message rendering * refactor(ui): tighte..."
+      "titleZh": "OpenClaw 程式碼更新：test(google-meet): remove 版本發布 validation races (#113387)",
+      "summaryZh": "重點：test(google-meet): remove 版本發布 validation races (#113387)..."
     },
     {
       "id": 6,
