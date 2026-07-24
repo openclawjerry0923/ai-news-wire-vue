@@ -1,17 +1,50 @@
 {
-  "generatedAt": "2026-07-24T16:43:46.587Z",
+  "generatedAt": "2026-07-24T18:18:12.596Z",
   "items": [
     {
       "id": 1,
       "title": "Google緊急更新Chrome 150版，修補4個高風險漏洞",
       "link": "https://www.ithome.com.tw/news/177624",
       "publishedAt": "2026-07-25 12:07:54",
-      "summary": "本週二Google發布Chrome穩定版更新150.0.7871.181版與150.0.7871.182版，不料兩天後突然又推出新版本， 針對Windows與macOS提供150.0.7871.186與150.0.7871.187，針對Linux",
+      "summary": "本週二Google發布Chrome穩定版更新150.0.7871.181版與150.0.7871.182版，不料兩天後突然又推出新版本，針對Windows與macOS提供150.0.7871.186版與150.0.7871.187版，針對Linu",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 2,
+      "title": "fix(snapshot): make SQLite publication crash recoverable (#113367)",
+      "link": "https://github.com/openclaw/openclaw/commit/0920946f8356c529c073ce7185588f4a84068821",
+      "publishedAt": "2026-07-24T17:56:05Z",
+      "summary": "fix(snapshot): make SQLite publication crash recoverable (#113367) * fix(sqlite): pin directory durability checks * fix(snapshot): make publication crash recoverable * fix(snapshot): revalidate committed publication * fix(sqlite): pin durable directory ancestry * test(sqlite): target directory sync fault * fix(sqlite): pin every durability edge * test(sqlite): target pinned sync failures * fix(snapshot): reject markerless partial state * fix(sqlite): harden durable directory opens * test(snapshot): accept hardened redirect rejection * test(sqlite): accept optional open flags * fix(sqlite): repair pinned directory permissions * fix(sqlite): bind publication and trusted repair * fix(snapshot): preserve safe repository mode repair * fix(sqlite): keep sync outcome internal",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(snapshot): make SQLite publication crash recoverable (#113367)",
+      "summaryZh": "重點：修正(snapshot): make SQLite publication crash recoverable (#113367) * 修正(sqlite): pin directory durability checks * 修正(sna..."
+    },
+    {
+      "id": 3,
+      "title": "feat(sdk): always persist media facts and ship facts-first replacemen…",
+      "link": "https://github.com/openclaw/openclaw/commit/1e9d918037c14d8b406045a9cc0f5bd36b6af194",
+      "publishedAt": "2026-07-24T17:42:17Z",
+      "summary": "feat(sdk): always persist media facts and ship facts-first replacements for legacy Media* surfaces (#113355) * feat(sdk): always persist media facts and ship facts-first replacements for legacy Media* surfaces PR 1 of the media legacy retirement program (audit-frozen, 4 PRs). - Every media-bearing user turn now persists normalized __openclaw.media facts unconditionally while continuing to emit the legacy top-level Media* projection byte-identically (dual-write bridge; the conditional shouldPersistStructuredMediaEntries gate now always includes media). - New replacement APIs, shipped before any removal: typed hook media facts (media[], originalMedia[], mediaStagingPending) on message events; {{AttachmentPath}}/{{AttachmentUrl}}/{{AttachmentContentType}}/ {{AttachmentDir}}/{{AttachmentIndex}} template variables; focused openclaw/plugin-sdk/media-local-roots subpath split out of the deprecated agent-media-payload facade. - Every legacy surface carries @deprecated naming its replacement, under one named compatibility record media-legacy-projection with the operator-approved removeAfter 2026-10-01 (two release trains; deletion additionally gates on a clean published-plugin artifact sweep). - Generic transcript append invariant documented; SDK migration, hooks, and configuration docs updated to the facts-first path. Writer golden matrix proves legacy bytes and model prompt bytes are unchanged while nested facts become unconditional. 2,189 broad media tests green; SDK api-baseline regenerated on fresh-env Testbox. * feat(sdk): register media-local-roots subpath exports and deprecation metadata Completes PR 1: package export map for openclaw/plugin-sdk/media-local-roots plus the deprecated-subpath inventory and doc metadata entries for the media-legacy-projection record. * chore(sdk): track media-local-roots entrypoint and deprecated-export budgets * fix(sdk): keep deprecated MSTeams buildMediaPayload re-export through the compat window Deleting shipped runtime-api re-exports belongs to retirement PR 4 after the media-legacy-projection window; PR 1 only deprecates. Also formats the migration-guide schedule table. * docs: regenerate docs map for media migration additions",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(sdk): always persist media facts and ship facts-first replacemen…",
+      "summaryZh": "重點：新功能(sdk): always persist media facts and ship facts-first replacements for legacy Media* surfaces (#113355) * 新功能(sdk): ..."
+    },
+    {
+      "id": 4,
+      "title": "fix(release): repair plugin prerelease regressions (#113373)",
+      "link": "https://github.com/openclaw/openclaw/commit/756b6f70090b5ba9d83ff73b9df1b6d6afe81a87",
+      "publishedAt": "2026-07-24T17:20:32Z",
+      "summary": "fix(release): repair plugin prerelease regressions (#113373)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): repair plugin pre版本發布 regressions (#113373)",
+      "summaryZh": "重點：修正(版本發布): repair plugin pre版本發布 regressions (#113373)..."
+    },
+    {
+      "id": 5,
       "title": "refactor(ui): split chat message rendering (#113363)",
       "link": "https://github.com/openclaw/openclaw/commit/9c2ae380bc024fd8feb3482306dc824a2d45c7df",
       "publishedAt": "2026-07-24T16:41:53Z",
@@ -20,39 +53,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：refactor(ui): split chat message rendering (#113363)",
       "summaryZh": "重點：refactor(ui): split chat message rendering (#113363) * refactor(ui): split chat message rendering * refactor(ui): tighte..."
-    },
-    {
-      "id": 3,
-      "title": "fix(plugins): keep feed trust within env budget (#113364)",
-      "link": "https://github.com/openclaw/openclaw/commit/f41e28202fa797bd190ef53e596a27781c9bb494",
-      "publishedAt": "2026-07-24T16:19:14Z",
-      "summary": "fix(plugins): keep feed trust within env budget (#113364)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): keep feed trust within env budget (#113364)",
-      "summaryZh": "重點：修正(plugins): keep feed trust within env budget (#113364)..."
-    },
-    {
-      "id": 4,
-      "title": "fix(update): repair plugin config during upgrade finalization (#113324)",
-      "link": "https://github.com/openclaw/openclaw/commit/8029b3bbb8506de88740a918d6633c8250176421",
-      "publishedAt": "2026-07-24T16:18:59Z",
-      "summary": "fix(update): repair plugin config during upgrade finalization (#113324) * fix(update): repair configured plugins during finalization * fix(update): allow legacy config through migration",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): repair plugin config during upgrade finalization (#113324)",
-      "summaryZh": "重點：修正(update): repair plugin config during upgrade finalization (#113324) * 修正(update): repair configured plugins during fi..."
-    },
-    {
-      "id": 5,
-      "title": "fix(ui): chat bubbles overlap after switching to the dashboard face (…",
-      "link": "https://github.com/openclaw/openclaw/commit/70a8c2a1c99d061134c26216f88568e0e4cff560",
-      "publishedAt": "2026-07-24T16:06:58Z",
-      "summary": "fix(ui): chat bubbles overlap after switching to the dashboard face (#113356) * fix(ui): keep chat transcript rows measured across dashboard face switches * test(ui): satisfy lint in transcript measure regression test",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): chat bubbles overlap after switching to the dashboard face (…",
-      "summaryZh": "重點：修正(ui): chat bubbles overlap after switching to the dashboard face (#113356) * 修正(ui): keep chat transcript rows measure..."
     },
     {
       "id": 6,
