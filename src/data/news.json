@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-25T16:58:38.858Z",
+  "generatedAt": "2026-07-25T18:01:51.708Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(config): split validation responsibilities (#113713)",
-      "link": "https://github.com/openclaw/openclaw/commit/7db5d5450e0cfe45d27fb36eb1b19c679cfb58c4",
-      "publishedAt": "2026-07-25T16:56:09Z",
-      "summary": "refactor(config): split validation responsibilities (#113713) * refactor(config): split validation god file * refactor(config): keep validation helper type private",
+      "title": "fix(ui): restore one-of skill binary setup and installation (#113767)",
+      "link": "https://github.com/openclaw/openclaw/commit/6277c35d9a97cb128d32ed7ab5632cfc4163c746",
+      "publishedAt": "2026-07-25T18:01:25Z",
+      "summary": "fix(ui): restore one-of skill binary setup and installation (#113767) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): split validation responsibilities (#113713)",
-      "summaryZh": "重點：refactor(config): split validation responsibilities (#113713) * refactor(config): split validation god file * refactor(c..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore one-of skill binary setup and installation (#113767)",
+      "summaryZh": "重點：修正(ui): restore one-of skill binary setup and installation (#113767) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 2,
-      "title": "fix(ui): carapace follow-ups — embed font stacks, data-theme-resolved…",
-      "link": "https://github.com/openclaw/openclaw/commit/e2790760102aee5d99504bce640a5b3160df5331",
-      "publishedAt": "2026-07-25T16:32:56Z",
-      "summary": "fix(ui): carapace follow-ups — embed font stacks, data-theme-resolved, undefined status tokens (#113724) * feat(ui): publish carapace embed font stacks to MCP apps Adopt the carapace embed contract's sandbox-safe font stacks: publish --font-sans for the first time and switch --font-mono from the host's JetBrains-led token to the embed mono stack. Both are static, system- resolvable values byte-identical to carapace candidate/embed.css, since the sandbox font-src policy silently drops brand faces. * feat(ui): emit data-theme-resolved alongside theme attributes Carapace CSS selects on [data-theme-resolved]; keep it in lockstep with data-theme-mode at boot (index.html IIFE) and on every runtime theme change (bootstrap publish path). Rename applyStartupPresentation to applyThemePresentation: it runs on every theme change, not just startup. * fix(ui): resolve undefined --success/--warning tokens and drop dead hex fallbacks --success and --warning were never defined (real tokens: --ok/--warn), so sites with literal fallbacks rendered off-palette one-off colors and sites without them silently dropped declarations (invalid color-mix in the chat sidebar warn banner). Map all uses to the semantic tokens across board, chat sidebar/layout, layout, and components styles, and strip the stale dead var() hex fallbacks in these global stylesheets. Code-syntax palette hexes in the file view are documented as deliberate.",
+      "title": "improve(browser): batch navigation guard, snapshot delta markers, too…",
+      "link": "https://github.com/openclaw/openclaw/commit/4dd8a2be762763a68936aff998e6a8efeeb418c2",
+      "publishedAt": "2026-07-25T17:58:03Z",
+      "summary": "improve(browser): batch navigation guard, snapshot delta markers, tool output schema, code-mode recipe (#113749) * feat(browser): guard batches and annotate snapshot deltas * docs(browser): document reliable automation loops * test(browser): align batch guard mocks * fix(browser): reset snapshot deltas after navigation * fix(browser): detect document navigation without URL equality * fix(browser): require stable identity for snapshot deltas * fix(browser): keep snapshot delta helper private",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): carapace follow-ups — embed font stacks, data-theme-resolved…",
-      "summaryZh": "重點：修正(ui): carapace follow-ups — embed font stacks, data-theme-resolved, undefined status tokens (#113724) * 新功能(ui): publi..."
+      "titleZh": "OpenClaw 程式碼更新：improve(browser): batch navigation guard, snapshot delta markers, too…",
+      "summaryZh": "重點：improve(browser): batch navigation guard, snapshot delta markers, tool output schema, code-mode recipe (#113749) * 新功能(b..."
     },
     {
       "id": 3,
-      "title": "fix(browser): clean up failed guarded navigation routes (#113753)",
-      "link": "https://github.com/openclaw/openclaw/commit/dd606796c1b16b3a498982b0b63c3528f6cda09b",
-      "publishedAt": "2026-07-25T16:17:53Z",
-      "summary": "fix(browser): clean up failed guarded navigation routes (#113753) Co-authored-by: Peter Steinberger",
+      "title": "refactor(mattermost): split inbound monitor (#113775)",
+      "link": "https://github.com/openclaw/openclaw/commit/0ff2c82033302fd3a969be5ea8612263bd4199cc",
+      "publishedAt": "2026-07-25T17:56:58Z",
+      "summary": "refactor(mattermost): split inbound monitor (#113775) * refactor(mattermost): split inbound monitor * test(channels): follow mattermost history split",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): clean up failed guarded navigation routes (#113753)",
-      "summaryZh": "重點：修正(browser): clean up failed guarded navigation routes (#113753) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(mattermost): split inbound monitor (#113775)",
+      "summaryZh": "重點：refactor(mattermost): split inbound monitor (#113775) * refactor(mattermost): split inbound monitor * test(channels): fo..."
     },
     {
       "id": 4,
-      "title": "fix(browser): prevent IME composition from sending copilot messages (…",
-      "link": "https://github.com/openclaw/openclaw/commit/511d759c50a745e907e0f504ff957ef923cc19e5",
-      "publishedAt": "2026-07-25T16:14:20Z",
-      "summary": "fix(browser): prevent IME composition from sending copilot messages (#113752) Co-authored-by: Peter Steinberger",
+      "title": "refactor(doctor): split configured plugin repair (#113777)",
+      "link": "https://github.com/openclaw/openclaw/commit/c65f5096589dbbd63cf085cb22eacf8d0ad75025",
+      "publishedAt": "2026-07-25T17:56:40Z",
+      "summary": "refactor(doctor): split configured plugin repair (#113777)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): prevent IME composition from sending copilot messages (…",
-      "summaryZh": "重點：修正(browser): prevent IME composition from sending copilot messages (#113752) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 文件更新：refactor(文件tor): split configured plugin repair (#113777)",
+      "summaryZh": "重點：refactor(文件tor): split configured plugin repair (#113777)..."
     },
     {
       "id": 5,
