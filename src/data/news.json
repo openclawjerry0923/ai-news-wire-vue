@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-07-25T11:10:52.498Z",
+  "generatedAt": "2026-07-25T13:28:15.118Z",
   "items": [
     {
       "id": 1,
+      "title": "test(scripts): slim workflow guard monoliths (#113650)",
+      "link": "https://github.com/openclaw/openclaw/commit/d4c5b673f3296c1e714c9cbd781569d46d54c83e",
+      "publishedAt": "2026-07-25T13:27:19Z",
+      "summary": "test(scripts): slim workflow guard monoliths (#113650) * test: slim package acceptance workflow guards * test: drop disabled CI timing guard * test: consolidate Docker workflow guards * test(scripts): align plugin sweep guard with lifecycle tracing * test(scripts): restore release wiring contracts",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(scripts): slim workflow guard monoliths (#113650)",
+      "summaryZh": "重點：test(scripts): slim workflow guard monoliths (#113650) * test: slim package acceptance workflow guards * test: drop disa..."
+    },
+    {
+      "id": 2,
+      "title": "fix(compaction): thread agent streamFn into safeguard summarizer (#11…",
+      "link": "https://github.com/openclaw/openclaw/commit/4e6ad11e374e7f9923022a5a98e411651e70c40b",
+      "publishedAt": "2026-07-25T13:25:43Z",
+      "summary": "fix(compaction): thread agent streamFn into safeguard summarizer (#112416) * fix(compaction): thread agent streamFn into safeguard summarizer The compaction safeguard summarizer invoked the model without the agent's egress streamFn, so it fell back to the core HTTP client (completeSimple), which builds the request from model.baseUrl. That field is empty (\"\") at the core layer for OpenRouter-provider models — the real base URL is only injected inside the provider plugin's stream function. The empty base URL made the OpenAI SDK throw APIConnectionError, surfaced as \"Summarization failed: Connection error.\", so safeguard compaction summaries silently failed (the safeguard then preserved the verbatim tail, masking it). Normal turns and the full/non-safeguard compaction path were unaffected because they already thread streamFn. Thread the agent's streamFn (the same this.agent.streamFn the core compaction path passes into compact()) through the session_before_compact event into summarizeViaLLM -> summarizeInStages -> summarizeWithFallback -> summarizeChunks -> generateSummary, filling the existing streamFn slot on the underlying summarization completion. Minimal optional-param plumbing; safeguard tail-preservation behavior is unchanged. Co-Authored-By: Claude Fable 5 * fix(compaction): preserve safeguard model execution context * test(compaction): use canonical stream type export --------- Co-authored-by: Claude Fable 5 Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(compaction): thread agent streamFn into safeguard summarizer (#11…",
+      "summaryZh": "重點：修正(compaction): thread agent streamFn into safeguard summarizer (#112416) * 修正(compaction): thread agent streamFn into s..."
+    },
+    {
+      "id": 3,
+      "title": "feat(skills): support external skills.sh references (#112751)",
+      "link": "https://github.com/openclaw/openclaw/commit/559bc2adc81147d88f367078e2b17ef082a1af40",
+      "publishedAt": "2026-07-25T13:24:34Z",
+      "summary": "feat(skills): support external skills.sh references (#112751)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(skills): support external skills.sh references (#112751)",
+      "summaryZh": "重點：新功能(skills): support external skills.sh references (#112751)..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(agents): split code mode execution (#113669)",
+      "link": "https://github.com/openclaw/openclaw/commit/e52222cdefa68c294c57f50847a2f1291a638d46",
+      "publishedAt": "2026-07-25T13:22:25Z",
+      "summary": "refactor(agents): split code mode execution (#113669) * refactor(agents): split code mode execution * refactor(agents): keep code mode bridge type private",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): split code mode execution (#113669)",
+      "summaryZh": "重點：refactor(agents): split code mode execution (#113669) * refactor(agents): split code mode execution * refactor(agents): ..."
+    },
+    {
+      "id": 5,
       "title": "Google緊急更新Chrome 150版，修補4個高風險漏洞",
       "link": "https://www.ithome.com.tw/news/177624",
       "publishedAt": "2026-07-25 12:07:54",
       "summary": "本週二Google發布Chrome穩定版更新150.0.7871.181版與150.0.7871.182版，不料兩天後突然又推出新版本，針對Windows與macOS提供150.0.7871.186版與150.0.7871.187版，針對Linu",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 2,
-      "title": "refactor(workboard): share claim token redaction (#113618)",
-      "link": "https://github.com/openclaw/openclaw/commit/13126e4bd722c937f2e1e5c74032c8e6a0a45ed8",
-      "publishedAt": "2026-07-25T11:06:18Z",
-      "summary": "refactor(workboard): share claim token redaction (#113618)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(workboard): share claim token redaction (#113618)",
-      "summaryZh": "重點：refactor(workboard): share claim token redaction (#113618)..."
-    },
-    {
-      "id": 3,
-      "title": "fix(control-ui): keep polling gateway-driven setup progress (#113613)",
-      "link": "https://github.com/openclaw/openclaw/commit/66615987d39d11f044a9cee384107f7dcc91089a",
-      "publishedAt": "2026-07-25T11:04:56Z",
-      "summary": "fix(control-ui): keep polling gateway-driven setup progress (#113613)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): keep polling Gateway-driven setup progress (#113613)",
-      "summaryZh": "重點：修正(control-ui): keep polling Gateway-driven setup progress (#113613)..."
-    },
-    {
-      "id": 4,
-      "title": "test(packaging): cover manifest-declared plugin assets",
-      "link": "https://github.com/openclaw/openclaw/commit/bb47d9f29abc267b85827a2e4d4f09746d2544a4",
-      "publishedAt": "2026-07-25T11:03:30Z",
-      "summary": "test(packaging): cover manifest-declared plugin assets",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(packaging): cover manifest-declared plugin assets",
-      "summaryZh": "重點：test(packaging): cover manifest-declared plugin assets..."
-    },
-    {
-      "id": 5,
-      "title": "fix(onepassword): make SecretRef setup production-safe",
-      "link": "https://github.com/openclaw/openclaw/commit/f153858045a42cd935ff72e61e06ccba924edea0",
-      "publishedAt": "2026-07-25T11:03:30Z",
-      "summary": "fix(onepassword): make SecretRef setup production-safe",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onepassword): make SecretRef setup production-safe",
-      "summaryZh": "重點：修正(onepassword): make SecretRef setup production-safe..."
     },
     {
       "id": 6,
