@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-25T13:28:15.118Z",
+  "generatedAt": "2026-07-25T15:03:16.271Z",
   "items": [
     {
       "id": 1,
-      "title": "test(scripts): slim workflow guard monoliths (#113650)",
-      "link": "https://github.com/openclaw/openclaw/commit/d4c5b673f3296c1e714c9cbd781569d46d54c83e",
-      "publishedAt": "2026-07-25T13:27:19Z",
-      "summary": "test(scripts): slim workflow guard monoliths (#113650) * test: slim package acceptance workflow guards * test: drop disabled CI timing guard * test: consolidate Docker workflow guards * test(scripts): align plugin sweep guard with lifecycle tracing * test(scripts): restore release wiring contracts",
+      "title": "fix(release): validate complete package sets in candidate smoke (#113…",
+      "link": "https://github.com/openclaw/openclaw/commit/f1538c6d6c1a72effb7a85f00f9bca7d2c5344d5",
+      "publishedAt": "2026-07-25T14:59:06Z",
+      "summary": "fix(release): validate complete package sets in candidate smoke (#113600) * fix(release): pass only root dependencies to candidate smoke * fix(release): stage plugin candidates for Parallels * fix(release): bind plugin preflight package identity * fix(test): stream upstream npm tarballs * fix(test): retry post-update gateway startup * fix(test): install fresh candidates through registry * fix(test): route fresh candidates through registry * test(release): update Parallels source contracts * fix(test): split host and guest registry URLs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(scripts): slim workflow guard monoliths (#113650)",
-      "summaryZh": "重點：test(scripts): slim workflow guard monoliths (#113650) * test: slim package acceptance workflow guards * test: drop disa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): validate complete package sets in candidate smoke (#113…",
+      "summaryZh": "重點：修正(版本發布): validate complete package sets in candidate smoke (#113600) * 修正(版本發布): pass only root dependencies to candida..."
     },
     {
       "id": 2,
-      "title": "fix(compaction): thread agent streamFn into safeguard summarizer (#11…",
-      "link": "https://github.com/openclaw/openclaw/commit/4e6ad11e374e7f9923022a5a98e411651e70c40b",
-      "publishedAt": "2026-07-25T13:25:43Z",
-      "summary": "fix(compaction): thread agent streamFn into safeguard summarizer (#112416) * fix(compaction): thread agent streamFn into safeguard summarizer The compaction safeguard summarizer invoked the model without the agent's egress streamFn, so it fell back to the core HTTP client (completeSimple), which builds the request from model.baseUrl. That field is empty (\"\") at the core layer for OpenRouter-provider models — the real base URL is only injected inside the provider plugin's stream function. The empty base URL made the OpenAI SDK throw APIConnectionError, surfaced as \"Summarization failed: Connection error.\", so safeguard compaction summaries silently failed (the safeguard then preserved the verbatim tail, masking it). Normal turns and the full/non-safeguard compaction path were unaffected because they already thread streamFn. Thread the agent's streamFn (the same this.agent.streamFn the core compaction path passes into compact()) through the session_before_compact event into summarizeViaLLM -> summarizeInStages -> summarizeWithFallback -> summarizeChunks -> generateSummary, filling the existing streamFn slot on the underlying summarization completion. Minimal optional-param plumbing; safeguard tail-preservation behavior is unchanged. Co-Authored-By: Claude Fable 5 * fix(compaction): preserve safeguard model execution context * test(compaction): use canonical stream type export --------- Co-authored-by: Claude Fable 5 Co-authored-by: Peter Steinberger",
+      "title": "fix: gmail setup fails to load gcloud when an unsupported Python is f…",
+      "link": "https://github.com/openclaw/openclaw/commit/65526ed38934e00aeefca817bbe58a1376fe4faf",
+      "publishedAt": "2026-07-25T14:53:38Z",
+      "summary": "fix: gmail setup fails to load gcloud when an unsupported Python is first on PATH (#112983) * fix(gmail-setup): skip python interpreters gcloud can't use resolvePythonExecutablePath accepted the first python3/python found on PATH without checking its version, so macOS' bundled Python 3.9 (earlier on PATH than a Homebrew 3.10-3.14 install) was chosen as CLOUDSDK_PYTHON and gcloud failed to load. Query each candidate's version and skip any outside gcloud's supported 3.10-3.14 range so a compatible interpreter later on PATH is selected instead. Closes #112712 * test(gmail): cover gcloud Python upper bound --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(compaction): thread agent streamFn into safeguard summarizer (#11…",
-      "summaryZh": "重點：修正(compaction): thread agent streamFn into safeguard summarizer (#112416) * 修正(compaction): thread agent streamFn into s..."
+      "titleZh": "OpenClaw 程式碼更新：修正: gmail setup fails to load gcloud when an unsupported Python is f…",
+      "summaryZh": "重點：修正: gmail setup fails to load gcloud when an unsupported Python is first on PATH (#112983) * 修正(gmail-setup): skip pytho..."
     },
     {
       "id": 3,
-      "title": "feat(skills): support external skills.sh references (#112751)",
-      "link": "https://github.com/openclaw/openclaw/commit/559bc2adc81147d88f367078e2b17ef082a1af40",
-      "publishedAt": "2026-07-25T13:24:34Z",
-      "summary": "feat(skills): support external skills.sh references (#112751)",
+      "title": "fix(android): connect to pasted manual gateway host and port (#113722)",
+      "link": "https://github.com/openclaw/openclaw/commit/53be78269e09ef2404c210840cde8cbc7f6968b4",
+      "publishedAt": "2026-07-25T14:52:46Z",
+      "summary": "fix(android): connect to pasted manual gateway host and port (#113722) * fix(android): preserve pasted manual gateway authorities * fix(android): align gateway formatting and native i18n baseline --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(skills): support external skills.sh references (#112751)",
-      "summaryZh": "重點：新功能(skills): support external skills.sh references (#112751)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): connect to pasted manual Gateway host and port (#113722)",
+      "summaryZh": "重點：修正(android): connect to pasted manual Gateway host and port (#113722) * 修正(android): preserve pasted manual Gateway auth..."
     },
     {
       "id": 4,
-      "title": "refactor(agents): split code mode execution (#113669)",
-      "link": "https://github.com/openclaw/openclaw/commit/e52222cdefa68c294c57f50847a2f1291a638d46",
-      "publishedAt": "2026-07-25T13:22:25Z",
-      "summary": "refactor(agents): split code mode execution (#113669) * refactor(agents): split code mode execution * refactor(agents): keep code mode bridge type private",
+      "title": "fix(xiaomi): reject malformed base64 audio in TTS responses (#113106)",
+      "link": "https://github.com/openclaw/openclaw/commit/cff22e83ca3e1f1ee3a022656812a0e303df69d5",
+      "publishedAt": "2026-07-25T14:52:23Z",
+      "summary": "fix(xiaomi): reject malformed base64 audio in TTS responses (#113106) * fix(xiaomi): reject malformed TTS audio Co-authored-by: zenglingbiao * fix(media): reject noncanonical base64 padding * style(xiaomi): format malformed audio test --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): split code mode execution (#113669)",
-      "summaryZh": "重點：refactor(agents): split code mode execution (#113669) * refactor(agents): split code mode execution * refactor(agents): ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(xiaomi): reject malformed base64 audio in TTS responses (#113106)",
+      "summaryZh": "重點：修正(xiaomi): reject malformed base64 audio in TTS responses (#113106) * 修正(xiaomi): reject malformed TTS audio Co-authore..."
     },
     {
       "id": 5,
+      "title": "Fortinet 漏洞擴大，台企資安拉警報",
+      "link": "https://infosecu.technews.tw/2026/07/25/fortinet-vulnerabilities-widen-raising-cybersecurity-alarm-taiwanese-companies/",
+      "publishedAt": "Sat, 25 Jul 2026 14:38:52 +0000",
+      "summary": "Fortinet 防火牆及 VPN 憑證外洩事件（FortiBleed）持續延燒。資安公司 Hudson Ro [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "日本 ATT12 望遠鏡落腳南極，預計揭開千萬個塵封星系誕生之謎",
+      "link": "https://technews.tw/2026/07/25/antarctic-12-m-terahertz-telescope/",
+      "publishedAt": "Sat, 25 Jul 2026 14:38:01 +0000",
+      "summary": "由日本筑波大學主導的次世代觀測設施「南極十二公尺太赫茲望遠鏡」（Antarctic 12 m Terahert [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "Google緊急更新Chrome 150版，修補4個高風險漏洞",
       "link": "https://www.ithome.com.tw/news/177624",
       "publishedAt": "2026-07-25 12:07:54",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "AI 的未來，會不會建立在更高的電力成本上？",
       "link": "https://technews.tw/2026/07/25/ai-future-higher-electricity-costs/",
       "publishedAt": "Sat, 25 Jul 2026 09:01:31 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "AI 與量子運算強強聯手，丹麥團隊精準打造新世代胜肽",
       "link": "https://technews.tw/2026/07/25/ai-quantum-computing-crafts-next-generation-peptides/",
       "publishedAt": "Sat, 25 Jul 2026 07:33:47 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "美 301 關稅正式生效，台灣稅率保底 10%、五大豁免條件一次看",
       "link": "https://finance.technews.tw/2026/07/25/us-301-tariffs-effective-taiwan-10-percent-minimum-5-exemption-conditions/",
       "publishedAt": "Sat, 25 Jul 2026 07:00:47 +0000",
       "summary": "美國貿易代表署（USTR）23 日宣布，將依《1974 年貿易法》（Trade Act of 1974）第 3 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "AR 眼鏡不再「擋視線」，跨國團隊全新遮罩技術讓虛擬與現實完美融合",
-      "link": "https://technews.tw/2026/07/25/ar-glasses-no-longer-obstruct-view/",
-      "publishedAt": "Sat, 25 Jul 2026 06:48:08 +0000",
-      "summary": "日本與跨國研究團隊近期開發出一種全新的擴增實境（AR）顯示技術，成功解決了智慧眼鏡長期以來的兩難：如何在不犧牲 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AMD Helios 支援 246 kW AI 機櫃，電力架構再升級",
-      "link": "https://technews.tw/2026/07/25/amd-helios-246kw-ai-rack-power-architecture-upgrade/",
-      "publishedAt": "Sat, 25 Jul 2026 06:24:53 +0000",
-      "summary": "AI 資料中心功率持續攀升，帶動電力架構朝更高功率密度發展。AMD 與施耐德電機共同發布 Helios AI [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
