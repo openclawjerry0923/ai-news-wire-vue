@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-25T15:03:16.271Z",
+  "generatedAt": "2026-07-25T16:58:38.858Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(release): validate complete package sets in candidate smoke (#113…",
-      "link": "https://github.com/openclaw/openclaw/commit/f1538c6d6c1a72effb7a85f00f9bca7d2c5344d5",
-      "publishedAt": "2026-07-25T14:59:06Z",
-      "summary": "fix(release): validate complete package sets in candidate smoke (#113600) * fix(release): pass only root dependencies to candidate smoke * fix(release): stage plugin candidates for Parallels * fix(release): bind plugin preflight package identity * fix(test): stream upstream npm tarballs * fix(test): retry post-update gateway startup * fix(test): install fresh candidates through registry * fix(test): route fresh candidates through registry * test(release): update Parallels source contracts * fix(test): split host and guest registry URLs",
+      "title": "refactor(config): split validation responsibilities (#113713)",
+      "link": "https://github.com/openclaw/openclaw/commit/7db5d5450e0cfe45d27fb36eb1b19c679cfb58c4",
+      "publishedAt": "2026-07-25T16:56:09Z",
+      "summary": "refactor(config): split validation responsibilities (#113713) * refactor(config): split validation god file * refactor(config): keep validation helper type private",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): validate complete package sets in candidate smoke (#113…",
-      "summaryZh": "重點：修正(版本發布): validate complete package sets in candidate smoke (#113600) * 修正(版本發布): pass only root dependencies to candida..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(config): split validation responsibilities (#113713)",
+      "summaryZh": "重點：refactor(config): split validation responsibilities (#113713) * refactor(config): split validation god file * refactor(c..."
     },
     {
       "id": 2,
-      "title": "fix: gmail setup fails to load gcloud when an unsupported Python is f…",
-      "link": "https://github.com/openclaw/openclaw/commit/65526ed38934e00aeefca817bbe58a1376fe4faf",
-      "publishedAt": "2026-07-25T14:53:38Z",
-      "summary": "fix: gmail setup fails to load gcloud when an unsupported Python is first on PATH (#112983) * fix(gmail-setup): skip python interpreters gcloud can't use resolvePythonExecutablePath accepted the first python3/python found on PATH without checking its version, so macOS' bundled Python 3.9 (earlier on PATH than a Homebrew 3.10-3.14 install) was chosen as CLOUDSDK_PYTHON and gcloud failed to load. Query each candidate's version and skip any outside gcloud's supported 3.10-3.14 range so a compatible interpreter later on PATH is selected instead. Closes #112712 * test(gmail): cover gcloud Python upper bound --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(ui): carapace follow-ups — embed font stacks, data-theme-resolved…",
+      "link": "https://github.com/openclaw/openclaw/commit/e2790760102aee5d99504bce640a5b3160df5331",
+      "publishedAt": "2026-07-25T16:32:56Z",
+      "summary": "fix(ui): carapace follow-ups — embed font stacks, data-theme-resolved, undefined status tokens (#113724) * feat(ui): publish carapace embed font stacks to MCP apps Adopt the carapace embed contract's sandbox-safe font stacks: publish --font-sans for the first time and switch --font-mono from the host's JetBrains-led token to the embed mono stack. Both are static, system- resolvable values byte-identical to carapace candidate/embed.css, since the sandbox font-src policy silently drops brand faces. * feat(ui): emit data-theme-resolved alongside theme attributes Carapace CSS selects on [data-theme-resolved]; keep it in lockstep with data-theme-mode at boot (index.html IIFE) and on every runtime theme change (bootstrap publish path). Rename applyStartupPresentation to applyThemePresentation: it runs on every theme change, not just startup. * fix(ui): resolve undefined --success/--warning tokens and drop dead hex fallbacks --success and --warning were never defined (real tokens: --ok/--warn), so sites with literal fallbacks rendered off-palette one-off colors and sites without them silently dropped declarations (invalid color-mix in the chat sidebar warn banner). Map all uses to the semantic tokens across board, chat sidebar/layout, layout, and components styles, and strip the stale dead var() hex fallbacks in these global stylesheets. Code-syntax palette hexes in the file view are documented as deliberate.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: gmail setup fails to load gcloud when an unsupported Python is f…",
-      "summaryZh": "重點：修正: gmail setup fails to load gcloud when an unsupported Python is first on PATH (#112983) * 修正(gmail-setup): skip pytho..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): carapace follow-ups — embed font stacks, data-theme-resolved…",
+      "summaryZh": "重點：修正(ui): carapace follow-ups — embed font stacks, data-theme-resolved, undefined status tokens (#113724) * 新功能(ui): publi..."
     },
     {
       "id": 3,
-      "title": "fix(android): connect to pasted manual gateway host and port (#113722)",
-      "link": "https://github.com/openclaw/openclaw/commit/53be78269e09ef2404c210840cde8cbc7f6968b4",
-      "publishedAt": "2026-07-25T14:52:46Z",
-      "summary": "fix(android): connect to pasted manual gateway host and port (#113722) * fix(android): preserve pasted manual gateway authorities * fix(android): align gateway formatting and native i18n baseline --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(browser): clean up failed guarded navigation routes (#113753)",
+      "link": "https://github.com/openclaw/openclaw/commit/dd606796c1b16b3a498982b0b63c3528f6cda09b",
+      "publishedAt": "2026-07-25T16:17:53Z",
+      "summary": "fix(browser): clean up failed guarded navigation routes (#113753) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): connect to pasted manual Gateway host and port (#113722)",
-      "summaryZh": "重點：修正(android): connect to pasted manual Gateway host and port (#113722) * 修正(android): preserve pasted manual Gateway auth..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): clean up failed guarded navigation routes (#113753)",
+      "summaryZh": "重點：修正(browser): clean up failed guarded navigation routes (#113753) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 4,
-      "title": "fix(xiaomi): reject malformed base64 audio in TTS responses (#113106)",
-      "link": "https://github.com/openclaw/openclaw/commit/cff22e83ca3e1f1ee3a022656812a0e303df69d5",
-      "publishedAt": "2026-07-25T14:52:23Z",
-      "summary": "fix(xiaomi): reject malformed base64 audio in TTS responses (#113106) * fix(xiaomi): reject malformed TTS audio Co-authored-by: zenglingbiao * fix(media): reject noncanonical base64 padding * style(xiaomi): format malformed audio test --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(browser): prevent IME composition from sending copilot messages (…",
+      "link": "https://github.com/openclaw/openclaw/commit/511d759c50a745e907e0f504ff957ef923cc19e5",
+      "publishedAt": "2026-07-25T16:14:20Z",
+      "summary": "fix(browser): prevent IME composition from sending copilot messages (#113752) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(xiaomi): reject malformed base64 audio in TTS responses (#113106)",
-      "summaryZh": "重點：修正(xiaomi): reject malformed base64 audio in TTS responses (#113106) * 修正(xiaomi): reject malformed TTS audio Co-authore..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): prevent IME composition from sending copilot messages (…",
+      "summaryZh": "重點：修正(browser): prevent IME composition from sending copilot messages (#113752) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 5,
+      "title": "能計步、當開關還能變形，哈佛最新「多穩態」智慧布料顛覆穿戴裝置想像",
+      "link": "https://technews.tw/2026/07/26/harvard-multistability-smart-knitted-fabric/",
+      "publishedAt": "Sat, 25 Jul 2026 16:00:34 +0000",
+      "summary": "哈佛大學研究團隊成功將日常的針織布料轉化為可程式化材料。這種新型布料不僅能在多種穩定的形狀間自由切換，還能充當 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "港大 AI 血液檢測，提前 15 年攔截六大心血管疾病",
+      "link": "https://technews.tw/2026/07/26/ai-blood-test-detects-six-major-cardiovascular-diseases-15-years-early/",
+      "publishedAt": "Sat, 25 Jul 2026 16:00:12 +0000",
+      "summary": "香港大學李嘉誠醫學院（港大醫學院）研究團隊近期成功開發出一款名為 CardiOmicScore 的人工智慧（A [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "Fortinet 漏洞擴大，台企資安拉警報",
       "link": "https://infosecu.technews.tw/2026/07/25/fortinet-vulnerabilities-widen-raising-cybersecurity-alarm-taiwanese-companies/",
       "publishedAt": "Sat, 25 Jul 2026 14:38:52 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "日本 ATT12 望遠鏡落腳南極，預計揭開千萬個塵封星系誕生之謎",
       "link": "https://technews.tw/2026/07/25/antarctic-12-m-terahertz-telescope/",
       "publishedAt": "Sat, 25 Jul 2026 14:38:01 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "Google緊急更新Chrome 150版，修補4個高風險漏洞",
       "link": "https://www.ithome.com.tw/news/177624",
       "publishedAt": "2026-07-25 12:07:54",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "AI 的未來，會不會建立在更高的電力成本上？",
       "link": "https://technews.tw/2026/07/25/ai-future-higher-electricity-costs/",
       "publishedAt": "Sat, 25 Jul 2026 09:01:31 +0000",
       "summary": "AI 發展正逐漸從模型、晶片與算力，延伸到更基礎的電力議題。隨著愈來愈多科技公司宣布興建 AI 資料中心，外界 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "AI 與量子運算強強聯手，丹麥團隊精準打造新世代胜肽",
-      "link": "https://technews.tw/2026/07/25/ai-quantum-computing-crafts-next-generation-peptides/",
-      "publishedAt": "Sat, 25 Jul 2026 07:33:47 +0000",
-      "summary": "丹麥科技大學（Technical University of Denmark）近期在藥物開發領域取得重要突破， [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "美 301 關稅正式生效，台灣稅率保底 10%、五大豁免條件一次看",
-      "link": "https://finance.technews.tw/2026/07/25/us-301-tariffs-effective-taiwan-10-percent-minimum-5-exemption-conditions/",
-      "publishedAt": "Sat, 25 Jul 2026 07:00:47 +0000",
-      "summary": "美國貿易代表署（USTR）23 日宣布，將依《1974 年貿易法》（Trade Act of 1974）第 3 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
