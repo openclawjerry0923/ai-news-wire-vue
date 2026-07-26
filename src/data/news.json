@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-26T18:01:21.332Z",
+  "generatedAt": "2026-07-26T20:09:35.348Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: open selected channel setup immediately (#113197)",
-      "link": "https://github.com/openclaw/openclaw/commit/6bbf1dd9174f09b0398d0e1ac53e88e8cc486799",
-      "publishedAt": "2026-07-26T17:30:15Z",
-      "summary": "fix: open selected channel setup immediately (#113197) * CLI: enter selected channel setup directly * fix: keep channel direct entry resolution scoped * fix: keep exact channel ids ahead of aliases * test: clarify channel-only guided routing * fix: align channel direct entry with current main",
+      "title": "feat: show ClawHub skill icons in Control UI (#114152)",
+      "link": "https://github.com/openclaw/openclaw/commit/c66ca2fbb2b038f4796abfa76bd52dcc3b675b02",
+      "publishedAt": "2026-07-26T19:44:36Z",
+      "summary": "feat: show ClawHub skill icons in Control UI (#114152)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: open selected channel setup immediately (#113197)",
-      "summaryZh": "重點：修正: open selected channel setup immediately (#113197) * CLI: enter selected channel setup directly * 修正: keep channel di..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: show ClawHub skill icons in Control UI (#114152)",
+      "summaryZh": "重點：新功能: show ClawHub skill icons in Control UI (#114152)..."
     },
     {
       "id": 2,
-      "title": "v2026.7.2-beta.5",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.7.2-beta.5",
-      "publishedAt": "2026-07-26T16:55:31Z",
-      "summary": "openclaw 2026.7.2-beta.5",
-      "source": "OpenClaw Releases",
+      "title": "fix(e2e): use the newest Windows smoke snapshot (#114157)",
+      "link": "https://github.com/openclaw/openclaw/commit/f9721b98097aac6e3f02b02117db2e61b82c03bf",
+      "publishedAt": "2026-07-26T19:34:04Z",
+      "summary": "fix(e2e): use the newest Windows smoke snapshot (#114157) * fix(e2e): select newest Windows smoke snapshot * test(e2e): preserve undated snapshot ordering",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.7.2-beta.5",
-      "summaryZh": "重點：OpenClaw 2026.7.2-beta.5..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): use the newest Windows smoke snapshot (#114157)",
+      "summaryZh": "重點：修正(e2e): use the newest Windows smoke snapshot (#114157) * 修正(e2e): select newest Windows smoke snapshot * test(e2e): pr..."
     },
     {
       "id": 3,
-      "title": "feat(ui): path-based session and dashboard URLs (#113883)",
-      "link": "https://github.com/openclaw/openclaw/commit/cca5b147857d5c519a00906dc6a13553726205d1",
-      "publishedAt": "2026-07-26T16:46:04Z",
-      "summary": "feat(ui): path-based session and dashboard URLs (#113883) * feat(ui): path-based session and dashboard URLs * docs(ui): document control UI URLs * fix(ui): finalize session path routing * feat(ui): anchor session URLs on stable keys * docs(ui): clarify stable session URL identity * fix(ui): resolve session prefixes with full prefix and pagination Query sessions.list with the full supplied prefix instead of an eight-char truncation, and paginate up to a bounded page count so longer disambiguation links resolve instead of being reported ambiguous. Zero strict-prefix matches now fall through to literal-key resolution rather than rendering an empty ambiguity view. Also document the ~dot/~dotdot segment escape: peer ids reach session keys trimmed and lowercased only (src/routing/session-key.ts), so a literal '.' or '..' segment is reachable and browsers would normalize it away. * fix(ui): synchronize committed session routes * test(ui): split native shell host coverage * fix(ui): thread configured mainKey through session URL builders Reserved-set disambiguation needs the operator-configured mainKey at runtime, so thread it from agentsList through every session path builder and the ClickClack control URL. Unambiguous non-hex single-segment rests now resolve literally while short-id-shaped rests still fail closed, which restores ClickClack channel compatibility detection and control-link reconciliation. Also bound prefix-resolution retries, preserve catalog thread identity, and keep draft state on ambiguous candidate links. * fix(ui): repair session URL CI integration * perf(ui): lazy-load session route resolution * perf(ui): isolate session prefix resolution * perf(ui): defer session path parsing * perf(ui): defer session navigation startup * fix(ui): preserve first-run and literal session navigation * fix(ui): satisfy session routing type and export gates * fix(clickclack): preserve unscoped control link agent * style(ui): satisfy chat page line limit * refactor(ui): move chat page helpers to owning modules * fix(ui): preserve destination session route identity * fix(ui): preserve agent identity in session routes * fix(ui): escape dots in literal session path segments encodeURIComponent leaves periods intact, so a literal key segment like channel:release.js produced /chat/main/channel/release.js. In-app navigation is intercepted by the SPA, but a refresh, an external link, or a ClickClack link would be served as a static asset request and never reach the app. pathForWorkboardBoard already escapes dots for this reason; mirror it in both the session URL contract and the ClickClack encoder, route the agent id through the same segment encoder, and pin the case in both shared vector tables. * fix(ui): stop bootstrap after teardown race * refactor(ui): centralize session navigation targets * fix(ui): consume bootstrap teardown abort * fix(ui): canonicalize configured main session routes * fix(ui): preserve distinct session references * fix(ui): redirect released session query links * fix(ui): make bootstrap teardown abort-safe",
+      "title": "docs(buzz): shorten plugin readme (#114156)",
+      "link": "https://github.com/openclaw/openclaw/commit/898e10c0f4ebf8745337a9f2967fca613ae40eb9",
+      "publishedAt": "2026-07-26T19:21:36Z",
+      "summary": "docs(buzz): shorten plugin readme (#114156)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): path-based session and dashboard URLs (#113883)",
-      "summaryZh": "重點：新功能(ui): path-based session and dashboard URLs (#113883) * 新功能(ui): path-based session and dashboard URLs * 文件(ui): 文件um..."
+      "titleZh": "OpenClaw 文件更新：文件(buzz): shorten plugin readme (#114156)",
+      "summaryZh": "重點：文件(buzz): shorten plugin readme (#114156)..."
     },
     {
       "id": 4,
-      "title": "fix(browser): preserve nested timeouts and cancellation across node a…",
-      "link": "https://github.com/openclaw/openclaw/commit/bba7e30fcc9d71d2b3deb648425dcb87299e50b9",
-      "publishedAt": "2026-07-26T16:04:52Z",
-      "summary": "fix(browser): preserve nested timeouts and cancellation across node actions (#114131)",
+      "title": "fix(e2e): harden Windows prerequisite downloads (#114153)",
+      "link": "https://github.com/openclaw/openclaw/commit/96aa6be6703b6ea6753527a8281ea501d96bdb36",
+      "publishedAt": "2026-07-26T19:01:59Z",
+      "summary": "fix(e2e): harden Windows prerequisite downloads (#114153)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): preserve nested timeouts and cancellation across node a…",
-      "summaryZh": "重點：修正(browser): preserve nested timeouts and cancellation across node actions (#114131)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): harden Windows prerequisite downloads (#114153)",
+      "summaryZh": "重點：修正(e2e): harden Windows prerequisite downloads (#114153)..."
     },
     {
       "id": 5,
