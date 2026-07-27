@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-27T20:22:58.901Z",
+  "generatedAt": "2026-07-27T22:08:24.638Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(models): recognize loopback endpoints and clamp fallback output (…",
-      "link": "https://github.com/openclaw/openclaw/commit/3d516a609ae6fa1b2b990960bb236c5993eac1ef",
-      "publishedAt": "2026-07-27T20:19:57Z",
-      "summary": "fix(models): recognize loopback endpoints and clamp fallback output (#114710) * fix(models): unify local endpoints and output caps * chore(changelog): defer model fix release note",
+      "title": "fix(ui): clear web push ready timeout (#110879)",
+      "link": "https://github.com/openclaw/openclaw/commit/15ab1334f42fc0713490eaff03ab74ca3875cf05",
+      "publishedAt": "2026-07-27T22:07:21Z",
+      "summary": "fix(ui): clear web push ready timeout (#110879) * fix(ui): clear web push ready timeout * fix(ui): clear web push ready timeout --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): recognize loopback endpoints and clamp fallback output (…",
-      "summaryZh": "重點：修正(模型): recognize loopback endpoints and clamp fallback output (#114710) * 修正(模型): unify local endpoints and output caps..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): clear web push ready timeout (#110879)",
+      "summaryZh": "重點：修正(ui): clear web push ready timeout (#110879) * 修正(ui): clear web push ready timeout * 修正(ui): clear web push ready tim..."
     },
     {
       "id": 2,
-      "title": "fix: gateway restart no longer takes the service down into a known-fa…",
-      "link": "https://github.com/openclaw/openclaw/commit/8fb462f84ce9254bebbbdb0ee826652dcb1f7b8d",
-      "publishedAt": "2026-07-27T20:18:43Z",
-      "summary": "fix: gateway restart no longer takes the service down into a known-fatal auth migration (#114715) * fix(gateway): refuse to restart the service into a known-fatal auth migration * refactor(cli): keep service action preflight types module-local",
+      "title": "fix(docs): replace rate-limited star history badge (#114762)",
+      "link": "https://github.com/openclaw/openclaw/commit/b4ad1891c2b07fbdb29ce4d5861236b08afb93d6",
+      "publishedAt": "2026-07-27T22:05:56Z",
+      "summary": "fix(docs): replace rate-limited star history badge (#114762)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Gateway restart no longer takes the service down into a known-fa…",
-      "summaryZh": "重點：修正: Gateway restart no longer takes the service down into a known-fatal auth migration (#114715) * 修正(Gateway): refuse t..."
+      "titleZh": "OpenClaw 文件更新：修正(文件): replace rate-limited star history badge (#114762)",
+      "summaryZh": "重點：修正(文件): replace rate-limited star history badge (#114762)..."
     },
     {
       "id": 3,
-      "title": "refactor(ui): redesign channels DM access requests, drop channel-heal…",
-      "link": "https://github.com/openclaw/openclaw/commit/762f04da5abceb33f389f8d25b51e0f9413450cd",
-      "publishedAt": "2026-07-27T20:15:54Z",
-      "summary": "refactor(ui): redesign channels DM access requests, drop channel-health JSON card (#114717) * feat(ui): serve DM pairing fixtures from the mock dev harness * refactor(ui): align channels DM access requests with the settings design language and drop the channel-health JSON card",
+      "title": "fix(plugin-sdk): reject malformed UTF-8 in live provider model catalo…",
+      "link": "https://github.com/openclaw/openclaw/commit/15ae1ddb9303995e15289ce728bf92eee65f0ece",
+      "publishedAt": "2026-07-27T22:03:09Z",
+      "summary": "fix(plugin-sdk): reject malformed UTF-8 in live provider model catalog responses (#111766) * fix: reject malformed UTF-8 in live provider model catalog responses Add { fatal: true } to TextDecoder in readLiveModelCatalogJson so invalid UTF-8 bytes throw a TypeError before JSON.parse instead of silently becoming U+FFFD. Co-Authored-By: Claude Opus 4.8 (1M context) * test(plugin-sdk): add fallback proof for malformed UTF-8 in live catalog Adds a focused test that constructs raw bytes with an invalid 0xFE byte inside a JSON string value and validates that buildLiveModelProviderConfig catches the Typeerror and falls back to the static catalog rows. Co-Authored-By: Claude Opus 4.8 (1M context) * fix(pr): classify auto-merge failures without ripgrep --------- Co-authored-by: Claude Opus 4.8 (1M context) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): redesign channels DM access requests, drop channel-heal…",
-      "summaryZh": "重點：refactor(ui): redesign channels DM access requests, drop channel-health JSON card (#114717) * 新功能(ui): serve DM pairing ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugin-sdk): reject malformed UTF-8 in live provider 模型 catalo…",
+      "summaryZh": "重點：修正(plugin-sdk): reject malformed UTF-8 in live provider 模型 catalog responses (#111766) * 修正: reject malformed UTF-8 in l..."
     },
     {
       "id": 4,
-      "title": "fix(cron): preserve rescheduled reminders after gateway restart (#114…",
-      "link": "https://github.com/openclaw/openclaw/commit/87cdeb470849f3b952a4a1b0be8520f94f6efa63",
-      "publishedAt": "2026-07-27T20:15:50Z",
-      "summary": "fix(cron): preserve rescheduled reminders after gateway restart (#114677) * fix(cron): preserve rescheduled one-shots across restart * test(codex): register app-server prewarm in its full-suite shard * fix(test): keep Codex prewarm in its canonical shard",
+      "title": "fix(cli): install cached shell completions without plugin loading (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/8207d016d5c309fba09990a73e04e0e11d7da578",
+      "publishedAt": "2026-07-27T22:02:47Z",
+      "summary": "fix(cli): install cached shell completions without plugin loading (#114761)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): preserve rescheduled reminders after Gateway restart (#114…",
-      "summaryZh": "重點：修正(排程): preserve rescheduled reminders after Gateway restart (#114677) * 修正(排程): preserve rescheduled one-shots across r..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): install cached shell completions without plugin loading (#1…",
+      "summaryZh": "重點：修正(cli): install cached shell completions without plugin loading (#114761)..."
     },
     {
       "id": 5,
