@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-27T07:32:40.671Z",
+  "generatedAt": "2026-07-27T11:23:05.360Z",
   "items": [
     {
       "id": 1,
@@ -39,6 +39,50 @@
     },
     {
       "id": 5,
+      "title": "fix(doctor): prevent false provider failures after fresh setup (#114533)",
+      "link": "https://github.com/openclaw/openclaw/commit/c068f2b2df4809429e92a63c55efaaab6dc7e27c",
+      "publishedAt": "2026-07-27T11:20:51Z",
+      "summary": "fix(doctor): prevent false provider failures after fresh setup (#114533)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): prevent false provider failures after fresh setup (#114533)",
+      "summaryZh": "重點：修正(文件tor): prevent false provider failures after fresh setup (#114533)..."
+    },
+    {
+      "id": 6,
+      "title": "docs(agents): surface hidden tool capabilities in model-facing descri…",
+      "link": "https://github.com/openclaw/openclaw/commit/3f377311750a3845e27cc0c5c5fafaa577dfab4d",
+      "publishedAt": "2026-07-27T11:20:25Z",
+      "summary": "docs(agents): surface hidden tool capabilities in model-facing descriptions (#114516)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(agents): surface hidden tool capabilities in 模型-facing descri…",
+      "summaryZh": "重點：文件(agents): surface hidden tool capabilities in 模型-facing descriptions (#114516)..."
+    },
+    {
+      "id": 7,
+      "title": "fix(cron): stop marking silent agentTurn runs as errors after success…",
+      "link": "https://github.com/openclaw/openclaw/commit/ed4ff90f84785022b3c454e234e4d23c45ce9972",
+      "publishedAt": "2026-07-27T11:11:36Z",
+      "summary": "fix(cron): stop marking silent agentTurn runs as errors after successful tools (#114528)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): stop marking silent agentTurn runs as errors after success…",
+      "summaryZh": "重點：修正(排程): stop marking silent agentTurn runs as errors after successful tools (#114528)..."
+    },
+    {
+      "id": 8,
+      "title": "fix(model): report model change before its triggered thinking remap",
+      "link": "https://github.com/openclaw/openclaw/commit/a4e524fae3f8cdb20f3b8dfdd865d1f3b26fbff8",
+      "publishedAt": "2026-07-27T11:11:15Z",
+      "summary": "fix(model): report model change before its triggered thinking remap When a bare /model switch forces an unsupported stored thinking level to be remapped, the acknowledgement listed the thinking remap before the model change, announcing the consequence before its cause. Report the model line first in both directive-ack builders so the message reads cause-then-effect. Adds a regression test locking the model-before-thinking order.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): report 模型 change before its triggered thinking remap",
+      "summaryZh": "重點：修正(模型): report 模型 change before its triggered thinking remap When a bare /模型 switch forces an unsupported stored thinkin..."
+    },
+    {
+      "id": 9,
       "title": "中國駭客組織JadeProx利用惡意程式TriBack Loader攻擊政府與醫療機構",
       "link": "https://www.ithome.com.tw/news/177632",
       "publishedAt": "2026-07-27 11:07:45",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "中國駭客利用AI代理Hermes攻擊泰國財政部",
       "link": "https://www.ithome.com.tw/news/177629",
       "publishedAt": "2026-07-27 11:07:39",
       "summary": "本月初威脅情報公司Sysdig揭露首度完全由AI代理與大型語言模型（LLM）驅動的勒索軟體行動，駭客團體JadePuffer利用已知漏洞入侵Langflow執行個體，並以AI代理展開全自動攻擊，如今有人利用以AI代理入侵政府機關。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "docs(agents): note null-delimited file lists for tool invocations",
-      "link": "https://github.com/openclaw/openclaw/commit/d4ed57bc8847b2b0a40dc99189bd4d94acbb2fc7",
-      "publishedAt": "2026-07-27T07:29:16Z",
-      "summary": "docs(agents): note null-delimited file lists for tool invocations",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(agents): note null-delimited file lists for tool invocations",
-      "summaryZh": "重點：文件(agents): note null-delimited file lists for tool invocations..."
-    },
-    {
-      "id": 8,
-      "title": "fix(acp): keep ACP turns alive when a backend rejects the requested t…",
-      "link": "https://github.com/openclaw/openclaw/commit/00175666189e945738e15f4e337916648c180c51",
-      "publishedAt": "2026-07-27T07:25:43Z",
-      "summary": "fix(acp): keep ACP turns alive when a backend rejects the requested thinking level (#113935) * fix(acp): keep ACP turns alive when a backend rejects the requested thinking level ACP sessions carrying a thinking level the backend cannot express died before their first turn. Pre-turn control application forwarded the persisted thinking option to the backend-advertised effort key, and a rejected value aborted the whole turn with ACP_TURN_FAILED. The skip path for thinking config rejections only matched the ACP_BACKEND_UNSUPPORTED_CONTROL code, which OpenClaw mints for keys a backend does not advertise. Backends that advertise the key but reject the value answer with a JSON-RPC error instead, so the skip never fired and the optional control became fatal. Thinking rejections now match the same rejection signals the sibling timeout control already tolerates, including invalid-value answers. Required controls and genuine runtime failures still fail the turn. * fix(acp): narrow thinking rejection fallback --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(acp): keep ACP turns alive when a backend rejects the requested t…",
-      "summaryZh": "重點：修正(acp): keep ACP turns alive when a backend rejects the requested thinking level (#113935) * 修正(acp): keep ACP turns al..."
-    },
-    {
-      "id": 9,
-      "title": "refactor(gateway): consolidate RPC test scenarios (#114404)",
-      "link": "https://github.com/openclaw/openclaw/commit/97467fe73b26cc0282d2280ca0d43b72406ff019",
-      "publishedAt": "2026-07-27T07:25:22Z",
-      "summary": "refactor(gateway): consolidate RPC test scenarios (#114404)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): consolidate RPC test scenarios (#114404)",
-      "summaryZh": "重點：refactor(Gateway): consolidate RPC test scenarios (#114404)..."
-    },
-    {
-      "id": 10,
-      "title": "refactor(ios): simplify node and Watch lifecycle ownership (#114366)",
-      "link": "https://github.com/openclaw/openclaw/commit/079ac9390d842bd49e0b59cd75fa9707b4e1a893",
-      "publishedAt": "2026-07-27T07:23:31Z",
-      "summary": "refactor(ios): simplify node and Watch lifecycle ownership (#114366) * refactor(ios): centralize node lifecycle owners * fix(ios): sync native localization source inventory * test(ios): prove gateway and notification lifecycles in simulator * fix(ios): preserve voice upgrade and correlate watch snapshots",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ios): simplify node and Watch lifecycle ownership (#114366)",
-      "summaryZh": "重點：refactor(ios): simplify node and Watch lifecycle ownership (#114366) * refactor(ios): centralize node lifecycle owners *..."
     }
   ]
 }
