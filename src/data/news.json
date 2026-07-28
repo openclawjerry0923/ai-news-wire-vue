@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-28T17:35:11.630Z",
+  "generatedAt": "2026-07-28T19:25:17.843Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(nostr): report unavailable ingress when queue open fails (#115313)",
-      "link": "https://github.com/openclaw/openclaw/commit/e89ff13494fa99719d761651cc9e1775dd22ab55",
-      "publishedAt": "2026-07-28T17:34:23Z",
-      "summary": "fix(nostr): report unavailable ingress when queue open fails (#115313) * fix(nostr): surface durable ingress startup failures * chore: keep changelog release-owned",
+      "title": "fix: make Code Mode reliable across gateway and provider lifecycles (…",
+      "link": "https://github.com/openclaw/openclaw/commit/388bcc43a15dec57d6b5bbe1fe68a0c8e9b6a298",
+      "publishedAt": "2026-07-28T19:21:54Z",
+      "summary": "fix: make Code Mode reliable across gateway and provider lifecycles (#115379) * fix(code-mode): dispose suspended runs and propagate cancellation * fix(code-mode): preserve request-visible provider tools * test(code-mode): require real packaged gateway execution * fix(gateway): load code mode cleanup only during shutdown",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(nostr): report unavailable ingress when queue open fails (#115313)",
-      "summaryZh": "重點：修正(nostr): report unavailable ingress when queue open fails (#115313) * 修正(nostr): surface durable ingress startup failu..."
+      "titleZh": "OpenClaw 程式碼更新：修正: make Code Mode reliable across Gateway and provider lifecycles (…",
+      "summaryZh": "重點：修正: make Code Mode reliable across Gateway and provider lifecycles (#115379) * 修正(code-mode): dispose suspended runs and..."
     },
     {
       "id": 2,
-      "title": "fix: prevent Slack and Feishu ingress startup leaks (#115295)",
-      "link": "https://github.com/openclaw/openclaw/commit/2964be25819ac4a700adbe77d1cf18b1fd1fda68",
-      "publishedAt": "2026-07-28T17:29:20Z",
-      "summary": "fix: prevent Slack and Feishu ingress startup leaks (#115295) * fix(channels): clean up failed ingress startup * chore: leave release notes to release prep * test(feishu): initialize monitor ingress state",
+      "title": "perf(ui): debounce event-driven session list refreshes and right-size…",
+      "link": "https://github.com/openclaw/openclaw/commit/c536b0731e26b9964fb7fcbaf15c0959d91f8c55",
+      "publishedAt": "2026-07-28T19:16:28Z",
+      "summary": "perf(ui): debounce event-driven session list refreshes and right-size child paging (#115374)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent Slack and Feishu ingress startup leaks (#115295)",
-      "summaryZh": "重點：修正: prevent Slack and Feishu ingress startup leaks (#115295) * 修正(channels): clean up failed ingress startup * chore: le..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): debounce event-driven session list refreshes and right-size…",
+      "summaryZh": "重點：perf(ui): debounce event-driven session list refreshes and right-size child paging (#115374)..."
     },
     {
       "id": 3,
-      "title": "fix(slack): avoid unsafe emphasis boundaries (#111575)",
-      "link": "https://github.com/openclaw/openclaw/commit/b954b3ae4f8cff7ee5e28f3adc20b7d04fd245ad",
-      "publishedAt": "2026-07-28T17:28:28Z",
-      "summary": "fix(slack): avoid unsafe emphasis boundaries (#111575) * fix(slack): avoid invalid italic boundaries * fix(slack): handle standalone CJK italics * fix(slack): handle unsafe emphasis boundaries * fix(slack): avoid unsafe emphasis boundaries Co-authored-by: shannon0430 --------- Co-authored-by: shannon0430 Co-authored-by: Peter Steinberger",
+      "title": "feat(talk): support GPT-Live realtime voice over ChatGPT OAuth (#115226)",
+      "link": "https://github.com/openclaw/openclaw/commit/f78ba091207b33c3bb79f1bd9879d0e56be91a16",
+      "publishedAt": "2026-07-28T19:05:55Z",
+      "summary": "feat(talk): support GPT-Live realtime voice over ChatGPT OAuth (#115226) * feat(gateway): share the canonical browser-origin policy with plugins Export resolveAcceptedBrowserOrigin through openclaw/plugin-sdk/webhook-request-guards so browser-facing plugin routes reuse the Gateway's real origin contract instead of a narrow allowedOrigins array check. Private LAN/Tailnet Control UI loads and the Host-header fallback were previously rejected with 403 by plugin offer routes while the Control UI itself worked. Moves the loopback/forwarded-header helpers to net.ts (re-exported from auth.ts) so the guard can delegate without importing gateway auth, and migrates the Codex realtime broker onto the shared seam. * feat(talk): let providers own agent delegation for realtime voice Adds an optional runAgentConsult callback to the browser-session create request and injects the existing embedded consult runtime from talk-client, bound to the same agent and session key the GA tool path uses. Providers whose realtime protocol delegates work through their own control channel (rather than GA function calls) can now reach the OpenClaw agent without a client round-trip. Threads the effective per-session model into browser-session capability resolution so a request-level model override selects the right capability set, and propagates a caller abort signal into consultRealtimeVoiceAgent so a superseded delegation stops its run. * feat(openai): support GPT-Live realtime voice over ChatGPT OAuth Implements OpenAI's quicksilver/frameless session natively for Talk browser sessions. The Gateway creates the WebRTC call (multipart sdp+session to https://api.openai.com/v1/live) and owns the sideband control socket, so the browser never holds upstream credentials; delegation.created events run through the OpenClaw agent and stream back as speakable context appends. Verified end-to-end on 2026-07-28 against a ChatGPT Pro OAuth profile: call create 201 with an rtc_* id and answer SDP, sideband session.started, session.close teardown. ChatGPT OAuth is preferred over a Platform API key because /v1/live access for platform keys is waitlist-gated; the legacy chatgpt.com backend route returns 403 for every model and protocol version and is not used. Accepted models are gpt-live-1-codex and gpt-live-1-boulder-alpha; the voice allowlist is the ten values the route actually accepts, since an invalid voice is rejected at call creation and cannot be repaired afterwards (session.update reports immutable_field_update). * docs: document GPT-Live Talk support and its route gotchas Records the working route and auth, the accepted models and voices, the browser-only scope, and the two traps that cost the most time: the chatgpt.com backend route returns 403 Voice session access denied for every model, and that same 403 is also what an invalid voice returns, so it must not be read as an account entitlement block. * fix(openai): resolve GPT-Live CI failures * refactor(openai): own zod runtime dependency * fix(openai): satisfy lint and live-shard gates for GPT-Live Types the retry-delay finish callback as Error so the rejection reason is provably an Error at the call site; the abort path already normalized a non-Error AbortSignal reason, but the unknown parameter type hid that from static analysis. Registers the new GPT-Live live test in the native-live-extensions-openai shard expectation. The shard selector already picked the file up from the real tree; only the hardcoded list in the tooling test lagged. * fix(openai): clean up post-rebase capability resolver * fix(openai): preserve GPT-Live delegation fragments * fix(openai): close GPT-Live sideband handoff race * fix(openai): accept UUID GPT-Live call ids * style: apply oxfmt to GPT-Live sources and Talk docs * style: format Talk docs after rebase * fix(openai): keep GPT-Live transcript context across ignored delegations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): avoid unsafe emphasis boundaries (#111575)",
-      "summaryZh": "重點：修正(slack): avoid unsafe emphasis boundaries (#111575) * 修正(slack): avoid invalid italic boundaries * 修正(slack): handle s..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(talk): support GPT-Live realtime voice over ChatGPT OAuth (#115226)",
+      "summaryZh": "重點：新功能(talk): support GPT-Live realtime voice over ChatGPT OAuth (#115226) * 新功能(Gateway): share the canonical browser-orig..."
     },
     {
       "id": 4,
-      "title": "fix: prevent changed checks from expanding into full lint (#115322)",
-      "link": "https://github.com/openclaw/openclaw/commit/3aae42033714257b07f64c4f5b815bd24b60a4db",
-      "publishedAt": "2026-07-28T17:27:26Z",
-      "summary": "fix: prevent changed checks from expanding into full lint (#115322)",
+      "title": "feat(system-agent): guide gateway configuration in Ask OpenClaw (#115…",
+      "link": "https://github.com/openclaw/openclaw/commit/792f276daf2117c335d71f45413f4a05e193a95a",
+      "publishedAt": "2026-07-28T19:02:28Z",
+      "summary": "feat(system-agent): guide gateway configuration in Ask OpenClaw (#115363) * feat(system-agent): add guided gateway configuration * test(system-agent): cover guided gateway setup * fix(system-agent): skip lockout warning when the gateway wizard refuses * fix(system-agent): print the shell restart command after terminal gateway handoff * test(system-agent): satisfy prefer-const on the pinned base config * style(system-agent): reformat tui-backend handoff messages",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent changed checks from expanding into full lint (#115322)",
-      "summaryZh": "重點：修正: prevent changed checks from expanding into full lint (#115322)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(system-agent): guide Gateway configuration in Ask OpenClaw (#115…",
+      "summaryZh": "重點：新功能(system-agent): guide Gateway configuration in Ask OpenClaw (#115363) * 新功能(system-agent): add guided Gateway configu..."
     },
     {
       "id": 5,
