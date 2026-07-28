@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-07-28T10:35:55.430Z",
+  "generatedAt": "2026-07-28T12:54:22.845Z",
   "items": [
     {
       "id": 1,
+      "title": "test(agents): de-flake hidden-reasoning idle timeout streaming test (…",
+      "link": "https://github.com/openclaw/openclaw/commit/0b628237e9c248571ca63423fab53d13bf776c9c",
+      "publishedAt": "2026-07-28T12:53:55Z",
+      "summary": "test(agents): de-flake hidden-reasoning idle timeout streaming test (#115196)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents): de-flake hidden-reasoning idle timeout streaming test (…",
+      "summaryZh": "重點：test(agents): de-flake hidden-reasoning idle timeout streaming test (#115196)..."
+    },
+    {
+      "id": 2,
+      "title": "fix(cli): resolve plugin-catalog metadata for configured models list …",
+      "link": "https://github.com/openclaw/openclaw/commit/3951b42dc78aba16b8375a661fd1d38580705be3",
+      "publishedAt": "2026-07-28T12:53:16Z",
+      "summary": "fix(cli): resolve plugin-catalog metadata for configured models list rows (#115190)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): resolve plugin-catalog metadata for configured 模型 list …",
+      "summaryZh": "重點：修正(cli): resolve plugin-catalog metadata for configured 模型 list rows (#115190)..."
+    },
+    {
+      "id": 3,
+      "title": "feat(plugins): catch code-mode drift between catalogs shipping the sa…",
+      "link": "https://github.com/openclaw/openclaw/commit/99ec30b44b9b88619744e99851ccd2dfa5efcc0c",
+      "publishedAt": "2026-07-28T12:52:21Z",
+      "summary": "feat(plugins): catch code-mode drift between catalogs shipping the same model (#115183) * feat(plugins): catch code-mode drift between catalogs sharing one model Adds a contract test that groups bundled catalog rows by shared upstream model and requires every row in a group to declare compat.codeMode once any sibling does. Rows sharing a model id group automatically; rows under different ids opt in with the new manifest-only `upstreamModel` marker. Moves the kimi catalog into its manifest so the scan can see it, and records the tier reseller catalogs were silently missing as explicit \"capable\". * docs: regenerate docs map for the shared-model code-mode section",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(plugins): catch code-mode drift between catalogs shipping the sa…",
+      "summaryZh": "重點：新功能(plugins): catch code-mode drift between catalogs shipping the same 模型 (#115183) * 新功能(plugins): catch code-mode drif..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ui): stop route aliases from hijacking base-path inference on set…",
+      "link": "https://github.com/openclaw/openclaw/commit/4eab19a25d5568509d3855cc41ff868f3b139d01",
+      "publishedAt": "2026-07-28T12:51:26Z",
+      "summary": "fix(ui): stop route aliases from hijacking base-path inference on settings deep links (#115186)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop route aliases from hijacking base-path inference on set…",
+      "summaryZh": "重點：修正(ui): stop route aliases from hijacking base-path inference on settings deep links (#115186)..."
+    },
+    {
+      "id": 5,
       "title": "惡意廣告攻擊出現新手法，駭客分次傳送惡意程式資料，再由瀏覽器組裝執行",
       "link": "https://www.ithome.com.tw/news/177679",
       "publishedAt": "2026-07-28 12:07:46",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "攻擊活動Operation BlueDash透過假Teams更新控制受害電腦",
       "link": "https://www.ithome.com.tw/news/177680",
       "publishedAt": "2026-07-28 12:07:40",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "Anthropic執行長否認支持開放權重AI禁令，主張管制晶片與模型蒸餾",
       "link": "https://www.ithome.com.tw/news/177681",
       "publishedAt": "2026-07-28 12:07:14",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Redis發布7個更新版本，因應AI模型Kimi K3發現的遠端執行程式碼重大漏洞",
       "link": "https://www.ithome.com.tw/news/177682",
       "publishedAt": "2026-07-28 12:07:01",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Nvidia偕大廠、Linux基金會合組開放安全AI聯盟，以開源技術修補AI漏洞",
       "link": "https://www.ithome.com.tw/news/177677",
       "publishedAt": "2026-07-28 11:07:49",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Qualys揭露潛伏9年的Linux核心漏洞RefluXFS，可能影響全球超過1,640萬臺主機",
       "link": "https://www.ithome.com.tw/news/177678",
       "publishedAt": "2026-07-28 11:07:35",
       "summary": "資安業者Qualys近日揭露Linux核心本機權限提升漏洞RefluXFS（CVE-2026-64600），CVSS嚴重性評分為7.8分。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(slack): keep previews with custom outbound identity (#115114)",
-      "link": "https://github.com/openclaw/openclaw/commit/4233301c7c504918607642b6006ebdf4ca2f2b8b",
-      "publishedAt": "2026-07-28T10:33:59Z",
-      "summary": "fix(slack): keep previews with custom outbound identity (#115114) * fix(slack): preserve previews with custom identity Co-authored-by: goutamadwant * test(models): isolate configured visibility policy --------- Co-authored-by: goutamadwant",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): keep previews with custom outbound identity (#115114)",
-      "summaryZh": "重點：修正(slack): keep previews with custom outbound identity (#115114) * 修正(slack): preserve previews with custom identity Co-..."
-    },
-    {
-      "id": 8,
-      "title": "perf(ui): flip sessions instantly and drop redundant switch RPCs (#11…",
-      "link": "https://github.com/openclaw/openclaw/commit/7f37900bca09917a5355e32d46f8e6cab1482d10",
-      "publishedAt": "2026-07-28T10:25:25Z",
-      "summary": "perf(ui): flip sessions instantly and drop redundant switch RPCs (#115129) * perf(ui): flip sessions instantly and drop redundant switch RPCs * chore: revert changelog edit (release generation owns CHANGELOG.md) * test(ui): adapt ported switch e2e tests to split-suite helpers * chore(ui): un-export internal CachedShortSession type (knip)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ui): flip sessions instantly and drop redundant switch RPCs (#11…",
-      "summaryZh": "重點：perf(ui): flip sessions instantly and drop redundant switch RPCs (#115129) * perf(ui): flip sessions instantly and drop ..."
-    },
-    {
-      "id": 9,
-      "title": "refactor(plugin-sdk): share HTML escaping (#115109)",
-      "link": "https://github.com/openclaw/openclaw/commit/8bae9cebafd8c267a2e91505271b6a24b7e8651c",
-      "publishedAt": "2026-07-28T10:11:08Z",
-      "summary": "refactor(plugin-sdk): share HTML escaping (#115109)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugin-sdk): share HTML escaping (#115109)",
-      "summaryZh": "重點：refactor(plugin-sdk): share HTML escaping (#115109)..."
-    },
-    {
-      "id": 10,
-      "title": "fix(msteams): display decoded attachment filenames (#115127)",
-      "link": "https://github.com/openclaw/openclaw/commit/ecd22f5e2d7014de911ca55f366212eb37a8a356",
-      "publishedAt": "2026-07-28T10:09:34Z",
-      "summary": "fix(msteams): display decoded attachment filenames (#115127)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(msteams): display decoded attachment filenames (#115127)",
-      "summaryZh": "重點：修正(msteams): display decoded attachment filenames (#115127)..."
     }
   ]
 }
