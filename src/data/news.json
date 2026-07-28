@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-07-28T21:09:03.976Z",
+  "generatedAt": "2026-07-28T22:59:59.692Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): make Control UI ownership and permissions reliable (#115364)",
-      "link": "https://github.com/openclaw/openclaw/commit/d239a59d82ea929c92df2fff716a70c8e5d6bf1e",
-      "publishedAt": "2026-07-28T20:42:05Z",
-      "summary": "fix(ui): make Control UI ownership and permissions reliable (#115364) * fix(ui): unify connection-owned gateway event dispatch * fix(qa): keep hosted UI smoke evidence truthful * fix(ui): make mobile navigation drawer an accessible modal * refactor(ui): centralize settings search destinations * fix(ui): own chat media resource lifecycles * fix(ui): unify sidebar session scope ownership * refactor(ui): remove obsolete navigation backdrop styles * refactor(ui): isolate dashboard provider lease capabilities * fix(ui): centralize gateway operator permissions * style(ui): format gateway event regressions * fix(ui): render live dashboard permissions immediately * fix(ui): enforce approval grant authority * fix(gateway): fence retired sockets after event gaps * fix(ui): isolate sidebar gateway fixtures across shared workers * test(ui): isolate singleton-sensitive browser suites * fix(ui): retire stale catalog pagination on gateway reconnect * fix(ui): restore drawer focus after native dialog dismissal * fix(ui): seed drawer threads and preserve modal focus ownership * fix(ui): isolate nested native drawer overlay lifecycle * test(ui): prove isolated dashboard lease authorization * fix(ui): bound settled managed image resources * fix(ui): type native modal focus and shared test helper * fix(ui): correct approval mock types and trim dead export * fix(ui): keep settings section metadata private * fix(qa): keep hosted coverage regression within lint limit * refactor(ui): keep catalog presence in its session data owner * fix(browser): regenerate bundled copilot runtime * test(ui): split board lease authorization regressions * fix(ui): snapshot gateway listener fanout without redundant spread * fix(ui): bind chat media subscriptions to image lifetime * fix(ui): extract overlay access lifecycle * fix(ui): restore guarded media after Lit reconnection * test(ui): localize board lease fixture title * fix(ui): reuse system approval fixture labels * test(ui): narrow managed media lifecycle source * fix(ui): prevent retired board gateway clients from rolling back leases * fix(ui): expose pairing to pairing-scoped operators * fix(ui): preserve legacy device pairing access * fix(ui): preserve responsive sidebar ownership * fix(ui): preserve responsive navigation and prove media ownership * fix(ui): retire revoked catalog and refresh pairing grants * test(ui): align typed catalog fixtures with main",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): make Control UI ownership and permissions reliable (#115364)",
-      "summaryZh": "重點：修正(ui): make Control UI ownership and permissions reliable (#115364) * 修正(ui): unify connection-owned Gateway event disp..."
+      "title": "Anthropic反對全面禁用開放權重模型，主張從晶片、蒸餾與測試控管風險",
+      "link": "https://www.ithome.com.tw/news/177701",
+      "publishedAt": "2026-07-29 05:07:53",
+      "summary": "Anthropic執行長Dario Amodei發文澄清，Anthropic從未主張全面禁止開放權重模型，並認為不具危險能力的開放權重模型，可為企業、開發者與研究人員帶來價值。不過，面對能力較強模型可能帶來的風險，Anthropic仍主張限制中國取得高階晶片、打擊工業規模模型蒸餾，並要求具足夠能力的開放與封閉模型接受安全測試。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat(system-agent): host memory import in Ask OpenClaw (#115376)",
-      "link": "https://github.com/openclaw/openclaw/commit/9e5e6f961e1a918be0bd7d8c3bc8e98a7e24249c",
-      "publishedAt": "2026-07-28T20:27:47Z",
-      "summary": "feat(system-agent): host memory import in Ask OpenClaw (#115376) * feat(wizard): expose memory import outcomes * feat(system-agent): host memory import in chat * test(system-agent): trip the copy-boundary recheck inside the wizard run * fix(system-agent): guard memory import against drift and partial-copy lies * fix(wizard): return typed memory import outcomes in callers * test(onboard): split guided memory-import coverage * fix(system-agent): use effective config for memory import * test(onboard): type memory import detection mock",
+      "title": "fix(chat): make web and terminal share one session state (#115429)",
+      "link": "https://github.com/openclaw/openclaw/commit/ad3f74f296e5d82009a55d922159713f691e842e",
+      "publishedAt": "2026-07-28T22:53:21Z",
+      "summary": "fix(chat): make web and terminal share one session state (#115429) * fix(chat): consolidate web and terminal session state * fix(chat): preserve live history across stale snapshots",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(system-agent): host 記憶 import in Ask OpenClaw (#115376)",
-      "summaryZh": "重點：新功能(system-agent): host 記憶 import in Ask OpenClaw (#115376) * 新功能(wizard): expose 記憶 import outcomes * 新功能(system-agent)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(chat): make web and terminal share one session state (#115429)",
+      "summaryZh": "重點：修正(chat): make web and terminal share one session state (#115429) * 修正(chat): consolidate web and terminal session state..."
     },
     {
       "id": 3,
-      "title": "fix(chat): preserve literal Markdown image examples (#113904)",
-      "link": "https://github.com/openclaw/openclaw/commit/49f4942760f6e8a4e33fc7aebc89d0baad03c900",
-      "publishedAt": "2026-07-28T20:12:08Z",
-      "summary": "fix(chat): preserve literal Markdown image examples (#113904)",
+      "title": "improve(agents): speed up warm turn model preparation (#113817)",
+      "link": "https://github.com/openclaw/openclaw/commit/e0e8651d85e6960365c9f675a636b8088932fa62",
+      "publishedAt": "2026-07-28T22:45:07Z",
+      "summary": "improve(agents): speed up warm turn model preparation (#113817) * perf(agents): prepare configured static models * perf(agents): memoize inline provider model projection buildInlineProviderModels is a pure projection of models.providers, but it was rebuilt on every model resolution. Embedded runs resolve models about four times per agent turn, and the projection is synchronous, so the repeated work landed directly on the gateway event loop. Cache the projection by providers object identity. Config objects are replaced rather than mutated on reload, so a WeakMap key stays correct across reloads. * perf(agents): prepare inline provider models * perf(agents): reuse snapshot configured models * test(agents): mock configured model resolver --------- Co-authored-by: Peter Steinberger Co-authored-by: kas",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(chat): preserve literal Markdown image examples (#113904)",
-      "summaryZh": "重點：修正(chat): preserve literal Markdown image examples (#113904)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(agents): speed up warm turn 模型 preparation (#113817)",
+      "summaryZh": "重點：improve(agents): speed up warm turn 模型 preparation (#113817) * perf(agents): prepare configured static 模型 * perf(agents)..."
     },
     {
       "id": 4,
-      "title": "refactor(chat): keep web and terminal sessions synchronized (#115377)",
-      "link": "https://github.com/openclaw/openclaw/commit/18ecde3d9f8ed40fdf1b98a0f3997f74cf6dcd6d",
-      "publishedAt": "2026-07-28T20:08:10Z",
-      "summary": "refactor(chat): keep web and terminal sessions synchronized (#115377) * refactor(chat): unify web and TUI session synchronization * refactor(chat): extract canonical projection and transcript owners * test(gateway): verify private transcript store identity * test(agents): protect public transcript storage boundary * fix(chat): harden cross-client identity and subscription lifecycles * fix(gateway-client): preserve type-safe release callback rejection * test(ui): complete shared sidebar gateway fixture",
+      "title": "fix(gateway): prevent startup log shard hangs (#115428)",
+      "link": "https://github.com/openclaw/openclaw/commit/dd6a1434e7da8334fed8e0639c7db0248ae70628",
+      "publishedAt": "2026-07-28T22:43:48Z",
+      "summary": "fix(gateway): prevent startup log shard hangs (#115428) * fix(gateway): reuse startup plugin manifest snapshot * test(gateway): isolate startup warning inputs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(chat): keep web and terminal sessions synchronized (#115377)",
-      "summaryZh": "重點：refactor(chat): keep web and terminal sessions synchronized (#115377) * refactor(chat): unify web and TUI session synchr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): prevent startup log shard hangs (#115428)",
+      "summaryZh": "重點：修正(Gateway): prevent startup log shard hangs (#115428) * 修正(Gateway): reuse startup plugin manifest snapshot * test(Gate..."
     },
     {
       "id": 5,
+      "title": "feat(agents): surface watched-session awareness to the model (#114835)",
+      "link": "https://github.com/openclaw/openclaw/commit/895bf61ea0d37fdf7d1caa6e8e0c2d8ddd393f50",
+      "publishedAt": "2026-07-28T22:39:20Z",
+      "summary": "feat(agents): surface watched-session awareness to the model (#114835)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(agents): surface watched-session awareness to the 模型 (#114835)",
+      "summaryZh": "重點：新功能(agents): surface watched-session awareness to the 模型 (#114835)..."
+    },
+    {
+      "id": 6,
+      "title": "Bloom Energy 第二季營收首破 10 億美元，客戶包含所有美國大型雲端業者",
+      "link": "https://technews.tw/2026/07/29/bloom-energy-q2-revenue-exceeds-1-billion-ai-data-center-demand-boosts-full-year-outlook/",
+      "publishedAt": "Tue, 28 Jul 2026 21:36:17 +0000",
+      "summary": "Bloom Energy 公布 2026 年第二季財報，在 AI 資料中心電力需求持續成長帶動下，營收首度突破 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "中國 DUV 交付消息引發半導體連鎖殺盤效應，專家解析真相指劃錯重點",
       "link": "https://finance.technews.tw/2026/07/28/news-of-chinas-duv-delivery-triggers-a-chain-reaction-in-the-semiconductor-industry/",
       "publishedAt": "Tue, 28 Jul 2026 13:50:36 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "惡意廣告攻擊出現新手法，駭客分次傳送惡意程式資料，再由瀏覽器組裝執行",
       "link": "https://www.ithome.com.tw/news/177679",
       "publishedAt": "2026-07-28 12:07:46",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "攻擊活動Operation BlueDash透過假Teams更新控制受害電腦",
       "link": "https://www.ithome.com.tw/news/177680",
       "publishedAt": "2026-07-28 12:07:40",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Anthropic執行長否認支持開放權重AI禁令，主張管制晶片與模型蒸餾",
       "link": "https://www.ithome.com.tw/news/177681",
       "publishedAt": "2026-07-28 12:07:14",
       "summary": "近日傳出美國官員考慮禁止美國企業使用中國開放權重AI模型，微軟、Meta、OpenAI及Nvidia等科技業者隨後聯名反對相關限制。未參與連署的Anthropic因此遭外界質疑支持禁令，甚至企圖藉此保護自家封閉模型業務。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Redis發布7個更新版本，因應AI模型Kimi K3發現的遠端執行程式碼重大漏洞",
-      "link": "https://www.ithome.com.tw/news/177682",
-      "publishedAt": "2026-07-28 12:07:01",
-      "summary": "繼5月初因應AI發現漏洞發布更新後，開源記憶體型NoSQL資料庫Redis資安團隊於7月23日發布7個更新版本，包括6.2.23、7.2.15、7.4.10，以及8.2.8、8.4.5、8.6.5與8.8.1，修補資安研究公司Bera Buddie透過Moonshot AI所屬AI模型Kimi K3發現的重大漏洞。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Nvidia偕大廠、Linux基金會合組開放安全AI聯盟，以開源技術修補AI漏洞",
-      "link": "https://www.ithome.com.tw/news/177677",
-      "publishedAt": "2026-07-28 11:07:49",
-      "summary": "OpenAI模型在資安能力評估期間突破測試環境並存取Hugging Face系統的事件，進一步引發外界對AI安全風險的關注。Nvidia週一（7/27）偕微軟、SpaceXAI、Databricks等多家大廠及Linux基金會宣布成立開放安全AI聯盟（Open Secure AI Alliance），將開發並共享開放的網路安全技術和工具，讓企業組織用以防範AI引發的資安攻擊。",
       "source": "iThome",
       "tag": "繁中"
     }
