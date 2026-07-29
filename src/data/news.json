@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-07-29T20:56:37.384Z",
+  "generatedAt": "2026-07-29T22:03:52.756Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(build): bound bundled plugin asset generators (#111366)",
-      "link": "https://github.com/openclaw/openclaw/commit/b5c08787776a10d68a474c309bb4559066460d37",
-      "publishedAt": "2026-07-29T20:56:21Z",
-      "summary": "fix(build): bound bundled plugin asset generators (#111366) Fail build and copy generators with ETIMEDOUT after 600000ms and terminate the complete managed process tree. Keep the timeout policy in the bundled-assets caller while preserving the shared helper for distinct callers such as #111349. Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(build): bound bundled plugin asset generators (#111366)",
-      "summaryZh": "重點：修正(build): bound bundled plugin asset generators (#111366) Fail build and copy generators with ETIMEDOUT after 600000ms ..."
+      "title": "GitHub導入OpenSSF跨生態系資料，Dependabot惡意套件警示擴及PyPI",
+      "link": "https://www.ithome.com.tw/news/177730",
+      "publishedAt": "2026-07-30 05:07:09",
+      "summary": "GitHub擴大Dependabot惡意套件警示的資料來源，開始將OpenSSF惡意套件專案收集的惡意套件公告，自動匯入GitHub安全公告資料庫。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(agents): isolate finalize revision retries (#116006)",
-      "link": "https://github.com/openclaw/openclaw/commit/55dd5d5c93fcf7e9a7aa726350e325adc823f1b4",
-      "publishedAt": "2026-07-29T20:50:23Z",
-      "summary": "fix(agents): isolate finalize revision retries (#116006) Co-authored-by: Vincent Koc",
+      "title": "fix(agents): edit tool rewrites line endings on lines it did not touc…",
+      "link": "https://github.com/openclaw/openclaw/commit/51241c4e00ff3056dfae87aa45b69744c2ce3e8a",
+      "publishedAt": "2026-07-29T21:49:56Z",
+      "summary": "fix(agents): edit tool rewrites line endings on lines it did not touch (#116011) * fix(agents): edit tool rewrites line endings on lines it did not touch The edit tool detected one line ending from the file's first newline, normalized the whole file to LF for matching, then re-applied that single ending to every line on write. A one-line edit therefore rewrote the terminator of every untouched line, and deleted lone carriage returns that were data rather than line breaks. The diff and unified patch returned to the model are computed on the normalized text, so the damage never surfaces in the tool result or the TUI preview. Rebuild the written text from the original terminators instead. A bare carriage return is tracked as its own terminator, so lines the edits did not touch keep their exact bytes and a rewritten line is written back with the terminator bytes it had. Newly written lines take the terminator of the original line they replaced. Matching still runs in LF space, so LF oldText against a CRLF file matches as before. * fix(agents): preserve CR fallback for leading edit insertions * fix(agents): align replacement line-ending boundaries * fix(agents): preserve edit line-ending provenance * refactor(agents): isolate edit replacement reconstruction * test(agents): cover edits through production line endings --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): isolate finalize revision retries (#116006)",
-      "summaryZh": "重點：修正(agents): isolate finalize revision retries (#116006) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): edit tool rewrites line endings on lines it did not touc…",
+      "summaryZh": "重點：修正(agents): edit tool rewrites line endings on lines it did not touch (#116011) * 修正(agents): edit tool rewrites line en..."
     },
     {
       "id": 3,
-      "title": "test(qa): stabilize Matrix tool progress scenarios",
-      "link": "https://github.com/openclaw/openclaw/commit/d3afc2776ed21b7c043d137987ad63fe93be2df1",
-      "publishedAt": "2026-07-29T20:46:18Z",
-      "summary": "test(qa): stabilize Matrix tool progress scenarios",
+      "title": "fix(agents): keep streamed pre-tool assistant text in claude-cli fina…",
+      "link": "https://github.com/openclaw/openclaw/commit/c661061d4a7a2ec190a3563d1a8532e8466f864b",
+      "publishedAt": "2026-07-29T21:48:01Z",
+      "summary": "fix(agents): keep streamed pre-tool assistant text in claude-cli final output The claude-cli terminal result envelope carries only the final message text. On the default draft-preview path (no block streaming, no commentary classification) the preview streamed every text block, then final delivery edited it down to just the post-tool closer, silently erasing pre-tool answer text (#106760). Both the incremental parser and the transcript reparse now keep the streamed accumulation when it is connected to the result through tool splits: boundaries join with a paragraph break, non-tool message boundaries restart preservation candidacy (superseded drafts still defer to the envelope), interim results commit their segment without breaking cumulative delta snapshots, and transcript reparses continue past interim results like the incremental parser.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): stabilize Matrix tool progress scenarios",
-      "summaryZh": "重點：test(qa): stabilize Matrix tool progress scenarios..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep streamed pre-tool assistant text in claude-cli fina…",
+      "summaryZh": "重點：修正(agents): keep streamed pre-tool assistant text in claude-cli final output The claude-cli terminal result envelope car..."
     },
     {
       "id": 4,
-      "title": "fix(macos): allow dev source installs to finish (#116072)",
-      "link": "https://github.com/openclaw/openclaw/commit/861b35ed447318d60ba7790bf39d67fa99465f26",
-      "publishedAt": "2026-07-29T20:38:38Z",
-      "summary": "fix(macos): allow dev source installs to finish (#116072)",
+      "title": "fix(plugins): keep next-turn injections callable after register (#111…",
+      "link": "https://github.com/openclaw/openclaw/commit/e85e1dba3fa25c21ed8f9cf2677eeda9aec2a1c5",
+      "publishedAt": "2026-07-29T21:47:00Z",
+      "summary": "fix(plugins): keep next-turn injections callable after register (#111131) Co-authored-by: guptaishaan",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): allow dev source installs to finish (#116072)",
-      "summaryZh": "重點：修正(macos): allow dev source installs to finish (#116072)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): keep next-turn injections callable after register (#111…",
+      "summaryZh": "重點：修正(plugins): keep next-turn injections callable after register (#111131) Co-authored-by: guptaishaan..."
     },
     {
       "id": 5,
+      "title": "fix(agents): settle aborted runs through after-turn so agent_end fire…",
+      "link": "https://github.com/openclaw/openclaw/commit/8fefe62ba41c89e1d63ab511b9bb0868b0f56d70",
+      "publishedAt": "2026-07-29T21:44:51Z",
+      "summary": "fix(agents): settle aborted runs through after-turn so agent_end fires (#116087)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): settle aborted runs through after-turn so agent_end fire…",
+      "summaryZh": "重點：修正(agents): settle aborted runs through after-turn so agent_end fires (#116087)..."
+    },
+    {
+      "id": 6,
       "title": "高階 AOI 出貨穩定，牧德上半年 EPS 達 9.8 元",
       "link": "https://technews.tw/2026/07/29/mustek-stable-first-half-profits-increased-high-end-product-share/",
       "publishedAt": "Wed, 29 Jul 2026 13:44:42 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "汲取黑洞能量打造終極運算，科學家探討「戴森大腦」宇宙資料中心成真可能",
       "link": "https://technews.tw/2026/07/29/could-alien-technology-exist-around-black-holes/",
       "publishedAt": "Wed, 29 Jul 2026 13:40:06 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "網路釣魚成2026年第2季主要初始入侵手法，身分驗證濫用威脅升溫",
       "link": "https://www.ithome.com.tw/news/177716",
       "publishedAt": "2026-07-29 12:07:53",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "CREST推出AI輔助資安服務認證，納入AI治理與滲透測試要求",
       "link": "https://www.ithome.com.tw/news/177715",
       "publishedAt": "2026-07-29 12:07:45",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "微軟對AD CS Certighost權限提升漏洞修補提出進一步說明，建議企業優先更新CA伺服器",
       "link": "https://www.ithome.com.tw/news/177714",
       "publishedAt": "2026-07-29 12:07:22",
       "summary": "針對稍早於7月14日修補的Active Directory憑證服務（AD CS）Certighost權限提升漏洞（CVE-2026-54121），微軟威脅情報團隊於7月28日",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "勒索軟體停用端點防護手法普及，最快不到一小時部署勒索軟體",
-      "link": "https://www.ithome.com.tw/news/177713",
-      "publishedAt": "2026-07-29 12:07:04",
-      "summary": "反勒索軟體業者Halcyon近期回顧2026年第2季勒索軟體活動，指出停用端點偵測與回應（EDR）等安全產品的手法，已從少數勒索軟體集團採用的特殊攻擊手法，逐漸成為勒索軟體生態系的標準作業程序。部分勒索軟體集團也持續縮短入侵時間，並將AI導入攻擊環節。",
       "source": "iThome",
       "tag": "繁中"
     }
