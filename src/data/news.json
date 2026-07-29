@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T07:43:25.605Z",
+  "generatedAt": "2026-07-29T10:40:07.270Z",
   "items": [
     {
       "id": 1,
@@ -24,7 +24,7 @@
       "title": "微軟對AD CS Certighost權限提升漏洞修補提出進一步說明，建議企業優先更新CA伺服器",
       "link": "https://www.ithome.com.tw/news/177714",
       "publishedAt": "2026-07-29 12:07:22",
-      "summary": "針對稍早於7月14日修補的Active Directory憑證服務（AD CS） Certighost權限提升漏洞（CVE-2026-54121），微軟威脅情報團隊於7月28日",
+      "summary": "針對稍早於7月14日修補的Active Directory憑證服務（AD CS）Certighost權限提升漏洞（CVE-2026-54121），微軟威脅情報團隊於7月28日",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(gateway): preserve abort after dispatch rejection (#91000)",
-      "link": "https://github.com/openclaw/openclaw/commit/dec3462658e1b5e5de037607b4a3a109f5027c6c",
-      "publishedAt": "2026-07-29T07:41:28Z",
-      "summary": "fix(gateway): preserve abort after dispatch rejection (#91000) * test(gateway): cover post-dispatch abort rejection * fix(gateway): preserve abort after dispatch rejection * test(gateway): avoid cleanup key coupling * fix(gateway): snapshot abort state on dispatch rejection * fix(gateway): clear late abort tombstone after dispatch error * test(gateway): retry abort race temp cleanup * test(gateway): satisfy abort race check gates * fix(gateway): close late abort error window * ci: re-trigger checks against current main * ci: re-trigger checks against current main * fix: preserve lifecycle terminal chat errors during conflict repair * fix: release chat admission after terminal abort * test: fix lifecycle dispatch broadcast mock typing * test(gateway): cover dispatch abort terminal ownership * test(gateway): complete direct chat context fixture * fix(gateway): keep chat run cleanup single-owned * fix(gateway): persist signal-only dispatch failures * fix(gateway): preserve abort through setup failure * test(gateway): cover setup failure after abort * fix: snapshot dispatch owner after queued followup * fix(gateway): preserve agent terminal lifecycle ownership * test(gateway): preserve agent terminal before dispatch error * test(gateway): defer lifecycle state import * fix(gateway): retain pending terminal owner on dispatch error * fix(gateway): preserve restart-safe agent terminal owner * fix(gateway): retain explicit abort terminal owner * test(gateway): format explicit abort owner regression * fix(gateway): retain pre-ACK abort terminal owner * fix(gateway): retain abort transcript root work * fix(gateway): preserve lifecycle terminal projection * test(gateway): align terminal owner expectations * test(gateway): type lifecycle interruption scope * test(gateway): drop redundant createDeferred type argument --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(sessions): deliver agent announcements to direct message sessions…",
+      "link": "https://github.com/openclaw/openclaw/commit/1f4f1bbc339ec5593b742f7db2c176094d67e30b",
+      "publishedAt": "2026-07-29T10:35:42Z",
+      "summary": "fix(sessions): deliver agent announcements to direct message sessions (#115811) Co-authored-by: Peter Steinberger Co-authored-by: avatasia",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve abort after dispatch rejection (#91000)",
-      "summaryZh": "重點：修正(Gateway): preserve abort after dispatch rejection (#91000) * test(Gateway): cover post-dispatch abort rejection * 修正(..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): deliver agent announcements to direct message sessions…",
+      "summaryZh": "重點：修正(sessions): deliver agent announcements to direct message sessions (#115811) Co-authored-by: Peter Steinberger Co-auth..."
     },
     {
       "id": 8,
-      "title": "feat(ui): memory settings polish — inline add-on toggles, phase expla…",
-      "link": "https://github.com/openclaw/openclaw/commit/7018a36d04e35eec77b8f7c9697f1f0b42005114",
-      "publishedAt": "2026-07-29T07:40:52Z",
-      "summary": "feat(ui): memory settings polish — inline add-on toggles, phase explanations, embedding test (#115557) * feat(ui): toggle memory add-ons inline on the Settings tab * feat(ui): improve memory overview and settings controls * fix(ui): restore rejected settings toggles * fix(ui): surface memory add-on restart requirements * fix(ui): reconcile restart notices by gateway process * fix(ui): preserve pending restart notices * fix(ui): order memory add-on catalog reloads * fix(ui): reload add-ons through current gateway * fix(ui): respect plugin mutation availability * test(ui): type the plugins.list mock fallback for mutationAllowed",
+      "title": "fix(nextcloud-talk): reject reactions for disabled or unconfigured ac…",
+      "link": "https://github.com/openclaw/openclaw/commit/46b2bed37547b85a4535eecba49d1e6db5d03073",
+      "publishedAt": "2026-07-29T10:34:54Z",
+      "summary": "fix(nextcloud-talk): reject reactions for disabled or unconfigured accounts (#112675) The react message-action handler dispatched straight to the sender without checking the resolved account, so a disabled Nextcloud Talk account (`enabled:false`) that still had a baseUrl/botSecret in config could keep emitting reactions. `describeMessageTool` already hides the tool for unconfigured accounts, but an explicit accountId can reach `handleAction` directly. Enforce the same enabled+configured gate at dispatch, mirroring the Signal reaction fix (#112607). Co-authored-by: Claude Opus 4.8 (1M context)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): 記憶 settings polish — inline add-on toggles, phase expla…",
-      "summaryZh": "重點：新功能(ui): 記憶 settings polish — inline add-on toggles, phase explanations, embedding test (#115557) * 新功能(ui): toggle 記憶 a..."
+      "titleZh": "OpenClaw 程式碼更新：修正(nextcloud-talk): reject reactions for disabled or unconfigured ac…",
+      "summaryZh": "重點：修正(nextcloud-talk): reject reactions for disabled or unconfigured accounts (#112675) The react message-action handler di..."
     },
     {
       "id": 9,
-      "title": "fix(codex): safely deliver remote workspace files and images (#115668)",
-      "link": "https://github.com/openclaw/openclaw/commit/a7cecc85d3c2f8cbcdebbc92fed02d5962c097a7",
-      "publishedAt": "2026-07-29T07:37:50Z",
-      "summary": "fix(codex): safely deliver remote workspace files and images (#115668) * fix(codex): safely deliver remote workspace files and images * chore(codex): keep release notes in pull request * style(scripts): repair current main formatting gate * refactor(codex): remove unused remote filesystem RPC types * docs: refresh generated documentation map * test(codex): type remote workspace reader mock * fix(ci): preserve plugin test ownership boundary * refactor(codex): split remote transfer protocol and projection types",
+      "title": "refactor(ui): move Agent Defaults entry from the sidebar into the Age…",
+      "link": "https://github.com/openclaw/openclaw/commit/af70829cdf78bff46b9f8f87901baa47a06fd0d7",
+      "publishedAt": "2026-07-29T10:30:40Z",
+      "summary": "refactor(ui): move Agent Defaults entry from the sidebar into the Agents page (#115836) * refactor(ui): move Agent Defaults entry from the sidebar into the Agents page * fix(ui): keep Agent Defaults searchable",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): safely deliver remote workspace files and images (#115668)",
-      "summaryZh": "重點：修正(codex): safely deliver remote workspace files and images (#115668) * 修正(codex): safely deliver remote workspace files..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): move Agent Defaults entry from the sidebar into the Age…",
+      "summaryZh": "重點：refactor(ui): move Agent Defaults entry from the sidebar into the Agents page (#115836) * refactor(ui): move Agent Defau..."
     },
     {
       "id": 10,
-      "title": "fix(matrix): accept documented automatic approval mode (#115676)",
-      "link": "https://github.com/openclaw/openclaw/commit/d37fd8f2d41db215adf615747f84f80b73ea75f3",
-      "publishedAt": "2026-07-29T07:37:19Z",
-      "summary": "fix(matrix): accept documented automatic approval mode (#115676) Restore the explicitly shipped Matrix approval mode without changing omitted, boolean, invalid, or non-strict configuration behavior. Regenerate the canonical channel metadata and prove native Matrix approvals against a real homeserver. Co-authored-by: mingdideng",
+      "title": "feat(gateway): push session PR indicators to subscribed clients (#115…",
+      "link": "https://github.com/openclaw/openclaw/commit/662abec754123d558f914378135f68404d88b977",
+      "publishedAt": "2026-07-29T10:30:01Z",
+      "summary": "feat(gateway): push session PR indicators to subscribed clients (#115643) * feat(gateway): push session PR indicators to subscribed clients * test(gateway): fix PR indicator drift * chore(protocol): allowlist PR-indicator event for native apps (Control UI surface) * test: align PR indicator lifecycle coverage * fix(ui): scope session PR store listeners to active watchers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(matrix): accept 文件umented automatic approval mode (#115676)",
-      "summaryZh": "重點：修正(matrix): accept 文件umented automatic approval mode (#115676) Restore the explicitly shipped Matrix approval mode witho..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): push session PR indicators to subscribed clients (#115…",
+      "summaryZh": "重點：新功能(Gateway): push session PR indicators to subscribed clients (#115643) * 新功能(Gateway): push session PR indicators to s..."
     }
   ]
 }
