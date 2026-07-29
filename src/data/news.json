@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T22:59:59.692Z",
+  "generatedAt": "2026-07-29T00:05:54.699Z",
   "items": [
     {
       "id": 1,
@@ -12,92 +12,92 @@
     },
     {
       "id": 2,
-      "title": "fix(chat): make web and terminal share one session state (#115429)",
-      "link": "https://github.com/openclaw/openclaw/commit/ad3f74f296e5d82009a55d922159713f691e842e",
-      "publishedAt": "2026-07-28T22:53:21Z",
-      "summary": "fix(chat): make web and terminal share one session state (#115429) * fix(chat): consolidate web and terminal session state * fix(chat): preserve live history across stale snapshots",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(chat): make web and terminal share one session state (#115429)",
-      "summaryZh": "重點：修正(chat): make web and terminal share one session state (#115429) * 修正(chat): consolidate web and terminal session state..."
-    },
-    {
-      "id": 3,
-      "title": "improve(agents): speed up warm turn model preparation (#113817)",
-      "link": "https://github.com/openclaw/openclaw/commit/e0e8651d85e6960365c9f675a636b8088932fa62",
-      "publishedAt": "2026-07-28T22:45:07Z",
-      "summary": "improve(agents): speed up warm turn model preparation (#113817) * perf(agents): prepare configured static models * perf(agents): memoize inline provider model projection buildInlineProviderModels is a pure projection of models.providers, but it was rebuilt on every model resolution. Embedded runs resolve models about four times per agent turn, and the projection is synchronous, so the repeated work landed directly on the gateway event loop. Cache the projection by providers object identity. Config objects are replaced rather than mutated on reload, so a WeakMap key stays correct across reloads. * perf(agents): prepare inline provider models * perf(agents): reuse snapshot configured models * test(agents): mock configured model resolver --------- Co-authored-by: Peter Steinberger Co-authored-by: kas",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(agents): speed up warm turn 模型 preparation (#113817)",
-      "summaryZh": "重點：improve(agents): speed up warm turn 模型 preparation (#113817) * perf(agents): prepare configured static 模型 * perf(agents)..."
-    },
-    {
-      "id": 4,
-      "title": "fix(gateway): prevent startup log shard hangs (#115428)",
-      "link": "https://github.com/openclaw/openclaw/commit/dd6a1434e7da8334fed8e0639c7db0248ae70628",
-      "publishedAt": "2026-07-28T22:43:48Z",
-      "summary": "fix(gateway): prevent startup log shard hangs (#115428) * fix(gateway): reuse startup plugin manifest snapshot * test(gateway): isolate startup warning inputs",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): prevent startup log shard hangs (#115428)",
-      "summaryZh": "重點：修正(Gateway): prevent startup log shard hangs (#115428) * 修正(Gateway): reuse startup plugin manifest snapshot * test(Gate..."
-    },
-    {
-      "id": 5,
-      "title": "feat(agents): surface watched-session awareness to the model (#114835)",
-      "link": "https://github.com/openclaw/openclaw/commit/895bf61ea0d37fdf7d1caa6e8e0c2d8ddd393f50",
-      "publishedAt": "2026-07-28T22:39:20Z",
-      "summary": "feat(agents): surface watched-session awareness to the model (#114835)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(agents): surface watched-session awareness to the 模型 (#114835)",
-      "summaryZh": "重點：新功能(agents): surface watched-session awareness to the 模型 (#114835)..."
-    },
-    {
-      "id": 6,
-      "title": "Bloom Energy 第二季營收首破 10 億美元，客戶包含所有美國大型雲端業者",
-      "link": "https://technews.tw/2026/07/29/bloom-energy-q2-revenue-exceeds-1-billion-ai-data-center-demand-boosts-full-year-outlook/",
-      "publishedAt": "Tue, 28 Jul 2026 21:36:17 +0000",
-      "summary": "Bloom Energy 公布 2026 年第二季財報，在 AI 資料中心電力需求持續成長帶動下，營收首度突破 [&#8230;]",
+      "title": "電動車競賽進入下半場，日產為何選擇按下暫停鍵？",
+      "link": "https://technews.tw/2026/07/29/nissan-kills-cash-cow/",
+      "publishedAt": "Wed, 29 Jul 2026 00:00:16 +0000",
+      "summary": "全球汽車產業持續投資電動車競賽，日本汽車大廠日產（Nissan Motor）卻選擇踩煞車。為了保留現金並改善財 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
+      "id": 3,
+      "title": "SK 海力士藉記憶體技術優勢，展開對中國長鑫存儲的逆襲",
+      "link": "https://finance.technews.tw/2026/07/29/sk-hynix-launches-a-counterattack-against-changxin-memory-technologies-in-china/",
+      "publishedAt": "Wed, 29 Jul 2026 00:00:11 +0000",
+      "summary": "韓國記憶體大廠 SK 海力士 （SK hynix） 正積極推進次世代記憶體標準 LPDDR6 的生產計畫，預期 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "test: remove stale persisted session file identity (#115442)",
+      "link": "https://github.com/openclaw/openclaw/commit/5578d01777ef354bd459bc6ee0c04716ab6b0eaa",
+      "publishedAt": "2026-07-28T23:55:13Z",
+      "summary": "test: remove stale persisted session file identity (#115442)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: remove stale persisted session file identity (#115442)",
+      "summaryZh": "重點：test: remove stale persisted session file identity (#115442)..."
+    },
+    {
+      "id": 5,
+      "title": "不只是贊助商，Google Cloud 如何用 Formula E 給自己的 AI 做壓力測試",
+      "link": "https://technews.tw/2026/07/29/formula-e-google-cloud/",
+      "publishedAt": "Tue, 28 Jul 2026 23:50:32 +0000",
+      "summary": "7 月 5 日下午的上海國際賽車場，是那種賽車迷會記很多年的下午。 雨下下停停，賽道半乾半濕。Formula [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix(agents): use lastSeenAtMs tie-break in canvas default-node select…",
+      "link": "https://github.com/openclaw/openclaw/commit/d53261360f3987e0fcf8390c759e67a4fee9efb5",
+      "publishedAt": "2026-07-28T23:49:15Z",
+      "summary": "fix(agents): use lastSeenAtMs tie-break in canvas default-node selection (#112084) * fix(agents): use lastSeenAtMs tie-break in canvas default-node selection When multiple nodes share the same connectedAtMs (or are all disconnected), the comparator now checks lastSeenAtMs before falling through to the stable nodeId alphabetical ordering. This prevents the canvas from selecting a stale node that was connected long ago but has since been replaced by a more recently active device. * fix(nodes): harden offline canvas target selection Co-authored-by: Kagura * fix(nodes): keep offline target fix release-ready Co-authored-by: Kagura * fix(nodes): ignore stale connection times offline Co-authored-by: Kagura * test(ci): stabilize startup and memory UI assertions * test(gateway): inject prepared manifest metadata * test(gateway): isolate startup model log coverage * test(gateway): reuse prepared model manifests * test(ui): keep startup abort fixture cold --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): use lastSeenAtMs tie-break in canvas default-node select…",
+      "summaryZh": "重點：修正(agents): use lastSeenAtMs tie-break in canvas default-node selection (#112084) * 修正(agents): use lastSeenAtMs tie-bre..."
+    },
+    {
       "id": 7,
-      "title": "中國 DUV 交付消息引發半導體連鎖殺盤效應，專家解析真相指劃錯重點",
-      "link": "https://finance.technews.tw/2026/07/28/news-of-chinas-duv-delivery-triggers-a-chain-reaction-in-the-semiconductor-industry/",
-      "publishedAt": "Tue, 28 Jul 2026 13:50:36 +0000",
-      "summary": "日前，一篇出自外媒The Information最新報導，指出一家未具名的中國國家支持企業已成功製造國產DUV [&#8230;]",
+      "title": "對付登革熱，斯里蘭卡動用無人機",
+      "link": "https://technews.tw/2026/07/29/sri-lanka-uses-air-force-drones-to-tackle-spreading-dengue-outbreak/",
+      "publishedAt": "Tue, 28 Jul 2026 23:30:55 +0000",
+      "summary": "無人機成為未來戰爭的主流，斯里蘭卡軍方也大舉動用無人機，但是並不是為了與人類打仗，而是與蚊子和病毒之間的防疫戰 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "惡意廣告攻擊出現新手法，駭客分次傳送惡意程式資料，再由瀏覽器組裝執行",
-      "link": "https://www.ithome.com.tw/news/177679",
-      "publishedAt": "2026-07-28 12:07:46",
-      "summary": "駭客透過惡意廣告（Malvertising）散布惡意軟體的作法相當氾濫，他們通常藉由廣告引誘使用者存取釣魚網站，下載冒充合法應用程式的安裝檔，藉此於受害電腦植入惡意軟體。然而，這樣的做法也隨著資安系統偵測機制的進步，出現更加隱密的作法。",
-      "source": "iThome",
+      "title": "難怪魏哲家羨慕！SK 海力士第二季營收獲利再創新高，淨利率達驚人 118%",
+      "link": "https://finance.technews.tw/2026/07/29/sk-hynixs-revenue-and-profit-hit-new-highs-in-the-second-quarter/",
+      "publishedAt": "Tue, 28 Jul 2026 23:30:01 +0000",
+      "summary": "韓國記憶體大廠 SK 海力士（SK Hynix）公布 2026 年第二季財務報告。受惠於全球人工智慧（AI）需 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "攻擊活動Operation BlueDash透過假Teams更新控制受害電腦",
-      "link": "https://www.ithome.com.tw/news/177680",
-      "publishedAt": "2026-07-28 12:07:40",
-      "summary": "提供行為式商業郵件詐騙（BEC）防護的資安廠商ZeroBEC揭露以微軟協作平臺Teams為誘餌的網釣活動，事件從一封安全文件的電子郵件開始，最終受害者的電腦被註冊到攻擊者控制的遠端監控與管理（RMM）環境，ZeroBEC將這起事故稱為Operation BlueDash。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(gateway): bind source replies to run sessions (#115434)",
+      "link": "https://github.com/openclaw/openclaw/commit/de5e09ac27317626e5101fada406f308f4d8f4ae",
+      "publishedAt": "2026-07-28T23:27:05Z",
+      "summary": "fix(gateway): bind source replies to run sessions (#115434)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): bind source replies to run sessions (#115434)",
+      "summaryZh": "重點：修正(Gateway): bind source replies to run sessions (#115434)..."
     },
     {
       "id": 10,
-      "title": "Anthropic執行長否認支持開放權重AI禁令，主張管制晶片與模型蒸餾",
-      "link": "https://www.ithome.com.tw/news/177681",
-      "publishedAt": "2026-07-28 12:07:14",
-      "summary": "近日傳出美國官員考慮禁止美國企業使用中國開放權重AI模型，微軟、Meta、OpenAI及Nvidia等科技業者隨後聯名反對相關限制。未參與連署的Anthropic因此遭外界質疑支持禁令，甚至企圖藉此保護自家封閉模型業務。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "perf(codex): serve catalog pages stale-while-revalidate and skip warm…",
+      "link": "https://github.com/openclaw/openclaw/commit/a49a5bfa74101f2ebd8438fe3d092f3dd8f8a61d",
+      "publishedAt": "2026-07-28T23:24:39Z",
+      "summary": "perf(codex): serve catalog pages stale-while-revalidate and skip warm-client start resolution (#115403) * perf(codex): serve catalog pages stale-while-revalidate and skip warm-client start resolution * fix(codex): skip empty-tool runtime discovery",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(codex): serve catalog pages stale-while-revalidate and skip warm…",
+      "summaryZh": "重點：perf(codex): serve catalog pages stale-while-revalidate and skip warm-client start resolution (#115403) * perf(codex): s..."
     }
   ]
 }
