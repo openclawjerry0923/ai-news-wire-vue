@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-07-30T00:00:30.494Z",
+  "generatedAt": "2026-07-30T03:17:14.340Z",
   "items": [
     {
       "id": 1,
-      "title": "GitHub導入OpenSSF跨生態系資料，Dependabot惡意套件警示擴及PyPI",
-      "link": "https://www.ithome.com.tw/news/177730",
-      "publishedAt": "2026-07-30 05:07:09",
-      "summary": "GitHub擴大Dependabot惡意套件警示的資料來源，開始將OpenSSF惡意套件專案收集的惡意套件公告，自動匯入GitHub安全公告資料庫。",
+      "title": "研究估AWS每年約373萬項雲端資源一度設為公開，部分RDS快照短暫曝露恐難察覺",
+      "link": "https://www.ithome.com.tw/news/177742",
+      "publishedAt": "2026-07-30 11:07:06",
+      "summary": "雲端資安業者Aryon Security於7月29日公布研究，指出AWS部分可公開分享的雲端資源，可能只在短時間內對外開放，隨後便從公開清單消失。研究團隊認為，這類短暫曝露可能發生在兩次掃描之間，因而可能未被採用定期掃描機制的雲端安全工具偵測到。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(daemon): require system-scope ownership before removing the user …",
-      "link": "https://github.com/openclaw/openclaw/commit/d8074d7ca21db38dafcfc7256476e37b8aa163e0",
-      "publishedAt": "2026-07-29T23:52:05Z",
-      "summary": "fix(daemon): require system-scope ownership before removing the user unit Doctor's dueling-scope repair removed the user-scope gateway unit on file presence alone. A system unit file that is merely staged, disabled, failed, or uncheckable would then cost the operator their only working gateway, and the default confirm value is true so non-interactive repair amplifies it. Gate the removal on isSystemUnitActiveOrEnabled: the system unit must be the live or boot-configured supervisor. Otherwise doctor explains the ambiguity and prints both fix directions instead of deleting anything. An erroring probe fails closed for the same reason. Applies the ClawSweeper rank-up move on #91221.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(daemon): require system-scope ownership before removing the user …",
-      "summaryZh": "重點：修正(daemon): require system-scope ownership before removing the user unit 文件tor's dueling-scope repair removed the user-s..."
+      "title": "OpenAI模型傳出駭入另一家公司",
+      "link": "https://www.ithome.com.tw/news/177740",
+      "publishedAt": "2026-07-30 10:07:15",
+      "summary": "OpenAI模型7月發生在內部測試中出錯，駭入Hugging Face後臺竊取資料及憑證。路透社、Axios等媒體報導，其實受害者還有另一間公司，為雲端運算平臺Modal Labs。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(daemon): only treat same-canonical-name user+system units as dueling",
-      "link": "https://github.com/openclaw/openclaw/commit/dcfd6a535d46767576bcabd75f15eba657839488",
-      "publishedAt": "2026-07-29T23:52:05Z",
-      "summary": "fix(daemon): only treat same-canonical-name user+system units as dueling Address review: a marker-owned system unit with a *different* name (e.g. an intentional rescue-bot gateway on the same host) must not be classified as a duplicate of the canonical user unit, or doctor could remove a legitimate user gateway. Dueling now requires user.unitName === system.unitName; the direct canonical system path still matches the real #79375 case. Adds a regression test for \"user canonical + custom marker-owned system\" -> kind:\"user\".",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(daemon): only treat same-canonical-name user+system units as dueling",
-      "summaryZh": "重點：修正(daemon): only treat same-canonical-name user+system units as dueling Address review: a marker-owned system unit with ..."
+      "title": "Meta第二季營收成長28%，資本支出增加83%",
+      "link": "https://www.ithome.com.tw/news/177741",
+      "publishedAt": "2026-07-30 10:07:09",
+      "summary": "Meta周三（7/29）公布2026年第二季財報，該季營收為608億美元，比去年同期成長28%，營業利益（Operating Income）為188億美元，減少了8%，淨利（Net Income）為158億美元，衰退14%。此外，該季Meta資本支出達到311億美元，大幅成長83%。當天Meta盤後股價下跌6.72%至546.56美元。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(daemon): detect and resolve dueling user+system systemd gateway u…",
-      "link": "https://github.com/openclaw/openclaw/commit/9308557f72a89f1a219bdd1c3f0de70f389715ad",
-      "publishedAt": "2026-07-29T23:52:05Z",
-      "summary": "fix(daemon): detect and resolve dueling user+system systemd gateway units After upgrading on Linux, a user-scope unit (~/.config/systemd/user/openclaw-gateway.service) and a system-scope unit (/etc/systemd/system/openclaw-gateway.service) can both exist and both try to manage the gateway. They bind the same port and each instance's stale-process detection SIGTERMs the other, producing an endless restart cascade (#79375). The detector `findInstalledSystemdGatewayScope` checked the user path first and returned early, so it could never surface that both scopes coexist. This adds, in three layers: 1. Detection: `findSystemdGatewayInstallation` — a discriminated union (none/user/system/dueling) that reports every installed scope without early-returning. `findInstalledSystemdGatewayScope` is refactored to delegate to it while preserving the exact user-first preference its four lifecycle callers rely on (no behavior change for stop/restart/is-enabled/runtime). Adds `uninstallUserSystemdGatewayUnit` (removes only the $HOME user unit, no root needed) and the pure `formatDuelingScopesWarning` helper. 2. Doctor: `maybeResolveDuelingSystemdGatewayScopes` detects the dueling state and, after the existing confirm/policy gate, removes the redundant user-scope unit while keeping the root-installed system unit authoritative. Declining or an externally-managed policy falls back to the existing cleanup hints. 3. Startup guard: in service mode, when a stale-kill actually happened, log a targeted remediation pointing at `openclaw doctor --fix` instead of letting the loop look like routine stale cleanup. Diagnostic only — the kill decision is unchanged.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(daemon): detect and resolve dueling user+system systemd Gateway u…",
-      "summaryZh": "重點：修正(daemon): detect and resolve dueling user+system systemd Gateway units After upgrading on Linux, a user-scope unit (~/..."
+      "title": "CISA將思科防火牆管理平臺FMC零時差漏洞列KEV",
+      "link": "https://www.ithome.com.tw/news/177738",
+      "publishedAt": "2026-07-30 09:07:43",
+      "summary": "思科於7月29日提出警告，防火牆集中控管平臺Secure Firewall Management Center（FMC）存在資安漏洞CVE-2026-20316，攻擊者可透過固定密碼存取指定的低權限帳號，且可與其他FMC漏洞串連進一步提升權限。思科表示該漏洞已被積極利用，同一天美國政府也提出警告，並要求聯邦機構緊急修補。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "fix(macos): back off approval socket retries (#116125)",
-      "link": "https://github.com/openclaw/openclaw/commit/514ab48d175830a856e7f1adeea2271284d8de06",
-      "publishedAt": "2026-07-29T23:52:01Z",
-      "summary": "fix(macos): back off approval socket retries (#116125)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): back off approval socket retries (#116125)",
-      "summaryZh": "重點：修正(macos): back off approval socket retries (#116125)..."
+      "title": "思科防火牆管理軟體存在遭積極利用的資安漏洞",
+      "link": "https://www.ithome.com.tw/news/177737",
+      "publishedAt": "2026-07-30 09:07:24",
+      "summary": "7月29日思科發布資安公告，指出旗下防火牆集中控管平臺Secure Firewall Management Center（FMC）存在資安漏洞CVE-2026-20316，未經身分驗證的攻擊者可利用低權限帳號存取平臺上的敏感資料，CVSS風險評為5.3分，值得留意的是，思科表示漏洞已遭積極利用，由於沒有緩解措施，該公司呼籲用戶應儘速更新FMC因應。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "AI 不是來取代員工，而是放大人才！全球企業重新發現「人機協作」才是真正的競爭力",
-      "link": "https://finance.technews.tw/2026/07/30/survey-shows-more-than-half-of-companies-regret-laying-off-employees-due-to-ai/",
-      "publishedAt": "Wed, 29 Jul 2026 23:50:28 +0000",
-      "summary": "當生成式 AI 迅速席捲全球企業時，許多高階主管曾用 AI 取代人力，視為提升效率與降低成本的契機，甚至引發激 [&#8230;]",
-      "source": "TechNews",
+      "title": "Visual Studio Copilot代理升級，內建.NET與Azure技能並可直接分析Git分支",
+      "link": "https://www.ithome.com.tw/news/177736",
+      "publishedAt": "2026-07-30 08:07:52",
+      "summary": "微軟發布Visual Studio 2026七月更新，在GitHub Copilot Chat加入新版Agent預覽功能，採用與命令列工具GitHub Copilot CLI相同的軟體開發套件（SDK）。新版也內建.NET與Azure技能，並加入組織共用指令、分支內容分析及C++建置工具版本搜尋等功能。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "Azure 年營收首度突破千億美元，微軟 AI 業務再寫新里程碑",
-      "link": "https://finance.technews.tw/2026/07/30/azure-revenue-100-billion-microsoft-ai-milestone/",
-      "publishedAt": "Wed, 29 Jul 2026 23:44:28 +0000",
-      "summary": "微軟公布 2026 會計年度第四季（截至 6 月 30 日）財報，受惠於 AI 與雲端業務持續成長，第四季營收 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "style: format dynamic route coverage (#116197)",
+      "link": "https://github.com/openclaw/openclaw/commit/e7d01b511b4e842fd4584db5d4b78caddf715489",
+      "publishedAt": "2026-07-30T03:04:07Z",
+      "summary": "style: format dynamic route coverage (#116197)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：style: format dynamic route coverage (#116197)",
+      "summaryZh": "重點：style: format dynamic route coverage (#116197)..."
     },
     {
       "id": 8,
-      "title": "Z 世代女性就業成長落後男性，史丹佛研究：主因是「職業分流」而非 AI",
-      "link": "https://technews.tw/2026/07/30/gen-z-women-entry-level-jobs-lag-men-not-ai/",
-      "publishedAt": "Wed, 29 Jul 2026 23:40:22 +0000",
-      "summary": "史丹佛大學數位經濟實驗室與 ADP Research 最新公布的薪資資料指出，在入門職場中，Z 世代年輕女性的 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "docs: clarify dynamic deep link loading",
+      "link": "https://github.com/openclaw/openclaw/commit/f645327c8e9da4041a676a0d0e59b309a6e24789",
+      "publishedAt": "2026-07-30T03:04:07Z",
+      "summary": "docs: clarify dynamic deep link loading",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: clarify dynamic deep link loading",
+      "summaryZh": "重點：文件: clarify dynamic deep link loading..."
     },
     {
       "id": 9,
-      "title": "數發部將公布 AI 模型評測結果，助企業、用戶避風險",
-      "link": "https://technews.tw/2026/07/30/moda-to-release-ai-model-evaluation-results/",
-      "publishedAt": "Wed, 29 Jul 2026 23:30:49 +0000",
-      "summary": "數發部指出，AI 評測中心針對 163 款大型語言模型進行評測，涵蓋美國、中國及法國等國，評估模型繁體中文能力 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test: cover dynamic route startup reconnect",
+      "link": "https://github.com/openclaw/openclaw/commit/6aae5c184f9ecd9eb98dfa8923dbfa726fbacc7f",
+      "publishedAt": "2026-07-30T03:04:07Z",
+      "summary": "test: cover dynamic route startup reconnect",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: cover dynamic route startup reconnect",
+      "summaryZh": "重點：test: cover dynamic route startup reconnect..."
     },
     {
       "id": 10,
-      "title": "美學者籲重塑教育現場：把防弊心力轉向打造「受控 AI 課堂」",
-      "link": "https://technews.tw/2026/07/30/how-ai-can-be-designed-into-the-classroom/",
-      "publishedAt": "Wed, 29 Jul 2026 23:20:27 +0000",
-      "summary": "美國教育科技與 AI 設計議題近日再度升溫。富比士（Forbes）專欄作者、萊特州立大學（Wright Sta [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "refactor: keep dynamic route identity page-owned",
+      "link": "https://github.com/openclaw/openclaw/commit/e2ae02a0c4180146a9e96288f43ba9ab714643a0",
+      "publishedAt": "2026-07-30T03:04:07Z",
+      "summary": "refactor: keep dynamic route identity page-owned",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: keep dynamic route identity page-owned",
+      "summaryZh": "重點：refactor: keep dynamic route identity page-owned..."
     }
   ]
 }
