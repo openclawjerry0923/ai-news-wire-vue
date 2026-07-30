@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T22:03:52.756Z",
+  "generatedAt": "2026-07-30T00:00:30.494Z",
   "items": [
     {
       "id": 1,
@@ -12,91 +12,91 @@
     },
     {
       "id": 2,
-      "title": "fix(agents): edit tool rewrites line endings on lines it did not touc…",
-      "link": "https://github.com/openclaw/openclaw/commit/51241c4e00ff3056dfae87aa45b69744c2ce3e8a",
-      "publishedAt": "2026-07-29T21:49:56Z",
-      "summary": "fix(agents): edit tool rewrites line endings on lines it did not touch (#116011) * fix(agents): edit tool rewrites line endings on lines it did not touch The edit tool detected one line ending from the file's first newline, normalized the whole file to LF for matching, then re-applied that single ending to every line on write. A one-line edit therefore rewrote the terminator of every untouched line, and deleted lone carriage returns that were data rather than line breaks. The diff and unified patch returned to the model are computed on the normalized text, so the damage never surfaces in the tool result or the TUI preview. Rebuild the written text from the original terminators instead. A bare carriage return is tracked as its own terminator, so lines the edits did not touch keep their exact bytes and a rewritten line is written back with the terminator bytes it had. Newly written lines take the terminator of the original line they replaced. Matching still runs in LF space, so LF oldText against a CRLF file matches as before. * fix(agents): preserve CR fallback for leading edit insertions * fix(agents): align replacement line-ending boundaries * fix(agents): preserve edit line-ending provenance * refactor(agents): isolate edit replacement reconstruction * test(agents): cover edits through production line endings --------- Co-authored-by: Vincent Koc",
+      "title": "fix(daemon): require system-scope ownership before removing the user …",
+      "link": "https://github.com/openclaw/openclaw/commit/d8074d7ca21db38dafcfc7256476e37b8aa163e0",
+      "publishedAt": "2026-07-29T23:52:05Z",
+      "summary": "fix(daemon): require system-scope ownership before removing the user unit Doctor's dueling-scope repair removed the user-scope gateway unit on file presence alone. A system unit file that is merely staged, disabled, failed, or uncheckable would then cost the operator their only working gateway, and the default confirm value is true so non-interactive repair amplifies it. Gate the removal on isSystemUnitActiveOrEnabled: the system unit must be the live or boot-configured supervisor. Otherwise doctor explains the ambiguity and prints both fix directions instead of deleting anything. An erroring probe fails closed for the same reason. Applies the ClawSweeper rank-up move on #91221.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): edit tool rewrites line endings on lines it did not touc…",
-      "summaryZh": "重點：修正(agents): edit tool rewrites line endings on lines it did not touch (#116011) * 修正(agents): edit tool rewrites line en..."
+      "titleZh": "OpenClaw 程式碼更新：修正(daemon): require system-scope ownership before removing the user …",
+      "summaryZh": "重點：修正(daemon): require system-scope ownership before removing the user unit 文件tor's dueling-scope repair removed the user-s..."
     },
     {
       "id": 3,
-      "title": "fix(agents): keep streamed pre-tool assistant text in claude-cli fina…",
-      "link": "https://github.com/openclaw/openclaw/commit/c661061d4a7a2ec190a3563d1a8532e8466f864b",
-      "publishedAt": "2026-07-29T21:48:01Z",
-      "summary": "fix(agents): keep streamed pre-tool assistant text in claude-cli final output The claude-cli terminal result envelope carries only the final message text. On the default draft-preview path (no block streaming, no commentary classification) the preview streamed every text block, then final delivery edited it down to just the post-tool closer, silently erasing pre-tool answer text (#106760). Both the incremental parser and the transcript reparse now keep the streamed accumulation when it is connected to the result through tool splits: boundaries join with a paragraph break, non-tool message boundaries restart preservation candidacy (superseded drafts still defer to the envelope), interim results commit their segment without breaking cumulative delta snapshots, and transcript reparses continue past interim results like the incremental parser.",
+      "title": "fix(daemon): only treat same-canonical-name user+system units as dueling",
+      "link": "https://github.com/openclaw/openclaw/commit/dcfd6a535d46767576bcabd75f15eba657839488",
+      "publishedAt": "2026-07-29T23:52:05Z",
+      "summary": "fix(daemon): only treat same-canonical-name user+system units as dueling Address review: a marker-owned system unit with a *different* name (e.g. an intentional rescue-bot gateway on the same host) must not be classified as a duplicate of the canonical user unit, or doctor could remove a legitimate user gateway. Dueling now requires user.unitName === system.unitName; the direct canonical system path still matches the real #79375 case. Adds a regression test for \"user canonical + custom marker-owned system\" -> kind:\"user\".",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep streamed pre-tool assistant text in claude-cli fina…",
-      "summaryZh": "重點：修正(agents): keep streamed pre-tool assistant text in claude-cli final output The claude-cli terminal result envelope car..."
+      "titleZh": "OpenClaw 程式碼更新：修正(daemon): only treat same-canonical-name user+system units as dueling",
+      "summaryZh": "重點：修正(daemon): only treat same-canonical-name user+system units as dueling Address review: a marker-owned system unit with ..."
     },
     {
       "id": 4,
-      "title": "fix(plugins): keep next-turn injections callable after register (#111…",
-      "link": "https://github.com/openclaw/openclaw/commit/e85e1dba3fa25c21ed8f9cf2677eeda9aec2a1c5",
-      "publishedAt": "2026-07-29T21:47:00Z",
-      "summary": "fix(plugins): keep next-turn injections callable after register (#111131) Co-authored-by: guptaishaan",
+      "title": "fix(daemon): detect and resolve dueling user+system systemd gateway u…",
+      "link": "https://github.com/openclaw/openclaw/commit/9308557f72a89f1a219bdd1c3f0de70f389715ad",
+      "publishedAt": "2026-07-29T23:52:05Z",
+      "summary": "fix(daemon): detect and resolve dueling user+system systemd gateway units After upgrading on Linux, a user-scope unit (~/.config/systemd/user/openclaw-gateway.service) and a system-scope unit (/etc/systemd/system/openclaw-gateway.service) can both exist and both try to manage the gateway. They bind the same port and each instance's stale-process detection SIGTERMs the other, producing an endless restart cascade (#79375). The detector `findInstalledSystemdGatewayScope` checked the user path first and returned early, so it could never surface that both scopes coexist. This adds, in three layers: 1. Detection: `findSystemdGatewayInstallation` — a discriminated union (none/user/system/dueling) that reports every installed scope without early-returning. `findInstalledSystemdGatewayScope` is refactored to delegate to it while preserving the exact user-first preference its four lifecycle callers rely on (no behavior change for stop/restart/is-enabled/runtime). Adds `uninstallUserSystemdGatewayUnit` (removes only the $HOME user unit, no root needed) and the pure `formatDuelingScopesWarning` helper. 2. Doctor: `maybeResolveDuelingSystemdGatewayScopes` detects the dueling state and, after the existing confirm/policy gate, removes the redundant user-scope unit while keeping the root-installed system unit authoritative. Declining or an externally-managed policy falls back to the existing cleanup hints. 3. Startup guard: in service mode, when a stale-kill actually happened, log a targeted remediation pointing at `openclaw doctor --fix` instead of letting the loop look like routine stale cleanup. Diagnostic only — the kill decision is unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): keep next-turn injections callable after register (#111…",
-      "summaryZh": "重點：修正(plugins): keep next-turn injections callable after register (#111131) Co-authored-by: guptaishaan..."
+      "titleZh": "OpenClaw 程式碼更新：修正(daemon): detect and resolve dueling user+system systemd Gateway u…",
+      "summaryZh": "重點：修正(daemon): detect and resolve dueling user+system systemd Gateway units After upgrading on Linux, a user-scope unit (~/..."
     },
     {
       "id": 5,
-      "title": "fix(agents): settle aborted runs through after-turn so agent_end fire…",
-      "link": "https://github.com/openclaw/openclaw/commit/8fefe62ba41c89e1d63ab511b9bb0868b0f56d70",
-      "publishedAt": "2026-07-29T21:44:51Z",
-      "summary": "fix(agents): settle aborted runs through after-turn so agent_end fires (#116087)",
+      "title": "fix(macos): back off approval socket retries (#116125)",
+      "link": "https://github.com/openclaw/openclaw/commit/514ab48d175830a856e7f1adeea2271284d8de06",
+      "publishedAt": "2026-07-29T23:52:01Z",
+      "summary": "fix(macos): back off approval socket retries (#116125)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): settle aborted runs through after-turn so agent_end fire…",
-      "summaryZh": "重點：修正(agents): settle aborted runs through after-turn so agent_end fires (#116087)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): back off approval socket retries (#116125)",
+      "summaryZh": "重點：修正(macos): back off approval socket retries (#116125)..."
     },
     {
       "id": 6,
-      "title": "高階 AOI 出貨穩定，牧德上半年 EPS 達 9.8 元",
-      "link": "https://technews.tw/2026/07/29/mustek-stable-first-half-profits-increased-high-end-product-share/",
-      "publishedAt": "Wed, 29 Jul 2026 13:44:42 +0000",
-      "summary": "牧德今（29）日召開董事會，通過 115 年上半年度財務報表，每股稅後盈餘（EPS）達 9.8 元，毛利率為 [&#8230;]",
+      "title": "AI 不是來取代員工，而是放大人才！全球企業重新發現「人機協作」才是真正的競爭力",
+      "link": "https://finance.technews.tw/2026/07/30/survey-shows-more-than-half-of-companies-regret-laying-off-employees-due-to-ai/",
+      "publishedAt": "Wed, 29 Jul 2026 23:50:28 +0000",
+      "summary": "當生成式 AI 迅速席捲全球企業時，許多高階主管曾用 AI 取代人力，視為提升效率與降低成本的契機，甚至引發激 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "汲取黑洞能量打造終極運算，科學家探討「戴森大腦」宇宙資料中心成真可能",
-      "link": "https://technews.tw/2026/07/29/could-alien-technology-exist-around-black-holes/",
-      "publishedAt": "Wed, 29 Jul 2026 13:40:06 +0000",
-      "summary": "賓州州立大學、麻省理工學院（MIT）與超智慧基金會的跨領域團隊，於 MIT 的「腦、心智與機器中心」舉辦了「戴 [&#8230;]",
+      "title": "Azure 年營收首度突破千億美元，微軟 AI 業務再寫新里程碑",
+      "link": "https://finance.technews.tw/2026/07/30/azure-revenue-100-billion-microsoft-ai-milestone/",
+      "publishedAt": "Wed, 29 Jul 2026 23:44:28 +0000",
+      "summary": "微軟公布 2026 會計年度第四季（截至 6 月 30 日）財報，受惠於 AI 與雲端業務持續成長，第四季營收 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "網路釣魚成2026年第2季主要初始入侵手法，身分驗證濫用威脅升溫",
-      "link": "https://www.ithome.com.tw/news/177716",
-      "publishedAt": "2026-07-29 12:07:53",
-      "summary": "思科（Cisco）旗下資安研究團隊回顧2026年第2季事故應變案件，在能確認初始入侵方式的案件中，超過半數以網路釣魚作為初始入侵手法，高於前一季的35%。涉及身分驗證機制濫用的案件比例，也由前一季的35%升至65%。",
-      "source": "iThome",
+      "title": "Z 世代女性就業成長落後男性，史丹佛研究：主因是「職業分流」而非 AI",
+      "link": "https://technews.tw/2026/07/30/gen-z-women-entry-level-jobs-lag-men-not-ai/",
+      "publishedAt": "Wed, 29 Jul 2026 23:40:22 +0000",
+      "summary": "史丹佛大學數位經濟實驗室與 ADP Research 最新公布的薪資資料指出，在入門職場中，Z 世代年輕女性的 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "CREST推出AI輔助資安服務認證，納入AI治理與滲透測試要求",
-      "link": "https://www.ithome.com.tw/news/177715",
-      "publishedAt": "2026-07-29 12:07:45",
-      "summary": "國際資安認證組織CREST於7月28日推出AI輔助資安服務認證，讓資安服務業者透過獨立審查，證明其在提供資安服務時，能以負責任方式使用AI，並落實治理、監督及透明度要求。",
-      "source": "iThome",
+      "title": "數發部將公布 AI 模型評測結果，助企業、用戶避風險",
+      "link": "https://technews.tw/2026/07/30/moda-to-release-ai-model-evaluation-results/",
+      "publishedAt": "Wed, 29 Jul 2026 23:30:49 +0000",
+      "summary": "數發部指出，AI 評測中心針對 163 款大型語言模型進行評測，涵蓋美國、中國及法國等國，評估模型繁體中文能力 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "微軟對AD CS Certighost權限提升漏洞修補提出進一步說明，建議企業優先更新CA伺服器",
-      "link": "https://www.ithome.com.tw/news/177714",
-      "publishedAt": "2026-07-29 12:07:22",
-      "summary": "針對稍早於7月14日修補的Active Directory憑證服務（AD CS）Certighost權限提升漏洞（CVE-2026-54121），微軟威脅情報團隊於7月28日",
-      "source": "iThome",
+      "title": "美學者籲重塑教育現場：把防弊心力轉向打造「受控 AI 課堂」",
+      "link": "https://technews.tw/2026/07/30/how-ai-can-be-designed-into-the-classroom/",
+      "publishedAt": "Wed, 29 Jul 2026 23:20:27 +0000",
+      "summary": "美國教育科技與 AI 設計議題近日再度升溫。富比士（Forbes）專欄作者、萊特州立大學（Wright Sta [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     }
   ]
