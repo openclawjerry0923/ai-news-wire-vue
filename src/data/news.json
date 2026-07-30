@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-07-30T16:27:02.231Z",
+  "generatedAt": "2026-07-30T18:16:32.608Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(imessage): bold approval prompt labels in poll mode (#116221)",
-      "link": "https://github.com/openclaw/openclaw/commit/9bebf7ac4367d8247c6cba1b3ab76fc4d1a90894",
-      "publishedAt": "2026-07-30T16:23:47Z",
-      "summary": "fix(imessage): bold approval prompt labels in poll mode (#116221) * fix(imessage): bold approval prompt labels in poll mode #113193 added bold headers and labels to the approval reaction prompt, but iMessage only shows that copy when tapbacks own the controls. On any poll-capable bridge the details message is built from `manualFallbackPayload`, the legacy unstyled builder, so every label (`Title:`, `Tool:`, `Host:`, `CWD:`, `Full id:`, ...) reaches Messages as flat text. Native polls are the default on a bridge-v2 host, so in practice #85954 still reproduced after it was closed. Add `nativeControlsPayload` to `ApprovalReactionPendingContent`: the same rich copy as `reactionPayload` minus the tapback hint, for channels whose native controls already own the decision surface. iMessage poll mode now renders it, so both control paths deliver identical styled copy. `imsg poll send --question` has no attributed-body channel, so the poll question keeps the marker-free rendering of that same text; otherwise the balloon would show literal asterisks. Co-Authored-By: Claude Opus 5 (1M context) Claude-Session: https://claude.ai/code/session_011Byq7UrC7ZpMHxoFXcddsa * refactor(plugin-sdk): carry native-controls prompt copy as text The iMessage poll path reads exactly one thing from the native-controls payload: its text. Replace the ReplyPayload field with nativeControlsText so buildApprovalReactionPendingContent stops running the metadata/session-key builder for fields no caller reads, and the '?? \"\"' sentinel goes away. Relative to main the SDK change stays additive: neither field exists in any release; nativeControlsPayload only ever existed on this branch. * refactor(plugin-sdk): expose native-controls prompt text as a builder, not a type field ClawSweeper flagged that requiring a new member on the shipped ApprovalReactionPendingContent type is source-incompatible for external producers that hand-construct it. The hint-free copy does not need to ride the type at all: export buildApprovalNativeControlsPromptText and let the iMessage handler call it at payload-build time. ApprovalReactionPendingContent is now byte-identical to the shipped shape; the SDK change is a single additive function export. Signal/WhatsApp test fixtures revert to their original form. --------- Co-authored-by: Omar Shahine Co-authored-by: Claude Opus 5 (1M context)",
+      "title": "fix: keep reply text in session transcript when media is attached (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/3ffd3864ea23a899a637da691b0e5214d178d768",
+      "publishedAt": "2026-07-30T18:14:57Z",
+      "summary": "fix: keep reply text in session transcript when media is attached (#116225) Preserve assistant reply text alongside stable attachment names across the shared transcript mirror path. Add direct formatter, real SQLite persistence, outbound delivery, and gateway fallback matching coverage.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(imessage): bold approval prompt labels in poll mode (#116221)",
-      "summaryZh": "重點：修正(imessage): bold approval prompt labels in poll mode (#116221) * 修正(imessage): bold approval prompt labels in poll mod..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep reply text in session transcript when media is attached (#1…",
+      "summaryZh": "重點：修正: keep reply text in session transcript when media is attached (#116225) Preserve assistant reply text alongside stabl..."
     },
     {
       "id": 2,
-      "title": "fix(macos): coalesce tailscale status checks (#116321)",
-      "link": "https://github.com/openclaw/openclaw/commit/668721bcfc249c16f07d697137ad34224ef5c7b9",
-      "publishedAt": "2026-07-30T16:19:51Z",
-      "summary": "fix(macos): coalesce tailscale status checks (#116321)",
+      "title": "fix(onboard): preflight TTY before reset (#116491)",
+      "link": "https://github.com/openclaw/openclaw/commit/7f7534253fc867eec97b947cfbfebbbf52016dfa",
+      "publishedAt": "2026-07-30T18:01:02Z",
+      "summary": "fix(onboard): preflight TTY before reset (#116491)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): coalesce tailscale status checks (#116321)",
-      "summaryZh": "重點：修正(macos): coalesce tailscale status checks (#116321)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): preflight TTY before reset (#116491)",
+      "summaryZh": "重點：修正(onboard): preflight TTY before reset (#116491)..."
     },
     {
       "id": 3,
-      "title": "test(mxc): run Windows-only suites in CI (#116451)",
-      "link": "https://github.com/openclaw/openclaw/commit/85466bd89e748aa2ac972bc31bd03bb9eb5b92c2",
-      "publishedAt": "2026-07-30T16:10:22Z",
-      "summary": "test(mxc): run Windows-only suites in CI (#116451)",
+      "title": "test(infra): run exec allowlist suite on Windows (#116492)",
+      "link": "https://github.com/openclaw/openclaw/commit/3b355879b8ccc0404ea6aac3ed2df8018df8944a",
+      "publishedAt": "2026-07-30T17:46:19Z",
+      "summary": "test(infra): run exec allowlist suite on Windows (#116492)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(mxc): run Windows-only suites in CI (#116451)",
-      "summaryZh": "重點：test(mxc): run Windows-only suites in CI (#116451)..."
+      "titleZh": "OpenClaw 程式碼更新：test(infra): run exec allowlist suite on Windows (#116492)",
+      "summaryZh": "重點：test(infra): run exec allowlist suite on Windows (#116492)..."
     },
     {
       "id": 4,
-      "title": "fix(ios): avoid duplicate URLs in shared drafts (#116430)",
-      "link": "https://github.com/openclaw/openclaw/commit/d962a3d9c1468bbb92ca41a8739d625e9cfdfb44",
-      "publishedAt": "2026-07-30T16:09:35Z",
-      "summary": "fix(ios): avoid duplicate URLs in shared drafts (#116430) * fix(ios): deduplicate shared URLs * test(ios): prove share provider extraction",
+      "title": "fix(ios): stabilize Apple UI validation across runtimes (#116487)",
+      "link": "https://github.com/openclaw/openclaw/commit/8a12343efe67b11ac80f0ff8005fb55fa705fc40",
+      "publishedAt": "2026-07-30T17:30:46Z",
+      "summary": "fix(ios): stabilize Apple UI validation across runtimes (#116487) * test(ios): align source guards with current contracts * test(ios): stabilize cross-version UI automation * test(ios): harden typography boundary audit * test(ios): synchronize deterministic UI launches",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): avoid duplicate URLs in shared drafts (#116430)",
-      "summaryZh": "重點：修正(ios): avoid duplicate URLs in shared drafts (#116430) * 修正(ios): deduplicate shared URLs * test(ios): prove share pro..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): stabilize Apple UI validation across runtimes (#116487)",
+      "summaryZh": "重點：修正(ios): stabilize Apple UI validation across runtimes (#116487) * test(ios): align source guards with current contracts..."
     },
     {
       "id": 5,
