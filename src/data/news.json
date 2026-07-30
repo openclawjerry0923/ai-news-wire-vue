@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-07-30T14:03:44.785Z",
+  "generatedAt": "2026-07-30T16:27:02.231Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(imessage): bold approval prompt labels in poll mode (#116221)",
+      "link": "https://github.com/openclaw/openclaw/commit/9bebf7ac4367d8247c6cba1b3ab76fc4d1a90894",
+      "publishedAt": "2026-07-30T16:23:47Z",
+      "summary": "fix(imessage): bold approval prompt labels in poll mode (#116221) * fix(imessage): bold approval prompt labels in poll mode #113193 added bold headers and labels to the approval reaction prompt, but iMessage only shows that copy when tapbacks own the controls. On any poll-capable bridge the details message is built from `manualFallbackPayload`, the legacy unstyled builder, so every label (`Title:`, `Tool:`, `Host:`, `CWD:`, `Full id:`, ...) reaches Messages as flat text. Native polls are the default on a bridge-v2 host, so in practice #85954 still reproduced after it was closed. Add `nativeControlsPayload` to `ApprovalReactionPendingContent`: the same rich copy as `reactionPayload` minus the tapback hint, for channels whose native controls already own the decision surface. iMessage poll mode now renders it, so both control paths deliver identical styled copy. `imsg poll send --question` has no attributed-body channel, so the poll question keeps the marker-free rendering of that same text; otherwise the balloon would show literal asterisks. Co-Authored-By: Claude Opus 5 (1M context) Claude-Session: https://claude.ai/code/session_011Byq7UrC7ZpMHxoFXcddsa * refactor(plugin-sdk): carry native-controls prompt copy as text The iMessage poll path reads exactly one thing from the native-controls payload: its text. Replace the ReplyPayload field with nativeControlsText so buildApprovalReactionPendingContent stops running the metadata/session-key builder for fields no caller reads, and the '?? \"\"' sentinel goes away. Relative to main the SDK change stays additive: neither field exists in any release; nativeControlsPayload only ever existed on this branch. * refactor(plugin-sdk): expose native-controls prompt text as a builder, not a type field ClawSweeper flagged that requiring a new member on the shipped ApprovalReactionPendingContent type is source-incompatible for external producers that hand-construct it. The hint-free copy does not need to ride the type at all: export buildApprovalNativeControlsPromptText and let the iMessage handler call it at payload-build time. ApprovalReactionPendingContent is now byte-identical to the shipped shape; the SDK change is a single additive function export. Signal/WhatsApp test fixtures revert to their original form. --------- Co-authored-by: Omar Shahine Co-authored-by: Claude Opus 5 (1M context)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): bold approval prompt labels in poll mode (#116221)",
+      "summaryZh": "重點：修正(imessage): bold approval prompt labels in poll mode (#116221) * 修正(imessage): bold approval prompt labels in poll mod..."
+    },
+    {
+      "id": 2,
+      "title": "fix(macos): coalesce tailscale status checks (#116321)",
+      "link": "https://github.com/openclaw/openclaw/commit/668721bcfc249c16f07d697137ad34224ef5c7b9",
+      "publishedAt": "2026-07-30T16:19:51Z",
+      "summary": "fix(macos): coalesce tailscale status checks (#116321)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): coalesce tailscale status checks (#116321)",
+      "summaryZh": "重點：修正(macos): coalesce tailscale status checks (#116321)..."
+    },
+    {
+      "id": 3,
+      "title": "test(mxc): run Windows-only suites in CI (#116451)",
+      "link": "https://github.com/openclaw/openclaw/commit/85466bd89e748aa2ac972bc31bd03bb9eb5b92c2",
+      "publishedAt": "2026-07-30T16:10:22Z",
+      "summary": "test(mxc): run Windows-only suites in CI (#116451)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(mxc): run Windows-only suites in CI (#116451)",
+      "summaryZh": "重點：test(mxc): run Windows-only suites in CI (#116451)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ios): avoid duplicate URLs in shared drafts (#116430)",
+      "link": "https://github.com/openclaw/openclaw/commit/d962a3d9c1468bbb92ca41a8739d625e9cfdfb44",
+      "publishedAt": "2026-07-30T16:09:35Z",
+      "summary": "fix(ios): avoid duplicate URLs in shared drafts (#116430) * fix(ios): deduplicate shared URLs * test(ios): prove share provider extraction",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): avoid duplicate URLs in shared drafts (#116430)",
+      "summaryZh": "重點：修正(ios): avoid duplicate URLs in shared drafts (#116430) * 修正(ios): deduplicate shared URLs * test(ios): prove share pro..."
+    },
+    {
+      "id": 5,
       "title": "失蹤的宇宙物質找到了，科學家用快速電波爆發揭開謎團",
       "link": "https://technews.tw/2026/07/30/frbs-help-solve-the-mystery-of-the-universe-missing-baryons/",
       "publishedAt": "Thu, 30 Jul 2026 13:44:14 +0000",
@@ -11,51 +55,16 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(tui): preserve session state across switches and reconnects (#116…",
-      "link": "https://github.com/openclaw/openclaw/commit/319fd692d1c83bc05b3a38e4673f2e2fa5398db0",
-      "publishedAt": "2026-07-30T13:29:31Z",
-      "summary": "fix(tui): preserve session state across switches and reconnects (#116399) * fix(tui): isolate session lifecycle state * fix(tui): preserve session incarnation identity * fix(tui): preserve gateway disconnect fallback",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): preserve session state across switches and reconnects (#116…",
-      "summaryZh": "重點：修正(tui): preserve session state across switches and reconnects (#116399) * 修正(tui): isolate session lifecycle state * 修正..."
-    },
-    {
-      "id": 3,
-      "title": "feat(agents): report CLI command outcomes in channel progress",
-      "link": "https://github.com/openclaw/openclaw/commit/2ca340fa0afe0dbf0ae2f23539b5beb85f4d1a77",
-      "publishedAt": "2026-07-30T12:31:37Z",
-      "summary": "feat(agents): report CLI command outcomes in channel progress The CLI candidate bridged tool events itself: it forwarded starts without a toolCallId and returned early on the result phase, so a Claude CLI turn produced progress lines with no identity and no terminal outcome. A failed command rendered exactly like one that succeeded. The bridge now forwards the call id and projects results through the same buildCommandOutputFromToolResultEvent the embedded path uses. Two gaps had to close for that projection to see a CLI result: it only read structured records, where CLI backends report raw text plus is_error, and it needed a title or the terminal line would describe the output instead of the command, so the runner carries the started args onto its result event. A bare result with no content stays excluded, since runners that report an outcome send a separate command_output event. Modeled on the sibling t3code Claude adapter, which correlates each tool_result back to its in-flight tool by tool_use_id and emits a failed/completed status. Proven live on the real Claude CLI backend: two calls, two lines updating in place, the failing one marked failed.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(agents): report CLI command outcomes in channel progress",
-      "summaryZh": "重點：新功能(agents): report CLI command outcomes in channel progress The CLI candidate bridged tool events itself: it forwarded ..."
-    },
-    {
-      "id": 4,
-      "title": "fix(cli): preserve explicit option intent (#116389)",
-      "link": "https://github.com/openclaw/openclaw/commit/1cbe674d6a6d09c8d068bcc9828ca8718047e6a9",
-      "publishedAt": "2026-07-30T12:22:50Z",
-      "summary": "fix(cli): preserve explicit option intent (#116389)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): preserve explicit option intent (#116389)",
-      "summaryZh": "重點：修正(cli): preserve explicit option intent (#116389)..."
-    },
-    {
-      "id": 5,
-      "title": "fix(release): trust update restart harness (#116301)",
-      "link": "https://github.com/openclaw/openclaw/commit/e604cf5b77745b201884e1b071a34ebff72e8db5",
-      "publishedAt": "2026-07-30T12:19:16Z",
-      "summary": "fix(release): trust update restart harness (#116301) * fix(release): trust update restart harness * fix(release): preserve candidate harness root",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): trust update restart harness (#116301)",
-      "summaryZh": "重點：修正(版本發布): trust update restart harness (#116301) * 修正(版本發布): trust update restart harness * 修正(版本發布): preserve candidate..."
-    },
-    {
       "id": 6,
+      "title": "韓股救市三箭！暫時禁止賣空、崔泰源買進 SK 海力士、三星重啟股東回報",
+      "link": "https://finance.technews.tw/2026/07/30/three-arrows-to-rescue-the-market/",
+      "publishedAt": "Thu, 30 Jul 2026 13:36:01 +0000",
+      "summary": "韓股 KOSPI 指數今年累計觸發九次熔斷機制，面對市場失控的下行風險，韓國當局與各大財閥啟動就是三支箭，監管 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "美國FCC禁售外國人形機器人、太陽能變流器",
       "link": "https://www.ithome.com.tw/news/177750",
       "publishedAt": "2026-07-30 12:07:46",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "勒索軟體利用金流匿蹤、AI助攻釣魚入侵，資安署示警臺灣企業不能再心存僥倖",
       "link": "https://www.ithome.com.tw/news/177748",
       "publishedAt": "2026-07-30 12:07:44",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "資安業者盤點全球暴露於IPMI漏洞風險的伺服器，臺灣也有319臺入列",
       "link": "https://www.ithome.com.tw/news/177751",
       "publishedAt": "2026-07-30 12:07:31",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "北韓駭客假面試攻擊，SVG圖檔藏惡意程式竊取開發者資料",
       "link": "https://www.ithome.com.tw/news/177743",
       "publishedAt": "2026-07-30 12:07:29",
       "summary": "Elastic Security Labs揭露一波針對軟體開發者的假求職面試攻擊。攻擊者把惡意程式拆成多個片段，藏在程式測驗專案的SVG國旗圖檔中。開發者下載並啟動專案後，瀏覽器登入資料、加密貨幣錢包資料、雲端服務設定與原始碼可能遭竊，電腦也會被植入遠端控制後門。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "俄羅斯駭客Laundry Bear攻擊Exchange用戶，藉由半點擊漏洞散布惡意程式OWAReaper",
-      "link": "https://www.ithome.com.tw/news/177749",
-      "publishedAt": "2026-07-30 12:07:07",
-      "summary": "上週五眼聯盟與歐洲多國對俄羅斯駭客Laundry Bear（Void Blizzard、CL-STA-1114、TA488）的網路間諜活動提出警告，駭客鎖定郵件協作平臺Zimbra Collaboration Suite（ZCS）已知漏洞從事攻擊，參與這波活動調查的威脅情報公司Proofpoint指出，這些駭客在聯合公告發出前夕，已改用另一個資安漏洞從事攻擊。",
       "source": "iThome",
       "tag": "繁中"
     }
