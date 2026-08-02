@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-02T18:06:47.674Z",
+  "generatedAt": "2026-08-02T20:10:45.938Z",
   "items": [
     {
       "id": 1,
-      "title": "test(msteams): avoid hanging response clones (#118096)",
-      "link": "https://github.com/openclaw/openclaw/commit/6c29fc154fe9658b14637ffd875c7ba9ed2fbae3",
-      "publishedAt": "2026-08-02T18:04:38Z",
-      "summary": "test(msteams): avoid hanging response clones (#118096) Co-authored-by: Peter Steinberger",
+      "title": "refactor(macos): remove the custom menu bar hover card (#118116)",
+      "link": "https://github.com/openclaw/openclaw/commit/b8a6ea12cc2f9e04e85acbf7d00759a067f3133c",
+      "publishedAt": "2026-08-02T20:10:27Z",
+      "summary": "refactor(macos): remove the custom menu bar hover card (#118116) * refactor(macos): remove the custom menu bar hover card The status item showed two hover affordances at once: the native AppKit tooltip and a custom SwiftUI panel rendering an \"Idle / No recent activity\" card. Keep the native tooltip and drop the custom HUD. The HUD was the only consumer of the status item's hover tracking, so the NSTrackingArea and onHoverChanged plumbing in StatusItemMouseRouter goes with it; click routing is unchanged. WorkActivityStore.lastToolLabel had no other reader either. * chore(i18n): refresh native i18n inventory after hover card removal Deleting HoverHUD.swift shifted the MenuBar.swift line numbers that apps/.i18n/native-source.json records. Regenerated with `pnpm native:i18n:baseline`; only line numbers change, no strings added or removed. * refactor(macos): drop the orphaned anchored chat panel Removing the hover card left WebChatManager.togglePanel() without a caller, and it was the only thing that created the menu-bar-anchored chat popover. Delete that presentation path: togglePanel/panelHidden, the panel controller state, WebChatPresentation, WebChatPanel, presentAnchored and its dismiss monitor, and WindowPlacement.anchoredBelowFrame. Chat is unaffected as a window - WebChatManager.show() still backs the Dock menu, --chat and deep links. The status item highlight that tracked chat window visibility is preserved, renamed to onChatWindowVisibilityChanged now that no panel exists to confuse it with. Periphery reports no unused code. * chore: drop CHANGELOG edit from this PR AGENTS.md: CHANGELOG.md is release-only and release generation derives it from merged PRs. Release-note context lives in the PR body instead. * chore: restore CHANGELOG to the branch base Correct the previous commit, which restored CHANGELOG.md from current origin/main and so pulled in an unrelated entry added after this branch forked. Reset to the merge-base content: this PR now touches no changelog.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(msteams): avoid hanging response clones (#118096)",
-      "summaryZh": "重點：test(msteams): avoid hanging response clones (#118096) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(macos): remove the custom menu bar hover card (#118116)",
+      "summaryZh": "重點：refactor(macos): remove the custom menu bar hover card (#118116) * refactor(macos): remove the custom menu bar hover car..."
     },
     {
       "id": 2,
-      "title": "refactor(auth): move Copilot OAuth ownership to plugin (#118063)",
-      "link": "https://github.com/openclaw/openclaw/commit/c28b524f38bbfe9ed671fe5fba7dc8eed8c80c7f",
-      "publishedAt": "2026-08-02T17:59:28Z",
-      "summary": "refactor(auth): move Copilot OAuth ownership to plugin (#118063) * refactor(auth): move Copilot OAuth ownership to plugin * test(auth): cover plugin-owned Copilot OAuth * test(auth): align OAuth runtime mocks * refactor(auth): extract session OAuth adapter * refactor(auth): centralize session OAuth dispatch * test(auth): type OAuth refresh mock * chore(plugin-sdk): regenerate API baseline for provider oauth dispatch",
+      "title": "fix(infra): recognize global Bun installs without breaking pnpm (#118…",
+      "link": "https://github.com/openclaw/openclaw/commit/d9c9ad8d8a09473fce9b0f1a4b7cc6151b8a23fa",
+      "publishedAt": "2026-08-02T20:08:20Z",
+      "summary": "fix(infra): recognize global Bun installs without breaking pnpm (#118143)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(auth): move Copilot OAuth ownership to plugin (#118063)",
-      "summaryZh": "重點：refactor(auth): move Copilot OAuth ownership to plugin (#118063) * refactor(auth): move Copilot OAuth ownership to plugi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): recognize global Bun installs without breaking pnpm (#118…",
+      "summaryZh": "重點：修正(infra): recognize global Bun installs without breaking pnpm (#118143)..."
     },
     {
       "id": 3,
-      "title": "fix(doctor): stop stale builds before repair guidance (#117913)",
-      "link": "https://github.com/openclaw/openclaw/commit/eef59b572b8f6ebacbe028f25c1d9bfa6194c08d",
-      "publishedAt": "2026-08-02T17:52:52Z",
-      "summary": "fix(doctor): stop stale builds before repair guidance (#117913) * fix(doctor): refuse newer database schemas before repairs * fix(doctor): preserve update before schema refusal",
+      "title": "refactor(discord): deduplicate presence listener tests (#118155)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc826d6866a0a05d3c7e22d42316de97733ae1b9",
+      "publishedAt": "2026-08-02T20:07:15Z",
+      "summary": "refactor(discord): deduplicate presence listener tests (#118155)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): stop stale builds before repair guidance (#117913)",
-      "summaryZh": "重點：修正(文件tor): stop stale builds before repair guidance (#117913) * 修正(文件tor): refuse newer database schemas before repairs ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): deduplicate presence listener tests (#118155)",
+      "summaryZh": "重點：refactor(Discord): deduplicate presence listener tests (#118155)..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): confirm restart lease handoff (#118026)",
-      "link": "https://github.com/openclaw/openclaw/commit/1704ea591820f3eee6e655fef302987e1ba5eac6",
-      "publishedAt": "2026-08-02T17:38:39Z",
-      "summary": "fix(gateway): confirm restart lease handoff (#118026)",
+      "title": "feat(channels): publish recorded lifecycle from bundled channel trans…",
+      "link": "https://github.com/openclaw/openclaw/commit/0c32879d45f9a83552a0d1a4db78dec38518296b",
+      "publishedAt": "2026-08-02T20:04:49Z",
+      "summary": "feat(channels): publish recorded lifecycle from bundled channel transitions (#118110) * feat(channels): publish recorded lifecycle from bundled channel transitions * chore: remove lifecycle changelog entry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): confirm restart lease handoff (#118026)",
-      "summaryZh": "重點：修正(Gateway): confirm restart lease handoff (#118026)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(channels): publish recorded lifecycle from bundled channel trans…",
+      "summaryZh": "重點：新功能(channels): publish recorded lifecycle from bundled channel transitions (#118110) * 新功能(channels): publish recorded l..."
     },
     {
       "id": 5,
