@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-02T13:22:29.059Z",
+  "generatedAt": "2026-08-02T15:02:30.654Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: preserve queued messages during /compact (#117840)",
-      "link": "https://github.com/openclaw/openclaw/commit/860960e54368efb8591b6f894457ef3eac3a64e9",
-      "publishedAt": "2026-08-02T13:14:03Z",
-      "summary": "fix: preserve queued messages during /compact (#117840) * fix: preserve queued work during compact * fix: guard compaction against summary-elided follow-ups * fix(sessions): preserve in-flight compact queue work --------- Co-authored-by: Vincent Koc",
+      "title": "fix(memory): permanent legacy sidecar migration warning for empty pla…",
+      "link": "https://github.com/openclaw/openclaw/commit/6d2ff9ef38c99536ea8c5ac77101e7cc0a801c9b",
+      "publishedAt": "2026-08-02T14:51:20Z",
+      "summary": "fix(memory): permanent legacy sidecar migration warning for empty placeholder OpenClaw creates (#114661) * fix(memory-core): fail closed on non-ENOENT companion stat errors Only treat ENOENT as 'sidecar is absent'. Other fs errors (EACCES, EIO, ELOOP, EMFILE) now return null (fail-closed) instead of silently treating the sidecar as zero-byte, preventing legacy data from being dropped on transient or permission failures. * fix(memory): silence self-inflicted legacy sidecar migration warning OpenClaw can leave a zero-byte placeholder at the legacy memory sidecar path (~/.openclaw/memory/.sqlite) while the live memory index is the per-agent SQLite database. The legacy-index migration check found the empty file, attached it, saw no legacy schema, and warned on every CLI invocation and gateway start, with no way for users to clear it. Treat a demonstrably empty sidecar (zero-byte main file and no WAL or journal content) as nothing to import: remove it quietly as a migration change instead of emitting a permanent warning. Sidecars that contain any bytes still go through the existing import and warning paths, so a real legacy index or a genuinely unrecognized database is unaffected. Closes #114626 * fix(memory-core): fail closed on non-ENOENT companion stat errors Only treat ENOENT as 'sidecar is absent'. Other fs errors (EACCES, EIO, ELOOP, EMFILE) now return null (fail-closed) instead of silently treating the sidecar as zero-byte, preventing legacy data from being dropped on transient or permission failures. * test(memory-core): add ELOOP and EACCES companion stat regression coverage Regression tests for the fail-closed fix: when a WAL/SHM/journal companion's fs.stat fails with ELOOP (self-referential symlink) or EACCES (permission denied), the migration must NOT remove the main legacy sidecar file. Only ENOENT means genuinely absent. Addresses Whatsskill Codex review P1 finding on openclaw/openclaw#114661. * ci: retrigger after transient runner failures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve queued messages during /compact (#117840)",
-      "summaryZh": "重點：修正: preserve queued messages during /compact (#117840) * 修正: preserve queued work during compact * 修正: guard compaction ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): permanent legacy sidecar migration warning for empty pla…",
+      "summaryZh": "重點：修正(記憶): permanent legacy sidecar migration warning for empty placeholder OpenClaw creates (#114661) * 修正(記憶-core): fail ..."
     },
     {
       "id": 2,
-      "title": "Merge pull request #117978 from openclaw/fix/openai-quicksilver-termi…",
-      "link": "https://github.com/openclaw/openclaw/commit/2de2fa3d673ec3e440fd7c5b08cb8079e835b71e",
-      "publishedAt": "2026-08-02T12:56:33Z",
-      "summary": "Merge pull request #117978 from openclaw/fix/openai-quicksilver-terminal-precedence fix(openai): preserve GPT-Live gateway error precedence",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Merge pull request #117978 from OpenClaw/修正/openai-quicksilver-termi…",
-      "summaryZh": "重點：Merge pull request #117978 from OpenClaw/修正/openai-quicksilver-terminal-precedence 修正(openai): preserve GPT-Live Gateway..."
+      "title": "跑完馬拉松在喘息？NASA 揭密仙女座星系恆星誕生暴跌，現僅剩 20%",
+      "link": "https://technews.tw/2026/08/02/star-formation-is-slowing-in-the-andromeda-galaxy/",
+      "publishedAt": "Sun, 02 Aug 2026 14:44:53 +0000",
+      "summary": "一項利用美國航太總署（NASA）哈伯太空望遠鏡數據展開的新研究指出，位於我們宇宙後院的仙女座星系（Androm [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(compaction): resolve stored session override and cache-inclusive…",
-      "link": "https://github.com/openclaw/openclaw/commit/94746d713887b19ce06649061b245fdffeb1785f",
-      "publishedAt": "2026-08-02T12:55:11Z",
-      "summary": "fix(compaction): resolve stored session override and cache-inclusive usage for native /compact (#117470) (#117580) * fix(compaction): resolve stored session override and cache-inclusive usage for native /compact (#117470) * test: narrow native compact fixture types * test: keep native compact fixtures isolated * fix(compaction): disclose unknown resulting context --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(onboarding): report browser opener failures (#117979)",
+      "link": "https://github.com/openclaw/openclaw/commit/fe81123fe80ba85a4223555c4fa6542a8e422c35",
+      "publishedAt": "2026-08-02T14:41:49Z",
+      "summary": "fix(onboarding): report browser opener failures (#117979) * fix(onboarding): report browser opener failures * test(onboarding): align browser opener fixture * fix(dashboard): distinguish browser launch failures * fix(onboarding): distinguish failed browser handoffs --------- Co-authored-by: IWhatsskill Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(compaction): resolve stored session override and cache-inclusive…",
-      "summaryZh": "重點：修正(compaction): resolve stored session override and cache-inclusive usage for native /compact (#117470) (#117580) * 修正(c..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboarding): report browser opener failures (#117979)",
+      "summaryZh": "重點：修正(onboarding): report browser opener failures (#117979) * 修正(onboarding): report browser opener failures * test(onboard..."
     },
     {
       "id": 4,
-      "title": "fix(ui): keep expanded message actions aligned with visible text (#11…",
-      "link": "https://github.com/openclaw/openclaw/commit/aeaaaad4d045755f870e048fe697a113bb69af6c",
-      "publishedAt": "2026-08-02T12:49:56Z",
-      "summary": "fix(ui): keep expanded message actions aligned with visible text (#117983) Co-authored-by: Peter Steinberger",
+      "title": "Merge pull request #117947 from openclaw/fix-llamacpp-setup-live-2026…",
+      "link": "https://github.com/openclaw/openclaw/commit/9e3c4ac3896fc078cf7d42f0e1eee8daf276ad76",
+      "publishedAt": "2026-08-02T14:41:36Z",
+      "summary": "Merge pull request #117947 from openclaw/fix-llamacpp-setup-live-20260802 fix(llama-cpp): clarify local model setup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep expanded message actions aligned with visible text (#11…",
-      "summaryZh": "重點：修正(ui): keep expanded message actions aligned with visible text (#117983) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：Merge pull request #117947 from OpenClaw/修正-llamacpp-setup-live-2026…",
+      "summaryZh": "重點：Merge pull request #117947 from OpenClaw/修正-llamacpp-setup-live-20260802 修正(llama-cpp): clarify local 模型 setup..."
     },
     {
       "id": 5,
+      "title": "fix(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/bd486b670a037b8e9ea3ac317f5b495072bf6aa7",
+      "publishedAt": "2026-08-02T14:38:16Z",
+      "summary": "fix(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#115990) * [AI] fix(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero busyTimeoutMs: 0 means \"do not wait for locks, fail immediately\". The slow lock wait threshold should not collapse to 1ms in this case, causing false-positive WARN logs for normal successful transactions. Fixes #115972 Co-Authored-By: Claude * test(sqlite): add regression tests for busyTimeoutMs: 0 threshold The existing test suite did not cover busyTimeoutMs: 0, which caused false-positive slow-lock warnings for zero-timeout lease transactions. Added: 1. 'does not warn for busyTimeoutMs: 0 with fast transactions' — verifies the regression is fixed (0 → uses 1000ms default threshold) 2. 'still warns for busyTimeoutMs: 0 when crossing 1000ms boundary' — verifies genuinely slow transactions still trigger the diagnostic Both tests pass on the patched code (12/12 total). Co-Authored-By: Claude --------- Co-authored-by: Claude Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#1…",
+      "summaryZh": "重點：修正(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#115990) * [AI] 修正(sqlite): skip slow-lock diagnostic ..."
+    },
+    {
+      "id": 6,
       "title": "F-47 開始打造原型機，美國空軍：必然會在本屆政府任期內升空",
       "link": "https://technews.tw/2026/08/02/usaf-is-building-f47-prototypes-and-maiden-flight-set-in-2028/",
       "publishedAt": "Sun, 02 Aug 2026 09:43:05 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "20 歲輟學生吸金 3,100 萬美元！Omen AI 專攻液冷監控，成 AI 散熱市場新星",
       "link": "https://technews.tw/2026/08/02/omen-ai-liquid-cooling/",
       "publishedAt": "Sun, 02 Aug 2026 07:30:57 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "你的夢境並非隨機，心理學家：大腦在睡眠中「改寫現實」",
       "link": "https://technews.tw/2026/08/02/dreams-brain-rewriting-reality/",
       "publishedAt": "Sun, 02 Aug 2026 07:04:52 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "不再只會說「我懂你」，英國研究：AI 提供具體行動指引安撫效果超越人類",
       "link": "https://technews.tw/2026/08/02/ai-comfort-better-than-humans/",
       "publishedAt": "Sun, 02 Aug 2026 06:30:28 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "這麼熱，誰想曬太陽！歐洲掀「Coolcation」避暑潮，極端高溫會重塑觀光版圖嗎？",
       "link": "https://technews.tw/2026/08/02/will-extreme-heat-reshape-europe-tourism-industry/",
       "publishedAt": "Sun, 02 Aug 2026 06:00:14 +0000",
       "summary": "今年夏天，一個新詞在歐洲旅遊圈迅速竄紅──「避暑度假」（Coolcation），愈來愈多的旅客開始把「避開高溫 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "《財富》公布 2026 年《財富》世界 500 強榜單",
-      "link": "https://finance.technews.tw/2026/08/02/fortune-announces-2026-fortune-global-500-list/",
-      "publishedAt": "Sun, 02 Aug 2026 06:00:03 +0000",
-      "summary": "《財富》正式發布 2026 年《財富》世界 500 強榜單（2026 Fortune Global 500™） [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
