@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-02T09:57:35.703Z",
+  "generatedAt": "2026-08-02T11:21:20.121Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(macos): reopen AI choice, fix daemon error text, hand onboarding …",
-      "link": "https://github.com/openclaw/openclaw/commit/76cb418b6f2ca151a12ebf00654fb25951e6e3d5",
-      "publishedAt": "2026-08-02T09:57:25Z",
-      "summary": "fix(macos): reopen AI choice, fix daemon error text, hand onboarding off to the dashboard custodian (#117921) * fix(macos): let onboarding replace an auto-connected AI The AI page auto-tests the best detected candidate and connects without asking, then hides every alternative route. Add 'Choose a different AI' to the connected banner: a re-detect pass with auto-activation suppressed that ends at the picker (candidates, provider sign-in, API keys). Also disable the manual key Connect button while another test runs (submitManualKey silently dropped the tap), and isolate a test that read the machine's real resume store. Co-Authored-By: Claude Fable 5 * fix(macos): surface real daemon errors past the Node banner Gateway daemon failures summarized as 'Node.js v26.5.1' because the summary takes the last non-empty line and Node fatal errors end with a version banner. Drop trailing banner lines and prefer the last error-shaped line above them; all other output keeps its last line. Co-Authored-By: Claude Fable 5 * feat(macos): hand onboarding off to the dashboard custodian Native onboarding now ends once inference verifies: welcome, connection, install (when needed), AI setup. Finish opens the dashboard at /custodian?onboarding=1, where the custodian onboarding owns memory import, channels, app recommendations, and the hatch (browser-first per the onboarding redesign). The native memory-import and permissions pages leave the first-run flow; 'Set up later' keeps the native ready page. The native navigation bridge gains a validated optional search field so the handoff can request onboarding chrome; the URL fallback carries the query alongside the token fragment. Co-Authored-By: Claude Fable 5 * refactor(macos): delete the unreachable native memory-import module The dashboard handoff removed the memory-import page from every flow, leaving the module reachable only from tests. CI's dead-code scan rightly flagged the first orphans; remove the whole path (model, page, mascot wiring, tests) instead of trimming symbol by symbol. The dashboard's own memory-import surface owns the feature. Co-Authored-By: Claude Fable 5 --------- Co-authored-by: Peter Steinberger Co-authored-by: Claude Fable 5",
+      "title": "fix(ui): avoid media prompts after Talk cancellation (#117958)",
+      "link": "https://github.com/openclaw/openclaw/commit/3629aeeef9590eb2fb402022f8e92e30d6ac3ec4",
+      "publishedAt": "2026-08-02T11:18:32Z",
+      "summary": "fix(ui): avoid media prompts after Talk cancellation (#117958)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): reopen AI choice, 修正 daemon error text, hand onboarding …",
-      "summaryZh": "重點：修正(macos): reopen AI choice, 修正 daemon error text, hand onboarding off to the dashboard custodian (#117921) * 修正(macos):..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): avoid media prompts after Talk cancellation (#117958)",
+      "summaryZh": "重點：修正(ui): avoid media prompts after Talk cancellation (#117958)..."
     },
     {
       "id": 2,
-      "title": "fix(qa): tolerate expected Matrix sync long-poll deadlines (#117807)",
-      "link": "https://github.com/openclaw/openclaw/commit/85a85515efd1cc8ba9d28168b3710cc6f400d9f4",
-      "publishedAt": "2026-08-02T09:56:55Z",
-      "summary": "fix(qa): tolerate expected Matrix sync long-poll deadlines (#117807) * qa(matrix): tolerate expected sync long-poll deadlines * test(qa): preserve late Matrix sync failures",
+      "title": "fix(macos): gate remote onboarding on gateway auth (#117904)",
+      "link": "https://github.com/openclaw/openclaw/commit/247278262234e7396772411b07f3276873671594",
+      "publishedAt": "2026-08-02T11:14:54Z",
+      "summary": "fix(macos): gate remote onboarding on gateway auth (#117904) * fix(macos): gate remote onboarding on gateway auth * fix(macos): address onboarding CI failures * test(macos): stabilize gateway auth routing coverage * fix(macos): bound remote gateway onboarding probe * fix(macos): satisfy remote probe CI guards * fix(macos): scope remote probe cleanup ownership * refactor(macos): remove unused health snapshot wrapper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): tolerate expected Matrix sync long-poll deadlines (#117807)",
-      "summaryZh": "重點：修正(qa): tolerate expected Matrix sync long-poll deadlines (#117807) * qa(matrix): tolerate expected sync long-poll deadl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): gate remote onboarding on Gateway auth (#117904)",
+      "summaryZh": "重點：修正(macos): gate remote onboarding on Gateway auth (#117904) * 修正(macos): gate remote onboarding on Gateway auth * 修正(mac..."
     },
     {
       "id": 3,
-      "title": "feat(cli): support --json across reporting commands (#117928)",
-      "link": "https://github.com/openclaw/openclaw/commit/4c7a8d412b82191610de7ca25b3dbe6ddf826739",
-      "publishedAt": "2026-08-02T09:56:08Z",
-      "summary": "feat(cli): support --json across reporting commands (#117928) * feat(cli): support --json across reporting commands * test(cli): satisfy json command checks * test(cli): type json exception map",
+      "title": "fix(cli): publish TTS output atomically (#117962)",
+      "link": "https://github.com/openclaw/openclaw/commit/85e409452982c7a74589a86ef22115a39c456b6f",
+      "publishedAt": "2026-08-02T11:08:55Z",
+      "summary": "fix(cli): publish TTS output atomically (#117962)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(cli): support --json across reporting commands (#117928)",
-      "summaryZh": "重點：新功能(cli): support --json across reporting commands (#117928) * 新功能(cli): support --json across reporting commands * test..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): publish TTS output atomically (#117962)",
+      "summaryZh": "重點：修正(cli): publish TTS output atomically (#117962)..."
     },
     {
       "id": 4,
-      "title": "perf(cli): keep read-only commands on cold paths (#117932)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d14f298b0cc08aca7ae9c6f55cf0e32df38a508",
-      "publishedAt": "2026-08-02T09:54:40Z",
-      "summary": "perf(cli): keep read-only commands on cold paths (#117932) * perf(cli): keep read-only commands on cold paths * perf(channels): reuse list metadata snapshot",
+      "title": "fix(slack): explicitly chunk native-data fallbacks (#117809)",
+      "link": "https://github.com/openclaw/openclaw/commit/55816c47d133d00bf0b6306881589975505338a9",
+      "publishedAt": "2026-08-02T11:03:06Z",
+      "summary": "fix(slack): explicitly chunk native-data fallbacks (#117809) * fix(slack): explicitly chunk native-data fallbacks * fix(slack): honor one-character fallback chunks * qa(slack): reconstruct chunked fallback evidence * fix(slack): cap receipt-tracked fallbacks at 4k",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(cli): keep read-only commands on cold paths (#117932)",
-      "summaryZh": "重點：perf(cli): keep read-only commands on cold paths (#117932) * perf(cli): keep read-only commands on cold paths * perf(cha..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): explicitly chunk native-data fallbacks (#117809)",
+      "summaryZh": "重點：修正(slack): explicitly chunk native-data fallbacks (#117809) * 修正(slack): explicitly chunk native-data fallbacks * 修正(sla..."
     },
     {
       "id": 5,
