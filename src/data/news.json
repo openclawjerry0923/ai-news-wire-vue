@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-08-02T15:02:30.654Z",
+  "generatedAt": "2026-08-02T16:59:51.681Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(memory): permanent legacy sidecar migration warning for empty pla…",
-      "link": "https://github.com/openclaw/openclaw/commit/6d2ff9ef38c99536ea8c5ac77101e7cc0a801c9b",
-      "publishedAt": "2026-08-02T14:51:20Z",
-      "summary": "fix(memory): permanent legacy sidecar migration warning for empty placeholder OpenClaw creates (#114661) * fix(memory-core): fail closed on non-ENOENT companion stat errors Only treat ENOENT as 'sidecar is absent'. Other fs errors (EACCES, EIO, ELOOP, EMFILE) now return null (fail-closed) instead of silently treating the sidecar as zero-byte, preventing legacy data from being dropped on transient or permission failures. * fix(memory): silence self-inflicted legacy sidecar migration warning OpenClaw can leave a zero-byte placeholder at the legacy memory sidecar path (~/.openclaw/memory/.sqlite) while the live memory index is the per-agent SQLite database. The legacy-index migration check found the empty file, attached it, saw no legacy schema, and warned on every CLI invocation and gateway start, with no way for users to clear it. Treat a demonstrably empty sidecar (zero-byte main file and no WAL or journal content) as nothing to import: remove it quietly as a migration change instead of emitting a permanent warning. Sidecars that contain any bytes still go through the existing import and warning paths, so a real legacy index or a genuinely unrecognized database is unaffected. Closes #114626 * fix(memory-core): fail closed on non-ENOENT companion stat errors Only treat ENOENT as 'sidecar is absent'. Other fs errors (EACCES, EIO, ELOOP, EMFILE) now return null (fail-closed) instead of silently treating the sidecar as zero-byte, preventing legacy data from being dropped on transient or permission failures. * test(memory-core): add ELOOP and EACCES companion stat regression coverage Regression tests for the fail-closed fix: when a WAL/SHM/journal companion's fs.stat fails with ELOOP (self-referential symlink) or EACCES (permission denied), the migration must NOT remove the main legacy sidecar file. Only ENOENT means genuinely absent. Addresses Whatsskill Codex review P1 finding on openclaw/openclaw#114661. * ci: retrigger after transient runner failures",
+      "title": "docs(browser): note mcporter auto-detects the extension relay (#118066)",
+      "link": "https://github.com/openclaw/openclaw/commit/4133fe925fab6600d125fff9494d5a24bd83e0e9",
+      "publishedAt": "2026-08-02T16:51:06Z",
+      "summary": "docs(browser): note mcporter auto-detects the extension relay (#118066) Co-authored-by: Peter Steinberger Co-authored-by: Claude Fable 5",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): permanent legacy sidecar migration warning for empty pla…",
-      "summaryZh": "重點：修正(記憶): permanent legacy sidecar migration warning for empty placeholder OpenClaw creates (#114661) * 修正(記憶-core): fail ..."
+      "titleZh": "OpenClaw 文件更新：文件(browser): note mcporter auto-detects the extension relay (#118066)",
+      "summaryZh": "重點：文件(browser): note mcporter auto-detects the extension relay (#118066) Co-authored-by: Peter Steinberger Co-authored-by: ..."
     },
     {
       "id": 2,
+      "title": "fix(signal): preserve authorized workspace media on outbound sends (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/27c04ecac4895291ce11ce690a6b19921d7435db",
+      "publishedAt": "2026-08-02T16:43:50Z",
+      "summary": "fix(signal): preserve authorized workspace media on outbound sends (#117895)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(signal): preserve authorized workspace media on outbound sends (#…",
+      "summaryZh": "重點：修正(signal): preserve authorized workspace media on outbound sends (#117895)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(telegram): ignore commands for other bots (#118024)",
+      "link": "https://github.com/openclaw/openclaw/commit/b84e14f22255612cc8473ad132221f18c0265bcc",
+      "publishedAt": "2026-08-02T16:25:50Z",
+      "summary": "fix(telegram): ignore commands for other bots (#118024)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): ignore commands for other bots (#118024)",
+      "summaryZh": "重點：修正(Telegram): ignore commands for other bots (#118024)..."
+    },
+    {
+      "id": 4,
+      "title": "merge: preserve voice lifecycle commit series (#118025)",
+      "link": "https://github.com/openclaw/openclaw/commit/19d213e7211d92f795d482d54bae2e0ba1b87d4c",
+      "publishedAt": "2026-08-02T16:14:56Z",
+      "summary": "merge: preserve voice lifecycle commit series (#118025) * commit '0ec9308dc6ba80ce2e8010d14e576ef840e1536a': fix(talk): terminalize failed relay transcripts test(talk): split digest lifecycle coverage fix(talk): close voice lifecycle persistence gaps fix(talk): retain failed digests for lifecycle retry test(talk): prove transcript barrier survives owner reset fix(talk): persist unresolved transcript identities fix(talk): drive bounded digest retries fix(talk): require successful transcript close barriers fix(talk): terminalize failed mutation digests test(talk): cover bounded mutation digest delivery fix(talk): detach mutation digests from voice close",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：merge: preserve voice lifecycle 提交 series (#118025)",
+      "summaryZh": "重點：merge: preserve voice lifecycle 提交 series (#118025) * 提交 '0ec9308dc6ba80ce2e8010d14e576ef840e1536a': 修正(talk): terminali..."
+    },
+    {
+      "id": 5,
       "title": "跑完馬拉松在喘息？NASA 揭密仙女座星系恆星誕生暴跌，現僅剩 20%",
       "link": "https://technews.tw/2026/08/02/star-formation-is-slowing-in-the-andromeda-galaxy/",
       "publishedAt": "Sun, 02 Aug 2026 14:44:53 +0000",
       "summary": "一項利用美國航太總署（NASA）哈伯太空望遠鏡數據展開的新研究指出，位於我們宇宙後院的仙女座星系（Androm [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 3,
-      "title": "fix(onboarding): report browser opener failures (#117979)",
-      "link": "https://github.com/openclaw/openclaw/commit/fe81123fe80ba85a4223555c4fa6542a8e422c35",
-      "publishedAt": "2026-08-02T14:41:49Z",
-      "summary": "fix(onboarding): report browser opener failures (#117979) * fix(onboarding): report browser opener failures * test(onboarding): align browser opener fixture * fix(dashboard): distinguish browser launch failures * fix(onboarding): distinguish failed browser handoffs --------- Co-authored-by: IWhatsskill Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboarding): report browser opener failures (#117979)",
-      "summaryZh": "重點：修正(onboarding): report browser opener failures (#117979) * 修正(onboarding): report browser opener failures * test(onboard..."
-    },
-    {
-      "id": 4,
-      "title": "Merge pull request #117947 from openclaw/fix-llamacpp-setup-live-2026…",
-      "link": "https://github.com/openclaw/openclaw/commit/9e3c4ac3896fc078cf7d42f0e1eee8daf276ad76",
-      "publishedAt": "2026-08-02T14:41:36Z",
-      "summary": "Merge pull request #117947 from openclaw/fix-llamacpp-setup-live-20260802 fix(llama-cpp): clarify local model setup",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Merge pull request #117947 from OpenClaw/修正-llamacpp-setup-live-2026…",
-      "summaryZh": "重點：Merge pull request #117947 from OpenClaw/修正-llamacpp-setup-live-20260802 修正(llama-cpp): clarify local 模型 setup..."
-    },
-    {
-      "id": 5,
-      "title": "fix(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/bd486b670a037b8e9ea3ac317f5b495072bf6aa7",
-      "publishedAt": "2026-08-02T14:38:16Z",
-      "summary": "fix(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#115990) * [AI] fix(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero busyTimeoutMs: 0 means \"do not wait for locks, fail immediately\". The slow lock wait threshold should not collapse to 1ms in this case, causing false-positive WARN logs for normal successful transactions. Fixes #115972 Co-Authored-By: Claude * test(sqlite): add regression tests for busyTimeoutMs: 0 threshold The existing test suite did not cover busyTimeoutMs: 0, which caused false-positive slow-lock warnings for zero-timeout lease transactions. Added: 1. 'does not warn for busyTimeoutMs: 0 with fast transactions' — verifies the regression is fixed (0 → uses 1000ms default threshold) 2. 'still warns for busyTimeoutMs: 0 when crossing 1000ms boundary' — verifies genuinely slow transactions still trigger the diagnostic Both tests pass on the patched code (12/12 total). Co-Authored-By: Claude --------- Co-authored-by: Claude Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#1…",
-      "summaryZh": "重點：修正(sqlite): skip slow-lock diagnostic when busyTimeoutMs is zero (#115990) * [AI] 修正(sqlite): skip slow-lock diagnostic ..."
     },
     {
       "id": 6,
