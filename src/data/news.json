@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-02T20:10:45.938Z",
+  "generatedAt": "2026-08-02T21:57:01.886Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(macos): remove the custom menu bar hover card (#118116)",
-      "link": "https://github.com/openclaw/openclaw/commit/b8a6ea12cc2f9e04e85acbf7d00759a067f3133c",
-      "publishedAt": "2026-08-02T20:10:27Z",
-      "summary": "refactor(macos): remove the custom menu bar hover card (#118116) * refactor(macos): remove the custom menu bar hover card The status item showed two hover affordances at once: the native AppKit tooltip and a custom SwiftUI panel rendering an \"Idle / No recent activity\" card. Keep the native tooltip and drop the custom HUD. The HUD was the only consumer of the status item's hover tracking, so the NSTrackingArea and onHoverChanged plumbing in StatusItemMouseRouter goes with it; click routing is unchanged. WorkActivityStore.lastToolLabel had no other reader either. * chore(i18n): refresh native i18n inventory after hover card removal Deleting HoverHUD.swift shifted the MenuBar.swift line numbers that apps/.i18n/native-source.json records. Regenerated with `pnpm native:i18n:baseline`; only line numbers change, no strings added or removed. * refactor(macos): drop the orphaned anchored chat panel Removing the hover card left WebChatManager.togglePanel() without a caller, and it was the only thing that created the menu-bar-anchored chat popover. Delete that presentation path: togglePanel/panelHidden, the panel controller state, WebChatPresentation, WebChatPanel, presentAnchored and its dismiss monitor, and WindowPlacement.anchoredBelowFrame. Chat is unaffected as a window - WebChatManager.show() still backs the Dock menu, --chat and deep links. The status item highlight that tracked chat window visibility is preserved, renamed to onChatWindowVisibilityChanged now that no panel exists to confuse it with. Periphery reports no unused code. * chore: drop CHANGELOG edit from this PR AGENTS.md: CHANGELOG.md is release-only and release generation derives it from merged PRs. Release-note context lives in the PR body instead. * chore: restore CHANGELOG to the branch base Correct the previous commit, which restored CHANGELOG.md from current origin/main and so pulled in an unrelated entry added after this branch forked. Reset to the merge-base content: this PR now touches no changelog.",
+      "title": "docs(config): preserve macOS remote field provenance (#118214)",
+      "link": "https://github.com/openclaw/openclaw/commit/ccec5495aea6a977740c84686de970d93f086ec1",
+      "publishedAt": "2026-08-02T21:54:31Z",
+      "summary": "docs(config): preserve macOS remote field provenance (#118214)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(macos): remove the custom menu bar hover card (#118116)",
-      "summaryZh": "重點：refactor(macos): remove the custom menu bar hover card (#118116) * refactor(macos): remove the custom menu bar hover car..."
+      "titleZh": "OpenClaw 文件更新：文件(config): preserve macOS remote field provenance (#118214)",
+      "summaryZh": "重點：文件(config): preserve macOS remote field provenance (#118214)..."
     },
     {
       "id": 2,
-      "title": "fix(infra): recognize global Bun installs without breaking pnpm (#118…",
-      "link": "https://github.com/openclaw/openclaw/commit/d9c9ad8d8a09473fce9b0f1a4b7cc6151b8a23fa",
-      "publishedAt": "2026-08-02T20:08:20Z",
-      "summary": "fix(infra): recognize global Bun installs without breaking pnpm (#118143)",
+      "title": "test(agents): fixture CLI attempt backends (#118199)",
+      "link": "https://github.com/openclaw/openclaw/commit/30cb41fe52cba0e5e56aa5dc7164cc7f4234e228",
+      "publishedAt": "2026-08-02T21:46:50Z",
+      "summary": "test(agents): fixture CLI attempt backends (#118199) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(infra): recognize global Bun installs without breaking pnpm (#118…",
-      "summaryZh": "重點：修正(infra): recognize global Bun installs without breaking pnpm (#118143)..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): 修正ture CLI attempt backends (#118199)",
+      "summaryZh": "重點：test(agents): 修正ture CLI attempt backends (#118199) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 3,
-      "title": "refactor(discord): deduplicate presence listener tests (#118155)",
-      "link": "https://github.com/openclaw/openclaw/commit/bc826d6866a0a05d3c7e22d42316de97733ae1b9",
-      "publishedAt": "2026-08-02T20:07:15Z",
-      "summary": "refactor(discord): deduplicate presence listener tests (#118155)",
+      "title": "test(ui): run runtime-free suites in Node (#118198)",
+      "link": "https://github.com/openclaw/openclaw/commit/9aead8a8970cd78504e433f284a2b31e9ac19616",
+      "publishedAt": "2026-08-02T21:46:14Z",
+      "summary": "test(ui): run runtime-free suites in Node (#118198) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): deduplicate presence listener tests (#118155)",
-      "summaryZh": "重點：refactor(Discord): deduplicate presence listener tests (#118155)..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): run runtime-free suites in Node (#118198)",
+      "summaryZh": "重點：test(ui): run runtime-free suites in Node (#118198) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 4,
-      "title": "feat(channels): publish recorded lifecycle from bundled channel trans…",
-      "link": "https://github.com/openclaw/openclaw/commit/0c32879d45f9a83552a0d1a4db78dec38518296b",
-      "publishedAt": "2026-08-02T20:04:49Z",
-      "summary": "feat(channels): publish recorded lifecycle from bundled channel transitions (#118110) * feat(channels): publish recorded lifecycle from bundled channel transitions * chore: remove lifecycle changelog entry",
+      "title": "test(system-agent): fixture CLI backend policy (#118188)",
+      "link": "https://github.com/openclaw/openclaw/commit/81717b562eb1f312304bc2c374ff4f109d06442d",
+      "publishedAt": "2026-08-02T21:45:20Z",
+      "summary": "test(system-agent): fixture CLI backend policy (#118188) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(channels): publish recorded lifecycle from bundled channel trans…",
-      "summaryZh": "重點：新功能(channels): publish recorded lifecycle from bundled channel transitions (#118110) * 新功能(channels): publish recorded l..."
+      "titleZh": "OpenClaw 程式碼更新：test(system-agent): 修正ture CLI backend policy (#118188)",
+      "summaryZh": "重點：test(system-agent): 修正ture CLI backend policy (#118188) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 5,
