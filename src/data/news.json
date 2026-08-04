@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-04T20:24:53.613Z",
+  "generatedAt": "2026-08-04T22:12:43.525Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(release): accept trusted extended-stable validation evidence (#11…",
-      "link": "https://github.com/openclaw/openclaw/commit/7c93cff84af6331c1eda9117fc47f3a569338b45",
-      "publishedAt": "2026-08-04T20:14:30Z",
-      "summary": "fix(release): accept trusted extended-stable validation evidence (#119264) * fix(release): accept trusted extended-stable validation evidence * fix(release): document trusted candidate promotion * docs(release): clarify validation evidence recovery",
+      "title": "fix(qa): enable OpenAI for stored audio scenario (#119349)",
+      "link": "https://github.com/openclaw/openclaw/commit/15499e7fc269516132ef559314ecaf4a72d90284",
+      "publishedAt": "2026-08-04T22:08:07Z",
+      "summary": "fix(qa): enable OpenAI for stored audio scenario (#119349)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): accept trusted extended-stable validation evidence (#11…",
-      "summaryZh": "重點：修正(版本發布): accept trusted extended-stable validation evidence (#119264) * 修正(版本發布): accept trusted extended-stable valida..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): enable OpenAI for stored audio scenario (#119349)",
+      "summaryZh": "重點：修正(qa): enable OpenAI for stored audio scenario (#119349)..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): preserve recorder-owned user turns (#119307)",
-      "link": "https://github.com/openclaw/openclaw/commit/11027a3712b9f87e58ca5471485b1bcc844f4774",
-      "publishedAt": "2026-08-04T20:12:16Z",
-      "summary": "fix(sessions): preserve recorder-owned user turns (#119307) Punchcard-Session: coral-workshop-workshop-3f",
+      "title": "test(agents): realpath apply-patch temp dir fixture (#119353)",
+      "link": "https://github.com/openclaw/openclaw/commit/702e0277bd5c434bfe7d5ad61b3d670bc0a66c1b",
+      "publishedAt": "2026-08-04T22:07:03Z",
+      "summary": "test(agents): realpath apply-patch temp dir fixture (#119353) withTempDir used a raw fs.mkdtemp(os.tmpdir()) path. On macOS os.tmpdir() is a /var -> /private/var symlink while the production sandbox guard compares against canonical paths, so the symlink-delete test failed with \"Path escapes sandbox root\". Realpath the mkdtemp result so the fixture matches the canonical form the guard expects. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): preserve recorder-owned user turns (#119307)",
-      "summaryZh": "重點：修正(sessions): preserve recorder-owned user turns (#119307) Punchcard-Session: coral-workshop-workshop-3f..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): realpath apply-patch temp dir 修正ture (#119353)",
+      "summaryZh": "重點：test(agents): realpath apply-patch temp dir 修正ture (#119353) withTempDir used a raw fs.mkdtemp(os.tmpdir()) path. On mac..."
     },
     {
       "id": 3,
-      "title": "perf(cli): split plugin registry startup timing (#119318)",
-      "link": "https://github.com/openclaw/openclaw/commit/6293b54250fcadda1ca3e2c365efb1bc74cf54a6",
-      "publishedAt": "2026-08-04T20:08:35Z",
-      "summary": "perf(cli): split plugin registry startup timing (#119318) * perf(cli): split plugin registry startup timing Punchcard-Session: coral-workshop-workshop-3f * test(cli): use managed temp directory cleanup Punchcard-Session: coral-workshop-workshop-3f",
+      "title": "test(slack): drop redundant .js-suffixed system-event mock (#119352)",
+      "link": "https://github.com/openclaw/openclaw/commit/44f3747daacfce770a5602feb42a7e405d6d93d5",
+      "publishedAt": "2026-08-04T22:04:49Z",
+      "summary": "test(slack): drop redundant .js-suffixed system-event mock (#119352) The five monitor event suites each registered a second vi.mock for \"openclaw/plugin-sdk/system-event-runtime.js\" alongside the extensionless mock. The .js-suffixed subpath is not a declared export of the openclaw package, so vitest fails suite collection with \"not exported under the conditions [node, development, import]\" — taking down 42 suites before a single test ran. The extensionless mock already intercepts the production import, so the duplicate is removed. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(cli): split plugin registry startup timing (#119318)",
-      "summaryZh": "重點：perf(cli): split plugin registry startup timing (#119318) * perf(cli): split plugin registry startup timing Punchcard-Se..."
+      "titleZh": "OpenClaw 程式碼更新：test(slack): drop redundant .js-suf修正 system-event mock (#119352)",
+      "summaryZh": "重點：test(slack): drop redundant .js-suf修正 system-event mock (#119352) The five monitor event suites each registered a second..."
     },
     {
       "id": 4,
-      "title": "fix(qa): align release scenario setup and compaction proof (#119188)",
-      "link": "https://github.com/openclaw/openclaw/commit/aa07d55ec98f14e6c67836991550acf05e62b4a8",
-      "publishedAt": "2026-08-04T19:32:49Z",
-      "summary": "fix(qa): align release scenario setup and compaction proof (#119188) * fix(qa): align release scenarios with runtime contracts * fix(qa): retain inferred model provider plugins * fix(qa): accept default OpenClaw compaction runtime",
+      "title": "fix(exec): leave safe builtins unrewritten in enforced mode (#119351)",
+      "link": "https://github.com/openclaw/openclaw/commit/63f4acbbc80b4f1f6a8e5c033dcc7d66a13ed132",
+      "publishedAt": "2026-08-04T22:02:03Z",
+      "summary": "fix(exec): leave safe builtins unrewritten in enforced mode (#119351) Enforced-mode command rendering resolved every executable to an absolute path, including POSIX shell builtins (cd, :, true, false, pwd, test). Builtins are executed by the shell itself, not via a filesystem binary, so rewriting cd -> /usr/bin/cd is semantically wrong and adds no PATH-shadowing protection (the whole point of enforced-mode resolution for real external executables). shouldRewriteCandidate now returns satisfiedBy !== \"safeBuiltins\" in enforced mode, leaving real external executables pinned to their resolved absolute path. Adds a regression test locking that enforced mode renders cd . as-is. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): align 版本發布 scenario setup and compaction proof (#119188)",
-      "summaryZh": "重點：修正(qa): align 版本發布 scenario setup and compaction proof (#119188) * 修正(qa): align 版本發布 scenarios with runtime contracts *..."
+      "titleZh": "OpenClaw 程式碼更新：修正(exec): leave safe builtins unrewritten in enforced mode (#119351)",
+      "summaryZh": "重點：修正(exec): leave safe builtins unrewritten in enforced mode (#119351) Enforced-mode command rendering resolved every exec..."
     },
     {
       "id": 5,
