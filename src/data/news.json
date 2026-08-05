@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-08-04T22:12:43.525Z",
+  "generatedAt": "2026-08-05T00:03:33.796Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(qa): enable OpenAI for stored audio scenario (#119349)",
-      "link": "https://github.com/openclaw/openclaw/commit/15499e7fc269516132ef559314ecaf4a72d90284",
-      "publishedAt": "2026-08-04T22:08:07Z",
-      "summary": "fix(qa): enable OpenAI for stored audio scenario (#119349)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): enable OpenAI for stored audio scenario (#119349)",
-      "summaryZh": "重點：修正(qa): enable OpenAI for stored audio scenario (#119349)..."
+      "title": "網頁開發框架Next.js 16.3正式版強化即時導覽，新增工具找出頁面切換延遲",
+      "link": "https://www.ithome.com.tw/news/177870",
+      "publishedAt": "2026-08-05 07:08:17",
+      "summary": "Vercel發布網頁應用程式開發框架Next.js 16.3正式版，重點加入可選用的即時導覽（Instant Navigations）功能，透過預先準備載入畫面、控制頁面內容的預先載入範圍，以及檢查切換速度的開發工具，減少使用者點選連結後等待內容出現的情況。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "test(agents): realpath apply-patch temp dir fixture (#119353)",
-      "link": "https://github.com/openclaw/openclaw/commit/702e0277bd5c434bfe7d5ad61b3d670bc0a66c1b",
-      "publishedAt": "2026-08-04T22:07:03Z",
-      "summary": "test(agents): realpath apply-patch temp dir fixture (#119353) withTempDir used a raw fs.mkdtemp(os.tmpdir()) path. On macOS os.tmpdir() is a /var -> /private/var symlink while the production sandbox guard compares against canonical paths, so the symlink-delete test failed with \"Path escapes sandbox root\". Realpath the mkdtemp result so the fixture matches the canonical form the guard expects. Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): realpath apply-patch temp dir 修正ture (#119353)",
-      "summaryZh": "重點：test(agents): realpath apply-patch temp dir 修正ture (#119353) withTempDir used a raw fs.mkdtemp(os.tmpdir()) path. On mac..."
+      "title": "日本七大車廠推動零組件標準化：從各自開發走向產業協作的新時代",
+      "link": "https://technews.tw/2026/08/05/toyota-exec-says-japanese-automakers-need-to-increase-cooperation/",
+      "publishedAt": "Wed, 05 Aug 2026 00:00:45 +0000",
+      "summary": "面對電動化、智慧化與軟體定義汽車加速發展，日本汽車產業正重新檢視長年由各品牌獨立開發零組件的傳統模式。日本汽車 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "test(slack): drop redundant .js-suffixed system-event mock (#119352)",
-      "link": "https://github.com/openclaw/openclaw/commit/44f3747daacfce770a5602feb42a7e405d6d93d5",
-      "publishedAt": "2026-08-04T22:04:49Z",
-      "summary": "test(slack): drop redundant .js-suffixed system-event mock (#119352) The five monitor event suites each registered a second vi.mock for \"openclaw/plugin-sdk/system-event-runtime.js\" alongside the extensionless mock. The .js-suffixed subpath is not a declared export of the openclaw package, so vitest fails suite collection with \"not exported under the conditions [node, development, import]\" — taking down 42 suites before a single test ran. The extensionless mock already intercepts the production import, so the duplicate is removed. Co-authored-by: Peter Steinberger",
+      "title": "fix(ci): isolate built TUI PTY fixture (#119339)",
+      "link": "https://github.com/openclaw/openclaw/commit/9ff9aac71a8bd5ec900a799cb27c9f8b5c6448f0",
+      "publishedAt": "2026-08-05T00:00:29Z",
+      "summary": "fix(ci): isolate built TUI PTY fixture (#119339) Run the built local TUI PTY lane after the other artifact checks so its real Gateway fixture has exclusive process and event-loop capacity. Punchcard-Session: cobalt-brook-meadow-m9",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(slack): drop redundant .js-suf修正 system-event mock (#119352)",
-      "summaryZh": "重點：test(slack): drop redundant .js-suf修正 system-event mock (#119352) The five monitor event suites each registered a second..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): isolate built TUI PTY 修正ture (#119339)",
+      "summaryZh": "重點：修正(ci): isolate built TUI PTY 修正ture (#119339) Run the built local TUI PTY lane after the other artifact checks so its r..."
     },
     {
       "id": 4,
-      "title": "fix(exec): leave safe builtins unrewritten in enforced mode (#119351)",
-      "link": "https://github.com/openclaw/openclaw/commit/63f4acbbc80b4f1f6a8e5c033dcc7d66a13ed132",
-      "publishedAt": "2026-08-04T22:02:03Z",
-      "summary": "fix(exec): leave safe builtins unrewritten in enforced mode (#119351) Enforced-mode command rendering resolved every executable to an absolute path, including POSIX shell builtins (cd, :, true, false, pwd, test). Builtins are executed by the shell itself, not via a filesystem binary, so rewriting cd -> /usr/bin/cd is semantically wrong and adds no PATH-shadowing protection (the whole point of enforced-mode resolution for real external executables). shouldRewriteCandidate now returns satisfiedBy !== \"safeBuiltins\" in enforced mode, leaving real external executables pinned to their resolved absolute path. Adds a regression test locking that enforced mode renders cd . as-is. Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): leave safe builtins unrewritten in enforced mode (#119351)",
-      "summaryZh": "重點：修正(exec): leave safe builtins unrewritten in enforced mode (#119351) Enforced-mode command rendering resolved every exec..."
+      "title": "顯卡掌聲再起，今年 PC 市況持續下探？",
+      "link": "https://technews.tw/2026/08/05/graphics-cards-resurgence-will-pc-market-continue-to-decline-this-year/",
+      "publishedAt": "Tue, 04 Aug 2026 23:50:39 +0000",
+      "summary": "如果有稍微關注零組件市場最近的新聞，會發現顯示卡價格也扛不住記憶體上漲壓力，且還是以相當凶猛的姿勢在調整，是否 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "川普研擬禁止採購中國資料中心關鍵零組件，推動禁令年底前生效",
-      "link": "https://finance.technews.tw/2026/08/04/trump-considers-banning-the-purchase-of-key-components-for-chinese-data-centers/",
-      "publishedAt": "Tue, 04 Aug 2026 13:15:33 +0000",
-      "summary": "根據四名知情人士向路透社透露，川普政府擬禁進口中國新型資料中心組件，以保護支持人工智慧（AI）熱潮下的關鍵基礎 [&#8230;]",
+      "title": "飛機更節能、氣象更精準，南加大領軍 AI 預測「湍流」顛覆傳統物理運算",
+      "link": "https://technews.tw/2026/08/05/usc-genesis-mission-ai-turbulence/",
+      "publishedAt": "Tue, 04 Aug 2026 23:40:06 +0000",
+      "summary": "美國南加州大學（USC）7 月 28 日宣布入選美國能源部「Genesis Mission」首批協作大學名單， [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "中國駭客藉由iOS漏洞利用工具包DarkSword，散布惡意軟體GhostBlade",
-      "link": "https://www.ithome.com.tw/news/177848",
-      "publishedAt": "2026-08-04 12:08:59",
-      "summary": "今年3月Google、Lookout、iVerify聯手揭露iOS漏洞利用工具包DarkSword，此工具包串連6個資安漏洞並形成完整的攻擊鏈，後續有人將其上傳到GitHub讓所有人都能下載，並傳出俄羅斯國家級駭客加入利用的行列，如今有中國駭客用於發動最新一波攻擊。",
-      "source": "iThome",
+      "title": "Coldcard 韌體漏洞災情擴大！4,585 個比特幣錢包遭洗劫，損失飆破 8,660 萬美元",
+      "link": "https://infosecu.technews.tw/2026/08/05/coldcard-wallet-theft-losses-rise-to-86600000/",
+      "publishedAt": "Tue, 04 Aug 2026 23:30:00 +0000",
+      "summary": "因為 Coldcard 冷錢包韌體漏洞遭攻擊的比特幣持有者，損失災情仍在加劇。根據 Galaxy Resear [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "Rockwell修補Arena模擬軟體4個高風險漏洞，若未更新可能導致攻擊者執行任意程式碼",
-      "link": "https://www.ithome.com.tw/news/177849",
-      "publishedAt": "2026-08-04 12:08:47",
-      "summary": "Rockwell Automation近日修補Arena模擬軟體4個高風險漏洞，影響版17.00.00以前版本，攻擊者若成功利用，可能造成任意程式碼執行，用戶需更新至已修補的17.00.01版。",
-      "source": "iThome",
+      "title": "美伊交戰逾五個月，美軍這兩款飛彈庫存已經見底",
+      "link": "https://technews.tw/2026/08/05/2-of-us-armys-precision-missile-stockpile-has-almost-depleted/",
+      "publishedAt": "Tue, 04 Aug 2026 23:24:22 +0000",
+      "summary": "美軍在與伊朗交戰 5 個月後，全球高精準度長程飛彈庫存大幅縮減。《路透社》獨家引述內部知情人士透露，陸軍主力防 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "DNA檢驗軟體存在30年漏洞，可讓人悄悄改寫鑑定結果",
-      "link": "https://www.ithome.com.tw/news/177855",
-      "publishedAt": "2026-08-04 12:08:39",
-      "summary": "生技巨擘Thermo Fisher Scientific常被犯罪實驗室用於DNA鑑定的Applied Biosystems軟體近日被發現有重大漏洞，讓攻擊者得以修改檢驗結果而不留痕跡。該公司已經修補，但只有新版本軟體才能獲得修補。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(commands): restore tool inventory for dynamic models (#119306)",
+      "link": "https://github.com/openclaw/openclaw/commit/fb81d03d8eb2f2784f7a7ab64c31f1b8dc81f771",
+      "publishedAt": "2026-08-04T22:57:21Z",
+      "summary": "fix(commands): restore tool inventory for dynamic models (#119306) * fix(qa): scale Telegram compact command timeout * fix(qa): surface Telegram compact reply failures Punchcard-Session: amber-workshop-river-yr * fix(commands): prepare tool inventory model context Punchcard-Session: amber-workshop-river-yr * test(commands): type runtime context mock Punchcard-Session: amber-workshop-river-yr * docs(changelog): note tool inventory repair Punchcard-Session: amber-workshop-river-yr * chore(release): defer tool inventory note Punchcard-Session: amber-workshop-river-yr * fix(ci): lower environment variable budget Punchcard-Session: amber-workshop-river-yr",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(commands): restore tool inventory for dynamic 模型 (#119306)",
+      "summaryZh": "重點：修正(commands): restore tool inventory for dynamic 模型 (#119306) * 修正(qa): scale Telegram compact command timeout * 修正(qa):..."
     },
     {
       "id": 9,
-      "title": "企業OT資安狀態「校正回歸」，Fortinet最新調查指出原因是能見度與成熟度提升",
-      "link": "https://www.ithome.com.tw/news/177834",
-      "publishedAt": "2026-08-04 12:08:26",
-      "summary": "經過多年的數位化持續推動，資訊科技（IT）與營運科技（OT）已日益融合，關鍵基礎設施產業與OT領域面臨的資安挑戰隨之水漲船高，Fortinet OT事業拓展經理陳心怡針對該公司近期發布的年度OT與網路資安現況調查報告，從多個面向說明當前企業因應這項重大議題的態度。 首先，不論企業與組織的OT資安是否提升至足夠的水準，絕大多數已意識到法規監管要求將日益嚴苛。這份6月出爐的調查顯示，認為五年內相關法規將會增加的企業比例高達89%，比起2025年的66%顯著上升（增加23%），而預期五年以上才有改變的比例，從27%大幅縮減至8%。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(media): release rejected BytePlus and Runway video downloads unde…",
+      "link": "https://github.com/openclaw/openclaw/commit/0d18bde84859ec69eba1209fce5fea0ee042ff93",
+      "publishedAt": "2026-08-04T22:48:10Z",
+      "summary": "fix(media): release rejected BytePlus and Runway video downloads under debug capture (#119257) …r debug capture When the debug proxy is enabled it patches global fetch and clones every response, so the caller-facing body is one branch of a live tee. Cancelling such a branch settles only after both branches cancel, so awaiting it in the rejected-download path leaves the download pending instead of surfacing the malformed-response error. Both providers read the completed media URL through the global fetch, so they reach the capture clone. Switch them to the fire-and-forget release the other generated-media owners already use, and cover each with a regression that keeps a capture clone live while the download is rejected. Co-authored-by: Tak Hoffman",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(media): 版本發布 rejected BytePlus and Runway video downloads unde…",
+      "summaryZh": "重點：修正(media): 版本發布 rejected BytePlus and Runway video downloads under debug capture (#119257) …r debug capture When the deb..."
     },
     {
       "id": 10,
-      "title": "CMS漏洞成2026上半年KEV大宗，AI輔助發現漏洞遭利用比例僅1.3%",
-      "link": "https://www.ithome.com.tw/news/177850",
-      "publishedAt": "2026-08-04 12:08:25",
-      "summary": "漏洞情報業者VulnCheck發布2026年上半年漏洞利用態勢分析，統計期間共有495項漏洞新增至VulnCheck已知遭利用漏洞（Known Exploited Vulnerabilities，KEV）資料庫，這些漏洞從CVE公布到被列為KEV的時間中位數，已由2025年全年的120天縮短至80天，當中更有23.43%的漏洞在CVE公布當日或之前已有利用證據。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "docs: add ChromeOS (Crostini) platform install guide (#107663)",
+      "link": "https://github.com/openclaw/openclaw/commit/c81aee5a963c84c8202cf2b58460d7995c3b62fe",
+      "publishedAt": "2026-08-04T22:41:42Z",
+      "summary": "docs: add ChromeOS (Crostini) platform install guide (#107663) * docs: add ChromeOS (Crostini) platform install guide Co-Authored-By: Claude Opus 4.8 (1M context) * docs: correct ChromeOS Linux container setup path * docs: add zh-CN glossary entries for ChromeOS page terms --------- Co-authored-by: Claude Opus 4.8 (1M context) Co-authored-by: Patrick Erichsen",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: add ChromeOS (Crostini) platform install guide (#107663)",
+      "summaryZh": "重點：文件: add ChromeOS (Crostini) platform install guide (#107663) * 文件: add ChromeOS (Crostini) platform install guide Co-Aut..."
     }
   ]
 }
