@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-05T17:38:24.917Z",
+  "generatedAt": "2026-08-05T19:35:36.669Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(whatsapp): exercise descriptor-safe credential persistence (#119621)",
-      "link": "https://github.com/openclaw/openclaw/commit/6aee2792d9c4cd3c9c0edf34a61b95abebc164a1",
-      "publishedAt": "2026-08-05T17:36:36Z",
-      "summary": "fix(whatsapp): exercise descriptor-safe credential persistence (#119621)",
+      "title": "fix(memory): keep post-ready RPCs responsive (#119710)",
+      "link": "https://github.com/openclaw/openclaw/commit/5eb7eddce69ca7827d1a49538a63c2f0ffdad188",
+      "publishedAt": "2026-08-05T19:35:32Z",
+      "summary": "fix(memory): keep post-ready RPCs responsive (#119710) Punchcard-Session: coral-workshop-workshop-3f",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): exercise descriptor-safe credential persistence (#119621)",
-      "summaryZh": "重點：修正(whatsapp): exercise descriptor-safe credential persistence (#119621)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): keep post-ready RPCs responsive (#119710)",
+      "summaryZh": "重點：修正(記憶): keep post-ready RPCs responsive (#119710) Punchcard-Session: coral-workshop-workshop-3f..."
     },
     {
       "id": 2,
-      "title": "fix(diagnostics-otel): route OTLP endpoints by signal (#101655)",
-      "link": "https://github.com/openclaw/openclaw/commit/d8c240781598559d3e044b71c44c8989ce9bbe60",
-      "publishedAt": "2026-08-05T17:33:37Z",
-      "summary": "fix(diagnostics-otel): route OTLP endpoints by signal (#101655) Keep shared endpoint routing signal-aware while preserving explicit signal-specific URLs exactly. Cover the resolver through mocked constructors and real OTLP/HTTP trace, metric, and log exporters. Co-authored-by: Vincent Koc",
+      "title": "fix(browser): preserve locale, timezone, and device overrides (#119695)",
+      "link": "https://github.com/openclaw/openclaw/commit/d6233c29b9041cf4d569009bfe865a8767e29e25",
+      "publishedAt": "2026-08-05T19:29:26Z",
+      "summary": "fix(browser): preserve locale, timezone, and device overrides (#119695) * fix(browser): make device emulation transitions atomic * test(browser): verify device presets in packaged profile * fix(browser): retain page emulation overrides",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics-otel): route OTLP endpoints by signal (#101655)",
-      "summaryZh": "重點：修正(diagnostics-otel): route OTLP endpoints by signal (#101655) Keep shared endpoint routing signal-aware while preservin..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): preserve locale, timezone, and device overrides (#119695)",
+      "summaryZh": "重點：修正(browser): preserve locale, timezone, and device overrides (#119695) * 修正(browser): make device emulation transitions ..."
     },
     {
       "id": 3,
-      "title": "refactor(skills): consolidate workshop transcript and record normaliz…",
-      "link": "https://github.com/openclaw/openclaw/commit/412a1a316743167d82f4503ed182199633fe65e9",
-      "publishedAt": "2026-08-05T17:26:03Z",
-      "summary": "refactor(skills): consolidate workshop transcript and record normalization (#119643)",
+      "title": "fix(agents): stop messaging dedupe from dropping final replies that q…",
+      "link": "https://github.com/openclaw/openclaw/commit/e69c3df2361b38285917c29b0c90867c75b8ebe9",
+      "publishedAt": "2026-08-05T18:21:40Z",
+      "summary": "fix(agents): stop messaging dedupe from dropping final replies that quote a short tool send (#118178) The forward substring check in isMessagingToolDuplicateNormalized treated any reply containing a prior message-tool send as a duplicate, with no length floor. A short interim update sent via the message tool then suppressed the entire final reply that restated it, and the user never received the answer. The reverse direction already carried a 0.5 length ratio floor. Apply the same floor to the forward direction so a reply is only deduped when the prior send covers at least half of it.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(skills): consolidate workshop transcript and record normaliz…",
-      "summaryZh": "重點：refactor(skills): consolidate workshop transcript and record normalization (#119643)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): stop messaging dedupe from dropping final replies that q…",
+      "summaryZh": "重點：修正(agents): stop messaging dedupe from dropping final replies that quote a short tool send (#118178) The forward substri..."
     },
     {
       "id": 4,
-      "title": "fix(video): harden DashScope task and media lifecycle (#117303)",
-      "link": "https://github.com/openclaw/openclaw/commit/414616f583897a161645d0b15faffb6c41542845",
-      "publishedAt": "2026-08-05T17:19:09Z",
-      "summary": "fix(video): harden DashScope task and media lifecycle (#117303) * fix(video): validate DashScope task outputs and release request guards * fix(video): validate DashScope task outputs and release request guards * refactor(video): use shared empty-asset validation * fix(video): align DashScope Wan request contracts * refactor(video): use shared empty-asset validation * fix(video): enforce catalog modes before provider calls * fix(video): keep model checks fallback-aware * fix(video): centralize fallback-aware capability checks * docs(video): document Wan 2.7 fixed audio --------- Co-authored-by: Peter Steinberger",
+      "title": "test(agents): batch code mode budget proof (#119699)",
+      "link": "https://github.com/openclaw/openclaw/commit/9b02ea3c7eab35cae5ae54566e993f0e44a70734",
+      "publishedAt": "2026-08-05T18:20:34Z",
+      "summary": "test(agents): batch code mode budget proof (#119699) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(video): harden DashScope task and media lifecycle (#117303)",
-      "summaryZh": "重點：修正(video): harden DashScope task and media lifecycle (#117303) * 修正(video): validate DashScope task outputs and 版本發布 req..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): batch code mode budget proof (#119699)",
+      "summaryZh": "重點：test(agents): batch code mode budget proof (#119699) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 5,
+      "title": "Google AI 高層重大異動，哈薩比斯卸任執行長專注 AGI 研究",
+      "link": "https://technews.tw/2026/08/06/demis-hassabis-to-step-down-as-google-deepmind-ceo/",
+      "publishedAt": "Wed, 05 Aug 2026 18:14:26 +0000",
+      "summary": "主導 Gemini 系列模型開發並推動 AI 應用的 Google DeepMind 團隊迎來重大人事異動，哈 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "愛普*7月營收月增36.1%",
       "link": "https://finance.technews.tw/2026/08/05/ap-memory-6531-202607-financial-report/",
       "publishedAt": "Wed, 05 Aug 2026 14:10:02 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Power Integrations 發表首款 2200 V 氮化鎵技術，搶攻資料中心、電動車與再生能源市場",
       "link": "https://finance.technews.tw/2026/08/05/power-integrations-unveils-its-first-2200-v-gallium-nitride-technology/",
       "publishedAt": "Wed, 05 Aug 2026 13:15:17 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "瑞耘7月營收月增44.1%",
       "link": "https://finance.technews.tw/2026/08/05/ct-6532-202607-financial-report/",
       "publishedAt": "Wed, 05 Aug 2026 12:10:05 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "波蘭連鎖便利商店Żabka遭駭，原因是攻擊者透過第三方帳號入侵",
       "link": "https://www.ithome.com.tw/news/177883",
       "publishedAt": "2026-08-05 12:08:46",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "研究人員揭露AI蠕蟲攻擊新手法，透過Word中的隱藏提示可誘導Microsoft Copilot自我傳播",
       "link": "https://www.ithome.com.tw/news/177882",
       "publishedAt": "2026-08-05 12:08:15",
       "summary": "研究人員Håkon Måløy近日揭露針對Microsoft Copilot for Word的AI蠕蟲攻擊方式，攻擊者可將惡意提示隱藏在Word檔案中，誘使Copilot執行指令並將相同提示寫入新產生的檔案，使惡意提示隨著檔案分享流程持續傳播，而不需要使用傳統惡意程式或巨集。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Cyera擬以10億美元併購Oasis Security，擴大AI代理與非人類身分治理",
-      "link": "https://www.ithome.com.tw/news/177876",
-      "publishedAt": "2026-08-05 11:08:57",
-      "summary": "非人類身分（Non-Human Identity，NHI）數量快速增加，促使傳統以員工帳號為核心的管理方式面臨挑戰，相關治理需求也成為資安市場的新焦點。資料安全業者Cyera宣布計畫收購NHI安全業者Oasis Security的消息，雙方已簽署併購意向書。",
       "source": "iThome",
       "tag": "繁中"
     }
