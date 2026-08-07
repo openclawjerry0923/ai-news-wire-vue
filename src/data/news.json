@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T10:07:02.904Z",
+  "generatedAt": "2026-08-07T11:45:39.799Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "feat(plugins): support the Agent Plugins bundle format (#120115)",
-      "link": "https://github.com/openclaw/openclaw/commit/f4387b7a5effd63fe2c0f05495175b9eacd12cec",
-      "publishedAt": "2026-08-07T09:55:08Z",
-      "summary": "feat(plugins): support the Agent Plugins bundle format (#120115) * feat(plugins): support the Agent Plugins bundle format * docs(plugins): document the Agent Plugins bundle format * test(agents): preserve agent bundle runtime discovery * fix(plugins): isolate Agent Plugins data-dir failures and align MCP support reporting * docs(plugins): list Agent Plugins in the canonical plugin-format guides * fix(plugins): gate Agent Plugins detection on schema, pure inspection, root-relative cwd * fix(plugins): record Agent Plugins data-dir ownership explicitly * docs(plugins): cover Agent Plugins in the CLI install detection guide * fix(plugins): carry Agent Plugins data-dir and transport contracts through external MCP projections",
+      "title": "test(tui): gate built CLI PTY cases (#120221)",
+      "link": "https://github.com/openclaw/openclaw/commit/01cc71060d6c57eff142cfc210685c651ccb6397",
+      "publishedAt": "2026-08-07T11:25:47Z",
+      "summary": "test(tui): gate built CLI PTY cases (#120221)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(plugins): support the Agent Plugins bundle format (#120115)",
-      "summaryZh": "重點：新功能(plugins): support the Agent Plugins bundle format (#120115) * 新功能(plugins): support the Agent Plugins bundle format ..."
+      "titleZh": "OpenClaw 程式碼更新：test(tui): gate built CLI PTY cases (#120221)",
+      "summaryZh": "重點：test(tui): gate built CLI PTY cases (#120221)..."
     },
     {
       "id": 8,
-      "title": "fix(gateway): refresh session lists after external identity writes (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/06d5e4457fbbc80c829dd379d94ce7c15a06413e",
-      "publishedAt": "2026-08-07T09:45:14Z",
-      "summary": "fix(gateway): refresh session lists after external identity writes (#120203) * fix(gateway): invalidate session lists on external mutations * test(sessions): cover identity mutation fence",
+      "title": "feat(claws): adopt portable profiles and native bootstrap (#115237)",
+      "link": "https://github.com/openclaw/openclaw/commit/60fc2fe64d8ec2988a555a638dc1074d31e5760b",
+      "publishedAt": "2026-08-07T11:04:51Z",
+      "summary": "feat(claws): adopt portable profiles and native bootstrap (#115237)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): refresh session lists after external identity writes (#…",
-      "summaryZh": "重點：修正(Gateway): refresh session lists after external identity writes (#120203) * 修正(Gateway): invalidate session lists on e..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(claws): adopt portable profiles and native bootstrap (#115237)",
+      "summaryZh": "重點：新功能(claws): adopt portable profiles and native bootstrap (#115237)..."
     },
     {
       "id": 9,
-      "title": "fix(gateway): prevent approval E2E startup timeout (#120195)",
-      "link": "https://github.com/openclaw/openclaw/commit/2dd0e9b950462acc1f24fa9b207e9b7b0b4bd36b",
-      "publishedAt": "2026-08-07T09:01:53Z",
-      "summary": "fix(gateway): prevent approval E2E startup timeout (#120195) * test(gateway): isolate approval client startup * test(gateway): share manual RPC startup scope",
+      "title": "fix(agents): subagent hard-deny list cannot be overridden by allow co…",
+      "link": "https://github.com/openclaw/openclaw/commit/8994c7799ba3c8700f0fc0f7201e4695ee140a20",
+      "publishedAt": "2026-08-07T10:58:02Z",
+      "summary": "fix(agents): subagent hard-deny list cannot be overridden by allow config (#120025) * fix(agents): make subagent hard-deny list non-overridable and deny message tool The always-deny list for subagent sessions (gateway, cron, message, sessions_send, conversations_*) could be overridden by ordinary allow/alsoAllow config entries, letting a configured subagent profile re-enable direct user delivery outside the announce chain. The hard-deny layer now applies unconditionally; message joins the list so resumed/visible subagent sessions cannot send directly either (hidden launches already disabled it at spawn time). * chore: re-fire CI * chore: re-fire CI against fixed main baseline * test(agents): workspace authority reflects non-overridable subagent deny list The delegating-worker rejection case relied on alsoAllow bypassing the subagent hard-deny list; with the bypass closed the policy owner blocks sessions_spawn and the worker stays confined, so the guard has nothing to reject.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): prevent approval E2E startup timeout (#120195)",
-      "summaryZh": "重點：修正(Gateway): prevent approval E2E startup timeout (#120195) * test(Gateway): isolate approval client startup * test(Gate..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): subagent hard-deny list cannot be overridden by allow co…",
+      "summaryZh": "重點：修正(agents): subagent hard-deny list cannot be overridden by allow config (#120025) * 修正(agents): make subagent hard-deny..."
     },
     {
       "id": 10,
-      "title": "fix(diagnostics): honor OTEL_SDK_DISABLED (#119961)",
-      "link": "https://github.com/openclaw/openclaw/commit/095227dd215249f1e8d6723b323aafdde517d2c6",
-      "publishedAt": "2026-08-07T09:01:14Z",
-      "summary": "fix(diagnostics): honor OTEL_SDK_DISABLED (#119961) * fix(diagnostics): honor OTEL_SDK_DISABLED * fix(diagnostics): own OpenTelemetry lifecycle * fix(diagnostics): keep SDK options private * test(diagnostics): type async resource export * fix(diagnostics): preserve OpenTelemetry env defaults * fix(diagnostics): restore narrow OTEL disabled admission * fix(diagnostics): surface disabled propagator warnings * fix(diagnostics): preserve preloaded rejection guard * fix(diagnostics): probe context manager ownership",
+      "title": "fix(gateway): redact credentials from gateway URLs in status and logs…",
+      "link": "https://github.com/openclaw/openclaw/commit/e910324f101c77529641a9a3a613dde20a76bd96",
+      "publishedAt": "2026-08-07T10:57:08Z",
+      "summary": "fix(gateway): redact credentials from gateway URLs in status and logs diagnostics (#120024) * fix(gateway): redact credentials from gateway URLs in status and logs diagnostics Gateway URLs can carry basic-auth credentials or token query params. Status output, status-all JSON, and logs-cli error diagnostics now project connection details through a single diagnostics projection (projectGatewayConnectionDetailsForDiagnostics / projectGatewayUrlForDiagnostics) so no diagnostic surface prints a raw URL; the probe itself keeps using the unredacted URL. * chore: re-fire CI * fix(gateway): close remaining credential-leak paths in status diagnostics ClawSweeper P1s: probe failure text (close reasons/transport errors) now redacts URL-like credentials before status renderers print it; the status-all remote-missing fallback line projects the environment gateway URL; gateway transport-error JSON redacts the remote-controlled close reason and derived message.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): honor OTEL_SDK_DISABLED (#119961)",
-      "summaryZh": "重點：修正(diagnostics): honor OTEL_SDK_DISABLED (#119961) * 修正(diagnostics): honor OTEL_SDK_DISABLED * 修正(diagnostics): own Ope..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): redact credentials from Gateway URLs in status and logs…",
+      "summaryZh": "重點：修正(Gateway): redact credentials from Gateway URLs in status and logs diagnostics (#120024) * 修正(Gateway): redact credent..."
     }
   ]
 }
