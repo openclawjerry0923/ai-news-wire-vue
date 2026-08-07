@@ -1,41 +1,52 @@
 {
-  "generatedAt": "2026-08-07T17:50:24.583Z",
+  "generatedAt": "2026-08-07T18:57:52.887Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): preserve structured login error codes (#120069)",
-      "link": "https://github.com/openclaw/openclaw/commit/ab4761f3fc9a903646a6ac7346ae1091745de79a",
-      "publishedAt": "2026-08-07T17:09:11Z",
-      "summary": "fix(ui): preserve structured login error codes (#120069)",
+      "title": "fix(agents): quota suspension resolves the real owning agent instead …",
+      "link": "https://github.com/openclaw/openclaw/commit/b12616b44468e3d2772e3647d8f4de5805520389",
+      "publishedAt": "2026-08-07T18:56:15Z",
+      "summary": "fix(agents): quota suspension resolves the real owning agent instead of no-opping (#120262) * fix(agents): session quota suspension resolves the real owning agent suspendSession derived the agent id from path.basename(agentDir), which is always the literal 'agent' in the default /agents//agent layout — the quota-suspension marker landed in a nonexistent agent's store and the suspension silently no-opped. Callers now pass the explicit agentId through runWithModelFallback/throwFallbackFailureSummary, with the agent-dir registry as fallback for dir-only callers. * fix(agents): embedded failure suspensions carry the run's agent id",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve structured login error codes (#120069)",
-      "summaryZh": "重點：修正(ui): preserve structured login error codes (#120069)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): quota suspension resolves the real owning agent instead …",
+      "summaryZh": "重點：修正(agents): quota suspension resolves the real owning agent instead of no-opping (#120262) * 修正(agents): session quota s..."
     },
     {
       "id": 2,
-      "title": "fix: remove retired insecure auth guidance (#120295)",
-      "link": "https://github.com/openclaw/openclaw/commit/dcb125d202ed4fbf0cef1f9009aa250895f12b3f",
-      "publishedAt": "2026-08-07T16:45:48Z",
-      "summary": "fix: remove retired insecure auth guidance (#120295)",
+      "title": "refactor(test): compress repetitive fixtures in mega-tests, batch 3 (…",
+      "link": "https://github.com/openclaw/openclaw/commit/d448a25a8a876b40d62b8cc09532d2480f9db163",
+      "publishedAt": "2026-08-07T18:48:46Z",
+      "summary": "refactor(test): compress repetitive fixtures in mega-tests, batch 3 (#120294) * refactor(test): compress subagent lifecycle fixtures * refactor(test): compress model resolution fixtures * refactor(test): compress Telegram bot fixtures * refactor(test): compress reply-agent e2e fixtures * refactor(test): compress Matrix SDK fixtures * refactor(test): compress QMD manager fixtures * refactor(test): compress gateway chat fixtures * refactor(test): compress gateway reload fixtures * fix(test): preserve raw Telegram secret fixture * fix(test): retain session fixture key type * fix(test): preserve raw reload secrets fixture * fix(test): retain gateway fixture parameter types",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: remove retired insecure auth guidance (#120295)",
-      "summaryZh": "重點：修正: remove retired insecure auth guidance (#120295)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(test): compress repetitive 修正tures in mega-tests, batch 3 (…",
+      "summaryZh": "重點：refactor(test): compress repetitive 修正tures in mega-tests, batch 3 (#120294) * refactor(test): compress subagent lifecyc..."
     },
     {
       "id": 3,
-      "title": "docs: promote Release and CI navigation (#119802)",
-      "link": "https://github.com/openclaw/openclaw/commit/b738e2578087a5fb292abf333dbc5c7e92c853d6",
-      "publishedAt": "2026-08-07T16:21:57Z",
-      "summary": "docs: promote Release and CI navigation (#119802)",
+      "title": "test(plugins): add Agent Plugins gateway e2e with model-driven MCP to…",
+      "link": "https://github.com/openclaw/openclaw/commit/2fa9a29c770ad47b4ad8770d69983f8b6f66146a",
+      "publishedAt": "2026-08-07T18:47:07Z",
+      "summary": "test(plugins): add Agent Plugins gateway e2e with model-driven MCP tool call (#120303) * test(plugins): add Agent Plugins gateway e2e with model-driven MCP tool call * fix(test): wire Agent Plugins gateway E2E and assert activation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: promote 版本發布 and CI navigation (#119802)",
-      "summaryZh": "重點：文件: promote 版本發布 and CI navigation (#119802)..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): add Agent Plugins Gateway e2e with 模型-driven MCP to…",
+      "summaryZh": "重點：test(plugins): add Agent Plugins Gateway e2e with 模型-driven MCP tool call (#120303) * test(plugins): add Agent Plugins G..."
     },
     {
       "id": 4,
+      "title": "fix(imessage): stop dropping user text that collides with recent outb…",
+      "link": "https://github.com/openclaw/openclaw/commit/c25671cf275a4b5a339db182a5ba8bffc2e73c11",
+      "publishedAt": "2026-08-07T18:17:06Z",
+      "summary": "fix(imessage): stop dropping user text that collides with recent outbound sends (#120260) * fix(imessage): text echo matching honors message-id conflicts; own sends stop feeding the loop limiter Two silent-drop paths in the iMessage monitor: 1. The persisted 12h echo cache matched inbound user text against old outbound text even when the GUIDs conflicted — a user sending 'ok' within 12h of the agent sending 'ok' was dropped as an echo. The text branch now applies the same hasConflictingMessageIds guard the media branch has; genuine reconnect echoes still match by id or id-less entries. 2. Every from-me row fed the echo loop rate limiter, so a normal outbound burst (agent replies, multi-chunk sends, operator phone traffic) could trip the limiter and silently suppress the next legitimate inbound message. 'from me' is no longer counted as a loop signal, and a tripped limiter now logs a default-level warning once per conversation instead of verbose-only. * fix(imessage): preserve delayed echo guards",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): stop dropping user text that collides with recent outb…",
+      "summaryZh": "重點：修正(imessage): stop dropping user text that collides with recent outbound sends (#120260) * 修正(imessage): text echo match..."
+    },
+    {
+      "id": 5,
       "title": "幹細胞技術突破，給予帕金森氏症療法新希望",
       "link": "https://technews.tw/2026/08/08/human-embryonic-stem-cell-derived-dopaminergic-cells-for-parkinsons-disease-a-phase-12-open-label-trial/",
       "publishedAt": "Fri, 07 Aug 2026 16:00:41 +0000",
@@ -44,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "打破「藍色彈珠」迷思，NASA 最新 3D 模型揭露地球「坑疤」真面目",
       "link": "https://technews.tw/2026/08/08/nasa-3d-earth-gravity-model/",
       "publishedAt": "Fri, 07 Aug 2026 16:00:25 +0000",
@@ -53,24 +64,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "魯賓天文台 LSST 相機首發，32 億畫素震撼捕捉 COSMOS 天區 50 萬星系",
       "link": "https://technews.tw/2026/08/08/nsf-doe-rubin-observatory-opens-deep-window-on-famous-cosmic-field/",
       "publishedAt": "Fri, 07 Aug 2026 16:00:07 +0000",
       "summary": "薇拉‧魯賓天文台（Vera C. Rubin Observatory）正式發布時域與深空巡天相機（Legacy [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test(diagnostics): cover OTEL exporter contracts (#120261)",
-      "link": "https://github.com/openclaw/openclaw/commit/c549250bfae8ff40822099c9af93ed05ff540579",
-      "publishedAt": "2026-08-07T15:45:32Z",
-      "summary": "test(diagnostics): cover OTEL exporter contracts (#120261)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(diagnostics): cover OTEL exporter contracts (#120261)",
-      "summaryZh": "重點：test(diagnostics): cover OTEL exporter contracts (#120261)..."
     },
     {
       "id": 8,
