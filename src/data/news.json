@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-07T18:57:52.887Z",
+  "generatedAt": "2026-08-07T19:54:26.935Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): quota suspension resolves the real owning agent instead …",
-      "link": "https://github.com/openclaw/openclaw/commit/b12616b44468e3d2772e3647d8f4de5805520389",
-      "publishedAt": "2026-08-07T18:56:15Z",
-      "summary": "fix(agents): quota suspension resolves the real owning agent instead of no-opping (#120262) * fix(agents): session quota suspension resolves the real owning agent suspendSession derived the agent id from path.basename(agentDir), which is always the literal 'agent' in the default /agents//agent layout — the quota-suspension marker landed in a nonexistent agent's store and the suspension silently no-opped. Callers now pass the explicit agentId through runWithModelFallback/throwFallbackFailureSummary, with the agent-dir registry as fallback for dir-only callers. * fix(agents): embedded failure suspensions carry the run's agent id",
+      "title": "fix(progress): preserve callback acceptance results (#120171)",
+      "link": "https://github.com/openclaw/openclaw/commit/c691f2e41cd61b26b5457541f5ff5ecbd7f2a9a3",
+      "publishedAt": "2026-08-07T19:40:33Z",
+      "summary": "fix(progress): preserve callback acceptance results (#120171) * fix(progress): preserve callback acceptance results * fix(progress): require transport acknowledgements * fix(progress): preserve direct acceptance outcomes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): quota suspension resolves the real owning agent instead …",
-      "summaryZh": "重點：修正(agents): quota suspension resolves the real owning agent instead of no-opping (#120262) * 修正(agents): session quota s..."
+      "titleZh": "OpenClaw 程式碼更新：修正(progress): preserve callback acceptance results (#120171)",
+      "summaryZh": "重點：修正(progress): preserve callback acceptance results (#120171) * 修正(progress): preserve callback acceptance results * 修正(p..."
     },
     {
       "id": 2,
-      "title": "refactor(test): compress repetitive fixtures in mega-tests, batch 3 (…",
-      "link": "https://github.com/openclaw/openclaw/commit/d448a25a8a876b40d62b8cc09532d2480f9db163",
-      "publishedAt": "2026-08-07T18:48:46Z",
-      "summary": "refactor(test): compress repetitive fixtures in mega-tests, batch 3 (#120294) * refactor(test): compress subagent lifecycle fixtures * refactor(test): compress model resolution fixtures * refactor(test): compress Telegram bot fixtures * refactor(test): compress reply-agent e2e fixtures * refactor(test): compress Matrix SDK fixtures * refactor(test): compress QMD manager fixtures * refactor(test): compress gateway chat fixtures * refactor(test): compress gateway reload fixtures * fix(test): preserve raw Telegram secret fixture * fix(test): retain session fixture key type * fix(test): preserve raw reload secrets fixture * fix(test): retain gateway fixture parameter types",
+      "title": "docs(plugins): include Agent Plugins in the plugins page read-when hi…",
+      "link": "https://github.com/openclaw/openclaw/commit/b99c507ce62a5eff25c8522c2469510ffaf2c8ef",
+      "publishedAt": "2026-08-07T19:35:03Z",
+      "summary": "docs(plugins): include Agent Plugins in the plugins page read-when hints (#120323)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(test): compress repetitive 修正tures in mega-tests, batch 3 (…",
-      "summaryZh": "重點：refactor(test): compress repetitive 修正tures in mega-tests, batch 3 (#120294) * refactor(test): compress subagent lifecyc..."
+      "titleZh": "OpenClaw 文件更新：文件(plugins): include Agent Plugins in the plugins page read-when hi…",
+      "summaryZh": "重點：文件(plugins): include Agent Plugins in the plugins page read-when hints (#120323)..."
     },
     {
       "id": 3,
-      "title": "test(plugins): add Agent Plugins gateway e2e with model-driven MCP to…",
-      "link": "https://github.com/openclaw/openclaw/commit/2fa9a29c770ad47b4ad8770d69983f8b6f66146a",
-      "publishedAt": "2026-08-07T18:47:07Z",
-      "summary": "test(plugins): add Agent Plugins gateway e2e with model-driven MCP tool call (#120303) * test(plugins): add Agent Plugins gateway e2e with model-driven MCP tool call * fix(test): wire Agent Plugins gateway E2E and assert activation",
+      "title": "fix: isolate debug diagnostics failures (#117546)",
+      "link": "https://github.com/openclaw/openclaw/commit/a3cf376258bef69ae9dbf7b86303dcdb37f39592",
+      "publishedAt": "2026-08-07T19:24:38Z",
+      "summary": "fix: isolate debug diagnostics failures (#117546)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(plugins): add Agent Plugins Gateway e2e with 模型-driven MCP to…",
-      "summaryZh": "重點：test(plugins): add Agent Plugins Gateway e2e with 模型-driven MCP tool call (#120303) * test(plugins): add Agent Plugins G..."
+      "titleZh": "OpenClaw 程式碼更新：修正: isolate debug diagnostics failures (#117546)",
+      "summaryZh": "重點：修正: isolate debug diagnostics failures (#117546)..."
     },
     {
       "id": 4,
-      "title": "fix(imessage): stop dropping user text that collides with recent outb…",
-      "link": "https://github.com/openclaw/openclaw/commit/c25671cf275a4b5a339db182a5ba8bffc2e73c11",
-      "publishedAt": "2026-08-07T18:17:06Z",
-      "summary": "fix(imessage): stop dropping user text that collides with recent outbound sends (#120260) * fix(imessage): text echo matching honors message-id conflicts; own sends stop feeding the loop limiter Two silent-drop paths in the iMessage monitor: 1. The persisted 12h echo cache matched inbound user text against old outbound text even when the GUIDs conflicted — a user sending 'ok' within 12h of the agent sending 'ok' was dropped as an echo. The text branch now applies the same hasConflictingMessageIds guard the media branch has; genuine reconnect echoes still match by id or id-less entries. 2. Every from-me row fed the echo loop rate limiter, so a normal outbound burst (agent replies, multi-chunk sends, operator phone traffic) could trip the limiter and silently suppress the next legitimate inbound message. 'from me' is no longer counted as a loop signal, and a tripped limiter now logs a default-level warning once per conversation instead of verbose-only. * fix(imessage): preserve delayed echo guards",
+      "title": "fix(ui): isolate debug diagnostics and supersede stale RPC calls",
+      "link": "https://github.com/openclaw/openclaw/commit/3d4a7d49622371fed1afd2d6955eb13fde05cb79",
+      "publishedAt": "2026-08-07T19:24:37Z",
+      "summary": "fix(ui): isolate debug diagnostics and supersede stale RPC calls",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(imessage): stop dropping user text that collides with recent outb…",
-      "summaryZh": "重點：修正(imessage): stop dropping user text that collides with recent outbound sends (#120260) * 修正(imessage): text echo match..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): isolate debug diagnostics and supersede stale RPC calls",
+      "summaryZh": "重點：修正(ui): isolate debug diagnostics and supersede stale RPC calls..."
     },
     {
       "id": 5,
