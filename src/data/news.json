@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-08-07T08:59:27.153Z",
+  "generatedAt": "2026-08-07T10:07:02.904Z",
   "items": [
     {
       "id": 1,
+      "title": "【資安週報】0803~0807，美國黑帽大會於本週召開，開放安全AI聯盟提出共享AI發現交換指引SAFE",
+      "link": "https://www.ithome.com.tw/news/177952",
+      "publishedAt": "2026-08-07 12:08:37",
+      "summary": "上週Hugging Face、OpenAI針對OpenAI受測模型自主攻擊Hugging Face環境公布調查結果受到全球關注，本週又有新的進展，首先是Anthropic、英國AI安全研究所（AISI）測試Claude時，同樣發生模型試圖突破隔離環境，並攻擊其他組織與個人的情況，另外，成軍不久的開放安全AI聯盟，在黑帽大會Black Hat USA 2026首日，針對AI失控與相關風險的預防，提出共享AI發現交換指引（SAFE）。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "雲端安全聯盟推動AI重大風險控制措施，規劃實際稽核驗證",
       "link": "https://www.ithome.com.tw/news/177951",
       "publishedAt": "2026-08-07 12:08:26",
@@ -11,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "AMD宣布併購加拿大AI晶片新創Taalas",
       "link": "https://www.ithome.com.tw/news/177955",
       "publishedAt": "2026-08-07 12:08:22",
@@ -20,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "思科發布Catalyst SD-WAN安全更新，修補3個CVSS 9.9分重大漏洞",
       "link": "https://www.ithome.com.tw/news/177954",
       "publishedAt": "2026-08-07 12:08:18",
@@ -29,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "SpaceX斥資168億美元在德州興建AI晶片廠Terafab",
       "link": "https://www.ithome.com.tw/news/177953",
       "publishedAt": "2026-08-07 12:08:14",
@@ -38,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "思科發布網路作業系統IOS XE 8月份更新，修補7個高風險漏洞",
       "link": "https://www.ithome.com.tw/news/177949",
       "publishedAt": "2026-08-07 12:08:09",
@@ -47,57 +56,48 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "Rubrik併購Strata，強化身分系統備援能力",
-      "link": "https://www.ithome.com.tw/news/177948",
-      "publishedAt": "2026-08-07 11:08:40",
-      "summary": "資料安全及網路韌性業者Rubrik於6月9日宣布，已併購美國身分協調技術業者Strata Identity，並以Strata技術強化旗下Identity Resilience產品組合。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "fix(ai): truncated Anthropic streams error; proxies exempt from messa…",
-      "link": "https://github.com/openclaw/openclaw/commit/74500f334ed147bd9ac23abb7e3b0cd36f49d124",
-      "publishedAt": "2026-08-07T08:49:46Z",
-      "summary": "fix(ai): truncated Anthropic streams error; proxies exempt from message_stop contract (#120030) * fix(ai): enforce message_stop only for direct Anthropic models The Anthropic SSE transport threw 'stream ended before message_stop' only when a refusal buffer happened to be non-empty, so a truncated first-party stream could pass silently while compatible proxy providers that legitimately omit message_stop failed intermittently. The invariant now keys off the transport contract owner: direct Anthropic models always require message_stop; proxy providers are exempt. * test(ai): cover proxy streams ending without message_stop ClawSweeper P1: the proxy exemption had no focused test, so the lenient branch could regress silently. A non-anthropic provider through a custom endpoint now proves stopReason=stop with no error when the stream ends without message_stop.",
+      "title": "feat(plugins): support the Agent Plugins bundle format (#120115)",
+      "link": "https://github.com/openclaw/openclaw/commit/f4387b7a5effd63fe2c0f05495175b9eacd12cec",
+      "publishedAt": "2026-08-07T09:55:08Z",
+      "summary": "feat(plugins): support the Agent Plugins bundle format (#120115) * feat(plugins): support the Agent Plugins bundle format * docs(plugins): document the Agent Plugins bundle format * test(agents): preserve agent bundle runtime discovery * fix(plugins): isolate Agent Plugins data-dir failures and align MCP support reporting * docs(plugins): list Agent Plugins in the canonical plugin-format guides * fix(plugins): gate Agent Plugins detection on schema, pure inspection, root-relative cwd * fix(plugins): record Agent Plugins data-dir ownership explicitly * docs(plugins): cover Agent Plugins in the CLI install detection guide * fix(plugins): carry Agent Plugins data-dir and transport contracts through external MCP projections",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ai): truncated Anthropic streams error; proxies exempt from messa…",
-      "summaryZh": "重點：修正(ai): truncated Anthropic streams error; proxies exempt from message_stop contract (#120030) * 修正(ai): enforce message..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(plugins): support the Agent Plugins bundle format (#120115)",
+      "summaryZh": "重點：新功能(plugins): support the Agent Plugins bundle format (#120115) * 新功能(plugins): support the Agent Plugins bundle format ..."
     },
     {
       "id": 8,
-      "title": "fix(install): Windows installer no longer reports failed doctor migra…",
-      "link": "https://github.com/openclaw/openclaw/commit/aa7cf44c75a123a2724f20b05cd10d66cf7e65f3",
-      "publishedAt": "2026-08-07T08:19:59Z",
-      "summary": "fix(install): Windows installer no longer reports failed doctor migration as complete (#120033) * fix(install): Windows installer surfaces doctor migration failures Invoke-OpenClawCommand ignored the child exit code, so a failed 'openclaw doctor --non-interactive' still printed '[OK] Migration complete'. The wrapper now throws on nonzero exit and Run-Doctor reports the failure with the exact command to rerun instead of claiming success. * chore: re-fire CI * chore: re-fire CI against fixed main baseline",
+      "title": "fix(gateway): refresh session lists after external identity writes (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/06d5e4457fbbc80c829dd379d94ce7c15a06413e",
+      "publishedAt": "2026-08-07T09:45:14Z",
+      "summary": "fix(gateway): refresh session lists after external identity writes (#120203) * fix(gateway): invalidate session lists on external mutations * test(sessions): cover identity mutation fence",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(install): Windows installer no longer reports failed 文件tor migra…",
-      "summaryZh": "重點：修正(install): Windows installer no longer reports failed 文件tor migration as complete (#120033) * 修正(install): Windows ins..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): refresh session lists after external identity writes (#…",
+      "summaryZh": "重點：修正(Gateway): refresh session lists after external identity writes (#120203) * 修正(Gateway): invalidate session lists on e..."
     },
     {
       "id": 9,
-      "title": "fix(models): preserve session selection across fallback turns (#119325)",
-      "link": "https://github.com/openclaw/openclaw/commit/5621979a469a28db8c618b42b2a5be1af403803d",
-      "publishedAt": "2026-08-07T08:19:12Z",
-      "summary": "fix(models): preserve session selection across fallback turns (#119325) * feat(models): add session-only model selection * fix(models): use trailing session scope option * test(models): satisfy session scope lint * fix(models): reject duplicate model options * fix(models): clarify default and session scope * fix(models): require complete session option tokens * fix(models): report configured default dispatch * fix(models): keep directive handler within lint limit * fix(models): parse model options in either order * fix(models): apply session scope to aliases * fix(models): align alias scope with reply routing * fix(discord): surface model selection scope in picker * fix(models): preserve mixed-text model selection * fix(models): centralize command selection ownership * fix(models): align session scope lifecycle * fix(models): preserve command and auth ownership * fixup! fix(models): preserve command and auth ownership * fix(auth): preserve scoped CLI provider discovery * test(models): align result and cron fixtures * test(models): nest result timing metadata * fix(discord): narrow silent dispatch results * fix(transcript): preserve admitted turn identity * fix(context-engine): fence the admitted transcript turn * fix(context-engine): stabilize plugin compatibility contract * chore(plugin-sdk): refresh context engine API baseline * chore(plugin-sdk): use Linux context engine API baseline * fix(context-engine): align fallback ownership * fix(fallback): scope auth skip cache by profile * fix(context-engine): settle only accepted fallback turns * refactor(sessions): issue canonical turn admissions * refactor(context-engine): own logical turn advancement * fix(context-engine): settle cron fallback winners * fix(models): align picker and fallback transactions * fix(delivery): notify block admission after queueing * fix(sessions): preserve canonical admission receipts * chore(plugin-sdk): refresh API baseline hash * fix(context-engine): commit accepted turns durably * fix(context-engine): validate durable host transitions * fix(context-engine): preserve fallback turn ownership * fix(context-engine): preserve queued turn order * fix(models): preserve fallback retry ownership * fix(context-engine): enforce durable transcript anchors * fix(runtime): close fallback persistence gaps * fix(context-engine): preflight fallback harnesses * chore(plugin-sdk): use Linux API baseline * fix(context-engine): drain durable commits before reads * fix(models): scope harness auth failures by profile * fix(codex): fence legacy transcript history * fix(commands): honor suppressed directive interpretation * chore(runtime): remove unused branch exports * test(context-engine): derive private outbox payload type * fix(context-engine): apply durable drain degradation * fix(context-engine): recover durable turn intents * fix(context-engine): settle durable turn intents * refactor(context-engine): satisfy branch quality gates * fix(context-engine): close durable recovery gaps * fix(discord): preserve dropped model command outcome * test(copilot): keep journal fixture types local * fix(auto-reply): preserve model alias provenance * fix: close model scope review gaps * fix(models): close review-found scope leaks * fix(review): satisfy branch line budgets * fix(agents): preserve context engine turn facts * fix(agents): finalize silent context turns * fix(context-engine): preserve compatibility window * test(agents): cover both harness preparations * fix(context-engine): retain blocked turn advancements * fix(models): parse compact runtime options * fix(telegram): report runtime resets accurately * fix(models): isolate automatic auth failure skips * fix(context-engine): project commit turn host params --------- Co-authored-by: VACInc Co-authored-by: Vincent Koc",
+      "title": "fix(gateway): prevent approval E2E startup timeout (#120195)",
+      "link": "https://github.com/openclaw/openclaw/commit/2dd0e9b950462acc1f24fa9b207e9b7b0b4bd36b",
+      "publishedAt": "2026-08-07T09:01:53Z",
+      "summary": "fix(gateway): prevent approval E2E startup timeout (#120195) * test(gateway): isolate approval client startup * test(gateway): share manual RPC startup scope",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): preserve session selection across fallback turns (#119325)",
-      "summaryZh": "重點：修正(模型): preserve session selection across fallback turns (#119325) * 新功能(模型): add session-only 模型 selection * 修正(模型): us..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): prevent approval E2E startup timeout (#120195)",
+      "summaryZh": "重點：修正(Gateway): prevent approval E2E startup timeout (#120195) * test(Gateway): isolate approval client startup * test(Gate..."
     },
     {
       "id": 10,
-      "title": "fix(outbound): provider abort without send evidence keeps the queued …",
-      "link": "https://github.com/openclaw/openclaw/commit/681076c4913e4b6e8642865ea6923b739f6ea79d",
-      "publishedAt": "2026-08-07T08:19:00Z",
-      "summary": "fix(outbound): provider abort without send evidence keeps the queued message (#120031) * fix(outbound): preserve queued delivery custody on provider abort without send evidence A provider-side abort with no platform send evidence acked the durable queue entry (dropping the message) whenever no producer claim id existed. Send evidence is now computed once (delivered results, pre/post-send marks, sentBeforeError, stable outcomes); aborts with evidence keep the platform_send failure path, aborts without evidence preserve the queued entry as failed for retry unless the operator's own abort signal fired. * chore: re-fire CI * chore: re-fire CI against fixed main baseline",
+      "title": "fix(diagnostics): honor OTEL_SDK_DISABLED (#119961)",
+      "link": "https://github.com/openclaw/openclaw/commit/095227dd215249f1e8d6723b323aafdde517d2c6",
+      "publishedAt": "2026-08-07T09:01:14Z",
+      "summary": "fix(diagnostics): honor OTEL_SDK_DISABLED (#119961) * fix(diagnostics): honor OTEL_SDK_DISABLED * fix(diagnostics): own OpenTelemetry lifecycle * fix(diagnostics): keep SDK options private * test(diagnostics): type async resource export * fix(diagnostics): preserve OpenTelemetry env defaults * fix(diagnostics): restore narrow OTEL disabled admission * fix(diagnostics): surface disabled propagator warnings * fix(diagnostics): preserve preloaded rejection guard * fix(diagnostics): probe context manager ownership",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(outbound): provider abort without send evidence keeps the queued …",
-      "summaryZh": "重點：修正(outbound): provider abort without send evidence keeps the queued message (#120031) * 修正(outbound): preserve queued de..."
+      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): honor OTEL_SDK_DISABLED (#119961)",
+      "summaryZh": "重點：修正(diagnostics): honor OTEL_SDK_DISABLED (#119961) * 修正(diagnostics): honor OTEL_SDK_DISABLED * 修正(diagnostics): own Ope..."
     }
   ]
 }
