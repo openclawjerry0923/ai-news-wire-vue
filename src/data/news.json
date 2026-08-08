@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-08T13:46:00.567Z",
+  "generatedAt": "2026-08-08T14:32:03.008Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(release): keep prerelease companions exact in cross-OS checks (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/9a2f91a79a78bee24b7ba9cdaf1bfe0eb15787e7",
-      "publishedAt": "2026-08-08T13:45:16Z",
-      "summary": "fix(release): keep prerelease companions exact in cross-OS checks (#120556) * fix(release): install exact cross-os companion artifacts * fix(release): derive companion package type from resolver * fix(release): produce provider-owned companion registries * fix(release): preserve companions for npm candidates * refactor(release): simplify companion registry flow * test(release): align package acceptance contracts * fix(release): guard optional registry JSON parsing --------- Co-authored-by: Vincent Koc",
+      "title": "fix(gateway): isolate startup sidecars between test cases (#120503)",
+      "link": "https://github.com/openclaw/openclaw/commit/7f9364c5e1e2e9171b07de4b4d3b082179ae8575",
+      "publishedAt": "2026-08-08T14:08:17Z",
+      "summary": "fix(gateway): isolate startup sidecars between test cases (#120503) * test(gateway): stop startup sidecars between cases Punchcard-Session: amber-workshop-workshop-36 * test(gateway): make sidecar cleanup one-shot Punchcard-Session: amber-workshop-workshop-36 * test(gateway): satisfy cleanup type contracts Punchcard-Session: amber-workshop-workshop-36",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): keep pre版本發布 companions exact in cross-OS checks (#1…",
-      "summaryZh": "重點：修正(版本發布): keep pre版本發布 companions exact in cross-OS checks (#120556) * 修正(版本發布): install exact cross-os companion artifa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): isolate startup sidecars between test cases (#120503)",
+      "summaryZh": "重點：修正(Gateway): isolate startup sidecars between test cases (#120503) * test(Gateway): stop startup sidecars between cases ..."
     },
     {
       "id": 2,
-      "title": "fix: gateway stalls for tens of seconds after each agent turn on mult…",
-      "link": "https://github.com/openclaw/openclaw/commit/45c6b47ed082e8babfa60c7bad53c55df44c335e",
-      "publishedAt": "2026-08-08T13:42:13Z",
-      "summary": "fix: gateway stalls for tens of seconds after each agent turn on multi-agent installs (#120075) * fix(sessions): reuse database path identities during target resolution Prepare filesystem identities once per synchronous session-target operation and share the matcher across collision, fixed-store, and registered-owner scans while preserving uncached comparator and filesystem-error behavior. Fixes #120074. Co-authored-by: Sergio * test(sessions): split target dedupe regressions * test(sessions): remove stale dedupe import Co-authored-by: Sergio --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(sessions): preserve context provenance across retries [AI] (#120509)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc3bf842c92e497e483f95d00e78a352c7a1a091",
+      "publishedAt": "2026-08-08T14:06:36Z",
+      "summary": "fix(sessions): preserve context provenance across retries [AI] (#120509) * fix(protocol): preserve checkpoint token version casing * fix(agents): preserve retry usage chronology * test(sessions): relax transcript estimate assertion * fix(agents): preserve omitted harness attempt provenance * test(sessions): cover retry and Swift provenance Co-authored-by: Vincent Koc * test(agents): cover hook-block usage chronology --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Gateway stalls for tens of seconds after each agent turn on mult…",
-      "summaryZh": "重點：修正: Gateway stalls for tens of seconds after each agent turn on multi-agent installs (#120075) * 修正(sessions): reuse dat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): preserve context provenance across retries [AI] (#120509)",
+      "summaryZh": "重點：修正(sessions): preserve context provenance across retries [AI] (#120509) * 修正(protocol): preserve checkpoint token versio..."
     },
     {
       "id": 3,
-      "title": "refactor(acp): make reply projector single-dispatch (#120560)",
-      "link": "https://github.com/openclaw/openclaw/commit/295c8dfe6eb7522eb905e31114362d24bf2392b5",
-      "publishedAt": "2026-08-08T12:55:35Z",
-      "summary": "refactor(acp): make reply projector single-dispatch (#120560)",
+      "title": "fix(telegram): avoid credential reads in reply policy",
+      "link": "https://github.com/openclaw/openclaw/commit/725fe96bd718326d965907c711593837ba41cf02",
+      "publishedAt": "2026-08-08T13:53:37Z",
+      "summary": "fix(telegram): avoid credential reads in reply policy Resolve reply mode through Telegram’s config-only account projection so threading policy never reads token files or SecretRefs.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(acp): make reply projector single-dispatch (#120560)",
-      "summaryZh": "重點：refactor(acp): make reply projector single-dispatch (#120560)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): avoid credential reads in reply policy",
+      "summaryZh": "重點：修正(Telegram): avoid credential reads in reply policy Resolve reply mode through Telegram’s config-only account projectio..."
     },
     {
       "id": 4,
-      "title": "feat(browser): add relay authentication v2 (#120526)",
-      "link": "https://github.com/openclaw/openclaw/commit/83900e468333dfb1565922f62942f1372b5f6add",
-      "publishedAt": "2026-08-08T12:48:24Z",
-      "summary": "feat(browser): add relay authentication v2 (#120526) * feat(browser): add relay authentication v2 * fix(browser): cap relay test WebSocket payload * fix(browser): keep relay E2E inside extension boundary * fix(browser): isolate relay admission and cleanup auth * fix(browser): finish relay auth migration hardening * fix(browser): keep preauth transport bounded through teardown",
+      "title": "fix(telegram): restore account-scoped reply mode",
+      "link": "https://github.com/openclaw/openclaw/commit/f4f53103558a1fdfb20fcf16f1ab35fc3071fb64",
+      "publishedAt": "2026-08-08T13:53:37Z",
+      "summary": "fix(telegram): restore account-scoped reply mode Resolve reply mode through the selected Telegram account so account overrides and top-level inheritance reach outbound reply context. Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(browser): add relay authentication v2 (#120526)",
-      "summaryZh": "重點：新功能(browser): add relay authentication v2 (#120526) * 新功能(browser): add relay authentication v2 * 修正(browser): cap relay..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): restore account-scoped reply mode",
+      "summaryZh": "重點：修正(Telegram): restore account-scoped reply mode Resolve reply mode through the selected Telegram account so account over..."
     },
     {
       "id": 5,
+      "title": "新增多重管理員驗證，NetApp物件儲存系統改版",
+      "link": "https://www.ithome.com.tw/review/177980",
+      "publishedAt": "2026-08-08 10:08:51",
+      "summary": "發展超過25年的企業級物件儲存系統StorageGRID，NetApp今年6月底推出12.1版。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Gitea修補CVSS 9.8重大漏洞，攻擊者無須登入即可遠端執行程式碼",
       "link": "https://www.ithome.com.tw/news/177977",
       "publishedAt": "2026-08-08 08:08:09",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "研究人員揭露駭客入侵Oracle資料庫，並以Oracle為跳板在Windows執行惡意指令的手法",
       "link": "https://www.ithome.com.tw/news/177979",
       "publishedAt": "2026-08-08 08:08:01",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "關掉九成門市業績反升 40%，日本連鎖店 GEO 靠老遊戲「新鮮感」收服 Z 世代逆勢成長",
       "link": "https://ccc.technews.tw/2026/08/08/nostalgia-trendiest-fresh-sensation-gen-z/",
       "publishedAt": "Sat, 08 Aug 2026 08:00:25 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "沒跟著燒錢市值衝上 5 兆美元？蘋果如今恐不得不加入算力競賽",
       "link": "https://finance.technews.tw/2026/08/08/apple-ai-capex-increase/",
       "publishedAt": "Sat, 08 Aug 2026 07:53:43 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "AI 讓 RAM 價格倒退回 2007 年水準，20 年降價趨勢逆轉",
       "link": "https://finance.technews.tw/2026/08/08/ai-ram-hbm/",
       "publishedAt": "Sat, 08 Aug 2026 07:19:28 +0000",
       "summary": "AI 熱潮正徹底改寫記憶體市場，軟體效能專家兼 GitHub 開發者 Daniel Lemire 指出，受高頻 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google 把 Gemini 逆風翻盤的希望，全押在這個人身上",
-      "link": "https://technews.tw/2026/08/08/google-all-in-koray-kavukcuoglu/",
-      "publishedAt": "Sat, 08 Aug 2026 07:00:24 +0000",
-      "summary": "一覺醒來，拿了諾貝爾獎、靠 AlphaGo 封神的哈薩比斯（Demis Hassabis）主動交出 DeepM [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
