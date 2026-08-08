@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-08T20:30:25.767Z",
+  "generatedAt": "2026-08-08T21:30:46.561Z",
   "items": [
     {
       "id": 1,
-      "title": "improve: doctor migration checks no longer load every bundled plugin …",
-      "link": "https://github.com/openclaw/openclaw/commit/da4a656cdbac2b0aa46e8316ce3df98842630755",
-      "publishedAt": "2026-08-08T20:29:18Z",
-      "summary": "improve: doctor migration checks no longer load every bundled plugin runtime (#120678) * perf(plugins): declare doctor contract surfaces * perf(doctor): slim migration import closures * perf(plugins): narrow doctor declaration record surface and wire owner-test lane Registry records carry only the doctorContract declaration instead of the whole parsed manifest, and check:changed now selects the src/plugins-owned declaration honesty and closure-guard tests for extension module/manifest changes so cross-lane drift cannot pass PR classification. * fix(doctor): keep control-plane dist imports require-safe Keep doctor and channel control-plane chunks off exec-class dependencies, and enforce native require(esm) loading during postbuild. * chore(plugin-sdk): regenerate API baseline * chore(plugin-sdk): sync export ordering * fix(plugins): satisfy doctor contract CI boundaries * perf(doctor): make qqbot doctor closure dependency-light qqbot was the last plugin above 5s in doctor state-migration enumeration (~8s under tsx/jiti). The cost was not the state-key builder (already a leaf): its doctor closure value-imported the runtime-doctor SDK barrel, whose plugin-state-store/state-db re-exports pull kysely (~330 modules), plus security-runtime for one fileExists (~200 modules), all resolved per-module by jiti during enumeration. Split the migration-define helpers and light re-exports into a new private-local plugin-sdk/runtime-doctor-migrations subpath; runtime-doctor re-exports it so its public surface is byte-identical (API baseline hash unchanged). qqbot's doctor-contract and state-migrations now import only the light subpath, swapping fileExists for the equivalent async legacyStateFileExists already in the closure. qqbot enumeration: ~8.0s/531 modules -> ~0.25s/18 modules. * chore(plugin-sdk): drop private-local subpath from API baseline runtime-doctor-migrations is private-local-only; the baseline tracks public modules, and the earlier line was generated before the classification. * fix(plugins): register runtime-doctor-migrations boundary paths The private-local subpath list feeds the extension package boundary map; the shared paths config and xai's derived overrides must carry the same entry or the boundary contract test fails.",
+      "title": "fix(openai): honor explicit service tier over fast mode (#120696)",
+      "link": "https://github.com/openclaw/openclaw/commit/36c6b854ebd17ea165b4f5460070ee675fef5f4f",
+      "publishedAt": "2026-08-08T21:26:54Z",
+      "summary": "fix(openai): honor explicit service tier over fast mode (#120696)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：improve: 文件tor migration checks no longer load every bundled plugin …",
-      "summaryZh": "重點：improve: 文件tor migration checks no longer load every bundled plugin runtime (#120678) * perf(plugins): declare 文件tor con..."
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): honor explicit service tier over fast mode (#120696)",
+      "summaryZh": "重點：修正(openai): honor explicit service tier over fast mode (#120696)..."
     },
     {
       "id": 2,
-      "title": "fix(doctor): skip legacy main transcript check for SQLite-owned sessi…",
-      "link": "https://github.com/openclaw/openclaw/commit/bb23b6b5ca802a6df9c32b792c94c9cfa9060a56",
-      "publishedAt": "2026-08-08T20:24:02Z",
-      "summary": "fix(doctor): skip legacy main transcript check for SQLite-owned sessions (#119940) * fix(doctor): skip legacy main transcript check for SQLite-owned sessions After the SQLite session import, the main session's legacy .jsonl is archived and 'sessions cleanup' prunes it as unreferenced, but doctor still warned 'Main session transcript missing' because the main-session check required the legacy file. The sibling recent-session check already skips SQLite-owned keys; apply the same ownership guard to the main session so doctor and cleanup agree. (#119926) * style(doctor): condense SQLite ownership comment Co-authored-by: 李琪0668001400 --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(release): preserve ClawHub fixture across restart (#120709)",
+      "link": "https://github.com/openclaw/openclaw/commit/b7298067584fa93a14c99c7ddfc5bb53fbdeab09",
+      "publishedAt": "2026-08-08T21:26:16Z",
+      "summary": "fix(release): preserve ClawHub fixture across restart (#120709)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): skip legacy main transcript check for SQLite-owned sessi…",
-      "summaryZh": "重點：修正(文件tor): skip legacy main transcript check for SQLite-owned sessions (#119940) * 修正(文件tor): skip legacy main transcrip..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): preserve ClawHub 修正ture across restart (#120709)",
+      "summaryZh": "重點：修正(版本發布): preserve ClawHub 修正ture across restart (#120709)..."
     },
     {
       "id": 3,
-      "title": "docs: simplify Release and CI navigation (#120684)",
-      "link": "https://github.com/openclaw/openclaw/commit/8afd126577a89146a5c546a91f1311ad18d5f916",
-      "publishedAt": "2026-08-08T20:23:43Z",
-      "summary": "docs: simplify Release and CI navigation (#120684)",
+      "title": "fix(telegram): unblock chats after media claim timeout (#120706)",
+      "link": "https://github.com/openclaw/openclaw/commit/e4ff0d67f41b02d63e200286725007a80100661f",
+      "publishedAt": "2026-08-08T21:25:38Z",
+      "summary": "fix(telegram): unblock chats after media claim timeout (#120706) Claim-owned cancellation now stops pre-adoption media hydration, allowing later same-chat messages to proceed. Webhook handling now uses the canonical Telegram adoption stall timeout. Fixes #120704.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: simplify 版本發布 and CI navigation (#120684)",
-      "summaryZh": "重點：文件: simplify 版本發布 and CI navigation (#120684)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): unblock chats after media claim timeout (#120706)",
+      "summaryZh": "重點：修正(Telegram): unblock chats after media claim timeout (#120706) Claim-owned cancellation now stops pre-adoption media hy..."
     },
     {
       "id": 4,
-      "title": "fix(slack): route directory cursor pagination through the shared guar…",
-      "link": "https://github.com/openclaw/openclaw/commit/16ab7e8b4ae87d4a959a1616d80dfd48efab9ad0",
-      "publishedAt": "2026-08-08T20:20:37Z",
-      "summary": "fix(slack): route directory cursor pagination through the shared guard (#120445) listSlackDirectoryPeersLive/listSlackDirectoryGroupsLive hand-rolled do/while loops with no repeated-cursor detection and no page bound, while every other users.list/conversations.list consumer goes through collectSlackCursorPages. A Slack API or proxy edge that keeps returning the same non-empty next_cursor made directory queries paginate forever, growing the member/channel arrays without bound. Both loops now go through collectSlackCursorPages, which throws on a repeated cursor and caps total pages.",
+      "title": "fix: process poll leaves notify-on-exit completion queued (#120585)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f76ec387a81dba8befe6ba542ead3564ef137cc",
+      "publishedAt": "2026-08-08T21:23:47Z",
+      "summary": "fix: process poll leaves notify-on-exit completion queued (#120585) * fix(exec): acknowledge notify-on-exit after process poll * test(exec): mock completion event enqueue * fix: retire stale exec heartbeat wakes Prevent acknowledged process completions from turning their queued wake into an unrelated heartbeat. Preserve coalesced task work and keep stale wakes out of scheduler cadence and commitment follow-up. Co-authored-by: Copilot * test: isolate stale exec heartbeat coverage Keep existing heartbeat suites below the max-lines ratchet while retaining coverage for stale wake coalescing, scheduler bookkeeping, and commitment fan-out. Co-authored-by: Copilot * fix(heartbeat): preserve scheduled cadence for stale exec wakes Co-authored-by: Copilot * test(heartbeat): keep stale wake coverage within lint limits Co-authored-by: Copilot * fix(heartbeat): retire stale exec wakes before busy gates Preserve scheduled cadence and cron work when coalesced exec wakes are acknowledged, while retiring stale wakes before retryable busy checks. Co-authored-by: Copilot * fix(heartbeat): accept inferred wake sources Allow stale-wake preflight to handle the optional source produced by reason inference without weakening the exec-event check. Co-authored-by: Copilot --------- Co-authored-by: Tak Hoffman Co-authored-by: Copilot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): route directory cursor pagination through the shared guar…",
-      "summaryZh": "重點：修正(slack): route directory cursor pagination through the shared guard (#120445) listSlackDirectoryPeersLive/listSlackDir..."
+      "titleZh": "OpenClaw 程式碼更新：修正: process poll leaves notify-on-exit completion queued (#120585)",
+      "summaryZh": "重點：修正: process poll leaves notify-on-exit completion queued (#120585) * 修正(exec): acknowledge notify-on-exit after process ..."
     },
     {
       "id": 5,
