@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-08T22:29:33.700Z",
+  "generatedAt": "2026-08-08T23:28:50.960Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(infra): fold node-pairing facade into device-pairing (#120726)",
-      "link": "https://github.com/openclaw/openclaw/commit/08d2062c7f6027fa5d99493247ae3abb3fb29364",
-      "publishedAt": "2026-08-08T22:26:11Z",
-      "summary": "refactor(infra): fold node-pairing facade into device-pairing (#120726) Completes docs/plan/runners.md milestone 1c by moving node-role pairing behavior and state access under device-pairing-owned modules while preserving shipped migrations.",
+      "title": "fix(gateway): limit response attachments to the active turn (#120742)",
+      "link": "https://github.com/openclaw/openclaw/commit/58aab7464f76eb539950522b2cb6d5623c4c1637",
+      "publishedAt": "2026-08-08T23:24:59Z",
+      "summary": "fix(gateway): limit response attachments to the active turn (#120742)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(infra): fold node-pairing facade into device-pairing (#120726)",
-      "summaryZh": "重點：refactor(infra): fold node-pairing facade into device-pairing (#120726) Completes 文件/plan/runners.md milestone 1c by mov..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): limit response attachments to the active turn (#120742)",
+      "summaryZh": "重點：修正(Gateway): limit response attachments to the active turn (#120742)..."
     },
     {
       "id": 2,
-      "title": "fix(memory): close Windows session test fixtures (#120720)",
-      "link": "https://github.com/openclaw/openclaw/commit/eae4011205c2c5da2c5f473ed5c9a6460a00177b",
-      "publishedAt": "2026-08-08T22:25:00Z",
-      "summary": "fix(memory): close Windows session test fixtures (#120720)",
+      "title": "fix(imessage): preserve native attachment message identities (#120739)",
+      "link": "https://github.com/openclaw/openclaw/commit/b55e1e3a554a4b55165f532dec30f53d04f5a7f2",
+      "publishedAt": "2026-08-08T23:21:18Z",
+      "summary": "fix(imessage): preserve native attachment message identities (#120739)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): close Windows session test 修正tures (#120720)",
-      "summaryZh": "重點：修正(記憶): close Windows session test 修正tures (#120720)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(imessage): preserve native attachment message identities (#120739)",
+      "summaryZh": "重點：修正(imessage): preserve native attachment message identities (#120739)..."
     },
     {
       "id": 3,
-      "title": "fix: keep credentials out of assistant transcripts (#120728)",
-      "link": "https://github.com/openclaw/openclaw/commit/68d625b278cd5f60984423afc5e103effd29ca6b",
-      "publishedAt": "2026-08-08T22:24:02Z",
-      "summary": "fix: keep credentials out of assistant transcripts (#120728)",
+      "title": "fix(codex): prevent session handoffs and native tasks from losing thr…",
+      "link": "https://github.com/openclaw/openclaw/commit/45dd558d923cc9e205e2db548473b9888bee4af0",
+      "publishedAt": "2026-08-08T23:20:16Z",
+      "summary": "fix(codex): prevent session handoffs and native tasks from losing thread ownership (#120740) * fix(codex): preserve thread ownership across session lifecycles * test(codex): keep canonical context-engine session fixtures * fix(codex): fence replacement thread rollback by ownership * fix(codex): fence thread handoffs by physical client ownership * fix(codex): derive conversation privacy from its source session * fix(codex): claim active native subagents at their lifecycle owner * fix(codex): preserve conversation ownership when detach fails * fix(codex): fence stale native child close notifications * fix(codex): preserve active child ownership during rollback * test(codex): keep lifecycle fixtures aligned with public contracts * fix(codex): preserve rollback failure causes across ownership recovery * fix(codex): retain aggregate rollback causes through lint analysis * fix(codex): release native children when idle retention fails",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep credentials out of assistant transcripts (#120728)",
-      "summaryZh": "重點：修正: keep credentials out of assistant transcripts (#120728)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): prevent session handoffs and native tasks from losing thr…",
+      "summaryZh": "重點：修正(codex): prevent session handoffs and native tasks from losing thread ownership (#120740) * 修正(codex): preserve thread..."
     },
     {
       "id": 4,
-      "title": "fix: prevent LaunchAgent reinstall from leaving gateway down (#120699)",
-      "link": "https://github.com/openclaw/openclaw/commit/e70e43fadc9b0416cd7825770de9a2f90f9527f2",
-      "publishedAt": "2026-08-08T22:23:47Z",
-      "summary": "fix: prevent LaunchAgent reinstall from leaving gateway down (#120699) * fix(daemon): restore launchd install failures * style: format launchd regression tests * fix(daemon): guard cached launchd installs * chore: leave changelog to release flow",
+      "title": "fix(proxy-capture): bound how long a capture read waits for the next …",
+      "link": "https://github.com/openclaw/openclaw/commit/3f1f30d939940e3ae6d0bea0c224790fc996e547",
+      "publishedAt": "2026-08-08T23:19:18Z",
+      "summary": "fix(proxy-capture): bound how long a capture read waits for the next byte (#119706) Debug capture clones every response and reads the clone under a byte cap, but with no bound on how long it waits between chunks. A remote that sends headers and one chunk and then goes silent leaves that read outstanding forever — and because clone() tees the body, a branch settles its cancellation only once both branches cancel or the source reaches EOF. So the caller's own cancellation, and the guarded transport release that follows it, end up waiting on a diagnostic read of a body nobody wants. Read through the shared idle-bounded reader instead. On timeout it issues the branch cancel fire-and-forget and throws, which is what lets the tee settle; capture then records the exchange as metadata with bodyCapture \"stalled\", alongside the existing too-large and unavailable cases. A stalled remote must not turn a diagnostic read into a failure of the request being observed. That helper also rejects when the read itself fails, and only the deadline is capture's decision to make: a reset or aborted stream is the exchange failing and still has to reach the error handler, so capture supplies its own timeout error and rethrows anything else. The response wrapper's cancel-then-release ordering is deliberate, pinned by its own test, and stays untouched. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent LaunchAgent reinstall from leaving Gateway down (#120699)",
-      "summaryZh": "重點：修正: prevent LaunchAgent reinstall from leaving Gateway down (#120699) * 修正(daemon): restore launchd install failures * s..."
+      "titleZh": "OpenClaw 程式碼更新：修正(proxy-capture): bound how long a capture read waits for the next …",
+      "summaryZh": "重點：修正(proxy-capture): bound how long a capture read waits for the next byte (#119706) Debug capture clones every response a..."
     },
     {
       "id": 5,
