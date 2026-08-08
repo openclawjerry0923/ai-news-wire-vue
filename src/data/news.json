@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-08T21:30:46.561Z",
+  "generatedAt": "2026-08-08T22:29:33.700Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(openai): honor explicit service tier over fast mode (#120696)",
-      "link": "https://github.com/openclaw/openclaw/commit/36c6b854ebd17ea165b4f5460070ee675fef5f4f",
-      "publishedAt": "2026-08-08T21:26:54Z",
-      "summary": "fix(openai): honor explicit service tier over fast mode (#120696)",
+      "title": "refactor(infra): fold node-pairing facade into device-pairing (#120726)",
+      "link": "https://github.com/openclaw/openclaw/commit/08d2062c7f6027fa5d99493247ae3abb3fb29364",
+      "publishedAt": "2026-08-08T22:26:11Z",
+      "summary": "refactor(infra): fold node-pairing facade into device-pairing (#120726) Completes docs/plan/runners.md milestone 1c by moving node-role pairing behavior and state access under device-pairing-owned modules while preserving shipped migrations.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(openai): honor explicit service tier over fast mode (#120696)",
-      "summaryZh": "重點：修正(openai): honor explicit service tier over fast mode (#120696)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(infra): fold node-pairing facade into device-pairing (#120726)",
+      "summaryZh": "重點：refactor(infra): fold node-pairing facade into device-pairing (#120726) Completes 文件/plan/runners.md milestone 1c by mov..."
     },
     {
       "id": 2,
-      "title": "fix(release): preserve ClawHub fixture across restart (#120709)",
-      "link": "https://github.com/openclaw/openclaw/commit/b7298067584fa93a14c99c7ddfc5bb53fbdeab09",
-      "publishedAt": "2026-08-08T21:26:16Z",
-      "summary": "fix(release): preserve ClawHub fixture across restart (#120709)",
+      "title": "fix(memory): close Windows session test fixtures (#120720)",
+      "link": "https://github.com/openclaw/openclaw/commit/eae4011205c2c5da2c5f473ed5c9a6460a00177b",
+      "publishedAt": "2026-08-08T22:25:00Z",
+      "summary": "fix(memory): close Windows session test fixtures (#120720)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): preserve ClawHub 修正ture across restart (#120709)",
-      "summaryZh": "重點：修正(版本發布): preserve ClawHub 修正ture across restart (#120709)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): close Windows session test 修正tures (#120720)",
+      "summaryZh": "重點：修正(記憶): close Windows session test 修正tures (#120720)..."
     },
     {
       "id": 3,
-      "title": "fix(telegram): unblock chats after media claim timeout (#120706)",
-      "link": "https://github.com/openclaw/openclaw/commit/e4ff0d67f41b02d63e200286725007a80100661f",
-      "publishedAt": "2026-08-08T21:25:38Z",
-      "summary": "fix(telegram): unblock chats after media claim timeout (#120706) Claim-owned cancellation now stops pre-adoption media hydration, allowing later same-chat messages to proceed. Webhook handling now uses the canonical Telegram adoption stall timeout. Fixes #120704.",
+      "title": "fix: keep credentials out of assistant transcripts (#120728)",
+      "link": "https://github.com/openclaw/openclaw/commit/68d625b278cd5f60984423afc5e103effd29ca6b",
+      "publishedAt": "2026-08-08T22:24:02Z",
+      "summary": "fix: keep credentials out of assistant transcripts (#120728)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): unblock chats after media claim timeout (#120706)",
-      "summaryZh": "重點：修正(Telegram): unblock chats after media claim timeout (#120706) Claim-owned cancellation now stops pre-adoption media hy..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep credentials out of assistant transcripts (#120728)",
+      "summaryZh": "重點：修正: keep credentials out of assistant transcripts (#120728)..."
     },
     {
       "id": 4,
-      "title": "fix: process poll leaves notify-on-exit completion queued (#120585)",
-      "link": "https://github.com/openclaw/openclaw/commit/2f76ec387a81dba8befe6ba542ead3564ef137cc",
-      "publishedAt": "2026-08-08T21:23:47Z",
-      "summary": "fix: process poll leaves notify-on-exit completion queued (#120585) * fix(exec): acknowledge notify-on-exit after process poll * test(exec): mock completion event enqueue * fix: retire stale exec heartbeat wakes Prevent acknowledged process completions from turning their queued wake into an unrelated heartbeat. Preserve coalesced task work and keep stale wakes out of scheduler cadence and commitment follow-up. Co-authored-by: Copilot * test: isolate stale exec heartbeat coverage Keep existing heartbeat suites below the max-lines ratchet while retaining coverage for stale wake coalescing, scheduler bookkeeping, and commitment fan-out. Co-authored-by: Copilot * fix(heartbeat): preserve scheduled cadence for stale exec wakes Co-authored-by: Copilot * test(heartbeat): keep stale wake coverage within lint limits Co-authored-by: Copilot * fix(heartbeat): retire stale exec wakes before busy gates Preserve scheduled cadence and cron work when coalesced exec wakes are acknowledged, while retiring stale wakes before retryable busy checks. Co-authored-by: Copilot * fix(heartbeat): accept inferred wake sources Allow stale-wake preflight to handle the optional source produced by reason inference without weakening the exec-event check. Co-authored-by: Copilot --------- Co-authored-by: Tak Hoffman Co-authored-by: Copilot",
+      "title": "fix: prevent LaunchAgent reinstall from leaving gateway down (#120699)",
+      "link": "https://github.com/openclaw/openclaw/commit/e70e43fadc9b0416cd7825770de9a2f90f9527f2",
+      "publishedAt": "2026-08-08T22:23:47Z",
+      "summary": "fix: prevent LaunchAgent reinstall from leaving gateway down (#120699) * fix(daemon): restore launchd install failures * style: format launchd regression tests * fix(daemon): guard cached launchd installs * chore: leave changelog to release flow",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: process poll leaves notify-on-exit completion queued (#120585)",
-      "summaryZh": "重點：修正: process poll leaves notify-on-exit completion queued (#120585) * 修正(exec): acknowledge notify-on-exit after process ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: prevent LaunchAgent reinstall from leaving Gateway down (#120699)",
+      "summaryZh": "重點：修正: prevent LaunchAgent reinstall from leaving Gateway down (#120699) * 修正(daemon): restore launchd install failures * s..."
     },
     {
       "id": 5,
