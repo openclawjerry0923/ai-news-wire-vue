@@ -1,30 +1,52 @@
 {
-  "generatedAt": "2026-08-08T09:38:11.115Z",
+  "generatedAt": "2026-08-08T10:34:04.110Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): keep task transcripts in the task sidebar (#120463)",
-      "link": "https://github.com/openclaw/openclaw/commit/c5d00cb47ddb7236980de8e0fbc938b23fdeaae0",
-      "publishedAt": "2026-08-08T08:45:44Z",
-      "summary": "fix(ui): keep task transcripts in the task sidebar (#120463) * fix(ui): keep task transcripts in the task sidebar * refactor(ui): split background task rail rendering * fix(ui): reset stale task rail views * fix(sessions): honor context usage provenance Co-authored-by: Sarah Fortune * fix(qa): split suite runtime agent process below line cap --------- Co-authored-by: Sarah Fortune",
+      "title": "fix(ui): restore terminal button in chat header (#120436)",
+      "link": "https://github.com/openclaw/openclaw/commit/6ae7a8684abac1306632b251176b82fb85915d31",
+      "publishedAt": "2026-08-08T10:26:51Z",
+      "summary": "fix(ui): restore terminal button in chat header (#120436) * fix(ui): restore terminal button in chat header * test(ui): follow background task props API Remove the callback option retired by #120463 so the terminal header regression test type-checks on current main.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep task transcripts in the task sidebar (#120463)",
-      "summaryZh": "重點：修正(ui): keep task transcripts in the task sidebar (#120463) * 修正(ui): keep task transcripts in the task sidebar * refact..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore terminal button in chat header (#120436)",
+      "summaryZh": "重點：修正(ui): restore terminal button in chat header (#120436) * 修正(ui): restore terminal button in chat header * test(ui): fo..."
     },
     {
       "id": 2,
-      "title": "fix(agents): transfer requester wake ownership across yield and defla…",
-      "link": "https://github.com/openclaw/openclaw/commit/d9080cfff86c5af73553fbb8099d680e73140ea0",
-      "publishedAt": "2026-08-08T08:42:33Z",
-      "summary": "fix(agents): transfer requester wake ownership across yield and deflake survivor registry setup (#120538)",
+      "title": "fix(ui): move stale-client refresh notice into the sidebar update car…",
+      "link": "https://github.com/openclaw/openclaw/commit/2cfacdb671f853aecfa55eb9d28243ed2602266f",
+      "publishedAt": "2026-08-08T10:06:12Z",
+      "summary": "fix(ui): move stale-client refresh notice into the sidebar update card (#120483) * fix(ui): move stale-client refresh notice into the sidebar update card The 'Server updated — refresh for full capabilities' notice rendered as a full-width callout at the top of , where the fixed shell-chrome controls (nav toggle / search, layout.css z-index 45) overlap its text. Move the notice into the existing sidebar-update-card slot above the identity/connectivity footer: refreshRequired takes precedence over updateAvailable (a stale client cannot trust its own update metadata), renders non-dismissible with a refresh icon and two-line text, and is wired through the sidebar, settings sidebar, and collapsed-nav floating card. The old top-of-main banner branch, its resolver helper, and the orphaned i18n key are deleted. * fix(ui): keep stale-client refresh visible during onboarding and clear collapsed chrome cluster Address both accepted ClawSweeper P2 findings: - restore the stale-client refresh action during onboarding - keep the floating update card clear of the three-button collapsed chrome cluster",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): transfer requester wake ownership across yield and defla…",
-      "summaryZh": "重點：修正(agents): transfer requester wake ownership across yield and deflake survivor registry setup (#120538)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): move stale-client refresh notice into the sidebar update car…",
+      "summaryZh": "重點：修正(ui): move stale-client refresh notice into the sidebar update card (#120483) * 修正(ui): move stale-client refresh noti..."
     },
     {
       "id": 3,
+      "title": "feat(ui): show custom commit age in sidebar footer (#120388)",
+      "link": "https://github.com/openclaw/openclaw/commit/c9331450887cf159ea3acf4d0dca7c3da2a78d7d",
+      "publishedAt": "2026-08-08T10:03:50Z",
+      "summary": "feat(ui): show custom commit age in sidebar footer (#120388) * feat(ui): show custom commit age in sidebar footer * test: repair sidebar build status CI gates * test(ui): assert gateway state during reconnects * fix(ui): expose build provenance in sidebar label * fix(ci): align SDK baseline and test formatting * fix(sessions): preserve context usage provenance * test(agents): split session loop lifecycle coverage * test(agents): reuse session loop resource helpers * test(sessions): preserve stale totals in JSON output",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): show custom 提交 age in sidebar footer (#120388)",
+      "summaryZh": "重點：新功能(ui): show custom 提交 age in sidebar footer (#120388) * 新功能(ui): show custom 提交 age in sidebar footer * test: repair s..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(github-copilot): narrow runtime facade (#120544)",
+      "link": "https://github.com/openclaw/openclaw/commit/10c7f005be20e39e0d66dae392e6f42ec4677c8d",
+      "publishedAt": "2026-08-08T09:56:12Z",
+      "summary": "refactor(github-copilot): narrow runtime facade (#120544) * refactor(github-copilot): narrow runtime facade * style(github-copilot): format runtime exports",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(github-copilot): narrow runtime facade (#120544)",
+      "summaryZh": "重點：refactor(github-copilot): narrow runtime facade (#120544) * refactor(github-copilot): narrow runtime facade * style(gith..."
+    },
+    {
+      "id": 5,
       "title": "Gitea修補CVSS 9.8重大漏洞，攻擊者無須登入即可遠端執行程式碼",
       "link": "https://www.ithome.com.tw/news/177977",
       "publishedAt": "2026-08-08 08:08:09",
@@ -33,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "研究人員揭露駭客入侵Oracle資料庫，並以Oracle為跳板在Windows執行惡意指令的手法",
       "link": "https://www.ithome.com.tw/news/177979",
       "publishedAt": "2026-08-08 08:08:01",
@@ -42,18 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "fix(protocol): regenerate gateway models after #120497 schema change …",
-      "link": "https://github.com/openclaw/openclaw/commit/a4b4c58e87cee2d3d818f49d4520fa2e548c75fc",
-      "publishedAt": "2026-08-08T08:01:55Z",
-      "summary": "fix(protocol): regenerate gateway models after #120497 schema change (#120514)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(protocol): regenerate Gateway 模型 after #120497 schema change …",
-      "summaryZh": "重點：修正(protocol): regenerate Gateway 模型 after #120497 schema change (#120514)..."
-    },
-    {
-      "id": 6,
+      "id": 7,
       "title": "關掉九成門市業績反升 40%，日本連鎖店 GEO 靠老遊戲「新鮮感」收服 Z 世代逆勢成長",
       "link": "https://ccc.technews.tw/2026/08/08/nostalgia-trendiest-fresh-sensation-gen-z/",
       "publishedAt": "Sat, 08 Aug 2026 08:00:25 +0000",
@@ -62,24 +73,13 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "沒跟著燒錢市值衝上 5 兆美元？蘋果如今恐不得不加入算力競賽",
       "link": "https://finance.technews.tw/2026/08/08/apple-ai-capex-increase/",
       "publishedAt": "Sat, 08 Aug 2026 07:53:43 +0000",
       "summary": "生成式 AI 掀起全球科技業新一輪投資競賽，微軟、Meta、Alphabet、亞馬遜等科技巨頭近兩年相繼宣布提 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "fix(daemon): skip unreadable foreign LaunchDaemon plists in ownership…",
-      "link": "https://github.com/openclaw/openclaw/commit/fb61ae15fcf960937dfecdb77eecfac96ddbc669",
-      "publishedAt": "2026-08-08T07:48:59Z",
-      "summary": "fix(daemon): skip unreadable foreign LaunchDaemon plists in ownership scan (#120481) * fix(daemon): skip unreadable foreign LaunchDaemon plists in ownership scan inspectSystemLaunchDaemonOwnership raised SystemLaunchDaemonOwnershipError when any /Library/LaunchDaemons plist was unreadable, such as third-party VPN helper plists with mode 600. This broke gateway install/repair and launchd.integration.e2e on affected Macs. Unreadable plists are foreign by contract, while loaded same-label daemons remain caught by the bracketing launchctl probes. * fix(ci): regenerate plugin-sdk api baseline after 267268f646c * test(doctor): scope gateway-bind persistence test to its writer seam Culprit: 267268f646c. * docs(daemon): document unreadable plist tradeoff",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(daemon): skip unreadable foreign LaunchDaemon plists in ownership…",
-      "summaryZh": "重點：修正(daemon): skip unreadable foreign LaunchDaemon plists in ownership scan (#120481) * 修正(daemon): skip unreadable foreig..."
     },
     {
       "id": 9,
