@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T06:53:48.056Z",
+  "generatedAt": "2026-08-08T07:50:15.917Z",
   "items": [
     {
       "id": 1,
@@ -21,6 +21,57 @@
     },
     {
       "id": 3,
+      "title": "fix(daemon): skip unreadable foreign LaunchDaemon plists in ownership…",
+      "link": "https://github.com/openclaw/openclaw/commit/fb61ae15fcf960937dfecdb77eecfac96ddbc669",
+      "publishedAt": "2026-08-08T07:48:59Z",
+      "summary": "fix(daemon): skip unreadable foreign LaunchDaemon plists in ownership scan (#120481) * fix(daemon): skip unreadable foreign LaunchDaemon plists in ownership scan inspectSystemLaunchDaemonOwnership raised SystemLaunchDaemonOwnershipError when any /Library/LaunchDaemons plist was unreadable, such as third-party VPN helper plists with mode 600. This broke gateway install/repair and launchd.integration.e2e on affected Macs. Unreadable plists are foreign by contract, while loaded same-label daemons remain caught by the bracketing launchctl probes. * fix(ci): regenerate plugin-sdk api baseline after 267268f646c * test(doctor): scope gateway-bind persistence test to its writer seam Culprit: 267268f646c. * docs(daemon): document unreadable plist tradeoff",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(daemon): skip unreadable foreign LaunchDaemon plists in ownership…",
+      "summaryZh": "重點：修正(daemon): skip unreadable foreign LaunchDaemon plists in ownership scan (#120481) * 修正(daemon): skip unreadable foreig..."
+    },
+    {
+      "id": 4,
+      "title": "openclaw 2026.6.34",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.6.34",
+      "publishedAt": "2026-08-08T07:22:14Z",
+      "summary": "2026.6.34 Highlights Safer browser and network boundaries: sandboxed browser routes, trusted DNS targets, custom browser origins, and loopback provider endpoints now reject unsafe access paths. (#97958, #38290, #103075, #110693) Thanks @eleqtrizit, @brunowowk, @mosidevv, @pgondhi987, and @lsr911. More resilient agent and provider runs: retained session writes, provider fallbacks, stream progress handling, and stdio failures now recover without silently ending active work. (#96100, #97128, #90908, #99803, #100521) Thanks @xialonglee, @sallyom, @richwilson-bloom, @LiuwqGit, @vincentkoc, @yetval, @shengting, and @cxbAsDev. Stronger channel recovery: pending channel work resumes after recovery, acknowledgements are idempotent, and sustained Discord gateway bursts stay bounded. (#79811, #97041, #104919, #109108, #110954, #103793, #94016) Thanks @indulgeback, @cuiyuxin-gif, @Pick-cat, @Glucksberg, @evan-YM, @zhangguiping-xydt, @yetval, @sheyanmin, and @thomasthelen-kibeauftragter. Safer operator diagnostics: command and status surfaces keep owner-only actions protected and prevent credentials from appearing in account URLs or summaries. (#98260, #107754, #105017) Thanks @eleqtrizit, @joshavant, @ooiuuii, @aniruddhaadak80, and @tzy-17. More robust local runtime state: SQLite checkpoints, workspace reads, gateway process signalling, plugin HTTP responses, and dependency handling no longer turn transient host conditions into failed runs. (#99067, #100910, #102125, #109590, #112406) Thanks @ooiuuii, @masatohoshino, @vincentkoc, @mushuiyu886, and @krissding. Changes Extended-stable hardening: this maintenance release carries targeted security and reliability repairs without adding new release-line features. Fixes OpenCode Go: use the documented hy3 model identifier instead of the failing hy3-preview alias. Codex native subagents: retain the parent app-server subscription and recognize multi-agent V2 child activity until a yielded child completion reaches its requester. Dependency security: updates production dependency resolutions for patched brace-expansion, PostCSS, fast-uri, ip-address, and Undici versions. (#113428, #118804) Execution and transport safety: browser, sandbox, exec, MCP, and secret-resolution paths reject unsafe inputs and handle stream failures without crashing the host process. Delivery and channel stability: outbound receipts, delivery evidence, channel lifecycle, health monitoring, and gateway queues recover cleanly under retries, restarts, and overload. Gateway and storage reliability: plugin responses, process probes, workspace bootstrap reads, and SQLite writes tolerate expected transient failures while preserving correct state. Upcoming deprecations Plugin SDK migration: before_agent_start, root openclaw/plugin-sdk imports, providerAuthEnvVars, and channelEnvVars are scheduled for removal after July 24. Migrate to the modern hook stages, focused SDK subpath imports, and manifest setup descriptors. See Plugin SDK migration and plugin manifests. Complete contribution record This audited record covers the complete v2026.6.33..496c84b history plus release-validation backports: 25 merged PRs. The generation manifest also supplies direct commits as editorial input; the grouped notes above prioritize user impact. Pull requests PR #96100 Related #95915. Thanks @xialonglee, @sallyom, and @richwilson-bloom. PR #79811 Related #79753. Thanks @indulgeback and @cuiyuxin-gif. PR #97041 Thanks @Pick-cat and @vincentkoc. PR #97128 Related #96518. Thanks @LiuwqGit, @vincentkoc, and @yetval. PR #90908 Thanks @shengting. PR #97958 Thanks @eleqtrizit. PR #98260 Thanks @eleqtrizit. PR #99803 Thanks @cxbAsDev and @vincentkoc. PR #99067 Related #99066. Thanks @ooiuuii. PR #100521 Thanks @cxbAsDev. PR #100910 Thanks @masatohoshino and @vincentkoc. PR #102125 Thanks @mushuiyu886. PR #38290 Related #46520. Thanks @brunowowk and @mosidevv. PR #103075 Thanks @pgondhi987. PR #104919 Related #104903. Thanks @Glucksberg and @evan-YM. PR #107754 Related #98633, #102932, #105427. Thanks @joshavant, @ooiuuii, and @aniruddhaadak80. PR #109108 Thanks @zhangguiping-xydt. PR #105017 Thanks @tzy-17. PR #109590 Thanks @krissding. PR #110693 Thanks @lsr911. PR #110954 Thanks @zhangguiping-xydt. PR #103793 Thanks @yetval. PR #94016 Related #94008. Thanks @sheyanmin and @thomasthelen-kibeauftragter. PR #112406 Thanks @vincentkoc. PR #107938. Release verification Extended-stable Gateway release: npm and container images only. GitHub Releases has one repository-wide Latest flag, not a per-channel Latest; this page is intentionally not Latest. The npm and container extended-stable selectors currently resolve to 2026.6.34. npm package: openclaw@2026.6.34 npm registry tarball: openclaw-2026.6.34.tgz npm integrity: sha512-Rm4khBrWn9HYqE99NBryCFgjwlsIuwBqK5jIANn2773CGXJ1JIZkDn5twEHB+8SVFdh0FPNPHRVgZepzNJDfHg== npm signatures and SLSA provenance attestation are published Container images: GHCR and Docker Hub, with exact tags 2026.6.34, 2026.6.34-slim, and 2026.6.34-browser for amd64 and arm64 Container manifest digests: default/slim sha256:47d342bafe83bd3b2dca6f1d8d8b608ba7b542a1952564960648943346206759; browser sha256:55203a7abced818c0378aac0a128a2fceee5448c08f36be7e0058762a3b3ff41. The matching extended-stable, extended-stable-slim, and extended-stable-browser aliases resolve to those same digests in both registries. Release commit: 5c38f996d4059ebd9080cf74dc611ec3a17f4d50 Successful release workflows: npm preflight, Full Release Validation, plugin npm publish, and Docker Release",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 版本更新：2026.6.34",
+      "summaryZh": "重點：2026.6.34 Highlights Safer browser and network boundaries: sandboxed browser routes, trusted DNS targets, custom browser..."
+    },
+    {
+      "id": 5,
+      "title": "AI 讓 RAM 價格倒退回 2007 年水準，20 年降價趨勢逆轉",
+      "link": "https://finance.technews.tw/2026/08/08/ai-ram-hbm/",
+      "publishedAt": "Sat, 08 Aug 2026 07:19:28 +0000",
+      "summary": "AI 熱潮正徹底改寫記憶體市場，軟體效能專家兼 GitHub 開發者 Daniel Lemire 指出，受高頻 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix(qa): settle Unix commands after PGID cleanup (#120010)",
+      "link": "https://github.com/openclaw/openclaw/commit/bf0aadbc40c25a2d5231f7736633f5fa68ebca5b",
+      "publishedAt": "2026-08-08T07:16:44Z",
+      "summary": "fix(qa): settle Unix commands after PGID cleanup (#120010) Punchcard-Session: cobalt-valley-meadow-mg",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): settle Unix commands after PGID cleanup (#120010)",
+      "summaryZh": "重點：修正(qa): settle Unix commands after PGID cleanup (#120010) Punchcard-Session: cobalt-valley-meadow-mg..."
+    },
+    {
+      "id": 7,
+      "title": "Google 把 Gemini 逆風翻盤的希望，全押在這個人身上",
+      "link": "https://technews.tw/2026/08/08/google-all-in-koray-kavukcuoglu/",
+      "publishedAt": "Sat, 08 Aug 2026 07:00:24 +0000",
+      "summary": "一覺醒來，拿了諾貝爾獎、靠 AlphaGo 封神的哈薩比斯（Demis Hassabis）主動交出 DeepM [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "fix(codex): restore continuity test coverage (#120452)",
       "link": "https://github.com/openclaw/openclaw/commit/c7b7fe4c328b597c69345b258b7f0357e6d3861d",
       "publishedAt": "2026-08-08T06:39:26Z",
@@ -31,29 +82,7 @@
       "summaryZh": "重點：修正(codex): restore continuity test coverage (#120452) * test(codex): align run history 修正ture identity * test(ci): repai..."
     },
     {
-      "id": 4,
-      "title": "fix(ui): open mock catalog sessions without crashing (#120444)",
-      "link": "https://github.com/openclaw/openclaw/commit/ea50fe84538e8f4f91ef211d2e54bb16b3bb17c8",
-      "publishedAt": "2026-08-08T06:21:54Z",
-      "summary": "fix(ui): open mock catalog sessions without crashing (#120444)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): open mock catalog sessions without crashing (#120444)",
-      "summaryZh": "重點：修正(ui): open mock catalog sessions without crashing (#120444)..."
-    },
-    {
-      "id": 5,
-      "title": "fix(sessions): require provenance for fresh context-size facts (#120497)",
-      "link": "https://github.com/openclaw/openclaw/commit/fa0fcef9f624f156e723ce10eeaf06fbfa3a7231",
-      "publishedAt": "2026-08-08T06:06:30Z",
-      "summary": "fix(sessions): require provenance for fresh context-size facts (#120497)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): require provenance for fresh context-size facts (#120497)",
-      "summaryZh": "重點：修正(sessions): require provenance for fresh context-size facts (#120497)..."
-    },
-    {
-      "id": 6,
+      "id": 9,
       "title": "尋找地球深處的「黃金廚房」，科學家揭開海底火山鍊金之謎",
       "link": "https://technews.tw/2026/08/08/hidden-golden-kitchen-earth-seafloor/",
       "publishedAt": "Sat, 08 Aug 2026 06:00:38 +0000",
@@ -62,40 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Synology 群暉科技發表 DiskStation neo+ 系列，以低入手門檻享有高效能體驗",
       "link": "https://technews.tw/2026/08/08/synology-diskstation-neo-plus/",
       "publishedAt": "Sat, 08 Aug 2026 06:00:30 +0000",
       "summary": "Synology 群暉科技推出 DiskStation neo+ 系列，包含 DS1825neo+、DS152 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "集英社強勢推出百語漫畫平台 MANGA MILLION，大舉進軍全球市場",
-      "link": "https://technews.tw/2026/08/08/shueisha-launches-multi-language-manga-platform-manga-million-global-market-push/",
-      "publishedAt": "Sat, 08 Aug 2026 06:00:06 +0000",
-      "summary": "全球頂尖漫畫出版商集英社（Shueisha Inc.）宣布全新數位平台 MANGA MILLION 正式上線。 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "chore(skills): unify issue/PR repair sweeps into openclaw-repair-swee…",
-      "link": "https://github.com/openclaw/openclaw/commit/3075acd549a5c76ad776cd8be5edff8ee6d47b55",
-      "publishedAt": "2026-08-08T05:32:17Z",
-      "summary": "chore(skills): unify issue/PR repair sweeps into openclaw-repair-sweep (#120465) Merge openclaw-small-bugfix-sweep, openclaw-landable-bug-sweep, and openclaw-autonomous-issue-sweep into one openclaw-repair-sweep skill with scope/batch_size/workers inputs and sensible defaults. Fold in the transferable doctrine from the retired personal super-orchestrator runbook: broken-main repair as standing sweep work, mandatory follow-up refactor pass, defect-class batching with one canonical helper, ancestry-based merge verification, and push-then-escalate for maintainer decisions. Update the auto-qa companion reference.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(skills): unify issue/PR repair sweeps into OpenClaw-repair-swee…",
-      "summaryZh": "重點：chore(skills): unify issue/PR repair sweeps into OpenClaw-repair-sweep (#120465) Merge OpenClaw-small-bug修正-sweep, OpenC..."
-    },
-    {
-      "id": 10,
-      "title": "首見「AI 互駭」！Google 開發套件曝漏洞，揭露代理對代理攻擊風險",
-      "link": "https://infosecu.technews.tw/2026/08/08/ai-mutual-hacking-google-sdk-vulnerability/",
-      "publishedAt": "Sat, 08 Aug 2026 05:30:53 +0000",
-      "summary": "資安機構 Pillar Security 的研究人員近日披露，他們在 Google 廣泛使用的 Agent D [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
