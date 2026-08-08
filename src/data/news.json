@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-08-08T15:29:54.889Z",
+  "generatedAt": "2026-08-08T16:34:02.528Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(release): dispatch validation through a client-pushed target ref …",
-      "link": "https://github.com/openclaw/openclaw/commit/18dd70cec0214f1bed0c54114070832c09fe2630",
-      "publishedAt": "2026-08-08T15:22:17Z",
-      "summary": "fix(release): dispatch validation through a client-pushed target ref (#120613)",
+      "title": "refactor(ui): unify the visible board dock union into board settings …",
+      "link": "https://github.com/openclaw/openclaw/commit/13e30a9d55e6af85ea63c10d80a2a959eed5e16a",
+      "publishedAt": "2026-08-08T16:29:43Z",
+      "summary": "refactor(ui): unify the visible board dock union into board settings (#120605) The visible-dock union existed twice: BoardVisibleChatDock (hand-written literal union in lib/board/settings.ts, persistence layer) and VisibleBoardDock (derived from the protocol BoardTab shape in chat-pane-shared.ts, render layer). Follow-up from #120487. Keep one canonical exported type in lib/board/settings.ts, now derived from BoardTab so persisted settings can never drift from the wire contract, and migrate all render-layer consumers to it. Net -5 LOC, type-only.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): dispatch validation through a client-pushed target ref …",
-      "summaryZh": "重點：修正(版本發布): dispatch validation through a client-pushed target ref (#120613)..."
+      "titleZh": "OpenClaw 文件更新：refactor(ui): unify the visible board 文件k union into board settings …",
+      "summaryZh": "重點：refactor(ui): unify the visible board 文件k union into board settings (#120605) The visible-文件k union existed twice: Board..."
     },
     {
       "id": 2,
-      "title": "fix(codex): support app-server 0.147.0 (#120594)",
-      "link": "https://github.com/openclaw/openclaw/commit/b5180b68163a0dec24ac7615b81e7f12aadbd5e2",
-      "publishedAt": "2026-08-08T15:07:05Z",
-      "summary": "fix(codex): support app-server 0.147.0 (#120594) * fix(codex): support app-server 0.147.0 * docs(codex): clarify marketplace version provenance",
+      "title": "fix: discard retired session list errors (#120627)",
+      "link": "https://github.com/openclaw/openclaw/commit/6c3cc2c0a124a308252a4d2e78a9088876841115",
+      "publishedAt": "2026-08-08T16:25:39Z",
+      "summary": "fix: discard retired session list errors (#120627)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): support app-server 0.147.0 (#120594)",
-      "summaryZh": "重點：修正(codex): support app-server 0.147.0 (#120594) * 修正(codex): support app-server 0.147.0 * 文件(codex): clarify marketplace..."
+      "titleZh": "OpenClaw 程式碼更新：修正: discard retired session list errors (#120627)",
+      "summaryZh": "重點：修正: discard retired session list errors (#120627)..."
     },
     {
       "id": 3,
-      "title": "fix(cli): avoid missing-facing camera snap failures (#120430)",
-      "link": "https://github.com/openclaw/openclaw/commit/a5b798a88cf5903b0ce33ba975d7c8c8de5f830d",
-      "publishedAt": "2026-08-08T15:05:50Z",
-      "summary": "fix(cli): avoid missing-facing camera snap failures (#120430) * fix(cli): use node default camera for snap * test(cli): isolate ClawHub package preflight * test(cli): split Claws package fixture",
+      "title": "fix: preserve dashboard data during refresh",
+      "link": "https://github.com/openclaw/openclaw/commit/b1e37e05025288c79b810e1cac5e87c85aaf78ca",
+      "publishedAt": "2026-08-08T16:25:38Z",
+      "summary": "fix: preserve dashboard data during refresh",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): avoid missing-facing camera snap failures (#120430)",
-      "summaryZh": "重點：修正(cli): avoid missing-facing camera snap failures (#120430) * 修正(cli): use node default camera for snap * test(cli): is..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve dashboard data during refresh",
+      "summaryZh": "重點：修正: preserve dashboard data during refresh..."
     },
     {
       "id": 4,
-      "title": "feat(macos): control motorized camera pan, tilt, and zoom (#120511)",
-      "link": "https://github.com/openclaw/openclaw/commit/6176c0a79d9a218bb2325cf2c9f65b5bfd61ed55",
-      "publishedAt": "2026-08-08T15:04:29Z",
-      "summary": "feat(macos): control motorized camera pan, tilt, and zoom (#120511) * feat(macos): add native camera PTZ controls Add physical UVC pan, tilt, and zoom through the signed Mac app, with camera.ptz.control kept behind dangerous-command approval. Verified against real Insta360 Link 2 Pro hardware. * refactor(agents): split message tool display config * fix(mac): harden camera PTZ contracts",
+      "title": "docs: document live dashboard index refresh",
+      "link": "https://github.com/openclaw/openclaw/commit/5d5bc741214652507a392e809103c3b29b9c95fb",
+      "publishedAt": "2026-08-08T16:25:38Z",
+      "summary": "docs: document live dashboard index refresh",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(macos): control motorized camera pan, tilt, and zoom (#120511)",
-      "summaryZh": "重點：新功能(macos): control motorized camera pan, tilt, and zoom (#120511) * 新功能(macos): add native camera PTZ controls Add phys..."
+      "titleZh": "OpenClaw 文件更新：文件: 文件ument live dashboard index refresh",
+      "summaryZh": "重點：文件: 文件ument live dashboard index refresh..."
     },
     {
       "id": 5,
+      "title": "不是全新星系，「小紅點」真面目是星系中央超大質量黑洞活動的短暫印記",
+      "link": "https://technews.tw/2026/08/09/evolutionary-mystery-cosmic-little-red-dots/",
+      "publishedAt": "Sat, 08 Aug 2026 16:00:21 +0000",
+      "summary": "詹姆斯‧韋伯太空望遠鏡於 2022 年發現「小紅點」以來，這些遙遠、緻密且呈現紅色的天體便成為天文學家高度關注 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "運動不只讓心臟更強壯，還會重塑心臟的神經網路",
+      "link": "https://technews.tw/2026/08/09/exercise-does-not-just-strengthen-the-heart/",
+      "publishedAt": "Sat, 08 Aug 2026 16:00:06 +0000",
+      "summary": "運動對心血管健康的好處不少，除了能降低血壓、改善血脂，還可讓心臟肌肉變得更有力。然而，心臟要正常運作，靠的不只 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "NASA 攜手跨國團隊升空追擊日全食，揭開太陽日冕與大氣之謎",
+      "link": "https://technews.tw/2026/08/09/nasa-chase-total-solar-eclipse/",
+      "publishedAt": "Sat, 08 Aug 2026 16:00:04 +0000",
+      "summary": "2026 年 8 月 12 日，一場備受矚目的日全食即將登場。屆時，月球本影將以高達每小時 5,000 英里的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "新增多重管理員驗證，NetApp物件儲存系統近期推出改版",
       "link": "https://www.ithome.com.tw/review/177980",
       "publishedAt": "2026-08-08 10:08:51",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Gitea修補CVSS 9.8重大漏洞，攻擊者無須登入即可遠端執行程式碼",
       "link": "https://www.ithome.com.tw/news/177977",
       "publishedAt": "2026-08-08 08:08:09",
@@ -64,39 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "研究人員揭露駭客入侵Oracle資料庫，並以Oracle為跳板在Windows執行惡意指令的手法",
       "link": "https://www.ithome.com.tw/news/177979",
       "publishedAt": "2026-08-08 08:08:01",
       "summary": "資安業者Huntress近日發現甲骨文資料庫遭到駭客入侵後被用以當成跳板，對Windows發動攻擊、竊取用戶密碼。 Huntress本週揭露了一起利用傳統SQL注入（SQL injection）漏洞結合Oracle資料庫內建Java功能，成功將攻擊工具包khunt寫入資料庫內部，最終取得Windows作業系統SYSTEM權限的進階攻擊案例。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "關掉九成門市業績反升 40%，日本連鎖店 GEO 靠老遊戲「新鮮感」收服 Z 世代逆勢成長",
-      "link": "https://ccc.technews.tw/2026/08/08/nostalgia-trendiest-fresh-sensation-gen-z/",
-      "publishedAt": "Sat, 08 Aug 2026 08:00:25 +0000",
-      "summary": "在實體零售業普遍面臨數位化衝擊的今天，「縮減門市」往往意味著業務收縮或衰退。然而，日本知名連鎖零售巨頭 GEO [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "沒跟著燒錢市值衝上 5 兆美元？蘋果如今恐不得不加入算力競賽",
-      "link": "https://finance.technews.tw/2026/08/08/apple-ai-capex-increase/",
-      "publishedAt": "Sat, 08 Aug 2026 07:53:43 +0000",
-      "summary": "生成式 AI 掀起全球科技業新一輪投資競賽，微軟、Meta、Alphabet、亞馬遜等科技巨頭近兩年相繼宣布提 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AI 讓 RAM 價格倒退回 2007 年水準，20 年降價趨勢逆轉",
-      "link": "https://finance.technews.tw/2026/08/08/ai-ram-hbm/",
-      "publishedAt": "Sat, 08 Aug 2026 07:19:28 +0000",
-      "summary": "AI 熱潮正徹底改寫記憶體市場，軟體效能專家兼 GitHub 開發者 Daniel Lemire 指出，受高頻 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
