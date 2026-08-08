@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-08T10:34:04.110Z",
+  "generatedAt": "2026-08-08T11:28:51.282Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): restore terminal button in chat header (#120436)",
-      "link": "https://github.com/openclaw/openclaw/commit/6ae7a8684abac1306632b251176b82fb85915d31",
-      "publishedAt": "2026-08-08T10:26:51Z",
-      "summary": "fix(ui): restore terminal button in chat header (#120436) * fix(ui): restore terminal button in chat header * test(ui): follow background task props API Remove the callback option retired by #120463 so the terminal header regression test type-checks on current main.",
+      "title": "fix(mcp): complete browser OAuth login callbacks (#120431)",
+      "link": "https://github.com/openclaw/openclaw/commit/de9314301f0582d4eada9e24168b499608c51b26",
+      "publishedAt": "2026-08-08T10:57:55Z",
+      "summary": "fix(mcp): complete browser OAuth login callbacks (#120431) * fix(mcp): complete OAuth loopback login Co-authored-by: 李琪0668001400 * fix(auth): abort loopback DNS resolution safely * fix(mcp): move callback wait outside state lease * fix(plugin-sdk): bind the callback redirect host by default * fix(plugin-sdk): preserve explicit loopback bind hosts * fix(ci): satisfy loopback callback type and lint gates * fix(mcp): bind PKCE state to each login attempt * refactor(mcp): keep verifier override internal * test(mcp): preserve split OAuth CLI coverage --------- Co-authored-by: 李琪0668001400",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore terminal button in chat header (#120436)",
-      "summaryZh": "重點：修正(ui): restore terminal button in chat header (#120436) * 修正(ui): restore terminal button in chat header * test(ui): fo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): complete browser OAuth login callbacks (#120431)",
+      "summaryZh": "重點：修正(mcp): complete browser OAuth login callbacks (#120431) * 修正(mcp): complete OAuth loopback login Co-authored-by: 李琪066..."
     },
     {
       "id": 2,
-      "title": "fix(ui): move stale-client refresh notice into the sidebar update car…",
-      "link": "https://github.com/openclaw/openclaw/commit/2cfacdb671f853aecfa55eb9d28243ed2602266f",
-      "publishedAt": "2026-08-08T10:06:12Z",
-      "summary": "fix(ui): move stale-client refresh notice into the sidebar update card (#120483) * fix(ui): move stale-client refresh notice into the sidebar update card The 'Server updated — refresh for full capabilities' notice rendered as a full-width callout at the top of , where the fixed shell-chrome controls (nav toggle / search, layout.css z-index 45) overlap its text. Move the notice into the existing sidebar-update-card slot above the identity/connectivity footer: refreshRequired takes precedence over updateAvailable (a stale client cannot trust its own update metadata), renders non-dismissible with a refresh icon and two-line text, and is wired through the sidebar, settings sidebar, and collapsed-nav floating card. The old top-of-main banner branch, its resolver helper, and the orphaned i18n key are deleted. * fix(ui): keep stale-client refresh visible during onboarding and clear collapsed chrome cluster Address both accepted ClawSweeper P2 findings: - restore the stale-client refresh action during onboarding - keep the floating update card clear of the three-button collapsed chrome cluster",
+      "title": "fix(maintainers): route PR reads through Octopool (#120525)",
+      "link": "https://github.com/openclaw/openclaw/commit/d1dea39bbb095197e77e950e673960eda5a6c5bc",
+      "publishedAt": "2026-08-08T10:56:36Z",
+      "summary": "fix(maintainers): route PR reads through Octopool (#120525) * fix(maintainers): route PR reads through Octopool * test(maintainers): cover PR transport ownership * fix(maintainers): scope merge wait to CI run",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): move stale-client refresh notice into the sidebar update car…",
-      "summaryZh": "重點：修正(ui): move stale-client refresh notice into the sidebar update card (#120483) * 修正(ui): move stale-client refresh noti..."
+      "titleZh": "OpenClaw 程式碼更新：修正(maintainers): route PR reads through Octopool (#120525)",
+      "summaryZh": "重點：修正(maintainers): route PR reads through Octopool (#120525) * 修正(maintainers): route PR reads through Octopool * test(mai..."
     },
     {
       "id": 3,
-      "title": "feat(ui): show custom commit age in sidebar footer (#120388)",
-      "link": "https://github.com/openclaw/openclaw/commit/c9331450887cf159ea3acf4d0dca7c3da2a78d7d",
-      "publishedAt": "2026-08-08T10:03:50Z",
-      "summary": "feat(ui): show custom commit age in sidebar footer (#120388) * feat(ui): show custom commit age in sidebar footer * test: repair sidebar build status CI gates * test(ui): assert gateway state during reconnects * fix(ui): expose build provenance in sidebar label * fix(ci): align SDK baseline and test formatting * fix(sessions): preserve context usage provenance * test(agents): split session loop lifecycle coverage * test(agents): reuse session loop resource helpers * test(sessions): preserve stale totals in JSON output",
+      "title": "feat(ui): split model picker into searchable model + effort popovers …",
+      "link": "https://github.com/openclaw/openclaw/commit/205753eef707f665773e46441eb9570d7d8a317d",
+      "publishedAt": "2026-08-08T10:47:32Z",
+      "summary": "feat(ui): split model picker into searchable model + effort popovers (#120495) * refactor(ui): remove fake token estimate * feat(ui): split model picker into model and effort popovers * fix(ui): hide filtered-out model rows under the flex option style * fix(ui): drop unused model locator in cloud-startup e2e * fix(ui): restore focus and expose active model option to assistive tech",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): show custom 提交 age in sidebar footer (#120388)",
-      "summaryZh": "重點：新功能(ui): show custom 提交 age in sidebar footer (#120388) * 新功能(ui): show custom 提交 age in sidebar footer * test: repair s..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): split 模型 picker into searchable 模型 + effort popovers …",
+      "summaryZh": "重點：新功能(ui): split 模型 picker into searchable 模型 + effort popovers (#120495) * refactor(ui): remove fake token estimate * 新功能..."
     },
     {
       "id": 4,
-      "title": "refactor(github-copilot): narrow runtime facade (#120544)",
-      "link": "https://github.com/openclaw/openclaw/commit/10c7f005be20e39e0d66dae392e6f42ec4677c8d",
-      "publishedAt": "2026-08-08T09:56:12Z",
-      "summary": "refactor(github-copilot): narrow runtime facade (#120544) * refactor(github-copilot): narrow runtime facade * style(github-copilot): format runtime exports",
+      "title": "refactor(ui): align sidebar session list on a single lead-slot rail (…",
+      "link": "https://github.com/openclaw/openclaw/commit/0575610f4cf6670e211e1087c4feb7f09ec06f41",
+      "publishedAt": "2026-08-08T10:47:26Z",
+      "summary": "refactor(ui): align sidebar session list on a single lead-slot rail (#120473) * refactor(ui): align sidebar session list on a single lead-slot rail * fix(ui): keep sidebar group drag handle interactive * fix(ui): keep catalog chevron visible on touch devices Touch contexts have no hover, so branded catalog headers keep the chevron as their resting affordance (ClawSweeper P2 on #120473).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(github-copilot): narrow runtime facade (#120544)",
-      "summaryZh": "重點：refactor(github-copilot): narrow runtime facade (#120544) * refactor(github-copilot): narrow runtime facade * style(gith..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): align sidebar session list on a single lead-slot rail (…",
+      "summaryZh": "重點：refactor(ui): align sidebar session list on a single lead-slot rail (#120473) * refactor(ui): align sidebar session list..."
     },
     {
       "id": 5,
