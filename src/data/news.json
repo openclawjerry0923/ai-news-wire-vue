@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-09T16:35:46.797Z",
+  "generatedAt": "2026-08-09T17:32:03.379Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(browser): recover Copilot storage writes (#116882)",
-      "link": "https://github.com/openclaw/openclaw/commit/2f8c9507010c61e7f9d5ef20bb7f3203e9008e33",
-      "publishedAt": "2026-08-09T16:34:58Z",
-      "summary": "fix(browser): recover Copilot storage writes (#116882)",
+      "title": "perf(gateway): per-transcript broadcast lanes (#121104)",
+      "link": "https://github.com/openclaw/openclaw/commit/ad1a2cd7e73a97d43d9ca58900ce4574b4ad6dd7",
+      "publishedAt": "2026-08-09T17:17:30Z",
+      "summary": "perf(gateway): per-transcript broadcast lanes (#121104) * perf(gateway): per-transcript broadcast lanes Transcript-update broadcasts were serialized behind one global promise queue, so one session's pending async seq read head-of-line blocked every other session's session.message and sessions.changed delivery. Ordering is a per-transcript contract, so key the queue by transcript identity and drop drained lanes. Per-message transcript usage stays derived: session.message payloads carry live totalTokens/estimatedCostUsd as a dashboard API contract (#50101). * fix(ui): target the Cloud Worker Desktop labs row in its toggle test The row added in #120727 reused index 6, which belongs to Message audit metadata, so the case toggled the audit row and asserted its patch. Labs features render in registry order, and workerDesktop is the eighth entry.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): recover Copilot storage writes (#116882)",
-      "summaryZh": "重點：修正(browser): recover Copilot storage writes (#116882)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): per-transcript broadcast lanes (#121104)",
+      "summaryZh": "重點：perf(Gateway): per-transcript broadcast lanes (#121104) * perf(Gateway): per-transcript broadcast lanes Transcript-updat..."
     },
     {
       "id": 2,
-      "title": "fix(update): keep managed gateway updates in the correct profile (#11…",
-      "link": "https://github.com/openclaw/openclaw/commit/08c3c776f9aa09dbf9d6d3e27a81761c7ac3c56d",
-      "publishedAt": "2026-08-09T16:32:57Z",
-      "summary": "fix(update): keep managed gateway updates in the correct profile (#113901) * fix(update): keep managed gateway state in its profile * refactor(update): scope managed profile finalization * chore(update): remove stale env import * test(update): narrow completion call lookup",
+      "title": "fix(release): prefer SQLite upgrade survivor state (#120983)",
+      "link": "https://github.com/openclaw/openclaw/commit/af73dbcc834027e84d8717e17c504020a17e567a",
+      "publishedAt": "2026-08-09T17:08:15Z",
+      "summary": "fix(release): prefer SQLite upgrade survivor state (#120983)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): keep managed Gateway updates in the correct profile (#11…",
-      "summaryZh": "重點：修正(update): keep managed Gateway updates in the correct profile (#113901) * 修正(update): keep managed Gateway state in it..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): prefer SQLite upgrade survivor state (#120983)",
+      "summaryZh": "重點：修正(版本發布): prefer SQLite upgrade survivor state (#120983)..."
     },
     {
       "id": 3,
-      "title": "refactor(tests): consolidate inbound reply fixtures (#114430)",
-      "link": "https://github.com/openclaw/openclaw/commit/f8057eecceaf226eb478be0978a7b457a8c73c9f",
-      "publishedAt": "2026-08-09T16:30:16Z",
-      "summary": "refactor(tests): consolidate inbound reply fixtures (#114430)",
+      "title": "fix(openai): bound streamed tool arguments (#117055)",
+      "link": "https://github.com/openclaw/openclaw/commit/92e522cade4c8c04a0eee3d2851e3dd4a127eb68",
+      "publishedAt": "2026-08-09T17:02:23Z",
+      "summary": "fix(openai): bound streamed tool arguments (#117055)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): consolidate inbound reply 修正tures (#114430)",
-      "summaryZh": "重點：refactor(tests): consolidate inbound reply 修正tures (#114430)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): bound streamed tool arguments (#117055)",
+      "summaryZh": "重點：修正(openai): bound streamed tool arguments (#117055)..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): redact audio history payloads (#121109)",
-      "link": "https://github.com/openclaw/openclaw/commit/df725434f361c4b8e9115014113c490219fdade2",
-      "publishedAt": "2026-08-09T16:26:51Z",
-      "summary": "fix(gateway): redact audio history payloads (#121109) Strip raw audio data and host-local references at the shared chat display projection used by WebSocket and HTTP/SSE history, while preserving remote and managed media references.",
+      "title": "fix(openai): preserve failed Responses terminal usage (#115175)",
+      "link": "https://github.com/openclaw/openclaw/commit/4af090365c8c9e537ff76a7189c0f90c1cb09577",
+      "publishedAt": "2026-08-09T16:59:21Z",
+      "summary": "fix(openai): preserve failed Responses terminal usage (#115175) * fix(openai): preserve failed Responses usage * test(ci): include failed SSE prefix sibling",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): redact audio history payloads (#121109)",
-      "summaryZh": "重點：修正(Gateway): redact audio history payloads (#121109) Strip raw audio data and host-local references at the shared chat d..."
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): preserve failed Responses terminal usage (#115175)",
+      "summaryZh": "重點：修正(openai): preserve failed Responses terminal usage (#115175) * 修正(openai): preserve failed Responses usage * test(ci):..."
     },
     {
       "id": 5,
