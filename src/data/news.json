@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-08-09T01:47:59.476Z",
+  "generatedAt": "2026-08-09T03:43:16.608Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): retain images within tool-result context limits (#120808)",
-      "link": "https://github.com/openclaw/openclaw/commit/62b418d551b0ec40fb43fc554d6355f7331bb6dd",
-      "publishedAt": "2026-08-09T01:44:53Z",
-      "summary": "fix(agents): retain images within tool-result context limits (#120808)",
+      "title": "fix(telegram): prioritize configured commands under menu pressure (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/c1217886119c16a92ad7b0f080272af24fcb0bf7",
+      "publishedAt": "2026-08-09T03:37:51Z",
+      "summary": "fix(telegram): prioritize configured commands under menu pressure (#119717) * fix(telegram): prioritize configured commands under menu pressure * fix(telegram): preserve custom commands under localized menu pressure --------- Co-authored-by: Peter Steinberger Co-authored-by: ayeshakhalid192007-dev",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): retain images within tool-result context limits (#120808)",
-      "summaryZh": "重點：修正(agents): retain images within tool-result context limits (#120808)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): prioritize configured commands under menu pressure (#1…",
+      "summaryZh": "重點：修正(Telegram): prioritize configured commands under menu pressure (#119717) * 修正(Telegram): prioritize configured command..."
     },
     {
       "id": 2,
-      "title": "fix(qa): update Control UI scenario code references (#120801)",
-      "link": "https://github.com/openclaw/openclaw/commit/e14b36cdbfbe38a8f09909a93fecfe29f91d330e",
-      "publishedAt": "2026-08-09T01:42:38Z",
-      "summary": "fix(qa): update Control UI scenario code references (#120801)",
+      "title": "fix(hooks): retire legacy inline handler config (#120851)",
+      "link": "https://github.com/openclaw/openclaw/commit/4c3bf144665ee8137b4cebbd07e57fe8842b35f4",
+      "publishedAt": "2026-08-09T03:34:45Z",
+      "summary": "fix(hooks): retire legacy inline handler config (#120851)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): update Control UI scenario code references (#120801)",
-      "summaryZh": "重點：修正(qa): update Control UI scenario code references (#120801)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(hooks): retire legacy inline handler config (#120851)",
+      "summaryZh": "重點：修正(hooks): retire legacy inline handler config (#120851)..."
     },
     {
       "id": 3,
-      "title": "fix(google-meet): redial after completed voice calls (#120807)",
-      "link": "https://github.com/openclaw/openclaw/commit/d52827a8c0c5f7b7e371802e9f4147115bb060ca",
-      "publishedAt": "2026-08-09T01:40:50Z",
-      "summary": "fix(google-meet): redial after completed voice calls (#120807)",
+      "title": "feat(agents): record run-end worktree cleanup outcome; prove Workboar…",
+      "link": "https://github.com/openclaw/openclaw/commit/73bdb4b924f6db3c4ab45c5e40fbf61b06fa56a0",
+      "publishedAt": "2026-08-09T03:32:11Z",
+      "summary": "feat(agents): record run-end worktree cleanup outcome; prove Workboard dirty retention (#120434) * feat(agents): record run-end worktree cleanup outcome Persist removed, retained, and failed run-end cleanup outcomes on managed worktree records. Operators and QA can inspect the durable fact through worktrees.list and openclaw worktrees list --json. Release note: Managed worktree run-end cleanup now records why a checkout was removed or retained in worktree list JSON. * test(qa): prove dirty worktree retention outcome * chore(protocol): regenerate swift gateway models * fix(agents): harden worktree cleanup recovery Register run_end_cleanup_json as a lazy compatible column so same-version v6 index repair and read-only doctor migration can recover databases created before the column existed. Type removal contention at the registry boundary; unexpected claim failures now best-effort record a bounded failed outcome and rethrow the original error. * fix(ci): clear repo-wide lint debt blocking merge gates The red-main landing rule requires this PR to repair repository-wide merge-gate debt instead of bypassing it. Apply the current lint contracts mechanically and split turn-transition coverage into a concept-named sibling with per-file-safe test state. Exact line delta: +676/-574 (net +102) across 44 test/support files. * fix(ci): preserve cached health refresh proof Require the public refresh call to exist before accepting that sensitive fields were omitted, so the boundary proof cannot pass on a missing call. * fix(ci): correct test typing left by the lint sweep Literal-widened totalTokensVersion fixtures, a WebSocket RawData overload mismatch, and the protocol schema document cast broke check-test-types after the repo-wide lint repair. Aligns the fixtures with SessionEntry, narrows Buffer handling per RawData, and keeps the JSON-shaped undefined omission under structuredClone. * test(agents): reuse upstream resource-loader test support The session-loop split and #120463's helper extraction landed the same createResourceLoader/createCompactionHandlers twice; the rebase kept both, orphaning main's agent-session-loop-resource-loader.test-support.ts and failing the dead-code gate. Import the upstream helpers and delete the duplicates. * fix(agents): reject finalized rows at the worktree removal claim Address the accepted ClawSweeper late-claim finding by rereading and rejecting missing or finalized worktree rows inside the synchronous removal-claim transaction. Preserve the authoritative cleanup invariant: finalized contenders record nothing, while retained-busy is written only while the row remains live. * refactor(agents): reuse registry update for busy outcomes Keep the live-row conditional write in the canonical registry update path so the finalized-claim repair stays below the registry max-lines ratchet without weakening the authoritative-outcome invariant. * test(agents): drop session test duplicates after rebase Keep current main as the canonical owner of next-turn lifecycle coverage and correctness test support after replaying the older lint-debt split. * fix(agents): guard post-abort cleanup outcomes against finalization After abortWorktreeRemoval releases a stale remover's claim, its retained or failed write raced a finalizing remover and could overwrite the authoritative removed-lossless fact. Route every retained/failed write through the live-row condition; only the finalizing remover's own removed-lossless write stays unconditional. * fix(agents): persist the removal outcome atomically with finalization A delayed removed-lossless write after remove() finalized could race a restore plus newer cleanup and overwrite the newer operator-visible fact. The run-end outcome now rides remove()'s finalization update; every other cleanup write stays live-row conditional, so no post-finalize write path remains. * test(qa): restore strict cached-health contract assertions The lint sweep's Boolean() coercions let truthy non-booleans satisfy the wire-typed cached-meta contract. Assert the literal boolean for unknown-typed fields and use nullish-coalesced strict equivalents for boolean chains. * fix(agents): clear the stale cleanup outcome when restoring a worktree A restored checkout begins a new lifecycle; leaving the removed-lossless fact on the live row showed operators a stale result until the next cleanup. Restore clears the recorded outcome and the regression asserts the cleared state before the next cleanup records fresh truth. * fix(agents): scope stale cleanup outcomes to their observed lifecycle A stale remover's retained/failed write raced a concurrent remove-plus- restore: the revived row is live again, so the live-row condition alone could stamp a prior-lifecycle outcome. Condition those writes on the activity stamp the remover observed; restore bumps lastActiveAt, making any prior-lifecycle write a no-op. * fix(agents): advance the restore activity stamp within one millisecond Stale cleanup writes fence on the activity stamp they observed; a restore completing in the same millisecond could revive the row with an identical stamp and let the fence match. Restore now always advances past the stored value, and the ABA regression pins the clock to prove the same-millisecond case.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google-meet): redial after completed voice calls (#120807)",
-      "summaryZh": "重點：修正(google-meet): redial after completed voice calls (#120807)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(agents): record run-end worktree cleanup outcome; prove Workboar…",
+      "summaryZh": "重點：新功能(agents): record run-end worktree cleanup outcome; prove Workboard dirty retention (#120434) * 新功能(agents): record ru..."
     },
     {
       "id": 4,
-      "title": "fix(browser): reclaim stalled extension relay connections (#120806)",
-      "link": "https://github.com/openclaw/openclaw/commit/a663063d4dc7621c8092323e40ca9a2e29e7bfe8",
-      "publishedAt": "2026-08-09T01:37:05Z",
-      "summary": "fix(browser): reclaim stalled extension relay connections (#120806)",
+      "title": "perf(doctor): slim remaining heavy doctor contract closures (#120811)",
+      "link": "https://github.com/openclaw/openclaw/commit/c2e7c819f57082db65a4911dbf3d924e9b6f484d",
+      "publishedAt": "2026-08-09T03:28:58Z",
+      "summary": "perf(doctor): slim remaining heavy doctor contract closures (#120811) * perf(doctor): slim remaining heavy doctor contract closures Follow-up to #120698: several doctor closures still cold-loaded multi-second kysely-bearing graphs through other broad barrels (session-store-runtime, realtime-voice, channel-outbound, logging-core, memory-host-core/-events, sqlite-runtime, persistent-dedupe, and plugin-local barrels). - lazy-import heavy helpers inside async migration bodies (codex, msteams, zalouser, workboard, matrix inbound-dedupe, memory-core migrations) - bypass plugin-local barrels to defining modules (reef protocol, memory-core short-term-promotion) - move to lighter existing subpaths (slack -> channel-streaming, matrix logger -> security-runtime, memory-wiki -> agent-scope-runtime, which now also exports resolveSessionAgentId) - add narrow openclaw/plugin-sdk/realtime-voice-activation for discord's sync wake-name doctor rules - split src/infra/kysely-sync-cache-state.ts so sqlite-transaction clears Kysely caches without value-loading kysely; split the memory-host-sdk kysely bridge off the schema/transaction bridge - guard: forbid the heavy barrels in doctor closures with per-kind scoping Cold enumeration per plugin: discord 52.6s->0.3s, msteams 30.9s->0.5s, codex 29.6s->2.6s, zalouser 28.8s->2.3s, matrix 27.2s->3.2s, slack 17.5s->1.5s, reef 9.9s->0.7s, memory-core 6.4s->3.6s, workboard 3.4s->0.25s; all kysely-free except llm-task (named follow-up). * fix(plugins): route slack streaming compat through a focused streaming-config subpath The channel-streaming compat barrel is deprecated for extension production code (deprecated-api-usage guard + SDK package contract). Add the narrow non-deprecated openclaw/plugin-sdk/channel-streaming-config subpath for the pure streaming config readers, and drop the now consumer-less short-term-promotion barrel re-exports knip flagged. * test(plugins): register memory-host-sdk kysely bridge in package boundary inventory * fix(plugins): classify realtime-voice-activation as private-local ClawSweeper P2: the subpath exports only a default target, which is the private-local shape; register it in plugin-sdk-private-local-only-subpaths, the package-boundary d.ts alias maps, and correct the public surface budgets (realtime-voice-activation no longer counts as public). * fix(release): exclude realtime-voice-activation declarations from the published package Private-local subpaths ship without d.ts; register the files negation the release pack-path check requires.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): reclaim stalled extension relay connections (#120806)",
-      "summaryZh": "重點：修正(browser): reclaim stalled extension relay connections (#120806)..."
+      "titleZh": "OpenClaw 文件更新：perf(文件tor): slim remaining heavy 文件tor contract closures (#120811)",
+      "summaryZh": "重點：perf(文件tor): slim remaining heavy 文件tor contract closures (#120811) * perf(文件tor): slim remaining heavy 文件tor contract c..."
     },
     {
       "id": 5,
+      "title": "簡報太美反被嫌「AI 味」？三招告別空泛廢話，洗刷職場偷懶標籤",
+      "link": "https://technews.tw/2026/08/09/how-to-make-presentations-less-ai-like/",
+      "publishedAt": "Sun, 09 Aug 2026 03:00:14 +0000",
+      "summary": "會議上，同事提供一份設計精美的簡報，此時你心裡會有什麼想法？若在 5 年前，你會讚嘆對方簡報功力高超；但現在直 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "BTS、Seventeen 御用大師出手解決舞蹈圈版權痛點，AI 助編舞家打造永續收入",
+      "link": "https://technews.tw/2026/08/09/k-pop-choreographer-transitions-to-ai/",
+      "publishedAt": "Sun, 09 Aug 2026 02:30:36 +0000",
+      "summary": "曾為 BTS、Seventeen 等韓流天團操刀的知名編舞家崔容俊（Youngjun Choi），如今正將目光 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "弘塑7月營收月增25.6%",
+      "link": "https://finance.technews.tw/2026/08/09/gptc-3131-202607-financial-report/",
+      "publishedAt": "Sun, 09 Aug 2026 02:30:03 +0000",
+      "summary": "弘塑（3131）公布 7 月合併營收 7.93 億元，較上（6）月成長 25.6%，與去年同期相比為年增 42 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "熱浪竟掀起百億「起司金庫」危機，帕瑪森起司到阿里山茶的共同難題",
+      "link": "https://technews.tw/2026/08/09/extreme-heat-threatens-italys-parmesan-heartland/",
+      "publishedAt": "Sun, 09 Aug 2026 02:00:43 +0000",
+      "summary": "今年 6 月，歐洲迎接破紀錄的熱浪，義大利多地氣溫突破 40°C。不只人類受不了，乳牛也熱得吃不下，產奶量最多 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "做夢其實超耗腦力，日本最新研究揭開大腦在「快速動眼期」的能量悖論",
       "link": "https://technews.tw/2026/08/09/brain-rem-sleep-energy-paradox/",
       "publishedAt": "Sun, 09 Aug 2026 01:30:46 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "為何不推熔斷、保留預收款？一文看懂證交所「處置股改制」背後考量",
       "link": "https://finance.technews.tw/2026/08/09/twse-disposition-stock-reform-considerations/",
       "publishedAt": "Sun, 09 Aug 2026 01:00:11 +0000",
       "summary": "根據《財訊》雙週刊報導，證交所 3 日公告修正「公布注意暨處置規定」，8 月 10 日起實施，處置期間縮短、撮 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "醫療 AI 評測敲響警鐘，OpenAI、Anthropic 等主流模型皆陷「資訊遺漏」盲點",
-      "link": "https://technews.tw/2026/08/09/medical-ai-hidden-fatal-flaw/",
-      "publishedAt": "Sun, 09 Aug 2026 00:30:28 +0000",
-      "summary": "一項名為 NOHARM 的最新獨立醫療 AI 基準研究直指當前主流臨床 AI 工具的共通盲點。這項測試涵蓋了包 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "「落後群創」真是最後稻草？彭双浪欽點接班人、友達二把手柯富仁無預警「裸辭」投變數",
-      "link": "https://finance.technews.tw/2026/08/09/auo-president-vs-ceo/",
-      "publishedAt": "Sun, 09 Aug 2026 00:00:28 +0000",
-      "summary": "從寄予厚望的接班人，到隔日生效的突兀裸辭，友達營運長柯富仁下台後，這艘面板巨艦究竟會走向何方？ 沉寂多時的面板 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "不是全新星系，「小紅點」真面目是星系中央超大質量黑洞活動的短暫印記",
-      "link": "https://technews.tw/2026/08/09/evolutionary-mystery-cosmic-little-red-dots/",
-      "publishedAt": "Sat, 08 Aug 2026 16:00:21 +0000",
-      "summary": "詹姆斯‧韋伯太空望遠鏡於 2022 年發現「小紅點」以來，這些遙遠、緻密且呈現紅色的天體便成為天文學家高度關注 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "運動不只讓心臟更強壯，還會重塑心臟的神經網路",
-      "link": "https://technews.tw/2026/08/09/exercise-does-not-just-strengthen-the-heart/",
-      "publishedAt": "Sat, 08 Aug 2026 16:00:06 +0000",
-      "summary": "運動對心血管健康的好處不少，除了能降低血壓、改善血脂，還可讓心臟肌肉變得更有力。然而，心臟要正常運作，靠的不只 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
