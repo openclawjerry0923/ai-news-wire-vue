@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-09T19:33:04.538Z",
+  "generatedAt": "2026-08-09T20:33:08.598Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(qa): finish aggregate suites without shared cache races (#120816)",
-      "link": "https://github.com/openclaw/openclaw/commit/2e4683ba7fc22450791f8ec15ba899f486f2c49e",
-      "publishedAt": "2026-08-09T19:32:04Z",
-      "summary": "fix(qa): finish aggregate suites without shared cache races (#120816) * fix(qa): bound parallel aggregate script runs Punchcard-Session: amber-workshop-workshop-36 Co-authored-by: Dallin Romney * test(tui): wait for adopted session frame Punchcard-Session: amber-workshop-workshop-36 --------- Co-authored-by: Dallin Romney",
+      "title": "fix(telegram): reuse saved media for quoted replies",
+      "link": "https://github.com/openclaw/openclaw/commit/5262874d64f4f4b10930534c96506726e476ecc8",
+      "publishedAt": "2026-08-09T20:33:01Z",
+      "summary": "fix(telegram): reuse saved media for quoted replies Store resolved Telegram media references on observed messages so repeated quoted-photo turns reuse retained bytes instead of downloading them again. Preserve uncached external-reply media for the active turn and keep cache metadata out of model context. Co-authored-by: Ayaan Zaidi Co-authored-by: Ayaan Gazali",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): finish aggregate suites without shared cache races (#120816)",
-      "summaryZh": "重點：修正(qa): finish aggregate suites without shared cache races (#120816) * 修正(qa): bound parallel aggregate script runs Punc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): reuse saved media for quoted replies",
+      "summaryZh": "重點：修正(Telegram): reuse saved media for quoted replies Store resolved Telegram media references on observed messages so repe..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): resolve legacy surfaces from selected plugins (#121082)",
-      "link": "https://github.com/openclaw/openclaw/commit/27be8103110320438d8ddaffca5901af59689cc7",
-      "publishedAt": "2026-08-09T19:28:12Z",
-      "summary": "fix(sessions): resolve legacy surfaces from selected plugins (#121082) * fix(sessions): resolve legacy surfaces from selected plugins * fix(sessions): keep sidecar collection internal * fix(sessions): isolate legacy sidecar loading * style(sessions): format legacy surface imports * fix(sessions): preserve all enabled legacy owners * test(sessions): assert prepared surface propagation * test(sessions): safely inspect prepared surfaces",
+      "title": "feat(memory): enable MMR diversity by default (#121224)",
+      "link": "https://github.com/openclaw/openclaw/commit/c37b53868d1e0d30b70ecc309ce9c917b70a82ac",
+      "publishedAt": "2026-08-09T20:30:18Z",
+      "summary": "feat(memory): enable MMR diversity by default (#121224) Apply deterministic relevance-biased diversity ordering to builtin hybrid recall and preserve distinct non-tokenized snippets.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): resolve legacy surfaces from selected plugins (#121082)",
-      "summaryZh": "重點：修正(sessions): resolve legacy surfaces from selected plugins (#121082) * 修正(sessions): resolve legacy surfaces from selec..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(記憶): enable MMR diversity by default (#121224)",
+      "summaryZh": "重點：新功能(記憶): enable MMR diversity by default (#121224) Apply deterministic relevance-biased diversity ordering to builtin hy..."
     },
     {
       "id": 3,
-      "title": "feat(gateway): task-suggestion acceptance modes with compact split-bu…",
-      "link": "https://github.com/openclaw/openclaw/commit/d3c84674e86659bb14035fc777cf3a67a8ea8b26",
-      "publishedAt": "2026-08-09T19:21:21Z",
-      "summary": "feat(gateway): task-suggestion acceptance modes with compact split-button card (#121173) * feat(gateway): task-suggestion acceptance modes with compact split-button card - taskSuggestions.accept gains additive mode (worktree default | local | cloud | session) + cloudProfileId; operator.admin unchanged; worktree requests stay {taskId}-only for older gateways - local reuses the plain-cwd create; cloud mirrors the Control UI create-empty -> sessions.dispatch -> send sequence with pre-claim profile validation and full rollback; session delivers the prompt into the source session (steer single active run, plain turn when idle, ambiguous refused) and can only cancel the chip on failure, never touch the source session - Control UI card redesigned per owner reference: repo-basename eyebrow, clamped summary, instructions expander, split button with per-profile cloud items or a disabled \"No cloud environment configured\" hint - TUI gains the same modes as selector rows with capability gating and double-Enter arming Release-note context: operators now choose where an accepted follow-up runs — isolated worktree (default), the project checkout, a configured cloud worker, or as the next instruction in the current session — from a compact suggestion card. * fix(gateway): negotiate task-suggestion acceptance modes and enforce steerable-run invariant - Gate non-worktree task-suggestion actions on the negotiated Gateway capability. - Require exactly one steerable run ID before delivering into an active source session.",
+      "title": "docs: keep maintainer leads hands-on (#121225)",
+      "link": "https://github.com/openclaw/openclaw/commit/cd5ec0027c4e4d9fc5cdbe735f9d94ad5a8210c7",
+      "publishedAt": "2026-08-09T20:25:34Z",
+      "summary": "docs: keep maintainer leads hands-on (#121225)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): task-suggestion acceptance modes with compact split-bu…",
-      "summaryZh": "重點：新功能(Gateway): task-suggestion acceptance modes with compact split-button card (#121173) * 新功能(Gateway): task-suggestion ..."
+      "titleZh": "OpenClaw 文件更新：文件: keep maintainer leads hands-on (#121225)",
+      "summaryZh": "重點：文件: keep maintainer leads hands-on (#121225)..."
     },
     {
       "id": 4,
-      "title": "test(gateway): verify receiver group before reset (#121206)",
-      "link": "https://github.com/openclaw/openclaw/commit/141304a02e4660834890f00252f1283abb654b19",
-      "publishedAt": "2026-08-09T19:16:51Z",
-      "summary": "test(gateway): verify receiver group before reset (#121206) Punchcard-Session: amber-workshop-workshop-36",
+      "title": "refactor(memory): remove obsolete readonly recovery (#120844)",
+      "link": "https://github.com/openclaw/openclaw/commit/690f7d77786665ce18afb62fd4bfc5ecac870506",
+      "publishedAt": "2026-08-09T20:10:58Z",
+      "summary": "refactor(memory): remove obsolete readonly recovery (#120844)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): verify receiver group before reset (#121206)",
-      "summaryZh": "重點：test(Gateway): verify receiver group before reset (#121206) Punchcard-Session: amber-workshop-workshop-36..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(記憶): remove obsolete readonly recovery (#120844)",
+      "summaryZh": "重點：refactor(記憶): remove obsolete readonly recovery (#120844)..."
     },
     {
       "id": 5,
