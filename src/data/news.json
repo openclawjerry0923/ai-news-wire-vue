@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-08-09T05:05:41.690Z",
+  "generatedAt": "2026-08-09T06:57:13.019Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(sandbox): simplify legacy registry migration (#120895)",
-      "link": "https://github.com/openclaw/openclaw/commit/3aec297be03f77cc474059a2fbe92dea7da53109",
-      "publishedAt": "2026-08-09T05:03:58Z",
-      "summary": "refactor(sandbox): simplify legacy registry migration (#120895)",
+      "title": "fix(infra): wait for concurrent startup-migration lease instead of fa…",
+      "link": "https://github.com/openclaw/openclaw/commit/7dc4dc83fe8b5f602bfc52a64cfbfaa3133cb834",
+      "publishedAt": "2026-08-09T06:56:15Z",
+      "summary": "fix(infra): wait for concurrent startup-migration lease instead of failing gateway startup (#120959)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(sandbox): simplify legacy registry migration (#120895)",
-      "summaryZh": "重點：refactor(sandbox): simplify legacy registry migration (#120895)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): wait for concurrent startup-migration lease instead of fa…",
+      "summaryZh": "重點：修正(infra): wait for concurrent startup-migration lease instead of failing Gateway startup (#120959)..."
     },
     {
       "id": 2,
-      "title": "perf(doctor): delete the heavy doctor barrel and finish slimming enum…",
-      "link": "https://github.com/openclaw/openclaw/commit/6192673da41a6c501c10c9dd5d1387819dc41b01",
-      "publishedAt": "2026-08-09T05:01:44Z",
-      "summary": "perf(doctor): delete the heavy doctor barrel and finish slimming enumeration (#120882) * refactor(plugin-sdk): delete the heavy runtime-doctor barrel Nothing may pull the state-db/kysely graph through a doctor barrel anymore. The barrel's remaining heavy exports move to two narrow private-local subpaths, each with a single purpose: - doctor-repair-runtime: install-path diagnosis, plugin config removal, and state-database schema detect/repair (matrix doctor, voice-call lazy import) - plugin-state-store-runtime: the sync keyed-store factory. It stays out of plugin-state-runtime because hot channel entrypoints import that at module load and opening a store pulls the state-database graph. Doctor closures also stop pulling ssrf-runtime (fetch-guard + gateway net) for two legacy private-network helpers that live in the lighter ssrf-policy subpath: mattermost, nextcloud-talk, tlon, matrix. The closure guard now forbids the two new heavy subpaths instead of the deleted barrel, so the invariant keeps being enforced where it still applies. * perf(doctor): keep heavy graphs out of every doctor closure Doctor enumeration cold-loads each declaring plugin's contract closure, so one heavy import in a closure is paid by the whole sweep. Four barrels were still dragging unrelated graphs in for trivial helpers; each is repaired at the leaf rather than by caching downstream: - Legacy private-network config migration moves to a config leaf. It only reshapes records, but lived beside the SSRF runtime (DNS, proxy, logging), costing mattermost ~2.7s. ssrf-policy re-exports it, surface unchanged. - Streaming config readers move to a leaf. They read two config keys, but streaming.ts also formats tool aggregates, pulling tool-display/logging/ acp-core; that cost slack ~2.3s. - signal took the channel-secret barrel for isRecord; the canonical plugin record guard is string-coerce-runtime (root AGENTS.md). - llm-task took the provider-model barrel for parseModelRef, now a narrow model-ref-parse subpath. Full doctor enumeration of all 42 declaring plugins, built mode: legacy config rules 6668ms -> 1265ms, state migrations 184ms -> 127ms. No plugin remains an outlier; the slowest is now ~380ms against a ~200ms floor. Public export surfaces of every touched SDK subpath are byte-identical (verified by diffing built module exports before/after); the API baseline hashes move only because re-exported declarations emit differently. The closure guard gains rules for each repaired barrel so the invariant holds for future closures. * fix(release): exclude new private-local declarations from the published package Same pack-path rule as c41da3759f3: private-local subpaths ship without d.ts. * fix(doctor): repair the closure guard violations that break main The landed guard fails on main: three closures import heavy barrels for one symbol each. Two more surfaced once the guard learned about the provider-model barrel. Each gets a narrow subpath at the leaf: - telegram sent-message-cache + state-migrations took the session-store barrel (session accessor + state-db) for resolveStorePath -> session-store-paths - discord thread-bindings.state took the channel-outbound barrel (reply pipeline + channel registry) for one identity write -> outbound-echo-runtime - discord model-picker took the provider-model barrel for normalizeProviderId, which model-ref-parse now exposes beside parseModelRef The guard also stops walking artifacts of plugins whose manifest declares no doctor surface. Such a declaration gates the artifact off every enumeration path exactly as resolvePluginDoctorContracts does, so its closure cost is never paid; anthropic (\"doctorContract\": {}) was being held to a cost it cannot incur. Absent declarations still load eagerly and stay enforced. Side effect worth naming: discord's built doctor contract now loads again. On main both discord and telegram fail to require in packaged builds (an ESM-only transitive dep) and silently lose their repairs; this restores discord and takes enumerated legacy config rules from 87 to 99. Telegram's built artifact still pulls execa through dist chunking - a build-level defect with a different owner, filed as follow-up.",
+      "title": "fix(release): accept repeated PR title suffixes (#120948)",
+      "link": "https://github.com/openclaw/openclaw/commit/1b404a175548e967a827d374b58a51a8a39ec7be",
+      "publishedAt": "2026-08-09T06:49:39Z",
+      "summary": "fix(release): accept repeated PR title suffixes (#120948)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：perf(文件tor): delete the heavy 文件tor barrel and finish slimming enum…",
-      "summaryZh": "重點：perf(文件tor): delete the heavy 文件tor barrel and finish slimming enumeration (#120882) * refactor(plugin-sdk): delete the ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): accept repeated PR title suf修正 (#120948)",
+      "summaryZh": "重點：修正(版本發布): accept repeated PR title suf修正 (#120948)..."
     },
     {
       "id": 3,
-      "title": "perf(gateway): stop penalizing device-token Control UI reads (#120849)",
-      "link": "https://github.com/openclaw/openclaw/commit/4e74ae229e4a48f6506589a69ba603ac86437103",
-      "publishedAt": "2026-08-09T05:00:58Z",
-      "summary": "perf(gateway): stop penalizing device-token Control UI reads (#120849) * perf(gateway): skip shared-secret brute-force penalty for valid device tokens * fix(gateway): preserve trusted-proxy auth penalties * fix(gateway): preserve device auth during shared lockout * fix(gateway): decouple control ui auth penalties",
+      "title": "fix(mac): fail fast without full Xcode (#120909)",
+      "link": "https://github.com/openclaw/openclaw/commit/dba99b355b4e75cc97fddaf78bbf9c5a3058ca34",
+      "publishedAt": "2026-08-09T06:42:36Z",
+      "summary": "fix(mac): fail fast without full Xcode (#120909)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): stop penalizing device-token Control UI reads (#120849)",
-      "summaryZh": "重點：perf(Gateway): stop penalizing device-token Control UI reads (#120849) * perf(Gateway): skip shared-secret brute-force p..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mac): fail fast without full Xcode (#120909)",
+      "summaryZh": "重點：修正(mac): fail fast without full Xcode (#120909)..."
     },
     {
       "id": 4,
-      "title": "test(ci): restore source performance isolation guards (#120878)",
-      "link": "https://github.com/openclaw/openclaw/commit/150670c64addcf8c916b2810b921c24f1a0e1b7d",
-      "publishedAt": "2026-08-09T04:59:18Z",
-      "summary": "test(ci): restore source performance isolation guards (#120878) * test(ci): restore performance isolation guards * test(ci): exercise source performance isolation",
+      "title": "fix(telegram): inherit root group policy across accounts",
+      "link": "https://github.com/openclaw/openclaw/commit/a3d2ac7dc88795273f6daef0e59d7a03fda795e7",
+      "publishedAt": "2026-08-09T06:38:53Z",
+      "summary": "fix(telegram): inherit root group policy across accounts Use channels.telegram.groups as the shared default when an account omits groups. Explicit account maps, including {}, remain full replacements. This keeps chat admission and sender restrictions on one policy path and fixes silent multi-account authorization failures. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): restore source performance isolation guards (#120878)",
-      "summaryZh": "重點：test(ci): restore source performance isolation guards (#120878) * test(ci): restore performance isolation guards * test(..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): inherit root group policy across accounts",
+      "summaryZh": "重點：修正(Telegram): inherit root group policy across accounts Use channels.Telegram.groups as the shared default when an accou..."
     },
     {
       "id": 5,
+      "title": "不再是單一解答，從最新科學研究重新認識 ADHD 的五大面向",
+      "link": "https://technews.tw/2026/08/09/5-new-adhd-concepts-you-need-to-know/",
+      "publishedAt": "Sun, 09 Aug 2026 06:30:00 +0000",
+      "summary": "根據最新臨床研究，醫學界正全面重新理解「注意力不足過動症」（ADHD）。它不再僅是被視為單純的「白天注意力渙散 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "迷失在不存在的空間，研究指「後室」現象催生新型態數位暗黑旅遊",
+      "link": "https://technews.tw/2026/08/09/backrooms-digital-dark-tourism/",
+      "publishedAt": "Sun, 09 Aug 2026 06:00:48 +0000",
+      "summary": "如果有一個地方不在地圖上，卻吸引數百萬網友爭相「前往」探索，這會是怎樣的世界？這正是近年席捲網路的虛構都市傳說 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "日本新創 Starlight Engine 斥資 8 千億日圓建核融合電廠，力拚能源自主擺脫中東石油依賴",
+      "link": "https://technews.tw/2026/08/09/japanese-nuclear-fusion-startup-starlight-engine/",
+      "publishedAt": "Sun, 09 Aug 2026 05:30:57 +0000",
+      "summary": "日本一家專注於核融合技術的新創公司「Starlight Engine」，正計劃將其原型發電廠的投資規模大幅擴張 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "最新建模預測雙硼層可創下新超導紀錄，常壓下超導轉變溫度 68K",
       "link": "https://technews.tw/2026/08/09/bilayer-borophene-single-element-superconductor/",
       "publishedAt": "Sun, 09 Aug 2026 04:43:04 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "簡報太美反被嫌「AI 味」？三招告別空泛廢話，洗刷職場偷懶標籤",
       "link": "https://technews.tw/2026/08/09/how-to-make-presentations-less-ai-like/",
       "publishedAt": "Sun, 09 Aug 2026 03:00:14 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "BTS、Seventeen 御用大師出手解決舞蹈圈版權痛點，AI 助編舞家打造永續收入",
       "link": "https://technews.tw/2026/08/09/k-pop-choreographer-transitions-to-ai/",
       "publishedAt": "Sun, 09 Aug 2026 02:30:36 +0000",
       "summary": "曾為 BTS、Seventeen 等韓流天團操刀的知名編舞家崔容俊（Youngjun Choi），如今正將目光 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "弘塑7月營收月增25.6%",
-      "link": "https://finance.technews.tw/2026/08/09/gptc-3131-202607-financial-report/",
-      "publishedAt": "Sun, 09 Aug 2026 02:30:03 +0000",
-      "summary": "弘塑（3131）公布 7 月合併營收 7.93 億元，較上（6）月成長 25.6%，與去年同期相比為年增 42 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "熱浪竟掀起百億「起司金庫」危機，帕瑪森起司到阿里山茶的共同難題",
-      "link": "https://technews.tw/2026/08/09/extreme-heat-threatens-italys-parmesan-heartland/",
-      "publishedAt": "Sun, 09 Aug 2026 02:00:43 +0000",
-      "summary": "今年 6 月，歐洲迎接破紀錄的熱浪，義大利多地氣溫突破 40°C。不只人類受不了，乳牛也熱得吃不下，產奶量最多 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "做夢其實超耗腦力，日本最新研究揭開大腦在「快速動眼期」的能量悖論",
-      "link": "https://technews.tw/2026/08/09/brain-rem-sleep-energy-paradox/",
-      "publishedAt": "Sun, 09 Aug 2026 01:30:46 +0000",
-      "summary": "日本東北大學的一項最新小鼠研究發現，大腦在「快速動眼睡眠」（REM）期間，雖然血流量增加，且星狀膠質細胞內的丙 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
