@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-09T14:34:45.034Z",
+  "generatedAt": "2026-08-09T15:31:39.323Z",
   "items": [
     {
       "id": 1,
-      "title": "test(sessions): close SQLite fixtures before cleanup (#113074)",
-      "link": "https://github.com/openclaw/openclaw/commit/e9250be4bbaa4ec2ada46309df994adbc2f07caf",
-      "publishedAt": "2026-08-09T14:29:03Z",
-      "summary": "test(sessions): close SQLite fixtures before cleanup (#113074)",
+      "title": "refactor(plugins): consolidate delivery fixtures (#114464)",
+      "link": "https://github.com/openclaw/openclaw/commit/d60a5f7dd41e7ffcc5bebc8b9361a12a8c0172fe",
+      "publishedAt": "2026-08-09T15:30:53Z",
+      "summary": "refactor(plugins): consolidate delivery fixtures (#114464)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(sessions): close SQLite 修正tures before cleanup (#113074)",
-      "summaryZh": "重點：test(sessions): close SQLite 修正tures before cleanup (#113074)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): consolidate delivery 修正tures (#114464)",
+      "summaryZh": "重點：refactor(plugins): consolidate delivery 修正tures (#114464)..."
     },
     {
       "id": 2,
-      "title": "fix(plugin-sdk): throw typed MissingPublicSurfaceError instead of gen…",
-      "link": "https://github.com/openclaw/openclaw/commit/6680b0faac2f91a667dbc50b8287677f9dc8c634",
-      "publishedAt": "2026-08-09T14:24:39Z",
-      "summary": "fix(plugin-sdk): throw typed MissingPublicSurfaceError instead of generic Error (#102852) * fix(plugin-sdk): throw typed MissingPublicSurfaceError instead of generic Error Add MissingPublicSurfaceError for resolution failures in facade-loader and public-surface-loader. Keep open failures as generic Error since they represent I/O/permission issues, not missing artifacts. - facade-loader: MissingPublicSurfaceError for resolution failures only - public-surface-loader: import and use MissingPublicSurfaceError - Replace string-matching catcher with instanceof check - Tests: prove open failures are not MissingPublicSurfaceError - Tests: prove catcher skips MissingPublicSurfaceError correctly * test(plugin-sdk): harden missing surface coverage * fix(plugins): preserve resolved candidate errors * fix(plugins): satisfy resolved loader lint * test(plugin-sdk): cover typed loader fallbacks --------- Co-authored-by: Altay",
+      "title": "fix(codex): preserve provider usage breakdown (#117013)",
+      "link": "https://github.com/openclaw/openclaw/commit/843c145b7d7191b95d544424c725c5a0657f2c9d",
+      "publishedAt": "2026-08-09T15:30:07Z",
+      "summary": "fix(codex): preserve provider usage breakdown (#117013)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugin-sdk): throw typed MissingPublicSurfaceError instead of gen…",
-      "summaryZh": "重點：修正(plugin-sdk): throw typed MissingPublicSurfaceError instead of generic Error (#102852) * 修正(plugin-sdk): throw typed M..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve provider usage breakdown (#117013)",
+      "summaryZh": "重點：修正(codex): preserve provider usage breakdown (#117013)..."
     },
     {
       "id": 3,
-      "title": "refactor(scripts): migrate JavaScript tools to TypeScript (#121005)",
-      "link": "https://github.com/openclaw/openclaw/commit/c70aee247e831d21895f5ea3dda7497c50af0721",
-      "publishedAt": "2026-08-09T14:21:35Z",
-      "summary": "refactor(scripts): migrate JavaScript tools to TypeScript (#121005) * refactor(scripts): migrate JavaScript tools to TypeScript * fix(ci): keep changed-scope preflight zero-install * fix(ci): preserve zero-install script owners * fix(ci): complete script migration follow-through * fix(release): keep stable closeout zero-install * fix(scripts): preserve standalone execution boundaries * fix(scripts): repair standalone loader boundaries * fix(scripts): normalize gateway observation ids * fix(scripts): keep Docker packager standalone * test(scripts): preserve rebase cleanup helpers * test(sessions): use tracked temp directory",
+      "title": "fix(state): preserve rollback across additive columns (#121075)",
+      "link": "https://github.com/openclaw/openclaw/commit/a3e79236aaaf598c2df0d994a636f072fbfbfab1",
+      "publishedAt": "2026-08-09T15:29:19Z",
+      "summary": "fix(state): preserve rollback across additive columns (#121075) * fix(state): tolerate compatible additive columns Preserve same-version rollback compatibility for bare nullable SQLite columns while continuing to reject constrained schema drift. Treat the historical shared_host CHECK definition as a named compatibility boundary.\\n\\nRefs #121061 * fix(state): keep additive registry internal * test(state): keep constrained preflight fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): migrate JavaScript tools to TypeScript (#121005)",
-      "summaryZh": "重點：refactor(scripts): migrate JavaScript tools to TypeScript (#121005) * refactor(scripts): migrate JavaScript tools to Typ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(state): preserve rollback across additive columns (#121075)",
+      "summaryZh": "重點：修正(state): preserve rollback across additive columns (#121075) * 修正(state): tolerate compatible additive columns Preserv..."
     },
     {
       "id": 4,
-      "title": "fix(cron): preserve canonical failure alert routes (#116933)",
-      "link": "https://github.com/openclaw/openclaw/commit/2433fa213c6f0a66404ef45daf5017e2ac8b78fe",
-      "publishedAt": "2026-08-09T14:17:56Z",
-      "summary": "fix(cron): preserve canonical failure alert routes (#116933)",
+      "title": "fix(qa): reset Matrix scenario config state (#120017)",
+      "link": "https://github.com/openclaw/openclaw/commit/46e6f93a86ae21b66a09f01910cb7c6b544af982",
+      "publishedAt": "2026-08-09T15:24:03Z",
+      "summary": "fix(qa): reset Matrix scenario config state (#120017) * fix(qa): reset Matrix scenario config state Punchcard-Session: amber-workshop-workshop-36 * fix(qa): preserve Matrix tombstone array intent Punchcard-Session: amber-workshop-workshop-36 * fix(qa): restore Matrix audio scope default Punchcard-Session: amber-workshop-workshop-36 * fix(qa): type Matrix account reset state Punchcard-Session: amber-workshop-workshop-36",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): preserve canonical failure alert routes (#116933)",
-      "summaryZh": "重點：修正(排程): preserve canonical failure alert routes (#116933)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): reset Matrix scenario config state (#120017)",
+      "summaryZh": "重點：修正(qa): reset Matrix scenario config state (#120017) * 修正(qa): reset Matrix scenario config state Punchcard-Session: amb..."
     },
     {
       "id": 5,
