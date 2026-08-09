@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-09T17:32:03.379Z",
+  "generatedAt": "2026-08-09T18:41:14.173Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(gateway): per-transcript broadcast lanes (#121104)",
-      "link": "https://github.com/openclaw/openclaw/commit/ad1a2cd7e73a97d43d9ca58900ce4574b4ad6dd7",
-      "publishedAt": "2026-08-09T17:17:30Z",
-      "summary": "perf(gateway): per-transcript broadcast lanes (#121104) * perf(gateway): per-transcript broadcast lanes Transcript-update broadcasts were serialized behind one global promise queue, so one session's pending async seq read head-of-line blocked every other session's session.message and sessions.changed delivery. Ordering is a per-transcript contract, so key the queue by transcript identity and drop drained lanes. Per-message transcript usage stays derived: session.message payloads carry live totalTokens/estimatedCostUsd as a dashboard API contract (#50101). * fix(ui): target the Cloud Worker Desktop labs row in its toggle test The row added in #120727 reused index 6, which belongs to Message audit metadata, so the case toggled the audit row and asserted its patch. Labs features render in registry order, and workerDesktop is the eighth entry.",
+      "title": "fix(cron): honor permanent provider classifications (#114113)",
+      "link": "https://github.com/openclaw/openclaw/commit/e86512f93b0dcf32a09f672e4286614b976f55c2",
+      "publishedAt": "2026-08-09T18:40:24Z",
+      "summary": "fix(cron): honor permanent provider classifications (#114113)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): per-transcript broadcast lanes (#121104)",
-      "summaryZh": "重點：perf(Gateway): per-transcript broadcast lanes (#121104) * perf(Gateway): per-transcript broadcast lanes Transcript-updat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): honor permanent provider classifications (#114113)",
+      "summaryZh": "重點：修正(排程): honor permanent provider classifications (#114113)..."
     },
     {
       "id": 2,
-      "title": "fix(release): prefer SQLite upgrade survivor state (#120983)",
-      "link": "https://github.com/openclaw/openclaw/commit/af73dbcc834027e84d8717e17c504020a17e567a",
-      "publishedAt": "2026-08-09T17:08:15Z",
-      "summary": "fix(release): prefer SQLite upgrade survivor state (#120983)",
+      "title": "refactor(agents): unify prepared reply dispatch publication (#121089)",
+      "link": "https://github.com/openclaw/openclaw/commit/f68f68bc43201d6df9ef92925a383b6ce945069f",
+      "publishedAt": "2026-08-09T18:40:07Z",
+      "summary": "refactor(agents): unify prepared reply dispatch publication (#121089) * refactor(agents): unify prepared reply dispatch publication * fix(agents): scope prepared reply runtime at dispatch * fix(agents): keep reply context runner private * test(agents): read prepared config from dispatch scope",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): prefer SQLite upgrade survivor state (#120983)",
-      "summaryZh": "重點：修正(版本發布): prefer SQLite upgrade survivor state (#120983)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): unify prepared reply dispatch publication (#121089)",
+      "summaryZh": "重點：refactor(agents): unify prepared reply dispatch publication (#121089) * refactor(agents): unify prepared reply dispatch ..."
     },
     {
       "id": 3,
-      "title": "fix(openai): bound streamed tool arguments (#117055)",
-      "link": "https://github.com/openclaw/openclaw/commit/92e522cade4c8c04a0eee3d2851e3dd4a127eb68",
-      "publishedAt": "2026-08-09T17:02:23Z",
-      "summary": "fix(openai): bound streamed tool arguments (#117055)",
+      "title": "fix(ui): preserve new-session drafts during route loading (#121182)",
+      "link": "https://github.com/openclaw/openclaw/commit/de13b4b1b864808740e93ae7163d539b360e2e9c",
+      "publishedAt": "2026-08-09T18:29:08Z",
+      "summary": "fix(ui): preserve new-session drafts during route loading (#121182) Punchcard-Session: amber-workshop-workshop-36",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(openai): bound streamed tool arguments (#117055)",
-      "summaryZh": "重點：修正(openai): bound streamed tool arguments (#117055)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve new-session drafts during route loading (#121182)",
+      "summaryZh": "重點：修正(ui): preserve new-session drafts during route loading (#121182) Punchcard-Session: amber-workshop-workshop-36..."
     },
     {
       "id": 4,
-      "title": "fix(openai): preserve failed Responses terminal usage (#115175)",
-      "link": "https://github.com/openclaw/openclaw/commit/4af090365c8c9e537ff76a7189c0f90c1cb09577",
-      "publishedAt": "2026-08-09T16:59:21Z",
-      "summary": "fix(openai): preserve failed Responses terminal usage (#115175) * fix(openai): preserve failed Responses usage * test(ci): include failed SSE prefix sibling",
+      "title": "fix: exact dated models work after gateway ready (#121119)",
+      "link": "https://github.com/openclaw/openclaw/commit/af4ffb2e8ed0be505209c45c9ba90019ba587d29",
+      "publishedAt": "2026-08-09T18:23:32Z",
+      "summary": "fix: exact dated models work after gateway ready (#121119) * fix(agents): publish exact configured model facts * fix(agents): keep prepared model completion internal * fix(agents): scope prepared model plugin lookup * refactor(agents): split prepared model configured facts * fix(agents): keep configured catalog types acyclic",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(openai): preserve failed Responses terminal usage (#115175)",
-      "summaryZh": "重點：修正(openai): preserve failed Responses terminal usage (#115175) * 修正(openai): preserve failed Responses usage * test(ci):..."
+      "titleZh": "OpenClaw 程式碼更新：修正: exact dated 模型 work after Gateway ready (#121119)",
+      "summaryZh": "重點：修正: exact dated 模型 work after Gateway ready (#121119) * 修正(agents): publish exact configured 模型 facts * 修正(agents): keep..."
     },
     {
       "id": 5,
