@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-09T13:50:17.051Z",
+  "generatedAt": "2026-08-09T14:34:45.034Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(telegram): keep tool progress transient without drafts",
-      "link": "https://github.com/openclaw/openclaw/commit/6a586cd0eadde0990f1c6bb3991dd190620e50d1",
-      "publishedAt": "2026-08-09T13:48:02Z",
-      "summary": "fix(telegram): keep tool progress transient without drafts Keep quiet Telegram tool progress on the transient draft lane when it exists. Preserve durable delivery for media, execution approvals, and ask-user prompts across direct and queued turns. Co-authored-by: Ayaan Zaidi",
+      "title": "test(sessions): close SQLite fixtures before cleanup (#113074)",
+      "link": "https://github.com/openclaw/openclaw/commit/e9250be4bbaa4ec2ada46309df994adbc2f07caf",
+      "publishedAt": "2026-08-09T14:29:03Z",
+      "summary": "test(sessions): close SQLite fixtures before cleanup (#113074)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): keep tool progress transient without drafts",
-      "summaryZh": "重點：修正(Telegram): keep tool progress transient without drafts Keep quiet Telegram tool progress on the transient draft lane ..."
+      "titleZh": "OpenClaw 程式碼更新：test(sessions): close SQLite 修正tures before cleanup (#113074)",
+      "summaryZh": "重點：test(sessions): close SQLite 修正tures before cleanup (#113074)..."
     },
     {
       "id": 2,
-      "title": "fix: new session finds models after fresh gateway start (#121057)",
-      "link": "https://github.com/openclaw/openclaw/commit/4fec5242439d420af838d9a8f76ae9f0b94fb88a",
-      "publishedAt": "2026-08-09T13:40:25Z",
-      "summary": "fix: new session finds models after fresh gateway start (#121057) * fix(gateway): align chat metadata with prepared auth * fix(gateway): complete prepared auth mode contract * fix(agents): canonicalize prepared auth aliases * test(sessions): finish temp-dir helper migration",
+      "title": "fix(plugin-sdk): throw typed MissingPublicSurfaceError instead of gen…",
+      "link": "https://github.com/openclaw/openclaw/commit/6680b0faac2f91a667dbc50b8287677f9dc8c634",
+      "publishedAt": "2026-08-09T14:24:39Z",
+      "summary": "fix(plugin-sdk): throw typed MissingPublicSurfaceError instead of generic Error (#102852) * fix(plugin-sdk): throw typed MissingPublicSurfaceError instead of generic Error Add MissingPublicSurfaceError for resolution failures in facade-loader and public-surface-loader. Keep open failures as generic Error since they represent I/O/permission issues, not missing artifacts. - facade-loader: MissingPublicSurfaceError for resolution failures only - public-surface-loader: import and use MissingPublicSurfaceError - Replace string-matching catcher with instanceof check - Tests: prove open failures are not MissingPublicSurfaceError - Tests: prove catcher skips MissingPublicSurfaceError correctly * test(plugin-sdk): harden missing surface coverage * fix(plugins): preserve resolved candidate errors * fix(plugins): satisfy resolved loader lint * test(plugin-sdk): cover typed loader fallbacks --------- Co-authored-by: Altay",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: new session finds 模型 after fresh Gateway start (#121057)",
-      "summaryZh": "重點：修正: new session finds 模型 after fresh Gateway start (#121057) * 修正(Gateway): align chat metadata with prepared auth * 修正(..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugin-sdk): throw typed MissingPublicSurfaceError instead of gen…",
+      "summaryZh": "重點：修正(plugin-sdk): throw typed MissingPublicSurfaceError instead of generic Error (#102852) * 修正(plugin-sdk): throw typed M..."
     },
     {
       "id": 3,
-      "title": "test(ios): isolate TLS pin clearing (#113067)",
-      "link": "https://github.com/openclaw/openclaw/commit/0dbce297fd4040d34983b99bd9495b885b5f2552",
-      "publishedAt": "2026-08-09T13:34:10Z",
-      "summary": "test(ios): isolate TLS pin clearing (#113067)",
+      "title": "refactor(scripts): migrate JavaScript tools to TypeScript (#121005)",
+      "link": "https://github.com/openclaw/openclaw/commit/c70aee247e831d21895f5ea3dda7497c50af0721",
+      "publishedAt": "2026-08-09T14:21:35Z",
+      "summary": "refactor(scripts): migrate JavaScript tools to TypeScript (#121005) * refactor(scripts): migrate JavaScript tools to TypeScript * fix(ci): keep changed-scope preflight zero-install * fix(ci): preserve zero-install script owners * fix(ci): complete script migration follow-through * fix(release): keep stable closeout zero-install * fix(scripts): preserve standalone execution boundaries * fix(scripts): repair standalone loader boundaries * fix(scripts): normalize gateway observation ids * fix(scripts): keep Docker packager standalone * test(scripts): preserve rebase cleanup helpers * test(sessions): use tracked temp directory",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ios): isolate TLS pin clearing (#113067)",
-      "summaryZh": "重點：test(ios): isolate TLS pin clearing (#113067)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): migrate JavaScript tools to TypeScript (#121005)",
+      "summaryZh": "重點：refactor(scripts): migrate JavaScript tools to TypeScript (#121005) * refactor(scripts): migrate JavaScript tools to Typ..."
     },
     {
       "id": 4,
-      "title": "fix(state): preserve additive column order (#121062)",
-      "link": "https://github.com/openclaw/openclaw/commit/0b4c8a9fc9ba2884d7a40613f6d3acd4f1794324",
-      "publishedAt": "2026-08-09T13:26:54Z",
-      "summary": "fix(state): preserve additive column order (#121062) Keep fresh shared-state table definitions aligned with SQLite ADD COLUMN ordering so current-version upgraded databases pass canonical schema validation.\\n\\nRefs #121061",
+      "title": "fix(cron): preserve canonical failure alert routes (#116933)",
+      "link": "https://github.com/openclaw/openclaw/commit/2433fa213c6f0a66404ef45daf5017e2ac8b78fe",
+      "publishedAt": "2026-08-09T14:17:56Z",
+      "summary": "fix(cron): preserve canonical failure alert routes (#116933)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(state): preserve additive column order (#121062)",
-      "summaryZh": "重點：修正(state): preserve additive column order (#121062) Keep fresh shared-state table definitions aligned with SQLite ADD CO..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): preserve canonical failure alert routes (#116933)",
+      "summaryZh": "重點：修正(排程): preserve canonical failure alert routes (#116933)..."
     },
     {
       "id": 5,
