@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-10T20:46:43.383Z",
+  "generatedAt": "2026-08-10T21:41:18.671Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(skills): reconcile learned skill collections (#121653)",
-      "link": "https://github.com/openclaw/openclaw/commit/bdf202ccc8c16449e37317c36069d80427d31cb4",
-      "publishedAt": "2026-08-10T20:36:26Z",
-      "summary": "feat(skills): reconcile learned skill collections (#121653) Replace divergent per-skill curation with one daily isolated collection review that can consolidate, rewrite, create, and drop writable skills atomically. Autonomous auto mode remains automatic. Adds bounded review, transactional recovery, durable cadence, shared locking, and reuse-first /learn behavior. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ci): heal dead-export scan and refresh plugin-sdk baseline",
+      "link": "https://github.com/openclaw/openclaw/commit/db879e73fa988e88e4b899fd39e06376d6d19d29",
+      "publishedAt": "2026-08-10T21:34:54Z",
+      "summary": "fix(ci): heal dead-export scan and refresh plugin-sdk baseline collection-rollback's directory helper lost its external caller in bdf202ccc8c — make it local; register collection-review's focused-test seam per the knip ignoreIssues convention; regenerate the API baseline after recent harness/channel contract drift.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(skills): reconcile learned skill collections (#121653)",
-      "summaryZh": "重點：新功能(skills): reconcile learned skill collections (#121653) Replace divergent per-skill curation with one daily isolated ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): heal dead-export scan and refresh plugin-sdk baseline",
+      "summaryZh": "重點：修正(ci): heal dead-export scan and refresh plugin-sdk baseline collection-rollback's directory helper lost its external c..."
     },
     {
       "id": 2,
-      "title": "fix(ci): heal main formatting and worker-registry import cycle",
-      "link": "https://github.com/openclaw/openclaw/commit/39b9d7b1a1602cde6c7f1956227b7eb13031f0e2",
-      "publishedAt": "2026-08-10T20:32:36Z",
-      "summary": "fix(ci): heal main formatting and worker-registry import cycle approval.ts was pushed unformatted; worker-provider-registry.ts pulled the full OpenClawConfig graph back into the plugins layer — use the CloudWorkersConfig leaf instead.",
+      "title": "fix(codex): let code-mode-only models discover deferred tools (#121703)",
+      "link": "https://github.com/openclaw/openclaw/commit/8e91d6c0c195d53667f2cd221517c55fe9ad6251",
+      "publishedAt": "2026-08-10T21:15:06Z",
+      "summary": "fix(codex): let code-mode-only models discover deferred tools (#121703) * fix(codex): let code-mode-only models discover deferred tools * test(codex): refresh deferred tool prompt snapshots * test: expose prompt snapshot drift context * test: pinpoint prompt snapshot drift * test(codex): sync deferred tool prompt metadata * test(codex): refresh rebased heartbeat metadata",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): heal main formatting and worker-registry import cycle",
-      "summaryZh": "重點：修正(ci): heal main formatting and worker-registry import cycle approval.ts was pushed unformatted; worker-provider-regist..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): let code-mode-only 模型 discover deferred tools (#121703)",
+      "summaryZh": "重點：修正(codex): let code-mode-only 模型 discover deferred tools (#121703) * 修正(codex): let code-mode-only 模型 discover deferred ..."
     },
     {
       "id": 3,
-      "title": "fix(ui): prevent terminal garble after Gateway reconnect (#121637)",
-      "link": "https://github.com/openclaw/openclaw/commit/0b0d9f5811c045baddd49bcd6cd36a36f25cac8b",
-      "publishedAt": "2026-08-10T20:27:28Z",
-      "summary": "fix(ui): prevent terminal garble after Gateway reconnect (#121637) * fix(ui): recreate terminal runtime after replay gaps Replace Ghostty's in-place reset with a fresh controller/runtime for authoritative recovery replay so Gateway reconnects cannot expose stale WASM terminal state. Preserve replay ordering, focus and tab visibility, and dependency cleanup.\\n\\nFixes #121636 * test(ui): fix terminal replay type coverage * fix(ci): repair current-main validation blockers * test(discord): align progress fixtures with callbacks * fix(ui): restore focus after cancelled terminal replay * chore(ci): drop superseded baseline fixups * fix(ui): stage terminal replay replacements safely * fix(ui): serialize asynchronous terminal replay * fix(ui): guard superseded terminal replay recovery * fix(ui): invalidate superseded terminal replay callbacks * fix(ui): keep staged terminal replay inert",
+      "title": "test(approvals): align native route selection semantics",
+      "link": "https://github.com/openclaw/openclaw/commit/2205c5df28f1bb6cb8496eb28c61dc6a53b491e3",
+      "publishedAt": "2026-08-10T21:13:18Z",
+      "summary": "test(approvals): align native route selection semantics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent terminal garble after Gateway reconnect (#121637)",
-      "summaryZh": "重點：修正(ui): prevent terminal garble after Gateway reconnect (#121637) * 修正(ui): recreate terminal runtime after replay gaps ..."
+      "titleZh": "OpenClaw 程式碼更新：test(approvals): align native route selection semantics",
+      "summaryZh": "重點：test(approvals): align native route selection semantics..."
     },
     {
       "id": 4,
-      "title": "fix(update): record verified install receipts even when the handoff f…",
-      "link": "https://github.com/openclaw/openclaw/commit/29ab80f185e0705639b2dac8ae58acd9c2f9b87f",
-      "publishedAt": "2026-08-10T20:27:10Z",
-      "summary": "fix(update): record verified install receipts even when the handoff fails (#121664) A campaign apply that succeeds at the git level but fails its managed-service handoff (e.g. a post-restart health-probe false negative under SQLite load) marked the update sentinel \"error\", so the #121328 receipt-backed upstream fallback never engaged and dev campaigns stalled silently on \"no-upstream\" until manual branch re-attach. The receipt now records the install fact proven by the running process (git mode, root + revision verified, install changed) regardless of sentinel status; the reader and store drop their redundant success gates; the concept is renamed Successful* -> Verified*. Receipt writes are scoped to git mode (the only mode ever read), so dead npm-mode rows can no longer clobber a valid git receipt. Fixes #121634",
+      "title": "fix(architecture): split cyclic runtime contracts",
+      "link": "https://github.com/openclaw/openclaw/commit/40817435e8155cd0bde223300c4f22a3015c1dd5",
+      "publishedAt": "2026-08-10T21:13:18Z",
+      "summary": "fix(architecture): split cyclic runtime contracts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): record verified install receipts even when the handoff f…",
-      "summaryZh": "重點：修正(update): record verified install receipts even when the handoff fails (#121664) A campaign apply that succeeds at the..."
+      "titleZh": "OpenClaw 程式碼更新：修正(architecture): split cyclic runtime contracts",
+      "summaryZh": "重點：修正(architecture): split cyclic runtime contracts..."
     },
     {
       "id": 5,
