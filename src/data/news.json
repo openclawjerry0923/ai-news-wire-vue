@@ -1,41 +1,61 @@
 {
-  "generatedAt": "2026-08-10T13:09:02.102Z",
+  "generatedAt": "2026-08-10T14:58:44.984Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): surface Claude CLI no-response failures (#121589)",
-      "link": "https://github.com/openclaw/openclaw/commit/342a1e70a0418721b7231241e0d4d825c81d41a0",
-      "publishedAt": "2026-08-10T13:05:33Z",
-      "summary": "fix(agents): surface Claude CLI no-response failures (#121589) Classify Claude's exact synthetic empty terminal at the shared CLI parser so directed turns fail visibly instead of becoming NO_REPLY. Ambient group silence and bounded replay-safe recovery remain unchanged. Co-authored-by: Ayaan Zaidi Co-authored-by: Lu Wang Co-authored-by: Shakker",
+      "title": "feat(docs-ci): validate docs config examples against the schema (#121…",
+      "link": "https://github.com/openclaw/openclaw/commit/a0ad38e71ab727a269679bce096191d50cdffedc",
+      "publishedAt": "2026-08-10T14:57:56Z",
+      "summary": "feat(docs-ci): validate docs config examples against the schema (#121336) * feat(docs-ci): validate config examples against schema * docs: teach canonical agent roster configuration * docs: nest inline environment variables under vars * docs: update canonical media model keys * docs: remove retired config keys from examples * fix(docs-ci): keep audit internals private * feat(docs-ci): validate plugin-owned config examples * fix(docs-ci): validate indented config fences * fix(ci): route manifest changes through docs audit * chore(docs): refresh generated config baselines",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): surface Claude CLI no-response failures (#121589)",
-      "summaryZh": "重點：修正(agents): surface Claude CLI no-response failures (#121589) Classify Claude's exact synthetic empty terminal at the sh..."
+      "titleZh": "OpenClaw 文件更新：新功能(文件-ci): validate 文件 config examples against the schema (#121…",
+      "summaryZh": "重點：新功能(文件-ci): validate 文件 config examples against the schema (#121336) * 新功能(文件-ci): validate config examples against sche..."
     },
     {
       "id": 2,
-      "title": "fix(codex): report harness context window; compact context popover (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/0d4e9f3eded97cc064a55372e553576bce09db6a",
-      "publishedAt": "2026-08-10T12:52:19Z",
-      "summary": "fix(codex): report harness context window; compact context popover (#121491) * fix(codex): report harness context window as session contextTokens Codex app-server reports model_context_window per turn. Carry it through the projector into the run result meta so session rows show the real window instead of the catalog's standard-tier input cap (272k vs 1M for gpt-5.6 models). * improve(ui): compact chat context popover Inline stat rows replace boxed tiles; zero-value cost rows and the whole cost section when empty are omitted; provider/model provenance lines are removed because the footer already shows the model; and the popover is narrowed to 300px. * refactor(codex): split attempt-result assembly out of event projector * fix(codex): seed attempt context window from startup binding App-server v2 turn/started omits the core model_context_window, so thread/tokenUsage/updated is the only live carrier. Seed usage-less attempts from the retained startup binding rollout/session window so session metadata cannot regress to the catalog fallback. * fix(codex): prefer native startup context window Persisted session contextTokens has no source provenance and may contain the catalog fallback. Keep the minimum window for the conservative rotation fuse, but seed the projector from the native rollout when it is available. * chore(plugin-sdk): regenerate api baseline (new format) * revert(gateway): \"prevent restart replay after final delivery\" (broke 5 CI jobs)",
+      "title": "fix(mac): allow superseding AI candidate tests (#121613)",
+      "link": "https://github.com/openclaw/openclaw/commit/4849106b3b8bacd73c0076164c2031708b1215bb",
+      "publishedAt": "2026-08-10T14:55:31Z",
+      "summary": "fix(mac): allow superseding AI candidate tests (#121613)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): report harness context window; compact context popover (#…",
-      "summaryZh": "重點：修正(codex): report harness context window; compact context popover (#121491) * 修正(codex): report harness context window a..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mac): allow superseding AI candidate tests (#121613)",
+      "summaryZh": "重點：修正(mac): allow superseding AI candidate tests (#121613)..."
     },
     {
       "id": 3,
-      "title": "fix(agent): allow progress before final message-tool replies",
-      "link": "https://github.com/openclaw/openclaw/commit/cd7b7f639da0d26424b52f3ffa2391f81acb5040",
-      "publishedAt": "2026-08-10T12:22:59Z",
-      "summary": "fix(agent): allow progress before final message-tool replies Treat message(final=false) as progress and final=true or omission as the terminal source reply. Repeated terminal delivery now returns a non-error outcome without another provider send. Co-authored-by: Ayaan Zaidi Co-authored-by: 宇宙熊Yzx Co-authored-by: Markus",
+      "title": "fix(qa): prevent lost or replayed messages after gateway restart (#11…",
+      "link": "https://github.com/openclaw/openclaw/commit/36ccceb52af654799f59c72f11791d6bfff01fca",
+      "publishedAt": "2026-08-10T14:51:29Z",
+      "summary": "fix(qa): prevent lost or replayed messages after gateway restart (#113899) * fix(qa): record completed bus dispatches * test(qa): type gateway stop listener",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agent): allow progress before final message-tool replies",
-      "summaryZh": "重點：修正(agent): allow progress before final message-tool replies Treat message(final=false) as progress and final=true or omi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): prevent lost or replayed messages after Gateway restart (#11…",
+      "summaryZh": "重點：修正(qa): prevent lost or replayed messages after Gateway restart (#113899) * 修正(qa): record completed bus dispatches * te..."
     },
     {
       "id": 4,
+      "title": "fix(agents): make file reads safe and explicit (#121508)",
+      "link": "https://github.com/openclaw/openclaw/commit/5295f2578e1be11671987df79a2110f36e663daa",
+      "publishedAt": "2026-08-10T14:47:53Z",
+      "summary": "fix(agents): make file reads safe and explicit (#121508) Use fs-safe 0.5.4 for nonblocking, descriptor-validated reads. Resolve one unambiguous Unicode-equivalent path and return explicit empty/EOF results. Default local reads now reject final symlinks and special files. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): make file reads safe and explicit (#121508)",
+      "summaryZh": "重點：修正(agents): make file reads safe and explicit (#121508) Use fs-safe 0.5.4 for nonblocking, descriptor-validated reads. R..."
+    },
+    {
+      "id": 5,
+      "title": "不只探索暗物質，NASA 羅曼太空望遠鏡兼職「小行星獵手」守護地球",
+      "link": "https://technews.tw/2026/08/10/nasa-nancy-grace-roman-space-telescope/",
+      "publishedAt": "Mon, 10 Aug 2026 14:09:12 +0000",
+      "summary": "美國太空總署（NASA）預計於 8 月 30 日發射南希·葛莉絲·羅曼太空望遠鏡（Nancy Grace Ro [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "M317月營收1.66 億元",
       "link": "https://finance.technews.tw/2026/08/10/m31-6643-202607-financial-report/",
       "publishedAt": "Mon, 10 Aug 2026 12:10:04 +0000",
@@ -44,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 7,
       "title": "CISA警告Progress LoadMaster重大漏洞遭到利用",
       "link": "https://www.ithome.com.tw/news/177993",
       "publishedAt": "2026-08-10 12:08:59",
@@ -53,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "美國多地供水系統遭網攻，研究發現全球逾4千臺Rockwell OT控制器暴露於公開網路",
       "link": "https://www.ithome.com.tw/news/177992",
       "publishedAt": "2026-08-10 12:08:34",
@@ -62,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "Anthropic讓AI監督AI，Claude Code自動模式8月14日成為預設",
       "link": "https://www.ithome.com.tw/news/177994",
       "publishedAt": "2026-08-10 12:08:21",
@@ -71,31 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Linux核心SCTPhantom漏洞隱身18年，可取得最高權限並突破容器隔離",
       "link": "https://www.ithome.com.tw/news/177988",
       "publishedAt": "2026-08-10 12:08:05",
       "summary": "騰訊OS安全團隊（Tencent Zhuque Lab）揭露Linux核心漏洞SCTPhantom，編號CVE-2026-64564。該漏洞存在於SCTP網路通訊功能，問題可追溯至約18年前，研究人員已在多個Linux環境驗證，並示範低權限本機程式可藉此取得最高系統權限，在特定條件下也能從容器進一步控制主機。Linux核心已發布修補程式。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "docs(web): document the sidebar unsent-draft pencil indicator",
-      "link": "https://github.com/openclaw/openclaw/commit/4f046b5dc6f7877f4f6ed1cdba578b58842cdb45",
-      "publishedAt": "2026-08-10T11:56:43Z",
-      "summary": "docs(web): document the sidebar unsent-draft pencil indicator",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(web): 文件ument the sidebar unsent-draft pencil indicator",
-      "summaryZh": "重點：文件(web): 文件ument the sidebar unsent-draft pencil indicator..."
-    },
-    {
-      "id": 10,
-      "title": "土耳其擴大總統府網路管制權，可要求平臺2小時內執行封鎖",
-      "link": "https://www.ithome.com.tw/news/177986",
-      "publishedAt": "2026-08-10 11:08:57",
-      "summary": "土耳其在7月31日正式實施第7590號法律，將部分網路管制權集中至總統府。遇到緊急情況時，政府可下令電信業者、網路服務商、資料中心及內容平臺採取封鎖等管制措施，業者最遲須在收到命令後2小時內執行，之後才由法院審查。",
       "source": "iThome",
       "tag": "繁中"
     }
