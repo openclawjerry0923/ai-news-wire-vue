@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T05:36:35.374Z",
+  "generatedAt": "2026-08-10T07:42:18.274Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(sessions): preserve thread on internal turns (#121321)",
-      "link": "https://github.com/openclaw/openclaw/commit/93ba11138fc5e80d15c84f5af0c19234049ec2af",
-      "publishedAt": "2026-08-10T05:32:30Z",
-      "summary": "fix(sessions): preserve thread on internal turns (#121321)",
+      "title": "fix(workers): preserve disappeared-worker failures across restarts (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/f6298bf84d963797034251200d9f5f91d6efe9ae",
+      "publishedAt": "2026-08-10T07:36:52Z",
+      "summary": "fix(workers): preserve disappeared-worker failures across restarts (#121122) * fix(workers): persist placement terminal failures * fix(workers): refresh placement protocol clients * refactor(workers): isolate error formatting * fix: integrate cloud terminal state with current main * chore(plugin-sdk): refresh API baseline * refactor(ui): inline one-use cloud terminal-reason banner helper Keeps the Control UI startup JS bundle inside its 317 KiB gzip budget (the helper + type-only import tipped it by 16 bytes). * refactor(ui): trim terminal-reason lookup to type-erased optional access Recovers the last gzip byte of the Control UI startup budget (324609 B vs the 324608 B limit).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): preserve thread on internal turns (#121321)",
-      "summaryZh": "重點：修正(sessions): preserve thread on internal turns (#121321)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(workers): preserve disappeared-worker failures across restarts (#…",
+      "summaryZh": "重點：修正(workers): preserve disappeared-worker failures across restarts (#121122) * 修正(workers): persist placement terminal fa..."
     },
     {
       "id": 8,
-      "title": "fix(ui): center the onboarding dashboard and fix its card chrome (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/7d1958bf616fbadd3ce5b1846e877dc9b6e39dcf",
-      "publishedAt": "2026-08-10T05:31:17Z",
-      "summary": "fix(ui): center the onboarding dashboard and fix its card chrome (#121416) * fix(ui): center onboarding dashboard and quiet its chrome The custodian onboarding route carried the settings takeover class, so the shell reserved a hidden 288px sidebar column and the whole page rendered off-center. Onboarding now opts out of the takeover, drops the duplicate header identity (the thread already introduces the mascot), and option-card hover no longer lifts or re-tints cards. * fix(ui): stop next-step cards overlaying the message meta row The option-card and wizard-step thread attachments pulled themselves up with a -12px top margin, covering the preceding message's sender/timestamp line. * test(ui): align nudge e2e with the minimal onboarding header",
+      "title": "feat(control-ui): preview text attachments inline with a download act…",
+      "link": "https://github.com/openclaw/openclaw/commit/3f0868498966c17b62375e1efe73265c18488d97",
+      "publishedAt": "2026-08-10T07:30:56Z",
+      "summary": "feat(control-ui): preview text attachments inline with a download action (#121400) * feat(control-ui): preview text attachments inline with a download action Document attachments in chat now render a unified attachment card: text-like files get a bounded, cached inline preview plus an explicit download button; other documents get the same card chrome with a download action. * fix(control-ui): split document preview module and e2e file under lint caps * fix(control-ui): keep availability helpers module-internal after resolver move * fix(control-ui): cancel document preview streams at the preview budget Reads at most the preview budget from the response body and cancels the reader, so unknown-size or endless text attachments cannot buffer fully just by rendering; adds a streaming regression test. * fix(control-ui): slice preview chunks to the byte budget before decoding A blob or misbehaving source can deliver one giant chunk; cap the bytes handed to TextDecoder at the remaining preview budget so rendering never allocates or scans the full payload. Adds a single-oversized-chunk regression asserting the decoded byte bound. * test(control-ui): track decoded bytes via a TextDecoder subclass Replaces the prototype spy that tripped typescript(unbound-method) in oxlint with a stubbed tracking subclass; unstubGlobals restores it.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): center the onboarding dashboard and 修正 its card chrome (#12…",
-      "summaryZh": "重點：修正(ui): center the onboarding dashboard and 修正 its card chrome (#121416) * 修正(ui): center onboarding dashboard and quiet..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(control-ui): preview text attachments inline with a download act…",
+      "summaryZh": "重點：新功能(control-ui): preview text attachments inline with a download action (#121400) * 新功能(control-ui): preview text attach..."
     },
     {
       "id": 9,
-      "title": "fix(ui): dark-mode body text renders brighter than the dark-reading c…",
-      "link": "https://github.com/openclaw/openclaw/commit/4b6a9785c9b061818a3b99046cf2168a33d27028",
-      "publishedAt": "2026-08-10T05:30:50Z",
-      "summary": "fix(ui): dark-mode body text renders brighter than the dark-reading comfort band (#121409) * fix(ui): soften default dark-mode body text to ~12:1 contrast Drop --text/--chat-text from #d4d4d8 (12.87:1 on --bg) to #cdcdd1 (12.01:1 on --bg, 11.10:1 on --card) so dark body text sits inside the 10-12 comfort band instead of above it; brighter body text halates on dark backgrounds. Light mode, openknot, dash, --text-strong, and --muted are unchanged. * fix(ui): dim dark body text a further step to ~11.4:1 #cdcdd1 -> #c8c8cc (11.41:1 on --bg, 10.54:1 on --card), mid-band instead of top-of-band. * fix(ui): settle dark body text at ~10:1 on --bg #c8c8cc -> #bcbcc0 (10.05:1 on --bg, 9.29:1 on --card) per visual preview pick; low end of the dark comfort band on the page, slightly under it on cards, still well above AAA. * docs(ui): sync design-system guides with new dark --text token ClawSweeper P3: color-tokens.md and accessibility.md still published #d4d4d8 (~12.9:1); both now name #bcbcc0 (~10.1:1).",
+      "title": "refactor(macos): remove obsolete Gateway startup probe (#121439)",
+      "link": "https://github.com/openclaw/openclaw/commit/e4b617300d95fa800a1241613bc9613c79b20492",
+      "publishedAt": "2026-08-10T07:19:23Z",
+      "summary": "refactor(macos): remove obsolete Gateway startup probe (#121439) * refactor(macos): remove dead gateway command builder * chore(i18n): refresh native inventory after gateway-env cleanup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): dark-mode body text renders brighter than the dark-reading c…",
-      "summaryZh": "重點：修正(ui): dark-mode body text renders brighter than the dark-reading comfort band (#121409) * 修正(ui): soften default dark-..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(macos): remove obsolete Gateway startup probe (#121439)",
+      "summaryZh": "重點：refactor(macos): remove obsolete Gateway startup probe (#121439) * refactor(macos): remove dead Gateway command builder ..."
     },
     {
       "id": 10,
-      "title": "fix(ui): give the session rail its own header icon (#121420)",
-      "link": "https://github.com/openclaw/openclaw/commit/d5457ad62d5a78671919af02c22b4c8ac2e074d0",
-      "publishedAt": "2026-08-10T05:28:20Z",
-      "summary": "fix(ui): give the session rail its own header icon (#121420) The collapsed session rail and the background-tasks toggle both rendered icons.activity in the chat pane header cluster, so two unrelated actions were indistinguishable without reading a tooltip. Background tasks keep the activity metaphor; the rail now uses the companion sparkle, which is already the product's assist glyph and does not collide with the split-view panel icons at the end of the same row. Closes #121418",
+      "title": "feat(ui): add people session sorting (#121470)",
+      "link": "https://github.com/openclaw/openclaw/commit/e0262e6aa4a6d438dfc7cf650e93a6e6d8bc8e6c",
+      "publishedAt": "2026-08-10T07:18:02Z",
+      "summary": "feat(ui): add people session sorting (#121470) * feat(ui): add people session sorting Offer People sorting in the Control UI session sidebar when the Gateway reports multiple session-sharing identities. * fix(ui): restore sidebar translation dependency * fix(ui): preserve session sort ordering contracts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): give the session rail its own header icon (#121420)",
-      "summaryZh": "重點：修正(ui): give the session rail its own header icon (#121420) The collapsed session rail and the background-tasks toggle b..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add people session sorting (#121470)",
+      "summaryZh": "重點：新功能(ui): add people session sorting (#121470) * 新功能(ui): add people session sorting Offer People sorting in the Control ..."
     }
   ]
 }
