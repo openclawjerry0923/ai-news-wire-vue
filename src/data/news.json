@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-10T19:56:18.753Z",
+  "generatedAt": "2026-08-10T20:46:43.383Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: make gateway stress results reflect real concurrency (#121677)",
-      "link": "https://github.com/openclaw/openclaw/commit/e63bd3e9a42760187cbca2b4c1191532089d0e87",
-      "publishedAt": "2026-08-10T19:54:55Z",
-      "summary": "fix: make gateway stress results reflect real concurrency (#121677) * fix(qa): preserve gateway rpc concurrency Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * fix(agents): clean detached session lifecycle Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * fix(gateway): classify metadata startup sequencing Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * fix(types): heal main test typecheck Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * fix(qa): type gateway rpc request mock Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * fix(qa): preserve terminal transport state Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * test(gateway): allow qa transport owner Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger * test(ui): isolate attachment handoff lifecycle Amp-Thread-ID: https://ampcode.com/threads/T-019fec02-d170-73eb-aec8-b364ab706745 Co-authored-by: Peter Steinberger --------- Co-authored-by: Amp",
+      "title": "feat(skills): reconcile learned skill collections (#121653)",
+      "link": "https://github.com/openclaw/openclaw/commit/bdf202ccc8c16449e37317c36069d80427d31cb4",
+      "publishedAt": "2026-08-10T20:36:26Z",
+      "summary": "feat(skills): reconcile learned skill collections (#121653) Replace divergent per-skill curation with one daily isolated collection review that can consolidate, rewrite, create, and drop writable skills atomically. Autonomous auto mode remains automatic. Adds bounded review, transactional recovery, durable cadence, shared locking, and reuse-first /learn behavior. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: make Gateway stress results reflect real concurrency (#121677)",
-      "summaryZh": "重點：修正: make Gateway stress results reflect real concurrency (#121677) * 修正(qa): preserve Gateway rpc concurrency Amp-Thread..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(skills): reconcile learned skill collections (#121653)",
+      "summaryZh": "重點：新功能(skills): reconcile learned skill collections (#121653) Replace divergent per-skill curation with one daily isolated ..."
     },
     {
       "id": 2,
-      "title": "fix(ui): handle keyboard context menu shortcuts (#121628)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a5978154f692326dead71b40540aa5f13439227",
-      "publishedAt": "2026-08-10T19:39:22Z",
-      "summary": "fix(ui): handle keyboard context menu shortcuts (#121628) * fix(ui): handle keyboard context menu shortcuts * fix(ci): repair shared validation regressions * fix(ci): repair setup admission lint * fix(ci): settle setup admission tests",
+      "title": "fix(ci): heal main formatting and worker-registry import cycle",
+      "link": "https://github.com/openclaw/openclaw/commit/39b9d7b1a1602cde6c7f1956227b7eb13031f0e2",
+      "publishedAt": "2026-08-10T20:32:36Z",
+      "summary": "fix(ci): heal main formatting and worker-registry import cycle approval.ts was pushed unformatted; worker-provider-registry.ts pulled the full OpenClawConfig graph back into the plugins layer — use the CloudWorkersConfig leaf instead.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): handle keyboard context menu shortcuts (#121628)",
-      "summaryZh": "重點：修正(ui): handle keyboard context menu shortcuts (#121628) * 修正(ui): handle keyboard context menu shortcuts * 修正(ci): repa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): heal main formatting and worker-registry import cycle",
+      "summaryZh": "重點：修正(ci): heal main formatting and worker-registry import cycle approval.ts was pushed unformatted; worker-provider-regist..."
     },
     {
       "id": 3,
-      "title": "test(gateway): await setup admission cleanup",
-      "link": "https://github.com/openclaw/openclaw/commit/f8916e4eb2d10f042b01adf80a3513a79725618b",
-      "publishedAt": "2026-08-10T19:33:32Z",
-      "summary": "test(gateway): await setup admission cleanup",
+      "title": "fix(ui): prevent terminal garble after Gateway reconnect (#121637)",
+      "link": "https://github.com/openclaw/openclaw/commit/0b0d9f5811c045baddd49bcd6cd36a36f25cac8b",
+      "publishedAt": "2026-08-10T20:27:28Z",
+      "summary": "fix(ui): prevent terminal garble after Gateway reconnect (#121637) * fix(ui): recreate terminal runtime after replay gaps Replace Ghostty's in-place reset with a fresh controller/runtime for authoritative recovery replay so Gateway reconnects cannot expose stale WASM terminal state. Preserve replay ordering, focus and tab visibility, and dependency cleanup.\\n\\nFixes #121636 * test(ui): fix terminal replay type coverage * fix(ci): repair current-main validation blockers * test(discord): align progress fixtures with callbacks * fix(ui): restore focus after cancelled terminal replay * chore(ci): drop superseded baseline fixups * fix(ui): stage terminal replay replacements safely * fix(ui): serialize asynchronous terminal replay * fix(ui): guard superseded terminal replay recovery * fix(ui): invalidate superseded terminal replay callbacks * fix(ui): keep staged terminal replay inert",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): await setup admission cleanup",
-      "summaryZh": "重點：test(Gateway): await setup admission cleanup..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent terminal garble after Gateway reconnect (#121637)",
+      "summaryZh": "重點：修正(ui): prevent terminal garble after Gateway reconnect (#121637) * 修正(ui): recreate terminal runtime after replay gaps ..."
     },
     {
       "id": 4,
-      "title": "fix(lint): drop single-use type parameter in wizard settlement helper",
-      "link": "https://github.com/openclaw/openclaw/commit/620ca5f00880f8584b2d29ceb2a777951bad61b5",
-      "publishedAt": "2026-08-10T19:24:11Z",
-      "summary": "fix(lint): drop single-use type parameter in wizard settlement helper Heals main check-lint: f3e1efead48 introduced a generic used only once, tripping typescript/no-unnecessary-type-parameters.",
+      "title": "fix(update): record verified install receipts even when the handoff f…",
+      "link": "https://github.com/openclaw/openclaw/commit/29ab80f185e0705639b2dac8ae58acd9c2f9b87f",
+      "publishedAt": "2026-08-10T20:27:10Z",
+      "summary": "fix(update): record verified install receipts even when the handoff fails (#121664) A campaign apply that succeeds at the git level but fails its managed-service handoff (e.g. a post-restart health-probe false negative under SQLite load) marked the update sentinel \"error\", so the #121328 receipt-backed upstream fallback never engaged and dev campaigns stalled silently on \"no-upstream\" until manual branch re-attach. The receipt now records the install fact proven by the running process (git mode, root + revision verified, install changed) regardless of sentinel status; the reader and store drop their redundant success gates; the concept is renamed Successful* -> Verified*. Receipt writes are scoped to git mode (the only mode ever read), so dead npm-mode rows can no longer clobber a valid git receipt. Fixes #121634",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(lint): drop single-use type parameter in wizard settlement helper",
-      "summaryZh": "重點：修正(lint): drop single-use type parameter in wizard settlement helper Heals main check-lint: f3e1efead48 introduced a gen..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): record verified install receipts even when the handoff f…",
+      "summaryZh": "重點：修正(update): record verified install receipts even when the handoff fails (#121664) A campaign apply that succeeds at the..."
     },
     {
       "id": 5,
