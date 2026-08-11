@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-11T21:49:01.371Z",
+  "generatedAt": "2026-08-11T22:42:08.955Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(cron): stop advertising trigger-gated fields when cron triggers a…",
-      "link": "https://github.com/openclaw/openclaw/commit/8d034a7b6161a94d85bdfbc0ba7b84c0c677c326",
-      "publishedAt": "2026-08-11T21:48:14Z",
-      "summary": "fix(cron): stop advertising trigger-gated fields when cron triggers are disabled (#122052) * fix(cron): stop advertising trigger-gated fields when cron triggers are disabled When cron.triggers.enabled is off (the documented default posture), the cron tool still advertised job.trigger/patch.trigger, schedule.kind \"stream\" with its stream-only fields, and payload.kind \"script\" — all of which the scheduler unconditionally rejects. Schema-eager models attach junk triggers to plain reminder requests, get rejected, and retry-loop without ever creating the job. Gate those surfaces on the resolved config so they are only advertised when the runtime can actually accept them, and swap the trigger guidance for a short unavailable notice so the model tells the user instead of polling or silently degrading the request. Config-less construction paths keep the full surface. Related: #119455 Co-Authored-By: Claude Fable 5 * fix(cron): restore config type import and regenerate schema contracts Repairs rebase fallout and CI-contract consequences of the trigger gating: - Re-import OpenClawConfig from config/types.openclaw.js; the rebase crossed #121768 which removed the re-export from config/config.js, stranding resolveCronTriggersEnabled's signature. - Guard the destructured tool in the MCP gating test for noUncheckedIndexedAccess. - Collapse the hookContext merge object to one line: the added config pass-through tipped openclaw-tools.ts over the max-lines ratchet (701/700). - Regenerate prompt snapshots (cron description narrowed under triggers-disabled harness config; ~3k chars per prompt) and the plugin-sdk API baseline (CronToolOptions gained the optional config member, visible via codex-mcp-projection). Co-Authored-By: Claude Fable 5 * chore(cron): align schema contracts with current main --------- Co-authored-by: Claude Fable 5 Co-authored-by: Josh Lehman",
+      "title": "fix: preserve WebChat reply context after reloads (#122169)",
+      "link": "https://github.com/openclaw/openclaw/commit/585503896dd33d9029df642edcd470e46d329200",
+      "publishedAt": "2026-08-11T22:42:01Z",
+      "summary": "fix: preserve WebChat reply context after reloads (#122169)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): stop advertising trigger-gated fields when 排程 triggers a…",
-      "summaryZh": "重點：修正(排程): stop advertising trigger-gated fields when 排程 triggers are disabled (#122052) * 修正(排程): stop advertising trigger..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve WebChat reply context after reloads (#122169)",
+      "summaryZh": "重點：修正: preserve WebChat reply context after reloads (#122169)..."
     },
     {
       "id": 2,
-      "title": "feat(apps): Apple chat adopts the system-notice family (#122255)",
-      "link": "https://github.com/openclaw/openclaw/commit/cb51cf7d3ee3410df7fa24d1bf355ac6bb19e035",
-      "publishedAt": "2026-08-11T21:47:19Z",
-      "summary": "feat(apps): Apple chat adopts the system-notice family (#122255) * feat(apps): adopt the system-notice family in Apple chat (OpenClawChatUI) Decode internal_system provenance and __openclaw history markers, classify once into message/notice/divider rows (web-parity kinds), render minimal hairline notice/divider SwiftUI rows, preserve metadata through history reconciliation, live transport, and the transcript cache, and align the transcript exporter with visible classification instead of leaking raw [System] prompts. * fix(apps): satisfy OpenClawKit periphery gate Remove the dead visibleMessages projection (rows path replaced its consumers) and annotate the provenance test-fixture initializer with the repo-standard periphery:ignore rationale. * fix(apps): refresh native i18n inventory after periphery cleanup",
+      "title": "fix(ui): make DONE moves visibly reversible (#122303)",
+      "link": "https://github.com/openclaw/openclaw/commit/89df45c0f5c7349126eb63237be8867aea24b1bb",
+      "publishedAt": "2026-08-11T22:39:07Z",
+      "summary": "fix(ui): make DONE moves visibly reversible (#122303) * fix(ui): make group category moves reversible * fix(ui): address native Groups drag review",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(apps): Apple chat adopts the system-notice family (#122255)",
-      "summaryZh": "重點：新功能(apps): Apple chat adopts the system-notice family (#122255) * 新功能(apps): adopt the system-notice family in Apple cha..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): make DONE moves visibly reversible (#122303)",
+      "summaryZh": "重點：修正(ui): make DONE moves visibly reversible (#122303) * 修正(ui): make group category moves reversible * 修正(ui): address na..."
     },
     {
       "id": 3,
-      "title": "fix(telegram): expose live location updates to hooks (#122185)",
-      "link": "https://github.com/openclaw/openclaw/commit/edb7a1692e58d78ff7e196db39ea8eff297b2e19",
-      "publishedAt": "2026-08-11T21:26:23Z",
-      "summary": "fix(telegram): expose live location updates to hooks (#122185) * fix(telegram): expose live location updates to hooks * test(telegram): keep location coverage focused * fix(telegram): emit stopped live locations * test(plugin-sdk): refresh location hook contracts * docs(changelog): note Telegram live location hooks * fix(telegram): complete live-location observer path --------- Co-authored-by: mbelinky",
+      "title": "fix(ui): keep inline-code punctuation attached (#122291)",
+      "link": "https://github.com/openclaw/openclaw/commit/67262b70dc7420515eaef263697976a9b14a8bdb",
+      "publishedAt": "2026-08-11T22:30:14Z",
+      "summary": "fix(ui): keep inline-code punctuation attached (#122291) * test(ui): cover inline code punctuation spacing * fix(ui): tighten inline code punctuation spacing * test(ui): tolerate browser font metrics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): expose live location updates to hooks (#122185)",
-      "summaryZh": "重點：修正(Telegram): expose live location updates to hooks (#122185) * 修正(Telegram): expose live location updates to hooks * te..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep inline-code punctuation attached (#122291)",
+      "summaryZh": "重點：修正(ui): keep inline-code punctuation attached (#122291) * test(ui): cover inline code punctuation spacing * 修正(ui): tigh..."
     },
     {
       "id": 4,
-      "title": "fix(ui): remove the pre-creation session row (#122259)",
-      "link": "https://github.com/openclaw/openclaw/commit/cfc684e49c1f2442c68ae6b14f5c777f88e3cf4d",
-      "publishedAt": "2026-08-11T21:18:03Z",
-      "summary": "fix(ui): remove the pre-creation session row (#122259)",
+      "title": "fix(google-meet): publish exports atomically (#122306)",
+      "link": "https://github.com/openclaw/openclaw/commit/c4fd5ad55197263b06b94fec833fc9380b1e868f",
+      "publishedAt": "2026-08-11T22:29:08Z",
+      "summary": "fix(google-meet): publish exports atomically (#122306)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): remove the pre-creation session row (#122259)",
-      "summaryZh": "重點：修正(ui): remove the pre-creation session row (#122259)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(google-meet): publish exports atomically (#122306)",
+      "summaryZh": "重點：修正(google-meet): publish exports atomically (#122306)..."
     },
     {
       "id": 5,
