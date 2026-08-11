@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-11T17:56:51.527Z",
+  "generatedAt": "2026-08-11T19:08:19.074Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(update): avoid duplicate configured plugin installs (#122161)",
-      "link": "https://github.com/openclaw/openclaw/commit/0e52f4c4ce0b30ca49efdadd9dc4d85b6f2b54c2",
-      "publishedAt": "2026-08-11T17:56:40Z",
-      "summary": "fix(update): avoid duplicate configured plugin installs (#122161) Make updater doctor phases explicit so only post-plugin finalization marks post-core convergence, and strip ambient convergence state from fresh child environments. Co-authored-by: Peter Steinberger",
+      "title": "test(cli): remove duplicate update dry-run process cases (#122218)",
+      "link": "https://github.com/openclaw/openclaw/commit/b955a7b989776d325e36049d60756c5a417a7a2b",
+      "publishedAt": "2026-08-11T19:07:43Z",
+      "summary": "test(cli): remove duplicate update dry-run process cases (#122218) Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid duplicate configured plugin installs (#122161)",
-      "summaryZh": "重點：修正(update): avoid duplicate configured plugin installs (#122161) Make updater 文件tor phases explicit so only post-plugin ..."
+      "titleZh": "OpenClaw 程式碼更新：test(cli): remove duplicate update dry-run process cases (#122218)",
+      "summaryZh": "重點：test(cli): remove duplicate update dry-run process cases (#122218) Co-authored-by: Amp..."
     },
     {
       "id": 2,
-      "title": "fix(wizard): honor remote password auth in probes (#118134)",
-      "link": "https://github.com/openclaw/openclaw/commit/d9766c3d5723513528217c028319d3c01b84f64c",
-      "publishedAt": "2026-08-11T17:46:25Z",
-      "summary": "fix(wizard): honor remote password auth in probes (#118134) * fix(wizard): honor remote password auth in probes * fix(wizard): preserve remote probe auth policy * test(wizard): keep remote probe coverage focused * fix(gateway): preserve remote probe secret refs * fix(gateway): isolate remote probe credentials * fix(wizard): authenticate remote health checks * fix(gateway): unify remote probe auth precedence * test(gateway): align remote probe auth coverage * fix(gateway): preserve disabled exec-ref guard * fix(gateway): block failed remote ref fallback * test(gateway): follow consolidated probe coverage * fix(wizard): stop health after unresolved remote auth * fix(gateway): preserve configured sibling probe auth * fix(wizard): bind remote health target * docs(gateway): clarify remote probe auth precedence --------- Co-authored-by: IWhatsskill Co-authored-by: Dallin Romney",
+      "title": "fix(auto-reply): omit heartbeat inbound metadata (#122075)",
+      "link": "https://github.com/openclaw/openclaw/commit/d76f71cee7d2e466eda501706ab274dd59eeab0c",
+      "publishedAt": "2026-08-11T19:02:22Z",
+      "summary": "fix(auto-reply): omit heartbeat inbound metadata (#122075) * fix(auto-reply): omit heartbeat inbound metadata Prevent synthetic heartbeat routes from appearing as user-role Conversation info while preserving delivery routing. Fixes #97067. Reported by @xxtyyq. * test(auto-reply): use complete heartbeat model state * test(qa): prove heartbeat metadata boundary * test(auto-reply): deduplicate heartbeat metadata coverage Co-authored-by: Alix-007 Punchcard-Session: frost-cedar-harbor-2n --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(wizard): honor remote password auth in probes (#118134)",
-      "summaryZh": "重點：修正(wizard): honor remote password auth in probes (#118134) * 修正(wizard): honor remote password auth in probes * 修正(wizar..."
+      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): omit heartbeat inbound metadata (#122075)",
+      "summaryZh": "重點：修正(auto-reply): omit heartbeat inbound metadata (#122075) * 修正(auto-reply): omit heartbeat inbound metadata Prevent synt..."
     },
     {
       "id": 3,
-      "title": "refactor(agents): unify CLI spawn/live failure policy lanes (#122164)",
-      "link": "https://github.com/openclaw/openclaw/commit/b3369840b1f05fd4073f464ecec65e4bc5f7b531",
-      "publishedAt": "2026-08-11T17:46:14Z",
-      "summary": "refactor(agents): unify CLI spawn/live failure policy lanes (#122164)",
+      "title": "fix: speed up streamed assistant output (#122206)",
+      "link": "https://github.com/openclaw/openclaw/commit/79701dfc84b93fef38f81ce1a4008e0fcadc3abc",
+      "publishedAt": "2026-08-11T19:01:14Z",
+      "summary": "fix: speed up streamed assistant output (#122206) * fix: speed up streamed assistant output * fix: preserve plan stream invalidation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): unify CLI spawn/live failure policy lanes (#122164)",
-      "summaryZh": "重點：refactor(agents): unify CLI spawn/live failure policy lanes (#122164)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: speed up streamed assistant output (#122206)",
+      "summaryZh": "重點：修正: speed up streamed assistant output (#122206) * 修正: speed up streamed assistant output * 修正: preserve plan stream inv..."
     },
     {
       "id": 4,
-      "title": "refactor: eliminate export name collisions (#122084)",
-      "link": "https://github.com/openclaw/openclaw/commit/ebb2770000d17753be00921ff6be0f72c53731df",
-      "publishedAt": "2026-08-11T17:41:50Z",
-      "summary": "refactor: eliminate export name collisions (#122084) * refactor: eliminate export name collisions * chore(scripts): burn resolved collision baselines * refactor: narrow legacy session load options * chore: refresh SDK and session debt baselines * refactor: adopt upstream secrets collision fix * test(plugin-sdk): mock renamed session store core * fix(scripts): track renamed session accessor core",
+      "title": "fix(compaction): recover overflow from sparse assistant history (#122…",
+      "link": "https://github.com/openclaw/openclaw/commit/7fe75acb5f46bc64a00efc88c350711f24f417b4",
+      "publishedAt": "2026-08-11T18:54:01Z",
+      "summary": "fix(compaction): recover overflow from sparse assistant history (#122159) Prevent overflow recovery from dereferencing missing assistant usage metadata while preserving explicit unavailable and legacy CLI barriers. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: eliminate export name collisions (#122084)",
-      "summaryZh": "重點：refactor: eliminate export name collisions (#122084) * refactor: eliminate export name collisions * chore(scripts): burn..."
+      "titleZh": "OpenClaw 程式碼更新：修正(compaction): recover overflow from sparse assistant history (#122…",
+      "summaryZh": "重點：修正(compaction): recover overflow from sparse assistant history (#122159) Prevent overflow recovery from dereferencing mi..."
     },
     {
       "id": 5,
