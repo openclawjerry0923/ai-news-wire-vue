@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-11T20:44:02.324Z",
+  "generatedAt": "2026-08-11T21:49:01.371Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(outbound): inline delivery diagnostics (#122219)",
-      "link": "https://github.com/openclaw/openclaw/commit/2f071c9371bdf7b7163660fc58361edc42db6154",
-      "publishedAt": "2026-08-11T20:39:32Z",
-      "summary": "refactor(outbound): inline delivery diagnostics (#122219)",
+      "title": "fix(cron): stop advertising trigger-gated fields when cron triggers a…",
+      "link": "https://github.com/openclaw/openclaw/commit/8d034a7b6161a94d85bdfbc0ba7b84c0c677c326",
+      "publishedAt": "2026-08-11T21:48:14Z",
+      "summary": "fix(cron): stop advertising trigger-gated fields when cron triggers are disabled (#122052) * fix(cron): stop advertising trigger-gated fields when cron triggers are disabled When cron.triggers.enabled is off (the documented default posture), the cron tool still advertised job.trigger/patch.trigger, schedule.kind \"stream\" with its stream-only fields, and payload.kind \"script\" — all of which the scheduler unconditionally rejects. Schema-eager models attach junk triggers to plain reminder requests, get rejected, and retry-loop without ever creating the job. Gate those surfaces on the resolved config so they are only advertised when the runtime can actually accept them, and swap the trigger guidance for a short unavailable notice so the model tells the user instead of polling or silently degrading the request. Config-less construction paths keep the full surface. Related: #119455 Co-Authored-By: Claude Fable 5 * fix(cron): restore config type import and regenerate schema contracts Repairs rebase fallout and CI-contract consequences of the trigger gating: - Re-import OpenClawConfig from config/types.openclaw.js; the rebase crossed #121768 which removed the re-export from config/config.js, stranding resolveCronTriggersEnabled's signature. - Guard the destructured tool in the MCP gating test for noUncheckedIndexedAccess. - Collapse the hookContext merge object to one line: the added config pass-through tipped openclaw-tools.ts over the max-lines ratchet (701/700). - Regenerate prompt snapshots (cron description narrowed under triggers-disabled harness config; ~3k chars per prompt) and the plugin-sdk API baseline (CronToolOptions gained the optional config member, visible via codex-mcp-projection). Co-Authored-By: Claude Fable 5 * chore(cron): align schema contracts with current main --------- Co-authored-by: Claude Fable 5 Co-authored-by: Josh Lehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(outbound): inline delivery diagnostics (#122219)",
-      "summaryZh": "重點：refactor(outbound): inline delivery diagnostics (#122219)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): stop advertising trigger-gated fields when 排程 triggers a…",
+      "summaryZh": "重點：修正(排程): stop advertising trigger-gated fields when 排程 triggers are disabled (#122052) * 修正(排程): stop advertising trigger..."
     },
     {
       "id": 2,
-      "title": "refactor: eliminate final wrapper-shadowing hazards (#122157)",
-      "link": "https://github.com/openclaw/openclaw/commit/e74be5d41db4afbdd382db6a3bc60a32d805579b",
-      "publishedAt": "2026-08-11T20:34:24Z",
-      "summary": "refactor: eliminate final wrapper-shadowing hazards (#122157) * refactor: disambiguate wrapper-shadowed exports * test: align renamed session and facade boundaries * test: cover renamed runtime mock exports * refactor: align remaining wrapper owner call sites * test: align overlap-rebased runtime mocks * refactor: preserve public SDK names after overlap rebase * chore: regenerate wrapper shadowing baselines * test: align cron model selection mocks",
+      "title": "feat(apps): Apple chat adopts the system-notice family (#122255)",
+      "link": "https://github.com/openclaw/openclaw/commit/cb51cf7d3ee3410df7fa24d1bf355ac6bb19e035",
+      "publishedAt": "2026-08-11T21:47:19Z",
+      "summary": "feat(apps): Apple chat adopts the system-notice family (#122255) * feat(apps): adopt the system-notice family in Apple chat (OpenClawChatUI) Decode internal_system provenance and __openclaw history markers, classify once into message/notice/divider rows (web-parity kinds), render minimal hairline notice/divider SwiftUI rows, preserve metadata through history reconciliation, live transport, and the transcript cache, and align the transcript exporter with visible classification instead of leaking raw [System] prompts. * fix(apps): satisfy OpenClawKit periphery gate Remove the dead visibleMessages projection (rows path replaced its consumers) and annotate the provenance test-fixture initializer with the repo-standard periphery:ignore rationale. * fix(apps): refresh native i18n inventory after periphery cleanup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: eliminate final wrapper-shadowing hazards (#122157)",
-      "summaryZh": "重點：refactor: eliminate final wrapper-shadowing hazards (#122157) * refactor: disambiguate wrapper-shadowed exports * test: ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(apps): Apple chat adopts the system-notice family (#122255)",
+      "summaryZh": "重點：新功能(apps): Apple chat adopts the system-notice family (#122255) * 新功能(apps): adopt the system-notice family in Apple cha..."
     },
     {
       "id": 3,
-      "title": "fix(ui): keep new-session identity anchored (#122242)",
-      "link": "https://github.com/openclaw/openclaw/commit/7d99f9fd869316bc031ddfbfe4067c0be64fb998",
-      "publishedAt": "2026-08-11T20:30:53Z",
-      "summary": "fix(ui): keep new-session identity anchored (#122242)",
+      "title": "fix(telegram): expose live location updates to hooks (#122185)",
+      "link": "https://github.com/openclaw/openclaw/commit/edb7a1692e58d78ff7e196db39ea8eff297b2e19",
+      "publishedAt": "2026-08-11T21:26:23Z",
+      "summary": "fix(telegram): expose live location updates to hooks (#122185) * fix(telegram): expose live location updates to hooks * test(telegram): keep location coverage focused * fix(telegram): emit stopped live locations * test(plugin-sdk): refresh location hook contracts * docs(changelog): note Telegram live location hooks * fix(telegram): complete live-location observer path --------- Co-authored-by: mbelinky",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep new-session identity anchored (#122242)",
-      "summaryZh": "重點：修正(ui): keep new-session identity anchored (#122242)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): expose live location updates to hooks (#122185)",
+      "summaryZh": "重點：修正(Telegram): expose live location updates to hooks (#122185) * 修正(Telegram): expose live location updates to hooks * te..."
     },
     {
       "id": 4,
-      "title": "test(cli): trim duplicate gateway process cases (#122240)",
-      "link": "https://github.com/openclaw/openclaw/commit/01c1ebf803e24cb2e9cf40b2dcb850263379665c",
-      "publishedAt": "2026-08-11T20:25:53Z",
-      "summary": "test(cli): trim duplicate gateway process cases (#122240) Co-authored-by: Amp",
+      "title": "fix(ui): remove the pre-creation session row (#122259)",
+      "link": "https://github.com/openclaw/openclaw/commit/cfc684e49c1f2442c68ae6b14f5c777f88e3cf4d",
+      "publishedAt": "2026-08-11T21:18:03Z",
+      "summary": "fix(ui): remove the pre-creation session row (#122259)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(cli): trim duplicate Gateway process cases (#122240)",
-      "summaryZh": "重點：test(cli): trim duplicate Gateway process cases (#122240) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): remove the pre-creation session row (#122259)",
+      "summaryZh": "重點：修正(ui): remove the pre-creation session row (#122259)..."
     },
     {
       "id": 5,
