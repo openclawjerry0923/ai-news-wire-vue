@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T05:09:17.464Z",
+  "generatedAt": "2026-08-11T07:08:25.760Z",
   "items": [
     {
       "id": 1,
@@ -21,7 +21,7 @@
     },
     {
       "id": 3,
-      "title": "N‑central身分驗證漏洞遭到積極利用，攻擊者藉此存取受害組織高價值端點",
+      "title": "N‑central身分驗證漏洞遭到積極利用，攻擊者藉此存取受害組織網域控制器等重要設施",
       "link": "https://www.ithome.com.tw/news/178018",
       "publishedAt": "2026-08-11 11:08:53",
       "summary": "N-able於7月底至8月初，揭露N‑central身分驗證繞過漏洞CVE-2026-18556、CVE-2026-18577，美國網路安全與基礎設施安全局（CISA）於8月4日表示，已掌握CVE-2026-18577遭積極利用的證據，而這段期間，有資安公司發現相關攻擊活動，並提出警告。",
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "test(ui): remove duplicate dark contrast case (#121862)",
-      "link": "https://github.com/openclaw/openclaw/commit/10d3466c98cbd60a4361d7cb6470813489186b26",
-      "publishedAt": "2026-08-11T05:08:06Z",
-      "summary": "test(ui): remove duplicate dark contrast case (#121862)",
+      "title": "refactor: consolidate coercion helpers (#121366)",
+      "link": "https://github.com/openclaw/openclaw/commit/fa03d9b9134340aa4c7147e136c40df7d90740c4",
+      "publishedAt": "2026-08-11T07:02:18Z",
+      "summary": "refactor: consolidate coercion helpers (#121366) * refactor: consolidate coercion helpers * fix: remove duplicate coercion imports * fix: preserve serialized coercion guard * chore: ratchet coercion helper carve-outs * fix(test): keep gauntlet subprocess startup lean * fix: preserve imported session timestamp semantics * fix: preserve catalog timestamp string semantics * chore: align plugin SDK surface ratchet * fix: preserve trajectory and SDK string contracts * fix(test): preserve QA record assertion semantics * fix: complete standalone record guard rename * refactor(cron): use canonical string coercion * fix(acpx): preserve Pi timestamp parsing * test(channels): adapt custody test harnesses * test(telegram): classify media harness as test support * test(acpx): split timestamp contract coverage * test(channels): support generated custody contracts * chore: ban the full coercion helper name set Extends the declaration guard to all eleven consolidated helper names and renames the cron schedule-identity readNumber wrapper to readScheduleInteger so the banned generic name cannot regrow. * fix(scripts): repair release-validation guard drift and lint cause Restores the renamed isJsonRecord guard in assertTrustedWorkflowHarness after main added isRecord call sites in parallel, and attaches the caught YAML error as the thrown error cause (preserve-caught-error was red on main). * fix: preserve Claude timestamp string semantics * fix: preserve persisted timestamp string semantics * fix: preserve date-first timestamp contracts * fix(openai): harden delegation failure formatting * chore: close coercion helper guard gaps * test(openai): model non-error delegation rejection * chore: refresh plugin SDK API contract * fix(tasks): use canonical string field reader * fix(ai): use canonical provider error field coercion * fix(browser): migrate native bootstrap coercion * docs(plugin-sdk): clarify text record export compatibility * fix(gateway): normalize approval execution identity * test(outbound): isolate message action poll harness",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): remove duplicate dark contrast case (#121862)",
-      "summaryZh": "重點：test(ui): remove duplicate dark contrast case (#121862)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: consolidate coercion helpers (#121366)",
+      "summaryZh": "重點：refactor: consolidate coercion helpers (#121366) * refactor: consolidate coercion helpers * 修正: remove duplicate coercio..."
     },
     {
       "id": 8,
-      "title": "refactor(agents): absorb overflow, retry, and matcher duplicates into…",
-      "link": "https://github.com/openclaw/openclaw/commit/90ddeb4b4065697b4c2b7ef7c03e91c47de588ac",
-      "publishedAt": "2026-08-11T05:07:21Z",
-      "summary": "refactor(agents): absorb overflow, retry, and matcher duplicates into the failover substrate (#121817) * refactor(ai): centralize context overflow matching * refactor(agents): add retry evidence and guarded status facets * refactor(agents): absorb assistant retry and key matchers * chore(plugin-sdk): refresh failover closure hashes * fix(agents): consume retry evidence at altitude zero * test(agents): narrow retry corpus provider fixtures * test(agents): keep retry corpus sorting immutable",
+      "title": "docs(memory): explain automatic QMD migration (#121911)",
+      "link": "https://github.com/openclaw/openclaw/commit/f788af02383175164bb4562ce358f797fe498d04",
+      "publishedAt": "2026-08-11T06:57:34Z",
+      "summary": "docs(memory): explain automatic QMD migration (#121911)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): absorb overflow, retry, and matcher duplicates into…",
-      "summaryZh": "重點：refactor(agents): absorb overflow, retry, and matcher duplicates into the failover substrate (#121817) * refactor(ai): c..."
+      "titleZh": "OpenClaw 文件更新：文件(記憶): explain automatic QMD migration (#121911)",
+      "summaryZh": "重點：文件(記憶): explain automatic QMD migration (#121911)..."
     },
     {
       "id": 9,
-      "title": "fix(agents): stop reporting undelivered subagent results as delivered…",
-      "link": "https://github.com/openclaw/openclaw/commit/aba8f10bc3b69c92322a9a24915671a4a35e8a0b",
-      "publishedAt": "2026-08-11T05:04:29Z",
-      "summary": "fix(agents): stop reporting undelivered subagent results as delivered (#121837) * fix(agents): record intentional non-delivery truthfully * fix(agents): stop reporting sinkless cron completions as delivered The inactive-cron guard runs before requester-agent dispatch. Its regression now asserts the recorded intentional non-outcome before verifying that queue, gateway, and message sends remain untouched. * test(agents): migrate announce outcome fixtures * chore: drop changelog edit per repo policy",
+      "title": "fix(ui): session titles flicker during archive transitions (#121868)",
+      "link": "https://github.com/openclaw/openclaw/commit/2ae316e2f33d0a196192731e5fe1b66117d348b1",
+      "publishedAt": "2026-08-11T06:48:02Z",
+      "summary": "fix(ui): session titles flicker during archive transitions (#121868) * fix(ui): preserve session titles through archive transitions * oc-ba3: fix archive title CI regressions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): stop reporting undelivered subagent results as delivered…",
-      "summaryZh": "重點：修正(agents): stop reporting undelivered subagent results as delivered (#121837) * 修正(agents): record intentional non-deli..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): session titles flicker during archive transitions (#121868)",
+      "summaryZh": "重點：修正(ui): session titles flicker during archive transitions (#121868) * 修正(ui): preserve session titles through archive tr..."
     },
     {
       "id": 10,
-      "title": "docs(agents): preserve execution identity audit invariants",
-      "link": "https://github.com/openclaw/openclaw/commit/8646c19a258625fb1410ea2d86ad53eb2149358d",
-      "publishedAt": "2026-08-11T05:03:25Z",
-      "summary": "docs(agents): preserve execution identity audit invariants",
+      "title": "fix(scripts): tolerate restricted PR metadata tokens (#121848)",
+      "link": "https://github.com/openclaw/openclaw/commit/c8571daa2fc883b80b46508bc2ebca14d28b01f3",
+      "publishedAt": "2026-08-11T06:30:59Z",
+      "summary": "fix(scripts): tolerate restricted PR metadata tokens (#121848) Amp-Thread-ID: https://ampcode.com/threads/T-019feaaa-c7ed-769e-9f29-a3612bec72e7 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(agents): preserve execution identity audit invariants",
-      "summaryZh": "重點：文件(agents): preserve execution identity audit invariants..."
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): tolerate restricted PR metadata tokens (#121848)",
+      "summaryZh": "重點：修正(scripts): tolerate restricted PR metadata tokens (#121848) Amp-Thread-ID: https://ampcode.com/threads/T-019feaaa-c7ed..."
     }
   ]
 }
