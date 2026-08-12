@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-12T17:56:56.224Z",
+  "generatedAt": "2026-08-12T19:07:42.823Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ci): preserve periphery artifacts across reruns (#122743)",
-      "link": "https://github.com/openclaw/openclaw/commit/d82edfc4d2258b41190821b182fae62a9480896b",
-      "publishedAt": "2026-08-12T17:56:00Z",
-      "summary": "fix(ci): preserve periphery artifacts across reruns (#122743)",
+      "title": "feat(linux): suspend the local gateway across host sleep via logind (…",
+      "link": "https://github.com/openclaw/openclaw/commit/a1615cdfcf4da94a5152da34f6a3db34671bd7ed",
+      "publishedAt": "2026-08-12T18:53:51Z",
+      "summary": "feat(linux): suspend the local gateway across host sleep via logind (#122719) * feat(linux): suspend the local gateway across host sleep via logind Mirror the macOS sleep cycle in the Tauri companion: a logind PrepareForSleep listener with a delay inhibitor best-effort prepares a local gateway suspension before sleep and resumes it on wake with a reconnect nudge and bounded retries; leases are route-bound, always cleared on wake, and late prepare responses resume immediately. * fix(linux): keep the sleep listener alive when inhibitor re-acquire fails * fix(linux): activate the driver for sleep cycles and bound driver-side sleep RPCs Sleep cycles temporarily unpark the gateway driver so prepare/resume work without the Quick Chat window; suspend RPCs carry a 3s driver-side budget that recycles a hung socket instead of starving wake retries; a mock-logind integration test exercises the Linux listener end to end. * fix(linux): count overlapping sleep cycles instead of a boolean flag An older wake task ending late cleared the shared activation flag and parked the driver mid-cycle; a saturating depth counter keeps the driver active until the last cycle ends. * fix(linux): gate sleep-cycle activation on loopback routes and never block wake on logind Remote or unconfigured routes no longer activate the driver during sleep, the paired end hook runs only for cycles that began, and wake recovery is spawned before the inhibitor re-acquire so a slow logind cannot delay reconnect/resume.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): preserve periphery artifacts across reruns (#122743)",
-      "summaryZh": "重點：修正(ci): preserve periphery artifacts across reruns (#122743)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(linux): suspend the local Gateway across host sleep via logind (…",
+      "summaryZh": "重點：新功能(linux): suspend the local Gateway across host sleep via logind (#122719) * 新功能(linux): suspend the local Gateway acr..."
     },
     {
       "id": 2,
-      "title": "refactor(plugin-sdk): prune unreachable facades (#122745)",
-      "link": "https://github.com/openclaw/openclaw/commit/42f432246482642580971fed2103321e43fbbae8",
-      "publishedAt": "2026-08-12T17:54:06Z",
-      "summary": "refactor(plugin-sdk): prune unreachable facades (#122745)",
+      "title": "refactor: remove residual normalization adapters (#122771)",
+      "link": "https://github.com/openclaw/openclaw/commit/9da43d67e16a693eba3189ad85cc5dec36debe42",
+      "publishedAt": "2026-08-12T18:51:45Z",
+      "summary": "refactor: remove residual normalization adapters (#122771)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugin-sdk): prune unreachable facades (#122745)",
-      "summaryZh": "重點：refactor(plugin-sdk): prune unreachable facades (#122745)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: remove residual normalization adapters (#122771)",
+      "summaryZh": "重點：refactor: remove residual normalization adapters (#122771)..."
     },
     {
       "id": 3,
-      "title": "refactor(opencode-go): compose provider stream wrappers (#122749)",
-      "link": "https://github.com/openclaw/openclaw/commit/39c733ff731e171606b5178264cda86a35e8d9d2",
-      "publishedAt": "2026-08-12T17:53:53Z",
-      "summary": "refactor(opencode-go): compose provider stream wrappers (#122749) Amp-Thread-ID: https://ampcode.com/threads/T-019ff438-3b93-77b8-9828-1d3c586cb127 Co-authored-by: Amp",
+      "title": "fix(config): keep named profiles off the default gateway port (#122751)",
+      "link": "https://github.com/openclaw/openclaw/commit/8bbc0a9bc764443e9a3df939b4bea6a1aaadd5ff",
+      "publishedAt": "2026-08-12T18:47:44Z",
+      "summary": "fix(config): keep named profiles off the default gateway port (#122751) * fix(config): derive profile gateway ports like the Mac app instead of defaulting to 18789 * fix(config): use canonical profile normalization",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(opencode-go): compose provider stream wrappers (#122749)",
-      "summaryZh": "重點：refactor(opencode-go): compose provider stream wrappers (#122749) Amp-Thread-ID: https://ampcode.com/threads/T-019ff438-..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): keep named profiles off the default Gateway port (#122751)",
+      "summaryZh": "重點：修正(config): keep named profiles off the default Gateway port (#122751) * 修正(config): derive profile Gateway ports like t..."
     },
     {
       "id": 4,
-      "title": "fix(telegram): preserve pre-dispatch send custody (#122741)",
-      "link": "https://github.com/openclaw/openclaw/commit/2e86f7cc958a7c5b748e8fc23d5fe7cd09173b73",
-      "publishedAt": "2026-08-12T17:47:08Z",
-      "summary": "fix(telegram): preserve pre-dispatch send custody (#122741)",
+      "title": "chore(i18n): refresh native locales (#122688)",
+      "link": "https://github.com/openclaw/openclaw/commit/d17264f5fd84eeeb9e301448c6b218203ed39a78",
+      "publishedAt": "2026-08-12T18:45:50Z",
+      "summary": "chore(i18n): refresh native locales (#122688) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): preserve pre-dispatch send custody (#122741)",
-      "summaryZh": "重點：修正(Telegram): preserve pre-dispatch send custody (#122741)..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#122688)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#122688) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 5,
