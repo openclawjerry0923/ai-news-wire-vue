@@ -1,52 +1,8 @@
 {
-  "generatedAt": "2026-08-12T19:07:42.823Z",
+  "generatedAt": "2026-08-12T20:44:58.982Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(linux): suspend the local gateway across host sleep via logind (…",
-      "link": "https://github.com/openclaw/openclaw/commit/a1615cdfcf4da94a5152da34f6a3db34671bd7ed",
-      "publishedAt": "2026-08-12T18:53:51Z",
-      "summary": "feat(linux): suspend the local gateway across host sleep via logind (#122719) * feat(linux): suspend the local gateway across host sleep via logind Mirror the macOS sleep cycle in the Tauri companion: a logind PrepareForSleep listener with a delay inhibitor best-effort prepares a local gateway suspension before sleep and resumes it on wake with a reconnect nudge and bounded retries; leases are route-bound, always cleared on wake, and late prepare responses resume immediately. * fix(linux): keep the sleep listener alive when inhibitor re-acquire fails * fix(linux): activate the driver for sleep cycles and bound driver-side sleep RPCs Sleep cycles temporarily unpark the gateway driver so prepare/resume work without the Quick Chat window; suspend RPCs carry a 3s driver-side budget that recycles a hung socket instead of starving wake retries; a mock-logind integration test exercises the Linux listener end to end. * fix(linux): count overlapping sleep cycles instead of a boolean flag An older wake task ending late cleared the shared activation flag and parked the driver mid-cycle; a saturating depth counter keeps the driver active until the last cycle ends. * fix(linux): gate sleep-cycle activation on loopback routes and never block wake on logind Remote or unconfigured routes no longer activate the driver during sleep, the paired end hook runs only for cycles that began, and wake recovery is spawned before the inhibitor re-acquire so a slow logind cannot delay reconnect/resume.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(linux): suspend the local Gateway across host sleep via logind (…",
-      "summaryZh": "重點：新功能(linux): suspend the local Gateway across host sleep via logind (#122719) * 新功能(linux): suspend the local Gateway acr..."
-    },
-    {
-      "id": 2,
-      "title": "refactor: remove residual normalization adapters (#122771)",
-      "link": "https://github.com/openclaw/openclaw/commit/9da43d67e16a693eba3189ad85cc5dec36debe42",
-      "publishedAt": "2026-08-12T18:51:45Z",
-      "summary": "refactor: remove residual normalization adapters (#122771)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: remove residual normalization adapters (#122771)",
-      "summaryZh": "重點：refactor: remove residual normalization adapters (#122771)..."
-    },
-    {
-      "id": 3,
-      "title": "fix(config): keep named profiles off the default gateway port (#122751)",
-      "link": "https://github.com/openclaw/openclaw/commit/8bbc0a9bc764443e9a3df939b4bea6a1aaadd5ff",
-      "publishedAt": "2026-08-12T18:47:44Z",
-      "summary": "fix(config): keep named profiles off the default gateway port (#122751) * fix(config): derive profile gateway ports like the Mac app instead of defaulting to 18789 * fix(config): use canonical profile normalization",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): keep named profiles off the default Gateway port (#122751)",
-      "summaryZh": "重點：修正(config): keep named profiles off the default Gateway port (#122751) * 修正(config): derive profile Gateway ports like t..."
-    },
-    {
-      "id": 4,
-      "title": "chore(i18n): refresh native locales (#122688)",
-      "link": "https://github.com/openclaw/openclaw/commit/d17264f5fd84eeeb9e301448c6b218203ed39a78",
-      "publishedAt": "2026-08-12T18:45:50Z",
-      "summary": "chore(i18n): refresh native locales (#122688) Co-authored-by: github-actions[bot]",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#122688)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#122688) Co-authored-by: github-actions[bot]..."
-    },
-    {
-      "id": 5,
       "title": "Adobe發布8月上半更新，呼籲用戶優先處理ColdFusion與Campaign Classic",
       "link": "https://www.ithome.com.tw/news/178071",
       "publishedAt": "2026-08-12 12:08:29",
@@ -55,7 +11,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 2,
       "title": "SAP修補Commerce Cloud滿分漏洞",
       "link": "https://www.ithome.com.tw/news/178072",
       "publishedAt": "2026-08-12 12:08:27",
@@ -64,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 3,
       "title": "Google發布ChromeOS長期支援版更新，修補兩個記憶體安全重大漏洞",
       "link": "https://www.ithome.com.tw/news/178070",
       "publishedAt": "2026-08-12 12:08:13",
@@ -73,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 4,
       "title": "榮耀首款機器人手機正式推出，瞄準 AI 影像新賽道",
       "link": "https://technews.tw/2026/08/12/honor-robot-phone-launch/",
       "publishedAt": "Wed, 12 Aug 2026 11:30:54 +0000",
@@ -82,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 5,
       "title": "美國醫療科技業者Unlimited Technology Systems資料外洩，逾380萬人受影響",
       "link": "https://www.ithome.com.tw/news/178063",
       "publishedAt": "2026-08-12 11:08:59",
@@ -91,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 10,
+      "id": 6,
       "title": "美國聯邦資安日誌政策改版，強化威脅偵測並納入IoT、OT",
       "link": "https://www.ithome.com.tw/news/178060",
       "publishedAt": "2026-08-12 11:08:36",
