@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T08:17:37.494Z",
+  "generatedAt": "2026-08-12T10:05:44.977Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(provider-runtime): retry transient socket failures (#122535)",
-      "link": "https://github.com/openclaw/openclaw/commit/dfbdbf2a67def12ecb45187dab30f91dac13e73f",
-      "publishedAt": "2026-08-12T08:16:22Z",
-      "summary": "fix(provider-runtime): retry transient socket failures (#122535) * test: cover UND_ERR_SOCKET retry recovery Punchcard-Session: golden-cedar-brook-4q * fix(provider-runtime): retry UND_ERR_SOCKET failures Punchcard-Session: golden-cedar-brook-4q",
+      "title": "fix(release): trust frozen beta Telegram candidates (#122575)",
+      "link": "https://github.com/openclaw/openclaw/commit/9324843d428c781577355dc1fc204ec63d000b4b",
+      "publishedAt": "2026-08-12T10:03:15Z",
+      "summary": "fix(release): trust frozen beta Telegram candidates (#122575)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(provider-runtime): retry transient socket failures (#122535)",
-      "summaryZh": "重點：修正(provider-runtime): retry transient socket failures (#122535) * test: cover UND_ERR_SOCKET retry recovery Punchcard-Se..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): trust frozen beta Telegram candidates (#122575)",
+      "summaryZh": "重點：修正(版本發布): trust frozen beta Telegram candidates (#122575)..."
     },
     {
       "id": 8,
-      "title": "fix(qa): isolate gateway child skip controls (#122534)",
-      "link": "https://github.com/openclaw/openclaw/commit/83649466fa1699701809a75d3eb8e7bc1f3c0338",
-      "publishedAt": "2026-08-12T08:08:43Z",
-      "summary": "fix(qa): isolate gateway child skip controls (#122534)",
+      "title": "fix(gateway): preserve inbound media references in chat history (#122…",
+      "link": "https://github.com/openclaw/openclaw/commit/6fa383695f5a4f2e6ad1f318cb69e0a4dd255a3c",
+      "publishedAt": "2026-08-12T10:01:39Z",
+      "summary": "fix(gateway): preserve inbound media references in chat history (#122031) * fix(gateway): retain managed inbound media reference in chat history * fix(gateway): simplify inbound media projection (#122031) (thanks @SunnyShu0925) --------- Co-authored-by: Ayaan Zaidi Co-authored-by: SunnyShu0925",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): isolate Gateway child skip controls (#122534)",
-      "summaryZh": "重點：修正(qa): isolate Gateway child skip controls (#122534)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve inbound media references in chat history (#122…",
+      "summaryZh": "重點：修正(Gateway): preserve inbound media references in chat history (#122031) * 修正(Gateway): retain managed inbound media ref..."
     },
     {
       "id": 9,
-      "title": "feat(ui): commit-scoped session diff viewer with file, sync, and view…",
-      "link": "https://github.com/openclaw/openclaw/commit/85a176b98ab114bf7dd58604ae64f004d73933c4",
-      "publishedAt": "2026-08-12T08:08:33Z",
-      "summary": "feat(ui): commit-scoped session diff viewer with file, sync, and view menus (#122470) * feat(ui): commit-scoped session diff viewer with file, sync, and view menus The Control UI session diff panel becomes a dense Amp-style viewer: per-file menus (copy path, open file, reveal in file tree, open in editor), a Sync Locally popover with a copyable git fetch command, view options (collapse all, wrapping, split/unified layout), and a sticky footer that reports how far the branch is ahead of its merge base and switches between all changes, uncommitted work, and individual commits. sessions.diff gains an additive scope param (all | uncommitted | commit) plus commits, aheadCount, and mergeBase metadata. Commit-scope diffs read only the object database, skip untracked collection, and bypass session-start baseline filtering; unknown commits surface a typed unavailableReason. Offscreen file bodies use content-visibility so large diffs stay responsive. * fix(ui): satisfy session diff CI gates * fix(gateway): fence commit-scoped session diffs to the advertised branch history ClawSweeper found that commit-scoped sessions.diff accepted any commit resolvable in the checkout. Fence operator.read commit reads to the advertised merge-base..HEAD history and cover sibling-branch and base-history commits.",
+      "title": "fix(qa): accept staged compaction summaries (#122528)",
+      "link": "https://github.com/openclaw/openclaw/commit/2c26f1360692dfeb9348751ac8c91f49dc329528",
+      "publishedAt": "2026-08-12T09:52:14Z",
+      "summary": "fix(qa): accept staged compaction summaries (#122528)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): 提交-scoped session diff viewer with file, sync, and view…",
-      "summaryZh": "重點：新功能(ui): 提交-scoped session diff viewer with file, sync, and view menus (#122470) * 新功能(ui): 提交-scoped session diff viewe..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): accept staged compaction summaries (#122528)",
+      "summaryZh": "重點：修正(qa): accept staged compaction summaries (#122528)..."
     },
     {
       "id": 10,
-      "title": "fix(ci): prepare sandbox before repo E2E (#122525)",
-      "link": "https://github.com/openclaw/openclaw/commit/716f996be8db3082876180a377b69931dd0cdf68",
-      "publishedAt": "2026-08-12T08:08:19Z",
-      "summary": "fix(ci): prepare sandbox before repo E2E (#122525)",
+      "title": "fix(ios): keep authenticated Control UI pages bound to the trusted Ga…",
+      "link": "https://github.com/openclaw/openclaw/commit/5eb18c1387d0b756d99e9ccf1637962800d6dcc0",
+      "publishedAt": "2026-08-12T09:48:19Z",
+      "summary": "fix(ios): keep authenticated Control UI pages bound to the trusted Gateway [AI] (#119906) * fix(ios): enforce gateway TLS pins in control pages * test(ios): run control UI trust regressions in CI * test(ios): avoid nested Testing macros * fix(ios): preserve control page navigation * fix(ios): keep authenticated control pages on origin * fix(ios): canonicalize control page IPv6 hosts * chore(ios): refresh native i18n inventory * fix(ios): normalize default TLS challenge ports * fix(apps): share gateway TLS authority matching * test(apps): fix authority CI validation * chore(ci): drop control UI test routing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): prepare sandbox before repo E2E (#122525)",
-      "summaryZh": "重點：修正(ci): prepare sandbox before repo E2E (#122525)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep authenticated Control UI pages bound to the trusted Ga…",
+      "summaryZh": "重點：修正(ios): keep authenticated Control UI pages bound to the trusted Gateway [AI] (#119906) * 修正(ios): enforce Gateway TLS ..."
     }
   ]
 }
