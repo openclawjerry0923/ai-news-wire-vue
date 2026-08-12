@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T06:14:31.157Z",
+  "generatedAt": "2026-08-12T08:17:37.494Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "feat(media): let agents inspect unsupported local documents (#122408)",
-      "link": "https://github.com/openclaw/openclaw/commit/b8ddddd702aa5437a0fd5381532e66532d442d3d",
-      "publishedAt": "2026-08-12T06:12:24Z",
-      "summary": "feat(media): let agents inspect unsupported local documents (#122408) Let eligible embedded host runs inspect root-approved unsupported documents after final sandbox, filesystem, provider, owner, and tool-policy gates. Generic ACP, sandboxed, URL-only, and restricted-tool paths retain the plain marker. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(provider-runtime): retry transient socket failures (#122535)",
+      "link": "https://github.com/openclaw/openclaw/commit/dfbdbf2a67def12ecb45187dab30f91dac13e73f",
+      "publishedAt": "2026-08-12T08:16:22Z",
+      "summary": "fix(provider-runtime): retry transient socket failures (#122535) * test: cover UND_ERR_SOCKET retry recovery Punchcard-Session: golden-cedar-brook-4q * fix(provider-runtime): retry UND_ERR_SOCKET failures Punchcard-Session: golden-cedar-brook-4q",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：新功能(media): let agents inspect unsupported local 文件uments (#122408)",
-      "summaryZh": "重點：新功能(media): let agents inspect unsupported local 文件uments (#122408) Let eligible embedded host runs inspect root-approve..."
+      "titleZh": "OpenClaw 程式碼更新：修正(provider-runtime): retry transient socket failures (#122535)",
+      "summaryZh": "重點：修正(provider-runtime): retry transient socket failures (#122535) * test: cover UND_ERR_SOCKET retry recovery Punchcard-Se..."
     },
     {
       "id": 8,
-      "title": "fix(agents): scope quota failures to auth profiles (#121278)",
-      "link": "https://github.com/openclaw/openclaw/commit/77d89b2fa84375d9baa8fc5be525f8b28755e3b8",
-      "publishedAt": "2026-08-12T06:07:04Z",
-      "summary": "fix(agents): scope quota failures to auth profiles (#121278) * fix(agents): scope quota failures to auth profiles * test: repair provider suspension CI coverage * test: keep suspension reset fixture internal * fix(agents): spend cooldown probe only on transient candidates Consume the one-run cooldown probe only when the candidate’s own unavailable reason is transient, so a billing-disabled pin cannot block a recoverable backup.\\n\\nFinding from the ClawSweeper review on openclaw/openclaw#121278. * refactor(sessions): deprecate QuotaSuspension.laneId instead of removing The shipped plugin-SDK surface deprecation policy requires keeping the inert field until the next surface window. * fix(agents): extend transient probe policy to plugin-harness auth path * fix(agents): keep provider overload from cooling auth profiles * fix(agents): exhaust rotation candidates without cooldown records Co-authored-by: VACInc * test(agents): align auth rotation mocks with current main * docs: regenerate plugin SDK API baseline Co-authored-by: VACInc * style(agents): format session-suspension test after rename resolution --------- Co-authored-by: VACInc Co-authored-by: Peter Steinberger",
+      "title": "fix(qa): isolate gateway child skip controls (#122534)",
+      "link": "https://github.com/openclaw/openclaw/commit/83649466fa1699701809a75d3eb8e7bc1f3c0338",
+      "publishedAt": "2026-08-12T08:08:43Z",
+      "summary": "fix(qa): isolate gateway child skip controls (#122534)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): scope quota failures to auth profiles (#121278)",
-      "summaryZh": "重點：修正(agents): scope quota failures to auth profiles (#121278) * 修正(agents): scope quota failures to auth profiles * test: ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): isolate Gateway child skip controls (#122534)",
+      "summaryZh": "重點：修正(qa): isolate Gateway child skip controls (#122534)..."
     },
     {
       "id": 9,
-      "title": "refactor(openai): simplify GPT-5.6 canonicalization (#122467)",
-      "link": "https://github.com/openclaw/openclaw/commit/baefefa8152abfbc1bbf903431761b2c07706698",
-      "publishedAt": "2026-08-12T06:04:01Z",
-      "summary": "refactor(openai): simplify GPT-5.6 canonicalization (#122467) Behavior is unchanged. Remove duplicate policy and test scaffolding while preserving canonical Sol identity and direct bare-alias compatibility.",
+      "title": "feat(ui): commit-scoped session diff viewer with file, sync, and view…",
+      "link": "https://github.com/openclaw/openclaw/commit/85a176b98ab114bf7dd58604ae64f004d73933c4",
+      "publishedAt": "2026-08-12T08:08:33Z",
+      "summary": "feat(ui): commit-scoped session diff viewer with file, sync, and view menus (#122470) * feat(ui): commit-scoped session diff viewer with file, sync, and view menus The Control UI session diff panel becomes a dense Amp-style viewer: per-file menus (copy path, open file, reveal in file tree, open in editor), a Sync Locally popover with a copyable git fetch command, view options (collapse all, wrapping, split/unified layout), and a sticky footer that reports how far the branch is ahead of its merge base and switches between all changes, uncommitted work, and individual commits. sessions.diff gains an additive scope param (all | uncommitted | commit) plus commits, aheadCount, and mergeBase metadata. Commit-scope diffs read only the object database, skip untracked collection, and bypass session-start baseline filtering; unknown commits surface a typed unavailableReason. Offscreen file bodies use content-visibility so large diffs stay responsive. * fix(ui): satisfy session diff CI gates * fix(gateway): fence commit-scoped session diffs to the advertised branch history ClawSweeper found that commit-scoped sessions.diff accepted any commit resolvable in the checkout. Fence operator.read commit reads to the advertised merge-base..HEAD history and cover sibling-branch and base-history commits.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(openai): simplify GPT-5.6 canonicalization (#122467)",
-      "summaryZh": "重點：refactor(openai): simplify GPT-5.6 canonicalization (#122467) Behavior is unchanged. Remove duplicate policy and test sc..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): 提交-scoped session diff viewer with file, sync, and view…",
+      "summaryZh": "重點：新功能(ui): 提交-scoped session diff viewer with file, sync, and view menus (#122470) * 新功能(ui): 提交-scoped session diff viewe..."
     },
     {
       "id": 10,
-      "title": "docs(plan): runners plan revision 2 — everything is a node (#122454)",
-      "link": "https://github.com/openclaw/openclaw/commit/127facd39f251844ee46dcf5024a37cb73b329a2",
-      "publishedAt": "2026-08-12T05:56:54Z",
-      "summary": "docs(plan): runners plan revision 2 — everything is a node (#122454) * docs(plan): rewrite runners plan as revision 2 — everything is a node Operator-decided direction change: paired nodes host full agent sessions through the worker admission path; openclaw worker becomes a node-supervised child; SSH is deleted as the device transport in favor of an outbound-only two-connection shape (node control channel + direct-dial worker connection). Folds in verified code reads (admission/tunnel/sync/node-channel/scopes), an industry survey, an Amp CLI teardown, and a fresh adversarial review; scopes milestone 6 honestly (transport/sync net-new, admission/placement reused) and bounds v1 trust to admin-paired shared infrastructure. * docs(plan): record revision-2 PR number in milestone table",
+      "title": "fix(ci): prepare sandbox before repo E2E (#122525)",
+      "link": "https://github.com/openclaw/openclaw/commit/716f996be8db3082876180a377b69931dd0cdf68",
+      "publishedAt": "2026-08-12T08:08:19Z",
+      "summary": "fix(ci): prepare sandbox before repo E2E (#122525)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(plan): runners plan revision 2 — everything is a node (#122454)",
-      "summaryZh": "重點：文件(plan): runners plan revision 2 — everything is a node (#122454) * 文件(plan): rewrite runners plan as revision 2 — ever..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): prepare sandbox before repo E2E (#122525)",
+      "summaryZh": "重點：修正(ci): prepare sandbox before repo E2E (#122525)..."
     }
   ]
 }
