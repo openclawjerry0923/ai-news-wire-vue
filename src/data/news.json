@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T08:21:13.005Z",
+  "generatedAt": "2026-08-13T10:06:48.403Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "ci: replace dependency sticky disk with exact cache (#123040)",
-      "link": "https://github.com/openclaw/openclaw/commit/3b6e54041f1898e13f6fd0e313e2f9169d041668",
-      "publishedAt": "2026-08-13T08:13:25Z",
-      "summary": "ci: replace dependency sticky disk with exact cache (#123040) Amp-Thread-ID: https://ampcode.com/threads/T-019ff3db-c467-70ad-8ed3-81f2ba94b0c0 Co-authored-by: Amp",
+      "title": "fix: doctor loops forever on legacy OAuth profiles with missing sidec…",
+      "link": "https://github.com/openclaw/openclaw/commit/62ecb3196097345464f973688b6719e5df7abcf1",
+      "publishedAt": "2026-08-13T10:02:37Z",
+      "summary": "fix: doctor loops forever on legacy OAuth profiles with missing sidecars (#123093) * fix(doctor): converge missing OAuth sidecar migration Persist missing-sidecar OAuth profiles as cold SQLite rows and make startup migration warnings deterministic. * test(doctor): restore OAuth sidecar fixture id",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: replace dependency sticky disk with exact cache (#123040)",
-      "summaryZh": "重點：ci: replace dependency sticky disk with exact cache (#123040) Amp-Thread-ID: https://ampcode.com/threads/T-019ff3db-c467..."
+      "titleZh": "OpenClaw 文件更新：修正: 文件tor loops forever on legacy OAuth profiles with missing sidec…",
+      "summaryZh": "重點：修正: 文件tor loops forever on legacy OAuth profiles with missing sidecars (#123093) * 修正(文件tor): converge missing OAuth sid..."
     },
     {
       "id": 8,
-      "title": "fix: isolated gateways list and open the operator's HOME Claude/Codex…",
-      "link": "https://github.com/openclaw/openclaw/commit/b54034d5c22a08f0d9eb12da947f04a068b83051",
-      "publishedAt": "2026-08-13T08:12:03Z",
-      "summary": "fix: isolated gateways list and open the operator's HOME Claude/Codex/OpenCode/Pi sessions (#122983) * fix(sessions): isolated gateways no longer inherit HOME external session catalogs A gateway on isolated state (custom OPENCLAW_STATE_DIR/CONFIG_PATH/OPENCLAW_HOME, relocated home, or any named profile) listed, read, continued, archived, and reopened the operator's real Claude Code/Codex/OpenCode/Pi sessions from the process HOME. External catalogs now require the default install identity for process-HOME scans: every catalog verb receives the isolation policy and rejects HOME-fallback local targets, unknown providers fail closed unless they declare supportsProcessHomeIsolation, and one structured warning records the skip. Paired-node hosts and explicitly rooted stores (CLAUDE_CONFIG_DIR, CODEX_HOME, OPENCODE_DB, Pi session dirs) keep working; default-identity gateways are unchanged. * fix(sessions): inject catalog HOME-isolation fact at registry construction * chore(sdk): regenerate plugin API baselines after rebase * chore(sdk): regenerate plugin API baselines after rebase",
+      "title": "fix(ui): keep native history anchor stable (#123103)",
+      "link": "https://github.com/openclaw/openclaw/commit/7a7f6dfbd41eeaa3d87e87368945a767fe5be144",
+      "publishedAt": "2026-08-13T09:58:51Z",
+      "summary": "fix(ui): keep native history anchor stable (#123103)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: isolated Gateways list and open the operator's HOME Claude/Codex…",
-      "summaryZh": "重點：修正: isolated Gateways list and open the operator's HOME Claude/Codex/OpenCode/Pi sessions (#122983) * 修正(sessions): isol..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep native history anchor stable (#123103)",
+      "summaryZh": "重點：修正(ui): keep native history anchor stable (#123103)..."
     },
     {
       "id": 9,
-      "title": "test(telegram): align ingress fixtures with Bot API (#123059)",
-      "link": "https://github.com/openclaw/openclaw/commit/683d37a35f2054cb85d0ebbaa15b2f8a3a687746",
-      "publishedAt": "2026-08-13T07:58:17Z",
-      "summary": "test(telegram): align ingress fixtures with Bot API (#123059)",
+      "title": "fix: picker option labels collapse to ellipsis at phone widths (#123085)",
+      "link": "https://github.com/openclaw/openclaw/commit/600126acaa23d41644172b05399aabd5ac87264d",
+      "publishedAt": "2026-08-13T09:53:22Z",
+      "summary": "fix: picker option labels collapse to ellipsis at phone widths (#123085) * fix(ui): keep picker labels readable on mobile Preserve readable unified model and channel option labels while allowing new-session mode controls to wrap at narrow widths. * fix(ui): propagate shared picker minimum",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Telegram): align ingress 修正tures with Bot API (#123059)",
-      "summaryZh": "重點：test(Telegram): align ingress 修正tures with Bot API (#123059)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: picker option labels collapse to ellipsis at phone widths (#123085)",
+      "summaryZh": "重點：修正: picker option labels collapse to ellipsis at phone widths (#123085) * 修正(ui): keep picker labels readable on mobile ..."
     },
     {
       "id": 10,
-      "title": "feat: portals — expose agent-run dev servers to the operator (#122536)",
-      "link": "https://github.com/openclaw/openclaw/commit/cc2fc55f9b480b16ca2ba5d06dacf0c97cf2d587",
-      "publishedAt": "2026-08-13T07:46:11Z",
-      "summary": "feat: portals — expose agent-run dev servers to the operator (#122536) * feat(protocol): add portal methods and event Bump the reviewed protocol owner-module count from 55 to 56. * feat(gateway): add portal service and reverse proxy * feat(agents): add portal tool * fix(gateway): refine portal URL and proxy auth * refactor(gateway): keep portal helper types private * fix(gateway): declare portal transport service * test(gateway): satisfy portal proxy lint * test(gateway): narrow websocket payload types * refactor(protocol): compact portal schema exports * fix(gateway): export portal protocol types * feat(ui): add portals page * docs(gateway): add portals guide * fix(gateway): dial portal targets via localhost dual-stack Vite and other Node >=17 dev servers bind ::1 only for localhost, so a fixed 127.0.0.1 dial 502s on the default path. Use hostname localhost with family autoselection and rewrite Host to match. * fix(gateway): type portal dual-stack connection * fix: satisfy portal integration gates * fix(gateway): isolate portal cookie jars per target Cookies are hostname-scoped, not port-scoped, so the per-port origin split alone let Gateway plugin-auth cookies reach agent-run targets. Forward only cookies carrying this portal's own name prefix (stripped), rewrite target Set-Cookie names to the prefixed form incl. the WS 101 handshake, and drop Domain attributes. * fix(ui): detect unreachable portals behind proxied gateways Probe the portal origin from the browser (no-cors, 4s timeout) and show a recovery notice with the gateway-host URL instead of a dead iframe when only the gateway port is exposed (Serve/Funnel/reverse proxy). Docs: cookie isolation + reachability; zh-CN glossary entry. * test(ui): satisfy portal reachability lint * test(gateway): provide control UI request hosts * chore(protocol): regenerate after rebase * fix(gateway): namespace portal auth cookies by listener * fix(gateway): scope portal token URLs to write-capable clients The portal bearer token rides in the summary url/tokenQuery; portal.list is operator.read and portal.changed fans out to read subscribers, so a read-only client could harvest an openable URL. Make those fields optional, redact them from read-scope list responses, and drop them from every portal.changed broadcast; write/admin clients still receive them and the UI refetches the list on change. * docs(web): list the portals route * fix(gateway): type portal open credentials * docs(gateway): clarify portals PORT/PUBLIC_URL are agent-set Opening a portal creates only the proxy listener; the agent sets PORT and PUBLIC_URL in its own exec command, matching the portal tool contract. Removes the implication of an automatic env handoff. * chore(protocol): regenerate portal models * style(gateway): format portal method-order assertions Rebase union-merge left the portal.list assertion wrapped; oxfmt fits it on one line. * chore(plugin-sdk): refresh API baseline after rebase * chore(plugin-sdk): refresh API baseline after rebase * chore(protocol): refresh portal event order after rebase * chore(plugin-sdk): refresh API baseline after rebase * fix(gateway): pin portal referrer policy to no-referrer The portal URL carries its bearer token in the query, and upstream response headers are copied verbatim, so a target answering with Referrer-Policy: unsafe-url could leak that URL to every third-party origin it references. Force no-referrer after the copy and drop any inbound Referer that still carries the token before forwarding.",
+      "title": "fix(ai): trim replay tool call ids (#111864)",
+      "link": "https://github.com/openclaw/openclaw/commit/c5690c97eb1ac2bb58316b6b4af6206fe7a428f4",
+      "publishedAt": "2026-08-13T09:48:23Z",
+      "summary": "fix(ai): trim replay tool call ids (#111864) * fix(ai): trim replay tool call ids * fix(ai): trim replay tool call ids",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: portals — expose agent-run dev servers to the operator (#122536)",
-      "summaryZh": "重點：新功能: portals — expose agent-run dev servers to the operator (#122536) * 新功能(protocol): add portal methods and event Bump..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ai): trim replay tool call ids (#111864)",
+      "summaryZh": "重點：修正(ai): trim replay tool call ids (#111864) * 修正(ai): trim replay tool call ids * 修正(ai): trim replay tool call ids..."
     }
   ]
 }
