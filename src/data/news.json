@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T06:16:26.922Z",
+  "generatedAt": "2026-08-13T08:21:13.005Z",
   "items": [
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "title": "微軟8月例行更新修補Exchange多個漏洞，涉及權限提升、服務阻斷與遠端執行程式碼",
       "link": "https://www.ithome.com.tw/news/178103",
       "publishedAt": "2026-08-13 12:08:33",
-      "summary": "微軟在8月分例行性更新（Patch Tuesday）中，修補421個自身產品的漏洞，其中包括7個Exchange Server相關漏洞，可能導致權限提升、服務阻斷、偽冒（spoofing），以及遠端執行程式碼等問題，影響Exchange Server 2016與2019版，以及Exchange Server訂閱版（SE），用戶應",
+      "summary": "微軟在8月例行性更新（Patch Tuesday）中，修補421個自身產品的漏洞，其中包括7個Exchange Server相關漏洞，可能導致權限提升、服務阻斷、偽冒（spoofing），以及遠端執行程式碼等問題，影響Exchange Server 2016與2019版，以及Exchange Server訂閱版（SE），用戶應儘",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "test(extensions): scope remaining multi-agent fixtures to explicit ow…",
-      "link": "https://github.com/openclaw/openclaw/commit/3f4f57a0211c0e0337906336068ee05a6de91536",
-      "publishedAt": "2026-08-13T06:14:34Z",
-      "summary": "test(extensions): scope remaining multi-agent fixtures to explicit owners (#123021) Class provenance: #114388 made multi-agent ownership explicit; prior partial sweeps #122883 and #122978 repaired Codex, Copilot, ClickClack, and policy fixtures. Per-file changes: - extensions/telegram/src/bot.create-telegram-bot.test.ts: declare startup owners for the four reload fixtures and add the default Telegram binding for the topic override case while preserving dynamic account/topic routing assertions.",
+      "title": "ci: replace dependency sticky disk with exact cache (#123040)",
+      "link": "https://github.com/openclaw/openclaw/commit/3b6e54041f1898e13f6fd0e313e2f9169d041668",
+      "publishedAt": "2026-08-13T08:13:25Z",
+      "summary": "ci: replace dependency sticky disk with exact cache (#123040) Amp-Thread-ID: https://ampcode.com/threads/T-019ff3db-c467-70ad-8ed3-81f2ba94b0c0 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(extensions): scope remaining multi-agent 修正tures to explicit ow…",
-      "summaryZh": "重點：test(extensions): scope remaining multi-agent 修正tures to explicit owners (#123021) Class provenance: #114388 made multi-..."
+      "titleZh": "OpenClaw 程式碼更新：ci: replace dependency sticky disk with exact cache (#123040)",
+      "summaryZh": "重點：ci: replace dependency sticky disk with exact cache (#123040) Amp-Thread-ID: https://ampcode.com/threads/T-019ff3db-c467..."
     },
     {
       "id": 8,
-      "title": "fix(memory-wiki): guard wiki_get against missing or wrong-typed looku…",
-      "link": "https://github.com/openclaw/openclaw/commit/7620a58b295599d108b2fef056a2edc736933550",
-      "publishedAt": "2026-08-13T06:08:36Z",
-      "summary": "fix(memory-wiki): guard wiki_get against missing or wrong-typed lookup (#122549) * fix(memory-wiki): return clean error from wiki_get on missing lookup wiki_get crashed with \"Cannot read properties of undefined (reading 'trim')\" when called with a wrong parameter name (e.g. path instead of lookup), leaving lookup undefined. - Validate and trim lookup at the wiki_get tool boundary; return a clean error (found: false) when it is missing or empty instead of falling through to page resolution - Add regression test covering the wrong-param call path * fix(memory-wiki): normalize wiki_get parameters Punchcard-Session: calm-workshop-cedar-hx --------- Co-authored-by: Vincent Koc",
+      "title": "fix: isolated gateways list and open the operator's HOME Claude/Codex…",
+      "link": "https://github.com/openclaw/openclaw/commit/b54034d5c22a08f0d9eb12da947f04a068b83051",
+      "publishedAt": "2026-08-13T08:12:03Z",
+      "summary": "fix: isolated gateways list and open the operator's HOME Claude/Codex/OpenCode/Pi sessions (#122983) * fix(sessions): isolated gateways no longer inherit HOME external session catalogs A gateway on isolated state (custom OPENCLAW_STATE_DIR/CONFIG_PATH/OPENCLAW_HOME, relocated home, or any named profile) listed, read, continued, archived, and reopened the operator's real Claude Code/Codex/OpenCode/Pi sessions from the process HOME. External catalogs now require the default install identity for process-HOME scans: every catalog verb receives the isolation policy and rejects HOME-fallback local targets, unknown providers fail closed unless they declare supportsProcessHomeIsolation, and one structured warning records the skip. Paired-node hosts and explicitly rooted stores (CLAUDE_CONFIG_DIR, CODEX_HOME, OPENCODE_DB, Pi session dirs) keep working; default-identity gateways are unchanged. * fix(sessions): inject catalog HOME-isolation fact at registry construction * chore(sdk): regenerate plugin API baselines after rebase * chore(sdk): regenerate plugin API baselines after rebase",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): guard wiki_get against missing or wrong-typed looku…",
-      "summaryZh": "重點：修正(記憶-wiki): guard wiki_get against missing or wrong-typed lookup (#122549) * 修正(記憶-wiki): return clean error from wiki_..."
+      "titleZh": "OpenClaw 程式碼更新：修正: isolated Gateways list and open the operator's HOME Claude/Codex…",
+      "summaryZh": "重點：修正: isolated Gateways list and open the operator's HOME Claude/Codex/OpenCode/Pi sessions (#122983) * 修正(sessions): isol..."
     },
     {
       "id": 9,
-      "title": "fix(skills): invalidate plugin skill memo when ACP availability chang…",
-      "link": "https://github.com/openclaw/openclaw/commit/d94c755eb7a78d2a35a64691029420986451e84d",
-      "publishedAt": "2026-08-13T06:04:35Z",
-      "summary": "fix(skills): invalidate plugin skill memo when ACP availability changes (#121181)",
+      "title": "test(telegram): align ingress fixtures with Bot API (#123059)",
+      "link": "https://github.com/openclaw/openclaw/commit/683d37a35f2054cb85d0ebbaa15b2f8a3a687746",
+      "publishedAt": "2026-08-13T07:58:17Z",
+      "summary": "test(telegram): align ingress fixtures with Bot API (#123059)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): invalidate plugin skill memo when ACP availability chang…",
-      "summaryZh": "重點：修正(skills): invalidate plugin skill memo when ACP availability changes (#121181)..."
+      "titleZh": "OpenClaw 程式碼更新：test(Telegram): align ingress 修正tures with Bot API (#123059)",
+      "summaryZh": "重點：test(Telegram): align ingress 修正tures with Bot API (#123059)..."
     },
     {
       "id": 10,
-      "title": "fix(ci): split discord thread-creation tests under the max-lines cap",
-      "link": "https://github.com/openclaw/openclaw/commit/7c8f08a88ccc5b81248b58a8d7060505f4d6b239",
-      "publishedAt": "2026-08-13T05:57:48Z",
-      "summary": "fix(ci): split discord thread-creation tests under the max-lines cap #117354 added 246 lines of thread initial-message chunking coverage, taking send.creates-thread.test.ts to 1082 counted lines against the 1000-line cap and leaving main check-lint red. Move the 9 chunking tests to a sibling file. The suite remains 51 tests total: 51 before; 42 + 9 after.",
+      "title": "feat: portals — expose agent-run dev servers to the operator (#122536)",
+      "link": "https://github.com/openclaw/openclaw/commit/cc2fc55f9b480b16ca2ba5d06dacf0c97cf2d587",
+      "publishedAt": "2026-08-13T07:46:11Z",
+      "summary": "feat: portals — expose agent-run dev servers to the operator (#122536) * feat(protocol): add portal methods and event Bump the reviewed protocol owner-module count from 55 to 56. * feat(gateway): add portal service and reverse proxy * feat(agents): add portal tool * fix(gateway): refine portal URL and proxy auth * refactor(gateway): keep portal helper types private * fix(gateway): declare portal transport service * test(gateway): satisfy portal proxy lint * test(gateway): narrow websocket payload types * refactor(protocol): compact portal schema exports * fix(gateway): export portal protocol types * feat(ui): add portals page * docs(gateway): add portals guide * fix(gateway): dial portal targets via localhost dual-stack Vite and other Node >=17 dev servers bind ::1 only for localhost, so a fixed 127.0.0.1 dial 502s on the default path. Use hostname localhost with family autoselection and rewrite Host to match. * fix(gateway): type portal dual-stack connection * fix: satisfy portal integration gates * fix(gateway): isolate portal cookie jars per target Cookies are hostname-scoped, not port-scoped, so the per-port origin split alone let Gateway plugin-auth cookies reach agent-run targets. Forward only cookies carrying this portal's own name prefix (stripped), rewrite target Set-Cookie names to the prefixed form incl. the WS 101 handshake, and drop Domain attributes. * fix(ui): detect unreachable portals behind proxied gateways Probe the portal origin from the browser (no-cors, 4s timeout) and show a recovery notice with the gateway-host URL instead of a dead iframe when only the gateway port is exposed (Serve/Funnel/reverse proxy). Docs: cookie isolation + reachability; zh-CN glossary entry. * test(ui): satisfy portal reachability lint * test(gateway): provide control UI request hosts * chore(protocol): regenerate after rebase * fix(gateway): namespace portal auth cookies by listener * fix(gateway): scope portal token URLs to write-capable clients The portal bearer token rides in the summary url/tokenQuery; portal.list is operator.read and portal.changed fans out to read subscribers, so a read-only client could harvest an openable URL. Make those fields optional, redact them from read-scope list responses, and drop them from every portal.changed broadcast; write/admin clients still receive them and the UI refetches the list on change. * docs(web): list the portals route * fix(gateway): type portal open credentials * docs(gateway): clarify portals PORT/PUBLIC_URL are agent-set Opening a portal creates only the proxy listener; the agent sets PORT and PUBLIC_URL in its own exec command, matching the portal tool contract. Removes the implication of an automatic env handoff. * chore(protocol): regenerate portal models * style(gateway): format portal method-order assertions Rebase union-merge left the portal.list assertion wrapped; oxfmt fits it on one line. * chore(plugin-sdk): refresh API baseline after rebase * chore(plugin-sdk): refresh API baseline after rebase * chore(protocol): refresh portal event order after rebase * chore(plugin-sdk): refresh API baseline after rebase * fix(gateway): pin portal referrer policy to no-referrer The portal URL carries its bearer token in the query, and upstream response headers are copied verbatim, so a target answering with Referrer-Policy: unsafe-url could leak that URL to every third-party origin it references. Force no-referrer after the copy and drop any inbound Referer that still carries the token before forwarding.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): split Discord thread-creation tests under the max-lines cap",
-      "summaryZh": "重點：修正(ci): split Discord thread-creation tests under the max-lines cap #117354 added 246 lines of thread initial-message ch..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: portals — expose agent-run dev servers to the operator (#122536)",
+      "summaryZh": "重點：新功能: portals — expose agent-run dev servers to the operator (#122536) * 新功能(protocol): add portal methods and event Bump..."
     }
   ]
 }
