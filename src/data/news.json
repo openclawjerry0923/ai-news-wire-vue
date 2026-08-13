@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-13T21:45:31.779Z",
+  "generatedAt": "2026-08-13T22:42:01.124Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: keep global channel events agent-scoped (#123316)",
-      "link": "https://github.com/openclaw/openclaw/commit/902eddf16b08574f825e6b32b2964ce6a6c0f697",
-      "publishedAt": "2026-08-13T21:45:19Z",
-      "summary": "fix: keep global channel events agent-scoped (#123316) Slack and Discord routed system events now retain route ownership when they enter literal-global queues, so sibling agents cannot consume them. Genuinely unbound routing remains an explicit error instead of falling back to a default agent.",
+      "title": "fix(ollama): migrate legacy api-key marker configs (#123341)",
+      "link": "https://github.com/openclaw/openclaw/commit/66bfb5dce1a759d551383d30d31a11e21177cc6c",
+      "publishedAt": "2026-08-13T22:39:48Z",
+      "summary": "fix(ollama): migrate legacy api-key marker configs (#123341)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep global channel events agent-scoped (#123316)",
-      "summaryZh": "重點：修正: keep global channel events agent-scoped (#123316) Slack and Discord routed system events now retain route ownership ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ollama): migrate legacy api-key marker configs (#123341)",
+      "summaryZh": "重點：修正(ollama): migrate legacy api-key marker configs (#123341)..."
     },
     {
       "id": 2,
-      "title": "fix(ui): responsive layout test no longer flakes under load (#123300)",
-      "link": "https://github.com/openclaw/openclaw/commit/b7b33149b06e6e371879c7a5f0846b68880226e2",
-      "publishedAt": "2026-08-13T21:31:48Z",
-      "summary": "fix(ui): responsive layout test no longer flakes under load (#123300) * test(ui): stabilize responsive layout geometry * test(ui): fix lint errors in layout-settle helper Rename the evaluate-scope selector binding and stop returning the rAF id from the Promise executor (no-shadow, no-promise-executor-return).",
+      "title": "fix(gateway): terminal run persistence race caches pre-terminal sessi…",
+      "link": "https://github.com/openclaw/openclaw/commit/177a16cdca33930ca107b4814e7e689856bd9cb7",
+      "publishedAt": "2026-08-13T22:37:45Z",
+      "summary": "fix(gateway): terminal run persistence race caches pre-terminal session rows forever (#123259) On lifecycle end the gateway clears run projections synchronously (bumping the run-index fence) and then commits the terminal entry write (status/endedAt/runtimeMs) asynchronously. A sessions.list computed in that window sees hasActiveRun=false with the pre-terminal entry — a cacheable wrong row — and the completed-result cache serves it indefinitely because the async commit bumps no fence; the post-persist notification is a raw broadcast that clients answer from the same stale cache. Give the lifecycle writer its own fence version, bumped when the commit lands, and add it to the list fence.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): responsive layout test no longer flakes under load (#123300)",
-      "summaryZh": "重點：修正(ui): responsive layout test no longer flakes under load (#123300) * test(ui): stabilize responsive layout geometry * ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): terminal run persistence race caches pre-terminal sessi…",
+      "summaryZh": "重點：修正(Gateway): terminal run persistence race caches pre-terminal session rows forever (#123259) On lifecycle end the Gatew..."
     },
     {
       "id": 3,
-      "title": "fix(ci): run complete plugin tests for direct changes (#123314)",
-      "link": "https://github.com/openclaw/openclaw/commit/e7aa4d203e36292cab7e66ebed4717c5eb0291dc",
-      "publishedAt": "2026-08-13T21:29:24Z",
-      "summary": "fix(ci): run complete plugin tests for direct changes (#123314)",
+      "title": "fix(codex): stop quoted context from triggering explicit skill mentio…",
+      "link": "https://github.com/openclaw/openclaw/commit/e04dfd26e237cfc73afb20a5d58d707b0574cdb2",
+      "publishedAt": "2026-08-13T22:33:23Z",
+      "summary": "fix(codex): stop quoted context from triggering explicit skill mentions (#123345) Codex byte-scans every turn text input for $name skill mentions and [@name](plugin://...) links (codex-rs/skills/src/mentions.rs), so historical $skill tokens inside OpenClaw's projected block and inbound quoted-reply/room-backlog context counted as current explicit invocations and injected skill bodies the user never requested. Neutralize mention sigils with same-length fullwidth lookalikes (the escapeCodexChatText technique) in projected history and inbound context; only the raw current request stays selectable. Fixes #122812",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): run complete plugin tests for direct changes (#123314)",
-      "summaryZh": "重點：修正(ci): run complete plugin tests for direct changes (#123314)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): stop quoted context from triggering explicit skill mentio…",
+      "summaryZh": "重點：修正(codex): stop quoted context from triggering explicit skill mentions (#123345) Codex byte-scans every turn text input ..."
     },
     {
       "id": 4,
-      "title": "fix(ollama): verify guided setup with runtime model (#123190)",
-      "link": "https://github.com/openclaw/openclaw/commit/3cdbe3a511ee14abb517f7d815345b70055d2cfc",
-      "publishedAt": "2026-08-13T21:27:34Z",
-      "summary": "fix(ollama): verify guided setup with runtime model (#123190)",
+      "title": "fix(skills): run scheduled collection reviews in auto mode (#123340)",
+      "link": "https://github.com/openclaw/openclaw/commit/5053635a70459b018b5b6367245f56274e3b9b13",
+      "publishedAt": "2026-08-13T22:32:25Z",
+      "summary": "fix(skills): run scheduled collection reviews in auto mode (#123340) * fix(skills): admit scheduled collection reviews * chore: defer release changelog entry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ollama): verify guided setup with runtime 模型 (#123190)",
-      "summaryZh": "重點：修正(ollama): verify guided setup with runtime 模型 (#123190)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): run scheduled collection reviews in auto mode (#123340)",
+      "summaryZh": "重點：修正(skills): run scheduled collection reviews in auto mode (#123340) * 修正(skills): admit scheduled collection reviews * c..."
     },
     {
       "id": 5,
