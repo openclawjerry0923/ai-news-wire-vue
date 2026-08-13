@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-13T16:03:08.776Z",
+  "generatedAt": "2026-08-13T17:57:03.916Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(reasoning-tags): prevent internal reflections in replies (#123196)",
-      "link": "https://github.com/openclaw/openclaw/commit/f70d5b8ba5881346e7d9f76ea2c8c5cc5ae59ca6",
-      "publishedAt": "2026-08-13T15:06:48Z",
-      "summary": "fix(reasoning-tags): prevent internal reflections in replies (#123196) Treat blocks as private reasoning in the shared parser and remove Telegram raw-reasoning fallbacks. This keeps model reflections out of user-visible replies while preserving surrounding answer text. Closes #122623 Co-authored-by: Ayaan Zaidi Co-authored-by: WangYan",
+      "title": "improve(ci): stripe giant compact test groups (#123142)",
+      "link": "https://github.com/openclaw/openclaw/commit/2a70d849e8a8bde3d66562bc441d96fb95388baf",
+      "publishedAt": "2026-08-13T17:46:38Z",
+      "summary": "improve(ci): stripe giant compact test groups (#123142) * ci: stripe media-ui, gateway-core, and security compact groups * fix(ci): preserve compact stripe config ownership",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reasoning-tags): prevent internal reflections in replies (#123196)",
-      "summaryZh": "重點：修正(reasoning-tags): prevent internal reflections in replies (#123196) Treat blocks as private reasoning in the shared pa..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ci): stripe giant compact test groups (#123142)",
+      "summaryZh": "重點：improve(ci): stripe giant compact test groups (#123142) * ci: stripe media-ui, Gateway-core, and 安全 compact groups * 修正(..."
     },
     {
       "id": 2,
-      "title": "fix(memory-wiki): guard malformed wiki_apply input (#123050)",
-      "link": "https://github.com/openclaw/openclaw/commit/0e5855be8bb39c6294fb9bef96a2b1aa910f0207",
-      "publishedAt": "2026-08-13T14:26:21Z",
-      "summary": "fix(memory-wiki): guard malformed wiki_apply input (#123050) Co-authored-by: Tak Hoffman",
+      "title": "fix(ci): extend runner-backend breaker to PR-gating standalone workflows",
+      "link": "https://github.com/openclaw/openclaw/commit/165a2e9ede696adbc84313bbb731ee89c1ef53d2",
+      "publishedAt": "2026-08-13T17:23:22Z",
+      "summary": "fix(ci): extend runner-backend breaker to PR-gating standalone workflows OpenGrep precise/full, sandbox-common-smoke, and plugin-init scaffold validation were still pinned to Blacksmith runners outside ci.yml, so PR checks starved during the Blacksmith outage even with OPENCLAW_CI_RUNNER_BACKEND=github. Route them through the same breaker expression and bound sandbox-common-smoke with a timeout.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): guard malformed wiki_apply input (#123050)",
-      "summaryZh": "重點：修正(記憶-wiki): guard malformed wiki_apply input (#123050) Co-authored-by: Tak Hoffman..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): extend runner-backend breaker to PR-gating standalone workflows",
+      "summaryZh": "重點：修正(ci): extend runner-backend breaker to PR-gating standalone workflows OpenGrep precise/full, sandbox-common-smoke, and..."
     },
     {
       "id": 3,
-      "title": "refactor(ui): route stylesheet colors through the token layer and gat…",
-      "link": "https://github.com/openclaw/openclaw/commit/843017073cc27b28c1926ea21808b4209620ee03",
-      "publishedAt": "2026-08-13T12:36:52Z",
-      "summary": "refactor(ui): route stylesheet colors through the token layer and gate hex literals (#123156) Add semantic, presentation, brand, and shared highlight tokens in base.css. Remove dead fallbacks and consolidate dark/light syntax colors behind tokens. Enforce color-no-hex for CSS while exempting token definitions and sprite artwork.",
+      "title": "fix: keep CI running during Blacksmith outages (#123263)",
+      "link": "https://github.com/openclaw/openclaw/commit/fb82d87cada297859fd0cbebb236aaa776aa05f5",
+      "publishedAt": "2026-08-13T17:18:35Z",
+      "summary": "fix: keep CI running during Blacksmith outages (#123263) * ci: add runner-backend circuit breaker with GitHub-hosted fallback * fix(ci): extend hosted timeouts to circuit-breaker runs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): route stylesheet colors through the token layer and gat…",
-      "summaryZh": "重點：refactor(ui): route stylesheet colors through the token layer and gate hex literals (#123156) Add semantic, presentation..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep CI running during Blacksmith outages (#123263)",
+      "summaryZh": "重點：修正: keep CI running during Blacksmith outages (#123263) * ci: add runner-backend circuit breaker with GitHub-hosted fall..."
     },
     {
       "id": 4,
-      "title": "fix(ui): stop stamping a dead blur class on chat links containing 'ta…",
-      "link": "https://github.com/openclaw/openclaw/commit/0926d56cbf90a8f50d0f0e2b36b5fd4af9e2be44",
-      "publishedAt": "2026-08-13T12:22:02Z",
-      "summary": "fix(ui): stop stamping a dead blur class on chat links containing 'tail' (#123154) The DOMPurify afterSanitizeAttributes hook added class chat-link-tail-blur to every rendered chat link whose href merely contains the substring \"tail\" (docs.openclaw.ai/tailscale, /details/, retail, ...). No stylesheet or script anywhere consumes the class: it is an orphaned producer that survived the Control UI import, polluting sanitized HTML and the markdown LRU cache, and priming a foot-gun where any future .chat-link-tail-blur CSS rule would visually blur docs links in every transcript. Link presentation classes are owned by markdown-parser.ts (web-link-classes, hostname-based); delete the substring classifier.",
+      "title": "chore(i18n): refresh native locales (#123101)",
+      "link": "https://github.com/openclaw/openclaw/commit/9550d6f9628472e83f6852dae8c1ac3f79573556",
+      "publishedAt": "2026-08-13T17:00:58Z",
+      "summary": "chore(i18n): refresh native locales (#123101) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop stamping a dead blur class on chat links containing 'ta…",
-      "summaryZh": "重點：修正(ui): stop stamping a dead blur class on chat links containing 'tail' (#123154) The DOMPurify afterSanitizeAttributes ..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#123101)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#123101) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 5,
