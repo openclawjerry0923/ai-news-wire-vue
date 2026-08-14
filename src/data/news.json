@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-08-14T15:52:11.835Z",
+  "generatedAt": "2026-08-14T16:53:20.590Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(msteams): dedupe poll vote selections before maxSelections trunca…",
-      "link": "https://github.com/openclaw/openclaw/commit/9386ac096632509203dc94086d86d7b3de8bc30d",
-      "publishedAt": "2026-08-14T15:43:41Z",
-      "summary": "fix(msteams): dedupe poll vote selections before maxSelections truncation (#123070) * fix(msteams): dedupe poll vote selections before maxSelections truncation normalizeMSTeamsPollSelections truncated the raw selections to maxSelections before deduplicating, so a duplicated choice (e.g. an Adaptive Card posting \"0,0,1\") consumed multiple slots and starved later distinct choices: with maxSelections=2 the stored vote became [\"0\"] and choice \"1\" was silently dropped. Deduplicate first, then truncate. * fix(msteams): simplify poll selection normalization --------- Co-authored-by: ClawSweeper",
+      "title": "fix(nodes): fully persist camera URL chunks (#123736)",
+      "link": "https://github.com/openclaw/openclaw/commit/607356762f5a1d0f6f0c1e28bdf2549000e8c006",
+      "publishedAt": "2026-08-14T16:50:19Z",
+      "summary": "fix(nodes): fully persist camera URL chunks (#123736)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(msteams): dedupe poll vote selections before maxSelections trunca…",
-      "summaryZh": "重點：修正(msteams): dedupe poll vote selections before maxSelections truncation (#123070) * 修正(msteams): dedupe poll vote selec..."
+      "titleZh": "OpenClaw 程式碼更新：修正(nodes): fully persist camera URL chunks (#123736)",
+      "summaryZh": "重點：修正(nodes): fully persist camera URL chunks (#123736)..."
     },
     {
       "id": 2,
-      "title": "test: remove latest direct test mirrors (#123704)",
-      "link": "https://github.com/openclaw/openclaw/commit/59533cb0fb4af11709f6818ba4bb651dfc001e78",
-      "publishedAt": "2026-08-14T15:41:24Z",
-      "summary": "test: remove latest direct test mirrors (#123704)",
+      "title": "fix(cron): terminalize the receipt when a mutation fences a queued re…",
+      "link": "https://github.com/openclaw/openclaw/commit/5613bddef3ba6e4f663d35c9d0929d3f97db8be6",
+      "publishedAt": "2026-08-14T16:49:17Z",
+      "summary": "fix(cron): terminalize the receipt when a mutation fences a queued reservation (#123725) A disable/remove that lands while a scheduled run is still queued on admission wipes the durable queuedAtMs marker. The executor's fence branch then dropped only the in-memory reservation, leaving the run receipt 'running' and locally owned: recovery skips it (no durable markers, live pid), and every later reservation hits the receipt-conflict monitor, so an enabled job with a due next run never fires again until gateway restart. Finish the receipt as skipped in the fence branch, mirroring the manual-run and not-runnable siblings.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: remove latest direct test mirrors (#123704)",
-      "summaryZh": "重點：test: remove latest direct test mirrors (#123704)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): terminalize the receipt when a mutation fences a queued re…",
+      "summaryZh": "重點：修正(排程): terminalize the receipt when a mutation fences a queued reservation (#123725) A disable/remove that lands while ..."
     },
     {
       "id": 3,
-      "title": "test(tasks): bind audit age to elapsed time (#123686)",
-      "link": "https://github.com/openclaw/openclaw/commit/621220aea9baa22b002be1f4cd10230be2767f3d",
-      "publishedAt": "2026-08-14T15:29:40Z",
-      "summary": "test(tasks): bind audit age to elapsed time (#123686)",
+      "title": "fix(codex): refresh session meters after /codex compact (#123640)",
+      "link": "https://github.com/openclaw/openclaw/commit/8885be47563f2648fb618da08b9ec0a4387226e2",
+      "publishedAt": "2026-08-14T16:47:43Z",
+      "summary": "fix(codex): refresh session meters after /codex compact (#123640) * fix(codex): route compact through session pipeline Route /codex compact through host-owned manual compaction so native completion and token snapshots update session meters, and report the terminal outcome to the user. * test(codex): cover unavailable compact outcome * fix(plugins): fence command compaction capability Bind compactCurrent to one command invocation and captured session generation so retained or stale callbacks fail closed without running compaction. * fix(plugins): lazy-load command session revalidation Keep compaction session freshness checks at the auto-reply owner without pulling the session accessor into generic plugin command module initialization. * fix(plugins): keep session revalidation lazy Avoid loading the session accessor through generic plugin command initialization while preserving pre-compaction session-generation checks. * fix(compaction): fence session lifecycle admission Revalidate the exact session id and lifecycle revision immediately before native compaction and again before accounting so resets and rebinds fail closed across awaited work. * fix(commands): fence plugin compaction authority * fix(compaction): require accounting commit * test(compaction): keep regression under lint cap * fix(codex): preserve compact admission * fix(codex): preserve compaction target identity * fix(compaction): bind admitted target * fix(compaction): fence accounting commit",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(tasks): bind audit age to elapsed time (#123686)",
-      "summaryZh": "重點：test(tasks): bind audit age to elapsed time (#123686)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): refresh session meters after /codex compact (#123640)",
+      "summaryZh": "重點：修正(codex): refresh session meters after /codex compact (#123640) * 修正(codex): route compact through session pipeline Rou..."
     },
     {
       "id": 4,
-      "title": "build(macos): add OPENCLAW_SKIP_MLX_TTS to unblock beta-toolchain bui…",
-      "link": "https://github.com/openclaw/openclaw/commit/f87580ceb88580fce03c92c5763bfa13d7d91ee2",
-      "publishedAt": "2026-08-14T15:28:43Z",
-      "summary": "build(macos): add OPENCLAW_SKIP_MLX_TTS to unblock beta-toolchain builds (#123698) The openclaw-mlx-tts voice helper pulls in the full mlx-swift Metal shader stack, which some beta Xcode toolchains (e.g. Xcode 27 / macOS 27 SDK) cannot compile: the metal compiler dies non-deterministically (a different .metal file each run, 'Could not read serialized diagnostics file'). The main app builds fine, so an unrelated dev/proof build should not be blocked by the helper. Add OPENCLAW_SKIP_MLX_TTS=1 (matching the sibling SKIP_TSC/SKIP_UI_BUILD toggles) to package the app without the voice helper, gating both the per-arch build and the bundle copy. Refuse the flag for release builds, which must ship the helper (notarization verifies it), so a skipped build can never become a silently incomplete release.",
+      "title": "fix(installer): reject unusable prefix installs (#123716)",
+      "link": "https://github.com/openclaw/openclaw/commit/3ac267fdd1c014153540f00893e7406aaf8937b2",
+      "publishedAt": "2026-08-14T16:44:54Z",
+      "summary": "fix(installer): reject unusable prefix installs (#123716) * fix(installer): reject unusable prefix installs * test(installer): clean invalid package fixtures * fix(installer): require successful version probe",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：build(macos): add OpenClaw_SKIP_MLX_TTS to unblock beta-toolchain bui…",
-      "summaryZh": "重點：build(macos): add OpenClaw_SKIP_MLX_TTS to unblock beta-toolchain builds (#123698) The OpenClaw-mlx-tts voice helper pul..."
+      "titleZh": "OpenClaw 程式碼更新：修正(installer): reject unusable pre修正 installs (#123716)",
+      "summaryZh": "重點：修正(installer): reject unusable pre修正 installs (#123716) * 修正(installer): reject unusable pre修正 installs * test(installer..."
     },
     {
       "id": 5,
+      "title": "90 年量子預言獲證，跨國團隊首度從極端磁星捕捉「真空雙折射」關鍵證據",
+      "link": "https://technews.tw/2026/08/15/vacuum-birefringence-theory-from-magnetars/",
+      "publishedAt": "Fri, 14 Aug 2026 16:00:56 +0000",
+      "summary": "一項針對磁星的突破性測量，可能首次捕捉到量子物理學家預測達 90 年之久、卻從未被直接觀察到的奇特現象。相關研 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "破解癲癇患者記憶衰退之謎，美團隊發現大腦夜間協調機制",
+      "link": "https://technews.tw/2026/08/15/epileptic-discharges-disrupt-brain-synchronization/",
+      "publishedAt": "Fri, 14 Aug 2026 16:00:34 +0000",
+      "summary": "人在睡眠時，大腦是如何保存新記憶的？美知名醫學團隊最新研究證實，當人體進入睡眠後，眶額皮質（Orbitofro [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "寵物壁虎，竟可能成為破解癌症的重要幫手",
+      "link": "https://technews.tw/2026/08/15/lemon-frost-gecko-could-hold-clues-to-fighting-cancer/",
+      "publishedAt": "Fri, 14 Aug 2026 16:00:20 +0000",
+      "summary": "誰會想到，一隻悠閒趴在石頭上的寵物壁虎，竟可能成為癌症研究的新希望？最近，英國諾丁漢大學（University [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "F5調整漏洞修補政策，更新放緩為每6週發布一次並暫停定期安全通知",
       "link": "https://www.ithome.com.tw/news/178134",
       "publishedAt": "2026-08-14 12:08:44",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "殭屍網路Kimwolf v7利用HTTP/2隱匿DDoS流量",
       "link": "https://www.ithome.com.tw/news/178132",
       "publishedAt": "2026-08-14 12:08:43",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "政府系統淪AI Agent攻擊實戰場，TeamT5執行長蔡松廷：自動化攻擊早已進入下一個時代",
       "link": "https://www.ithome.com.tw/news/178135",
       "publishedAt": "2026-08-14 12:08:40",
       "summary": "今年8月中旬，英國金融時報《Financial Times》引述資安新創公司Dreams Security的最新報告，揭露一套完整的自主式AI攻擊框架，在2026年7月1日至4日期間，針對亞洲某國政府機關發動長達四天、共12波的入侵行動。 這套建立在Hermes與OpenClaw這兩個Agent執行框架之上的系統，不僅完成偵察、初始入侵、橫向移動到資料外洩的整條攻擊鏈，還在過程中自主研究新漏洞、自我修正錯誤判斷，最終產出超過160 MB、共1,395個檔案的作業封存資料。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "雲端安全聯盟揭2026年11大雲端威脅，AI強化攻擊與AI系統遭入侵首度進榜",
-      "link": "https://www.ithome.com.tw/news/178137",
-      "publishedAt": "2026-08-14 12:08:22",
-      "summary": "隨著企業加速採用AI與雲端服務，並讓更多系統彼此整合，雲端資安風險也出現變化。雲端安全聯盟（Cloud Security Alliance，CSA）公布2026年雲端運算重大威脅調查，有兩項AI相關風險首度進入前11名，分別為排名第2的AI強化攻擊（AI-Enhanced Attacks），以及排名第6的AI系統遭入侵（AI System Compromise）。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "攻擊行動City-Forum鎖定Salesforce與ServiceNow，利用自製工具大規模蒐集公開資料",
-      "link": "https://www.ithome.com.tw/news/178136",
-      "publishedAt": "2026-08-14 12:08:06",
-      "summary": "鎖定Salesforce用戶發動的攻擊行動不時傳出，其中一組最常出現在新聞版面的駭客組織是ShinyHunters，他們曾利用Salesloft Drift、Gainsight等第三方應用程式權杖，竊取Salesforce用戶資料，如今有資安公司發現，有其他駭客組織以自製工具低調犯案一年半。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "OpenAI挖角Google旗下Wiz營運長，出任全球營收長",
-      "link": "https://www.ithome.com.tw/news/178131",
-      "publishedAt": "2026-08-14 11:08:50",
-      "summary": "OpenAI周四（8/13）宣布，任命Dali Rajic為營收長（Chief Revenue Officer，CRO），負責全球營收組織，接替上任僅約8個月的Denise Dresser。Rajic原為雲端資安業者Wiz總裁暨營運長，該公司近期已被Google收購；Dresser則將在完成交接後離開OpenAI。",
       "source": "iThome",
       "tag": "繁中"
     }
