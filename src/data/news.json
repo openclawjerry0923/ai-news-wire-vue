@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T10:02:34.373Z",
+  "generatedAt": "2026-08-14T11:43:16.570Z",
   "items": [
     {
       "id": 1,
@@ -48,56 +48,56 @@
     },
     {
       "id": 6,
+      "title": "fix(ui): catalog continuation silently dropped staged attachments (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/37a63fbf450ef68b2c62bca5b46fcdfb53522de8",
+      "publishedAt": "2026-08-14T11:36:08Z",
+      "summary": "fix(ui): catalog continuation silently dropped staged attachments (#123581) A continuable catalog session exposes the full attachment surface (file inputs, plus-menu, paste), and the send button counts staged attachments as composed content — but continueCatalogSession required a non-empty text draft and always handed off attachments: []. Draft+images sent text only with the images silently vanishing (payloads leaked, never released); images-only made the enabled send button do nothing at all: the worst bug class, an action with no visible outcome and no recorded reason. Carry independently-owned attachment clones through the continuation handoff, mirroring the new-session sibling (chat-pane-session-creation.ts), and treat attachments as composed content in the guard so attachment-only continuations send. Empty draft with no attachments still no-ops.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): catalog continuation silently dropped staged attachments (#1…",
+      "summaryZh": "重點：修正(ui): catalog continuation silently dropped staged attachments (#123581) A continuable catalog session exposes the ful..."
+    },
+    {
+      "id": 7,
+      "title": "fix(ui): terminal actions disappear during Gateway updates (#123578)",
+      "link": "https://github.com/openclaw/openclaw/commit/ee6c2cb50df086e83575753313fd5131afe186b6",
+      "publishedAt": "2026-08-14T11:34:51Z",
+      "summary": "fix(ui): terminal actions disappear during Gateway updates (#123578) * fix(ui): replay terminal actions across refresh fences * refactor(ui): isolate terminal pending action journal * refactor(ui): remove terminal storage import cycle * test(ui): release worker update fence explicitly * test(ui): gate worker install with held response * fix(ui): fence stable-client terminal reconnects * fix(ui): carry selected agent through terminal toggle * fix(ui): keep terminal toggle event shape stable",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): terminal actions disappear during Gateway updates (#123578)",
+      "summaryZh": "重點：修正(ui): terminal actions disappear during Gateway updates (#123578) * 修正(ui): replay terminal actions across refresh fen..."
+    },
+    {
+      "id": 8,
+      "title": "fix(gateway): in-flight run adoption resolves the agent-scoped canoni…",
+      "link": "https://github.com/openclaw/openclaw/commit/508b35d9278c2d95638d69ea59a4d712f5bcfb3d",
+      "publishedAt": "2026-08-14T11:30:41Z",
+      "summary": "fix(gateway): in-flight run adoption resolves the agent-scoped canonical key (#123539) chat.history/chat.startup re-resolved the canonical key without agent scoping even though the correctly scoped key was already computed during session load. For bare alias keys with a non-default agent, the unscoped resolve fell back to the default agent, missed the abort entry's stored key, and dropped the in-flight snapshot: switch back mid-run rendered idle and the streamed reply never appeared until manual refresh. Pass the already-computed canonicalKey; delete the redundant resolve.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): in-flight run adoption resolves the agent-scoped canoni…",
+      "summaryZh": "重點：修正(Gateway): in-flight run adoption resolves the agent-scoped canonical key (#123539) chat.history/chat.startup re-resol..."
+    },
+    {
+      "id": 9,
+      "title": "fix(gateway): evict expired non-abortable runs instead of retrying fo…",
+      "link": "https://github.com/openclaw/openclaw/commit/cc668b5e134ee2372f51340e272b1338f9b421ae",
+      "publishedAt": "2026-08-14T11:28:35Z",
+      "summary": "fix(gateway): evict expired non-abortable runs instead of retrying forever (#123532) The maintenance sweeper aborted expired active entries and ignored the result. A non-abortable entry (signal already aborted via direct controller.abort, or a frozen reply operation) whose owner cleanup was lost survived every sweep: phantom active run in sessions.list, Stop answering no-active-run while the row showed running, pinned dedupe key, skipped media GC. The sweeper now removes the entry when the timeout abort reports aborted:false — mirroring the adjacent inactive-entry branch. Sibling of the terminal-pending bound fixed in #123192.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): evict expired non-abortable runs instead of retrying fo…",
+      "summaryZh": "重點：修正(Gateway): evict expired non-abortable runs instead of retrying forever (#123532) The maintenance sweeper aborted expi..."
+    },
+    {
+      "id": 10,
       "title": "OpenAI挖角Google旗下Wiz營運長，出任全球營收長",
       "link": "https://www.ithome.com.tw/news/178131",
       "publishedAt": "2026-08-14 11:08:50",
       "summary": "OpenAI周四（8/13）宣布，任命Dali Rajic為營收長（Chief Revenue Officer，CRO），負責全球營收組織，接替上任僅約8個月的Denise Dresser。Rajic原為雲端資安業者Wiz總裁暨營運長，該公司近期已被Google收購；Dresser則將在完成交接後離開OpenAI。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "ci: route hybrid compact shards to Blacksmith (#123593)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee288a836cd986904560e077c8280eca742b0431",
-      "publishedAt": "2026-08-14T10:01:33Z",
-      "summary": "ci: route hybrid compact shards to Blacksmith (#123593)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: route hybrid compact shards to Blacksmith (#123593)",
-      "summaryZh": "重點：ci: route hybrid compact shards to Blacksmith (#123593)..."
-    },
-    {
-      "id": 8,
-      "title": "fix(media): fully persist streamed chunks (#123590)",
-      "link": "https://github.com/openclaw/openclaw/commit/e6c3aac07cb44801639cc624fa42f65c96b79091",
-      "publishedAt": "2026-08-14T09:57:58Z",
-      "summary": "fix(media): fully persist streamed chunks (#123590)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(media): fully persist streamed chunks (#123590)",
-      "summaryZh": "重點：修正(media): fully persist streamed chunks (#123590)..."
-    },
-    {
-      "id": 9,
-      "title": "feat(onboard): named first agent (#123521)",
-      "link": "https://github.com/openclaw/openclaw/commit/2a77e6e5a05de442096b0ab21c01d0436a187e2f",
-      "publishedAt": "2026-08-14T09:54:55Z",
-      "summary": "feat(onboard): named first agent (#123521) * feat(onboard): named first agent * fix(onboard): harden named-agent handoff * test(onboard): preserve authored roster provenance * test(gateway): restore authorized steering coverage * fix(onboard): report imported roster name conflicts",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(onboard): named first agent (#123521)",
-      "summaryZh": "重點：新功能(onboard): named first agent (#123521) * 新功能(onboard): named first agent * 修正(onboard): harden named-agent handoff * ..."
-    },
-    {
-      "id": 10,
-      "title": "perf(test): skip idle gateway session servers (#123580)",
-      "link": "https://github.com/openclaw/openclaw/commit/b694ee18045c8af232149e84b7d25ff7d30048bc",
-      "publishedAt": "2026-08-14T09:43:20Z",
-      "summary": "perf(test): skip idle gateway session servers (#123580)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): skip idle Gateway session servers (#123580)",
-      "summaryZh": "重點：perf(test): skip idle Gateway session servers (#123580)..."
     }
   ]
 }
