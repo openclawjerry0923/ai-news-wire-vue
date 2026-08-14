@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-14T14:52:06.351Z",
+  "generatedAt": "2026-08-14T15:52:11.835Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(mac): package portable elevation installer (#123675)",
-      "link": "https://github.com/openclaw/openclaw/commit/493a3e46b3f2921269cfb0af5dfc86efb569ceaa",
-      "publishedAt": "2026-08-14T14:33:05Z",
-      "summary": "fix(mac): package portable elevation installer (#123675) * fix(mac): package portable elevation installer * docs(mac): explain portable elevation install",
+      "title": "fix(msteams): dedupe poll vote selections before maxSelections trunca…",
+      "link": "https://github.com/openclaw/openclaw/commit/9386ac096632509203dc94086d86d7b3de8bc30d",
+      "publishedAt": "2026-08-14T15:43:41Z",
+      "summary": "fix(msteams): dedupe poll vote selections before maxSelections truncation (#123070) * fix(msteams): dedupe poll vote selections before maxSelections truncation normalizeMSTeamsPollSelections truncated the raw selections to maxSelections before deduplicating, so a duplicated choice (e.g. an Adaptive Card posting \"0,0,1\") consumed multiple slots and starved later distinct choices: with maxSelections=2 the stored vote became [\"0\"] and choice \"1\" was silently dropped. Deduplicate first, then truncate. * fix(msteams): simplify poll selection normalization --------- Co-authored-by: ClawSweeper",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mac): package portable elevation installer (#123675)",
-      "summaryZh": "重點：修正(mac): package portable elevation installer (#123675) * 修正(mac): package portable elevation installer * 文件(mac): expla..."
+      "titleZh": "OpenClaw 程式碼更新：修正(msteams): dedupe poll vote selections before maxSelections trunca…",
+      "summaryZh": "重點：修正(msteams): dedupe poll vote selections before maxSelections truncation (#123070) * 修正(msteams): dedupe poll vote selec..."
     },
     {
       "id": 2,
-      "title": "fix: keep gateway control traffic responsive under concurrent turns (…",
-      "link": "https://github.com/openclaw/openclaw/commit/530b33e4e37264c89ecd5abdd06279dd23d5c867",
-      "publishedAt": "2026-08-14T14:16:58Z",
-      "summary": "fix: keep gateway control traffic responsive under concurrent turns (#123608) * fix(gateway): preserve control-plane responsiveness under load * fix(plugins): accept prepared readonly manifests * refactor(plugins): prepare workspace ownership before metadata reuse * chore: leave changelog updates to release flow * fix(gateway): finish control-plane load repair * perf(gateway): reuse prepared workspace root facts * perf(gateway): coalesce workspace root preparation * test(gateway): calibrate control-plane load bound",
+      "title": "test: remove latest direct test mirrors (#123704)",
+      "link": "https://github.com/openclaw/openclaw/commit/59533cb0fb4af11709f6818ba4bb651dfc001e78",
+      "publishedAt": "2026-08-14T15:41:24Z",
+      "summary": "test: remove latest direct test mirrors (#123704)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep Gateway control traffic responsive under concurrent turns (…",
-      "summaryZh": "重點：修正: keep Gateway control traffic responsive under concurrent turns (#123608) * 修正(Gateway): preserve control-plane respo..."
+      "titleZh": "OpenClaw 程式碼更新：test: remove latest direct test mirrors (#123704)",
+      "summaryZh": "重點：test: remove latest direct test mirrors (#123704)..."
     },
     {
       "id": 3,
-      "title": "fix(channels): route commentary through one progress owner (#121009)",
-      "link": "https://github.com/openclaw/openclaw/commit/83d53044a4a38b4cc1368338afdf0f1dbcd17a75",
-      "publishedAt": "2026-08-14T14:15:53Z",
-      "summary": "fix(channels): route commentary through one progress owner (#121009) * fix(slack): keep commentary progress on draft lane * fix(channels): route commentary through one progress owner Keep non-verbose commentary in Slack and Discord draft lanes while preserving one durable commentary payload when verbose progress makes those drafts yield. Freeze that owner decision for the turn so session changes apply on the next turn. Co-authored-by: Dallin Romney Punchcard-Session: amber-workshop-workshop-36 * fix(channels): refresh queued commentary owner Recompute the frozen draft-versus-durable commentary owner for every queued follow-up turn and carry that decision into final payload projection. Punchcard-Session: amber-workshop-workshop-36 * fix(channels): clarify commentary owner opt-in * fix(channels): preserve queued draft preambles * fix(channels): require explicit queued progress ownership * refactor(channels): record commentary progress owner * fix(telegram): tolerate unscoped queued updates * test(discord): use canonical draft fixture after rebase --------- Co-authored-by: Vincent Koc",
+      "title": "test(tasks): bind audit age to elapsed time (#123686)",
+      "link": "https://github.com/openclaw/openclaw/commit/621220aea9baa22b002be1f4cd10230be2767f3d",
+      "publishedAt": "2026-08-14T15:29:40Z",
+      "summary": "test(tasks): bind audit age to elapsed time (#123686)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): route commentary through one progress owner (#121009)",
-      "summaryZh": "重點：修正(channels): route commentary through one progress owner (#121009) * 修正(slack): keep commentary progress on draft lane ..."
+      "titleZh": "OpenClaw 程式碼更新：test(tasks): bind audit age to elapsed time (#123686)",
+      "summaryZh": "重點：test(tasks): bind audit age to elapsed time (#123686)..."
     },
     {
       "id": 4,
-      "title": "perf(test): reuse memory plugin module across mocks (#123678)",
-      "link": "https://github.com/openclaw/openclaw/commit/ecaeb8c9aa90d1c182eabdc8ce1c4c395faead80",
-      "publishedAt": "2026-08-14T14:13:51Z",
-      "summary": "perf(test): reuse memory plugin module across mocks (#123678)",
+      "title": "build(macos): add OPENCLAW_SKIP_MLX_TTS to unblock beta-toolchain bui…",
+      "link": "https://github.com/openclaw/openclaw/commit/f87580ceb88580fce03c92c5763bfa13d7d91ee2",
+      "publishedAt": "2026-08-14T15:28:43Z",
+      "summary": "build(macos): add OPENCLAW_SKIP_MLX_TTS to unblock beta-toolchain builds (#123698) The openclaw-mlx-tts voice helper pulls in the full mlx-swift Metal shader stack, which some beta Xcode toolchains (e.g. Xcode 27 / macOS 27 SDK) cannot compile: the metal compiler dies non-deterministically (a different .metal file each run, 'Could not read serialized diagnostics file'). The main app builds fine, so an unrelated dev/proof build should not be blocked by the helper. Add OPENCLAW_SKIP_MLX_TTS=1 (matching the sibling SKIP_TSC/SKIP_UI_BUILD toggles) to package the app without the voice helper, gating both the per-arch build and the bundle copy. Refuse the flag for release builds, which must ship the helper (notarization verifies it), so a skipped build can never become a silently incomplete release.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse 記憶 plugin module across mocks (#123678)",
-      "summaryZh": "重點：perf(test): reuse 記憶 plugin module across mocks (#123678)..."
+      "titleZh": "OpenClaw 程式碼更新：build(macos): add OpenClaw_SKIP_MLX_TTS to unblock beta-toolchain bui…",
+      "summaryZh": "重點：build(macos): add OpenClaw_SKIP_MLX_TTS to unblock beta-toolchain builds (#123698) The OpenClaw-mlx-tts voice helper pul..."
     },
     {
       "id": 5,
