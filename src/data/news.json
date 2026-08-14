@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-08-14T11:43:16.570Z",
+  "generatedAt": "2026-08-14T13:07:14.198Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(macos): prevent node worker restart after stop (#123651)",
+      "link": "https://github.com/openclaw/openclaw/commit/641821f25e3e23cbfffb6e04cc7c91c20ae06b26",
+      "publishedAt": "2026-08-14T12:56:40Z",
+      "summary": "fix(macos): prevent node worker restart after stop (#123651)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): prevent node worker restart after stop (#123651)",
+      "summaryZh": "重點：修正(macos): prevent node worker restart after stop (#123651)..."
+    },
+    {
+      "id": 2,
+      "title": "test(ui): capture mock gateway timeout diagnostics (#123650)",
+      "link": "https://github.com/openclaw/openclaw/commit/e342e02b6ff1190cc810e0ba4869519b2215a8ca",
+      "publishedAt": "2026-08-14T12:50:05Z",
+      "summary": "test(ui): capture mock gateway timeout diagnostics (#123650)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): capture mock Gateway timeout diagnostics (#123650)",
+      "summaryZh": "重點：test(ui): capture mock Gateway timeout diagnostics (#123650)..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(runners): prune terminal launch receipts (#123641)",
+      "link": "https://github.com/openclaw/openclaw/commit/bbca5201086686aa15ceef6b9e9aa59737037f9a",
+      "publishedAt": "2026-08-14T12:49:55Z",
+      "summary": "refactor(runners): prune terminal launch receipts (#123641) * refactor(runners): prune terminal launch receipts * perf(runners): index launch receipt expiry",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(runners): prune terminal launch receipts (#123641)",
+      "summaryZh": "重點：refactor(runners): prune terminal launch receipts (#123641) * refactor(runners): prune terminal launch receipts * perf(r..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ui): hiding a catalog makes its adopted sessions vanish from the …",
+      "link": "https://github.com/openclaw/openclaw/commit/f39f48f7b962ee0dd3f59be4c0a6d5c61eef2626",
+      "publishedAt": "2026-08-14T12:48:47Z",
+      "summary": "fix(ui): hiding a catalog makes its adopted sessions vanish from the entire sidebar (#123481) * fix(ui): hiding a catalog no longer makes its adopted sessions vanish everywhere The adopted-key exclusion set was computed from the unfiltered catalog list while the renderer shows only visible catalogs (hidden ids filtered; none under the Archived filter). Hiding a catalog therefore removed its adopted sessions — possibly running, unread, or selected — from the entire sidebar with no row anywhere. One visibleSessionCatalogs() projection now feeds both the renderer and the exclusion; the subclass's duplicate filter is deleted. * refactor: fold sidebar catalog projection into its owner module The visibleSessionCatalogs projection and adopted-PR-row merge pushed app-sidebar-session-navigation.ts over the 700-line lint cap. Move the projection predicate to app-sidebar-session-catalogs.ts (the catalog helper owner) and the PR-row merge to the navigation-logic module, inlining the single-caller passthrough into the indicators controller.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): hiding a catalog makes its adopted sessions vanish from the …",
+      "summaryZh": "重點：修正(ui): hiding a catalog makes its adopted sessions vanish from the entire sidebar (#123481) * 修正(ui): hiding a catalog ..."
+    },
+    {
+      "id": 5,
       "title": "F5調整漏洞修補政策，更新放緩為每6週發布一次並暫停定期安全通知",
       "link": "https://www.ithome.com.tw/news/178134",
       "publishedAt": "2026-08-14 12:08:44",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "殭屍網路Kimwolf v7利用HTTP/2隱匿DDoS流量",
       "link": "https://www.ithome.com.tw/news/178132",
       "publishedAt": "2026-08-14 12:08:43",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "政府系統淪AI Agent攻擊實戰場，TeamT5執行長蔡松廷：自動化攻擊早已進入下一個時代",
       "link": "https://www.ithome.com.tw/news/178135",
       "publishedAt": "2026-08-14 12:08:40",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "雲端安全聯盟揭2026年11大雲端威脅，AI強化攻擊與AI系統遭入侵首度進榜",
       "link": "https://www.ithome.com.tw/news/178137",
       "publishedAt": "2026-08-14 12:08:22",
@@ -38,57 +82,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "攻擊行動City-Forum鎖定Salesforce與ServiceNow，利用自製工具大規模蒐集公開資料",
       "link": "https://www.ithome.com.tw/news/178136",
       "publishedAt": "2026-08-14 12:08:06",
       "summary": "鎖定Salesforce用戶發動的攻擊行動不時傳出，其中一組最常出現在新聞版面的駭客組織是ShinyHunters，他們曾利用Salesloft Drift、Gainsight等第三方應用程式權杖，竊取Salesforce用戶資料，如今有資安公司發現，有其他駭客組織以自製工具低調犯案一年半。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "fix(ui): catalog continuation silently dropped staged attachments (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/37a63fbf450ef68b2c62bca5b46fcdfb53522de8",
-      "publishedAt": "2026-08-14T11:36:08Z",
-      "summary": "fix(ui): catalog continuation silently dropped staged attachments (#123581) A continuable catalog session exposes the full attachment surface (file inputs, plus-menu, paste), and the send button counts staged attachments as composed content — but continueCatalogSession required a non-empty text draft and always handed off attachments: []. Draft+images sent text only with the images silently vanishing (payloads leaked, never released); images-only made the enabled send button do nothing at all: the worst bug class, an action with no visible outcome and no recorded reason. Carry independently-owned attachment clones through the continuation handoff, mirroring the new-session sibling (chat-pane-session-creation.ts), and treat attachments as composed content in the guard so attachment-only continuations send. Empty draft with no attachments still no-ops.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): catalog continuation silently dropped staged attachments (#1…",
-      "summaryZh": "重點：修正(ui): catalog continuation silently dropped staged attachments (#123581) A continuable catalog session exposes the ful..."
-    },
-    {
-      "id": 7,
-      "title": "fix(ui): terminal actions disappear during Gateway updates (#123578)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee6c2cb50df086e83575753313fd5131afe186b6",
-      "publishedAt": "2026-08-14T11:34:51Z",
-      "summary": "fix(ui): terminal actions disappear during Gateway updates (#123578) * fix(ui): replay terminal actions across refresh fences * refactor(ui): isolate terminal pending action journal * refactor(ui): remove terminal storage import cycle * test(ui): release worker update fence explicitly * test(ui): gate worker install with held response * fix(ui): fence stable-client terminal reconnects * fix(ui): carry selected agent through terminal toggle * fix(ui): keep terminal toggle event shape stable",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): terminal actions disappear during Gateway updates (#123578)",
-      "summaryZh": "重點：修正(ui): terminal actions disappear during Gateway updates (#123578) * 修正(ui): replay terminal actions across refresh fen..."
-    },
-    {
-      "id": 8,
-      "title": "fix(gateway): in-flight run adoption resolves the agent-scoped canoni…",
-      "link": "https://github.com/openclaw/openclaw/commit/508b35d9278c2d95638d69ea59a4d712f5bcfb3d",
-      "publishedAt": "2026-08-14T11:30:41Z",
-      "summary": "fix(gateway): in-flight run adoption resolves the agent-scoped canonical key (#123539) chat.history/chat.startup re-resolved the canonical key without agent scoping even though the correctly scoped key was already computed during session load. For bare alias keys with a non-default agent, the unscoped resolve fell back to the default agent, missed the abort entry's stored key, and dropped the in-flight snapshot: switch back mid-run rendered idle and the streamed reply never appeared until manual refresh. Pass the already-computed canonicalKey; delete the redundant resolve.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): in-flight run adoption resolves the agent-scoped canoni…",
-      "summaryZh": "重點：修正(Gateway): in-flight run adoption resolves the agent-scoped canonical key (#123539) chat.history/chat.startup re-resol..."
-    },
-    {
-      "id": 9,
-      "title": "fix(gateway): evict expired non-abortable runs instead of retrying fo…",
-      "link": "https://github.com/openclaw/openclaw/commit/cc668b5e134ee2372f51340e272b1338f9b421ae",
-      "publishedAt": "2026-08-14T11:28:35Z",
-      "summary": "fix(gateway): evict expired non-abortable runs instead of retrying forever (#123532) The maintenance sweeper aborted expired active entries and ignored the result. A non-abortable entry (signal already aborted via direct controller.abort, or a frozen reply operation) whose owner cleanup was lost survived every sweep: phantom active run in sessions.list, Stop answering no-active-run while the row showed running, pinned dedupe key, skipped media GC. The sweeper now removes the entry when the timeout abort reports aborted:false — mirroring the adjacent inactive-entry branch. Sibling of the terminal-pending bound fixed in #123192.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): evict expired non-abortable runs instead of retrying fo…",
-      "summaryZh": "重點：修正(Gateway): evict expired non-abortable runs instead of retrying forever (#123532) The maintenance sweeper aborted expi..."
     },
     {
       "id": 10,
