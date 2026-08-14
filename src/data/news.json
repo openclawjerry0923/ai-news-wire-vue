@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-14T18:54:42.741Z",
+  "generatedAt": "2026-08-14T19:48:41.440Z",
   "items": [
     {
       "id": 1,
-      "title": "docs(plan): computer-use campaign plan (CUA + Peekaboo behind compute…",
-      "link": "https://github.com/openclaw/openclaw/commit/c6b339460284838d656dd29b6cc8b638a339d8ed",
-      "publishedAt": "2026-08-14T18:37:11Z",
-      "summary": "docs(plan): computer-use campaign plan (CUA + Peekaboo behind computer.act v2) (#123464) * docs(plan): computer-use campaign plan — two-provider background computer use (CUA + Peekaboo) behind computer.act v2 * docs(plan): resolve W0-PIN — pinned 0.19.3 already contains inherited IPC and consent adapter * docs(plan): W0 complete — parity fixtures landed (#123469) * docs(plan): W1-SEAM landed (#123509) * docs(plan): W1 complete — v2 contract landed (#123544) * docs(plan): W2-CUA landed (#123604) * docs(plan): W2-MAC landed (#123635) * docs(plan): note picker screenshot evidence belongs to W2-UX * docs(plan): avoid inline-html placeholder in tracker note",
+      "title": "fix(cron): show skipped automation tasks as failed (#123787)",
+      "link": "https://github.com/openclaw/openclaw/commit/80e046d30ecaf39e184cb9e22aff932a1aaaee08",
+      "publishedAt": "2026-08-14T19:42:51Z",
+      "summary": "fix(cron): show skipped automation tasks as failed (#123787) * fix(cron): report skipped runs as failed tasks * test(cron): align skipped task expectations * fix(cron): keep skipped tasks failed",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(plan): computer-use campaign plan (CUA + Peekaboo behind compute…",
-      "summaryZh": "重點：文件(plan): computer-use campaign plan (CUA + Peekaboo behind computer.act v2) (#123464) * 文件(plan): computer-use campaign..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): show skipped automation tasks as failed (#123787)",
+      "summaryZh": "重點：修正(排程): show skipped automation tasks as failed (#123787) * 修正(排程): report skipped runs as failed tasks * test(排程): alig..."
     },
     {
       "id": 2,
-      "title": "fix(ui): report connection loss instead of silently dropping session …",
-      "link": "https://github.com/openclaw/openclaw/commit/877f2ec083ae8c6f812ea8458c9cd21a4d1563f4",
-      "publishedAt": "2026-08-14T18:33:47Z",
-      "summary": "fix(ui): report connection loss instead of silently dropping session actions (#123771) * fix(ui): report connection loss instead of silently dropping session actions patchSession returned 'stale' with no message when the gateway dropped before a queued dialog submit (rename and similar) — the dialog closed and the edit vanished with no visible outcome. loadCheckpoint had the sibling gap: expanding a row while disconnected left the drawer claiming 'No checkpoints' beside a nonzero checkpoint badge. Both now surface the existing actionRequiresConnection message at their owning error surface. * test: widen patchSession test-support patch type for label patches",
+      "title": "fix(ui): prevent duplicate Skills preload requests (#123705)",
+      "link": "https://github.com/openclaw/openclaw/commit/986be4558f113d7273afb0cab3e2d0fb4bcc2076",
+      "publishedAt": "2026-08-14T19:41:24Z",
+      "summary": "fix(ui): prevent duplicate Skills preload requests (#123705) * fix(ui): wait for Skills route preload * fix(ui): defer Skills fallback until first update * fix(ui): keep Skills unmounted during preload * fix(ui): retain route data through gateway metadata updates * test(ui): make Skills preload race deterministic * fix(ci): round boundary artifact refresh mtimes * fix(ci): repair merged main checks * chore: keep Skills repair diff focused",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): report connection loss instead of silently dropping session …",
-      "summaryZh": "重點：修正(ui): report connection loss instead of silently dropping session actions (#123771) * 修正(ui): report connection loss i..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent duplicate Skills preload requests (#123705)",
+      "summaryZh": "重點：修正(ui): prevent duplicate Skills preload requests (#123705) * 修正(ui): wait for Skills route preload * 修正(ui): defer Skil..."
     },
     {
       "id": 3,
-      "title": "fix(ui): surface companion clear failures (#123724)",
-      "link": "https://github.com/openclaw/openclaw/commit/0bdf11c9dc519d2e6a8ffa4986f569581b4df258",
-      "publishedAt": "2026-08-14T18:30:26Z",
-      "summary": "fix(ui): surface companion clear failures (#123724) * fix(ui): surface companion clear failures * fix(ui): scope companion reset errors * fix(ui): preserve companion clear async contract",
+      "title": "fix(ui): surface auto-disabled automations instead of hiding them as …",
+      "link": "https://github.com/openclaw/openclaw/commit/1805e8eec3e504c0031dba4fbfd0b519d2b401af",
+      "publishedAt": "2026-08-14T19:39:03Z",
+      "summary": "fix(ui): surface auto-disabled automations instead of hiding them as paused (#123769) An auto-disabled job (10 consecutive run failures / 3 schedule errors) rendered as plain 'Paused' and simultaneously vanished from the failed chip, the failing count, and the error dot — the escalation removed visibility exactly when the problem became permanent. The recorded fact (state.autoDisabled, already public and used by CLI/doctor) now renders as a distinct danger note with the reason and count, and auto-disabled jobs stay in the active-failure predicate.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface companion clear failures (#123724)",
-      "summaryZh": "重點：修正(ui): surface companion clear failures (#123724) * 修正(ui): surface companion clear failures * 修正(ui): scope companion ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface auto-disabled automations instead of hiding them as …",
+      "summaryZh": "重點：修正(ui): surface auto-disabled automations instead of hiding them as paused (#123769) An auto-disabled job (10 consecutiv..."
     },
     {
       "id": 4,
-      "title": "fix(ui): surface Talk input backpressure (#123783)",
-      "link": "https://github.com/openclaw/openclaw/commit/f22e4990c1fd6230df32f3e13a3846de2cfd3a13",
-      "publishedAt": "2026-08-14T18:27:13Z",
-      "summary": "fix(ui): surface Talk input backpressure (#123783)",
+      "title": "fix(ci): repair red merge-ref gates (dead CLI wrapper, oversized test…",
+      "link": "https://github.com/openclaw/openclaw/commit/3289e08c3005515fb8e49379fd18951ef2530507",
+      "publishedAt": "2026-08-14T19:01:11Z",
+      "summary": "fix(ci): repair red merge-ref gates (dead CLI wrapper, oversized test file) (#123794) * chore(cli): drop unused resolveClawHubTargetWorkspaceDir #116489 migrated its last callers to resolveClawHubTargetWorkspace but left the wrapper, failing check-prod-types (TS6133) on every merge-ref CI run. * test: split dedupe maintenance suite below the max-lines cap server-maintenance.test.ts crossed the 1000-counted-line test cap when #123642 added payload-retention coverage, failing check-lint-core-2 on every merge-ref CI run. Move the dedupe TTL/overflow block into a themed sibling; module mocks are hoisted per file so the mock preamble is repeated while fixtures stay local. Test parity 41 = 41.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface Talk input backpressure (#123783)",
-      "summaryZh": "重點：修正(ui): surface Talk input backpressure (#123783)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): repair red merge-ref gates (dead CLI wrapper, oversized test…",
+      "summaryZh": "重點：修正(ci): repair red merge-ref gates (dead CLI wrapper, oversized test file) (#123794) * chore(cli): drop unused resolveCl..."
     },
     {
       "id": 5,
