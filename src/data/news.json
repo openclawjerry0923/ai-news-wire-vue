@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-14T19:48:41.440Z",
+  "generatedAt": "2026-08-14T20:31:17.291Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(cron): show skipped automation tasks as failed (#123787)",
-      "link": "https://github.com/openclaw/openclaw/commit/80e046d30ecaf39e184cb9e22aff932a1aaaee08",
-      "publishedAt": "2026-08-14T19:42:51Z",
-      "summary": "fix(cron): show skipped automation tasks as failed (#123787) * fix(cron): report skipped runs as failed tasks * test(cron): align skipped task expectations * fix(cron): keep skipped tasks failed",
+      "title": "fix(ui): keep the chat header blend off the transcript scrollbar (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/b90001934aeccf4260e178dd1087f0f35a775ad9",
+      "publishedAt": "2026-08-14T20:30:05Z",
+      "summary": "fix(ui): keep the chat header blend off the transcript scrollbar (#123308) The header-to-transcript blend spanned the full pane width, so it painted over the strip where the transcript scrollbar lives and the thumb vanished under the fade while scrolling. Stop the blend one transcript gutter short of both pane edges and make that gutter a token shared with the transcript column, which keeps every pixel of content faded while the scrollbar stays visible (symmetric so RTL keeps the same clearance).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): show skipped automation tasks as failed (#123787)",
-      "summaryZh": "重點：修正(排程): show skipped automation tasks as failed (#123787) * 修正(排程): report skipped runs as failed tasks * test(排程): alig..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep the chat header blend off the transcript scrollbar (#12…",
+      "summaryZh": "重點：修正(ui): keep the chat header blend off the transcript scrollbar (#123308) The header-to-transcript blend spanned the ful..."
     },
     {
       "id": 2,
-      "title": "fix(ui): prevent duplicate Skills preload requests (#123705)",
-      "link": "https://github.com/openclaw/openclaw/commit/986be4558f113d7273afb0cab3e2d0fb4bcc2076",
-      "publishedAt": "2026-08-14T19:41:24Z",
-      "summary": "fix(ui): prevent duplicate Skills preload requests (#123705) * fix(ui): wait for Skills route preload * fix(ui): defer Skills fallback until first update * fix(ui): keep Skills unmounted during preload * fix(ui): retain route data through gateway metadata updates * test(ui): make Skills preload race deterministic * fix(ci): round boundary artifact refresh mtimes * fix(ci): repair merged main checks * chore: keep Skills repair diff focused",
+      "title": "fix(worker): surface gateway admission failures (#123773)",
+      "link": "https://github.com/openclaw/openclaw/commit/afb3b9defb8f092ad712c6a53566916df22a68f1",
+      "publishedAt": "2026-08-14T20:29:36Z",
+      "summary": "fix(worker): surface gateway admission failures (#123773) * fix(worker): surface admission retry failures * fix(worker): ignore cancellation connection errors",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent duplicate Skills preload requests (#123705)",
-      "summaryZh": "重點：修正(ui): prevent duplicate Skills preload requests (#123705) * 修正(ui): wait for Skills route preload * 修正(ui): defer Skil..."
+      "titleZh": "OpenClaw 程式碼更新：修正(worker): surface Gateway admission failures (#123773)",
+      "summaryZh": "重點：修正(worker): surface Gateway admission failures (#123773) * 修正(worker): surface admission retry failures * 修正(worker): ig..."
     },
     {
       "id": 3,
-      "title": "fix(ui): surface auto-disabled automations instead of hiding them as …",
-      "link": "https://github.com/openclaw/openclaw/commit/1805e8eec3e504c0031dba4fbfd0b519d2b401af",
-      "publishedAt": "2026-08-14T19:39:03Z",
-      "summary": "fix(ui): surface auto-disabled automations instead of hiding them as paused (#123769) An auto-disabled job (10 consecutive run failures / 3 schedule errors) rendered as plain 'Paused' and simultaneously vanished from the failed chip, the failing count, and the error dot — the escalation removed visibility exactly when the problem became permanent. The recorded fact (state.autoDisabled, already public and used by CLI/doctor) now renders as a distinct danger note with the reason and count, and auto-disabled jobs stay in the active-failure predicate.",
+      "title": "refactor(github): consolidate guard display sanitization (#123620)",
+      "link": "https://github.com/openclaw/openclaw/commit/b822e6e425b1851323ee1403ebf52c6630db9662",
+      "publishedAt": "2026-08-14T20:29:21Z",
+      "summary": "refactor(github): consolidate guard display sanitization (#123620)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface auto-disabled automations instead of hiding them as …",
-      "summaryZh": "重點：修正(ui): surface auto-disabled automations instead of hiding them as paused (#123769) An auto-disabled job (10 consecutiv..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(github): consolidate guard display sanitization (#123620)",
+      "summaryZh": "重點：refactor(github): consolidate guard display sanitization (#123620)..."
     },
     {
       "id": 4,
-      "title": "fix(ci): repair red merge-ref gates (dead CLI wrapper, oversized test…",
-      "link": "https://github.com/openclaw/openclaw/commit/3289e08c3005515fb8e49379fd18951ef2530507",
-      "publishedAt": "2026-08-14T19:01:11Z",
-      "summary": "fix(ci): repair red merge-ref gates (dead CLI wrapper, oversized test file) (#123794) * chore(cli): drop unused resolveClawHubTargetWorkspaceDir #116489 migrated its last callers to resolveClawHubTargetWorkspace but left the wrapper, failing check-prod-types (TS6133) on every merge-ref CI run. * test: split dedupe maintenance suite below the max-lines cap server-maintenance.test.ts crossed the 1000-counted-line test cap when #123642 added payload-retention coverage, failing check-lint-core-2 on every merge-ref CI run. Move the dedupe TTL/overflow block into a themed sibling; module mocks are hoisted per file so the mock preamble is repeated while fixtures stay local. Test parity 41 = 41.",
+      "title": "test: trim compact command leftovers (#123810)",
+      "link": "https://github.com/openclaw/openclaw/commit/44fe1b15a3e8a42a3de953cbe5cf96225849f8b0",
+      "publishedAt": "2026-08-14T20:29:00Z",
+      "summary": "test: trim compact command leftovers (#123810)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): repair red merge-ref gates (dead CLI wrapper, oversized test…",
-      "summaryZh": "重點：修正(ci): repair red merge-ref gates (dead CLI wrapper, oversized test file) (#123794) * chore(cli): drop unused resolveCl..."
+      "titleZh": "OpenClaw 程式碼更新：test: trim compact command leftovers (#123810)",
+      "summaryZh": "重點：test: trim compact command leftovers (#123810)..."
     },
     {
       "id": 5,
