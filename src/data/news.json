@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-14T13:07:14.198Z",
+  "generatedAt": "2026-08-14T14:52:06.351Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(macos): prevent node worker restart after stop (#123651)",
-      "link": "https://github.com/openclaw/openclaw/commit/641821f25e3e23cbfffb6e04cc7c91c20ae06b26",
-      "publishedAt": "2026-08-14T12:56:40Z",
-      "summary": "fix(macos): prevent node worker restart after stop (#123651)",
+      "title": "fix(mac): package portable elevation installer (#123675)",
+      "link": "https://github.com/openclaw/openclaw/commit/493a3e46b3f2921269cfb0af5dfc86efb569ceaa",
+      "publishedAt": "2026-08-14T14:33:05Z",
+      "summary": "fix(mac): package portable elevation installer (#123675) * fix(mac): package portable elevation installer * docs(mac): explain portable elevation install",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): prevent node worker restart after stop (#123651)",
-      "summaryZh": "重點：修正(macos): prevent node worker restart after stop (#123651)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mac): package portable elevation installer (#123675)",
+      "summaryZh": "重點：修正(mac): package portable elevation installer (#123675) * 修正(mac): package portable elevation installer * 文件(mac): expla..."
     },
     {
       "id": 2,
-      "title": "test(ui): capture mock gateway timeout diagnostics (#123650)",
-      "link": "https://github.com/openclaw/openclaw/commit/e342e02b6ff1190cc810e0ba4869519b2215a8ca",
-      "publishedAt": "2026-08-14T12:50:05Z",
-      "summary": "test(ui): capture mock gateway timeout diagnostics (#123650)",
+      "title": "fix: keep gateway control traffic responsive under concurrent turns (…",
+      "link": "https://github.com/openclaw/openclaw/commit/530b33e4e37264c89ecd5abdd06279dd23d5c867",
+      "publishedAt": "2026-08-14T14:16:58Z",
+      "summary": "fix: keep gateway control traffic responsive under concurrent turns (#123608) * fix(gateway): preserve control-plane responsiveness under load * fix(plugins): accept prepared readonly manifests * refactor(plugins): prepare workspace ownership before metadata reuse * chore: leave changelog updates to release flow * fix(gateway): finish control-plane load repair * perf(gateway): reuse prepared workspace root facts * perf(gateway): coalesce workspace root preparation * test(gateway): calibrate control-plane load bound",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): capture mock Gateway timeout diagnostics (#123650)",
-      "summaryZh": "重點：test(ui): capture mock Gateway timeout diagnostics (#123650)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep Gateway control traffic responsive under concurrent turns (…",
+      "summaryZh": "重點：修正: keep Gateway control traffic responsive under concurrent turns (#123608) * 修正(Gateway): preserve control-plane respo..."
     },
     {
       "id": 3,
-      "title": "refactor(runners): prune terminal launch receipts (#123641)",
-      "link": "https://github.com/openclaw/openclaw/commit/bbca5201086686aa15ceef6b9e9aa59737037f9a",
-      "publishedAt": "2026-08-14T12:49:55Z",
-      "summary": "refactor(runners): prune terminal launch receipts (#123641) * refactor(runners): prune terminal launch receipts * perf(runners): index launch receipt expiry",
+      "title": "fix(channels): route commentary through one progress owner (#121009)",
+      "link": "https://github.com/openclaw/openclaw/commit/83d53044a4a38b4cc1368338afdf0f1dbcd17a75",
+      "publishedAt": "2026-08-14T14:15:53Z",
+      "summary": "fix(channels): route commentary through one progress owner (#121009) * fix(slack): keep commentary progress on draft lane * fix(channels): route commentary through one progress owner Keep non-verbose commentary in Slack and Discord draft lanes while preserving one durable commentary payload when verbose progress makes those drafts yield. Freeze that owner decision for the turn so session changes apply on the next turn. Co-authored-by: Dallin Romney Punchcard-Session: amber-workshop-workshop-36 * fix(channels): refresh queued commentary owner Recompute the frozen draft-versus-durable commentary owner for every queued follow-up turn and carry that decision into final payload projection. Punchcard-Session: amber-workshop-workshop-36 * fix(channels): clarify commentary owner opt-in * fix(channels): preserve queued draft preambles * fix(channels): require explicit queued progress ownership * refactor(channels): record commentary progress owner * fix(telegram): tolerate unscoped queued updates * test(discord): use canonical draft fixture after rebase --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(runners): prune terminal launch receipts (#123641)",
-      "summaryZh": "重點：refactor(runners): prune terminal launch receipts (#123641) * refactor(runners): prune terminal launch receipts * perf(r..."
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): route commentary through one progress owner (#121009)",
+      "summaryZh": "重點：修正(channels): route commentary through one progress owner (#121009) * 修正(slack): keep commentary progress on draft lane ..."
     },
     {
       "id": 4,
-      "title": "fix(ui): hiding a catalog makes its adopted sessions vanish from the …",
-      "link": "https://github.com/openclaw/openclaw/commit/f39f48f7b962ee0dd3f59be4c0a6d5c61eef2626",
-      "publishedAt": "2026-08-14T12:48:47Z",
-      "summary": "fix(ui): hiding a catalog makes its adopted sessions vanish from the entire sidebar (#123481) * fix(ui): hiding a catalog no longer makes its adopted sessions vanish everywhere The adopted-key exclusion set was computed from the unfiltered catalog list while the renderer shows only visible catalogs (hidden ids filtered; none under the Archived filter). Hiding a catalog therefore removed its adopted sessions — possibly running, unread, or selected — from the entire sidebar with no row anywhere. One visibleSessionCatalogs() projection now feeds both the renderer and the exclusion; the subclass's duplicate filter is deleted. * refactor: fold sidebar catalog projection into its owner module The visibleSessionCatalogs projection and adopted-PR-row merge pushed app-sidebar-session-navigation.ts over the 700-line lint cap. Move the projection predicate to app-sidebar-session-catalogs.ts (the catalog helper owner) and the PR-row merge to the navigation-logic module, inlining the single-caller passthrough into the indicators controller.",
+      "title": "perf(test): reuse memory plugin module across mocks (#123678)",
+      "link": "https://github.com/openclaw/openclaw/commit/ecaeb8c9aa90d1c182eabdc8ce1c4c395faead80",
+      "publishedAt": "2026-08-14T14:13:51Z",
+      "summary": "perf(test): reuse memory plugin module across mocks (#123678)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): hiding a catalog makes its adopted sessions vanish from the …",
-      "summaryZh": "重點：修正(ui): hiding a catalog makes its adopted sessions vanish from the entire sidebar (#123481) * 修正(ui): hiding a catalog ..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse 記憶 plugin module across mocks (#123678)",
+      "summaryZh": "重點：perf(test): reuse 記憶 plugin module across mocks (#123678)..."
     },
     {
       "id": 5,
