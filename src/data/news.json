@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-08-15T07:30:50.275Z",
+  "generatedAt": "2026-08-15T08:29:02.909Z",
   "items": [
     {
       "id": 1,
+      "title": "fix: report the real session store path in health (#124102)",
+      "link": "https://github.com/openclaw/openclaw/commit/26ff3c96071726e582a05e720e64829e1749c9f4",
+      "publishedAt": "2026-08-15T08:27:45Z",
+      "summary": "fix: report the real session store path in health (#124102) * fix(health): report the real session store path * test(sessions): complete cleanup summary fixture * test(status): cover physical session stores * test(gateway): isolate session store path coverage * test(gateway): preserve store RPC formatting * test(gateway): drop the stale sessions.list path assertion sessions.list now reports the physical SQLite store, so this assertion still expected the logical locator and failed. The dedicated server.sessions.store-paths test already asserts sessions.list and sessions.patch return the resolved database path, so this is duplicate coverage rather than a gap.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: report the real session store path in health (#124102)",
+      "summaryZh": "重點：修正: report the real session store path in health (#124102) * 修正(health): report the real session store path * test(sessi..."
+    },
+    {
+      "id": 2,
+      "title": "fix(gateway): give prepared chat.send media one abandonment-discard o…",
+      "link": "https://github.com/openclaw/openclaw/commit/3ec40893502643dbf3bdddfd3c0cd53474220123",
+      "publishedAt": "2026-08-15T08:20:02Z",
+      "summary": "fix(gateway): give prepared chat.send media one abandonment-discard owner (#124100) #123983 fixed two of six pre-persistence exits that orphan staged inbound media (~/.openclaw/media/inbound has no transcript reference until the user turn persists, and the inbound sweep is off by default). Four sibling exits still leaked: the post-reply-context abort and routing-change checks, the pre-ACK injection settle (onAborted/onActiveLeafChanged), and any setup throw routed to handleChatSendSetupError. Instead of adding four more inline discards, the custody moves to the admission cleanup owner: every abandonment exit already funnels through cleanupAdmittedRun, which now fires an armed discard gated on the user-turn recorder's persisted fact (the restart-safe path persists durably before its exits; steer injections carry the same recorder). The ACK disarms it because dispatch's error lifecycle persists the referencing transcript on every post-ACK path. The two inline discards #123983 added are deleted. Regression test drives the setup-error exit with an offloaded attachment and fails pre-fix; the original #123983 abort test still passes through the new owner.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): give prepared chat.send media one abandonment-discard o…",
+      "summaryZh": "重點：修正(Gateway): give prepared chat.send media one abandonment-discard owner (#124100) #123983 修正 two of six pre-persistence..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(config): delete dead compat surfaces and write-only error pa…",
+      "link": "https://github.com/openclaw/openclaw/commit/f1ced37ce5df8c7bc7f3b46c579e5ce181feaae0",
+      "publishedAt": "2026-08-15T08:17:31Z",
+      "summary": "refactor(config): delete dead compat surfaces and write-only error payload (#124067) * refactor(config): delete dead compat surfaces and write-only error payload Round-5 config-lane sweep; all three deletions verified against the strict root schema and current consumers. - ConfigMutationConflictError.currentHash was write-only: ~20 throw sites computed hashes (some hashing whole files on the failure path purely to populate it) and no consumer anywhere read it — responses carry only the message and .retryable. Field deleted, feeder expressions collapsed. - Root-level channel-key fallbacks (cfg[provider] beside cfg.channels[...]) in chunk limits, block streaming, and channel capabilities were unreachable: the root schema is z.strictObject, so a validated config cannot carry top-level channel keys; doctor owns those moves. Pre-strict-schema era leftovers, deleted. - resolveHeartbeatAckMaxChars existed as three identical constant-returning stubs (heartbeat-runner-config, server-chat, get-reply) left over from the retired heartbeat.ackMaxChars key; inlined the constant, deleted the stubs. - mergeScopedSearchConfig's legacy web-search key delete was a no-op — the agent-runtime schema rejects those keys at validation; helper and dead branch deleted (the schema-side Set remains the rejection boundary). * fix(web-search): restore retired-provider strip in runtime scoped merge The legacy-key delete in mergeScopedSearchConfig is runtime behavior, not schema-shadowed dead code: the merge input is runtime-merged state, so retired provider objects must still be stripped when no plugin config exists (proven by the existing web-search.test.ts regression).",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(config): delete dead compat surfaces and write-only error pa…",
+      "summaryZh": "重點：refactor(config): delete dead compat surfaces and write-only error payload (#124067) * refactor(config): delete dead com..."
+    },
+    {
+      "id": 4,
+      "title": "feat(macos): Computer Use provider readiness checklist (#124093)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4f61d135a48fbfc598a1b3a0d356d853718efca",
+      "publishedAt": "2026-08-15T08:08:54Z",
+      "summary": "feat(macos): Computer Use provider readiness checklist (#124093) * feat(macos): show computer provider readiness * refactor(macos): drop the status string superseded by the readiness checklist * chore(macos): refresh i18n baseline after removing the superseded status string",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(macos): Computer Use provider readiness checklist (#124093)",
+      "summaryZh": "重點：新功能(macos): Computer Use provider readiness checklist (#124093) * 新功能(macos): show computer provider readiness * refacto..."
+    },
+    {
+      "id": 5,
+      "title": "全球最大電池電動飛機僅花 5 美元完成試飛，預計 2031 年投入商用服務",
+      "link": "https://technews.tw/2026/08/15/the-worlds-largest-battery-powered-electric-aircraft-completed-its-test-flight-for-only-5/",
+      "publishedAt": "Sat, 15 Aug 2026 08:00:01 +0000",
+      "summary": "瑞典電動飛機新創公司 Heart Aerospace 研發的全球最大電池電動飛機「Heart X1」，已於 2 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "影子 AI 橫掃職場：近半員工私用未核准工具，高階主管更愛「繞道」使用",
       "link": "https://finance.technews.tw/2026/08/15/half-your-workforce-already-bypassed-your-ai-policy/",
       "publishedAt": "Sat, 15 Aug 2026 07:30:19 +0000",
@@ -11,51 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "test(cua): remove stale provider parity fixtures (#124066)",
-      "link": "https://github.com/openclaw/openclaw/commit/9e911d5601027b491752d939e37b3ac1eb568588",
-      "publishedAt": "2026-08-15T07:28:55Z",
-      "summary": "test(cua): remove stale provider parity fixtures (#124066)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(cua): remove stale provider parity 修正tures (#124066)",
-      "summaryZh": "重點：test(cua): remove stale provider parity 修正tures (#124066)..."
-    },
-    {
-      "id": 3,
-      "title": "feat(ui): persistent emoji session icons in the sidebar (#124034)",
-      "link": "https://github.com/openclaw/openclaw/commit/d2be00e171f637436cf1b78666cb8e53b6db020c",
-      "publishedAt": "2026-08-15T07:15:55Z",
-      "summary": "feat(ui): persistent emoji session icons in the sidebar (#124034) * feat(gateway): persist emoji session icons * feat(ui): add persistent session icon menu * docs: explain persistent session icons * docs: list Set icon in the session context menu enumeration * test(gateway): canonicalize group defaults workspace path * fix(ci): sync session icon protocol coverage * fix(sessions): enforce RGI emoji sequences for session icons ClawSweeper P2: single non-emoji graphemes like 漢 passed the segmenter-based predicate. Anchored \\p{RGI_Emoji} admits exactly one interchange emoji sequence and deletes the length cap and ASCII carve-out. * fix(sessions): compile RGI emoji validation",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): persistent emoji session icons in the sidebar (#124034)",
-      "summaryZh": "重點：新功能(ui): persistent emoji session icons in the sidebar (#124034) * 新功能(Gateway): persist emoji session icons * 新功能(ui): ..."
-    },
-    {
-      "id": 4,
-      "title": "feat(cua-computer): recording family with host-owned resource handles…",
-      "link": "https://github.com/openclaw/openclaw/commit/079bb34196138313265790e6223ca8fbf4c56c74",
-      "publishedAt": "2026-08-15T07:14:13Z",
-      "summary": "feat(cua-computer): recording family with host-owned resource handles (#124035) * feat(cua-computer): add recording resource handles * test(agents): split computer tool coverage",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(cua-computer): recording family with host-owned resource handles…",
-      "summaryZh": "重點：新功能(cua-computer): recording family with host-owned resource handles (#124035) * 新功能(cua-computer): add recording resour..."
-    },
-    {
-      "id": 5,
-      "title": "docs: correct computer use inventory counts (#124074)",
-      "link": "https://github.com/openclaw/openclaw/commit/6d9ea63a87b2fd2cd2a0a090758b988fa91529df",
-      "publishedAt": "2026-08-15T07:13:16Z",
-      "summary": "docs: correct computer use inventory counts (#124074)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: correct computer use inventory counts (#124074)",
-      "summaryZh": "重點：文件: correct computer use inventory counts (#124074)..."
-    },
-    {
-      "id": 6,
+      "id": 7,
       "title": "台積電、矽品、鴻海等供應鏈加持，輝達宣布 Spectrum-X 以太網路矽光子交換機量產",
       "link": "https://finance.technews.tw/2026/08/15/nvidia-announces-mass-production-of-spectrum-x-ethernet-silicon-photonics-switches/",
       "publishedAt": "Sat, 15 Aug 2026 07:00:23 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "IKEA、沃爾瑪都在做！擺脫燒錢魔咒，八大企業實戰案例證明 AI 真能賺錢",
       "link": "https://finance.technews.tw/2026/08/15/8-companies-ai-high-roi/",
       "publishedAt": "Sat, 15 Aug 2026 06:30:18 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "輝達持有約 1.228 億股 SpaceX 股權，成為該公司第六大股東促進雙方合作",
       "link": "https://finance.technews.tw/2026/08/15/nvidia-holds-approximately-122-8-million-shares-of-spacex-equity/",
       "publishedAt": "Sat, 15 Aug 2026 06:00:44 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "LG ELECTRONICS 推出 2026 LIFE&#8217;S GOOD 品牌活動，釋放思緒，專注真正重要的人和事",
       "link": "https://technews.tw/2026/08/15/2026-lifes-good/",
       "publishedAt": "Sat, 15 Aug 2026 06:00:22 +0000",
       "summary": "LG Electronics（LG）推出 2026 Life&#8217;s Good 品牌活動，以「釋放思緒 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "解決造艦能量不足問題，川普擬擴大「芬蘭模式」讓外國船廠協助",
-      "link": "https://technews.tw/2026/08/15/trump-orders-foreign-shipyards-to-buile-us-navy-ships/",
-      "publishedAt": "Sat, 15 Aug 2026 05:34:49 +0000",
-      "summary": "面對美軍造船廠產能嚴重不足、新艦交付頻頻延宕的困局，美國總統川普近日簽署新的《國家安全總統備忘錄》（NSPM） [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
