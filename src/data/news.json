@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T22:21:39.891Z",
+  "generatedAt": "2026-08-15T23:20:37.768Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "fix(ui): commit queued-message reorders as one durable batch write (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/195913ad981a1502466466b49af0b4deb932ac70",
-      "publishedAt": "2026-08-15T22:03:06Z",
-      "summary": "fix(ui): commit queued-message reorders as one durable batch write (#124266) * fix(ui): commit queued-message reorders as one durable batch write The reorder loop persisted each changed row with a separate sessionStorage read-modify-write. A failure partway through left the durable queue in a mixed permutation that matched neither the old nor the new order. Add a batch compare-and-set in composer persistence that validates every affected row against one fresh read, then commits the whole permutation with a single write and read-back verification. The existing single-row update now delegates to this batch primitive. Callers still applying an in-memory-only move (a row not yet admitted to storage) keep using the direct projection path, since that never touches sessionStorage. Fixes #124233 * test(ui): cover two-row stale-CAS rejection and browser reload proof for queue reorder Adds a regression that exercises the batch compare-and-set primitive directly with a two-row permutation where one row went stale from a concurrent writer between read and commit, proving the whole batch rejects instead of committing a mixed reorder. Also adds a Control UI E2E scenario (mocked Gateway, real Chromium) that reorders an offline queue, injects a sessionStorage failure mid-batch, reloads the page, and confirms the durable and rendered order both stay the untouched original — never a mix of the attempted and prior permutations.",
+      "title": "fix(ui): abort stale destructive session confirmations on reconnect (…",
+      "link": "https://github.com/openclaw/openclaw/commit/5014839937b9a9dc72841b4755b55699ac91a8c8",
+      "publishedAt": "2026-08-15T23:18:48Z",
+      "summary": "fix(ui): abort stale destructive session confirmations on reconnect (#124254) * fix(ui): abort stale destructive session confirmations on reconnect SessionDataController retires the session-mutation scope on reconnect, capability replacement, and host disconnect, but left any open destructive confirmation dialog in place. If the operator confirmed after reconnect the action silently no-opped, and the dialog's global lock stayed held until manually dismissed. Give SessionDataController an AbortController owned by the mutation epoch, abort it whenever the epoch advances, and expose the signal on SidebarSessionMutationScope. Wire it into every scope-bound confirm dialog: batch delete, single delete, cloud-worker stop, preserved- worktree removal, and session-group delete. confirm-dialog.ts already tears down its modal and releases the lock on an aborted signal, so a stale dialog now dismisses itself instead of surviving the reconnect. Fixes #124227 * fix(ui): abort chat-header confirms too and surface a retry notice The sidebar epoch-abort wiring left the chat-header delete/fork/archive path uncovered: it builds its own SidebarSessionMutationScope from connectionGeneration but never handed it a signal, so a header confirm left open across a reconnect kept the shared confirmation lock forever. Give ChatPaneBase its own AbortController, retire it everywhere connectionGeneration advances (reconnect and pane teardown), and wire the signal into the header's captured scope, matching SessionDataController's controller for the sidebar. Separately, resolving an aborted confirm to `false` looked identical to an ordinary cancel, so the operator's lost intent vanished silently. Reorder every destructive confirm site to check scope staleness ahead of the `confirmed` guard and show the existing \"Gateway connection replaced ... Try again.\" toast on abort, matching the pattern deleteSessionGroup already used for the same race. This also fixes a regression the PR had introduced in a pre-existing main test (app-sidebar.test.ts's \"keeps a reconnected group delete retryable after its confirm opened\"), which is what failed checks-node-compact-large-22 and checks-ui on the previous head.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): 提交 queued-message reorders as one durable batch write (#…",
-      "summaryZh": "重點：修正(ui): 提交 queued-message reorders as one durable batch write (#124266) * 修正(ui): 提交 queued-message reorders as one dura..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): abort stale destructive session confirmations on reconnect (…",
+      "summaryZh": "重點：修正(ui): abort stale destructive session confirmations on reconnect (#124254) * 修正(ui): abort stale destructive session c..."
     },
     {
       "id": 3,
-      "title": "refactor(ui): unify composer menu active-option scrolling (#124256)",
-      "link": "https://github.com/openclaw/openclaw/commit/4be9091a3ef615083ed89aa787d727fff1cc8e3b",
-      "publishedAt": "2026-08-15T21:57:40Z",
-      "summary": "refactor(ui): unify composer menu active-option scrolling (#124256) * refactor(ui): unify composer menu active-option scrolling The slash-command and skill-mention composer menus each kept their own byte-identical algorithm for scrolling the keyboard-active option into view inside their \".slash-menu__scroll\" viewport. Move that algorithm into the shared chat-composer-dom module as scrollActiveMenuOptionIntoView(activeId), and have each menu owner keep resolving its own active-option id while delegating the scroll math to the shared helper. Fixes #124238 * refactor(ui): inline forwarding scroll wrappers in composer menus scrollActiveSkillMenuOptionIntoView and scrollActiveSlashMenuOptionIntoView only forwarded their state/paneId args to getActive*MenuOptionId and the shared scrollActiveMenuOptionIntoView helper. Delete both wrappers and have the chat-composer.ts keydown call sites resolve the active option id and call the shared geometry helper directly, since both id resolvers were already exported and consumed elsewhere.",
+      "title": "test(tooling): deduplicate release timeout evaluators (#124297)",
+      "link": "https://github.com/openclaw/openclaw/commit/878236cfabffcd050849d333387826bf75d61c7d",
+      "publishedAt": "2026-08-15T22:58:29Z",
+      "summary": "test(tooling): deduplicate release timeout evaluators (#124297)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): unify composer menu active-option scrolling (#124256)",
-      "summaryZh": "重點：refactor(ui): unify composer menu active-option scrolling (#124256) * refactor(ui): unify composer menu active-option sc..."
+      "titleZh": "OpenClaw 程式碼更新：test(tooling): deduplicate 版本發布 timeout evaluators (#124297)",
+      "summaryZh": "重點：test(tooling): deduplicate 版本發布 timeout evaluators (#124297)..."
     },
     {
       "id": 4,
-      "title": "test(ios): remove low-value render and source guards (#124291)",
-      "link": "https://github.com/openclaw/openclaw/commit/644d93c4123ad65b356ae9fb50fe4680db587474",
-      "publishedAt": "2026-08-15T21:56:17Z",
-      "summary": "test(ios): remove low-value render and source guards (#124291)",
+      "title": "fix(ui): persist the sidebar session sort selection (#124277)",
+      "link": "https://github.com/openclaw/openclaw/commit/94552862ad84ea94c7013654a1a3d1b8d632f113",
+      "publishedAt": "2026-08-15T22:57:42Z",
+      "summary": "fix(ui): persist the sidebar session sort selection (#124277) The sessions sidebar held its sort mode in component state only, so a reload silently reverted the user's Created/Last updated/People choice back to Created while every sibling sidebar preference persisted. Store the mode under openclaw:sidebar:sessions:sort-mode alongside the existing sidebar preference keys and read it back at init. Resolution of a gateway-denied People sort now lives in one helper shared by the render path and the setter, keeping the element net-neutral in lines.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ios): remove low-value render and source guards (#124291)",
-      "summaryZh": "重點：test(ios): remove low-value render and source guards (#124291)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): persist the sidebar session sort selection (#124277)",
+      "summaryZh": "重點：修正(ui): persist the sidebar session sort selection (#124277) The sessions sidebar held its sort mode in component state ..."
     },
     {
       "id": 5,
-      "title": "test(ui): assert positive New Session draft behavior (#124253)",
-      "link": "https://github.com/openclaw/openclaw/commit/abe9800777b1028ad07b9648fb6e5585050cf44a",
-      "publishedAt": "2026-08-15T21:51:34Z",
-      "summary": "test(ui): assert positive New Session draft behavior (#124253) * test(ui): assert positive New Session draft behavior Replace the New Session draft E2E's only assertion, a zero-count check against a CSS selector that appears nowhere in production code, with positive coverage: the draft text stays on the composer, the route and sidebar stay put, no sessions.create request fires before submit, and submitting creates exactly one session with canonical navigation. Fixes #124237 * test(ui): settle before asserting exactly-once sessions.create Reorders the exactly-once sessions.create assertion to run after the canonical navigation-settle poll (the same signal the neighboring submission test waits on), instead of right after waitForRequest resolves. The old order could pass prematurely if a late duplicate create landed after the count check but before navigation completed.",
+      "title": "fix(ui): reject blank required strings in Control UI update readers (…",
+      "link": "https://github.com/openclaw/openclaw/commit/1db8fe4d4f521ceded584d5bca2c8d17705986ba",
+      "publishedAt": "2026-08-15T22:47:38Z",
+      "summary": "fix(ui): reject blank required strings in Control UI update readers (#124264) * fix(ui): reject blank required strings in Control UI update readers The Control UI update readers accepted `\"\"` for fields the canonical UpdateAvailableSchema/UpdateScheduleStateSchema declare as NonEmptyString, so a malformed Gateway payload rendered an update banner with blank version text. Root cause is the reader treating \"is a string\" as the contract for fields whose canonical contract is \"is a non-empty string\". Fixed at that boundary with the protocol's own dependency-free `isNonEmptyProtocolString` primitive: required NonEmptyString fields now reject the payload when blank, and optional ones are dropped rather than discarding the whole payload. Deliberately does NOT re-derive the canonical schema in the browser: - `additionalProperties: false` is a producer-side contract the Gateway enforces on its own outbound results (src/gateway/server-methods/update.ts). Rejecting unknown keys client-side would turn every additive protocol field into a blank overlay, since a service-worker-cached document keeps an older bundle across a Gateway upgrade. - Canonical `maxLength` counts grapheme clusters (typebox 1.3.6 guard/string.mjs), so the previous `subject.length",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): assert positive New Session draft behavior (#124253)",
-      "summaryZh": "重點：test(ui): assert positive New Session draft behavior (#124253) * test(ui): assert positive New Session draft behavior Re..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): reject blank required strings in Control UI update readers (…",
+      "summaryZh": "重點：修正(ui): reject blank required strings in Control UI update readers (#124264) * 修正(ui): reject blank required strings in ..."
     },
     {
       "id": 6,
