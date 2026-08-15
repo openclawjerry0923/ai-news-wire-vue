@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-15T09:25:52.806Z",
+  "generatedAt": "2026-08-15T10:23:02.257Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): make config.patch errors name the problem and the worki…",
-      "link": "https://github.com/openclaw/openclaw/commit/02d34aad465b4bda55607a4b13411a862f153420",
-      "publishedAt": "2026-08-15T09:24:42Z",
-      "summary": "fix(gateway): make config.patch errors name the problem and the working next step (#124127) Three dead-end error texts in config.patch, per the never-dead-end-the-agent doctrine (failure text states what to try next): - \"invalid config; fix before patching\" hid the actual validation issues the handler already had in the snapshot; it now summarizes them (same summarizeConfigValidationIssues owner the sibling validation errors use), attaches structured details, and names openclaw doctor as the fix path. - The hashless-LWW rejection said \"re-run config.get and retry\" — wrong advice, since retrying hash-free fails identically; it now names the exact guarded paths and says to retry with baseHash. - The mutation-conflict handler appended \"re-run config.get and retry\" to every conflict; non-retryable conflicts (path ownership) fail the retry too, so the suffix is now gated on error.retryable. Both new regression tests fail pre-fix.",
+      "title": "fix(memory-lancedb): cancel timed-out native queries (#124143)",
+      "link": "https://github.com/openclaw/openclaw/commit/dec4d44618c31fdd07c6b8ffaa33c61ad814bd23",
+      "publishedAt": "2026-08-15T10:12:39Z",
+      "summary": "fix(memory-lancedb): cancel timed-out native queries (#124143)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): make config.patch errors name the problem and the worki…",
-      "summaryZh": "重點：修正(Gateway): make config.patch errors name the problem and the working next step (#124127) Three dead-end error texts in..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-lancedb): cancel timed-out native queries (#124143)",
+      "summaryZh": "重點：修正(記憶-lancedb): cancel timed-out native queries (#124143)..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): scope transcript fuse to reset window (#124126)",
-      "link": "https://github.com/openclaw/openclaw/commit/30216f52fabecd30698718c7c31c54496d30266b",
-      "publishedAt": "2026-08-15T09:23:41Z",
-      "summary": "fix(sessions): scope transcript fuse to reset window (#124126)",
+      "title": "fix(ui): prevent oversized request frames from disconnecting (#124139)",
+      "link": "https://github.com/openclaw/openclaw/commit/717b2d7474dd343f2acb7684ac6923829d933b42",
+      "publishedAt": "2026-08-15T10:10:19Z",
+      "summary": "fix(ui): prevent oversized request frames from disconnecting (#124139) * fix(ui): reject oversized Gateway request frames * fix(ui): size requests without params exactly * test(ui): align mock attachment limits with Gateway",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): scope transcript fuse to reset window (#124126)",
-      "summaryZh": "重點：修正(sessions): scope transcript fuse to reset window (#124126)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent oversized request frames from disconnecting (#124139)",
+      "summaryZh": "重點：修正(ui): prevent oversized request frames from disconnecting (#124139) * 修正(ui): reject oversized Gateway request frames ..."
     },
     {
       "id": 3,
-      "title": "fix(doctor): keep lint off writable state (#124110)",
-      "link": "https://github.com/openclaw/openclaw/commit/b1b06d12125b3440d444cbc24a99f2e1941dda1f",
-      "publishedAt": "2026-08-15T09:22:54Z",
-      "summary": "fix(doctor): keep lint off writable state (#124110)",
+      "title": "fix(ui): preserve agent file lifecycle outcomes (#124140)",
+      "link": "https://github.com/openclaw/openclaw/commit/5b96cbc52d1fea16df3a29ef4cbece73d53332fe",
+      "publishedAt": "2026-08-15T09:57:37Z",
+      "summary": "fix(ui): preserve agent file lifecycle outcomes (#124140)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): keep lint off writable state (#124110)",
-      "summaryZh": "重點：修正(文件tor): keep lint off writable state (#124110)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve agent file lifecycle outcomes (#124140)",
+      "summaryZh": "重點：修正(ui): preserve agent file lifecycle outcomes (#124140)..."
     },
     {
       "id": 4,
-      "title": "fix(codex): honor managed binary owner root (#124124)",
-      "link": "https://github.com/openclaw/openclaw/commit/40866f3330236c5fcbb6a52ee71c6911b79c0383",
-      "publishedAt": "2026-08-15T09:18:54Z",
-      "summary": "fix(codex): honor managed binary owner root (#124124)",
+      "title": "test(codex): trim duplicate app-server regressions (#124141)",
+      "link": "https://github.com/openclaw/openclaw/commit/20e81a724dd4269e1b97c79febf6203c40b318ef",
+      "publishedAt": "2026-08-15T09:56:05Z",
+      "summary": "test(codex): trim duplicate app-server regressions (#124141)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): honor managed binary owner root (#124124)",
-      "summaryZh": "重點：修正(codex): honor managed binary owner root (#124124)..."
+      "titleZh": "OpenClaw 程式碼更新：test(codex): trim duplicate app-server regressions (#124141)",
+      "summaryZh": "重點：test(codex): trim duplicate app-server regressions (#124141)..."
     },
     {
       "id": 5,
