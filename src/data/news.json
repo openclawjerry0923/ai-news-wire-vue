@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T17:20:20.205Z",
+  "generatedAt": "2026-08-15T18:30:02.076Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "test(amazon-bedrock): remove discovery cache reset (#124212)",
-      "link": "https://github.com/openclaw/openclaw/commit/10a98702b7b8f954120a383d25d56feb88ec8fb0",
-      "publishedAt": "2026-08-15T17:05:43Z",
-      "summary": "test(amazon-bedrock): remove discovery cache reset (#124212)",
+      "title": "fix(xai): report lazy voice bridge connect failure as a terminal erro…",
+      "link": "https://github.com/openclaw/openclaw/commit/8f59226bc93afe0e203cfb260a68370847e98996",
+      "publishedAt": "2026-08-15T17:56:11Z",
+      "summary": "fix(xai): report lazy voice bridge connect failure as a terminal error (#123064) * fix(xai): report lazy voice bridge connect failure as terminal error When the loaded realtime voice bridge's connect() rejected, the lazy wrapper marked the generation terminal internally but never called req.onClose and never closed the loaded bridge, leaking it and leaving callers without a terminal outcome. Mirror the queued-flush failure path: emit a terminal \"error\" and close the loaded bridge before propagating the rejection. * fix: harden realtime voice connection lifecycle --------- Co-authored-by: Altay",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(amazon-bedrock): remove discovery cache reset (#124212)",
-      "summaryZh": "重點：test(amazon-bedrock): remove discovery cache reset (#124212)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(xai): report lazy voice bridge connect failure as a terminal erro…",
+      "summaryZh": "重點：修正(xai): report lazy voice bridge connect failure as a terminal error (#123064) * 修正(xai): report lazy voice bridge conn..."
     },
     {
       "id": 3,
-      "title": "fix(sessions): prevent cleanup from deleting readable transcripts (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/fc4d5d744fadfe8e61e33b83bbc9b11e950ae420",
-      "publishedAt": "2026-08-15T16:59:59Z",
-      "summary": "fix(sessions): prevent cleanup from deleting readable transcripts (#123495) * fix(sessions): make transcript archival atomic * fix(sessions): stabilize SQLite archive CI * test(gateway): synchronize lifecycle patch race * fix(sessions): finish archive recovery accounting * fix: key transcript archives by generation Remeasure physical disk usage after archive publication so budget results and pruning use the bytes actually present on disk. Refs oc-8e9 * fix(sessions): normalize doctor archive generations (oc-a28) --------- Co-authored-by: Josh Lehman",
+      "title": "test(telegram): remove probe cache reset (#124219)",
+      "link": "https://github.com/openclaw/openclaw/commit/eeabc2cf69a0fbe1036e37542151db8e2b82add0",
+      "publishedAt": "2026-08-15T17:50:46Z",
+      "summary": "test(telegram): remove probe cache reset (#124219)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): prevent cleanup from deleting readable transcripts (#1…",
-      "summaryZh": "重點：修正(sessions): prevent cleanup from deleting readable transcripts (#123495) * 修正(sessions): make transcript archival atom..."
+      "titleZh": "OpenClaw 程式碼更新：test(Telegram): remove probe cache reset (#124219)",
+      "summaryZh": "重點：test(Telegram): remove probe cache reset (#124219)..."
     },
     {
       "id": 4,
-      "title": "test: repair worker environment E2E fixtures (#124202)",
-      "link": "https://github.com/openclaw/openclaw/commit/de23bf1893f9de43862d079bf8380b29c23e1535",
-      "publishedAt": "2026-08-15T16:57:02Z",
-      "summary": "test: repair worker environment E2E fixtures (#124202)",
+      "title": "improve(control-ui): continuous corner curvature with a radius scale …",
+      "link": "https://github.com/openclaw/openclaw/commit/292506566bc6f812d40674f25d3c3455e4214dd2",
+      "publishedAt": "2026-08-15T17:48:56Z",
+      "summary": "improve(control-ui): continuous corner curvature with a radius scale (#124129) * improve(control-ui): continuous corner curvature with a radius scale Route every step of the Control UI radius scale through one knob and, on engines that can draw a superellipse, widen it by 1.25 while switching the app's surface families to continuous corner curvature. A corner that keeps curving into the edge reads as a shorter arc than a circular corner of the same radius, so the scale gives that visual weight back. The whole refinement sits behind @supports (corner-shape: superellipse(1.5)), so engines without it keep today's radii and today's arcs unchanged. The shape is opt-in per surface: a superellipse flattens the ends of anything fully rounded, and pills, circles, avatars and status dots are a third of this app's corners. Menu item radius is now derived from the menu panel radius minus its padding, which is the optical relation its comment already documented and which now holds at any corner scale. * test(control-ui): assert chat radii against the live corner scale * fix(ui): scope the corner-curvature radius scale to opted-in surfaces The @supports block scaled --openclaw-corner-radius-scale at :root, so every --radius-* consumer inherited the 1.25 multiplier — including surfaces that never opted into corner-shape (e.g. .run-inspector__panel, which stayed `round` but drew an inflated 12.5px radius) and the radius tokens mcp-app-theme.ts exports to embedded MCP apps. The canonical --radius-sm/md/lg/xl/--radius tokens at :root are back to their pre-refinement literal values. The scaled radii now live only on the selector list that also receives corner-shape, redeclaring the tokens locally so the widened radius stays contained to opted-in surfaces and their descendants. Menu panels needed their derived --menu-radius/--menu-item-radius redeclared too (a custom property's nested var() resolves relative to where it's declared, not where it's read, so redeclaring only --radius-md wouldn't reach them), and wa-dropdown/wa-popover/wa-select scale on the host rather than the ::part() panel since slotted menu items inherit from the light-DOM host, not from the shadow part they render inside. Adds regression coverage for the excluded consumer and the exported MCP theme tokens to corner-shape.browser.test.ts. * fix(ui): stop redeclared corner-curvature radius tokens from leaking to nested descendants Round 1 fixed the :root-level leak by redeclaring --radius-* as an inheritable custom property on each opted-in container instead. That still leaks: any non-opted descendant nested inside an opted surface inherits the container's redeclared token too. Proof: .settings-segmented nested inside .settings-group rendered 12.5px round instead of its canonical 10px, and .agent-chat__search-bar's own --radius-lg-derived corners doubled up incorrectly depending on ancestor nesting. Every opted selector now sets border-radius as a direct property computed from the scale, not an inheritable token — border-radius does not inherit, so nested non-opted descendants keep reading the untouched canonical --radius-* from :root. Each selector is specificity-doubled (`.card.card`) rather than !important, so it reliably outranks its own bare-class declaration in a later-loaded file without silently clobbering a genuinely more specific existing override elsewhere in the app (e.g. `.chat:has(> .agent-chat__search-bar)`, `.chat-task-detail__transcript > .chat-thread`) — both surfaced as regressions during this fix and are preserved by design now. The one exception is the generic wa-dropdown/wa-popover/wa-select ::part() panel selector, which by design must outrank dozens of concrete per-feature panel classes app-wide; a bare type selector can never out-specificity a class selector, so that rule keeps !important. --menu-item-radius at :root also serializes back to the byte-identical `var(--radius-sm)` from base f21d34d71d7 in the unscaled fallback path; the derived panel-minus-padding formula now lives only in the scaled wa-dropdown/wa-popover/wa-select host redeclaration where it's needed. Adds a nested-inheritance regression case to corner-shape.browser.test.ts (.settings-segmented inside .settings-group) and a .settings-group entry to prove the container itself still scales. * fix(ui): pair scale and corner-shape on every corner-curvature selector ClawSweeper caught two more instances of scale and shape traveling apart: 1. .option-card__choice wasn't in the corner-curvature list at all, despite being a real nested member of the .option-card family (a button inside .option-card__choices inside .option-card, drawn with the same 14px --radius-lg step as .card/.settings-group). It kept its canonical 14px round corner even under the scale. 2. .slash-menu-item / .chat-reply-context-menu button / .chat-selection-popup button picked up the scaled radius from round 2 but never got corner-shape, so their corners grew without curving into a squircle — scale without shape, the same incoherence class as (1) in reverse. Decision on (2): items get corner-shape added (not scale removed). The panel they sit in is already squircle; an item whose radius grows but stays circular reads as an unrelated circle poking out of the panel's superellipse, not a coherent nested row. A final invariant pass over the full @supports block (every selector that sets a live border-radius must also set corner-shape, and vice versa) found one more forgotten member beyond the two reported: .agent-chat__search-bar scaled its own (bottom-only) radius but never carried corner-shape, same gap as the menu items. Fixed alongside the reported two. Every remaining selector in the block already pairs the two; the wa-dropdown/wa-popover/ wa-select host rule is the one correct exception, since it only carries custom properties for descendants and draws no border of its own. Test coverage now exercises each surface's real nested DOM instead of a synthetic flat selector: option-card.ts's actual button-inside-choices- inside-card structure, chat-composer-slash-menu.ts's item three levels below the panel, and chat-thread-interactions.ts's plain item matched via descendant tag selector. Added a corner field to CornerCase so the harness can probe the correct physical corner (search-bar's bottom-left is its only non-zero corner) instead of universally reading top-left. All four new/changed cases are proven to fail on pre-fix base.css with the exact \"radius scaled, shape stuck at round\" (or, for option-card__choice, \"not opted in at all\") signature before the corresponding fix.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: repair worker environment E2E 修正tures (#124202)",
-      "summaryZh": "重點：test: repair worker environment E2E 修正tures (#124202)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(control-ui): continuous corner curvature with a radius scale …",
+      "summaryZh": "重點：improve(control-ui): continuous corner curvature with a radius scale (#124129) * improve(control-ui): continuous corner ..."
     },
     {
       "id": 5,
-      "title": "fix(cli): accept inherited flags after nested subcommands (#116587)",
-      "link": "https://github.com/openclaw/openclaw/commit/56798ae085051ab957ab813fb86e32f72e472a9b",
-      "publishedAt": "2026-08-15T16:52:24Z",
-      "summary": "fix(cli): accept inherited flags after nested subcommands (#116587) * fix(cli): accept auth agent flag after subcommands * openclaw-87a: normalize inherited skills options * test(cli): classify curator leaf JSON flags * test(cli): cover all auth agent leaves",
+      "title": "test(amazon-bedrock-mantle): remove cache resets (#124216)",
+      "link": "https://github.com/openclaw/openclaw/commit/6b9a6ece48149bcadc92479e5320a6db53b9931b",
+      "publishedAt": "2026-08-15T17:28:05Z",
+      "summary": "test(amazon-bedrock-mantle): remove cache resets (#124216)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): accept inherited flags after nested subcommands (#116587)",
-      "summaryZh": "重點：修正(cli): accept inherited flags after nested subcommands (#116587) * 修正(cli): accept auth agent flag after subcommands *..."
+      "titleZh": "OpenClaw 程式碼更新：test(amazon-bedrock-mantle): remove cache resets (#124216)",
+      "summaryZh": "重點：test(amazon-bedrock-mantle): remove cache resets (#124216)..."
     },
     {
       "id": 6,
