@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-08-15T02:51:53.403Z",
+  "generatedAt": "2026-08-15T03:39:03.168Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): clear proven uncertain sends (#123927)",
-      "link": "https://github.com/openclaw/openclaw/commit/cae60305756246712efbd5d74bab9f4251c8d383",
-      "publishedAt": "2026-08-15T02:49:45Z",
-      "summary": "fix(ui): clear proven uncertain sends (#123927)",
+      "title": "fix(synology-chat): prevent duplicate sends after custody loss (#123953)",
+      "link": "https://github.com/openclaw/openclaw/commit/52cf4db8261acb4501802518fba9f4394ee58173",
+      "publishedAt": "2026-08-15T03:38:56Z",
+      "summary": "fix(synology-chat): prevent duplicate sends after custody loss (#123953) * fix(synology-chat): preserve durable send custody * fix(synology-chat): clean rejected media custody",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): clear proven uncertain sends (#123927)",
-      "summaryZh": "重點：修正(ui): clear proven uncertain sends (#123927)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(synology-chat): prevent duplicate sends after custody loss (#123953)",
+      "summaryZh": "重點：修正(synology-chat): prevent duplicate sends after custody loss (#123953) * 修正(synology-chat): preserve durable send custo..."
     },
     {
       "id": 2,
-      "title": "fix(ci): route the protocol coverage record guard through record-shared",
-      "link": "https://github.com/openclaw/openclaw/commit/2276dca1d349c36bf3bdc4768e58301200fbde46",
-      "publishedAt": "2026-08-15T02:44:29Z",
-      "summary": "fix(ci): route the protocol coverage record guard through record-shared The inlined isRecord in 7e54cc9d1933 tripped the coercion-helper declaration guard on main (runs 31859544700+); the dependency-light scripts/lib/ record-shared.mjs seam is the sanctioned owner for scripts that must run without workspace package resolution.",
+      "title": "fix(ui): prevent stale session header errors after navigation (#123958)",
+      "link": "https://github.com/openclaw/openclaw/commit/636fc9417109e9d59f05ca9d95935a5d90d1837f",
+      "publishedAt": "2026-08-15T03:38:40Z",
+      "summary": "fix(ui): prevent stale session header errors after navigation (#123958) * fix(ui): retire stale header outcomes * test(ui): await retained pane presentation * fix(ui): bind header outcomes to presentation lifetime",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): route the protocol coverage record guard through record-shared",
-      "summaryZh": "重點：修正(ci): route the protocol coverage record guard through record-shared The inlined isRecord in 7e54cc9d1933 tripped the ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent stale session header errors after navigation (#123958)",
+      "summaryZh": "重點：修正(ui): prevent stale session header errors after navigation (#123958) * 修正(ui): retire stale header outcomes * test(ui)..."
     },
     {
       "id": 3,
-      "title": "Prevent auxiliary owners from resetting shared WAL (#123777)",
-      "link": "https://github.com/openclaw/openclaw/commit/ed447135bd427508cdc42aec9bc2549c6860c326",
-      "publishedAt": "2026-08-15T02:34:24Z",
-      "summary": "Prevent auxiliary owners from resetting shared WAL (#123777)",
+      "title": "fix(ui): retire companion state by lifecycle (#123941)",
+      "link": "https://github.com/openclaw/openclaw/commit/f827e784c91871fae00b176c112a883216650f5b",
+      "publishedAt": "2026-08-15T03:33:52Z",
+      "summary": "fix(ui): retire companion state by lifecycle (#123941)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Prevent auxiliary owners from resetting shared WAL (#123777)",
-      "summaryZh": "重點：Prevent auxiliary owners from resetting shared WAL (#123777)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): retire companion state by lifecycle (#123941)",
+      "summaryZh": "重點：修正(ui): retire companion state by lifecycle (#123941)..."
     },
     {
       "id": 4,
-      "title": "fix(terminal): shrink widest flex table columns first (#123934)",
-      "link": "https://github.com/openclaw/openclaw/commit/86f38f7c8fbb4cb4b7c737a3e052e089563f290e",
-      "publishedAt": "2026-08-15T02:32:08Z",
-      "summary": "fix(terminal): shrink widest flex table columns first (#123934)",
+      "title": "fix(ui): re-attach chat transcript virtualizer after dashboard→split …",
+      "link": "https://github.com/openclaw/openclaw/commit/2ebaebd4847304ba9d5eb976c348c431a098f1c4",
+      "publishedAt": "2026-08-15T03:31:08Z",
+      "summary": "fix(ui): re-attach chat transcript virtualizer after dashboard→split face switch (#123974) * fix(ui): re-attach chat virtualizer when a foreign host re-stamps the transcript Switching a board session from Dashboard back to Split left the docked chat pane blank (sizer-height empty space, no rows) until an unrelated state change re-rendered the pane or the user scrolled. Root cause: the transcript template is stamped by openclaw-chat-sidebar-region (it receives the chat template as a property and renders it in its own, later update cycle), but the TanStack virtualizer only re-resolves its scroll element inside the pane host's update. After the face-switch re-stamp no pane update follows, so the virtualizer stayed detached: scrollElement null, scrollRect zeroed by the hide transition, calculateRange null, zero rows painted. Fix, at the owner (ChatSessionVirtualizerHost): attachment now follows the DOM identity the scroll-element ref records — an identity change queues a microtask that re-runs the virtualizer adapter's update hook. Zero-size rects from hide transitions (display:none sidebar panels, unmount teardown) are ignored so they can no longer wipe measured row heights or become the virtualizer viewport. Live-verified against a remote gateway where the broken state persisted 5+ seconds pre-fix and one attachment sync healed it. Regression tests fail pre-fix; e2e covers the deferred-latency dashboard->split flow. * chore(ui): raise startup JS baseline for transcript virtualizer re-attach fix Measured 333338 B gzip on PR #123974 run 31861214469 (+345 B over the base run 31860496921 at 332993 B; prior baseline 332040 B predates recent main drift). Absolute 350 KiB maintainer cap unchanged. Growth is the foreign-host attachment sync in chat-transcript-controller.ts — real fix code, not speculative surface.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(terminal): shrink widest flex table columns first (#123934)",
-      "summaryZh": "重點：修正(terminal): shrink widest flex table columns first (#123934)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): re-attach chat transcript virtualizer after dashboard→split …",
+      "summaryZh": "重點：修正(ui): re-attach chat transcript virtualizer after dashboard→split face switch (#123974) * 修正(ui): re-attach chat virtu..."
     },
     {
       "id": 5,
+      "title": "xAI 前共同創辦人新創 River AI 獲 11 億美元融資，主打低成本企業客製化 AI 模型",
+      "link": "https://finance.technews.tw/2026/08/15/river-ai-raises-1-1-billion-for-enterprise-ai-tools/",
+      "publishedAt": "Sat, 15 Aug 2026 03:30:55 +0000",
+      "summary": "River AI 於 11 日宣布完成 11 億美元融資，資金用於擴大企業級 AI 工具組，協助客戶利用自有資 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "廣運 50 週年宣告世代交接！董座謝明凱布局 AI 與半導體邁向百年企業",
+      "link": "https://finance.technews.tw/2026/08/15/century-old-enterprise/",
+      "publishedAt": "Sat, 15 Aug 2026 03:01:43 +0000",
+      "summary": "廣運今日舉辦 50 週年慶家庭日活動，董事長暨執行長謝明凱表示，廣運在自動化、AI 資料中心水冷散熱、能源及第 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "破折號不是元兇，經濟學人揭 AI 寫作真正破綻：標點符號用太少",
+      "link": "https://technews.tw/2026/08/15/writers-are-creating-an-anti-ai-literary-counterculture/",
+      "publishedAt": "Sat, 15 Aug 2026 03:00:32 +0000",
+      "summary": "這種情況已經愈來愈常見了，像是花了半小時精修一封信，主管卻回你「這是不是 AI 寫的？」；或是在 Linked [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "川湖受惠 AI 市場需求持續暢旺，7 月份驚人賺進 5 個股本",
+      "link": "https://finance.technews.tw/2026/08/15/chuanhu-made-an-astonishing-profit-of-5-times-its-share-capital-in-july/",
+      "publishedAt": "Sat, 15 Aug 2026 03:00:02 +0000",
+      "summary": "伺服器導軌大廠川湖科技因有價證券達注意交易資訊標準，於14日召開重大訊息公告，公布最新7月自結財務數據，展現驚 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "少做「看似像樣」的 AI 內容，麥肯錫高層籲年輕顧問多花時間建立關係",
       "link": "https://technews.tw/2026/08/15/create-less-ai-slop-and-have-more-fun/",
       "publishedAt": "Sat, 15 Aug 2026 02:30:09 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "網家雖連續兩季兩利轉正，但仍公告上半年虧損達實收資本額 1/2",
       "link": "https://finance.technews.tw/2026/08/15/pchomes-first-half-losses-reached-half-of-its-paid-in-capital/",
       "publishedAt": "Sat, 15 Aug 2026 02:00:13 +0000",
       "summary": "電商集團網路家庭通過最新財務報告。最新數據顯示，網家 2026 年上半年營運體質已見改善，營業利益與稅前淨利雙 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "美日聯手阻貶，日圓要反轉了？兩大利空仍難解威脅全球股債",
-      "link": "https://finance.technews.tw/2026/08/15/yen-decline-unstoppable-despite-us-japan-intervention-no-rate-cuts-soaring-oil/",
-      "publishedAt": "Sat, 15 Aug 2026 02:00:08 +0000",
-      "summary": "「在我看來，日圓是嚴重被低估了」，當日圓兌美元貶至 40 年新低之際，美國財政部長貝森特（Scott Bess [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "AI 寫動物童話幾乎沒有女主角，研究：女性角色僅占 2%",
-      "link": "https://technews.tw/2026/08/15/study-finds-ai-generated-animal-stories-rarely-have-a-female-lead/",
-      "publishedAt": "Sat, 15 Aug 2026 01:30:02 +0000",
-      "summary": "請 AI 為孩子寫一篇會說話的動物床邊故事，主角幾乎不會是「她」。華盛頓大學研究發現，主流大型語言模型生成的動 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "瑞銀指出，兩大因素美光標準型記憶體毛利率將上看 9 成超越 HBM",
-      "link": "https://finance.technews.tw/2026/08/15/microns-standard-memory-gross-margin-is-expected-to-surge-to-90-surpassing-hbm/",
-      "publishedAt": "Sat, 15 Aug 2026 01:00:19 +0000",
-      "summary": "隨著AI伺服器產能吞噬全球半導體產量，傳統記憶體市場正迎來一波爆發性的利潤增長。 外資瑞銀（UBS）最新研究報 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "台積電疑問「明明能做為何不出貨？」讓林恩平下定決心！大立光 300 天急行軍搶攻 CPO 幕後",
-      "link": "https://finance.technews.tw/2026/08/15/largan-cpo/",
-      "publishedAt": "Sat, 15 Aug 2026 01:00:08 +0000",
-      "summary": "昔日股王大立光行事向來低調，但近來在市場熱度升高，外界好奇台灣這家光學巨擘面對手機市場成長停滯，董事長林恩平如 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
