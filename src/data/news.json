@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T21:21:10.471Z",
+  "generatedAt": "2026-08-15T22:21:39.891Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "refactor(ui): remove unreachable assistant message expanded flag (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/73c45824e1e2f625b0da5f3a2149f44ab7af7d05",
-      "publishedAt": "2026-08-15T21:15:40Z",
-      "summary": "refactor(ui): remove unreachable assistant message expanded flag (#124263) Loaded full assistant messages always render in full, so the loaded state's expanded boolean and its toggle branch could never be reached by the automatic loader or the exhausted-retry action. Drop the dead field and branch, and shrink the browser E2E fixture from an 8,000-plus character architectural essay describing the removed field to a compact deterministic Markdown sample that still exceeds the transport preview limit. Fixes #124235",
+      "title": "fix(ui): commit queued-message reorders as one durable batch write (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/195913ad981a1502466466b49af0b4deb932ac70",
+      "publishedAt": "2026-08-15T22:03:06Z",
+      "summary": "fix(ui): commit queued-message reorders as one durable batch write (#124266) * fix(ui): commit queued-message reorders as one durable batch write The reorder loop persisted each changed row with a separate sessionStorage read-modify-write. A failure partway through left the durable queue in a mixed permutation that matched neither the old nor the new order. Add a batch compare-and-set in composer persistence that validates every affected row against one fresh read, then commits the whole permutation with a single write and read-back verification. The existing single-row update now delegates to this batch primitive. Callers still applying an in-memory-only move (a row not yet admitted to storage) keep using the direct projection path, since that never touches sessionStorage. Fixes #124233 * test(ui): cover two-row stale-CAS rejection and browser reload proof for queue reorder Adds a regression that exercises the batch compare-and-set primitive directly with a two-row permutation where one row went stale from a concurrent writer between read and commit, proving the whole batch rejects instead of committing a mixed reorder. Also adds a Control UI E2E scenario (mocked Gateway, real Chromium) that reorders an offline queue, injects a sessionStorage failure mid-batch, reloads the page, and confirms the durable and rendered order both stay the untouched original — never a mix of the attempted and prior permutations.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): remove unreachable assistant message expanded flag (#12…",
-      "summaryZh": "重點：refactor(ui): remove unreachable assistant message expanded flag (#124263) Loaded full assistant messages always render ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): 提交 queued-message reorders as one durable batch write (#…",
+      "summaryZh": "重點：修正(ui): 提交 queued-message reorders as one durable batch write (#124266) * 修正(ui): 提交 queued-message reorders as one dura..."
     },
     {
       "id": 3,
-      "title": "test(runtime): consolidate exit error coverage (#124281)",
-      "link": "https://github.com/openclaw/openclaw/commit/99766cbbfdc8436e1b815caad8a8c60dce86d21b",
-      "publishedAt": "2026-08-15T21:13:05Z",
-      "summary": "test(runtime): consolidate exit error coverage (#124281)",
+      "title": "refactor(ui): unify composer menu active-option scrolling (#124256)",
+      "link": "https://github.com/openclaw/openclaw/commit/4be9091a3ef615083ed89aa787d727fff1cc8e3b",
+      "publishedAt": "2026-08-15T21:57:40Z",
+      "summary": "refactor(ui): unify composer menu active-option scrolling (#124256) * refactor(ui): unify composer menu active-option scrolling The slash-command and skill-mention composer menus each kept their own byte-identical algorithm for scrolling the keyboard-active option into view inside their \".slash-menu__scroll\" viewport. Move that algorithm into the shared chat-composer-dom module as scrollActiveMenuOptionIntoView(activeId), and have each menu owner keep resolving its own active-option id while delegating the scroll math to the shared helper. Fixes #124238 * refactor(ui): inline forwarding scroll wrappers in composer menus scrollActiveSkillMenuOptionIntoView and scrollActiveSlashMenuOptionIntoView only forwarded their state/paneId args to getActive*MenuOptionId and the shared scrollActiveMenuOptionIntoView helper. Delete both wrappers and have the chat-composer.ts keydown call sites resolve the active option id and call the shared geometry helper directly, since both id resolvers were already exported and consumed elsewhere.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(runtime): consolidate exit error coverage (#124281)",
-      "summaryZh": "重點：test(runtime): consolidate exit error coverage (#124281)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): unify composer menu active-option scrolling (#124256)",
+      "summaryZh": "重點：refactor(ui): unify composer menu active-option scrolling (#124256) * refactor(ui): unify composer menu active-option sc..."
     },
     {
       "id": 4,
-      "title": "fix(agents): deliver token-limited partial replies instead of discard…",
-      "link": "https://github.com/openclaw/openclaw/commit/db0d133ec9521edffe9f722551762dce3d1d5783",
-      "publishedAt": "2026-08-15T21:05:31Z",
-      "summary": "fix(agents): deliver token-limited partial replies instead of discarding them (#123546) * fix(agents): deliver token-limited partial replies instead of discarding them `isIncompleteTerminalAssistantTurn` accepted `hasAssistantVisibleText` but the `length` branch never read it, so a turn that stopped at the output token limit after emitting visible text was classified incomplete. The whole reply was then replaced with \"Agent couldn't generate a response\" and the run was marked abandoned. Respect the flag: a `length` stop is incomplete only when there is no visible text and no terminal tool output. A length stop that did produce text now delivers that text with a truncation notice appended, so a cut-off answer is not mistaken for a complete one. * fix(agents): scope the truncation notice and align trajectory status Review follow-up on the token-limited partial reply fix. The truncation notice keyed only on stopReason, so a length stop that also produced terminal output (tool media, a committed source reply) gained an extra text reply telling the user to ask for a continuation. Those turns were already complete before this fix, so the notice now uses the same predicate as the classifier: a length stop with no terminal output. resolveAttemptTrajectoryTerminal() also still recorded a delivered partial reply as non_deliverable_terminal_turn, so durable trajectory state contradicted what the user received. It now uses the same payload-count evidence the terminal owner uses, so a length stop is only non-deliverable when nothing was delivered. A length stop with visible text but no synthesized payload stays an error. * test(agents): flip the lifecycle expectation for delivered length partials handleAgentEnd() no longer marks a length stop with visible text as abandoned and replay-invalid, because that turn is now delivered as a partial reply. The lifecycle test still pinned the old outcome. The sibling case that has pending tool media is unchanged: it still has terminal output, so it stays abandoned. * fix(agents): key length trajectory status on visible text, not payload count The previous guard used synthesizedPayloadCount, which does not include ordinary final assistant text: attempt-result.ts computes it from block replies, tool media, source-reply payloads, and silent-tool payloads, and finalization runs before terminal-preparation.ts turns assistant text into payloads. So an ordinary text-only truncated reply — the case this PR exists to fix — still recorded non_deliverable_terminal_turn while the reply was delivered. Key on visible assistant text instead, which is the fact the delivery owner also keys on and is already resolved at finalization. A length stop with nothing visible to show stays non-deliverable, whitespace-only text included. * test(agents): flip the finalization trajectory case for delivered length partials The attempt-finalize table row for a length stop expected finalStatus \"error\". Its fixture assistant carries visible text, which resolveTerminalAssistantTexts() promotes to terminal assistant text for a length stop, so that row is a delivered partial reply and must now record success. Renamed to say so. * fix(agents): use the completed assistant message for lifecycle visibility The lifecycle handler derived assistant-visible text only from streamed assistant texts, while terminal payload building falls back to the completed assistant message's visible text when the streamed texts are empty. A non-streamed length stop was therefore delivered to the user and, at the same time, recorded as an abandoned, replay-invalid turn. Give the classifier call site the same canonical fact, keeping the streamed-only view for error and abort stop reasons whose raw text can describe an interrupted generation rather than a reply. * fix(agents): require partial text before appending the truncation notice A cron turn can end with a length stop whose only payload is the synthesized silent result of a successful tool. Gating the notice on terminal-state absence alone appended a visible truncation message to that intentionally silent result. Require nonblank assistant text — streamed or from the terminal assistant message — so the notice only labels prose the user actually received. Also drops .rev3.md, a review transcript committed by accident.",
+      "title": "test(ios): remove low-value render and source guards (#124291)",
+      "link": "https://github.com/openclaw/openclaw/commit/644d93c4123ad65b356ae9fb50fe4680db587474",
+      "publishedAt": "2026-08-15T21:56:17Z",
+      "summary": "test(ios): remove low-value render and source guards (#124291)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): deliver token-limited partial replies instead of discard…",
-      "summaryZh": "重點：修正(agents): deliver token-limited partial replies instead of discarding them (#123546) * 修正(agents): deliver token-limit..."
+      "titleZh": "OpenClaw 程式碼更新：test(ios): remove low-value render and source guards (#124291)",
+      "summaryZh": "重點：test(ios): remove low-value render and source guards (#124291)..."
     },
     {
       "id": 5,
-      "title": "test(discord): remove thread cache reset (#124278)",
-      "link": "https://github.com/openclaw/openclaw/commit/f69226b7b42c2e3307a8a16124c626bbf5c76098",
-      "publishedAt": "2026-08-15T20:59:03Z",
-      "summary": "test(discord): remove thread cache reset (#124278)",
+      "title": "test(ui): assert positive New Session draft behavior (#124253)",
+      "link": "https://github.com/openclaw/openclaw/commit/abe9800777b1028ad07b9648fb6e5585050cf44a",
+      "publishedAt": "2026-08-15T21:51:34Z",
+      "summary": "test(ui): assert positive New Session draft behavior (#124253) * test(ui): assert positive New Session draft behavior Replace the New Session draft E2E's only assertion, a zero-count check against a CSS selector that appears nowhere in production code, with positive coverage: the draft text stays on the composer, the route and sidebar stay put, no sessions.create request fires before submit, and submitting creates exactly one session with canonical navigation. Fixes #124237 * test(ui): settle before asserting exactly-once sessions.create Reorders the exactly-once sessions.create assertion to run after the canonical navigation-settle poll (the same signal the neighboring submission test waits on), instead of right after waitForRequest resolves. The old order could pass prematurely if a late duplicate create landed after the count check but before navigation completed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Discord): remove thread cache reset (#124278)",
-      "summaryZh": "重點：test(Discord): remove thread cache reset (#124278)..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): assert positive New Session draft behavior (#124253)",
+      "summaryZh": "重點：test(ui): assert positive New Session draft behavior (#124253) * test(ui): assert positive New Session draft behavior Re..."
     },
     {
       "id": 6,
