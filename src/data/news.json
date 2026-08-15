@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T20:22:52.345Z",
+  "generatedAt": "2026-08-15T21:21:10.471Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "refactor(cli): remove unsupported Node 24 cache workaround (#124271)",
-      "link": "https://github.com/openclaw/openclaw/commit/715e32448e2d1ad88f00b69c639516426bf22729",
-      "publishedAt": "2026-08-15T20:15:22Z",
-      "summary": "refactor(cli): remove unsupported Node 24 cache workaround (#124271)",
+      "title": "refactor(ui): remove unreachable assistant message expanded flag (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/73c45824e1e2f625b0da5f3a2149f44ab7af7d05",
+      "publishedAt": "2026-08-15T21:15:40Z",
+      "summary": "refactor(ui): remove unreachable assistant message expanded flag (#124263) Loaded full assistant messages always render in full, so the loaded state's expanded boolean and its toggle branch could never be reached by the automatic loader or the exhausted-retry action. Drop the dead field and branch, and shrink the browser E2E fixture from an 8,000-plus character architectural essay describing the removed field to a compact deterministic Markdown sample that still exceeds the transport preview limit. Fixes #124235",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(cli): remove unsupported Node 24 cache workaround (#124271)",
-      "summaryZh": "重點：refactor(cli): remove unsupported Node 24 cache workaround (#124271)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): remove unreachable assistant message expanded flag (#12…",
+      "summaryZh": "重點：refactor(ui): remove unreachable assistant message expanded flag (#124263) Loaded full assistant messages always render ..."
     },
     {
       "id": 3,
-      "title": "docs: explain OpenRouter image route compatibility (#101367)",
-      "link": "https://github.com/openclaw/openclaw/commit/8f807ae912d480248739bff6fa3bc711d000a645",
-      "publishedAt": "2026-08-15T19:41:41Z",
-      "summary": "docs: explain OpenRouter image route compatibility (#101367)",
+      "title": "test(runtime): consolidate exit error coverage (#124281)",
+      "link": "https://github.com/openclaw/openclaw/commit/99766cbbfdc8436e1b815caad8a8c60dce86d21b",
+      "publishedAt": "2026-08-15T21:13:05Z",
+      "summary": "test(runtime): consolidate exit error coverage (#124281)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: explain OpenRouter image route compatibility (#101367)",
-      "summaryZh": "重點：文件: explain OpenRouter image route compatibility (#101367)..."
+      "titleZh": "OpenClaw 程式碼更新：test(runtime): consolidate exit error coverage (#124281)",
+      "summaryZh": "重點：test(runtime): consolidate exit error coverage (#124281)..."
     },
     {
       "id": 4,
-      "title": "fix: preserve OpenRouter image compatibility",
-      "link": "https://github.com/openclaw/openclaw/commit/e2d04702c323b4b00b680003e8b8d61a87d95c44",
-      "publishedAt": "2026-08-15T19:41:41Z",
-      "summary": "fix: preserve OpenRouter image compatibility",
+      "title": "fix(agents): deliver token-limited partial replies instead of discard…",
+      "link": "https://github.com/openclaw/openclaw/commit/db0d133ec9521edffe9f722551762dce3d1d5783",
+      "publishedAt": "2026-08-15T21:05:31Z",
+      "summary": "fix(agents): deliver token-limited partial replies instead of discarding them (#123546) * fix(agents): deliver token-limited partial replies instead of discarding them `isIncompleteTerminalAssistantTurn` accepted `hasAssistantVisibleText` but the `length` branch never read it, so a turn that stopped at the output token limit after emitting visible text was classified incomplete. The whole reply was then replaced with \"Agent couldn't generate a response\" and the run was marked abandoned. Respect the flag: a `length` stop is incomplete only when there is no visible text and no terminal tool output. A length stop that did produce text now delivers that text with a truncation notice appended, so a cut-off answer is not mistaken for a complete one. * fix(agents): scope the truncation notice and align trajectory status Review follow-up on the token-limited partial reply fix. The truncation notice keyed only on stopReason, so a length stop that also produced terminal output (tool media, a committed source reply) gained an extra text reply telling the user to ask for a continuation. Those turns were already complete before this fix, so the notice now uses the same predicate as the classifier: a length stop with no terminal output. resolveAttemptTrajectoryTerminal() also still recorded a delivered partial reply as non_deliverable_terminal_turn, so durable trajectory state contradicted what the user received. It now uses the same payload-count evidence the terminal owner uses, so a length stop is only non-deliverable when nothing was delivered. A length stop with visible text but no synthesized payload stays an error. * test(agents): flip the lifecycle expectation for delivered length partials handleAgentEnd() no longer marks a length stop with visible text as abandoned and replay-invalid, because that turn is now delivered as a partial reply. The lifecycle test still pinned the old outcome. The sibling case that has pending tool media is unchanged: it still has terminal output, so it stays abandoned. * fix(agents): key length trajectory status on visible text, not payload count The previous guard used synthesizedPayloadCount, which does not include ordinary final assistant text: attempt-result.ts computes it from block replies, tool media, source-reply payloads, and silent-tool payloads, and finalization runs before terminal-preparation.ts turns assistant text into payloads. So an ordinary text-only truncated reply — the case this PR exists to fix — still recorded non_deliverable_terminal_turn while the reply was delivered. Key on visible assistant text instead, which is the fact the delivery owner also keys on and is already resolved at finalization. A length stop with nothing visible to show stays non-deliverable, whitespace-only text included. * test(agents): flip the finalization trajectory case for delivered length partials The attempt-finalize table row for a length stop expected finalStatus \"error\". Its fixture assistant carries visible text, which resolveTerminalAssistantTexts() promotes to terminal assistant text for a length stop, so that row is a delivered partial reply and must now record success. Renamed to say so. * fix(agents): use the completed assistant message for lifecycle visibility The lifecycle handler derived assistant-visible text only from streamed assistant texts, while terminal payload building falls back to the completed assistant message's visible text when the streamed texts are empty. A non-streamed length stop was therefore delivered to the user and, at the same time, recorded as an abandoned, replay-invalid turn. Give the classifier call site the same canonical fact, keeping the streamed-only view for error and abort stop reasons whose raw text can describe an interrupted generation rather than a reply. * fix(agents): require partial text before appending the truncation notice A cron turn can end with a length stop whose only payload is the synthesized silent result of a successful tool. Gating the notice on terminal-state absence alone appended a visible truncation message to that intentionally silent result. Require nonblank assistant text — streamed or from the terminal assistant message — so the notice only labels prose the user actually received. Also drops .rev3.md, a review transcript committed by accident.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve OpenRouter image compatibility",
-      "summaryZh": "重點：修正: preserve OpenRouter image compatibility..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): deliver token-limited partial replies instead of discard…",
+      "summaryZh": "重點：修正(agents): deliver token-limited partial replies instead of discarding them (#123546) * 修正(agents): deliver token-limit..."
     },
     {
       "id": 5,
-      "title": "fix(openrouter): use dedicated /api/v1/images endpoint for image gene…",
-      "link": "https://github.com/openclaw/openclaw/commit/02af2fa05305cf2efe72514a540291e85d206af2",
-      "publishedAt": "2026-08-15T19:41:41Z",
-      "summary": "fix(openrouter): use dedicated /api/v1/images endpoint for image generation",
+      "title": "test(discord): remove thread cache reset (#124278)",
+      "link": "https://github.com/openclaw/openclaw/commit/f69226b7b42c2e3307a8a16124c626bbf5c76098",
+      "publishedAt": "2026-08-15T20:59:03Z",
+      "summary": "test(discord): remove thread cache reset (#124278)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(openrouter): use dedicated /api/v1/images endpoint for image gene…",
-      "summaryZh": "重點：修正(openrouter): use dedicated /api/v1/images endpoint for image generation..."
+      "titleZh": "OpenClaw 程式碼更新：test(Discord): remove thread cache reset (#124278)",
+      "summaryZh": "重點：test(Discord): remove thread cache reset (#124278)..."
     },
     {
       "id": 6,
