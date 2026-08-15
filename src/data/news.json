@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-15T08:29:02.909Z",
+  "generatedAt": "2026-08-15T09:25:52.806Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: report the real session store path in health (#124102)",
-      "link": "https://github.com/openclaw/openclaw/commit/26ff3c96071726e582a05e720e64829e1749c9f4",
-      "publishedAt": "2026-08-15T08:27:45Z",
-      "summary": "fix: report the real session store path in health (#124102) * fix(health): report the real session store path * test(sessions): complete cleanup summary fixture * test(status): cover physical session stores * test(gateway): isolate session store path coverage * test(gateway): preserve store RPC formatting * test(gateway): drop the stale sessions.list path assertion sessions.list now reports the physical SQLite store, so this assertion still expected the logical locator and failed. The dedicated server.sessions.store-paths test already asserts sessions.list and sessions.patch return the resolved database path, so this is duplicate coverage rather than a gap.",
+      "title": "fix(gateway): make config.patch errors name the problem and the worki…",
+      "link": "https://github.com/openclaw/openclaw/commit/02d34aad465b4bda55607a4b13411a862f153420",
+      "publishedAt": "2026-08-15T09:24:42Z",
+      "summary": "fix(gateway): make config.patch errors name the problem and the working next step (#124127) Three dead-end error texts in config.patch, per the never-dead-end-the-agent doctrine (failure text states what to try next): - \"invalid config; fix before patching\" hid the actual validation issues the handler already had in the snapshot; it now summarizes them (same summarizeConfigValidationIssues owner the sibling validation errors use), attaches structured details, and names openclaw doctor as the fix path. - The hashless-LWW rejection said \"re-run config.get and retry\" — wrong advice, since retrying hash-free fails identically; it now names the exact guarded paths and says to retry with baseHash. - The mutation-conflict handler appended \"re-run config.get and retry\" to every conflict; non-retryable conflicts (path ownership) fail the retry too, so the suffix is now gated on error.retryable. Both new regression tests fail pre-fix.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: report the real session store path in health (#124102)",
-      "summaryZh": "重點：修正: report the real session store path in health (#124102) * 修正(health): report the real session store path * test(sessi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): make config.patch errors name the problem and the worki…",
+      "summaryZh": "重點：修正(Gateway): make config.patch errors name the problem and the working next step (#124127) Three dead-end error texts in..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): give prepared chat.send media one abandonment-discard o…",
-      "link": "https://github.com/openclaw/openclaw/commit/3ec40893502643dbf3bdddfd3c0cd53474220123",
-      "publishedAt": "2026-08-15T08:20:02Z",
-      "summary": "fix(gateway): give prepared chat.send media one abandonment-discard owner (#124100) #123983 fixed two of six pre-persistence exits that orphan staged inbound media (~/.openclaw/media/inbound has no transcript reference until the user turn persists, and the inbound sweep is off by default). Four sibling exits still leaked: the post-reply-context abort and routing-change checks, the pre-ACK injection settle (onAborted/onActiveLeafChanged), and any setup throw routed to handleChatSendSetupError. Instead of adding four more inline discards, the custody moves to the admission cleanup owner: every abandonment exit already funnels through cleanupAdmittedRun, which now fires an armed discard gated on the user-turn recorder's persisted fact (the restart-safe path persists durably before its exits; steer injections carry the same recorder). The ACK disarms it because dispatch's error lifecycle persists the referencing transcript on every post-ACK path. The two inline discards #123983 added are deleted. Regression test drives the setup-error exit with an offloaded attachment and fails pre-fix; the original #123983 abort test still passes through the new owner.",
+      "title": "fix(sessions): scope transcript fuse to reset window (#124126)",
+      "link": "https://github.com/openclaw/openclaw/commit/30216f52fabecd30698718c7c31c54496d30266b",
+      "publishedAt": "2026-08-15T09:23:41Z",
+      "summary": "fix(sessions): scope transcript fuse to reset window (#124126)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): give prepared chat.send media one abandonment-discard o…",
-      "summaryZh": "重點：修正(Gateway): give prepared chat.send media one abandonment-discard owner (#124100) #123983 修正 two of six pre-persistence..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): scope transcript fuse to reset window (#124126)",
+      "summaryZh": "重點：修正(sessions): scope transcript fuse to reset window (#124126)..."
     },
     {
       "id": 3,
-      "title": "refactor(config): delete dead compat surfaces and write-only error pa…",
-      "link": "https://github.com/openclaw/openclaw/commit/f1ced37ce5df8c7bc7f3b46c579e5ce181feaae0",
-      "publishedAt": "2026-08-15T08:17:31Z",
-      "summary": "refactor(config): delete dead compat surfaces and write-only error payload (#124067) * refactor(config): delete dead compat surfaces and write-only error payload Round-5 config-lane sweep; all three deletions verified against the strict root schema and current consumers. - ConfigMutationConflictError.currentHash was write-only: ~20 throw sites computed hashes (some hashing whole files on the failure path purely to populate it) and no consumer anywhere read it — responses carry only the message and .retryable. Field deleted, feeder expressions collapsed. - Root-level channel-key fallbacks (cfg[provider] beside cfg.channels[...]) in chunk limits, block streaming, and channel capabilities were unreachable: the root schema is z.strictObject, so a validated config cannot carry top-level channel keys; doctor owns those moves. Pre-strict-schema era leftovers, deleted. - resolveHeartbeatAckMaxChars existed as three identical constant-returning stubs (heartbeat-runner-config, server-chat, get-reply) left over from the retired heartbeat.ackMaxChars key; inlined the constant, deleted the stubs. - mergeScopedSearchConfig's legacy web-search key delete was a no-op — the agent-runtime schema rejects those keys at validation; helper and dead branch deleted (the schema-side Set remains the rejection boundary). * fix(web-search): restore retired-provider strip in runtime scoped merge The legacy-key delete in mergeScopedSearchConfig is runtime behavior, not schema-shadowed dead code: the merge input is runtime-merged state, so retired provider objects must still be stripped when no plugin config exists (proven by the existing web-search.test.ts regression).",
+      "title": "fix(doctor): keep lint off writable state (#124110)",
+      "link": "https://github.com/openclaw/openclaw/commit/b1b06d12125b3440d444cbc24a99f2e1941dda1f",
+      "publishedAt": "2026-08-15T09:22:54Z",
+      "summary": "fix(doctor): keep lint off writable state (#124110)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): delete dead compat surfaces and write-only error pa…",
-      "summaryZh": "重點：refactor(config): delete dead compat surfaces and write-only error payload (#124067) * refactor(config): delete dead com..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): keep lint off writable state (#124110)",
+      "summaryZh": "重點：修正(文件tor): keep lint off writable state (#124110)..."
     },
     {
       "id": 4,
-      "title": "feat(macos): Computer Use provider readiness checklist (#124093)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4f61d135a48fbfc598a1b3a0d356d853718efca",
-      "publishedAt": "2026-08-15T08:08:54Z",
-      "summary": "feat(macos): Computer Use provider readiness checklist (#124093) * feat(macos): show computer provider readiness * refactor(macos): drop the status string superseded by the readiness checklist * chore(macos): refresh i18n baseline after removing the superseded status string",
+      "title": "fix(codex): honor managed binary owner root (#124124)",
+      "link": "https://github.com/openclaw/openclaw/commit/40866f3330236c5fcbb6a52ee71c6911b79c0383",
+      "publishedAt": "2026-08-15T09:18:54Z",
+      "summary": "fix(codex): honor managed binary owner root (#124124)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(macos): Computer Use provider readiness checklist (#124093)",
-      "summaryZh": "重點：新功能(macos): Computer Use provider readiness checklist (#124093) * 新功能(macos): show computer provider readiness * refacto..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): honor managed binary owner root (#124124)",
+      "summaryZh": "重點：修正(codex): honor managed binary owner root (#124124)..."
     },
     {
       "id": 5,
