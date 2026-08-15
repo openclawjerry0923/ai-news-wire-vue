@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T18:30:02.076Z",
+  "generatedAt": "2026-08-15T19:20:52.701Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "fix(xai): report lazy voice bridge connect failure as a terminal erro…",
-      "link": "https://github.com/openclaw/openclaw/commit/8f59226bc93afe0e203cfb260a68370847e98996",
-      "publishedAt": "2026-08-15T17:56:11Z",
-      "summary": "fix(xai): report lazy voice bridge connect failure as a terminal error (#123064) * fix(xai): report lazy voice bridge connect failure as terminal error When the loaded realtime voice bridge's connect() rejected, the lazy wrapper marked the generation terminal internally but never called req.onClose and never closed the loaded bridge, leaking it and leaving callers without a terminal outcome. Mirror the queued-flush failure path: emit a terminal \"error\" and close the loaded bridge before propagating the rejection. * fix: harden realtime voice connection lifecycle --------- Co-authored-by: Altay",
+      "title": "refactor(test): prove release validation through its harness (#124245)",
+      "link": "https://github.com/openclaw/openclaw/commit/ab5b8b9a02c8b90c15b9c618b03cdf9a553d0cde",
+      "publishedAt": "2026-08-15T19:14:33Z",
+      "summary": "refactor(test): prove release validation through its harness (#124245) * refactor(test): move release validation proof to harness * test(release): assert dispatch input pairs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(xai): report lazy voice bridge connect failure as a terminal erro…",
-      "summaryZh": "重點：修正(xai): report lazy voice bridge connect failure as a terminal error (#123064) * 修正(xai): report lazy voice bridge conn..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(test): prove 版本發布 validation through its harness (#124245)",
+      "summaryZh": "重點：refactor(test): prove 版本發布 validation through its harness (#124245) * refactor(test): move 版本發布 validation proof to harn..."
     },
     {
       "id": 3,
-      "title": "test(telegram): remove probe cache reset (#124219)",
-      "link": "https://github.com/openclaw/openclaw/commit/eeabc2cf69a0fbe1036e37542151db8e2b82add0",
-      "publishedAt": "2026-08-15T17:50:46Z",
-      "summary": "test(telegram): remove probe cache reset (#124219)",
+      "title": "fix(discord): bind transcript capture to source account [AI] (#118579)",
+      "link": "https://github.com/openclaw/openclaw/commit/8668aeb96987bca08dcc14230a0e313d11893ceb",
+      "publishedAt": "2026-08-15T19:10:43Z",
+      "summary": "fix(discord): bind transcript capture to source account [AI] (#118579) * fix(discord): bind transcript capture to source account * style(agents): keep transcript tool wiring compact * fix(transcripts): declare account binding channels * fix(transcripts): report effective capture account * fix(transcripts): enforce account lifecycle ownership * fix(transcripts): preserve cross-surface control * fix(copilot): preserve transcript channel context * fix(transcripts): fail closed for legacy channel owners * fix(transcripts): add trusted legacy recovery * fix(transcripts): preserve auto-start cleanup ownership * fix(transcripts): reject untrusted account starts * fix(transcripts): keep persisted ownership authoritative * fix(transcripts): harden legacy recovery * fix(transcripts): preserve agent ownership boundary * fix(transcripts): scope account binding to source channel * fix(transcripts): preserve unattributed owner isolation * fix(transcripts): own configured captures by account * docs(plugins): clarify transcript auto-start ownership * test(transcripts): cover account-less recovery * docs(transcripts): scope legacy recovery by provider * fix(discord): reuse eligible account ordering for transcripts * test(discord): use neutral transcript account fixtures * fix(transcripts): keep accountless recovery local * fix(discord): resolve transcript accounts by voice capability * fix(transcripts): bound account resolution failures * fix(transcripts): bound account tool output * fix(transcripts): honor unresolved provider accounts * fix(transcripts): preserve binding when providers are missing * fix(transcripts): fail closed on unknown binding provenance * fix(transcripts): qualify account lifecycle capability * fix(transcripts): normalize provable legacy owners * fix(transcripts): bind scheduled capture to caller authority * fix(transcripts): preserve scheduled caller identity tuple * fix(transcripts): preserve channel-less scheduled authority * fix(plugin-sdk): publish transcript provider types * fix(transcripts): use exact lifecycle ownership tokens * fix(transcripts): preserve local ownerless lifecycle access * fix(transcripts): allow local configured capture control * fix(transcripts): preserve scheduled caller channel * fix(transcripts): retain named-agent legacy recovery * fix(transcripts): deny unrelated remote channels * fix(doctor): validate transcript owner inference * fix(transcripts): restrict legacy remote recovery * fix(ci): align transcript Doctor checks * fix(transcripts): require Doctor-owned legacy metadata * fix(transcripts): reject unowned remote capture starts * fix(transcripts): reject unbound Discord lifecycle calls * fix(transcripts): distinguish legacy owner rows * test(discord): keep unavailable account fixture typed * fix(transcripts): mark current imports for Doctor * fix(transcripts): complete account ownership validation * fix(discord): restore transcript package boundary * fix(discord): preserve bundled transcript entry boundary * docs(transcripts): clarify Discord auto-start account * fix(transcripts): bind account-owned imports * fix: preserve transcript and cron policy state * fix(cron): preserve scheduled transcript authority * fix(discord): keep legacy transcript rows local * fix(transcripts): narrow account ownership boundary * fix(transcripts): preserve trusted caller ownership * fix(discord): enforce transcript source authorization * fix(ci): bound Control UI gzip build variance * test(qa): align transcript scenario contracts * fix(agents): repair rebased caller context * fix(discord): restore rebased account ownership * test(discord): restore voice account fixtures --------- Co-authored-by: joshavant",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Telegram): remove probe cache reset (#124219)",
-      "summaryZh": "重點：test(Telegram): remove probe cache reset (#124219)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): bind transcript capture to source account [AI] (#118579)",
+      "summaryZh": "重點：修正(Discord): bind transcript capture to source account [AI] (#118579) * 修正(Discord): bind transcript capture to source a..."
     },
     {
       "id": 4,
-      "title": "improve(control-ui): continuous corner curvature with a radius scale …",
-      "link": "https://github.com/openclaw/openclaw/commit/292506566bc6f812d40674f25d3c3455e4214dd2",
-      "publishedAt": "2026-08-15T17:48:56Z",
-      "summary": "improve(control-ui): continuous corner curvature with a radius scale (#124129) * improve(control-ui): continuous corner curvature with a radius scale Route every step of the Control UI radius scale through one knob and, on engines that can draw a superellipse, widen it by 1.25 while switching the app's surface families to continuous corner curvature. A corner that keeps curving into the edge reads as a shorter arc than a circular corner of the same radius, so the scale gives that visual weight back. The whole refinement sits behind @supports (corner-shape: superellipse(1.5)), so engines without it keep today's radii and today's arcs unchanged. The shape is opt-in per surface: a superellipse flattens the ends of anything fully rounded, and pills, circles, avatars and status dots are a third of this app's corners. Menu item radius is now derived from the menu panel radius minus its padding, which is the optical relation its comment already documented and which now holds at any corner scale. * test(control-ui): assert chat radii against the live corner scale * fix(ui): scope the corner-curvature radius scale to opted-in surfaces The @supports block scaled --openclaw-corner-radius-scale at :root, so every --radius-* consumer inherited the 1.25 multiplier — including surfaces that never opted into corner-shape (e.g. .run-inspector__panel, which stayed `round` but drew an inflated 12.5px radius) and the radius tokens mcp-app-theme.ts exports to embedded MCP apps. The canonical --radius-sm/md/lg/xl/--radius tokens at :root are back to their pre-refinement literal values. The scaled radii now live only on the selector list that also receives corner-shape, redeclaring the tokens locally so the widened radius stays contained to opted-in surfaces and their descendants. Menu panels needed their derived --menu-radius/--menu-item-radius redeclared too (a custom property's nested var() resolves relative to where it's declared, not where it's read, so redeclaring only --radius-md wouldn't reach them), and wa-dropdown/wa-popover/wa-select scale on the host rather than the ::part() panel since slotted menu items inherit from the light-DOM host, not from the shadow part they render inside. Adds regression coverage for the excluded consumer and the exported MCP theme tokens to corner-shape.browser.test.ts. * fix(ui): stop redeclared corner-curvature radius tokens from leaking to nested descendants Round 1 fixed the :root-level leak by redeclaring --radius-* as an inheritable custom property on each opted-in container instead. That still leaks: any non-opted descendant nested inside an opted surface inherits the container's redeclared token too. Proof: .settings-segmented nested inside .settings-group rendered 12.5px round instead of its canonical 10px, and .agent-chat__search-bar's own --radius-lg-derived corners doubled up incorrectly depending on ancestor nesting. Every opted selector now sets border-radius as a direct property computed from the scale, not an inheritable token — border-radius does not inherit, so nested non-opted descendants keep reading the untouched canonical --radius-* from :root. Each selector is specificity-doubled (`.card.card`) rather than !important, so it reliably outranks its own bare-class declaration in a later-loaded file without silently clobbering a genuinely more specific existing override elsewhere in the app (e.g. `.chat:has(> .agent-chat__search-bar)`, `.chat-task-detail__transcript > .chat-thread`) — both surfaced as regressions during this fix and are preserved by design now. The one exception is the generic wa-dropdown/wa-popover/wa-select ::part() panel selector, which by design must outrank dozens of concrete per-feature panel classes app-wide; a bare type selector can never out-specificity a class selector, so that rule keeps !important. --menu-item-radius at :root also serializes back to the byte-identical `var(--radius-sm)` from base f21d34d71d7 in the unscaled fallback path; the derived panel-minus-padding formula now lives only in the scaled wa-dropdown/wa-popover/wa-select host redeclaration where it's needed. Adds a nested-inheritance regression case to corner-shape.browser.test.ts (.settings-segmented inside .settings-group) and a .settings-group entry to prove the container itself still scales. * fix(ui): pair scale and corner-shape on every corner-curvature selector ClawSweeper caught two more instances of scale and shape traveling apart: 1. .option-card__choice wasn't in the corner-curvature list at all, despite being a real nested member of the .option-card family (a button inside .option-card__choices inside .option-card, drawn with the same 14px --radius-lg step as .card/.settings-group). It kept its canonical 14px round corner even under the scale. 2. .slash-menu-item / .chat-reply-context-menu button / .chat-selection-popup button picked up the scaled radius from round 2 but never got corner-shape, so their corners grew without curving into a squircle — scale without shape, the same incoherence class as (1) in reverse. Decision on (2): items get corner-shape added (not scale removed). The panel they sit in is already squircle; an item whose radius grows but stays circular reads as an unrelated circle poking out of the panel's superellipse, not a coherent nested row. A final invariant pass over the full @supports block (every selector that sets a live border-radius must also set corner-shape, and vice versa) found one more forgotten member beyond the two reported: .agent-chat__search-bar scaled its own (bottom-only) radius but never carried corner-shape, same gap as the menu items. Fixed alongside the reported two. Every remaining selector in the block already pairs the two; the wa-dropdown/wa-popover/ wa-select host rule is the one correct exception, since it only carries custom properties for descendants and draws no border of its own. Test coverage now exercises each surface's real nested DOM instead of a synthetic flat selector: option-card.ts's actual button-inside-choices- inside-card structure, chat-composer-slash-menu.ts's item three levels below the panel, and chat-thread-interactions.ts's plain item matched via descendant tag selector. Added a corner field to CornerCase so the harness can probe the correct physical corner (search-bar's bottom-left is its only non-zero corner) instead of universally reading top-left. All four new/changed cases are proven to fail on pre-fix base.css with the exact \"radius scaled, shape stuck at round\" (or, for option-card__choice, \"not opted in at all\") signature before the corresponding fix.",
+      "title": "feat(slack): make presence event guidance configurable (#123875)",
+      "link": "https://github.com/openclaw/openclaw/commit/dbc2356abc9a10c3c9e2b7f5b7f14d9a4fc229be",
+      "publishedAt": "2026-08-15T19:02:19Z",
+      "summary": "feat(slack): make presence event guidance configurable (#123875) * feat(slack): make presence event guidance configurable * chore(config): regenerate channel metadata * fix(slack): keep presence prompt SDK compatible * chore(config): refresh config baseline * fix(slack): cap presence event prompts * chore(config): refresh Slack prompt metadata * fix(slack): bound queued presence wake prompts * fix(slack): inherit presence prompt for named accounts * fix(slack): keep prompt limit at config boundary --------- Co-authored-by: Sarah Fortune",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(control-ui): continuous corner curvature with a radius scale …",
-      "summaryZh": "重點：improve(control-ui): continuous corner curvature with a radius scale (#124129) * improve(control-ui): continuous corner ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(slack): make presence event guidance configurable (#123875)",
+      "summaryZh": "重點：新功能(slack): make presence event guidance configurable (#123875) * 新功能(slack): make presence event guidance configurable ..."
     },
     {
       "id": 5,
-      "title": "test(amazon-bedrock-mantle): remove cache resets (#124216)",
-      "link": "https://github.com/openclaw/openclaw/commit/6b9a6ece48149bcadc92479e5320a6db53b9931b",
-      "publishedAt": "2026-08-15T17:28:05Z",
-      "summary": "test(amazon-bedrock-mantle): remove cache resets (#124216)",
+      "title": "refactor(test): remove duplicate ClawHub archive case (#124240)",
+      "link": "https://github.com/openclaw/openclaw/commit/50f656fc4d20ebb205e70a32d11ef657e4c54f6d",
+      "publishedAt": "2026-08-15T18:56:16Z",
+      "summary": "refactor(test): remove duplicate ClawHub archive case (#124240)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(amazon-bedrock-mantle): remove cache resets (#124216)",
-      "summaryZh": "重點：test(amazon-bedrock-mantle): remove cache resets (#124216)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(test): remove duplicate ClawHub archive case (#124240)",
+      "summaryZh": "重點：refactor(test): remove duplicate ClawHub archive case (#124240)..."
     },
     {
       "id": 6,
@@ -83,10 +83,10 @@
     },
     {
       "id": 9,
-      "title": "全球最大電池電動飛機僅花 5 美元完成試飛，預計 2031 年投入商用服務",
+      "title": "全球最大電動飛機僅花 5 美元完成試飛，2031 年投入商用",
       "link": "https://technews.tw/2026/08/15/the-worlds-largest-battery-powered-electric-aircraft-completed-its-test-flight-for-only-5/",
       "publishedAt": "Sat, 15 Aug 2026 08:00:01 +0000",
-      "summary": "瑞典電動飛機新創公司 Heart Aerospace 研發的全球最大電池電動飛機「Heart X1」，已於 2 [&#8230;]",
+      "summary": "瑞典電動飛機新創公司 Heart Aerospace 研發的全球最大電動飛機「Heart X1」，已於 202 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
