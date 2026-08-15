@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-15T03:39:03.168Z",
+  "generatedAt": "2026-08-15T04:31:51.236Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(synology-chat): prevent duplicate sends after custody loss (#123953)",
-      "link": "https://github.com/openclaw/openclaw/commit/52cf4db8261acb4501802518fba9f4394ee58173",
-      "publishedAt": "2026-08-15T03:38:56Z",
-      "summary": "fix(synology-chat): prevent duplicate sends after custody loss (#123953) * fix(synology-chat): preserve durable send custody * fix(synology-chat): clean rejected media custody",
+      "title": "fix(gateway): name stale install on ws connect failures (#123998)",
+      "link": "https://github.com/openclaw/openclaw/commit/ff04a811de43f2665bd3b576597337a3df00cdaa",
+      "publishedAt": "2026-08-15T04:30:57Z",
+      "summary": "fix(gateway): name stale install on ws connect failures (#123998)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(synology-chat): prevent duplicate sends after custody loss (#123953)",
-      "summaryZh": "重點：修正(synology-chat): prevent duplicate sends after custody loss (#123953) * 修正(synology-chat): preserve durable send custo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): name stale install on ws connect failures (#123998)",
+      "summaryZh": "重點：修正(Gateway): name stale install on ws connect failures (#123998)..."
     },
     {
       "id": 2,
-      "title": "fix(ui): prevent stale session header errors after navigation (#123958)",
-      "link": "https://github.com/openclaw/openclaw/commit/636fc9417109e9d59f05ca9d95935a5d90d1837f",
-      "publishedAt": "2026-08-15T03:38:40Z",
-      "summary": "fix(ui): prevent stale session header errors after navigation (#123958) * fix(ui): retire stale header outcomes * test(ui): await retained pane presentation * fix(ui): bind header outcomes to presentation lifetime",
+      "title": "fix(gateway,ui): discard prepared attachment media on pre-persist exi…",
+      "link": "https://github.com/openclaw/openclaw/commit/617b045887d9951d62c3618e7118ce18cd333dff",
+      "publishedAt": "2026-08-15T04:30:11Z",
+      "summary": "fix(gateway,ui): discard prepared attachment media on pre-persist exits and release catalog-open payloads (#123983) * fix(gateway,ui): discard prepared attachment media on pre-persist exits and release catalog-open payloads Two attachment-lifecycle leaks with the same shape: state whose owner dropped the reference without reclaiming the resource. - chat.send stages inbound media (~/.openclaw/media/inbound) during attachment preparation; the abort and session-routing-changed exits between preparation success and user-turn persistence returned without deleting the staged files. Nothing references them afterward, and the inbound sweep is disabled unless attachments.ttlHours is set, so default installs orphaned them permanently. Both exits now discard through the same deleteMediaBuffer path the error exits already use. - Opening a terminal-catalog session cleared state.chatAttachments without releasing payload-store entries, stranding Files and object URLs for the tab lifetime; every sibling discard path releases first. * test(gateway): drop duplicate unused inbound baseline block",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): prevent stale session header errors after navigation (#123958)",
-      "summaryZh": "重點：修正(ui): prevent stale session header errors after navigation (#123958) * 修正(ui): retire stale header outcomes * test(ui)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway,ui): discard prepared attachment media on pre-persist exi…",
+      "summaryZh": "重點：修正(Gateway,ui): discard prepared attachment media on pre-persist exits and 版本發布 catalog-open payloads (#123983) * 修正(Gat..."
     },
     {
       "id": 3,
-      "title": "fix(ui): retire companion state by lifecycle (#123941)",
-      "link": "https://github.com/openclaw/openclaw/commit/f827e784c91871fae00b176c112a883216650f5b",
-      "publishedAt": "2026-08-15T03:33:52Z",
-      "summary": "fix(ui): retire companion state by lifecycle (#123941)",
+      "title": "fix(agents): expose Skill Workshop evaluation results immediately (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/85eb4dc10d674eef97d4dfd8d77e0fff148b1cb4",
+      "publishedAt": "2026-08-15T04:28:57Z",
+      "summary": "fix(agents): expose Skill Workshop evaluation results immediately (#123994) * fix(agents): surface skill evaluator outcomes * fix(agents): return evaluator details directly * fix(agents): stabilize evaluator projection * fix(agents): use normalization core serializer export",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): retire companion state by lifecycle (#123941)",
-      "summaryZh": "重點：修正(ui): retire companion state by lifecycle (#123941)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): expose Skill Workshop evaluation results immediately (#1…",
+      "summaryZh": "重點：修正(agents): expose Skill Workshop evaluation results immediately (#123994) * 修正(agents): surface skill evaluator outcome..."
     },
     {
       "id": 4,
-      "title": "fix(ui): re-attach chat transcript virtualizer after dashboard→split …",
-      "link": "https://github.com/openclaw/openclaw/commit/2ebaebd4847304ba9d5eb976c348c431a098f1c4",
-      "publishedAt": "2026-08-15T03:31:08Z",
-      "summary": "fix(ui): re-attach chat transcript virtualizer after dashboard→split face switch (#123974) * fix(ui): re-attach chat virtualizer when a foreign host re-stamps the transcript Switching a board session from Dashboard back to Split left the docked chat pane blank (sizer-height empty space, no rows) until an unrelated state change re-rendered the pane or the user scrolled. Root cause: the transcript template is stamped by openclaw-chat-sidebar-region (it receives the chat template as a property and renders it in its own, later update cycle), but the TanStack virtualizer only re-resolves its scroll element inside the pane host's update. After the face-switch re-stamp no pane update follows, so the virtualizer stayed detached: scrollElement null, scrollRect zeroed by the hide transition, calculateRange null, zero rows painted. Fix, at the owner (ChatSessionVirtualizerHost): attachment now follows the DOM identity the scroll-element ref records — an identity change queues a microtask that re-runs the virtualizer adapter's update hook. Zero-size rects from hide transitions (display:none sidebar panels, unmount teardown) are ignored so they can no longer wipe measured row heights or become the virtualizer viewport. Live-verified against a remote gateway where the broken state persisted 5+ seconds pre-fix and one attachment sync healed it. Regression tests fail pre-fix; e2e covers the deferred-latency dashboard->split flow. * chore(ui): raise startup JS baseline for transcript virtualizer re-attach fix Measured 333338 B gzip on PR #123974 run 31861214469 (+345 B over the base run 31860496921 at 332993 B; prior baseline 332040 B predates recent main drift). Absolute 350 KiB maintainer cap unchanged. Growth is the foreign-host attachment sync in chat-transcript-controller.ts — real fix code, not speculative surface.",
+      "title": "fix(agents): continue after timeout compaction (#124000)",
+      "link": "https://github.com/openclaw/openclaw/commit/e530b58b44b886227689e53ff0a76ac7a22a7607",
+      "publishedAt": "2026-08-15T04:26:59Z",
+      "summary": "fix(agents): continue after timeout compaction (#124000)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): re-attach chat transcript virtualizer after dashboard→split …",
-      "summaryZh": "重點：修正(ui): re-attach chat transcript virtualizer after dashboard→split face switch (#123974) * 修正(ui): re-attach chat virtu..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): continue after timeout compaction (#124000)",
+      "summaryZh": "重點：修正(agents): continue after timeout compaction (#124000)..."
     },
     {
       "id": 5,
