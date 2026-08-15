@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-15T04:31:51.236Z",
+  "generatedAt": "2026-08-15T05:25:03.358Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): name stale install on ws connect failures (#123998)",
-      "link": "https://github.com/openclaw/openclaw/commit/ff04a811de43f2665bd3b576597337a3df00cdaa",
-      "publishedAt": "2026-08-15T04:30:57Z",
-      "summary": "fix(gateway): name stale install on ws connect failures (#123998)",
+      "title": "test(cua): trim generic browser transport replays (#124011)",
+      "link": "https://github.com/openclaw/openclaw/commit/2e90d673121274302848035dbae092a484477b49",
+      "publishedAt": "2026-08-15T05:24:41Z",
+      "summary": "test(cua): trim generic browser transport replays (#124011)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): name stale install on ws connect failures (#123998)",
-      "summaryZh": "重點：修正(Gateway): name stale install on ws connect failures (#123998)..."
+      "titleZh": "OpenClaw 程式碼更新：test(cua): trim generic browser transport replays (#124011)",
+      "summaryZh": "重點：test(cua): trim generic browser transport replays (#124011)..."
     },
     {
       "id": 2,
-      "title": "fix(gateway,ui): discard prepared attachment media on pre-persist exi…",
-      "link": "https://github.com/openclaw/openclaw/commit/617b045887d9951d62c3618e7118ce18cd333dff",
-      "publishedAt": "2026-08-15T04:30:11Z",
-      "summary": "fix(gateway,ui): discard prepared attachment media on pre-persist exits and release catalog-open payloads (#123983) * fix(gateway,ui): discard prepared attachment media on pre-persist exits and release catalog-open payloads Two attachment-lifecycle leaks with the same shape: state whose owner dropped the reference without reclaiming the resource. - chat.send stages inbound media (~/.openclaw/media/inbound) during attachment preparation; the abort and session-routing-changed exits between preparation success and user-turn persistence returned without deleting the staged files. Nothing references them afterward, and the inbound sweep is disabled unless attachments.ttlHours is set, so default installs orphaned them permanently. Both exits now discard through the same deleteMediaBuffer path the error exits already use. - Opening a terminal-catalog session cleared state.chatAttachments without releasing payload-store entries, stranding Files and object URLs for the tab lifetime; every sibling discard path releases first. * test(gateway): drop duplicate unused inbound baseline block",
+      "title": "Start new sessions with folder group defaults (#123276)",
+      "link": "https://github.com/openclaw/openclaw/commit/edb5adfbf508d1fe83c1964860c2e1a518b8a3cf",
+      "publishedAt": "2026-08-15T05:24:13Z",
+      "summary": "Start new sessions with folder group defaults (#123276) * feat(ui): add folder group session defaults * fix(ci): align folder group contracts * fix(protocol): refresh Android gateway methods * fix(ui): reuse folder picker for group defaults * fix(ui): harden session group defaults * test(ui): align group defaults with current main * test(ui): keep group catalog defaults path-free * fix(ui): close folder group CI gaps * fix(ui): satisfy folder group CI contracts * fix(session-groups): enforce defaults safety * test(gateway): keep group defaults in workspace * fix(session-groups): enforce defaults participation * fix(session-groups): close review authorization races * fix(session-groups): canonicalize defaults authorization --------- Co-authored-by: Jesse Merhi Co-authored-by: Jesse Merhi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway,ui): discard prepared attachment media on pre-persist exi…",
-      "summaryZh": "重點：修正(Gateway,ui): discard prepared attachment media on pre-persist exits and 版本發布 catalog-open payloads (#123983) * 修正(Gat..."
+      "titleZh": "OpenClaw 程式碼更新：Start new sessions with folder group defaults (#123276)",
+      "summaryZh": "重點：Start new sessions with folder group defaults (#123276) * 新功能(ui): add folder group session defaults * 修正(ci): align fol..."
     },
     {
       "id": 3,
-      "title": "fix(agents): expose Skill Workshop evaluation results immediately (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/85eb4dc10d674eef97d4dfd8d77e0fff148b1cb4",
-      "publishedAt": "2026-08-15T04:28:57Z",
-      "summary": "fix(agents): expose Skill Workshop evaluation results immediately (#123994) * fix(agents): surface skill evaluator outcomes * fix(agents): return evaluator details directly * fix(agents): stabilize evaluator projection * fix(agents): use normalization core serializer export",
+      "title": "fix(memory): queue transcript updates during active sync (#124024)",
+      "link": "https://github.com/openclaw/openclaw/commit/2ee5c2f6ca2d4fbddb3c523aa5019cf087d82591",
+      "publishedAt": "2026-08-15T05:20:53Z",
+      "summary": "fix(memory): queue transcript updates during active sync (#124024)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): expose Skill Workshop evaluation results immediately (#1…",
-      "summaryZh": "重點：修正(agents): expose Skill Workshop evaluation results immediately (#123994) * 修正(agents): surface skill evaluator outcome..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): queue transcript updates during active sync (#124024)",
+      "summaryZh": "重點：修正(記憶): queue transcript updates during active sync (#124024)..."
     },
     {
       "id": 4,
-      "title": "fix(agents): continue after timeout compaction (#124000)",
-      "link": "https://github.com/openclaw/openclaw/commit/e530b58b44b886227689e53ff0a76ac7a22a7607",
-      "publishedAt": "2026-08-15T04:26:59Z",
-      "summary": "fix(agents): continue after timeout compaction (#124000)",
+      "title": "fix(codex): preserve native child continuation on yield (#124004)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a5bf4d5241aa075f44ff9dea8001347aa271b15",
+      "publishedAt": "2026-08-15T05:13:09Z",
+      "summary": "fix(codex): preserve native child continuation on yield (#124004)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): continue after timeout compaction (#124000)",
-      "summaryZh": "重點：修正(agents): continue after timeout compaction (#124000)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve native child continuation on yield (#124004)",
+      "summaryZh": "重點：修正(codex): preserve native child continuation on yield (#124004)..."
     },
     {
       "id": 5,
