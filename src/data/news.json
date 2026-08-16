@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T21:20:15.756Z",
+  "generatedAt": "2026-08-16T22:21:04.507Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): share generated session titles with worktree names and …",
-      "link": "https://github.com/openclaw/openclaw/commit/65922f95070abd58684675349593a217b193fe0f",
-      "publishedAt": "2026-08-16T21:07:54Z",
-      "summary": "fix(gateway): share generated session titles with worktree names and start title work at dispatch (#124787) Worktree sessions now derive their worktree/branch name from the same concise generated title the sidebar shows (bounded 8s wait, raw-prompt slug then crustacean fallback), persisted once as displayName so the chat-send pass never duplicates the model call. Dashboard title scheduling moves from the dispatch chain's finally (after the whole first turn) back to dispatch start, so long or interrupted first turns no longer leave sessions silently untitled (regression from #122471). slugifyWorktreeTitle truncates at word boundaries; dead generatedDisplayName plumbing removed.",
+      "title": "fix(gateway): preserve prepared plugin metadata under load (#124844)",
+      "link": "https://github.com/openclaw/openclaw/commit/2d3612da6bd28f6a7956d82b0795c31fd18bab8a",
+      "publishedAt": "2026-08-16T22:14:39Z",
+      "summary": "fix(gateway): preserve prepared plugin metadata under load (#124844) * fix(gateway): preserve prepared plugin metadata under load * fix(gateway): project metadata before catalog preparation * test(agents): assert projected startup metadata * test(gateway): bind load probes to each finalization wave",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): share generated session titles with worktree names and …",
-      "summaryZh": "重點：修正(Gateway): share generated session titles with worktree names and start title work at dispatch (#124787) Worktree sess..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve prepared plugin metadata under load (#124844)",
+      "summaryZh": "重點：修正(Gateway): preserve prepared plugin metadata under load (#124844) * 修正(Gateway): preserve prepared plugin metadata und..."
     },
     {
       "id": 2,
-      "title": "improve(ui): make chat disclosures compact (#124832)",
-      "link": "https://github.com/openclaw/openclaw/commit/da853826861107c8b2ffd9136ab00cb9b20e01e0",
-      "publishedAt": "2026-08-16T21:04:47Z",
-      "summary": "improve(ui): make chat disclosures compact (#124832) Co-authored-by: RoboClaw",
+      "title": "fix(cli): emit one JSON failure contract for --json invocations (#124…",
+      "link": "https://github.com/openclaw/openclaw/commit/6c66f48a7c1144eaa40b2927fe9823ae0f93151a",
+      "publishedAt": "2026-08-16T22:09:58Z",
+      "summary": "fix(cli): emit one JSON failure contract for --json invocations (#124849) * fix(cli): unify JSON failure output * test(cli): update skills verify failure envelope",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): make chat disclosures compact (#124832)",
-      "summaryZh": "重點：improve(ui): make chat disclosures compact (#124832) Co-authored-by: RoboClaw..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): emit one JSON failure contract for --json invocations (#124…",
+      "summaryZh": "重點：修正(cli): emit one JSON failure contract for --json invocations (#124849) * 修正(cli): unify JSON failure output * test(cli..."
     },
     {
       "id": 3,
-      "title": "fix(browser): stop local actions when agent turns are cancelled (#124…",
-      "link": "https://github.com/openclaw/openclaw/commit/d39a29fcbe6391b7be3aaa97397750026095a86c",
-      "publishedAt": "2026-08-16T21:03:43Z",
-      "summary": "fix(browser): stop local actions when agent turns are cancelled (#124795) * fix(browser): cancel local actions with agent signal Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 * fix(agent-harness): expose authored context cap Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 * chore(agent-harness): drop redundant context-cap override Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 --------- Co-authored-by: Amp",
+      "title": "fix(test): propagate parent heavy-check ownership (#124859)",
+      "link": "https://github.com/openclaw/openclaw/commit/0b5bb095104755d3d239cd1b5765910c523103f5",
+      "publishedAt": "2026-08-16T22:09:30Z",
+      "summary": "fix(test): propagate parent heavy-check ownership (#124859) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73d5-8fb7-e619e8e458e1 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): stop local actions when agent turns are cancelled (#124…",
-      "summaryZh": "重點：修正(browser): stop local actions when agent turns are cancelled (#124795) * 修正(browser): cancel local actions with agent ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): propagate parent heavy-check ownership (#124859)",
+      "summaryZh": "重點：修正(test): propagate parent heavy-check ownership (#124859) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73..."
     },
     {
       "id": 4,
-      "title": "perf(webui): reuse the chat metadata catalog across pages (#124794)",
-      "link": "https://github.com/openclaw/openclaw/commit/a94841914187620d2a577b294e5cc4f02dfcc528",
-      "publishedAt": "2026-08-16T21:03:04Z",
-      "summary": "perf(webui): reuse the chat metadata catalog across pages (#124794) * refactor(webui): centralize chat metadata caching * test(webui): cover shared chat metadata store * refactor(webui): move ChatMetadataResult type to its store owner * fix(webui): let the metadata store own revalidation lifetime * fix(webui): satisfy no-promise-executor-return in retry delay",
+      "title": "fix(agents): keep queued followups from missing post-compaction conte…",
+      "link": "https://github.com/openclaw/openclaw/commit/efdfb69adc4077f644e2f990c6138bd10f1b90f5",
+      "publishedAt": "2026-08-16T22:06:39Z",
+      "summary": "fix(agents): keep queued followups from missing post-compaction context (#124850) * fix(auto-reply): order post-compaction context before followups Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 * test(auto-reply): clean compaction workspace fixture Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(webui): reuse the chat metadata catalog across pages (#124794)",
-      "summaryZh": "重點：perf(webui): reuse the chat metadata catalog across pages (#124794) * refactor(webui): centralize chat metadata caching ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep queued followups from missing post-compaction conte…",
+      "summaryZh": "重點：修正(agents): keep queued followups from missing post-compaction context (#124850) * 修正(auto-reply): order post-compaction..."
     },
     {
       "id": 5,
