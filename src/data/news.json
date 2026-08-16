@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T18:29:17.283Z",
+  "generatedAt": "2026-08-16T19:20:54.692Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): stop broadcast serialization failures from storming gap…",
-      "link": "https://github.com/openclaw/openclaw/commit/86adb6e67ea5bff85528aa6294977b632e25ffdb",
-      "publishedAt": "2026-08-16T18:28:05Z",
-      "summary": "fix(gateway): stop broadcast serialization failures from storming gap detectors (#124726) broadcastInternal consumed each client's seq before building the frame, and swallowed any error in a bare catch. An unserializable payload (circular reference, BigInt) threw identically for every client: the event vanished for all of them, every seq advanced, and the next good frame fired every client's gap detector simultaneously — a synchronized full-reconnect storm with zero server-side evidence. Root cause: seq consumption ordered before frame construction, and serialization failure conflated with per-client send failure in one catch. The frame now builds before the seq is consumed; a serialization failure aborts the broadcast once with a logged error and touches no seqs, while per-client send failures keep consuming the seq so that client's gap detector still sees the loss. Regression: new server-broadcast.serialization.test.ts — a circular payload consumes no seqs, logs once, and the next broadcast is seq 1 for every client. Fails pre-fix (no log, seqs consumed).",
+      "title": "fix(ui): keep Control UI device identity working on plain-HTTP origin…",
+      "link": "https://github.com/openclaw/openclaw/commit/75bcc5cebe97c661c865e0520815b682c90e45f9",
+      "publishedAt": "2026-08-16T19:20:00Z",
+      "summary": "fix(ui): keep Control UI device identity working on plain-HTTP origins (#124724) * fix(ui): keep Control UI device identity working on plain-HTTP origins @noble/ed25519 defaults its SHA-512 provider to crypto.subtle, which browsers gate to secure contexts, so device identity silently vanished on http:// LAN dashboards and connects fell back to shared-credential auth with no pairing. Wire a lazy pure-JS @noble/hashes fallback for SHA-512 and the fingerprint SHA-256, and drop the isSecureContext gate in the connect path. Secure contexts keep the platform digests and pay no startup bytes: the fallback loads as its own lazy chunk, kept out of the gateway-runtime startup chunk on purpose. * test(ui): cover device identity minting and signing without crypto.subtle New jsdom regression suite fails on pre-fix code (subtle-less crypto stub with getRandomValues, which real insecure contexts keep). Rewrites the gateway connect tests that previously asserted the device-less insecure fallback: an insecure context now attaches a device identity. * docs(web): plain-HTTP dashboards now pair with a device identity The signing key never crosses the wire, so HTTP+pairing is strictly stronger than the old HTTP token-only fallback; HTTPS (Tailscale Serve) stays the recommendation for transport privacy. * fix(ui): drop unnecessary boolean literal compare in secure-context timing meta * test(ui): declare device.id on the connect-frame test shape * test(ui): split the subtle-less scope-upgrade e2e into the two real invariants Without crypto.subtle the browser can now sign, so the banner offers the explicit admin upgrade; manual-only guidance is reserved for browsers that cannot mint an identity at all (no WebCrypto RNG). Also corrects the connect-path comment: blocked storage yields an ephemeral identity, only a failed mint degrades device-less. * fix(ui): address review findings on the HTTP device-identity path - Storage-blocked pages keep one stable in-memory identity per page lifetime instead of minting a fresh unpaired key on every reconnect, and a write-rejecting store no longer fails the mint (regression tests bite pre-fix). - Connect timing now reports the real browser secure-context fact via a shared browserSecureContext() helper instead of inferring it from device-identity presence. - Docs state the accepted trusted-proxy contract: browsers attach a device identity on every origin, so first connects follow the standard pairing flow (deviceAutoApprove or a one-time approval); device-less admission remains only for browsers that cannot mint an identity. * refactor(ui): trim the connect-path additions under the max-lines cap",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop broadcast serialization failures from storming gap…",
-      "summaryZh": "重點：修正(Gateway): stop broadcast serialization failures from storming gap detectors (#124726) broadcastInternal consumed each..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep Control UI device identity working on plain-HTTP origin…",
+      "summaryZh": "重點：修正(ui): keep Control UI device identity working on plain-HTTP origins (#124724) * 修正(ui): keep Control UI device identit..."
     },
     {
       "id": 2,
-      "title": "fix(tasks): skip session sweep when the cron store is unreadable (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/9d0c1f8f8c59d0cedc80d8c7b409c94e4e917fd1",
-      "publishedAt": "2026-08-16T18:25:53Z",
-      "summary": "fix(tasks): skip session sweep when the cron store is unreadable (#124718) * fix(tasks): skip session sweep when the cron store is unreadable readRunningCronJobIds() swallowed any cron-store load error and returned an empty running-job set. The session-registry sweep then treated every running cron job's transcript as prunable and archived it — a corrupt or locked cron store silently destroyed live transcripts on 'openclaw tasks maintenance --apply'. Root cause: failure was collapsed into the 'no running jobs' success shape instead of a distinct outcome. The loader now returns a closed ok/error result; an unreadable store skips the sweep entirely and the summary reports skippedReason (JSON + human output) so the operator sees why nothing was pruned. The sweep moved to tasks-session-registry-maintenance.ts: tasks.ts was at its 700-line cap and the sweep is a coherent standalone concept; its regression tests live beside it. Regression: new colocated test fails on pre-fix semantics (empty-set catch prunes the possibly-running transcript). * chore(tasks): keep SessionRegistryMaintenanceSummary module-local No external consumer; deadcode:exports gate rejects unused exports.",
+      "title": "fix(qa): preserve effective fast mode (#124762)",
+      "link": "https://github.com/openclaw/openclaw/commit/22dd3d4ed0ba50d40d494ee23136a38fcbe27d5c",
+      "publishedAt": "2026-08-16T19:16:48Z",
+      "summary": "fix(qa): preserve effective fast mode (#124762) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tasks): skip session sweep when the 排程 store is unreadable (#12…",
-      "summaryZh": "重點：修正(tasks): skip session sweep when the 排程 store is unreadable (#124718) * 修正(tasks): skip session sweep when the 排程 stor..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): preserve effective fast mode (#124762)",
+      "summaryZh": "重點：修正(qa): preserve effective fast mode (#124762) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-3036..."
     },
     {
       "id": 3,
-      "title": "fix(tui): report each reconnect failure instead of freezing on the fi…",
-      "link": "https://github.com/openclaw/openclaw/commit/23d4e6e4961d6c37d2ec957aca18260f6a0d7093",
-      "publishedAt": "2026-08-16T18:23:42Z",
-      "summary": "fix(tui): report each reconnect failure instead of freezing on the first (#124700) * fix(tui): report each reconnect failure instead of freezing on the first The TUI gateway client deduped connect errors with a pendingConnectError guard that only a successful hello cleared. Against a gateway that keeps failing for different reasons (connection refused, then pairing required), every error after the first was swallowed, so the pairing approval hint never reached the operator — a silent dead-end. Root cause: dedupe scope was per-connection-lifetime instead of per-close-cycle. Clear the guard in the onClose suppression branch so each reconnect attempt reports its own failure cause while repeated errors within one cycle stay deduped. Regression: new gateway-chat.reconnect-errors.test.ts fails pre-fix (second error swallowed) and passes post-fix. * test(tui): update connect-error dedupe test to per-close-cycle semantics The prior assertion encoded the freeze-forever dedupe (second socket's failure swallowed until hello). Dedupe is now per close-cycle, so the retry socket's first failure is reported and duplicates within that cycle stay deduped.",
+      "title": "feat(codex): show sessions from additional homes (#124660)",
+      "link": "https://github.com/openclaw/openclaw/commit/08786d32b21b6a3569192437e9892f355146674c",
+      "publishedAt": "2026-08-16T19:14:10Z",
+      "summary": "feat(codex): show sessions from additional homes (#124660) * feat(codex): register additional session homes * fix(codex): preserve automatic session homes * docs(codex): explain automatic home discovery around sessionCatalog.homes --------- Co-authored-by: IWhatsskill Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): report each reconnect failure instead of freezing on the fi…",
-      "summaryZh": "重點：修正(tui): report each reconnect failure instead of freezing on the first (#124700) * 修正(tui): report each reconnect failu..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(codex): show sessions from additional homes (#124660)",
+      "summaryZh": "重點：新功能(codex): show sessions from additional homes (#124660) * 新功能(codex): register additional session homes * 修正(codex): p..."
     },
     {
       "id": 4,
-      "title": "fix(agents): stop advertising unavailable tools (#124716)",
-      "link": "https://github.com/openclaw/openclaw/commit/ffa0929c7f2101c95f4faa0e574c10426e301e28",
-      "publishedAt": "2026-08-16T18:20:45Z",
-      "summary": "fix(agents): stop advertising unavailable tools (#124716) * fix(agents): gate tool description cross-references * test(gateway): include metadata copier in invoke mock",
+      "title": "fix(skills): report missing ClawHub skills as not found (#124764)",
+      "link": "https://github.com/openclaw/openclaw/commit/34bfcdba58245dc3ea5451f5d8b0c5814365c24a",
+      "publishedAt": "2026-08-16T19:13:20Z",
+      "summary": "fix(skills): report missing ClawHub skills as not found (#124764)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): stop advertising unavailable tools (#124716)",
-      "summaryZh": "重點：修正(agents): stop advertising unavailable tools (#124716) * 修正(agents): gate tool description cross-references * test(Gat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): report missing ClawHub skills as not found (#124764)",
+      "summaryZh": "重點：修正(skills): report missing ClawHub skills as not found (#124764)..."
     },
     {
       "id": 5,
