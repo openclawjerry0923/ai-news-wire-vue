@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-08-16T22:21:04.507Z",
+  "generatedAt": "2026-08-16T23:19:33.419Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): preserve prepared plugin metadata under load (#124844)",
-      "link": "https://github.com/openclaw/openclaw/commit/2d3612da6bd28f6a7956d82b0795c31fd18bab8a",
-      "publishedAt": "2026-08-16T22:14:39Z",
-      "summary": "fix(gateway): preserve prepared plugin metadata under load (#124844) * fix(gateway): preserve prepared plugin metadata under load * fix(gateway): project metadata before catalog preparation * test(agents): assert projected startup metadata * test(gateway): bind load probes to each finalization wave",
+      "title": "fix(sandbox): surface list probe failures instead of empty results (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/5dc4cf602bc5e263e83cd16a12bb1e100544f4c3",
+      "publishedAt": "2026-08-16T23:18:18Z",
+      "summary": "fix(sandbox): surface list probe failures instead of empty results (#124881) sandboxListCommand and fetchAndFilterContainers swallowed backend and registry probe failures with catch(() => []). A broken Docker daemon or corrupt registry rendered as 'No sandbox runtimes found.' — and in recreate, filtered an entire fleet down to nothing — indistinguishable from a clean empty state. --json emitted a success envelope for a failed probe. Root cause: failure collapsed into the empty success shape at the consumer. The listers now propagate; the sandbox CLI runner already owns the error path (message + exit 1), and the new --json failure contract (6c66f48a7c1) emits the JSON error envelope. Regression: replaced the test that enshrined the masking ('handle errors gracefully' asserting the empty-state message) with the propagation contract — fails pre-fix.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve prepared plugin metadata under load (#124844)",
-      "summaryZh": "重點：修正(Gateway): preserve prepared plugin metadata under load (#124844) * 修正(Gateway): preserve prepared plugin metadata und..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): surface list probe failures instead of empty results (#…",
+      "summaryZh": "重點：修正(sandbox): surface list probe failures instead of empty results (#124881) sandboxListCommand and fetchAndFilterContain..."
     },
     {
       "id": 2,
-      "title": "fix(cli): emit one JSON failure contract for --json invocations (#124…",
-      "link": "https://github.com/openclaw/openclaw/commit/6c66f48a7c1144eaa40b2927fe9823ae0f93151a",
-      "publishedAt": "2026-08-16T22:09:58Z",
-      "summary": "fix(cli): emit one JSON failure contract for --json invocations (#124849) * fix(cli): unify JSON failure output * test(cli): update skills verify failure envelope",
+      "title": "fix(ui): make terminal open failures retryable (#124890)",
+      "link": "https://github.com/openclaw/openclaw/commit/b8a95e082bbf229ce0d97cb528bb8739b8f49c8f",
+      "publishedAt": "2026-08-16T23:15:24Z",
+      "summary": "fix(ui): make terminal open failures retryable (#124890)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): emit one JSON failure contract for --json invocations (#124…",
-      "summaryZh": "重點：修正(cli): emit one JSON failure contract for --json invocations (#124849) * 修正(cli): unify JSON failure output * test(cli..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): make terminal open failures retryable (#124890)",
+      "summaryZh": "重點：修正(ui): make terminal open failures retryable (#124890)..."
     },
     {
       "id": 3,
-      "title": "fix(test): propagate parent heavy-check ownership (#124859)",
-      "link": "https://github.com/openclaw/openclaw/commit/0b5bb095104755d3d239cd1b5765910c523103f5",
-      "publishedAt": "2026-08-16T22:09:30Z",
-      "summary": "fix(test): propagate parent heavy-check ownership (#124859) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73d5-8fb7-e619e8e458e1 Co-authored-by: Amp",
+      "title": "fix(tui): close selection overlays and report rejected handlers (#124…",
+      "link": "https://github.com/openclaw/openclaw/commit/00990506c0ec04b101040b60b68cd9df984104dc",
+      "publishedAt": "2026-08-16T23:14:28Z",
+      "summary": "fix(tui): close selection overlays and report rejected handlers (#124876) openSelector's onSelect fired the async handler with void and only closed the overlay after a successful await. A rejecting handler (e.g. setAgent -> setSession against a failing gateway) left the selector stranded open with an unhandled rejection: the TUI froze on the picker with no visible cause — a silent dead-end. Root cause: failure path missing from the overlay lifecycle. The handler now catches, surfaces the cause via chatLog, and always closes the overlay. Regression: /agent selection with a rejecting setSession asserts the overlay closes and the cause reaches the chat log — fails pre-fix.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): propagate parent heavy-check ownership (#124859)",
-      "summaryZh": "重點：修正(test): propagate parent heavy-check ownership (#124859) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): close selection overlays and report rejected handlers (#124…",
+      "summaryZh": "重點：修正(tui): close selection overlays and report rejected handlers (#124876) openSelector's onSelect fired the async handler..."
     },
     {
       "id": 4,
-      "title": "fix(agents): keep queued followups from missing post-compaction conte…",
-      "link": "https://github.com/openclaw/openclaw/commit/efdfb69adc4077f644e2f990c6138bd10f1b90f5",
-      "publishedAt": "2026-08-16T22:06:39Z",
-      "summary": "fix(agents): keep queued followups from missing post-compaction context (#124850) * fix(auto-reply): order post-compaction context before followups Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 * test(auto-reply): clean compaction workspace fixture Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 --------- Co-authored-by: Amp",
+      "title": "fix(ui): replace the broken terminal tab underline (#124875)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4efa7c22bf2cf761c1d0709ec40c79cc7134949",
+      "publishedAt": "2026-08-16T23:11:30Z",
+      "summary": "fix(ui): replace the broken terminal tab underline (#124875) * fix(ui): redesign dock panel tabs * fix(ui): remove stale terminal tab overrides --------- Co-authored-by: RoboClaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep queued followups from missing post-compaction conte…",
-      "summaryZh": "重點：修正(agents): keep queued followups from missing post-compaction context (#124850) * 修正(auto-reply): order post-compaction..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): replace the broken terminal tab underline (#124875)",
+      "summaryZh": "重點：修正(ui): replace the broken terminal tab underline (#124875) * 修正(ui): redesign 文件k panel tabs * 修正(ui): remove stale ter..."
     },
     {
       "id": 5,
+      "title": "上班族不續攤、食材成本飆，日本居酒屋上半年倒閉創近 40 年新高",
+      "link": "https://technews.tw/2026/08/17/japan-faces-record-izakaya-bankruptcies/",
+      "publishedAt": "Sun, 16 Aug 2026 23:10:04 +0000",
+      "summary": "日本夜間最美的風景居酒屋，現正面臨食材與營運成本飆升、傳統下班文化改變及大型連鎖業者競爭等多重壓力的衝擊而陷入 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "AI 全面最佳化水下無線通訊，解決深海數據傳輸難題",
+      "link": "https://technews.tw/2026/08/17/ai-transforms-underwater-wireless-communications/",
+      "publishedAt": "Sun, 16 Aug 2026 23:00:08 +0000",
+      "summary": "2026 年人工智慧（AI）技術以創新方式變革水下無線通訊。AI 加速器提升系統能效，促進特定應用語意傳輸，並 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "黃金還能追嗎？瑞銀財管 CIO：金價 2027 上半年有望衝過 5,000 美元",
       "link": "https://finance.technews.tw/2026/08/16/chinese-institutions/",
       "publishedAt": "Sun, 16 Aug 2026 09:28:54 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "WordPress漏洞XSS2Shell可讓駭客執行PHP程式碼，逾萬網站遭自動化鎖定",
       "link": "https://www.ithome.com.tw/news/178147",
       "publishedAt": "2026-08-16 09:08:00",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "通寶半導體上半年毛利率高達 67%！董事會引私募拚年底送件申請上市",
       "link": "https://finance.technews.tw/2026/08/16/private-equity-case/",
       "publishedAt": "Sun, 16 Aug 2026 07:32:42 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "310 億隻雞淪為「病原海綿」，牛津大學研究：工業化養殖讓細菌移動幅度暴增百倍",
       "link": "https://technews.tw/2026/08/16/industrial-chicken-farming-is-supercharging-the-spread-of-a-dangerous-foodborne-bacterium/",
       "publishedAt": "Sun, 16 Aug 2026 07:30:12 +0000",
       "summary": "英國牛津大學（University of Oxford）團隊的最新分析指出，全球工業化養雞規模的擴張，正在加速 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "又一家 AI 新創完成 900 萬美元募資，Discovered Materials 以 AI 代理開發晶片散熱材料",
-      "link": "https://technews.tw/2026/08/16/discovered-materials-is-playing-ai-whack-a-mole-to-hunt-cooler-chips/",
-      "publishedAt": "Sun, 16 Aug 2026 06:30:32 +0000",
-      "summary": "美國半導體材料新創 Discovered Materials 近日完成 900 萬美元種子輪募資，由 Ligh [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "13F 報告出爐！波克夏重押 Al、橋水幾乎清倉美光、軟銀砍 7 成台積電",
-      "link": "https://finance.technews.tw/2026/08/16/13f-reports-are-out/",
-      "publishedAt": "Sun, 16 Aug 2026 06:14:43 +0000",
-      "summary": "美國證券交易委員會（SEC）最新一季「13F 持倉報告」出爐，今年第二季華爾街機構投資人對於半導體、AI 基礎 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
