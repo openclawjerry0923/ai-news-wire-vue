@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T01:20:22.844Z",
+  "generatedAt": "2026-08-16T03:00:16.414Z",
   "items": [
     {
       "id": 1,
@@ -12,17 +12,68 @@
     },
     {
       "id": 2,
-      "title": "fix: preserve Claude CLI prompt cache reuse across turns (#124300)",
-      "link": "https://github.com/openclaw/openclaw/commit/7f93011562dbddd6c864c52fcdd75c7006261ab8",
-      "publishedAt": "2026-08-16T01:17:17Z",
-      "summary": "fix: preserve Claude CLI prompt cache reuse across turns (#124300) * fix: keep claude-cli prompt-cache prefix stable across turns Claude CLI has no cache_control breakpoint, so mashed per-turn system prompts rewrote the native prefix and burned cache hits on follow-ups. Co-authored-by: Cursor * fix(cli): scope Claude prompt cache suffix * docs: scope Claude CLI cache guidance * test(cli): cover Claude cache prompt modes * fix: gate Claude CLI prompt cache flag * docs: clarify Claude CLI cache flag gate * fix: preserve Claude CLI system prompt roles * fix(claude-cli): close cache flag compatibility gaps * fix(claude-cli): reject prerelease cache flag versions --------- Co-authored-by: VACInc Co-authored-by: Cursor",
+      "title": "fix(usage): keep healthy provider usage after auth failures (#124367)",
+      "link": "https://github.com/openclaw/openclaw/commit/92b6c17bb82b5ae27ffb0c83863267557d8c3400",
+      "publishedAt": "2026-08-16T02:59:55Z",
+      "summary": "fix(usage): keep healthy provider usage after auth failures (#124367) * fix(usage): isolate provider auth failures * fix(usage): preserve direct auth failures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve Claude CLI prompt cache reuse across turns (#124300)",
-      "summaryZh": "重點：修正: preserve Claude CLI prompt cache reuse across turns (#124300) * 修正: keep claude-cli prompt-cache pre修正 stable across..."
+      "titleZh": "OpenClaw 程式碼更新：修正(usage): keep healthy provider usage after auth failures (#124367)",
+      "summaryZh": "重點：修正(usage): keep healthy provider usage after auth failures (#124367) * 修正(usage): isolate provider auth failures * 修正(us..."
     },
     {
       "id": 3,
+      "title": "fix(ui): clarify active model context in picker (#124207)",
+      "link": "https://github.com/openclaw/openclaw/commit/a73249c7cd81eebfba36fbd73b9e66b253924504",
+      "publishedAt": "2026-08-16T02:57:27Z",
+      "summary": "fix(ui): clarify active model context in picker (#124207) * fix(ui): show active model context budget * fix(ui): simplify compact model label * fix(ui): preserve provider when matching context budget * fix(ui): hide stale context during model switches --------- Co-authored-by: fuller-stack-dev",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): clarify active 模型 context in picker (#124207)",
+      "summaryZh": "重點：修正(ui): clarify active 模型 context in picker (#124207) * 修正(ui): show active 模型 context budget * 修正(ui): simplify compact..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ui): surface rejected terminal actions (#124046)",
+      "link": "https://github.com/openclaw/openclaw/commit/e68f3d8ad190849a33dd45e2c5b068857f4ed114",
+      "publishedAt": "2026-08-16T02:53:47Z",
+      "summary": "fix(ui): surface rejected terminal actions (#124046) Mark stale terminal tabs exited when the Gateway rejects input or resize, so operators see an actionable outcome instead of silently losing keystrokes.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface rejected terminal actions (#124046)",
+      "summaryZh": "重點：修正(ui): surface rejected terminal actions (#124046) Mark stale terminal tabs exited when the Gateway rejects input or re..."
+    },
+    {
+      "id": 5,
+      "title": "fix(gateway): omit internal class names from RPC failures (#124329)",
+      "link": "https://github.com/openclaw/openclaw/commit/4b8ca98a940a76ebb2263b1448d539f7b7377dd0",
+      "publishedAt": "2026-08-16T02:47:42Z",
+      "summary": "fix(gateway): omit internal class names from RPC failures (#124329) * fix(gateway): drop internal error class names from operator output * test(cli): drop stale Error: prefixes from capability expectations * test(cli): align invalid-port output with canonical formatting * fix(errors): preserve primary structured codes * style(cli): format invalid-port expectation * test(cli): align shared error rendering expectations * fix(gateway): scope error code rendering to agent failures * test(errors): redact opt-in structured codes * refactor(errors): keep canonical formatter callback-safe * test(audit): drop stale Error: prefixes after formatter cleanup PR #124336 landed audit's gateway-error rendering while this branch was in flight, so its two new assertions were written against the prefixed output. The canonical formatter no longer emits the generic Error: prefix, so the expected strings are updated to match.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): omit internal class names from RPC failures (#124329)",
+      "summaryZh": "重點：修正(Gateway): omit internal class names from RPC failures (#124329) * 修正(Gateway): drop internal error class names from o..."
+    },
+    {
+      "id": 6,
+      "title": "AI 能否加冕「世界第八大奇蹟」？各界掀起資格辯論與哲學反思",
+      "link": "https://technews.tw/2026/08/16/crowning-ai-eighth-wonder-world/",
+      "publishedAt": "Sun, 16 Aug 2026 02:30:35 +0000",
+      "summary": "人工智慧（AI）是否具備足夠的份量，躋身「世界第八大奇蹟」？一篇評論大膽主張 AI 的深遠影響力已足以與傳統的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "戰場的隱形殺手，美軍撤離傷兵 1/3 帶抗藥性細菌",
+      "link": "https://technews.tw/2026/08/16/us-military-warns-drug-resistant-bacteria/",
+      "publishedAt": "Sun, 16 Aug 2026 01:30:10 +0000",
+      "summary": "美軍高層近日發出警告，抗藥性細菌正成為未來戰場上日益嚴峻的隱形威脅。美軍參謀首長聯席會議首席醫官 Clinto [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "輝達砸 30 億美元投資 SB Energy！助 OpenAI 建置千億美元資料中心",
       "link": "https://finance.technews.tw/2026/08/16/sb-energy-softbank/",
       "publishedAt": "Sun, 16 Aug 2026 01:16:19 +0000",
@@ -31,29 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "fix(ui): no-op the second reconcile of the same sessions.changed even…",
-      "link": "https://github.com/openclaw/openclaw/commit/f870d93e2a22bc25992f47eb03550d38620e6f4d",
-      "publishedAt": "2026-08-16T01:11:53Z",
-      "summary": "fix(ui): no-op the second reconcile of the same sessions.changed event (#124326) Every sessions.changed is reconciled twice — once by the capability's own subscribeEvents handler and once by the chat page's reconcileSessionEvent — and reconcileSessionHistory always built a fresh sessions array, so the second, content-identical pass defeated every downstream result === state.result publish gate and re-rendered the sidebar per event. The merge now returns the original result identity when the merged row is content-equal to the existing row (shallow compare with structural fallback; rows are wire scalars/plain objects). The isOlderSessionSnapshot strict-",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): no-op the second reconcile of the same sessions.changed even…",
-      "summaryZh": "重點：修正(ui): no-op the second reconcile of the same sessions.changed event (#124326) Every sessions.changed is reconciled twi..."
-    },
-    {
-      "id": 5,
-      "title": "fix(ci): give the Vitest cache warmer the shard lanes' heap ceiling",
-      "link": "https://github.com/openclaw/openclaw/commit/a8857eec0eb520de07b55f557ddd13c507937fb2",
-      "publishedAt": "2026-08-16T01:08:23Z",
-      "summary": "fix(ci): give the Vitest cache warmer the shard lanes' heap ceiling The warmer replays the same test envelopes as the compact shard lanes through scripts/ci-run-node-test-shard.mts, but without the lanes' NODE_OPTIONS=--max-old-space-size=8192. Run 31874567859 lost a worker in agents-embedded-agent-run under the default heap and the failure skipped every cache-save post step, leaving the day's transform/compile caches unrefreshed. Rerun 31918467031 passed, confirming load-dependence; matching the lane environment removes the gap.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): give the Vitest cache warmer the shard lanes' heap ceiling",
-      "summaryZh": "重點：修正(ci): give the Vitest cache warmer the shard lanes' heap ceiling The warmer replays the same test envelopes as the com..."
-    },
-    {
-      "id": 6,
+      "id": 9,
       "title": "卡位 CPO 新架構前，臻鼎押寶光模組 PCB 拚 2027 年稱王",
       "link": "https://finance.technews.tw/2026/08/16/zhen-ding-invests-80-billion-in-major-capacity-expansion/",
       "publishedAt": "Sun, 16 Aug 2026 01:00:26 +0000",
@@ -62,40 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "fix(ui): stop config snapshot refreshes from eating focused in-flight…",
-      "link": "https://github.com/openclaw/openclaw/commit/60babddd626adcad473ae7b2b1b4417892a7828d",
-      "publishedAt": "2026-08-16T00:54:18Z",
-      "summary": "fix(ui): stop config snapshot refreshes from eating focused in-flight edits Main run 31914404948 (checks-ui-e2e 6/12) timed out waiting for config.set: the test filled the Advanced settings Endpoint field ~300ms after navigation and the captured diagnostics show the value reverted to the loaded snapshot with no model commit. syncScalarInputIdentity resets element.value whenever the snapshot identity changes, which also wipes a focused field's DOM text the model has not committed yet (mid-keystroke or mid-automation fill) when a boot-time config.get response lands. Focused inputs with a live edit now keep their value through identity refreshes (revalidate only); blurred fields keep the authoritative-reset contract, pinned by the existing repeated-rows test. Regression test is mutation-proven (fails 'local-api' != 'form-api' without the guard). The e2e test now asserts the filled value stuck before awaiting config.set, so a future regression fails loudly instead of a silent 30s timeout.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop config snapshot refreshes from eating focused in-flight…",
-      "summaryZh": "重點：修正(ui): stop config snapshot refreshes from eating focused in-flight edits Main run 31914404948 (checks-ui-e2e 6/12) tim..."
-    },
-    {
-      "id": 8,
+      "id": 10,
       "title": "六年觀測 6.69 億星系，暗能量巡天計畫證實：宇宙加速膨脹符合標準模型",
       "link": "https://technews.tw/2026/08/16/argonne-lab-supercomputing-power-reveals-dark-matter/",
       "publishedAt": "Sun, 16 Aug 2026 00:30:32 +0000",
       "summary": "美國阿貢國家實驗室（Argonne National Laboratory）於 6 日表示，暗能量巡天計畫（D [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "社宅包租代管政策遇逆風，從兆基案看資金監管漏洞與「混帳」隱憂",
-      "link": "https://finance.technews.tw/2026/08/16/cc-house-debt-crisis-how-to-close-regulatory-loopholes-in-rental-management/",
-      "publishedAt": "Sun, 16 Aug 2026 00:00:51 +0000",
-      "summary": "兆基事件爆發，讓政府視為活化空屋、擴大租屋供給利器的包租代管產業陷入信任危機。從租金、押金管理到業者財務透明度 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "罕見疾病意外揭開抗癌祕密，科學家看見新希望",
-      "link": "https://technews.tw/2026/08/16/how-these-twins-rare-growth-disorder-could-provide-the-key-to-preventing-cancer/",
-      "publishedAt": "Sat, 15 Aug 2026 16:00:51 +0000",
-      "summary": "癌症是人類面臨的重大健康威脅之一，但有些罕見疾病患者，似乎天生就較不易罹癌。最近，BBC 報導一對患有萊倫氏症 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
