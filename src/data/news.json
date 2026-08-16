@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T03:00:16.414Z",
+  "generatedAt": "2026-08-16T04:35:56.975Z",
   "items": [
     {
       "id": 1,
@@ -12,50 +12,77 @@
     },
     {
       "id": 2,
-      "title": "fix(usage): keep healthy provider usage after auth failures (#124367)",
-      "link": "https://github.com/openclaw/openclaw/commit/92b6c17bb82b5ae27ffb0c83863267557d8c3400",
-      "publishedAt": "2026-08-16T02:59:55Z",
-      "summary": "fix(usage): keep healthy provider usage after auth failures (#124367) * fix(usage): isolate provider auth failures * fix(usage): preserve direct auth failures",
+      "title": "test(codex): split the session-catalog suite along module seams (#124…",
+      "link": "https://github.com/openclaw/openclaw/commit/191d2313a8a153e68ee803aa8088a3498c3d674a",
+      "publishedAt": "2026-08-16T04:26:13Z",
+      "summary": "test(codex): split the session-catalog suite along module seams (#124397) * test(codex): split the session-catalog suite along module seams Replace the 4.8k-line grandfathered session-catalog.test.ts with seven seam-anchored suites plus shared fixtures, and remove its max-lines suppression and baseline entry. The broad openclaw/plugin-sdk/node-host vi.mock becomes a narrow session-catalog-pty.runtime.ts boundary so the non-isolated extension-codex worker no longer re-instantiates the plugin-sdk graph once per split file (the crash PR #124178 measured). Test bodies are verbatim; AST parity across the split checked out 96/96 identical. AI-assisted (Codex worker under maintainer review). * test(codex): carry caller origin in the cron-authority capability fixture PR #118579 widened the in-process CronCreatorAuthorityCapability run scope with a contractually required callerOrigin, and the new transcript tool wiring reads it during turn startup. The hand-built fixture in run-attempt.configured-mcp.test.ts predated the field, so bindActiveOperatorTurnAuthority threw and runCodexAppServerAttempt rejected while five tests awaited turn/start - 120s timeouts, then a worker teardown crash. #118579's CI never ran the extension-codex lane (cross-lane classification gap), so main's codex lane was latently red. Bisected to 8668aeb9698; fixture now mints the local-operator origin the helper's name promises. AI-assisted (maintainer-diagnosed, Codex-era fixture repair). * test(codex): keep catalog fixture internals private",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(usage): keep healthy provider usage after auth failures (#124367)",
-      "summaryZh": "重點：修正(usage): keep healthy provider usage after auth failures (#124367) * 修正(usage): isolate provider auth failures * 修正(us..."
+      "titleZh": "OpenClaw 程式碼更新：test(codex): split the session-catalog suite along module seams (#124…",
+      "summaryZh": "重點：test(codex): split the session-catalog suite along module seams (#124397) * test(codex): split the session-catalog suite..."
     },
     {
       "id": 3,
-      "title": "fix(ui): clarify active model context in picker (#124207)",
-      "link": "https://github.com/openclaw/openclaw/commit/a73249c7cd81eebfba36fbd73b9e66b253924504",
-      "publishedAt": "2026-08-16T02:57:27Z",
-      "summary": "fix(ui): clarify active model context in picker (#124207) * fix(ui): show active model context budget * fix(ui): simplify compact model label * fix(ui): preserve provider when matching context budget * fix(ui): hide stale context during model switches --------- Co-authored-by: fuller-stack-dev",
+      "title": "fix(gateway): audit aborted unconfirmed steer as skipped, not complet…",
+      "link": "https://github.com/openclaw/openclaw/commit/17816b4f398e236f05d942f5d319e019d4353044",
+      "publishedAt": "2026-08-16T04:25:07Z",
+      "summary": "fix(gateway): audit aborted unconfirmed steer as skipped, not completed (#124409) When an active run accepts chat steering but the transcript commit comes back unconfirmed, finalizeAcceptedChatSendMessageInjection aborts the exact target without replay — the steer never took effect. Diagnostics and the inbound-message audit terminal still recorded completed/ active_run_injected, claiming a successful injection that did not happen. Record skipped/reply_operation_aborted (the existing audit reason for this class) on the abort path instead.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): clarify active 模型 context in picker (#124207)",
-      "summaryZh": "重點：修正(ui): clarify active 模型 context in picker (#124207) * 修正(ui): show active 模型 context budget * 修正(ui): simplify compact..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): audit aborted unconfirmed steer as skipped, not complet…",
+      "summaryZh": "重點：修正(Gateway): audit aborted unconfirmed steer as skipped, not completed (#124409) When an active run accepts chat steerin..."
     },
     {
       "id": 4,
-      "title": "fix(ui): surface rejected terminal actions (#124046)",
-      "link": "https://github.com/openclaw/openclaw/commit/e68f3d8ad190849a33dd45e2c5b068857f4ed114",
-      "publishedAt": "2026-08-16T02:53:47Z",
-      "summary": "fix(ui): surface rejected terminal actions (#124046) Mark stale terminal tabs exited when the Gateway rejects input or resize, so operators see an actionable outcome instead of silently losing keystrokes.",
+      "title": "docs(plan): W5-REF landed (#124374) (#124403)",
+      "link": "https://github.com/openclaw/openclaw/commit/fff38795e4974f0f2229ea57f54f1eb9f2f0fd13",
+      "publishedAt": "2026-08-16T04:24:46Z",
+      "summary": "docs(plan): W5-REF landed (#124374) (#124403)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface rejected terminal actions (#124046)",
-      "summaryZh": "重點：修正(ui): surface rejected terminal actions (#124046) Mark stale terminal tabs exited when the Gateway rejects input or re..."
+      "titleZh": "OpenClaw 文件更新：文件(plan): W5-REF landed (#124374) (#124403)",
+      "summaryZh": "重點：文件(plan): W5-REF landed (#124374) (#124403)..."
     },
     {
       "id": 5,
-      "title": "fix(gateway): omit internal class names from RPC failures (#124329)",
-      "link": "https://github.com/openclaw/openclaw/commit/4b8ca98a940a76ebb2263b1448d539f7b7377dd0",
-      "publishedAt": "2026-08-16T02:47:42Z",
-      "summary": "fix(gateway): omit internal class names from RPC failures (#124329) * fix(gateway): drop internal error class names from operator output * test(cli): drop stale Error: prefixes from capability expectations * test(cli): align invalid-port output with canonical formatting * fix(errors): preserve primary structured codes * style(cli): format invalid-port expectation * test(cli): align shared error rendering expectations * fix(gateway): scope error code rendering to agent failures * test(errors): redact opt-in structured codes * refactor(errors): keep canonical formatter callback-safe * test(audit): drop stale Error: prefixes after formatter cleanup PR #124336 landed audit's gateway-error rendering while this branch was in flight, so its two new assertions were written against the prefixed output. The canonical formatter no longer emits the generic Error: prefix, so the expected strings are updated to match.",
+      "title": "refactor(gateway): remove dead worker-env surface, dedupe node issue …",
+      "link": "https://github.com/openclaw/openclaw/commit/9e4257c03033c193fe853ec9ffe7e4131421445b",
+      "publishedAt": "2026-08-16T04:18:15Z",
+      "summary": "refactor(gateway): remove dead worker-env surface, dedupe node issue projection (#124402) Three mechanical cleanups from the device-bundles cutover (#124037): - deviceRuntime.isAvailable had zero consumers — the availability seam moved to resolveAvailability (bound at startup, consumed via resolveDeviceWorkerAvailability); provision calls it directly. Delete the wrapper and its returned member. - requireProvisionedEnvironment returned a node/ssh discriminated union whose sole consumer read only environmentId/ownerEpoch/bundleHash; transport is decided later from the environment itself. Collapse to one shape — the receipt/launch-support validation is unchanged. - environments.list and nodes.read built byte-identical issuesByNodeId maps; one collectNodeRunnerIssuesByNodeId owner now lives next to the issue resolver (which drops its export — no external readers remain).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): omit internal class names from RPC failures (#124329)",
-      "summaryZh": "重點：修正(Gateway): omit internal class names from RPC failures (#124329) * 修正(Gateway): drop internal error class names from o..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): remove dead worker-env surface, dedupe node issue …",
+      "summaryZh": "重點：refactor(Gateway): remove dead worker-env surface, dedupe node issue projection (#124402) Three mechanical cleanups from..."
     },
     {
       "id": 6,
+      "title": "李飛飛警告：AI 最大風險不是作弊，而是奪走學生的主動思考權",
+      "link": "https://technews.tw/2026/08/16/fei-fei-li-says-ai-could-take-away-students-motivation-to-learn/",
+      "publishedAt": "Sun, 16 Aug 2026 03:30:42 +0000",
+      "summary": "人工智慧的校園角色，近來再度引發討論。有「AI 教母」之譽的李飛飛於 Podcast 節目「Huberman [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "晟德砸 8.4 億實施第四次庫藏股！決議買回 2 萬張股票轉讓給員工",
+      "link": "https://finance.technews.tw/2026/08/16/treasury/",
+      "publishedAt": "Sun, 16 Aug 2026 03:05:00 +0000",
+      "summary": "晟德董事會公告預計買回庫藏股 2 萬張，買回區間價格為 28 至 42 元，若股價低於區間價格下限將繼續買回， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "估值蒸發近九成！Airtable 降價賣身 Bending Spoons，戳破 SaaS 獨角獸神話",
+      "link": "https://finance.technews.tw/2026/08/16/bending-spoons-acquires-airtable/",
+      "publishedAt": "Sun, 16 Aug 2026 03:00:34 +0000",
+      "summary": "義大利 App 收購集團 Bending Spoons 於 8 月 4 日宣布，將以現金收購協作平台新創 Ai [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "AI 能否加冕「世界第八大奇蹟」？各界掀起資格辯論與哲學反思",
       "link": "https://technews.tw/2026/08/16/crowning-ai-eighth-wonder-world/",
       "publishedAt": "Sun, 16 Aug 2026 02:30:35 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "戰場的隱形殺手，美軍撤離傷兵 1/3 帶抗藥性細菌",
-      "link": "https://technews.tw/2026/08/16/us-military-warns-drug-resistant-bacteria/",
-      "publishedAt": "Sun, 16 Aug 2026 01:30:10 +0000",
-      "summary": "美軍高層近日發出警告，抗藥性細菌正成為未來戰場上日益嚴峻的隱形威脅。美軍參謀首長聯席會議首席醫官 Clinto [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "輝達砸 30 億美元投資 SB Energy！助 OpenAI 建置千億美元資料中心",
-      "link": "https://finance.technews.tw/2026/08/16/sb-energy-softbank/",
-      "publishedAt": "Sun, 16 Aug 2026 01:16:19 +0000",
-      "summary": "輝達（NVIDIA）目前正與軟銀集團（SoftBank Group）旗下的能源與基礎設施子公司 SB Ener [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "卡位 CPO 新架構前，臻鼎押寶光模組 PCB 拚 2027 年稱王",
-      "link": "https://finance.technews.tw/2026/08/16/zhen-ding-invests-80-billion-in-major-capacity-expansion/",
-      "publishedAt": "Sun, 16 Aug 2026 01:00:26 +0000",
-      "summary": "「高階 PCB 唯有糧草先行提前布局，才能在客戶新平台量產時即時遞補產能，我們今天的投入，正是為了解決客戶未來 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
       "id": 10,
-      "title": "六年觀測 6.69 億星系，暗能量巡天計畫證實：宇宙加速膨脹符合標準模型",
-      "link": "https://technews.tw/2026/08/16/argonne-lab-supercomputing-power-reveals-dark-matter/",
-      "publishedAt": "Sun, 16 Aug 2026 00:30:32 +0000",
-      "summary": "美國阿貢國家實驗室（Argonne National Laboratory）於 6 日表示，暗能量巡天計畫（D [&#8230;]",
+      "title": "台灣不到 10 家店，全球卻破兩千間！貢茶踩中外資「甜蜜點」的祕密",
+      "link": "https://finance.technews.tw/2026/08/16/gong-cha-private-equity/",
+      "publishedAt": "Sun, 16 Aug 2026 02:00:03 +0000",
+      "summary": "近期，美國私募基金貝恩資本（Bain Capital）宣布，收購台灣手搖飲品牌貢茶（Gong cha）。根據《 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
