@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T14:23:01.666Z",
+  "generatedAt": "2026-08-16T15:21:43.241Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: preserve reply order across overlapping turns (#124623)",
-      "link": "https://github.com/openclaw/openclaw/commit/19bcb23ba127a2401338e27a193a2c013ed9010f",
-      "publishedAt": "2026-08-16T14:17:53Z",
-      "summary": "fix: preserve reply order across overlapping turns (#124623) Deliver same-target channel replies in inbound order while keeping steer admission concurrent. Record accepted steer/followup ownership so intentional deferred turns do not look silently empty. Fixes #124618",
+      "title": "improve(plugins): compile externalized plugins in source builds (#124…",
+      "link": "https://github.com/openclaw/openclaw/commit/eeffa53b2048a29bbb6df0bff6c600f4d3072bf8",
+      "publishedAt": "2026-08-16T15:21:17Z",
+      "summary": "improve(plugins): compile externalized plugins in source builds (#124639) * build(plugins): compile externalized plugins into local dist * test(plugins): assert native external plugin loading * chore(plugins): keep source runner asset scan unchanged * refactor(plugins): isolate external local dist builds * test(plugins): codify external artifact precedence * test(plugins): preserve contract path boundary",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve reply order across overlapping turns (#124623)",
-      "summaryZh": "重點：修正: preserve reply order across overlapping turns (#124623) Deliver same-target channel replies in inbound order while k..."
+      "titleZh": "OpenClaw 程式碼更新：improve(plugins): compile externalized plugins in source builds (#124…",
+      "summaryZh": "重點：improve(plugins): compile externalized plugins in source builds (#124639) * build(plugins): compile externalized plugins..."
     },
     {
       "id": 2,
-      "title": "fix(update): bound automatic dev update attempts (#124626)",
-      "link": "https://github.com/openclaw/openclaw/commit/8dc3230b0a8a64abafbfaa95804e1c3f810037fa",
-      "publishedAt": "2026-08-16T14:17:33Z",
-      "summary": "fix(update): bound automatic dev update attempts (#124626)",
+      "title": "fix(nodes): keep MCP calls within the published catalog (#124652)",
+      "link": "https://github.com/openclaw/openclaw/commit/146350f417713a89d129b30448fe00557f2ff766",
+      "publishedAt": "2026-08-16T15:20:09Z",
+      "summary": "fix(nodes): keep MCP calls within the published catalog (#124652) * fix(nodes): align MCP calls with published catalog * chore(tests): shrink assertion safety baseline",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): bound automatic dev update attempts (#124626)",
-      "summaryZh": "重點：修正(update): bound automatic dev update attempts (#124626)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(nodes): keep MCP calls within the published catalog (#124652)",
+      "summaryZh": "重點：修正(nodes): keep MCP calls within the published catalog (#124652) * 修正(nodes): align MCP calls with published catalog * c..."
     },
     {
       "id": 3,
-      "title": "refactor(compaction): delete dead generic-fallback variant and prod-d…",
-      "link": "https://github.com/openclaw/openclaw/commit/4caa06b976e036542c19ce2f41d069b0a8e4a563",
-      "publishedAt": "2026-08-16T14:16:42Z",
-      "summary": "refactor(compaction): delete dead generic-fallback variant and prod-dead wrappers (#124603) * refactor(compaction): delete dead generic-fallback variant and prod-dead wrappers The CompactionSummaryResult union's generic-fallback variant lost its only producer in b942db4d569b (summarization failures now throw CompactionError), leaving summarizeInStages returning kind:'summary' unconditionally, a dead consumer branch in the safeguard claiming a degradation path that cannot execute, and a test asserting the impossible shape. Collapse the return type to string and delete the branch + obsolete test. Also delete three prod-dead helpers that survived only through the safeguard's testing export (invisible to the dead-export lint): isOversizedForSummary (planning uses its own inline threshold since the oversized-plan refactor), capCompactionSummaryPreservingSuffix, and formatPreservedTurnsSection (thin wrappers over budgetCompactionSummary / buildPreservedTurnsSection with no prod callers). Tests point at the surviving primitives; the details-exclusion test retargets the real owner (estimateMessagesTokens sanitization). * test(compaction): update staged-summary assertion to string return",
+      "title": "fix(crabbox): keep active cloud worker leases alive (#124615)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a0fe2232b46213b4f436ea69d45e260f2043925",
+      "publishedAt": "2026-08-16T15:16:29Z",
+      "summary": "fix(crabbox): keep active cloud worker leases alive (#124615) * fix(crabbox): heartbeat active worker leases * fix(crabbox): clarify heartbeat upgrade guidance * fix(crabbox): bound heartbeat before idle expiry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(compaction): delete dead generic-fallback variant and prod-d…",
-      "summaryZh": "重點：refactor(compaction): delete dead generic-fallback variant and prod-dead wrappers (#124603) * refactor(compaction): dele..."
+      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): keep active cloud worker leases alive (#124615)",
+      "summaryZh": "重點：修正(crabbox): keep active cloud worker leases alive (#124615) * 修正(crabbox): heartbeat active worker leases * 修正(crabbox)..."
     },
     {
       "id": 4,
-      "title": "perf(test): remove ingress capacity waits (#124630)",
-      "link": "https://github.com/openclaw/openclaw/commit/ea77e2164646a2798c06c5daa977724cc3870006",
-      "publishedAt": "2026-08-16T14:15:33Z",
-      "summary": "perf(test): remove ingress capacity waits (#124630)",
+      "title": "fix(update): complete high-volume stable upgrades without stalls (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/468d621f9a75198fc037c8b78205643445f6d801",
+      "publishedAt": "2026-08-16T15:14:56Z",
+      "summary": "fix(update): complete high-volume stable upgrades without stalls (#124651) * fix(testing): restore published upgrade validation Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d * perf(sessions): batch transcript archive workers Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d * fix(cli): exit after legacy agent turns Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d * fix(testing): reset upgrade fixture ports Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d * chore(lint): shrink assertion safety baseline Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): remove ingress capacity waits (#124630)",
-      "summaryZh": "重點：perf(test): remove ingress capacity waits (#124630)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): complete high-volume stable upgrades without stalls (#12…",
+      "summaryZh": "重點：修正(update): complete high-volume stable upgrades without stalls (#124651) * 修正(testing): restore published upgrade valid..."
     },
     {
       "id": 5,
