@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T06:39:57.392Z",
+  "generatedAt": "2026-08-16T07:31:19.841Z",
   "items": [
     {
       "id": 1,
@@ -12,17 +12,59 @@
     },
     {
       "id": 2,
-      "title": "fix(browser): reject ineffective Chrome MCP closes (#124449)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4407f638af0d0147e3712eb6202ba7bf5d3d7fc",
-      "publishedAt": "2026-08-16T06:31:27Z",
-      "summary": "fix(browser): reject ineffective Chrome MCP closes (#124449)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): reject ineffective Chrome MCP closes (#124449)",
-      "summaryZh": "重點：修正(browser): reject ineffective Chrome MCP closes (#124449)..."
+      "title": "310 億隻雞淪為「病原海綿」，牛津大學研究：工業化養殖讓細菌移動幅度暴增百倍",
+      "link": "https://technews.tw/2026/08/16/industrial-chicken-farming-is-supercharging-the-spread-of-a-dangerous-foodborne-bacterium/",
+      "publishedAt": "Sun, 16 Aug 2026 07:30:12 +0000",
+      "summary": "英國牛津大學（University of Oxford）團隊的最新分析指出，全球工業化養雞規模的擴張，正在加速 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
+      "title": "fix(agents): sweep leaked files at prepared-absent paths during agent…",
+      "link": "https://github.com/openclaw/openclaw/commit/a2e27de59344cde5831edcb79313d6867a7ab76f",
+      "publishedAt": "2026-08-16T07:27:23Z",
+      "summary": "fix(agents): sweep leaked files at prepared-absent paths during agent deletion (#124461) Gateway agents.delete closed the agent database (unlinking -wal/-shm) during preparation, then awaited config/cron/session-purge work that reopened the database and recreated the sidecars. The sweep classified those recreated files as foreign replacements (\"cleanup path appeared after deletion preparation\"), preserved them, cascaded ancestor protection over the whole agent directory, and finished the deletion journal with exit 0 while ~157 files survived under agents//. The deletion journal fence already blocks legitimate claims beneath prepared paths, so a file that appears at a prepared-absent path can only be leaked deleted-agent state: adopt its identity and sweep it instead of preserving it. Prepared-present paths keep the existing identity-mismatch protection for genuine operator replacements. Regression tests: recreated WAL sidecars between preparation and cleanup are trashed with the agent directory, and recovery sweeps a file that appeared at a journaled prepared-absent path.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): sweep leaked files at prepared-absent paths during agent…",
+      "summaryZh": "重點：修正(agents): sweep leaked files at prepared-absent paths during agent deletion (#124461) Gateway agents.delete closed the..."
+    },
+    {
+      "id": 4,
+      "title": "fix(gateway): cache prepared session targets (#124453)",
+      "link": "https://github.com/openclaw/openclaw/commit/063ce57caf233dc3cac124349ccddf6cef9ca432",
+      "publishedAt": "2026-08-16T06:59:49Z",
+      "summary": "fix(gateway): cache prepared session targets (#124453)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): cache prepared session targets (#124453)",
+      "summaryZh": "重點：修正(Gateway): cache prepared session targets (#124453)..."
+    },
+    {
+      "id": 5,
+      "title": "fix(cron): finalize removed direct runs (#124457)",
+      "link": "https://github.com/openclaw/openclaw/commit/507e8b985e55e4a549a73afcf7d4a4fa7942e1e3",
+      "publishedAt": "2026-08-16T06:51:40Z",
+      "summary": "fix(cron): finalize removed direct runs (#124457) * fix(cron): finalize removed direct runs * refactor(cron): clarify terminal outcome ownership * docs(qa): record cron receipt audit * chore(qa): remove product-branch audit report",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): finalize removed direct runs (#124457)",
+      "summaryZh": "重點：修正(排程): finalize removed direct runs (#124457) * 修正(排程): finalize removed direct runs * refactor(排程): clarify terminal o..."
+    },
+    {
+      "id": 6,
+      "title": "fix(memory): make persistence promises receipt-backed (#120989)",
+      "link": "https://github.com/openclaw/openclaw/commit/bccbb8a0c7f6c4a94c5975c7d9196c939b1f483e",
+      "publishedAt": "2026-08-16T06:50:10Z",
+      "summary": "fix(memory): make persistence promises receipt-backed (#120989) * fix: require memory persistence receipts * fix(memory): bind persistence failures to tool owners * fix(memory): preserve Codex persistence ownership * test(plugin-sdk): account for owner metadata export * test(codex): split owner timeout regression * fix(memory): cover durable deletes across runtimes * test(codex): type dynamic mutation fixtures * fix(agents): fail closed ambiguous side-effect owners * fix(memory): fail zero-row delete receipts",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): make persistence promises receipt-backed (#120989)",
+      "summaryZh": "重點：修正(記憶): make persistence promises receipt-backed (#120989) * 修正: require 記憶 persistence receipts * 修正(記憶): bind persiste..."
+    },
+    {
+      "id": 7,
       "title": "又一家 AI 新創完成 900 萬美元募資，Discovered Materials 以 AI 代理開發晶片散熱材料",
       "link": "https://technews.tw/2026/08/16/discovered-materials-is-playing-ai-whack-a-mole-to-hunt-cooler-chips/",
       "publishedAt": "Sun, 16 Aug 2026 06:30:32 +0000",
@@ -31,29 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "fix(outbound): preserve angle-address emails in plain-text replies (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/292ea7a338588d2496c98ff7da09bab7a98251f2",
-      "publishedAt": "2026-08-16T06:24:22Z",
-      "summary": "fix(outbound): preserve angle-address emails in plain-text replies (#124249) Preserve RFC 5322 angle-address emails without weakening namespaced tag stripping, and keep the iMessage security projection aligned. Co-authored-by: Aria Ghasedi Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(outbound): preserve angle-address emails in plain-text replies (#…",
-      "summaryZh": "重點：修正(outbound): preserve angle-address emails in plain-text replies (#124249) Preserve RFC 5322 angle-address emails witho..."
-    },
-    {
-      "id": 5,
-      "title": "fix(ci): target sidebar reconnect roster response (#124430)",
-      "link": "https://github.com/openclaw/openclaw/commit/fa57fe5ae5c9c0755d9f26bb8ea4985d0de10ca2",
-      "publishedAt": "2026-08-16T06:15:17Z",
-      "summary": "fix(ci): target sidebar reconnect roster response (#124430) * test(ui): target selected reconnect roster request * test(ui): decouple reconnect request scheduling * test(ui): keep reconnect proof outcome-focused",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): target sidebar reconnect roster response (#124430)",
-      "summaryZh": "重點：修正(ci): target sidebar reconnect roster response (#124430) * test(ui): target selected reconnect roster request * test(u..."
-    },
-    {
-      "id": 6,
+      "id": 8,
       "title": "13F 報告出爐！波克夏重押 Al、橋水幾乎清倉美光、軟銀砍 7 成台積電",
       "link": "https://finance.technews.tw/2026/08/16/13f-reports-are-out/",
       "publishedAt": "Sun, 16 Aug 2026 06:14:43 +0000",
@@ -62,18 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "fix: preserve cloud workspace results across tunnel reconnects (#124406)",
-      "link": "https://github.com/openclaw/openclaw/commit/99bf0b1f3b01eb646d046adcdfee34e91a453631",
-      "publishedAt": "2026-08-16T06:11:11Z",
-      "summary": "fix: preserve cloud workspace results across tunnel reconnects (#124406) * fix: preserve workspace reconcile across tunnel reconnect * fix: preserve reconcile before stateful tunnel dispatch * fix: close reconnect pre-dispatch races * style: satisfy reconnect gate lint * test: align workspace action fixture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve cloud workspace results across tunnel reconnects (#124406)",
-      "summaryZh": "重點：修正: preserve cloud workspace results across tunnel reconnects (#124406) * 修正: preserve workspace reconcile across tunnel..."
-    },
-    {
-      "id": 8,
+      "id": 9,
       "title": "神雲科技於 OCP APAC 高峰會展出多元化架構，打造代理型 AI 運作系統",
       "link": "https://technews.tw/2026/08/16/mitac-computing-technology-ocp-apac-summit-diverse-architectures-agentic-ai-operating-systems/",
       "publishedAt": "Sun, 16 Aug 2026 06:00:29 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "減肥藥意外副作用？抑制食慾竟也降低飲酒慾望",
       "link": "https://technews.tw/2026/08/16/how-weight-loss-medication-is-changing-relationships-with-alcohol/",
       "publishedAt": "Sun, 16 Aug 2026 05:30:23 +0000",
       "summary": "隨著減重藥物使用人數增加，越來越多服用者發現，這類藥物帶來的改變不只是在體重上，也悄悄影響了他們與酒精的關係。 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "李飛飛警告：AI 最大風險不是作弊，而是奪走學生的主動思考權",
-      "link": "https://technews.tw/2026/08/16/fei-fei-li-says-ai-could-take-away-students-motivation-to-learn/",
-      "publishedAt": "Sun, 16 Aug 2026 03:30:42 +0000",
-      "summary": "人工智慧的校園角色，近來再度引發討論。有「AI 教母」之譽的李飛飛於 Podcast 節目「Huberman [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
