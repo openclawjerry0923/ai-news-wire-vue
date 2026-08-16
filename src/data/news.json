@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T20:22:25.652Z",
+  "generatedAt": "2026-08-16T21:20:15.756Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ci): invalidate extension boundary cache for attempt types (#124800)",
-      "link": "https://github.com/openclaw/openclaw/commit/df5b5baf83022af3347d7f4219b186f69397728f",
-      "publishedAt": "2026-08-16T20:16:32Z",
-      "summary": "fix(ci): invalidate extension boundary cache for attempt types (#124800)",
+      "title": "fix(gateway): share generated session titles with worktree names and …",
+      "link": "https://github.com/openclaw/openclaw/commit/65922f95070abd58684675349593a217b193fe0f",
+      "publishedAt": "2026-08-16T21:07:54Z",
+      "summary": "fix(gateway): share generated session titles with worktree names and start title work at dispatch (#124787) Worktree sessions now derive their worktree/branch name from the same concise generated title the sidebar shows (bounded 8s wait, raw-prompt slug then crustacean fallback), persisted once as displayName so the chat-send pass never duplicates the model call. Dashboard title scheduling moves from the dispatch chain's finally (after the whole first turn) back to dispatch start, so long or interrupted first turns no longer leave sessions silently untitled (regression from #122471). slugifyWorktreeTitle truncates at word boundaries; dead generatedDisplayName plumbing removed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): invalidate extension boundary cache for attempt types (#124800)",
-      "summaryZh": "重點：修正(ci): invalidate extension boundary cache for attempt types (#124800)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): share generated session titles with worktree names and …",
+      "summaryZh": "重點：修正(Gateway): share generated session titles with worktree names and start title work at dispatch (#124787) Worktree sess..."
     },
     {
       "id": 2,
-      "title": "docs: correct code mode runtime contract (#124792)",
-      "link": "https://github.com/openclaw/openclaw/commit/bc24508f5ef569e40c753ec030cd398a0f00282f",
-      "publishedAt": "2026-08-16T20:16:10Z",
-      "summary": "docs: correct code mode runtime contract (#124792) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73d5-8fb7-e619e8e458e1 Co-authored-by: Amp",
+      "title": "improve(ui): make chat disclosures compact (#124832)",
+      "link": "https://github.com/openclaw/openclaw/commit/da853826861107c8b2ffd9136ab00cb9b20e01e0",
+      "publishedAt": "2026-08-16T21:04:47Z",
+      "summary": "improve(ui): make chat disclosures compact (#124832) Co-authored-by: RoboClaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: correct code mode runtime contract (#124792)",
-      "summaryZh": "重點：文件: correct code mode runtime contract (#124792) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73d5-8fb7-e6..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): make chat disclosures compact (#124832)",
+      "summaryZh": "重點：improve(ui): make chat disclosures compact (#124832) Co-authored-by: RoboClaw..."
     },
     {
       "id": 3,
-      "title": "fix(ci): select aggregate QA evidence by manifest (#124802)",
-      "link": "https://github.com/openclaw/openclaw/commit/de52a6c314817393ffac44fee05364f8dc63716a",
-      "publishedAt": "2026-08-16T20:14:49Z",
-      "summary": "fix(ci): select aggregate QA evidence by manifest (#124802)",
+      "title": "fix(browser): stop local actions when agent turns are cancelled (#124…",
+      "link": "https://github.com/openclaw/openclaw/commit/d39a29fcbe6391b7be3aaa97397750026095a86c",
+      "publishedAt": "2026-08-16T21:03:43Z",
+      "summary": "fix(browser): stop local actions when agent turns are cancelled (#124795) * fix(browser): cancel local actions with agent signal Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 * fix(agent-harness): expose authored context cap Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 * chore(agent-harness): drop redundant context-cap override Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): select aggregate QA evidence by manifest (#124802)",
-      "summaryZh": "重點：修正(ci): select aggregate QA evidence by manifest (#124802)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): stop local actions when agent turns are cancelled (#124…",
+      "summaryZh": "重點：修正(browser): stop local actions when agent turns are cancelled (#124795) * 修正(browser): cancel local actions with agent ..."
     },
     {
       "id": 4,
-      "title": "refactor(channels): carry typed approval-prompt bindings through sign…",
-      "link": "https://github.com/openclaw/openclaw/commit/a0f4d5462a4e55f6d66142f2cdcd2f74871394fe",
-      "publishedAt": "2026-08-16T19:57:34Z",
-      "summary": "refactor(channels): carry typed approval-prompt bindings through signal/imessage send seams (#124742) The Signal and iMessage channel plugins inferred approval prompts by regex-sniffing rendered message text (header matching like 'Exec approval required', /approve command parsing), violating the transport-only channel doctrine: approval actions must stay typed until channel encoding. The typed envelope already existed (channelData.execApproval with approvalId/approvalKind/allowedDecisions) and every payload-level delivery path consumed it; the regex paths were redundant re-derivation at the raw send seam plus restart recovery for in-memory iMessage poll state. - Signal: delete send-level prompt sniffing entirely; all approval sends already flow through typed structured-payload or native-handler paths. - iMessage: sendMessageIMessage takes a typed approvalPrompt binding (id/kind/decisions) from the native approval handler instead of an approvalKind flag plus text re-parsing. - iMessage poller: persist pending poll targets in the plugin keyed store so restart recovery no longer regex-scans chat history; typed recent-chat discovery for handle-only DM targets stays. Split poll-target ownership into approval-reaction-poll-targets.ts (max-lines). - Plugin SDK: remove extractApprovalReactionPromptBinding — beta-only surface, never in a stable release, so no deprecation window applies; AGENTS.md now records that rule. Accepted tradeoff: approval prompts delivered by a pre-upgrade process are not rediscovered from chat text after restart (",
+      "title": "perf(webui): reuse the chat metadata catalog across pages (#124794)",
+      "link": "https://github.com/openclaw/openclaw/commit/a94841914187620d2a577b294e5cc4f02dfcc528",
+      "publishedAt": "2026-08-16T21:03:04Z",
+      "summary": "perf(webui): reuse the chat metadata catalog across pages (#124794) * refactor(webui): centralize chat metadata caching * test(webui): cover shared chat metadata store * refactor(webui): move ChatMetadataResult type to its store owner * fix(webui): let the metadata store own revalidation lifetime * fix(webui): satisfy no-promise-executor-return in retry delay",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(channels): carry typed approval-prompt bindings through sign…",
-      "summaryZh": "重點：refactor(channels): carry typed approval-prompt bindings through signal/imessage send seams (#124742) The Signal and iMe..."
+      "titleZh": "OpenClaw 程式碼更新：perf(webui): reuse the chat metadata catalog across pages (#124794)",
+      "summaryZh": "重點：perf(webui): reuse the chat metadata catalog across pages (#124794) * refactor(webui): centralize chat metadata caching ..."
     },
     {
       "id": 5,
