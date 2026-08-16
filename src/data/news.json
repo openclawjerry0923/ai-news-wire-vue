@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T16:25:00.743Z",
+  "generatedAt": "2026-08-16T17:19:27.843Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(pr): support authenticated GitHub CLI wrappers (#124674)",
-      "link": "https://github.com/openclaw/openclaw/commit/9eb68f37cf1e6b3c3a7385ff8c5f3ecb508f0a1b",
-      "publishedAt": "2026-08-16T16:24:36Z",
-      "summary": "fix(pr): support authenticated GitHub CLI wrappers (#124674) Amp-Thread-ID: https://ampcode.com/threads/T-01a00adc-59a7-727f-8708-6623320ec2b2 Co-authored-by: Amp",
+      "title": "fix(doctor): show migration progress (#124692)",
+      "link": "https://github.com/openclaw/openclaw/commit/66dc9d1c1e25a19fa8ca0b5c497a1165e27cf316",
+      "publishedAt": "2026-08-16T17:06:53Z",
+      "summary": "fix(doctor): show migration progress (#124692) Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(pr): support authenticated GitHub CLI wrappers (#124674)",
-      "summaryZh": "重點：修正(pr): support authenticated GitHub CLI wrappers (#124674) Amp-Thread-ID: https://ampcode.com/threads/T-01a00adc-59a7-7..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): show migration progress (#124692)",
+      "summaryZh": "重點：修正(文件tor): show migration progress (#124692) Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b96..."
     },
     {
       "id": 2,
-      "title": "refactor: make dense test fixtures type-safe (#124625)",
-      "link": "https://github.com/openclaw/openclaw/commit/d258c6651a5e7c58747c9af349f2ebc70f05a88a",
-      "publishedAt": "2026-08-16T16:22:27Z",
-      "summary": "refactor: make dense test fixtures type-safe (#124625) * test: replace assertion chains with typed fixture builders * test: avoid generic mock lint suppressions * test: preserve Telegram API mock signatures",
+      "title": "refactor(config): consolidate context budget to one per-model knob (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/715c379fd949a9a77224a590e8d9016f88b62d0c",
+      "publishedAt": "2026-08-16T17:05:01Z",
+      "summary": "refactor(config): consolidate context budget to one per-model knob (#124665) * refactor(config): consolidate context budget settings * test(config): type legacy context fixtures * test(config): align context budget fixtures * fix(status): honor runtime context discovery * docs(config): clarify context budget fallbacks * fix(ci): resolve context budget lint failures * test(ci): align context budget shard fixtures * fix(models): preserve catalog context metadata * fix(config): surface context migration diagnostics * test(plugin-sdk): keep live catalog coverage focused",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: make dense test 修正tures type-safe (#124625)",
-      "summaryZh": "重點：refactor: make dense test 修正tures type-safe (#124625) * test: replace assertion chains with typed 修正ture builders * test..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(config): consolidate context budget to one per-模型 knob (#…",
+      "summaryZh": "重點：refactor(config): consolidate context budget to one per-模型 knob (#124665) * refactor(config): consolidate context budget..."
     },
     {
       "id": 3,
-      "title": "fix(qa-lab): bound matrix probe re-polling by deadline (#124684)",
-      "link": "https://github.com/openclaw/openclaw/commit/56f594aa97b54d34a379ee76a3d5072d047d5e0f",
-      "publishedAt": "2026-08-16T16:20:56Z",
-      "summary": "fix(qa-lab): bound matrix probe re-polling by deadline (#124684)",
+      "title": "feat(nodes): expose installed worker bundle status (#124640)",
+      "link": "https://github.com/openclaw/openclaw/commit/4d872fbfbc74eb17a6e69d46df6f3876b136cefe",
+      "publishedAt": "2026-08-16T17:04:46Z",
+      "summary": "feat(nodes): expose installed worker bundle status (#124640) * feat(nodes): expose installed worker bundle status * perf(nodes): defer bundle status validation * fix(nodes): tighten bundle status type contracts * docs(gateway): document node worker bundle status * refactor(gateway): split runner inventory runtime * test(ui): keep healthy device status quiet * fix(ui): preserve steer target ordering * test(ui): isolate catalog handoff lifecycle",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): bound matrix probe re-polling by deadline (#124684)",
-      "summaryZh": "重點：修正(qa-lab): bound matrix probe re-polling by deadline (#124684)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(nodes): expose installed worker bundle status (#124640)",
+      "summaryZh": "重點：新功能(nodes): expose installed worker bundle status (#124640) * 新功能(nodes): expose installed worker bundle status * perf(n..."
     },
     {
       "id": 4,
-      "title": "fix(sessions): warn when a fire-and-forget disk-budget sweep fails (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/2b8e94ea4dba467f32c99b386bf80a7e0460d987",
-      "publishedAt": "2026-08-16T16:15:12Z",
-      "summary": "fix(sessions): warn when a fire-and-forget disk-budget sweep fails (#124681) The throttled budget kick swallowed every sweep failure into an empty catch. Retrying on the next kick is right, but a persistently failing sweep (corrupt store, permission loss) meant unbounded disk growth with no operator signal — silent failure on the default maintenance path. Warn with the error and store path before the retry.",
+      "title": "refactor(reply): unify keyed FIFO leases (#124690)",
+      "link": "https://github.com/openclaw/openclaw/commit/2aab6b8e3726356b226159cbd2e2fa64f0784d8d",
+      "publishedAt": "2026-08-16T17:03:29Z",
+      "summary": "refactor(reply): unify keyed FIFO leases (#124690) Share one lifecycle-owned reservation primitive between reply admission and foreground delivery ordering, and remove the obsolete admission-wait callback plumbing.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): warn when a fire-and-forget disk-budget sweep fails (#…",
-      "summaryZh": "重點：修正(sessions): warn when a fire-and-forget disk-budget sweep fails (#124681) The throttled budget kick swallowed every sw..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(reply): unify keyed FIFO leases (#124690)",
+      "summaryZh": "重點：refactor(reply): unify keyed FIFO leases (#124690) Share one lifecycle-owned reservation primitive between reply admissi..."
     },
     {
       "id": 5,
