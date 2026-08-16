@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T07:31:19.841Z",
+  "generatedAt": "2026-08-16T08:29:26.770Z",
   "items": [
     {
       "id": 1,
@@ -12,6 +12,48 @@
     },
     {
       "id": 2,
+      "title": "fix: doctor --fix reports config changes that were never written when…",
+      "link": "https://github.com/openclaw/openclaw/commit/b097aaab206171b7f7ad3722e69651a8fbfbeb16",
+      "publishedAt": "2026-08-16T08:12:43Z",
+      "summary": "fix: doctor --fix reports config changes that were never written when validation refuses the candidate (#124462) * fix(doctor): never report unpersisted config fixes doctor --fix printed \"Doctor changes\" panels while computing candidate mutations, then crashed with a raw Error and persisted nothing when the repaired candidate still failed write validation (e.g. an unknown root key repaired alongside an unrepairable schema type error). Root cause: the compute->print->validate->persist ordering was wrong. Panels were printed at mutation time, but validation only ran inside the atomic writer, after all panels were visible. Fix at the owner boundaries: - doctor-config-flow queues repair-mode \"Doctor changes\" panels in a sink instead of printing them; preview panels still print immediately. Committed side-effect repair notes (SQLite/filesystem) keep printing at repair time; candidate-config notes from the repair sequence are routed through the same deferred sink. - io.write throws a typed CONFIG_VALIDATION_FAILED error (with the full issue list) via a new createConfigValidationFailedError owner in io.write-errors. - runWriteConfigHealth prints queued panels only after the atomic write commits, and renders a validation refusal as a \"Doctor warnings\" panel stating no config changes were written plus the exact paths to fix by hand. The contribution loop stops after refusal (same invariant as the cron-ownership deferral) and doctor exits 1 without a raw Error leak. Regression tests: pre-fix, the new validation-refusal e2e test fails on the lying \"Doctor changes\" panel; contribution-level tests cover the refusal note, held panels printing exactly once after commit, and no retry of the identical candidate. * fix(doctor): report partial persistence accurately after a later write refusal Post-rebase CI and ClawSweeper follow-ups: - repair-sequencing tests now assert the deferred configChangeNotes contract (candidate-only mutation notes moved out of changeNotes by the parent commit); committed side-effect notes stay in changeNotes. - formatConfigValidationFailure is module-private; its guidance formatting is covered through createConfigValidationFailedError, fixing the knip unused-export gate. - When the initial write pass committed and only the later post-repair write is refused, the warnings panel says earlier fixes were saved instead of claiming no config changes were written, and the outro says \"some config fixes were not applied\". New regression test covers commit-then-refusal.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正: 文件tor --修正 reports config changes that were never written when…",
+      "summaryZh": "重點：修正: 文件tor --修正 reports config changes that were never written when validation refuses the candidate (#124462) * 修正(文件tor..."
+    },
+    {
+      "id": 3,
+      "title": "fix(outbound): persist mirror route only after successful delivery (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/6f418b93c63263345e26a73ddf7f8f97b49f0fd2",
+      "publishedAt": "2026-08-16T07:49:18Z",
+      "summary": "fix(outbound): persist mirror route only after successful delivery (#124459) A failed message send (e.g. missing channel credentials on a fresh install) durably rewrote the agent's folded main session route before delivery was even attempted: prepareOutboundMirrorRoute called ensureOutboundSessionEntry pre-send, stamping delivery.route/origin and minting a conversations-registry row for the never-reached target. The Control UI then showed the phantom channel identity and the composer bound to a dead conversation. Route resolution stays read-only in prepareOutboundMirrorRoute; the durable write commits once per send at the first success proof: identified platform evidence (onDeliveryResult) or plugin action acceptance (onPluginSendAccepted), both before the in-delivery transcript mirror so first-contact routes still create their session row, with a post-return safety net for adapters whose results carry no platform identity. The gateway send RPC sibling had the same pre-send persistence and gets the same commit-on-evidence ordering. Regression test proves a failed send leaves the seeded main-session origin and conversation identity untouched while a successful send still persists the mirror route; fails on pre-fix code.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(outbound): persist mirror route only after successful delivery (#…",
+      "summaryZh": "重點：修正(outbound): persist mirror route only after successful delivery (#124459) A failed message send (e.g. missing channel ..."
+    },
+    {
+      "id": 4,
+      "title": "perf(node-host): prewarm worker bundles (#124427)",
+      "link": "https://github.com/openclaw/openclaw/commit/f19f62cb77e35f0db2959f09da3e274075794696",
+      "publishedAt": "2026-08-16T07:41:42Z",
+      "summary": "perf(node-host): prewarm worker bundles (#124427) * perf(node-host): prewarm worker bundles * test(gateway): gate worker finalization responsiveness * fix(node-host): negotiate bundle prewarming * fix(protocol): refresh worker prewarm models * fix(node-host): preserve prewarm upgrade compatibility",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(node-host): prewarm worker bundles (#124427)",
+      "summaryZh": "重點：perf(node-host): prewarm worker bundles (#124427) * perf(node-host): prewarm worker bundles * test(Gateway): gate worker..."
+    },
+    {
+      "id": 5,
+      "title": "通寶半導體上半年毛利率高達 67%！董事會引私募拚年底送件申請上市",
+      "link": "https://finance.technews.tw/2026/08/16/private-equity-case/",
+      "publishedAt": "Sun, 16 Aug 2026 07:32:42 +0000",
+      "summary": "通寶半導體公布今年上半年合併營收達 3.2 億元，年增 92%；稅前淨利達 4,807 萬元，年增 57%，毛 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "310 億隻雞淪為「病原海綿」，牛津大學研究：工業化養殖讓細菌移動幅度暴增百倍",
       "link": "https://technews.tw/2026/08/16/industrial-chicken-farming-is-supercharging-the-spread-of-a-dangerous-foodborne-bacterium/",
       "publishedAt": "Sun, 16 Aug 2026 07:30:12 +0000",
@@ -20,7 +62,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "fix(agents): sweep leaked files at prepared-absent paths during agent…",
       "link": "https://github.com/openclaw/openclaw/commit/a2e27de59344cde5831edcb79313d6867a7ab76f",
       "publishedAt": "2026-08-16T07:27:23Z",
@@ -31,40 +73,7 @@
       "summaryZh": "重點：修正(agents): sweep leaked files at prepared-absent paths during agent deletion (#124461) Gateway agents.delete closed the..."
     },
     {
-      "id": 4,
-      "title": "fix(gateway): cache prepared session targets (#124453)",
-      "link": "https://github.com/openclaw/openclaw/commit/063ce57caf233dc3cac124349ccddf6cef9ca432",
-      "publishedAt": "2026-08-16T06:59:49Z",
-      "summary": "fix(gateway): cache prepared session targets (#124453)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): cache prepared session targets (#124453)",
-      "summaryZh": "重點：修正(Gateway): cache prepared session targets (#124453)..."
-    },
-    {
-      "id": 5,
-      "title": "fix(cron): finalize removed direct runs (#124457)",
-      "link": "https://github.com/openclaw/openclaw/commit/507e8b985e55e4a549a73afcf7d4a4fa7942e1e3",
-      "publishedAt": "2026-08-16T06:51:40Z",
-      "summary": "fix(cron): finalize removed direct runs (#124457) * fix(cron): finalize removed direct runs * refactor(cron): clarify terminal outcome ownership * docs(qa): record cron receipt audit * chore(qa): remove product-branch audit report",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): finalize removed direct runs (#124457)",
-      "summaryZh": "重點：修正(排程): finalize removed direct runs (#124457) * 修正(排程): finalize removed direct runs * refactor(排程): clarify terminal o..."
-    },
-    {
-      "id": 6,
-      "title": "fix(memory): make persistence promises receipt-backed (#120989)",
-      "link": "https://github.com/openclaw/openclaw/commit/bccbb8a0c7f6c4a94c5975c7d9196c939b1f483e",
-      "publishedAt": "2026-08-16T06:50:10Z",
-      "summary": "fix(memory): make persistence promises receipt-backed (#120989) * fix: require memory persistence receipts * fix(memory): bind persistence failures to tool owners * fix(memory): preserve Codex persistence ownership * test(plugin-sdk): account for owner metadata export * test(codex): split owner timeout regression * fix(memory): cover durable deletes across runtimes * test(codex): type dynamic mutation fixtures * fix(agents): fail closed ambiguous side-effect owners * fix(memory): fail zero-row delete receipts",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): make persistence promises receipt-backed (#120989)",
-      "summaryZh": "重點：修正(記憶): make persistence promises receipt-backed (#120989) * 修正: require 記憶 persistence receipts * 修正(記憶): bind persiste..."
-    },
-    {
-      "id": 7,
+      "id": 8,
       "title": "又一家 AI 新創完成 900 萬美元募資，Discovered Materials 以 AI 代理開發晶片散熱材料",
       "link": "https://technews.tw/2026/08/16/discovered-materials-is-playing-ai-whack-a-mole-to-hunt-cooler-chips/",
       "publishedAt": "Sun, 16 Aug 2026 06:30:32 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "13F 報告出爐！波克夏重押 Al、橋水幾乎清倉美光、軟銀砍 7 成台積電",
       "link": "https://finance.technews.tw/2026/08/16/13f-reports-are-out/",
       "publishedAt": "Sun, 16 Aug 2026 06:14:43 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "神雲科技於 OCP APAC 高峰會展出多元化架構，打造代理型 AI 運作系統",
       "link": "https://technews.tw/2026/08/16/mitac-computing-technology-ocp-apac-summit-diverse-architectures-agentic-ai-operating-systems/",
       "publishedAt": "Sun, 16 Aug 2026 06:00:29 +0000",
       "summary": "全球高效能伺服器解決方案領導者神達控股股份有限公司子公司神雲科技（MiTAC Computing Techno [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "減肥藥意外副作用？抑制食慾竟也降低飲酒慾望",
-      "link": "https://technews.tw/2026/08/16/how-weight-loss-medication-is-changing-relationships-with-alcohol/",
-      "publishedAt": "Sun, 16 Aug 2026 05:30:23 +0000",
-      "summary": "隨著減重藥物使用人數增加，越來越多服用者發現，這類藥物帶來的改變不只是在體重上，也悄悄影響了他們與酒精的關係。 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
