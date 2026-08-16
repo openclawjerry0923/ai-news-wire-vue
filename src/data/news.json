@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T17:19:27.843Z",
+  "generatedAt": "2026-08-16T18:29:17.283Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(doctor): show migration progress (#124692)",
-      "link": "https://github.com/openclaw/openclaw/commit/66dc9d1c1e25a19fa8ca0b5c497a1165e27cf316",
-      "publishedAt": "2026-08-16T17:06:53Z",
-      "summary": "fix(doctor): show migration progress (#124692) Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b966a468d Co-authored-by: Amp",
+      "title": "fix(gateway): stop broadcast serialization failures from storming gap…",
+      "link": "https://github.com/openclaw/openclaw/commit/86adb6e67ea5bff85528aa6294977b632e25ffdb",
+      "publishedAt": "2026-08-16T18:28:05Z",
+      "summary": "fix(gateway): stop broadcast serialization failures from storming gap detectors (#124726) broadcastInternal consumed each client's seq before building the frame, and swallowed any error in a bare catch. An unserializable payload (circular reference, BigInt) threw identically for every client: the event vanished for all of them, every seq advanced, and the next good frame fired every client's gap detector simultaneously — a synchronized full-reconnect storm with zero server-side evidence. Root cause: seq consumption ordered before frame construction, and serialization failure conflated with per-client send failure in one catch. The frame now builds before the seq is consumed; a serialization failure aborts the broadcast once with a logged error and touches no seqs, while per-client send failures keep consuming the seq so that client's gap detector still sees the loss. Regression: new server-broadcast.serialization.test.ts — a circular payload consumes no seqs, logs once, and the next broadcast is seq 1 for every client. Fails pre-fix (no log, seqs consumed).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): show migration progress (#124692)",
-      "summaryZh": "重點：修正(文件tor): show migration progress (#124692) Amp-Thread-ID: https://ampcode.com/threads/T-01a00a6a-b64e-74a5-8b15-2d3b96..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop broadcast serialization failures from storming gap…",
+      "summaryZh": "重點：修正(Gateway): stop broadcast serialization failures from storming gap detectors (#124726) broadcastInternal consumed each..."
     },
     {
       "id": 2,
-      "title": "refactor(config): consolidate context budget to one per-model knob (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/715c379fd949a9a77224a590e8d9016f88b62d0c",
-      "publishedAt": "2026-08-16T17:05:01Z",
-      "summary": "refactor(config): consolidate context budget to one per-model knob (#124665) * refactor(config): consolidate context budget settings * test(config): type legacy context fixtures * test(config): align context budget fixtures * fix(status): honor runtime context discovery * docs(config): clarify context budget fallbacks * fix(ci): resolve context budget lint failures * test(ci): align context budget shard fixtures * fix(models): preserve catalog context metadata * fix(config): surface context migration diagnostics * test(plugin-sdk): keep live catalog coverage focused",
+      "title": "fix(tasks): skip session sweep when the cron store is unreadable (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/9d0c1f8f8c59d0cedc80d8c7b409c94e4e917fd1",
+      "publishedAt": "2026-08-16T18:25:53Z",
+      "summary": "fix(tasks): skip session sweep when the cron store is unreadable (#124718) * fix(tasks): skip session sweep when the cron store is unreadable readRunningCronJobIds() swallowed any cron-store load error and returned an empty running-job set. The session-registry sweep then treated every running cron job's transcript as prunable and archived it — a corrupt or locked cron store silently destroyed live transcripts on 'openclaw tasks maintenance --apply'. Root cause: failure was collapsed into the 'no running jobs' success shape instead of a distinct outcome. The loader now returns a closed ok/error result; an unreadable store skips the sweep entirely and the summary reports skippedReason (JSON + human output) so the operator sees why nothing was pruned. The sweep moved to tasks-session-registry-maintenance.ts: tasks.ts was at its 700-line cap and the sweep is a coherent standalone concept; its regression tests live beside it. Regression: new colocated test fails on pre-fix semantics (empty-set catch prunes the possibly-running transcript). * chore(tasks): keep SessionRegistryMaintenanceSummary module-local No external consumer; deadcode:exports gate rejects unused exports.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): consolidate context budget to one per-模型 knob (#…",
-      "summaryZh": "重點：refactor(config): consolidate context budget to one per-模型 knob (#124665) * refactor(config): consolidate context budget..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tasks): skip session sweep when the 排程 store is unreadable (#12…",
+      "summaryZh": "重點：修正(tasks): skip session sweep when the 排程 store is unreadable (#124718) * 修正(tasks): skip session sweep when the 排程 stor..."
     },
     {
       "id": 3,
-      "title": "feat(nodes): expose installed worker bundle status (#124640)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d872fbfbc74eb17a6e69d46df6f3876b136cefe",
-      "publishedAt": "2026-08-16T17:04:46Z",
-      "summary": "feat(nodes): expose installed worker bundle status (#124640) * feat(nodes): expose installed worker bundle status * perf(nodes): defer bundle status validation * fix(nodes): tighten bundle status type contracts * docs(gateway): document node worker bundle status * refactor(gateway): split runner inventory runtime * test(ui): keep healthy device status quiet * fix(ui): preserve steer target ordering * test(ui): isolate catalog handoff lifecycle",
+      "title": "fix(tui): report each reconnect failure instead of freezing on the fi…",
+      "link": "https://github.com/openclaw/openclaw/commit/23d4e6e4961d6c37d2ec957aca18260f6a0d7093",
+      "publishedAt": "2026-08-16T18:23:42Z",
+      "summary": "fix(tui): report each reconnect failure instead of freezing on the first (#124700) * fix(tui): report each reconnect failure instead of freezing on the first The TUI gateway client deduped connect errors with a pendingConnectError guard that only a successful hello cleared. Against a gateway that keeps failing for different reasons (connection refused, then pairing required), every error after the first was swallowed, so the pairing approval hint never reached the operator — a silent dead-end. Root cause: dedupe scope was per-connection-lifetime instead of per-close-cycle. Clear the guard in the onClose suppression branch so each reconnect attempt reports its own failure cause while repeated errors within one cycle stay deduped. Regression: new gateway-chat.reconnect-errors.test.ts fails pre-fix (second error swallowed) and passes post-fix. * test(tui): update connect-error dedupe test to per-close-cycle semantics The prior assertion encoded the freeze-forever dedupe (second socket's failure swallowed until hello). Dedupe is now per close-cycle, so the retry socket's first failure is reported and duplicates within that cycle stay deduped.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(nodes): expose installed worker bundle status (#124640)",
-      "summaryZh": "重點：新功能(nodes): expose installed worker bundle status (#124640) * 新功能(nodes): expose installed worker bundle status * perf(n..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): report each reconnect failure instead of freezing on the fi…",
+      "summaryZh": "重點：修正(tui): report each reconnect failure instead of freezing on the first (#124700) * 修正(tui): report each reconnect failu..."
     },
     {
       "id": 4,
-      "title": "refactor(reply): unify keyed FIFO leases (#124690)",
-      "link": "https://github.com/openclaw/openclaw/commit/2aab6b8e3726356b226159cbd2e2fa64f0784d8d",
-      "publishedAt": "2026-08-16T17:03:29Z",
-      "summary": "refactor(reply): unify keyed FIFO leases (#124690) Share one lifecycle-owned reservation primitive between reply admission and foreground delivery ordering, and remove the obsolete admission-wait callback plumbing.",
+      "title": "fix(agents): stop advertising unavailable tools (#124716)",
+      "link": "https://github.com/openclaw/openclaw/commit/ffa0929c7f2101c95f4faa0e574c10426e301e28",
+      "publishedAt": "2026-08-16T18:20:45Z",
+      "summary": "fix(agents): stop advertising unavailable tools (#124716) * fix(agents): gate tool description cross-references * test(gateway): include metadata copier in invoke mock",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(reply): unify keyed FIFO leases (#124690)",
-      "summaryZh": "重點：refactor(reply): unify keyed FIFO leases (#124690) Share one lifecycle-owned reservation primitive between reply admissi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): stop advertising unavailable tools (#124716)",
+      "summaryZh": "重點：修正(agents): stop advertising unavailable tools (#124716) * 修正(agents): gate tool description cross-references * test(Gat..."
     },
     {
       "id": 5,
