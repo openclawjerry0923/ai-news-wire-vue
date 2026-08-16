@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T19:20:54.692Z",
+  "generatedAt": "2026-08-16T20:22:25.652Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): keep Control UI device identity working on plain-HTTP origin…",
-      "link": "https://github.com/openclaw/openclaw/commit/75bcc5cebe97c661c865e0520815b682c90e45f9",
-      "publishedAt": "2026-08-16T19:20:00Z",
-      "summary": "fix(ui): keep Control UI device identity working on plain-HTTP origins (#124724) * fix(ui): keep Control UI device identity working on plain-HTTP origins @noble/ed25519 defaults its SHA-512 provider to crypto.subtle, which browsers gate to secure contexts, so device identity silently vanished on http:// LAN dashboards and connects fell back to shared-credential auth with no pairing. Wire a lazy pure-JS @noble/hashes fallback for SHA-512 and the fingerprint SHA-256, and drop the isSecureContext gate in the connect path. Secure contexts keep the platform digests and pay no startup bytes: the fallback loads as its own lazy chunk, kept out of the gateway-runtime startup chunk on purpose. * test(ui): cover device identity minting and signing without crypto.subtle New jsdom regression suite fails on pre-fix code (subtle-less crypto stub with getRandomValues, which real insecure contexts keep). Rewrites the gateway connect tests that previously asserted the device-less insecure fallback: an insecure context now attaches a device identity. * docs(web): plain-HTTP dashboards now pair with a device identity The signing key never crosses the wire, so HTTP+pairing is strictly stronger than the old HTTP token-only fallback; HTTPS (Tailscale Serve) stays the recommendation for transport privacy. * fix(ui): drop unnecessary boolean literal compare in secure-context timing meta * test(ui): declare device.id on the connect-frame test shape * test(ui): split the subtle-less scope-upgrade e2e into the two real invariants Without crypto.subtle the browser can now sign, so the banner offers the explicit admin upgrade; manual-only guidance is reserved for browsers that cannot mint an identity at all (no WebCrypto RNG). Also corrects the connect-path comment: blocked storage yields an ephemeral identity, only a failed mint degrades device-less. * fix(ui): address review findings on the HTTP device-identity path - Storage-blocked pages keep one stable in-memory identity per page lifetime instead of minting a fresh unpaired key on every reconnect, and a write-rejecting store no longer fails the mint (regression tests bite pre-fix). - Connect timing now reports the real browser secure-context fact via a shared browserSecureContext() helper instead of inferring it from device-identity presence. - Docs state the accepted trusted-proxy contract: browsers attach a device identity on every origin, so first connects follow the standard pairing flow (deviceAutoApprove or a one-time approval); device-less admission remains only for browsers that cannot mint an identity. * refactor(ui): trim the connect-path additions under the max-lines cap",
+      "title": "fix(ci): invalidate extension boundary cache for attempt types (#124800)",
+      "link": "https://github.com/openclaw/openclaw/commit/df5b5baf83022af3347d7f4219b186f69397728f",
+      "publishedAt": "2026-08-16T20:16:32Z",
+      "summary": "fix(ci): invalidate extension boundary cache for attempt types (#124800)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep Control UI device identity working on plain-HTTP origin…",
-      "summaryZh": "重點：修正(ui): keep Control UI device identity working on plain-HTTP origins (#124724) * 修正(ui): keep Control UI device identit..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): invalidate extension boundary cache for attempt types (#124800)",
+      "summaryZh": "重點：修正(ci): invalidate extension boundary cache for attempt types (#124800)..."
     },
     {
       "id": 2,
-      "title": "fix(qa): preserve effective fast mode (#124762)",
-      "link": "https://github.com/openclaw/openclaw/commit/22dd3d4ed0ba50d40d494ee23136a38fcbe27d5c",
-      "publishedAt": "2026-08-16T19:16:48Z",
-      "summary": "fix(qa): preserve effective fast mode (#124762) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-30363fae6c89 Co-authored-by: Amp",
+      "title": "docs: correct code mode runtime contract (#124792)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc24508f5ef569e40c753ec030cd398a0f00282f",
+      "publishedAt": "2026-08-16T20:16:10Z",
+      "summary": "docs: correct code mode runtime contract (#124792) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73d5-8fb7-e619e8e458e1 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): preserve effective fast mode (#124762)",
-      "summaryZh": "重點：修正(qa): preserve effective fast mode (#124762) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b6b-e4e9-74af-bb31-3036..."
+      "titleZh": "OpenClaw 文件更新：文件: correct code mode runtime contract (#124792)",
+      "summaryZh": "重點：文件: correct code mode runtime contract (#124792) Amp-Thread-ID: https://ampcode.com/threads/T-01a00b7c-b9f0-73d5-8fb7-e6..."
     },
     {
       "id": 3,
-      "title": "feat(codex): show sessions from additional homes (#124660)",
-      "link": "https://github.com/openclaw/openclaw/commit/08786d32b21b6a3569192437e9892f355146674c",
-      "publishedAt": "2026-08-16T19:14:10Z",
-      "summary": "feat(codex): show sessions from additional homes (#124660) * feat(codex): register additional session homes * fix(codex): preserve automatic session homes * docs(codex): explain automatic home discovery around sessionCatalog.homes --------- Co-authored-by: IWhatsskill Co-authored-by: Peter Steinberger",
+      "title": "fix(ci): select aggregate QA evidence by manifest (#124802)",
+      "link": "https://github.com/openclaw/openclaw/commit/de52a6c314817393ffac44fee05364f8dc63716a",
+      "publishedAt": "2026-08-16T20:14:49Z",
+      "summary": "fix(ci): select aggregate QA evidence by manifest (#124802)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(codex): show sessions from additional homes (#124660)",
-      "summaryZh": "重點：新功能(codex): show sessions from additional homes (#124660) * 新功能(codex): register additional session homes * 修正(codex): p..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): select aggregate QA evidence by manifest (#124802)",
+      "summaryZh": "重點：修正(ci): select aggregate QA evidence by manifest (#124802)..."
     },
     {
       "id": 4,
-      "title": "fix(skills): report missing ClawHub skills as not found (#124764)",
-      "link": "https://github.com/openclaw/openclaw/commit/34bfcdba58245dc3ea5451f5d8b0c5814365c24a",
-      "publishedAt": "2026-08-16T19:13:20Z",
-      "summary": "fix(skills): report missing ClawHub skills as not found (#124764)",
+      "title": "refactor(channels): carry typed approval-prompt bindings through sign…",
+      "link": "https://github.com/openclaw/openclaw/commit/a0f4d5462a4e55f6d66142f2cdcd2f74871394fe",
+      "publishedAt": "2026-08-16T19:57:34Z",
+      "summary": "refactor(channels): carry typed approval-prompt bindings through signal/imessage send seams (#124742) The Signal and iMessage channel plugins inferred approval prompts by regex-sniffing rendered message text (header matching like 'Exec approval required', /approve command parsing), violating the transport-only channel doctrine: approval actions must stay typed until channel encoding. The typed envelope already existed (channelData.execApproval with approvalId/approvalKind/allowedDecisions) and every payload-level delivery path consumed it; the regex paths were redundant re-derivation at the raw send seam plus restart recovery for in-memory iMessage poll state. - Signal: delete send-level prompt sniffing entirely; all approval sends already flow through typed structured-payload or native-handler paths. - iMessage: sendMessageIMessage takes a typed approvalPrompt binding (id/kind/decisions) from the native approval handler instead of an approvalKind flag plus text re-parsing. - iMessage poller: persist pending poll targets in the plugin keyed store so restart recovery no longer regex-scans chat history; typed recent-chat discovery for handle-only DM targets stays. Split poll-target ownership into approval-reaction-poll-targets.ts (max-lines). - Plugin SDK: remove extractApprovalReactionPromptBinding — beta-only surface, never in a stable release, so no deprecation window applies; AGENTS.md now records that rule. Accepted tradeoff: approval prompts delivered by a pre-upgrade process are not rediscovered from chat text after restart (",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): report missing ClawHub skills as not found (#124764)",
-      "summaryZh": "重點：修正(skills): report missing ClawHub skills as not found (#124764)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(channels): carry typed approval-prompt bindings through sign…",
+      "summaryZh": "重點：refactor(channels): carry typed approval-prompt bindings through signal/imessage send seams (#124742) The Signal and iMe..."
     },
     {
       "id": 5,
