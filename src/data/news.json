@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-16T13:31:29.274Z",
+  "generatedAt": "2026-08-16T14:23:01.666Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(ci): drop the disabled timing-summary job and unread build outputs",
-      "link": "https://github.com/openclaw/openclaw/commit/d8697d59564799ea5eefd26df6133784bc58897f",
-      "publishedAt": "2026-08-16T13:27:11Z",
-      "summary": "chore(ci): drop the disabled timing-summary job and unread build outputs Two pieces of dead workflow surface, found auditing where CI time goes: - ci-timings-summary was hard-disabled (`if: ${{ false &amp;&amp; ... }}`) with a TODO to re-enable or delete it after the next timing-optimization review. That review happened; the local `pnpm ci:timings` helper is what we actually use, and docs already pointed there. The job carried a 25-entry needs list that had to be kept in sync to stay lintable. - build-artifacts exported four `*-result` outputs that no job or workflow reads. Removing the job lets the gate guard assert the stronger invariant it wanted all along: ci-gate needs *every* job in the file, so a new lane cannot slip in ungated (28 jobs, 27 gated, zero exceptions). No runtime behavior changes: the job could never run and the outputs had no consumers. Also audited every `pnpm ` and `node scripts/...` reference in ci.yml for rot -- all resolve.",
+      "title": "fix: preserve reply order across overlapping turns (#124623)",
+      "link": "https://github.com/openclaw/openclaw/commit/19bcb23ba127a2401338e27a193a2c013ed9010f",
+      "publishedAt": "2026-08-16T14:17:53Z",
+      "summary": "fix: preserve reply order across overlapping turns (#124623) Deliver same-target channel replies in inbound order while keeping steer admission concurrent. Record accepted steer/followup ownership so intentional deferred turns do not look silently empty. Fixes #124618",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ci): drop the disabled timing-summary job and unread build outputs",
-      "summaryZh": "重點：chore(ci): drop the disabled timing-summary job and unread build outputs Two pieces of dead workflow surface, found audi..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve reply order across overlapping turns (#124623)",
+      "summaryZh": "重點：修正: preserve reply order across overlapping turns (#124623) Deliver same-target channel replies in inbound order while k..."
     },
     {
       "id": 2,
-      "title": "fix(workers): bound node bundle retention (#124590)",
-      "link": "https://github.com/openclaw/openclaw/commit/18d130fc1b4b240c122149bf22f312fdce77038c",
-      "publishedAt": "2026-08-16T13:25:05Z",
-      "summary": "fix(workers): bound node bundle retention (#124590) * fix(workers): bound node bundle retention * docs(runners): track bundle retention",
+      "title": "fix(update): bound automatic dev update attempts (#124626)",
+      "link": "https://github.com/openclaw/openclaw/commit/8dc3230b0a8a64abafbfaa95804e1c3f810037fa",
+      "publishedAt": "2026-08-16T14:17:33Z",
+      "summary": "fix(update): bound automatic dev update attempts (#124626)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(workers): bound node bundle retention (#124590)",
-      "summaryZh": "重點：修正(workers): bound node bundle retention (#124590) * 修正(workers): bound node bundle retention * 文件(runners): track bundl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): bound automatic dev update attempts (#124626)",
+      "summaryZh": "重點：修正(update): bound automatic dev update attempts (#124626)..."
     },
     {
       "id": 3,
-      "title": "fix: surface hidden-pane steer failures and demote per-turn gateway l…",
-      "link": "https://github.com/openclaw/openclaw/commit/7173aeb6637fa29df53a985be27076b852b6cfce",
-      "publishedAt": "2026-08-16T13:23:44Z",
-      "summary": "fix: surface hidden-pane steer failures and demote per-turn gateway log noise (#124560) * fix(ui): surface hidden-pane steer terminal failures globally Three terminal branches in steer-lifecycle.ts (transport null result, failed queue-row restore, failed queue-row removal) still gated their error on itemStillVisible, so a steer that failed after the operator navigated away parked the error on the queue row with no visible outcome — the exact invariant #124473 introduced surfaceChatDeliveryFailure() to protect. Route all three through the canonical helper and delete the divergent visibility-only branches. Regression test fails pre-fix (stash-verified): steer transport failure with the pane hidden now surfaces the session-named global toast. * fix(logging): demote per-turn gateway log noise to debug Live campaign evidence showed three lines dominating operator logs at info level with no per-turn diagnostic value: - 'tool policy removed N tool(s)': the policy pipeline runs on every turn, so this repeated 42x in one session. Demote to debug and delete the now-dead toolPolicyAuditLogLevel/auditLogLevel plumbing that only existed to lower diagnostic probes to the level that is now the default (net -13 production LOC). - 'codex app-server one-shot cleanup checked shared client retirement': routine per-attempt teardown detail; demote to debug. - 'codex trajectory capture requires the SQLite host recorder': static config condition warned per attempt; warn once per process. Skipped: the [model-fetch] info carve-out in model-transport-debug.ts is a named contract (docs/logging.md, #89648) — always-info by design. * fix(codex): drop test-only trajectory warn-once reset export Knip's production unused-export gate rejects resetCodexTrajectoryRecorderWarningForTest — it was a test-only seam in production code. Reset the process-wide warn-once flag via vi.resetModules() + fresh dynamic import in the test instead. * test(cron): wait for backoff re-arm instead of fixed sleep The 0ms retry timer arms only after async watcher-state persistence, so 'await delay(5)' races it on loaded CI workers (flaked on checks-node-compact-large-2: spawn called 1 time, expected 2). Replace both fixed-sleep re-arm waits with vi.waitFor on the spawn count. The remaining delay(5) guards a negative no-further-spawn assertion after cancel, where a bounded sleep is the correct shape. * fix(codex): scope trajectory recorder warn dedupe to session ClawSweeper P2: the host recorder factory returns null for per-session target-mapping conflicts, not only static config, so a process-wide warn-once flag silenced a later distinct session's recorder loss. Warn once per session (bounded set, cleared past 64 entries) so retries stay quiet but each newly affected session records its loss. Regression covers a later distinct session still warning.",
+      "title": "refactor(compaction): delete dead generic-fallback variant and prod-d…",
+      "link": "https://github.com/openclaw/openclaw/commit/4caa06b976e036542c19ce2f41d069b0a8e4a563",
+      "publishedAt": "2026-08-16T14:16:42Z",
+      "summary": "refactor(compaction): delete dead generic-fallback variant and prod-dead wrappers (#124603) * refactor(compaction): delete dead generic-fallback variant and prod-dead wrappers The CompactionSummaryResult union's generic-fallback variant lost its only producer in b942db4d569b (summarization failures now throw CompactionError), leaving summarizeInStages returning kind:'summary' unconditionally, a dead consumer branch in the safeguard claiming a degradation path that cannot execute, and a test asserting the impossible shape. Collapse the return type to string and delete the branch + obsolete test. Also delete three prod-dead helpers that survived only through the safeguard's testing export (invisible to the dead-export lint): isOversizedForSummary (planning uses its own inline threshold since the oversized-plan refactor), capCompactionSummaryPreservingSuffix, and formatPreservedTurnsSection (thin wrappers over budgetCompactionSummary / buildPreservedTurnsSection with no prod callers). Tests point at the surviving primitives; the details-exclusion test retargets the real owner (estimateMessagesTokens sanitization). * test(compaction): update staged-summary assertion to string return",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: surface hidden-pane steer failures and demote per-turn Gateway l…",
-      "summaryZh": "重點：修正: surface hidden-pane steer failures and demote per-turn Gateway log noise (#124560) * 修正(ui): surface hidden-pane ste..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(compaction): delete dead generic-fallback variant and prod-d…",
+      "summaryZh": "重點：refactor(compaction): delete dead generic-fallback variant and prod-dead wrappers (#124603) * refactor(compaction): dele..."
     },
     {
       "id": 4,
-      "title": "refactor(macos): name computer-use executors for their scope (#124586)",
-      "link": "https://github.com/openclaw/openclaw/commit/243f51d314d186b081dbdc9f7291717664530b50",
-      "publishedAt": "2026-08-16T13:17:31Z",
-      "summary": "refactor(macos): name computer-use executors for their scope (#124586) The computer.act v1 wire contract is gone, but the naming that survived it still described a version split instead of the real one: screen-coordinate execution versus window/element-scoped execution. Both are live rungs of the same ladder. - Extract the screen-coordinate half of the 1334-line ComputerActionService into ComputerScreenActionExecutor (dispatch, typing, scroll, coordinate mapping, button-hold watchdog, raw CoreGraphics primitives). Moved code is unchanged apart from threading the queue authority check as a parameter instead of reaching back into the queue. - ComputerActionService keeps its name and becomes the coordinator that owns the execution queue, the permission probe, and the shared error vocabulary. - Rename ComputerActionServiceV2 to ComputerWindowActionExecutor, isV2Request to isWindowScopedRequest, isComputerActV2Only to isWindowScopedOnly, and ComputerActionError.invalidV2Request to .invalidRequest. The emitted COMPUTER_INVALID_REQUEST: prefix is unchanged. - cua-computer: v2-actions.ts becomes window-actions.ts, handleV2Act becomes handleWindowAct, and the stale v1Params local in handleDesktopAct becomes desktopParams. - Note at the computer.act idempotency key that its v1 prefix versions the key composition, not the wire contract. Behavior-neutral: no logic edits, no new branches, no changed error strings.",
+      "title": "perf(test): remove ingress capacity waits (#124630)",
+      "link": "https://github.com/openclaw/openclaw/commit/ea77e2164646a2798c06c5daa977724cc3870006",
+      "publishedAt": "2026-08-16T14:15:33Z",
+      "summary": "perf(test): remove ingress capacity waits (#124630)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(macos): name computer-use executors for their scope (#124586)",
-      "summaryZh": "重點：refactor(macos): name computer-use executors for their scope (#124586) The computer.act v1 wire contract is gone, but th..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): remove ingress capacity waits (#124630)",
+      "summaryZh": "重點：perf(test): remove ingress capacity waits (#124630)..."
     },
     {
       "id": 5,
