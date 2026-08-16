@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T23:20:37.768Z",
+  "generatedAt": "2026-08-16T01:20:22.844Z",
   "items": [
     {
       "id": 1,
@@ -12,90 +12,90 @@
     },
     {
       "id": 2,
-      "title": "fix(ui): abort stale destructive session confirmations on reconnect (…",
-      "link": "https://github.com/openclaw/openclaw/commit/5014839937b9a9dc72841b4755b55699ac91a8c8",
-      "publishedAt": "2026-08-15T23:18:48Z",
-      "summary": "fix(ui): abort stale destructive session confirmations on reconnect (#124254) * fix(ui): abort stale destructive session confirmations on reconnect SessionDataController retires the session-mutation scope on reconnect, capability replacement, and host disconnect, but left any open destructive confirmation dialog in place. If the operator confirmed after reconnect the action silently no-opped, and the dialog's global lock stayed held until manually dismissed. Give SessionDataController an AbortController owned by the mutation epoch, abort it whenever the epoch advances, and expose the signal on SidebarSessionMutationScope. Wire it into every scope-bound confirm dialog: batch delete, single delete, cloud-worker stop, preserved- worktree removal, and session-group delete. confirm-dialog.ts already tears down its modal and releases the lock on an aborted signal, so a stale dialog now dismisses itself instead of surviving the reconnect. Fixes #124227 * fix(ui): abort chat-header confirms too and surface a retry notice The sidebar epoch-abort wiring left the chat-header delete/fork/archive path uncovered: it builds its own SidebarSessionMutationScope from connectionGeneration but never handed it a signal, so a header confirm left open across a reconnect kept the shared confirmation lock forever. Give ChatPaneBase its own AbortController, retire it everywhere connectionGeneration advances (reconnect and pane teardown), and wire the signal into the header's captured scope, matching SessionDataController's controller for the sidebar. Separately, resolving an aborted confirm to `false` looked identical to an ordinary cancel, so the operator's lost intent vanished silently. Reorder every destructive confirm site to check scope staleness ahead of the `confirmed` guard and show the existing \"Gateway connection replaced ... Try again.\" toast on abort, matching the pattern deleteSessionGroup already used for the same race. This also fixes a regression the PR had introduced in a pre-existing main test (app-sidebar.test.ts's \"keeps a reconnected group delete retryable after its confirm opened\"), which is what failed checks-node-compact-large-22 and checks-ui on the previous head.",
+      "title": "fix: preserve Claude CLI prompt cache reuse across turns (#124300)",
+      "link": "https://github.com/openclaw/openclaw/commit/7f93011562dbddd6c864c52fcdd75c7006261ab8",
+      "publishedAt": "2026-08-16T01:17:17Z",
+      "summary": "fix: preserve Claude CLI prompt cache reuse across turns (#124300) * fix: keep claude-cli prompt-cache prefix stable across turns Claude CLI has no cache_control breakpoint, so mashed per-turn system prompts rewrote the native prefix and burned cache hits on follow-ups. Co-authored-by: Cursor * fix(cli): scope Claude prompt cache suffix * docs: scope Claude CLI cache guidance * test(cli): cover Claude cache prompt modes * fix: gate Claude CLI prompt cache flag * docs: clarify Claude CLI cache flag gate * fix: preserve Claude CLI system prompt roles * fix(claude-cli): close cache flag compatibility gaps * fix(claude-cli): reject prerelease cache flag versions --------- Co-authored-by: VACInc Co-authored-by: Cursor",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): abort stale destructive session confirmations on reconnect (…",
-      "summaryZh": "重點：修正(ui): abort stale destructive session confirmations on reconnect (#124254) * 修正(ui): abort stale destructive session c..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve Claude CLI prompt cache reuse across turns (#124300)",
+      "summaryZh": "重點：修正: preserve Claude CLI prompt cache reuse across turns (#124300) * 修正: keep claude-cli prompt-cache pre修正 stable across..."
     },
     {
       "id": 3,
-      "title": "test(tooling): deduplicate release timeout evaluators (#124297)",
-      "link": "https://github.com/openclaw/openclaw/commit/878236cfabffcd050849d333387826bf75d61c7d",
-      "publishedAt": "2026-08-15T22:58:29Z",
-      "summary": "test(tooling): deduplicate release timeout evaluators (#124297)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(tooling): deduplicate 版本發布 timeout evaluators (#124297)",
-      "summaryZh": "重點：test(tooling): deduplicate 版本發布 timeout evaluators (#124297)..."
+      "title": "輝達砸 30 億美元投資 SB Energy！助 OpenAI 建置千億美元資料中心",
+      "link": "https://finance.technews.tw/2026/08/16/sb-energy-softbank/",
+      "publishedAt": "Sun, 16 Aug 2026 01:16:19 +0000",
+      "summary": "輝達（NVIDIA）目前正與軟銀集團（SoftBank Group）旗下的能源與基礎設施子公司 SB Ener [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(ui): persist the sidebar session sort selection (#124277)",
-      "link": "https://github.com/openclaw/openclaw/commit/94552862ad84ea94c7013654a1a3d1b8d632f113",
-      "publishedAt": "2026-08-15T22:57:42Z",
-      "summary": "fix(ui): persist the sidebar session sort selection (#124277) The sessions sidebar held its sort mode in component state only, so a reload silently reverted the user's Created/Last updated/People choice back to Created while every sibling sidebar preference persisted. Store the mode under openclaw:sidebar:sessions:sort-mode alongside the existing sidebar preference keys and read it back at init. Resolution of a gateway-denied People sort now lives in one helper shared by the render path and the setter, keeping the element net-neutral in lines.",
+      "title": "fix(ui): no-op the second reconcile of the same sessions.changed even…",
+      "link": "https://github.com/openclaw/openclaw/commit/f870d93e2a22bc25992f47eb03550d38620e6f4d",
+      "publishedAt": "2026-08-16T01:11:53Z",
+      "summary": "fix(ui): no-op the second reconcile of the same sessions.changed event (#124326) Every sessions.changed is reconciled twice — once by the capability's own subscribeEvents handler and once by the chat page's reconcileSessionEvent — and reconcileSessionHistory always built a fresh sessions array, so the second, content-identical pass defeated every downstream result === state.result publish gate and re-rendered the sidebar per event. The merge now returns the original result identity when the merged row is content-equal to the existing row (shallow compare with structural fallback; rows are wire scalars/plain objects). The isOlderSessionSnapshot strict-",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): persist the sidebar session sort selection (#124277)",
-      "summaryZh": "重點：修正(ui): persist the sidebar session sort selection (#124277) The sessions sidebar held its sort mode in component state ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): no-op the second reconcile of the same sessions.changed even…",
+      "summaryZh": "重點：修正(ui): no-op the second reconcile of the same sessions.changed event (#124326) Every sessions.changed is reconciled twi..."
     },
     {
       "id": 5,
-      "title": "fix(ui): reject blank required strings in Control UI update readers (…",
-      "link": "https://github.com/openclaw/openclaw/commit/1db8fe4d4f521ceded584d5bca2c8d17705986ba",
-      "publishedAt": "2026-08-15T22:47:38Z",
-      "summary": "fix(ui): reject blank required strings in Control UI update readers (#124264) * fix(ui): reject blank required strings in Control UI update readers The Control UI update readers accepted `\"\"` for fields the canonical UpdateAvailableSchema/UpdateScheduleStateSchema declare as NonEmptyString, so a malformed Gateway payload rendered an update banner with blank version text. Root cause is the reader treating \"is a string\" as the contract for fields whose canonical contract is \"is a non-empty string\". Fixed at that boundary with the protocol's own dependency-free `isNonEmptyProtocolString` primitive: required NonEmptyString fields now reject the payload when blank, and optional ones are dropped rather than discarding the whole payload. Deliberately does NOT re-derive the canonical schema in the browser: - `additionalProperties: false` is a producer-side contract the Gateway enforces on its own outbound results (src/gateway/server-methods/update.ts). Rejecting unknown keys client-side would turn every additive protocol field into a blank overlay, since a service-worker-cached document keeps an older bundle across a Gateway upgrade. - Canonical `maxLength` counts grapheme clusters (typebox 1.3.6 guard/string.mjs), so the previous `subject.length",
+      "title": "fix(ci): give the Vitest cache warmer the shard lanes' heap ceiling",
+      "link": "https://github.com/openclaw/openclaw/commit/a8857eec0eb520de07b55f557ddd13c507937fb2",
+      "publishedAt": "2026-08-16T01:08:23Z",
+      "summary": "fix(ci): give the Vitest cache warmer the shard lanes' heap ceiling The warmer replays the same test envelopes as the compact shard lanes through scripts/ci-run-node-test-shard.mts, but without the lanes' NODE_OPTIONS=--max-old-space-size=8192. Run 31874567859 lost a worker in agents-embedded-agent-run under the default heap and the failure skipped every cache-save post step, leaving the day's transform/compile caches unrefreshed. Rerun 31918467031 passed, confirming load-dependence; matching the lane environment removes the gap.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): reject blank required strings in Control UI update readers (…",
-      "summaryZh": "重點：修正(ui): reject blank required strings in Control UI update readers (#124264) * 修正(ui): reject blank required strings in ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): give the Vitest cache warmer the shard lanes' heap ceiling",
+      "summaryZh": "重點：修正(ci): give the Vitest cache warmer the shard lanes' heap ceiling The warmer replays the same test envelopes as the com..."
     },
     {
       "id": 6,
-      "title": "罕見疾病意外揭開抗癌祕密，科學家看見新希望",
-      "link": "https://technews.tw/2026/08/16/how-these-twins-rare-growth-disorder-could-provide-the-key-to-preventing-cancer/",
-      "publishedAt": "Sat, 15 Aug 2026 16:00:51 +0000",
-      "summary": "癌症是人類面臨的重大健康威脅之一，但有些罕見疾病患者，似乎天生就較不易罹癌。最近，BBC 報導一對患有萊倫氏症 [&#8230;]",
+      "title": "卡位 CPO 新架構前，臻鼎押寶光模組 PCB 拚 2027 年稱王",
+      "link": "https://finance.technews.tw/2026/08/16/zhen-ding-invests-80-billion-in-major-capacity-expansion/",
+      "publishedAt": "Sun, 16 Aug 2026 01:00:26 +0000",
+      "summary": "「高階 PCB 唯有糧草先行提前布局，才能在客戶新平台量產時即時遞補產能，我們今天的投入，正是為了解決客戶未來 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "韋伯太空望遠鏡揭密「珠寶箱」星雲，70 顆年輕恆星藏身其中",
-      "link": "https://technews.tw/2026/08/16/jwst_ngc-3372_treasure-chest/",
-      "publishedAt": "Sat, 15 Aug 2026 16:00:29 +0000",
-      "summary": "詹姆斯·韋伯太空望遠鏡（James Webb Space Telescope，簡稱 JWST）最新影像揭開船底 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): stop config snapshot refreshes from eating focused in-flight…",
+      "link": "https://github.com/openclaw/openclaw/commit/60babddd626adcad473ae7b2b1b4417892a7828d",
+      "publishedAt": "2026-08-16T00:54:18Z",
+      "summary": "fix(ui): stop config snapshot refreshes from eating focused in-flight edits Main run 31914404948 (checks-ui-e2e 6/12) timed out waiting for config.set: the test filled the Advanced settings Endpoint field ~300ms after navigation and the captured diagnostics show the value reverted to the loaded snapshot with no model commit. syncScalarInputIdentity resets element.value whenever the snapshot identity changes, which also wipes a focused field's DOM text the model has not committed yet (mid-keystroke or mid-automation fill) when a boot-time config.get response lands. Focused inputs with a live edit now keep their value through identity refreshes (revalidate only); blurred fields keep the authoritative-reset contract, pinned by the existing repeated-rows test. Regression test is mutation-proven (fails 'local-api' != 'form-api' without the guard). The e2e test now asserts the filled value stuck before awaiting config.set, so a future regression fails loudly instead of a silent 30s timeout.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop config snapshot refreshes from eating focused in-flight…",
+      "summaryZh": "重點：修正(ui): stop config snapshot refreshes from eating focused in-flight edits Main run 31914404948 (checks-ui-e2e 6/12) tim..."
     },
     {
       "id": 8,
-      "title": "常見塑膠製品恐傷肝，研究：若搭配高脂高糖飲食，脂肪肝風險更高",
-      "link": "https://technews.tw/2026/08/16/this-widely-used-plastic-could-be-harming-your-liver/",
-      "publishedAt": "Sat, 15 Aug 2026 16:00:18 +0000",
-      "summary": "美國德州農工大學獸醫與生物醫學學院研究指出，全球產量最高，用途廣泛的食品包裝、保鮮膜、儲存容器與飲料杯內襯的聚 [&#8230;]",
+      "title": "六年觀測 6.69 億星系，暗能量巡天計畫證實：宇宙加速膨脹符合標準模型",
+      "link": "https://technews.tw/2026/08/16/argonne-lab-supercomputing-power-reveals-dark-matter/",
+      "publishedAt": "Sun, 16 Aug 2026 00:30:32 +0000",
+      "summary": "美國阿貢國家實驗室（Argonne National Laboratory）於 6 日表示，暗能量巡天計畫（D [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "全球最大電動飛機僅花 5 美元完成試飛，2031 年投入商用",
-      "link": "https://technews.tw/2026/08/15/the-worlds-largest-battery-powered-electric-aircraft-completed-its-test-flight-for-only-5/",
-      "publishedAt": "Sat, 15 Aug 2026 08:00:01 +0000",
-      "summary": "瑞典電動飛機新創公司 Heart Aerospace 研發的全球最大電動飛機「Heart X1」，已於 202 [&#8230;]",
+      "title": "社宅包租代管政策遇逆風，從兆基案看資金監管漏洞與「混帳」隱憂",
+      "link": "https://finance.technews.tw/2026/08/16/cc-house-debt-crisis-how-to-close-regulatory-loopholes-in-rental-management/",
+      "publishedAt": "Sun, 16 Aug 2026 00:00:51 +0000",
+      "summary": "兆基事件爆發，讓政府視為活化空屋、擴大租屋供給利器的包租代管產業陷入信任危機。從租金、押金管理到業者財務透明度 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "影子 AI 橫掃職場：近半員工私用未核准工具，高階主管更愛「繞道」使用",
-      "link": "https://finance.technews.tw/2026/08/15/half-your-workforce-already-bypassed-your-ai-policy/",
-      "publishedAt": "Sat, 15 Aug 2026 07:30:19 +0000",
-      "summary": "企業 AI 管理失守的現象快速擴大。最新資料顯示，雖然約九成組織聲稱制定 AI 政策，但仍有七成 IT 主管發 [&#8230;]",
+      "title": "罕見疾病意外揭開抗癌祕密，科學家看見新希望",
+      "link": "https://technews.tw/2026/08/16/how-these-twins-rare-growth-disorder-could-provide-the-key-to-preventing-cancer/",
+      "publishedAt": "Sat, 15 Aug 2026 16:00:51 +0000",
+      "summary": "癌症是人類面臨的重大健康威脅之一，但有些罕見疾病患者，似乎天生就較不易罹癌。最近，BBC 報導一對患有萊倫氏症 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
