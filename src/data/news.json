@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-08-16T08:29:26.770Z",
+  "generatedAt": "2026-08-16T09:27:24.372Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(tasks): validate filter flags before querying (#124520)",
+      "link": "https://github.com/openclaw/openclaw/commit/77902b185d440c6e85e031816008f2ebc67e8203",
+      "publishedAt": "2026-08-16T09:13:57Z",
+      "summary": "fix(tasks): validate filter flags before querying (#124520)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(tasks): validate filter flags before querying (#124520)",
+      "summaryZh": "重點：修正(tasks): validate filter flags before querying (#124520)..."
+    },
+    {
+      "id": 2,
+      "title": "fix(audit): reject filter combinations that cannot match (#124513)",
+      "link": "https://github.com/openclaw/openclaw/commit/46f5951d531cb64a0e494db085184f283d948ffb",
+      "publishedAt": "2026-08-16T09:09:23Z",
+      "summary": "fix(audit): reject filter combinations that cannot match (#124513)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(audit): reject filter combinations that cannot match (#124513)",
+      "summaryZh": "重點：修正(audit): reject filter combinations that cannot match (#124513)..."
+    },
+    {
+      "id": 3,
       "title": "WordPress漏洞XSS2Shell可讓駭客執行PHP程式碼，逾萬網站遭自動化鎖定",
       "link": "https://www.ithome.com.tw/news/178147",
       "publishedAt": "2026-08-16 09:08:00",
@@ -11,40 +33,29 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix: doctor --fix reports config changes that were never written when…",
-      "link": "https://github.com/openclaw/openclaw/commit/b097aaab206171b7f7ad3722e69651a8fbfbeb16",
-      "publishedAt": "2026-08-16T08:12:43Z",
-      "summary": "fix: doctor --fix reports config changes that were never written when validation refuses the candidate (#124462) * fix(doctor): never report unpersisted config fixes doctor --fix printed \"Doctor changes\" panels while computing candidate mutations, then crashed with a raw Error and persisted nothing when the repaired candidate still failed write validation (e.g. an unknown root key repaired alongside an unrepairable schema type error). Root cause: the compute->print->validate->persist ordering was wrong. Panels were printed at mutation time, but validation only ran inside the atomic writer, after all panels were visible. Fix at the owner boundaries: - doctor-config-flow queues repair-mode \"Doctor changes\" panels in a sink instead of printing them; preview panels still print immediately. Committed side-effect repair notes (SQLite/filesystem) keep printing at repair time; candidate-config notes from the repair sequence are routed through the same deferred sink. - io.write throws a typed CONFIG_VALIDATION_FAILED error (with the full issue list) via a new createConfigValidationFailedError owner in io.write-errors. - runWriteConfigHealth prints queued panels only after the atomic write commits, and renders a validation refusal as a \"Doctor warnings\" panel stating no config changes were written plus the exact paths to fix by hand. The contribution loop stops after refusal (same invariant as the cron-ownership deferral) and doctor exits 1 without a raw Error leak. Regression tests: pre-fix, the new validation-refusal e2e test fails on the lying \"Doctor changes\" panel; contribution-level tests cover the refusal note, held panels printing exactly once after commit, and no retry of the identical candidate. * fix(doctor): report partial persistence accurately after a later write refusal Post-rebase CI and ClawSweeper follow-ups: - repair-sequencing tests now assert the deferred configChangeNotes contract (candidate-only mutation notes moved out of changeNotes by the parent commit); committed side-effect notes stay in changeNotes. - formatConfigValidationFailure is module-private; its guidance formatting is covered through createConfigValidationFailedError, fixing the knip unused-export gate. - When the initial write pass committed and only the later post-repair write is refused, the warnings panel says earlier fixes were saved instead of claiming no config changes were written, and the outro says \"some config fixes were not applied\". New regression test covers commit-then-refusal.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: 文件tor --修正 reports config changes that were never written when…",
-      "summaryZh": "重點：修正: 文件tor --修正 reports config changes that were never written when validation refuses the candidate (#124462) * 修正(文件tor..."
-    },
-    {
-      "id": 3,
-      "title": "fix(outbound): persist mirror route only after successful delivery (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/6f418b93c63263345e26a73ddf7f8f97b49f0fd2",
-      "publishedAt": "2026-08-16T07:49:18Z",
-      "summary": "fix(outbound): persist mirror route only after successful delivery (#124459) A failed message send (e.g. missing channel credentials on a fresh install) durably rewrote the agent's folded main session route before delivery was even attempted: prepareOutboundMirrorRoute called ensureOutboundSessionEntry pre-send, stamping delivery.route/origin and minting a conversations-registry row for the never-reached target. The Control UI then showed the phantom channel identity and the composer bound to a dead conversation. Route resolution stays read-only in prepareOutboundMirrorRoute; the durable write commits once per send at the first success proof: identified platform evidence (onDeliveryResult) or plugin action acceptance (onPluginSendAccepted), both before the in-delivery transcript mirror so first-contact routes still create their session row, with a post-return safety net for adapters whose results carry no platform identity. The gateway send RPC sibling had the same pre-send persistence and gets the same commit-on-evidence ordering. Regression test proves a failed send leaves the seeded main-session origin and conversation identity untouched while a successful send still persists the mirror route; fails on pre-fix code.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(outbound): persist mirror route only after successful delivery (#…",
-      "summaryZh": "重點：修正(outbound): persist mirror route only after successful delivery (#124459) A failed message send (e.g. missing channel ..."
-    },
-    {
       "id": 4,
-      "title": "perf(node-host): prewarm worker bundles (#124427)",
-      "link": "https://github.com/openclaw/openclaw/commit/f19f62cb77e35f0db2959f09da3e274075794696",
-      "publishedAt": "2026-08-16T07:41:42Z",
-      "summary": "perf(node-host): prewarm worker bundles (#124427) * perf(node-host): prewarm worker bundles * test(gateway): gate worker finalization responsiveness * fix(node-host): negotiate bundle prewarming * fix(protocol): refresh worker prewarm models * fix(node-host): preserve prewarm upgrade compatibility",
+      "title": "fix(gateway): keep readiness aligned with chat dispatch (#124514)",
+      "link": "https://github.com/openclaw/openclaw/commit/e12079fb133e752c4d2e1efdbbbe03e0b988b9bd",
+      "publishedAt": "2026-08-16T08:59:08Z",
+      "summary": "fix(gateway): keep readiness aligned with chat dispatch (#124514)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(node-host): prewarm worker bundles (#124427)",
-      "summaryZh": "重點：perf(node-host): prewarm worker bundles (#124427) * perf(node-host): prewarm worker bundles * test(Gateway): gate worker..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep readiness aligned with chat dispatch (#124514)",
+      "summaryZh": "重點：修正(Gateway): keep readiness aligned with chat dispatch (#124514)..."
     },
     {
       "id": 5,
+      "title": "fix(backup): report archive problems instead of raw errno text (#124510)",
+      "link": "https://github.com/openclaw/openclaw/commit/b9901605e83d379497b575f4b5b3f9234b15f35f",
+      "publishedAt": "2026-08-16T08:46:23Z",
+      "summary": "fix(backup): report archive problems instead of raw errno text (#124510)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(backup): report archive problems instead of raw errno text (#124510)",
+      "summaryZh": "重點：修正(backup): report archive problems instead of raw errno text (#124510)..."
+    },
+    {
+      "id": 6,
       "title": "通寶半導體上半年毛利率高達 67%！董事會引私募拚年底送件申請上市",
       "link": "https://finance.technews.tw/2026/08/16/private-equity-case/",
       "publishedAt": "Sun, 16 Aug 2026 07:32:42 +0000",
@@ -53,24 +64,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "310 億隻雞淪為「病原海綿」，牛津大學研究：工業化養殖讓細菌移動幅度暴增百倍",
       "link": "https://technews.tw/2026/08/16/industrial-chicken-farming-is-supercharging-the-spread-of-a-dangerous-foodborne-bacterium/",
       "publishedAt": "Sun, 16 Aug 2026 07:30:12 +0000",
       "summary": "英國牛津大學（University of Oxford）團隊的最新分析指出，全球工業化養雞規模的擴張，正在加速 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(agents): sweep leaked files at prepared-absent paths during agent…",
-      "link": "https://github.com/openclaw/openclaw/commit/a2e27de59344cde5831edcb79313d6867a7ab76f",
-      "publishedAt": "2026-08-16T07:27:23Z",
-      "summary": "fix(agents): sweep leaked files at prepared-absent paths during agent deletion (#124461) Gateway agents.delete closed the agent database (unlinking -wal/-shm) during preparation, then awaited config/cron/session-purge work that reopened the database and recreated the sidecars. The sweep classified those recreated files as foreign replacements (\"cleanup path appeared after deletion preparation\"), preserved them, cascaded ancestor protection over the whole agent directory, and finished the deletion journal with exit 0 while ~157 files survived under agents//. The deletion journal fence already blocks legitimate claims beneath prepared paths, so a file that appears at a prepared-absent path can only be leaked deleted-agent state: adopt its identity and sweep it instead of preserving it. Prepared-present paths keep the existing identity-mismatch protection for genuine operator replacements. Regression tests: recreated WAL sidecars between preparation and cleanup are trashed with the agent directory, and recovery sweeps a file that appeared at a journaled prepared-absent path.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): sweep leaked files at prepared-absent paths during agent…",
-      "summaryZh": "重點：修正(agents): sweep leaked files at prepared-absent paths during agent deletion (#124461) Gateway agents.delete closed the..."
     },
     {
       "id": 8,
