@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T04:35:56.975Z",
+  "generatedAt": "2026-08-16T05:28:16.655Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "test(codex): split the session-catalog suite along module seams (#124…",
-      "link": "https://github.com/openclaw/openclaw/commit/191d2313a8a153e68ee803aa8088a3498c3d674a",
-      "publishedAt": "2026-08-16T04:26:13Z",
-      "summary": "test(codex): split the session-catalog suite along module seams (#124397) * test(codex): split the session-catalog suite along module seams Replace the 4.8k-line grandfathered session-catalog.test.ts with seven seam-anchored suites plus shared fixtures, and remove its max-lines suppression and baseline entry. The broad openclaw/plugin-sdk/node-host vi.mock becomes a narrow session-catalog-pty.runtime.ts boundary so the non-isolated extension-codex worker no longer re-instantiates the plugin-sdk graph once per split file (the crash PR #124178 measured). Test bodies are verbatim; AST parity across the split checked out 96/96 identical. AI-assisted (Codex worker under maintainer review). * test(codex): carry caller origin in the cron-authority capability fixture PR #118579 widened the in-process CronCreatorAuthorityCapability run scope with a contractually required callerOrigin, and the new transcript tool wiring reads it during turn startup. The hand-built fixture in run-attempt.configured-mcp.test.ts predated the field, so bindActiveOperatorTurnAuthority threw and runCodexAppServerAttempt rejected while five tests awaited turn/start - 120s timeouts, then a worker teardown crash. #118579's CI never ran the extension-codex lane (cross-lane classification gap), so main's codex lane was latently red. Bisected to 8668aeb9698; fixture now mints the local-operator origin the helper's name promises. AI-assisted (maintainer-diagnosed, Codex-era fixture repair). * test(codex): keep catalog fixture internals private",
+      "title": "refactor(types): enforce chained-assertion guard in AI and UI (#124361)",
+      "link": "https://github.com/openclaw/openclaw/commit/1384e277af7d102c6550fe6f76c4e955b5670c68",
+      "publishedAt": "2026-08-16T05:25:42Z",
+      "summary": "refactor(types): enforce chained-assertion guard in AI and UI (#124361) * refactor(types): drain chained-assertion ledger — ai and ui * refactor(ui): extract chat state contract * fix(ai): preserve strict Claude request cleanup * test(ui): synchronize terminal timeout clock * fix(ui): validate observer digest before run mutation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(codex): split the session-catalog suite along module seams (#124…",
-      "summaryZh": "重點：test(codex): split the session-catalog suite along module seams (#124397) * test(codex): split the session-catalog suite..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(types): enforce chained-assertion guard in AI and UI (#124361)",
+      "summaryZh": "重點：refactor(types): enforce chained-assertion guard in AI and UI (#124361) * refactor(types): drain chained-assertion ledge..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): audit aborted unconfirmed steer as skipped, not complet…",
-      "link": "https://github.com/openclaw/openclaw/commit/17816b4f398e236f05d942f5d319e019d4353044",
-      "publishedAt": "2026-08-16T04:25:07Z",
-      "summary": "fix(gateway): audit aborted unconfirmed steer as skipped, not completed (#124409) When an active run accepts chat steering but the transcript commit comes back unconfirmed, finalizeAcceptedChatSendMessageInjection aborts the exact target without replay — the steer never took effect. Diagnostics and the inbound-message audit terminal still recorded completed/ active_run_injected, claiming a successful injection that did not happen. Record skipped/reply_operation_aborted (the existing audit reason for this class) on the abort path instead.",
+      "title": "perf(test): fast-forward Slack probe retry window (#124428)",
+      "link": "https://github.com/openclaw/openclaw/commit/78ca5fcfb61ea5f8f063822f4125214f46fc8491",
+      "publishedAt": "2026-08-16T05:18:20Z",
+      "summary": "perf(test): fast-forward Slack probe retry window (#124428)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): audit aborted unconfirmed steer as skipped, not complet…",
-      "summaryZh": "重點：修正(Gateway): audit aborted unconfirmed steer as skipped, not completed (#124409) When an active run accepts chat steerin..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): fast-forward Slack probe retry window (#124428)",
+      "summaryZh": "重點：perf(test): fast-forward Slack probe retry window (#124428)..."
     },
     {
       "id": 4,
-      "title": "docs(plan): W5-REF landed (#124374) (#124403)",
-      "link": "https://github.com/openclaw/openclaw/commit/fff38795e4974f0f2229ea57f54f1eb9f2f0fd13",
-      "publishedAt": "2026-08-16T04:24:46Z",
-      "summary": "docs(plan): W5-REF landed (#124374) (#124403)",
+      "title": "fix: restore release-validation fixture coverage (#124401)",
+      "link": "https://github.com/openclaw/openclaw/commit/8cf85e3ceda4a0341afd41e45734c27862519a74",
+      "publishedAt": "2026-08-16T05:15:09Z",
+      "summary": "fix: restore release-validation fixture coverage (#124401) * test(release): refresh validation fixtures * test(release): satisfy fixture lint gates * test(release): preserve fixture owner contracts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(plan): W5-REF landed (#124374) (#124403)",
-      "summaryZh": "重點：文件(plan): W5-REF landed (#124374) (#124403)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: restore 版本發布-validation 修正ture coverage (#124401)",
+      "summaryZh": "重點：修正: restore 版本發布-validation 修正ture coverage (#124401) * test(版本發布): refresh validation 修正tures * test(版本發布): satisfy 修正t..."
     },
     {
       "id": 5,
-      "title": "refactor(gateway): remove dead worker-env surface, dedupe node issue …",
-      "link": "https://github.com/openclaw/openclaw/commit/9e4257c03033c193fe853ec9ffe7e4131421445b",
-      "publishedAt": "2026-08-16T04:18:15Z",
-      "summary": "refactor(gateway): remove dead worker-env surface, dedupe node issue projection (#124402) Three mechanical cleanups from the device-bundles cutover (#124037): - deviceRuntime.isAvailable had zero consumers — the availability seam moved to resolveAvailability (bound at startup, consumed via resolveDeviceWorkerAvailability); provision calls it directly. Delete the wrapper and its returned member. - requireProvisionedEnvironment returned a node/ssh discriminated union whose sole consumer read only environmentId/ownerEpoch/bundleHash; transport is decided later from the environment itself. Collapse to one shape — the receipt/launch-support validation is unchanged. - environments.list and nodes.read built byte-identical issuesByNodeId maps; one collectNodeRunnerIssuesByNodeId owner now lives next to the issue resolver (which drops its export — no external readers remain).",
+      "title": "fix(ci): keep Crabbox dependencies intact after pnpm dlx (#124423)",
+      "link": "https://github.com/openclaw/openclaw/commit/6335e358f35f5f40da7e961804d5e44ca534eeaf",
+      "publishedAt": "2026-08-16T05:13:26Z",
+      "summary": "fix(ci): keep Crabbox dependencies intact after pnpm dlx (#124423) * fix(ci): isolate Crabbox pnpm dlx state * fix(ci): clarify hydrated modules errors",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): remove dead worker-env surface, dedupe node issue …",
-      "summaryZh": "重點：refactor(Gateway): remove dead worker-env surface, dedupe node issue projection (#124402) Three mechanical cleanups from..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): keep Crabbox dependencies intact after pnpm dlx (#124423)",
+      "summaryZh": "重點：修正(ci): keep Crabbox dependencies intact after pnpm dlx (#124423) * 修正(ci): isolate Crabbox pnpm dlx state * 修正(ci): cla..."
     },
     {
       "id": 6,
