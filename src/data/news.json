@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-17T16:27:46.074Z",
+  "generatedAt": "2026-08-17T17:27:02.250Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(auto-reply): report failed queued replies after status delivery (…",
-      "link": "https://github.com/openclaw/openclaw/commit/efde610a9f64c572e41b9c787f85676d4b58cc97",
-      "publishedAt": "2026-08-17T16:23:24Z",
-      "summary": "fix(auto-reply): report failed queued replies after status delivery (#125325) * fix(auto-reply): report partial followup delivery failure * fix(auto-reply): classify followup batch failures * fix(auto-reply): preserve followup delivery ownership * test(auto-reply): consolidate followup delivery coverage",
+      "title": "fix(ui): keep mobile side chat interactive in tabbed panel (#124785)",
+      "link": "https://github.com/openclaw/openclaw/commit/1ea18c8cd8caba9ac5b353681d11d5651f664580",
+      "publishedAt": "2026-08-17T17:00:36Z",
+      "summary": "fix(ui): keep mobile side chat interactive in tabbed panel (#124785) Keep embedded mobile Side chat inside its tabbed panel so the main composer and shared controls stay tappable. Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): report failed queued replies after status delivery (…",
-      "summaryZh": "重點：修正(auto-reply): report failed queued replies after status delivery (#125325) * 修正(auto-reply): report partial followup d..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep mobile side chat interactive in tabbed panel (#124785)",
+      "summaryZh": "重點：修正(ui): keep mobile side chat interactive in tabbed panel (#124785) Keep embedded mobile Side chat inside its tabbed pan..."
     },
     {
       "id": 2,
-      "title": "fix(macos): avoid codesign metadata SIGPIPE (#125281)",
-      "link": "https://github.com/openclaw/openclaw/commit/49af98c12bb4748637353c575a9416df33549439",
-      "publishedAt": "2026-08-17T16:17:47Z",
-      "summary": "fix(macos): avoid codesign metadata SIGPIPE (#125281)",
+      "title": "fix(ui): edit queued messages in place (#124298)",
+      "link": "https://github.com/openclaw/openclaw/commit/03f43ee21c2e50b963eb1a060449419345a023d4",
+      "publishedAt": "2026-08-17T17:00:00Z",
+      "summary": "fix(ui): edit queued messages in place (#124298) * fix(ui): restore cancelled queued message drafts * fix(ui): edit queued messages in place * fix(ui): isolate composer sends from row edits * fix(ui): isolate queued edit submission guard * fix(ui): preserve reply context for queued edits * fix(ui): fence steer during queued edits * fix(ui): abort stale queued edit submissions * fix(ui): fence queued edits across panes * fix(ui): fence peer-pane queued steers * fix(ui): fence command-like queued edits * fix(ui): fence removal of edited queue rows * docs(proof): record queued edit live verification * docs(proof): attach queued edit browser evidence * fix(ui): fence queued row reordering during edits * fix(ui): fence peer edits during queue reordering * fix(ui): report cross-pane reorder conflicts * test(ui): exercise rejected inline edit submit * fix(ui): surface reorder conflicts in chat state * docs(proof): record real queued-edit behavior * docs(proof): record exact-head queue behavior * fix(chat): fence retry during queued-row edits * fix(chat): fence stop aliases in queued edits * fix(chat): surface peer steer conflicts * fix(chat): fence draft changes during history load * fix(chat): fence annotated queue edits * test(chat): record exact-head queue proof * Revert \"test(chat): record exact-head queue proof\" This reverts commit d7278ad9082fae40e28e6b98ca5a74e855817e6c. * fix(chat): clear stale queued edit tokens * fix(chat): fence stale queued edit versions * fix(chat): invalidate rejected queued edits * fix(ui): clarify queued edit conflict guidance * fix(ui): report peer-edited queue reorder conflicts --------- Co-authored-by: Patrick Erichsen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): avoid codesign metadata SIGPIPE (#125281)",
-      "summaryZh": "重點：修正(macos): avoid codesign metadata SIGPIPE (#125281)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): edit queued messages in place (#124298)",
+      "summaryZh": "重點：修正(ui): edit queued messages in place (#124298) * 修正(ui): restore cancelled queued message drafts * 修正(ui): edit queued ..."
     },
     {
       "id": 3,
-      "title": "fix: targetless replies retain conversation correlation (#125283)",
-      "link": "https://github.com/openclaw/openclaw/commit/793669c8f6ddfad07b40009068f532832685b7d6",
-      "publishedAt": "2026-08-17T13:40:28Z",
-      "summary": "fix: targetless replies retain conversation correlation (#125283) * fix(agents): preserve contextual reply correlation Carry prepared reply policy into embedded and CLI message tools so targetless direct replies retain transport correlation and Reef thread identity.\\n\\nCloses #125279 * fix(reef): preserve unthreaded reply correlation Keep reply-only inbound messages unthreaded unless the transport supplies a thread, while still anchoring new exchanges to their initiating envelope.\\n\\nRefs #125279",
+      "title": "fix: bound model-visible skills catalogs (#125346)",
+      "link": "https://github.com/openclaw/openclaw/commit/00b9626d13fc33b3d0b7312521c7b4242b864645",
+      "publishedAt": "2026-08-17T16:54:52Z",
+      "summary": "fix: bound model-visible skills catalogs (#125346)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: targetless replies retain conversation correlation (#125283)",
-      "summaryZh": "重點：修正: targetless replies retain conversation correlation (#125283) * 修正(agents): preserve contextual reply correlation Car..."
+      "titleZh": "OpenClaw 程式碼更新：修正: bound 模型-visible skills catalogs (#125346)",
+      "summaryZh": "重點：修正: bound 模型-visible skills catalogs (#125346)..."
     },
     {
       "id": 4,
-      "title": "fix(reply): report settled delivery outcomes once (#124773)",
-      "link": "https://github.com/openclaw/openclaw/commit/eb38d5e4863a66d881c3fc1aa785ff53898088e7",
-      "publishedAt": "2026-08-17T13:38:16Z",
-      "summary": "fix(reply): report settled delivery outcomes once (#124773) * refactor(reply): publish settled dispatch receipts * refactor(reply): isolate dispatch outcome accounting * refactor(discord): infer settled dispatch result * test(reply): model settled dispatch receipts * test(reply): type settled receipt fixtures * test(telegram): declare settled final receipt * test(telegram): adapt legacy dispatch fixtures * fix(reply): complete settled receipt compatibility * test(channels): keep delivery suite within lint budget * test(channels): reuse settled count fixture * test(channels): consolidate receipt assertions * test(channels): extract delivery receipt fixtures * fix(qa): recover stopped clients after config restart * fix(reply): settle deferred delivery receipts * test(channels): share delivery turn fixtures * fix(channels): preserve non-visible reconciliation * fix(reply): preserve settled receipt compatibility * refactor(reply): make settled receipts canonical * refactor(reply): absorb settlement at dispatcher boundary * test(matrix): prove settled receipt precedence * refactor(sessions): extract prompt snapshot types * fix(reply): restore queued admission counts",
+      "title": "fix(cli): report plugin policy refusals as expected conditions (#125304)",
+      "link": "https://github.com/openclaw/openclaw/commit/8dfbaa6087aa88c22d042ad9b79020deafd2619e",
+      "publishedAt": "2026-08-17T16:49:19Z",
+      "summary": "fix(cli): report plugin policy refusals as expected conditions (#125304)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): report settled delivery outcomes once (#124773)",
-      "summaryZh": "重點：修正(reply): report settled delivery outcomes once (#124773) * refactor(reply): publish settled dispatch receipts * refact..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): report plugin policy refusals as expected conditions (#125304)",
+      "summaryZh": "重點：修正(cli): report plugin policy refusals as expected conditions (#125304)..."
     },
     {
       "id": 5,
