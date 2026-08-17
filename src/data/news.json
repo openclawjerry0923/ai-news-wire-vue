@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T09:41:31.385Z",
+  "generatedAt": "2026-08-17T10:32:06.154Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(install): avoid unusable checkout directories after failed clones…",
-      "link": "https://github.com/openclaw/openclaw/commit/076a8cc6163660194c5663a9cc049f8f5144e732",
-      "publishedAt": "2026-08-17T09:40:07Z",
-      "summary": "fix(install): avoid unusable checkout directories after failed clones (#124872) * fix(install): publish fresh git clones transactionally Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(installer): preserve empty clone destinations transactionally Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(update): satisfy transactional clone lint Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(update): type recovery directory assertion * fix(installer): retain canonical clone checkout Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(update): retain published checkout root Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(update): cover package preflight before clone Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae --------- Co-authored-by: Amp",
+      "title": "fix: report session changes during deletion (#125188)",
+      "link": "https://github.com/openclaw/openclaw/commit/353b497007daf7b603da61ae3e5e702b916a3592",
+      "publishedAt": "2026-08-17T10:26:57Z",
+      "summary": "fix: report session changes during deletion (#125188) * fix(sessions): report deletion lifecycle mismatches * fix(sessions): translate late deletion conflicts * refactor(sessions): move lifecycle snapshot equality",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(install): avoid unusable checkout directories after failed clones…",
-      "summaryZh": "重點：修正(install): avoid unusable checkout directories after failed clones (#124872) * 修正(install): publish fresh git clones t..."
+      "titleZh": "OpenClaw 程式碼更新：修正: report session changes during deletion (#125188)",
+      "summaryZh": "重點：修正: report session changes during deletion (#125188) * 修正(sessions): report deletion lifecycle mismatches * 修正(sessions)..."
     },
     {
       "id": 8,
-      "title": "feat(sessions): three-layer session ownership — agent attribution, as…",
-      "link": "https://github.com/openclaw/openclaw/commit/55ce95fac803ae9ef54438748a8c610825960729",
-      "publishedAt": "2026-08-17T09:35:20Z",
-      "summary": "feat(sessions): three-layer session ownership — agent attribution, assignable owner, participants (#125057) * feat(sessions): stamp agent identity on spawned sessions and return spawn receipts Agent-spawned sessions recorded the requesting session key as createdActor.id, so the Control UI creator chip rendered an opaque key. Spawn producers now stamp the canonical requester agent id; parent-authority validation moves to a new trusted requesterSessionKey field. projectSessionActor enriches agent actors with configured identity name/avatar at read time, and visible sessions_spawn returns a sessionUrl + owner receipt with URL-first acknowledgement guidance. * feat(sessions): assignable session ownership with owner facet and menus GitHub-assignee-style ownership: sessions get a mutable owner (defaulting to the immutable createdActor) stored in additive bare-nullable SQLite columns with first-use lazy ensure. New operator.write sessions.assignOwner validates targets, requires an identified caller, authorizes by session visibility, and records assignedBy/assignedAt inside the write transaction. The sessions agent tool gains assign_owner; the Control UI adds Assign-to-me/Assign-to menus in sidebar rows and chat headers, renders the effective owner chip, and the creator facet/filter now keys on effective owner. Sharing authority stays anchored on createdActor. * feat(sessions): record session participants and stack them in the owner chip Records every distinct external prompter (human profile/channel sender, or a requesting agent) per session in an additive session_participants table at the turn-admission boundary — best-effort, deferred, never blocking the turn; the session's own agent and viewers are never recorded, capped at 32 per session. The session row projects a bounded participants list (owner excluded) plus a total count with the same actor enrichment as owner/createdActor. The sidebar chip becomes a pair-stack when others have prompted (owner front, one peeking participant or +N behind), the chat header shows the full facepile, and an authenticated involvingMe list filter adds an Involving-me sidebar predicate. Participant projection is excluded from logical-session CAS equality so display history never invalidates session writes. * fix(sessions): identify built-in agent tool callers for owner assignment The sessions tool's assign_owner dispatched through the in-process synthetic client, which carries neither a signed agent-runtime identity nor a human profile, so agent-initiated reassignment always failed with FORBIDDEN. The tool now captures its trusted requester agent identity and carries it across in-process dispatch as internal client state (never wire params); the handler derives assignedBy as signed runtime identity, then trusted agent-tool caller, then authenticated human. Live-verified end-to-end on a dev gateway. * fix(ci): split oversized session modules and refresh prompt snapshots Split the max-lines offenders at concept boundaries for session equality, tool overrides, and protocol owner schemas. Remove the redundant Number conversion from the node:sqlite participant count. Refresh prompt snapshots after drift from the sessions and sessions_spawn tool description updates. * fix(ci): restore solo-mode chip suppression and conform new method descriptors Solo-mode root cause: owner-assignment submenu options reused the permanent owner-chip custom element, so hidden menu avatars were counted as attribution chrome. Menus now use viewer avatars while gateway-gated owner chips remain exclusive to collaborative sessions. Conform sessions.assignOwner to the 2026.8 descriptor and append-only advertised-method inventories, and regenerate the Swift and Kotlin protocol surfaces. Keep historical v15/v14 fixtures frozen by stripping the new owner columns; the existing range already excludes the participant table. Replace the new raw SQLite schema probes with synchronous Kysely queries. Clear max-lines by splitting the organizer host contract, pure agent-navigation projections, and ownership/filtering sidebar cases at their concept boundaries. * fix(ci): integrate ownership series with latest main surfaces Wire the sessions-page assign-owner action, merge capability imports, narrow the navigation export scope, and apply sessions-create formatting. The owner-presence regression came from hidden assign-owner menu avatars emitting data-viewer-id, so owner and menu chrome now opt out of presence markers while real facepiles retain them. * fix(sessions): scope the involving-me filter to profile-backed participants Session participant history mixed channel-native sender ids with authenticated Gateway profile ids, so involving-me missed real sessions and could accept numeric collisions. Record the actor_source namespace at each producer, carry it through the internal SQLite projection, and match authenticated viewers only against profile-backed human participants. Legacy NULL sources fail closed for filtering, while channel ids remain available for display. * build(ui): raise startup budget baseline for session ownership surfaces Ownership chips, assignment menus, and the participant stack add ~0.7 KiB gzip to the startup path; CI compression landed just over the previous baseline+tolerance. Hard cap (350 KiB) unchanged. * refactor(sessions): drop raw NULL projection for the lazy actor_source column The Kysely guardrail rejects typed raw sql snippets outside allowlisted boundaries; select the lazily-ensured column only when present and let the row projection treat its absence as unknown/legacy. * build(ui): refresh combined startup baseline",
+      "title": "fix(ui): refresh startup budget baseline (#125200)",
+      "link": "https://github.com/openclaw/openclaw/commit/7efd0f0feb667c75c0fe16654393b4c03eba0979",
+      "publishedAt": "2026-08-17T10:01:50Z",
+      "summary": "fix(ui): refresh startup budget baseline (#125200) Amp-Thread-ID: https://ampcode.com/threads/T-01a00f1b-89ce-727e-8bab-bb3f12f9458f Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(sessions): three-layer session ownership — agent attribution, as…",
-      "summaryZh": "重點：新功能(sessions): three-layer session ownership — agent attribution, assignable owner, participants (#125057) * 新功能(session..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): refresh startup budget baseline (#125200)",
+      "summaryZh": "重點：修正(ui): refresh startup budget baseline (#125200) Amp-Thread-ID: https://ampcode.com/threads/T-01a00f1b-89ce-727e-8bab-b..."
     },
     {
       "id": 9,
-      "title": "fix(ci): enforce env budget before merge (#125189)",
-      "link": "https://github.com/openclaw/openclaw/commit/fbd910d417ec81d3fc4487c60f1772d5bdafc1ff",
-      "publishedAt": "2026-08-17T09:32:57Z",
-      "summary": "fix(ci): enforce env budget before merge (#125189)",
+      "title": "fix(agents): standardize image inspection as view_image (#125024)",
+      "link": "https://github.com/openclaw/openclaw/commit/916932b007e12790ca7b7476258b1aedac365319",
+      "publishedAt": "2026-08-17T10:01:12Z",
+      "summary": "fix(agents): standardize image inspection as view_image (#125024) * chore: refresh CI after main fix * fix(agents): standardize image inspection as view_image * fix(agents): preserve view_image activity display * fix(agents): satisfy view_image display gates * fix(ui): snapshot cloud worker draft before save * perf(ui): compact fallback tool catalog * fix(agents): preserve view_image upgrade boundaries * chore(ui): refresh historical image display snapshot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): enforce env budget before merge (#125189)",
-      "summaryZh": "重點：修正(ci): enforce env budget before merge (#125189)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): standardize image inspection as view_image (#125024)",
+      "summaryZh": "重點：修正(agents): standardize image inspection as view_image (#125024) * chore: refresh CI after main 修正 * 修正(agents): standar..."
     },
     {
       "id": 10,
-      "title": "fix(gateway): separate GitHub preview credentials (#125158)",
-      "link": "https://github.com/openclaw/openclaw/commit/1487b45eb8104daea9cae3323cf84acb0783b19c",
-      "publishedAt": "2026-08-17T09:31:01Z",
-      "summary": "fix(gateway): separate GitHub preview credentials (#125158) * fix(gateway): isolate GitHub service credentials * fix(gateway): harden GitHub credential isolation * refactor(gateway): scope GitHub preview credentials * fix(ui): refresh GitHub credential copy baseline * fix(gateway): revalidate cached GitHub previews",
+      "title": "fix(sessions): stop max-lines compaction backup leaks (#125183)",
+      "link": "https://github.com/openclaw/openclaw/commit/4ffcd972d3c353213ae5e14e6b3e66d42a352ad0",
+      "publishedAt": "2026-08-17T09:45:20Z",
+      "summary": "fix(sessions): stop max-lines compaction backup leaks (#125183) * fix(sessions): stop max-lines compaction backup leaks * fix(sessions): reclaim legacy compact backups",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): separate GitHub preview credentials (#125158)",
-      "summaryZh": "重點：修正(Gateway): separate GitHub preview credentials (#125158) * 修正(Gateway): isolate GitHub service credentials * 修正(Gatewa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): stop max-lines compaction backup leaks (#125183)",
+      "summaryZh": "重點：修正(sessions): stop max-lines compaction backup leaks (#125183) * 修正(sessions): stop max-lines compaction backup leaks * ..."
     }
   ]
 }
