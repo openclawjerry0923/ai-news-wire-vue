@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-08-17T22:24:45.832Z",
+  "generatedAt": "2026-08-17T23:22:53.870Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): memory-flush append-only write returns outputSchema-conf…",
-      "link": "https://github.com/openclaw/openclaw/commit/aebe360349aef1c6ec4e4e67c5e81050c4a07728",
-      "publishedAt": "2026-08-17T22:16:02Z",
-      "summary": "fix(agents): memory-flush append-only write returns outputSchema-conforming details (#120404) * fix(agents): make memory-flush append-only write honor the write outputSchema The memory-flush append-only write wrapper inherits the base write tool (and its declared outputSchema) via spread, but returned {path, appendOnly} details. The code-mode bridge validates results against the declared schema and rejected the call AFTER the append side effect had landed (reported as the outputSchema variant in #120385). Return {changed: true, created: } via a best-effort pre-append existence probe; sandbox-bridged appends omit created rather than guess. Exports WriteToolOutputSchema for the new contract test. * fix(agents): memory-flush append-only write returns outputSchema-conforming details Address ClawSweeper review findings on #120404: P1 - Update the remaining append-only wrapper expectations. Three test sites still asserted the removed `{ path, appendOnly }` / `created` shapes and would have failed after the return expression changed: - src/agents/agent-tools.workspace-paths.test.ts (2 assertions) - src/agents/embedded-agent-runner/run/attempt.memory-flush-forwarding.test.ts - src/agents/agent-tools.memory-flush-append-write.test.ts All now assert `{ changed: true }` and are included in focused validation. P2 - Avoid reporting a non-authoritative created flag. Removed the pre-append existence probe entirely rather than narrowing it. The probe ran before the append, so another writer could create or remove the target in between while the result still claimed `created` - a TOCTOU guess the append path cannot make authoritatively. The inherited write outputSchema permits the bare `{ changed: true }` shape, so the wrapper now reports only what the call actually knows. This also deletes the sandbox/non-sandbox divergence the probe introduced. Net effect: -31 lines. The fix is now purely subtractive on the source side. Validation: 7 test files, 85 passed / 2 skipped; oxlint clean on all touched files. * test(agents): validate memory-flush schema via public tool * fix(agents): condense memory flush result contract comment * test(agents): use narrow write-tool barrel --------- Co-authored-by: Grynn",
+      "title": "fix(telegram): unify targeted command grammar (#125195)",
+      "link": "https://github.com/openclaw/openclaw/commit/39dc653c5e5e4d2a5865a21c2be9b0525b8f0e16",
+      "publishedAt": "2026-08-17T23:22:46Z",
+      "summary": "fix(telegram): unify targeted command grammar (#125195) * fix(telegram): unify command target parsing * fix(telegram): align supersede target routing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): 記憶-flush append-only write returns outputSchema-conf…",
-      "summaryZh": "重點：修正(agents): 記憶-flush append-only write returns outputSchema-conforming details (#120404) * 修正(agents): make 記憶-flush app..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): unify targeted command grammar (#125195)",
+      "summaryZh": "重點：修正(Telegram): unify targeted command grammar (#125195) * 修正(Telegram): unify command target parsing * 修正(Telegram): alig..."
     },
     {
       "id": 2,
-      "title": "fix(talk): preserve caller tool authority in consults (#125392)",
-      "link": "https://github.com/openclaw/openclaw/commit/0b75ea3cefcd1e4532f9b5c08d455433debdcba7",
-      "publishedAt": "2026-08-17T21:50:39Z",
-      "summary": "fix(talk): preserve caller tool authority in consults (#125392)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(talk): preserve caller tool authority in consults (#125392)",
-      "summaryZh": "重點：修正(talk): preserve caller tool authority in consults (#125392)..."
+      "title": "地震不是最大風險，日本供應鏈真正考驗的是韌性",
+      "link": "https://finance.technews.tw/2026/08/18/japan-quake-halts-auto-and-chip-plants-testing-supply-chain-resilience/",
+      "publishedAt": "Mon, 17 Aug 2026 23:20:22 +0000",
+      "summary": "熊本地震時，汽車零組件巨頭愛信（Aisin）位於震央附近的工廠遭受重創，導致豐田汽車（Toyota）全日本多座 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(doctor): migrate pairing state on multi-agent updates (#125417)",
-      "link": "https://github.com/openclaw/openclaw/commit/7b8d5f16379500f69ea39877187cdd0cf62a0862",
-      "publishedAt": "2026-08-17T21:49:35Z",
-      "summary": "fix(doctor): migrate pairing state on multi-agent updates (#125417) * fix(doctor): preserve migration owner for pairing state * fix(doctor): preserve ambiguous pairing ownership",
+      "title": "test: make descendant pid files signal readiness (#125441)",
+      "link": "https://github.com/openclaw/openclaw/commit/47afdd966581d1c76f947cc820e6dbbb484b8031",
+      "publishedAt": "2026-08-17T23:20:01Z",
+      "summary": "test: make descendant pid files signal readiness (#125441)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): migrate pairing state on multi-agent updates (#125417)",
-      "summaryZh": "重點：修正(文件tor): migrate pairing state on multi-agent updates (#125417) * 修正(文件tor): preserve migration owner for pairing stat..."
+      "titleZh": "OpenClaw 程式碼更新：test: make descendant pid files signal readiness (#125441)",
+      "summaryZh": "重點：test: make descendant pid files signal readiness (#125441)..."
     },
     {
       "id": 4,
-      "title": "perf(test): reuse proxy CLI runtime module (#125387)",
-      "link": "https://github.com/openclaw/openclaw/commit/fa9ab1d40cd6624399f4fb85830ff1d4f4056a88",
-      "publishedAt": "2026-08-17T21:39:08Z",
-      "summary": "perf(test): reuse proxy CLI runtime module (#125387)",
+      "title": "fix(ai): skip malformed thinking signatures during replay (#123228)",
+      "link": "https://github.com/openclaw/openclaw/commit/438c55cc4f0d5f42d744430565fc7572c1c58236",
+      "publishedAt": "2026-08-17T23:19:47Z",
+      "summary": "fix(ai): skip malformed thinking signatures during replay (#123228) Responses replay parsed persisted thinking signatures without validating their JSON shape, so corrupt or unrelated values could prevent every later turn in a session. Parse signatures in the shared replay owner and accept only reasoning records. Cover malformed syntax, null, arrays, and wrong item types through both provider- and transport-style converters.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse proxy CLI runtime module (#125387)",
-      "summaryZh": "重點：perf(test): reuse proxy CLI runtime module (#125387)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ai): skip malformed thinking signatures during replay (#123228)",
+      "summaryZh": "重點：修正(ai): skip malformed thinking signatures during replay (#123228) Responses replay parsed persisted thinking signatures..."
     },
     {
       "id": 5,
+      "title": "improve(ui): simplify message chrome and actions (#125241)",
+      "link": "https://github.com/openclaw/openclaw/commit/d975d9ba4a514504dc9b2b2450ea01eda7d4ddd7",
+      "publishedAt": "2026-08-17T23:19:31Z",
+      "summary": "improve(ui): simplify message chrome and actions (#125241) * improve(ui): simplify message chrome * fix(ui): clear loading bubble shadow",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): simplify message chrome and actions (#125241)",
+      "summaryZh": "重點：improve(ui): simplify message chrome and actions (#125241) * improve(ui): simplify message chrome * 修正(ui): clear loadin..."
+    },
+    {
+      "id": 6,
+      "title": "東京熱浪讓獅子也撐不住，大型動物的散熱極限",
+      "link": "https://technews.tw/2026/08/18/tokyo-heatwave-takes-toll-on-even-the-lions/",
+      "publishedAt": "Mon, 17 Aug 2026 23:10:31 +0000",
+      "summary": "近年極端熱浪頻繁席捲世界各地，不只造成破紀錄的高溫，也讓人類面臨中暑、心血管疾病惡化，甚至死亡的風險。高溫衝擊 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "當 LFP 不再便宜：磷酸鐵漲價如何撼動新能源車產業鏈",
+      "link": "https://finance.technews.tw/2026/08/18/lfp-no-longer-cheap-rising-lithium-iron-phosphate-prices-shake-up-nev-industry-chain/",
+      "publishedAt": "Mon, 17 Aug 2026 23:00:00 +0000",
+      "summary": "磷酸鐵鋰電池（簡稱 LFP）正極材料大廠湖南裕能宣布，8 月 1 日起調漲磷酸鐵鋰，每噸調漲約 2,000 人 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "ChatGPT開始記住Mac工作軌跡，Computer History建立跨App記憶",
       "link": "https://www.ithome.com.tw/news/178173",
       "publishedAt": "2026-08-17 12:08:54",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "全球供應鏈與配銷公司Wesco發生資安事故，駭客組織ExfilSquad聲稱是他們所為",
       "link": "https://www.ithome.com.tw/news/178176",
       "publishedAt": "2026-08-17 12:08:39",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Anthropic Claude於8月16日發生大當機，AI、API與Claude Code等多項服務均受影響",
       "link": "https://www.ithome.com.tw/news/178172",
       "publishedAt": "2026-08-17 12:08:35",
       "summary": "Anthropic的Claude服務8月16日（臺灣時間8月17日）發生大規模服務中斷，臺灣時間8月17日凌晨5時58分起陸續出現登入驗證問題，Anthropic於臺灣時間上午6時02分確認發生問題，並表示影響範圍已經擴大，包括Claude.ai、Claude Console、Claude API、Claude Code與Claude Cowork等多項服務均出現效能下降。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Dynatrace以9.15億美元併購Arize，整合AI與軟體可觀測性",
-      "link": "https://www.ithome.com.tw/news/178177",
-      "publishedAt": "2026-08-17 12:08:17",
-      "summary": "企業可觀測性平臺業者Dynatrace上週四（8/13）宣布，將以9.15億美元併購AI可觀測性新創Arize，整合AI模型、代理人與傳統軟體系統的可觀測性。該交易預計於今年9月底或10月初完成。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "多家公司發生資安事故，勒索軟體Clop聲稱竊得石油巨頭殼牌89 GB資料",
-      "link": "https://www.ithome.com.tw/news/178174",
-      "publishedAt": "2026-08-17 12:08:12",
-      "summary": "6月下旬軟體公司PTC提出警告，產品生命週期管理（PLM）系統Windchill、FlexPLM的重大漏洞CVE-2026-12569遭到利用，後續勒索軟體威脅情報共享社群Ransom-ISAC、威脅情報公司ReliaQuest進一步指出，勒索軟體駭客Clop用於向企業組織進行資料勒索，如今已有多家企業遭Clop列入其聲稱的受害名單。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "法國國稅局坦承遭駭，可能外洩近70萬筆資料",
-      "link": "https://www.ithome.com.tw/news/178175",
-      "publishedAt": "2026-08-17 12:08:09",
-      "summary": "掌管法國稅務的法國公共財政總局（Direction générale des Finances publiques，DGFiP）上週證實遭到駭客存取系統，共67.8萬名個人及專業人士的部分資料可能遭查閱及擷取。",
       "source": "iThome",
       "tag": "繁中"
     }
