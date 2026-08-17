@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-17T20:27:33.730Z",
+  "generatedAt": "2026-08-17T21:26:22.136Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): show menus for child sessions in the sidebar (#125033)",
-      "link": "https://github.com/openclaw/openclaw/commit/248966d300817302f97cabc1a74e0f064cb73d5d",
-      "publishedAt": "2026-08-17T19:59:38Z",
-      "summary": "fix(ui): show menus for child sessions in the sidebar (#125033) * fix(ui): add child session sidebar menus * fix(ui): tailor child session menus * test(ui): align child session menu expectations --------- Co-authored-by: ClawSweeper",
+      "title": "feat(gateway): carry machine class through session moves (#125292)",
+      "link": "https://github.com/openclaw/openclaw/commit/57e862980be151df420585f2d79a1d0d09bfef65",
+      "publishedAt": "2026-08-17T21:25:13Z",
+      "summary": "feat(gateway): carry machine class through session moves (#125292) * feat(gateway): carry machine class through session moves Profile move targets accept an optional machineClass with new-session parity: validated in the protocol, persisted on the durable move intent (bare nullable column, lazy same-version ALTER), replayed exactly by restart recovery, and selectable from the Control UI move dialog. Moving to the current profile with a different class resizes the session's worker. * fix(gateway): project placement facts on chat startup chat.startup and chat.history built sessionInfo without the placement projection sessions.list applies, so clients merging that row erased a live worker placement and its move intent — the Runs on Cloud chip disappeared after any turn until a full reload. Reuse the canonical ensureColumn helper for the move table's additive column instead of a hand-rolled PRAGMA read.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): show menus for child sessions in the sidebar (#125033)",
-      "summaryZh": "重點：修正(ui): show menus for child sessions in the sidebar (#125033) * 修正(ui): add child session sidebar menus * 修正(ui): tailo..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): carry machine class through session moves (#125292)",
+      "summaryZh": "重點：新功能(Gateway): carry machine class through session moves (#125292) * 新功能(Gateway): carry machine class through session mo..."
     },
     {
       "id": 2,
-      "title": "fix: isolate preferred-provider metadata lookup (#125379)",
-      "link": "https://github.com/openclaw/openclaw/commit/d802a8e8b4edc1a53034e203c38fe3635dc8a060",
-      "publishedAt": "2026-08-17T19:53:44Z",
-      "summary": "fix: isolate preferred-provider metadata lookup (#125379) Keep provider-scoped onboarding metadata resolution limited to the selected provider, preventing fallback OpenAI loading when Ollama is chosen without a configured model. Refs #125373 and #125363.",
+      "title": "fix: keep session-memory slug generation tool-free (#125394)",
+      "link": "https://github.com/openclaw/openclaw/commit/8a7b6aa7da1fad1736a6de3f6c57e305ee9e17fc",
+      "publishedAt": "2026-08-17T21:25:10Z",
+      "summary": "fix: keep session-memory slug generation tool-free (#125394)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: isolate preferred-provider metadata lookup (#125379)",
-      "summaryZh": "重點：修正: isolate preferred-provider metadata lookup (#125379) Keep provider-scoped onboarding metadata resolution limited to ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep session-記憶 slug generation tool-free (#125394)",
+      "summaryZh": "重點：修正: keep session-記憶 slug generation tool-free (#125394)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): balance side panel tab pill padding (#125368)",
-      "link": "https://github.com/openclaw/openclaw/commit/29fc91fe99d8832e5031a272f4afb74b05a1da70",
-      "publishedAt": "2026-08-17T19:51:27Z",
-      "summary": "fix(ui): balance side panel tab pill padding (#125368) Fixes crowded side-panel tab close padding and keeps the joined pill balanced in LTR and RTL. Co-authored-by: Tak Hoffman",
+      "title": "fix(memory): enforce live revocation (#125393)",
+      "link": "https://github.com/openclaw/openclaw/commit/9e7da04686a27c84537deff89b6490a95fe69dd9",
+      "publishedAt": "2026-08-17T21:25:07Z",
+      "summary": "fix(memory): enforce live revocation (#125393)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): balance side panel tab pill padding (#125368)",
-      "summaryZh": "重點：修正(ui): balance side panel tab pill padding (#125368) 修正 crowded side-panel tab close padding and keeps the joined pill ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): enforce live revocation (#125393)",
+      "summaryZh": "重點：修正(記憶): enforce live revocation (#125393)..."
     },
     {
       "id": 4,
-      "title": "fix(voice-call): status exits after offline lookup (#125354)",
-      "link": "https://github.com/openclaw/openclaw/commit/9f5776e071d15242e88470526e9723c1869f28ae",
-      "publishedAt": "2026-08-17T19:34:19Z",
-      "summary": "fix(voice-call): status exits after offline lookup (#125354) * fix(voice-call): keep status fallback read-only * test(voice-call): assert offline status stays read-only * chore: keep changelog release-owned * test(voice-call): share status fallback harness",
+      "title": "fix(parallel): redact x-api-key reflected in web search error bodies …",
+      "link": "https://github.com/openclaw/openclaw/commit/37ca2c69000ee8a233398fe482b3eff22a3e4c28",
+      "publishedAt": "2026-08-17T21:19:27Z",
+      "summary": "fix(parallel): redact x-api-key reflected in web search error bodies (#120205) * fix(parallel): redact x-api-key reflected in web search error bodies * fix(parallel): use canonical tool-payload redactor for reflected error bodies * fix(parallel): layer configured redactPatterns over header-shape redaction",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): status exits after offline lookup (#125354)",
-      "summaryZh": "重點：修正(voice-call): status exits after offline lookup (#125354) * 修正(voice-call): keep status fallback read-only * test(voic..."
+      "titleZh": "OpenClaw 程式碼更新：修正(parallel): redact x-api-key reflected in web search error bodies …",
+      "summaryZh": "重點：修正(parallel): redact x-api-key reflected in web search error bodies (#120205) * 修正(parallel): redact x-api-key reflected..."
     },
     {
       "id": 5,
