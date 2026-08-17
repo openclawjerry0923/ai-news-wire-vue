@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T06:56:20.044Z",
+  "generatedAt": "2026-08-17T07:54:46.787Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(ui): widen the review sidebar by default (#125116)",
-      "link": "https://github.com/openclaw/openclaw/commit/84853266e7b1d42001661af9aedcd261ca7b4c95",
-      "publishedAt": "2026-08-17T06:55:49Z",
-      "summary": "fix(ui): widen the review sidebar by default (#125116) * fix(ui): widen code review panel by default * test(ui): align sidebar layout default --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(talk): preserve agent scope in browser capabilities (#125142)",
+      "link": "https://github.com/openclaw/openclaw/commit/3b8f9fb5a2bb0e3c7f572d86b68fb371cef30eb3",
+      "publishedAt": "2026-08-17T07:42:54Z",
+      "summary": "fix(talk): preserve agent scope in browser capabilities (#125142) Ensure gateway-control capability checks use the same routed agent as realtime provider readiness and browser-session authentication.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): widen the review sidebar by default (#125116)",
-      "summaryZh": "重點：修正(ui): widen the review sidebar by default (#125116) * 修正(ui): widen code review panel by default * test(ui): align sid..."
+      "titleZh": "OpenClaw 程式碼更新：修正(talk): preserve agent scope in browser capabilities (#125142)",
+      "summaryZh": "重點：修正(talk): preserve agent scope in browser capabilities (#125142) Ensure Gateway-control capability checks use the same r..."
     },
     {
       "id": 8,
-      "title": "perf(gateway): reduce chat history read-path work (#125123)",
-      "link": "https://github.com/openclaw/openclaw/commit/2e1a9a1a3d91c71db7d9e48f77e7ec41e004440f",
-      "publishedAt": "2026-08-17T06:54:20Z",
-      "summary": "perf(gateway): reduce chat history read-path work (#125123)",
+      "title": "refactor(media): remove orphan runtime facades (#125121)",
+      "link": "https://github.com/openclaw/openclaw/commit/23ea04a375c1a1b61e4c454545e52c03f0d6acfc",
+      "publishedAt": "2026-08-17T07:42:33Z",
+      "summary": "refactor(media): remove orphan runtime facades (#125121)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): reduce chat history read-path work (#125123)",
-      "summaryZh": "重點：perf(Gateway): reduce chat history read-path work (#125123)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(media): remove orphan runtime facades (#125121)",
+      "summaryZh": "重點：refactor(media): remove orphan runtime facades (#125121)..."
     },
     {
       "id": 9,
-      "title": "fix(cli): honor channel resolve agent ownership (#125109)",
-      "link": "https://github.com/openclaw/openclaw/commit/83d279a4c18a571a5b2c6e8b2ad204d5e6db42e2",
-      "publishedAt": "2026-08-17T06:50:52Z",
-      "summary": "fix(cli): honor channel resolve agent ownership (#125109) * fix(cli): honor channel resolve agent ownership Forward explicit channel owners through command-time secret collection and later workspace/channel resolution, preventing AGENT_SELECTION_REQUIRED in multi-agent configurations. * fix(cli): narrow explicit agent option value Use runtime string narrowing for the Commander option so agent-owner forwarding remains assertion-free and satisfies the assertion-safety ratchet. * docs(cli): document channel resolve agent owner",
+      "title": "fix(runtime): classify Node releases consistently across install and …",
+      "link": "https://github.com/openclaw/openclaw/commit/a917c99e92c8851a539a97f48fc3a09e1e2092e5",
+      "publishedAt": "2026-08-17T07:42:23Z",
+      "summary": "fix(runtime): classify Node releases consistently across install and launch (#124812) * fix(runtime): align Node release version guards Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(runtime): include Node version helper in source fixture * fix(install): align Node release checks across boundaries Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix: keep node version guard legacy-compatible Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(runtime): exercise legacy launcher preflight * fix(installer): validate installed Node release versions Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(installer): compare Node version parts numerically Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(installer): cover 17-digit Node major --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): honor channel resolve agent ownership (#125109)",
-      "summaryZh": "重點：修正(cli): honor channel resolve agent ownership (#125109) * 修正(cli): honor channel resolve agent ownership Forward explic..."
+      "titleZh": "OpenClaw 程式碼更新：修正(runtime): classify Node 版本發布s consistently across install and …",
+      "summaryZh": "重點：修正(runtime): classify Node 版本發布s consistently across install and launch (#124812) * 修正(runtime): align Node 版本發布 version..."
     },
     {
       "id": 10,
-      "title": "fix(config): materialize fresh-install defaults for missing config (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/7b18510e6c79c6fa2bd391699694ac6aba879c4e",
-      "publishedAt": "2026-08-17T06:48:46Z",
-      "summary": "fix(config): materialize fresh-install defaults for missing config (#125110) * fix(config): materialize fresh-install defaults for missing config A missing config file (fresh install) skipped runtime-defaults materialization on both loadConfig and readConfigFileSnapshot, while an existing empty {} config got the full defaults (compaction safeguard, session/cron/model defaults). Out-of-box behavior silently diverged from the documented defaults until the first config write created the file. The drift dates to bc75968074f, which dropped the missing-branch materializeRuntimeConfig call during an import-trim. Route the missing-file branches through the same load/snapshot materialization as existing configs, and delete the now-unreferenced per-mode defaults profile table in materialize.ts — load and snapshot must materialize identically anyway (prepared-runtime exact-config resolution depends on it), so the profile indirection only invited drift. * chore(ratchet): shrink io.load.ts assertion baseline to 2 The missing-config fix removed an 'as OpenClawConfig' cast; the assertion-safety ratchet requires the baseline to shrink with it.",
+      "title": "fix(sessions): flatten Markdown in session list previews (#125113)",
+      "link": "https://github.com/openclaw/openclaw/commit/9a947e4bb8d05c5cd69ef453e8ba1e54c02b0d83",
+      "publishedAt": "2026-08-17T07:40:16Z",
+      "summary": "fix(sessions): flatten Markdown in session list previews (#125113) * fix(sessions): flatten Markdown in session list previews Session-list previews were extracted verbatim from the last transcript message, so raw Markdown leaked into every surface that renders the subtitle as plain text — Control UI sidebar, TUI picker, native session lists, and the sessions_list tool. A finished session read as \"Landed [PR #124879](https://github.com/...)\". Flatten lastMessagePreview at the Gateway producer, inside the watermark-validated title-field cache, so the cost is amortized and no consumer re-implements stripping. The flattener is the regex chain that already existed privately in the Control UI narration line; it moves to @openclaw/normalization-core/markdown-plain-text and both surfaces now share one implementation. Session titles keep their own normalization and are unchanged. Also let an unread final observer digest outrank the raw last reply in the sidebar subtitle, so the utility model's headline wins the slot it was written for. The finalDigestUnread gate is untouched, so an already-read digest still falls back to the flattened preview. * fix(ci): register Markdown preview module * fix(sessions): preserve literal preview punctuation * fix(sessions): flatten previews before truncation * fix(test): adapt session projection callback",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): materialize fresh-install defaults for missing config (#…",
-      "summaryZh": "重點：修正(config): materialize fresh-install defaults for missing config (#125110) * 修正(config): materialize fresh-install defa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): flatten Markdown in session list previews (#125113)",
+      "summaryZh": "重點：修正(sessions): flatten Markdown in session list previews (#125113) * 修正(sessions): flatten Markdown in session list previ..."
     }
   ]
 }
