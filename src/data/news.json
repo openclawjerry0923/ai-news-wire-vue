@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T08:43:30.105Z",
+  "generatedAt": "2026-08-17T09:41:31.385Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(node-host): recover MCP catalogs and sessions (#125092)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee86b24ac17086401c76a92153bc611e02bc313a",
-      "publishedAt": "2026-08-17T08:39:33Z",
-      "summary": "fix(node-host): recover MCP catalogs and sessions (#125092) * fix(node-host): recover MCP catalogs and sessions Share placement-neutral MCP lifecycle and result projection while keeping Gateway session ownership and node process ownership separate. Refresh node catalogs live, recover closed or expired transports without replay, and preserve MCP application errors across node.invoke.\\n\\nFixes #125044 * test: register node MCP CI inventory * fix(node-host): stop MCP recovery after abort",
+      "title": "fix(install): avoid unusable checkout directories after failed clones…",
+      "link": "https://github.com/openclaw/openclaw/commit/076a8cc6163660194c5663a9cc049f8f5144e732",
+      "publishedAt": "2026-08-17T09:40:07Z",
+      "summary": "fix(install): avoid unusable checkout directories after failed clones (#124872) * fix(install): publish fresh git clones transactionally Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(installer): preserve empty clone destinations transactionally Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(update): satisfy transactional clone lint Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(update): type recovery directory assertion * fix(installer): retain canonical clone checkout Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * fix(update): retain published checkout root Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae * test(update): cover package preflight before clone Amp-Thread-ID: https://ampcode.com/threads/T-01a00ae0-190d-718b-8a76-b75f3e8d1fae --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(node-host): recover MCP catalogs and sessions (#125092)",
-      "summaryZh": "重點：修正(node-host): recover MCP catalogs and sessions (#125092) * 修正(node-host): recover MCP catalogs and sessions Share plac..."
+      "titleZh": "OpenClaw 程式碼更新：修正(install): avoid unusable checkout directories after failed clones…",
+      "summaryZh": "重點：修正(install): avoid unusable checkout directories after failed clones (#124872) * 修正(install): publish fresh git clones t..."
     },
     {
       "id": 8,
-      "title": "refactor(channels): move read-gate policy to channel plugins (#125136)",
-      "link": "https://github.com/openclaw/openclaw/commit/fcb499a4ced98b33f3f322efc2790f4db1d64e4c",
-      "publishedAt": "2026-08-17T08:38:30Z",
-      "summary": "refactor(channels): move read-gate policy to channel plugins (#125136) * refactor(channels): move read-gate policy to plugins * test(channels): declare bundled Discord read gates",
+      "title": "feat(sessions): three-layer session ownership — agent attribution, as…",
+      "link": "https://github.com/openclaw/openclaw/commit/55ce95fac803ae9ef54438748a8c610825960729",
+      "publishedAt": "2026-08-17T09:35:20Z",
+      "summary": "feat(sessions): three-layer session ownership — agent attribution, assignable owner, participants (#125057) * feat(sessions): stamp agent identity on spawned sessions and return spawn receipts Agent-spawned sessions recorded the requesting session key as createdActor.id, so the Control UI creator chip rendered an opaque key. Spawn producers now stamp the canonical requester agent id; parent-authority validation moves to a new trusted requesterSessionKey field. projectSessionActor enriches agent actors with configured identity name/avatar at read time, and visible sessions_spawn returns a sessionUrl + owner receipt with URL-first acknowledgement guidance. * feat(sessions): assignable session ownership with owner facet and menus GitHub-assignee-style ownership: sessions get a mutable owner (defaulting to the immutable createdActor) stored in additive bare-nullable SQLite columns with first-use lazy ensure. New operator.write sessions.assignOwner validates targets, requires an identified caller, authorizes by session visibility, and records assignedBy/assignedAt inside the write transaction. The sessions agent tool gains assign_owner; the Control UI adds Assign-to-me/Assign-to menus in sidebar rows and chat headers, renders the effective owner chip, and the creator facet/filter now keys on effective owner. Sharing authority stays anchored on createdActor. * feat(sessions): record session participants and stack them in the owner chip Records every distinct external prompter (human profile/channel sender, or a requesting agent) per session in an additive session_participants table at the turn-admission boundary — best-effort, deferred, never blocking the turn; the session's own agent and viewers are never recorded, capped at 32 per session. The session row projects a bounded participants list (owner excluded) plus a total count with the same actor enrichment as owner/createdActor. The sidebar chip becomes a pair-stack when others have prompted (owner front, one peeking participant or +N behind), the chat header shows the full facepile, and an authenticated involvingMe list filter adds an Involving-me sidebar predicate. Participant projection is excluded from logical-session CAS equality so display history never invalidates session writes. * fix(sessions): identify built-in agent tool callers for owner assignment The sessions tool's assign_owner dispatched through the in-process synthetic client, which carries neither a signed agent-runtime identity nor a human profile, so agent-initiated reassignment always failed with FORBIDDEN. The tool now captures its trusted requester agent identity and carries it across in-process dispatch as internal client state (never wire params); the handler derives assignedBy as signed runtime identity, then trusted agent-tool caller, then authenticated human. Live-verified end-to-end on a dev gateway. * fix(ci): split oversized session modules and refresh prompt snapshots Split the max-lines offenders at concept boundaries for session equality, tool overrides, and protocol owner schemas. Remove the redundant Number conversion from the node:sqlite participant count. Refresh prompt snapshots after drift from the sessions and sessions_spawn tool description updates. * fix(ci): restore solo-mode chip suppression and conform new method descriptors Solo-mode root cause: owner-assignment submenu options reused the permanent owner-chip custom element, so hidden menu avatars were counted as attribution chrome. Menus now use viewer avatars while gateway-gated owner chips remain exclusive to collaborative sessions. Conform sessions.assignOwner to the 2026.8 descriptor and append-only advertised-method inventories, and regenerate the Swift and Kotlin protocol surfaces. Keep historical v15/v14 fixtures frozen by stripping the new owner columns; the existing range already excludes the participant table. Replace the new raw SQLite schema probes with synchronous Kysely queries. Clear max-lines by splitting the organizer host contract, pure agent-navigation projections, and ownership/filtering sidebar cases at their concept boundaries. * fix(ci): integrate ownership series with latest main surfaces Wire the sessions-page assign-owner action, merge capability imports, narrow the navigation export scope, and apply sessions-create formatting. The owner-presence regression came from hidden assign-owner menu avatars emitting data-viewer-id, so owner and menu chrome now opt out of presence markers while real facepiles retain them. * fix(sessions): scope the involving-me filter to profile-backed participants Session participant history mixed channel-native sender ids with authenticated Gateway profile ids, so involving-me missed real sessions and could accept numeric collisions. Record the actor_source namespace at each producer, carry it through the internal SQLite projection, and match authenticated viewers only against profile-backed human participants. Legacy NULL sources fail closed for filtering, while channel ids remain available for display. * build(ui): raise startup budget baseline for session ownership surfaces Ownership chips, assignment menus, and the participant stack add ~0.7 KiB gzip to the startup path; CI compression landed just over the previous baseline+tolerance. Hard cap (350 KiB) unchanged. * refactor(sessions): drop raw NULL projection for the lazy actor_source column The Kysely guardrail rejects typed raw sql snippets outside allowlisted boundaries; select the lazily-ensured column only when present and let the row projection treat its absence as unknown/legacy. * build(ui): refresh combined startup baseline",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(channels): move read-gate policy to channel plugins (#125136)",
-      "summaryZh": "重點：refactor(channels): move read-gate policy to channel plugins (#125136) * refactor(channels): move read-gate policy to pl..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(sessions): three-layer session ownership — agent attribution, as…",
+      "summaryZh": "重點：新功能(sessions): three-layer session ownership — agent attribution, assignable owner, participants (#125057) * 新功能(session..."
     },
     {
       "id": 9,
-      "title": "refactor: consolidate final mechanical audit paths (#125165)",
-      "link": "https://github.com/openclaw/openclaw/commit/fb0e8b145e4c5401a8eb97587a51a83312d12331",
-      "publishedAt": "2026-08-17T08:30:21Z",
-      "summary": "refactor: consolidate final mechanical audit paths (#125165)",
+      "title": "fix(ci): enforce env budget before merge (#125189)",
+      "link": "https://github.com/openclaw/openclaw/commit/fbd910d417ec81d3fc4487c60f1772d5bdafc1ff",
+      "publishedAt": "2026-08-17T09:32:57Z",
+      "summary": "fix(ci): enforce env budget before merge (#125189)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: consolidate final mechanical audit paths (#125165)",
-      "summaryZh": "重點：refactor: consolidate final mechanical audit paths (#125165)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): enforce env budget before merge (#125189)",
+      "summaryZh": "重點：修正(ci): enforce env budget before merge (#125189)..."
     },
     {
       "id": 10,
-      "title": "feat(android): pin gateway-backed session search in the sidebar (#124…",
-      "link": "https://github.com/openclaw/openclaw/commit/657b6e8f49a7f4e309dfd6ca1c90ad20503023ae",
-      "publishedAt": "2026-08-17T08:22:16Z",
-      "summary": "feat(android): pin gateway-backed session search in the sidebar (#124338) * fix-android-chat-session-picker * fix-search-all-android-sessions * fix-native-i18n-inventory * fix-android-share-session-browser-policy * fix(android): show loading during session search * refactor(android): move gateway-backed session search into the pinned sidebar The sidebar header and search field no longer scroll away: they sit above the scrolling sections, and the search field is always visible instead of hidden behind a toggle. Queries now run through the shared session-browser search state (debounced gateway search with offline fallback) instead of a local filter over cached rows, and matching threads replace the section list while a query is active. The in-chat bottom-sheet picker is removed: the compact switcher's All button navigates straight to the Sessions screen again, and the sidebar owns in-context session search. The shared rememberSessionBrowserSearchState extraction from the Sessions screen is kept and gains the sidebar as its second consumer. * style(android): fix sidebar import ordering for ktlint --------- Co-authored-by: IWhatsskill Co-authored-by: Peter Steinberger",
+      "title": "fix(gateway): separate GitHub preview credentials (#125158)",
+      "link": "https://github.com/openclaw/openclaw/commit/1487b45eb8104daea9cae3323cf84acb0783b19c",
+      "publishedAt": "2026-08-17T09:31:01Z",
+      "summary": "fix(gateway): separate GitHub preview credentials (#125158) * fix(gateway): isolate GitHub service credentials * fix(gateway): harden GitHub credential isolation * refactor(gateway): scope GitHub preview credentials * fix(ui): refresh GitHub credential copy baseline * fix(gateway): revalidate cached GitHub previews",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(android): pin Gateway-backed session search in the sidebar (#124…",
-      "summaryZh": "重點：新功能(android): pin Gateway-backed session search in the sidebar (#124338) * 修正-android-chat-session-picker * 修正-search-al..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): separate GitHub preview credentials (#125158)",
+      "summaryZh": "重點：修正(Gateway): separate GitHub preview credentials (#125158) * 修正(Gateway): isolate GitHub service credentials * 修正(Gatewa..."
     }
   ]
 }
