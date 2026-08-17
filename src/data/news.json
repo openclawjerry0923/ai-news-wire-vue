@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-17T21:26:22.136Z",
+  "generatedAt": "2026-08-17T22:24:45.832Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(gateway): carry machine class through session moves (#125292)",
-      "link": "https://github.com/openclaw/openclaw/commit/57e862980be151df420585f2d79a1d0d09bfef65",
-      "publishedAt": "2026-08-17T21:25:13Z",
-      "summary": "feat(gateway): carry machine class through session moves (#125292) * feat(gateway): carry machine class through session moves Profile move targets accept an optional machineClass with new-session parity: validated in the protocol, persisted on the durable move intent (bare nullable column, lazy same-version ALTER), replayed exactly by restart recovery, and selectable from the Control UI move dialog. Moving to the current profile with a different class resizes the session's worker. * fix(gateway): project placement facts on chat startup chat.startup and chat.history built sessionInfo without the placement projection sessions.list applies, so clients merging that row erased a live worker placement and its move intent — the Runs on Cloud chip disappeared after any turn until a full reload. Reuse the canonical ensureColumn helper for the move table's additive column instead of a hand-rolled PRAGMA read.",
+      "title": "fix(agents): memory-flush append-only write returns outputSchema-conf…",
+      "link": "https://github.com/openclaw/openclaw/commit/aebe360349aef1c6ec4e4e67c5e81050c4a07728",
+      "publishedAt": "2026-08-17T22:16:02Z",
+      "summary": "fix(agents): memory-flush append-only write returns outputSchema-conforming details (#120404) * fix(agents): make memory-flush append-only write honor the write outputSchema The memory-flush append-only write wrapper inherits the base write tool (and its declared outputSchema) via spread, but returned {path, appendOnly} details. The code-mode bridge validates results against the declared schema and rejected the call AFTER the append side effect had landed (reported as the outputSchema variant in #120385). Return {changed: true, created: } via a best-effort pre-append existence probe; sandbox-bridged appends omit created rather than guess. Exports WriteToolOutputSchema for the new contract test. * fix(agents): memory-flush append-only write returns outputSchema-conforming details Address ClawSweeper review findings on #120404: P1 - Update the remaining append-only wrapper expectations. Three test sites still asserted the removed `{ path, appendOnly }` / `created` shapes and would have failed after the return expression changed: - src/agents/agent-tools.workspace-paths.test.ts (2 assertions) - src/agents/embedded-agent-runner/run/attempt.memory-flush-forwarding.test.ts - src/agents/agent-tools.memory-flush-append-write.test.ts All now assert `{ changed: true }` and are included in focused validation. P2 - Avoid reporting a non-authoritative created flag. Removed the pre-append existence probe entirely rather than narrowing it. The probe ran before the append, so another writer could create or remove the target in between while the result still claimed `created` - a TOCTOU guess the append path cannot make authoritatively. The inherited write outputSchema permits the bare `{ changed: true }` shape, so the wrapper now reports only what the call actually knows. This also deletes the sandbox/non-sandbox divergence the probe introduced. Net effect: -31 lines. The fix is now purely subtractive on the source side. Validation: 7 test files, 85 passed / 2 skipped; oxlint clean on all touched files. * test(agents): validate memory-flush schema via public tool * fix(agents): condense memory flush result contract comment * test(agents): use narrow write-tool barrel --------- Co-authored-by: Grynn",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): carry machine class through session moves (#125292)",
-      "summaryZh": "重點：新功能(Gateway): carry machine class through session moves (#125292) * 新功能(Gateway): carry machine class through session mo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): 記憶-flush append-only write returns outputSchema-conf…",
+      "summaryZh": "重點：修正(agents): 記憶-flush append-only write returns outputSchema-conforming details (#120404) * 修正(agents): make 記憶-flush app..."
     },
     {
       "id": 2,
-      "title": "fix: keep session-memory slug generation tool-free (#125394)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a7b6aa7da1fad1736a6de3f6c57e305ee9e17fc",
-      "publishedAt": "2026-08-17T21:25:10Z",
-      "summary": "fix: keep session-memory slug generation tool-free (#125394)",
+      "title": "fix(talk): preserve caller tool authority in consults (#125392)",
+      "link": "https://github.com/openclaw/openclaw/commit/0b75ea3cefcd1e4532f9b5c08d455433debdcba7",
+      "publishedAt": "2026-08-17T21:50:39Z",
+      "summary": "fix(talk): preserve caller tool authority in consults (#125392)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep session-記憶 slug generation tool-free (#125394)",
-      "summaryZh": "重點：修正: keep session-記憶 slug generation tool-free (#125394)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(talk): preserve caller tool authority in consults (#125392)",
+      "summaryZh": "重點：修正(talk): preserve caller tool authority in consults (#125392)..."
     },
     {
       "id": 3,
-      "title": "fix(memory): enforce live revocation (#125393)",
-      "link": "https://github.com/openclaw/openclaw/commit/9e7da04686a27c84537deff89b6490a95fe69dd9",
-      "publishedAt": "2026-08-17T21:25:07Z",
-      "summary": "fix(memory): enforce live revocation (#125393)",
+      "title": "fix(doctor): migrate pairing state on multi-agent updates (#125417)",
+      "link": "https://github.com/openclaw/openclaw/commit/7b8d5f16379500f69ea39877187cdd0cf62a0862",
+      "publishedAt": "2026-08-17T21:49:35Z",
+      "summary": "fix(doctor): migrate pairing state on multi-agent updates (#125417) * fix(doctor): preserve migration owner for pairing state * fix(doctor): preserve ambiguous pairing ownership",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): enforce live revocation (#125393)",
-      "summaryZh": "重點：修正(記憶): enforce live revocation (#125393)..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): migrate pairing state on multi-agent updates (#125417)",
+      "summaryZh": "重點：修正(文件tor): migrate pairing state on multi-agent updates (#125417) * 修正(文件tor): preserve migration owner for pairing stat..."
     },
     {
       "id": 4,
-      "title": "fix(parallel): redact x-api-key reflected in web search error bodies …",
-      "link": "https://github.com/openclaw/openclaw/commit/37ca2c69000ee8a233398fe482b3eff22a3e4c28",
-      "publishedAt": "2026-08-17T21:19:27Z",
-      "summary": "fix(parallel): redact x-api-key reflected in web search error bodies (#120205) * fix(parallel): redact x-api-key reflected in web search error bodies * fix(parallel): use canonical tool-payload redactor for reflected error bodies * fix(parallel): layer configured redactPatterns over header-shape redaction",
+      "title": "perf(test): reuse proxy CLI runtime module (#125387)",
+      "link": "https://github.com/openclaw/openclaw/commit/fa9ab1d40cd6624399f4fb85830ff1d4f4056a88",
+      "publishedAt": "2026-08-17T21:39:08Z",
+      "summary": "perf(test): reuse proxy CLI runtime module (#125387)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(parallel): redact x-api-key reflected in web search error bodies …",
-      "summaryZh": "重點：修正(parallel): redact x-api-key reflected in web search error bodies (#120205) * 修正(parallel): redact x-api-key reflected..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse proxy CLI runtime module (#125387)",
+      "summaryZh": "重點：perf(test): reuse proxy CLI runtime module (#125387)..."
     },
     {
       "id": 5,
