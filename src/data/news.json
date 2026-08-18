@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T06:42:51.932Z",
+  "generatedAt": "2026-08-18T07:38:05.497Z",
   "items": [
     {
       "id": 1,
@@ -30,7 +30,7 @@
     },
     {
       "id": 4,
-      "title": "Mirai變種殭屍網路Evooo1Bot綁架路由器與工控設備，將其充當代理伺服器",
+      "title": "Mirai變種殭屍網路Evooo1Bot綁架路由器與工控設備",
       "link": "https://www.ithome.com.tw/news/178213",
       "publishedAt": "2026-08-18 12:08:00",
       "summary": "8月13日資安公司Fortinet提出警告，他們在追蹤名為Evooo1Bot的殭屍網路，攻擊者以Mirai原始碼為基礎，在DDoS攻擊能力之外整合多種功能，包含加密C2通訊、SSH暴力破解與掃描工具、SOCKS中繼模組，以及憑證嗅探工具等。再者，Evooo1Bot也把近20個已知漏洞列入武器庫，鎖定Alcatel、Netgear、三菱電機、D-Link等多個廠牌的網路及工控設備，Fortinet指出，此殭屍網路從今年7月開始活躍，在許多地區從事活動。",
@@ -39,7 +39,7 @@
     },
     {
       "id": 5,
-      "title": "勒索軟體Akira以安全模式癱瘓EDR運作，竊取憑證與檔案進行勒索",
+      "title": "勒索軟體Akira以安全模式繞過EDR運作，竊取憑證與檔案進行勒索",
       "link": "https://www.ithome.com.tw/news/178210",
       "publishedAt": "2026-08-18 11:08:50",
       "summary": "最近兩到三年引起資安界關注的勒索軟體Akira，去年底將加密資料的範圍延伸到Nutanix虛擬機器，如今傳出這些駭客又採用新的攻擊手法，再度引起資安公司的注意。",
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "docs(apps): time-box the progress-card legacy plan fallback to 2026-1…",
-      "link": "https://github.com/openclaw/openclaw/commit/561effac2ea514121271e753d5bf87bc192564c3",
-      "publishedAt": "2026-08-18T06:38:55Z",
-      "summary": "docs(apps): time-box the progress-card legacy plan fallback to 2026-10-18 (#125643) The stream:\"plan\" fallback on both native platforms is deliberate compatibility debt with a fixed expiry, not a permanent contract. Record the sunset date, point each platform at its twin and at the tracking issue, and correct the Android note to v2026.8.x (the newest released tag also lacks progressCard.get). Refs #125639",
+      "title": "fix(auth): surface revoked OAuth state without masking provider failu…",
+      "link": "https://github.com/openclaw/openclaw/commit/9ad1c0c68204b2cbc11bb9b3653ba2b640ac7af0",
+      "publishedAt": "2026-08-18T07:35:06Z",
+      "summary": "fix(auth): surface revoked OAuth state without masking provider failures (#125515) * fix(auth): preserve WHAM classifications and failure recording WHAM 401/403 state now drives accurate re-auth guidance, while inline hook failures are contained after persistence so recorded failures cannot escape or be masked. * docs(plugin-sdk): define auth cooldown classifications document the additive cooldown diagnostic contract and cover its canonical public-SDK projection. * fix(auth): keep WHAM diagnostics source-compatible keep cooldownReason canonical, persist exact WHAM diagnostics in optional cooldownClassification, and preserve operator guidance plus failure-hook containment. * fix(auth): keep failover on canonical cooldown reasons ensure optional WHAM diagnostics never drive scheduling and discard mismatched persisted reason/classification pairs.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(apps): time-box the progress-card legacy plan fallback to 2026-1…",
-      "summaryZh": "重點：文件(apps): time-box the progress-card legacy plan fallback to 2026-10-18 (#125643) The stream:\"plan\" fallback on both nat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(auth): surface revoked OAuth state without masking provider failu…",
+      "summaryZh": "重點：修正(auth): surface revoked OAuth state without masking provider failures (#125515) * 修正(auth): preserve WHAM classificati..."
     },
     {
       "id": 8,
-      "title": "improve(ui): redesign tool calls as lightweight transcript activity (…",
-      "link": "https://github.com/openclaw/openclaw/commit/540ea124e09acbd477fa65a37785ff71ff1e12c3",
-      "publishedAt": "2026-08-18T06:36:43Z",
-      "summary": "improve(ui): redesign tool calls as lightweight transcript activity (#125240) * improve(ui): flatten transcript tool activity * improve(ui): complete tool activity redesign * improve(ui): normalize activity row typography * improve(ui): unify activity typography contract * improve(ui): standardize all activity row text * improve(ui): increase activity text size * improve(ui): underline activity filenames * improve(ui): tighten activity row spacing * improve(ui): standardize activity chevrons * improve(ui): reveal child chevrons on interaction * improve(ui): retain active child chevrons * improve(ui): space expanded child tools * improve(ui): remove idle activity fade and gap * fix(ui): preserve tool activity contracts * fix(ui): simplify activity basename lookup * fix(ui): preserve canonical tool row actions * fix(ui): record tool outcomes and repair transcript row regressions Neutral collapsed rows are the design, but this branch left failures with nowhere to land and shipped chrome whose styles it had already deleted. - Expanded standalone tool messages close with the outcome line, so an inline rows shape still reports the failure instead of dropping it. - Progress-card receipts drop the badge and the spinner: this branch removed both styles, leaving a 0x0 invisible running indicator, and the receipt label already names the state. - Single delete patches are non-navigable; their workspace target is gone, so the file action could only ever fail to load. - Flush command padding derives from the action-button size instead of a stale 42px constant, and the running text wave covers command rows again. - Activity lane returns to the tool-shell column width the rule claims. - Drop CSS nothing references: tool-card tabs, empty, plain-output, activity scroll masks, secondary command text. - renderToolDataBlock takes an optional label instead of comparing copy. - Split the oversized tool-card test file and refresh stale row assertions. * fix(ui): fold the tool action size into the card header rule Stylelint no-duplicate-selectors rejects the separate .chat-tool-card__header block; the custom property belongs in the existing rule. --------- Co-authored-by: RoboClaw",
+      "title": "fix(ui): replace user bubble Show more button (#125553)",
+      "link": "https://github.com/openclaw/openclaw/commit/9fb1b7a1a58f0dc739821026c5ad595a32060536",
+      "publishedAt": "2026-08-18T07:34:30Z",
+      "summary": "fix(ui): replace user bubble Show more button (#125553) * fix(ui): replace user bubble show-more button * fix(ui): remove user bubble chevron surface * fix(ui): round user bubble chevron hover * fix(ui): preserve wrapped prompt disclosure * fix(ui): measure wrapped prompt overflow --------- Co-authored-by: RoboClaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): redesign tool calls as lightweight transcript activity (…",
-      "summaryZh": "重點：improve(ui): redesign tool calls as lightweight transcript activity (#125240) * improve(ui): flatten transcript tool act..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): replace user bubble Show more button (#125553)",
+      "summaryZh": "重點：修正(ui): replace user bubble Show more button (#125553) * 修正(ui): replace user bubble show-more button * 修正(ui): remove u..."
     },
     {
       "id": 9,
-      "title": "fix(macos): complete Codex onboarding and model picker (#124829)",
-      "link": "https://github.com/openclaw/openclaw/commit/34c3d15a6b0af05e554060ebf6504a9d0d3c9d75",
-      "publishedAt": "2026-08-18T06:31:12Z",
-      "summary": "fix(macos): complete Codex onboarding and model picker (#124829) * fix(setup): refresh Codex registry with staged install * fix(macos): verify inference before onboarding handoff * fix(setup): use native Codex home for subscription auth * fix(codex): honor attempt-scoped setup config * fix(macos): align onboarding handoff with reopen * fix(setup): await prepared model convergence * fix(ui): avoid false auth state for empty catalog * fix(setup): scope catalog convergence to Codex gateway * fix(setup): publish the committed runtime catalog * fix(models): project configured static runtime models * fix(codex): expose app-server model catalog * fix(models): preserve Codex auth across reloads * fix(ci): align Codex onboarding checks * test(ui): stabilize dock suppression environment * fix(codex): honor discovery config in app-server model catalog The manifest documents discovery.enabled (bundled fallback list) and discovery.timeoutMs (default 2500ms) for model discovery; the new catalog path used the generic 60s request timeout and ignored the enable gate. Also drop the test-only listModels injection seam in favor of vi.mock. * fix(setup): refuse prepared Codex auth over an explicit remote transport configureCodexCliPreparedAuth silently rewrote an explicitly configured websocket/unix app-server to local stdio (keeping a dangling url), moving the credential boundary onto this host. Fail setup with actionable guidance instead; also surface the root cause when the prepared model catalog refresh fails after activation. * refactor(agents): one canonical model-catalog identity key Three near-identical key helpers existed (models-list-result, models-list-configured-static, harness/model-catalog). Export resolveModelCatalogIdentityKey from the route-policy owner, collapse the duplicate dedupe loops into dedupeByKey, make donor enrichment Map-based, and inline the one-off harness-augment wrapper. * fix(macos): restore custodian handoff for fresh activations Landing every finish on the plain dashboard stranded the custodian first-run flow (memory import, channels, permissions, hatch). Fresh activations now hand off to custodian onboarding; live-verified pre-existing setups reopen the normal dashboard, matching the removed already-configured shortcut. Tests pin the destination per path. Also isolate the post-startup Codex login test from developer machines: ambient OPENAI_API_KEY and a real Codex login made it assert-fail. --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(codex): preserve approval timeout outcomes (#125671)",
+      "link": "https://github.com/openclaw/openclaw/commit/9564b9fc006c38b3022c90fb5572e24dca30473e",
+      "publishedAt": "2026-08-18T07:29:15Z",
+      "summary": "fix(codex): preserve approval timeout outcomes (#125671) Preserve operator approval terminal reasons through the harness, map denials and timeouts to Codex decline, and retain visible timeout evidence so the turn can continue instead of being killed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): complete Codex onboarding and 模型 picker (#124829)",
-      "summaryZh": "重點：修正(macos): complete Codex onboarding and 模型 picker (#124829) * 修正(setup): refresh Codex registry with staged install * 修..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve approval timeout outcomes (#125671)",
+      "summaryZh": "重點：修正(codex): preserve approval timeout outcomes (#125671) Preserve operator approval terminal reasons through the harness,..."
     },
     {
       "id": 10,
-      "title": "fix(llama): support embedding-only managed servers (#125383)",
-      "link": "https://github.com/openclaw/openclaw/commit/72c227c7cc30126b0cdaafc80e564e48965f5fad",
-      "publishedAt": "2026-08-18T06:29:43Z",
-      "summary": "fix(llama): support embedding-only managed servers (#125383) * fix(llama): support embedding-only managed servers * docs(llama): describe embedding-only setup * fix(llama): remove unused model reference export * fix(llama-cpp): keep guided setup chat-capable --------- Co-authored-by: Patrick Erichsen",
+      "title": "fix(ui): keep unsent draft indicators visible (#125649)",
+      "link": "https://github.com/openclaw/openclaw/commit/ebe9d38a5f9233ae62699ae582f548ac7a73bcd0",
+      "publishedAt": "2026-08-18T07:19:14Z",
+      "summary": "fix(ui): keep unsent draft indicators visible (#125649) * fix(ui): keep unsent draft indicators visible * test(ui): make markdown table copy assertion deterministic * test(ui): await restored draft attachments",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(llama): support embedding-only managed servers (#125383)",
-      "summaryZh": "重點：修正(llama): support embedding-only managed servers (#125383) * 修正(llama): support embedding-only managed servers * 文件(lla..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep unsent draft indicators visible (#125649)",
+      "summaryZh": "重點：修正(ui): keep unsent draft indicators visible (#125649) * 修正(ui): keep unsent draft indicators visible * test(ui): make m..."
     }
   ]
 }
