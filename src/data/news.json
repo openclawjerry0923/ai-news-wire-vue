@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-18T20:24:22.165Z",
+  "generatedAt": "2026-08-18T21:24:43.825Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): never restore a stored draft over typed new-session composer…",
-      "link": "https://github.com/openclaw/openclaw/commit/a57d9b506081505476d899af9b2073d57b0bd674",
-      "publishedAt": "2026-08-18T20:23:31Z",
-      "summary": "fix(ui): never restore a stored draft over typed new-session composer text (#125884) * fix(ui): never restore a stored draft over typed new-session composer text After a reload the new-session composer renders before the gateway recovery scope arrives; selectRoute then zeroes the draft revision, so text typed in that window lost to the stored draft's higher revision and the async restore overwrote (or, interleaved with input, appended to) what the user had typed. Seen on PR #125690 CI (checks-ui-e2e 5/12, run 32122284238) as a doubled composer value. NewSessionDraftPersistence now records a pristine baseline at each programmatic content replacement (page reset, navigation handoff, restore apply) and restores only when no user mutation happened past it; otherwise the typed text wins and persists above the stored revision, including minting a revision for text typed before route activation so that draft still lands. The chat composer sibling is unaffected: its revision lineage persists synchronously to localStorage. * test(ui): run draft-persistence regression in the isolated ui lane The regression test mocks the statically imported durable-composer-persistence helper (the store runtime is only dynamically imported, so under the shared isolate:false module graph its mock alone is packing-dependent). Isolating the file makes the mocks deterministic and keeps the shared-lane file set unchanged so sibling packing does not shift.",
+      "title": "Revert \"fix(providers): report request acceptance consistently (#1258…",
+      "link": "https://github.com/openclaw/openclaw/commit/5cabd2b72e20912530e5874ae2fff0dec635988e",
+      "publishedAt": "2026-08-18T21:16:09Z",
+      "summary": "Revert \"fix(providers): report request acceptance consistently (#125807)\" (#126021) This reverts commit f5e9622fc982a4c4c403c2460459f13c2636b914.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): never restore a stored draft over typed new-session composer…",
-      "summaryZh": "重點：修正(ui): never restore a stored draft over typed new-session composer text (#125884) * 修正(ui): never restore a stored dra..."
+      "titleZh": "OpenClaw 程式碼更新：Revert \"修正(providers): report request acceptance consistently (#1258…",
+      "summaryZh": "重點：Revert \"修正(providers): report request acceptance consistently (#125807)\" (#126021) This reverts 提交 f5e9622fc982a4c4c403c..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): refresh edited skills in agent RPC sessions (#125962)",
-      "link": "https://github.com/openclaw/openclaw/commit/d1a194b52f6a94816fa1344487097b1e6b9f11e1",
-      "publishedAt": "2026-08-18T20:06:48Z",
-      "summary": "fix(gateway): refresh edited skills in agent RPC sessions (#125962) * fix(gateway): watch skills for agent RPC turns * ci: rebalance hosted agent chat shard",
+      "title": "fix(gateway): apply configured edge auth to session-URL targets (#125…",
+      "link": "https://github.com/openclaw/openclaw/commit/39b39ca6eec684f0675cd93500646b578f6e7021",
+      "publishedAt": "2026-08-18T21:08:51Z",
+      "summary": "fix(gateway): apply configured edge auth to session-URL targets (#125982) * fix(gateway): apply configured edge auth to session-URL targets Follow-up to #125700. A URL target with explicit auth skipped config loading and silently dropped gateway.remote.edgeAuth. Config I/O is now skipped only for plaintext loopback targets. Also document mandatory passEnv: [\"HOME\"] for the cloudflared exec provider. * fix(gateway): keep explicit secure connections working when config is invalid Addresses the ClawSweeper finding on #125982 by preserving the invalid-config recovery path while still applying configured edge auth.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): refresh edited skills in agent RPC sessions (#125962)",
-      "summaryZh": "重點：修正(Gateway): refresh edited skills in agent RPC sessions (#125962) * 修正(Gateway): watch skills for agent RPC turns * ci:..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): apply configured edge auth to session-URL targets (#125…",
+      "summaryZh": "重點：修正(Gateway): apply configured edge auth to session-URL targets (#125982) * 修正(Gateway): apply configured edge auth to se..."
     },
     {
       "id": 3,
-      "title": "test(slack): remove cache reset seams (#125971)",
-      "link": "https://github.com/openclaw/openclaw/commit/6f8e5d90781507f1c11117be87012d8b4f91e8b8",
-      "publishedAt": "2026-08-18T19:47:14Z",
-      "summary": "test(slack): remove cache reset seams (#125971)",
+      "title": "fix(release): offer OCM installation (#126019)",
+      "link": "https://github.com/openclaw/openclaw/commit/695b25386d6a9d82bed85abc0351c54a22a45012",
+      "publishedAt": "2026-08-18T21:08:14Z",
+      "summary": "fix(release): offer OCM installation (#126019)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(slack): remove cache reset seams (#125971)",
-      "summaryZh": "重點：test(slack): remove cache reset seams (#125971)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): offer OCM installation (#126019)",
+      "summaryZh": "重點：修正(版本發布): offer OCM installation (#126019)..."
     },
     {
       "id": 4,
-      "title": "fix(codex): keep large AGENTS.md instructions visible (#125966)",
-      "link": "https://github.com/openclaw/openclaw/commit/d5aff660a248641f2cbc72bbc7a0bf4756473ad7",
-      "publishedAt": "2026-08-18T19:39:52Z",
-      "summary": "fix(codex): keep large AGENTS.md instructions visible (#125966) * fix(codex): raise native project doc budget Default OpenClaw Codex threads to a bounded 128 KiB aggregate project-document budget so large AGENTS.md chains remain visible. Preserve explicit ordinary-thread overrides and keep restricted or lightweight turns at zero. * test(codex): refresh project doc config expectations",
+      "title": "refactor(gateway): remove workspace plugin generation projections (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/fa62fccb867f315bf4282cfc67066d5d878c598a",
+      "publishedAt": "2026-08-18T21:03:27Z",
+      "summary": "refactor(gateway): remove workspace plugin generation projections (#125990) * refactor(agents): remove workspace plugin generation projections * test(agents): pass explicit generation in auth refresh",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep large AGENTS.md instructions visible (#125966)",
-      "summaryZh": "重點：修正(codex): keep large AGENTS.md instructions visible (#125966) * 修正(codex): raise native project 文件 budget Default OpenC..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): remove workspace plugin generation projections (#1…",
+      "summaryZh": "重點：refactor(Gateway): remove workspace plugin generation projections (#125990) * refactor(agents): remove workspace plugin ..."
     },
     {
       "id": 5,
