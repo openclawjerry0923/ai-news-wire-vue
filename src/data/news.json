@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T10:28:31.912Z",
+  "generatedAt": "2026-08-18T11:25:32.436Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(models): surface ambient CLI logins in gateway model availability…",
-      "link": "https://github.com/openclaw/openclaw/commit/f1b8082d61c14c767d02f0deaf7d940f3529563c",
-      "publishedAt": "2026-08-18T10:25:55Z",
-      "summary": "fix(models): surface ambient CLI logins in gateway model availability (#125772) The gateway models.list auth resolver passed an empty external-CLI scope, so models pinned to CLI runtimes (claude-cli, gemini-cli, minimax) showed 'Sign-in needed' in the Control UI picker while the same gateway executed turns on them fine. Availability now derives the overlay scope from config via resolveExternalCliAuthScopeFromConfig — the same scoping the execution path uses — so the picker matches what the gateway will run. A configured CLI-runtime model is an operator declaration of that CLI's login; with no ambient CLI login the row still reads signed-out.",
+      "title": "fix(sessions): track context window provenance (#124303)",
+      "link": "https://github.com/openclaw/openclaw/commit/7c65bbcee31bd31fa5b46c84f3a3f54c2cc522fb",
+      "publishedAt": "2026-08-18T11:03:01Z",
+      "summary": "fix(sessions): track context window provenance (#124303) * fix(sessions): track context window provenance * fix(sessions): complete context provenance coverage * fix(sessions): honor authored context window caps * fix(agents): distinguish context source helpers * fix(sessions): clear context provenance on model invalidation * test(codex): preserve local operator authority provenance * fix(context): clamp effective caps to native windows * fix(cron): use the runtime model facade * fix(status): honor session context provenance * test(status): use public context token inputs * test(status): split session row cases * test(status): classify split cases as test support * test(status): declare runtime context provenance * fix(sessions): preserve context ownership through finalization * fix(sessions): apply context provenance to listings * fix(cron): preserve projected context ownership * fix(sessions): scope locked context ownership * fix(status): share session context projection",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): surface ambient CLI logins in Gateway 模型 availability…",
-      "summaryZh": "重點：修正(模型): surface ambient CLI logins in Gateway 模型 availability (#125772) The Gateway 模型.list auth resolver passed an empt..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): track context window provenance (#124303)",
+      "summaryZh": "重點：修正(sessions): track context window provenance (#124303) * 修正(sessions): track context window provenance * 修正(sessions): ..."
     },
     {
       "id": 8,
-      "title": "fix(tts): avoid mislabeled local and ElevenLabs audio (#125628)",
-      "link": "https://github.com/openclaw/openclaw/commit/5f958cf8e69fbc8bc56d9d1c9b6a3784ae7a743d",
-      "publishedAt": "2026-08-18T10:24:44Z",
-      "summary": "fix(tts): avoid mislabeled local and ElevenLabs audio (#125628) * fix(tts): report actual audio output formats Detect local CLI audio containers before conversion and derive ElevenLabs delivery metadata from the effective output format. This prevents MP3 or PCM bytes from being persisted or delivered under incompatible file and voice metadata. * fix(tts-local-cli): distinguish Ogg Opus audio Treat Ogg as a source container unless its first packet is OpusHead, so Vorbis and M4A inputs are transcoded to the requested target instead of being mislabeled as native voice audio. * fix(tts-local-cli): validate MP3 frame headers Require valid MPEG version, layer, bitrate, and sample-rate fields before treating sync bytes as MP3, preventing reserved headers from bypassing conversion under MP3 metadata. * fix(tts-local-cli): validate tagged MP3 output Require structurally valid ID3v2 metadata followed by a strict MPEG frame, and stop trusting recognizable file extensions when their bytes do not match. Unknown or malformed output now fails closed instead of bypassing conversion. * fix(tts-local-cli): accept free-format MPEG audio Treat bitrate index zero as valid free-format MPEG audio and lock the ID3v2.4 footer offset contract with focused regression coverage. * fix(tts-local-cli): normalize all Ogg output Treat Ogg only as a source container and always transcode it to the requested target, so malformed or ambiguous Ogg bytes can never bypass conversion as native voice audio.",
+      "title": "fix(ui): seed chat rename from stored label (#125097)",
+      "link": "https://github.com/openclaw/openclaw/commit/70df0311b80df727c9062a01dfa5e8229eb4f8d3",
+      "publishedAt": "2026-08-18T11:01:00Z",
+      "summary": "fix(ui): seed chat rename from stored label (#125097)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tts): avoid mislabeled local and ElevenLabs audio (#125628)",
-      "summaryZh": "重點：修正(tts): avoid mislabeled local and ElevenLabs audio (#125628) * 修正(tts): report actual audio output formats Detect loca..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): seed chat rename from stored label (#125097)",
+      "summaryZh": "重點：修正(ui): seed chat rename from stored label (#125097)..."
     },
     {
       "id": 9,
-      "title": "fix: show effective exec approval policy in Devices (#125756)",
-      "link": "https://github.com/openclaw/openclaw/commit/01811fb10752e5873df84e6b087231873e52513c",
-      "publishedAt": "2026-08-18T10:22:31Z",
-      "summary": "fix: show effective exec approval policy in Devices (#125756)",
+      "title": "improve(ui): compact GitHub links in chat (#125746)",
+      "link": "https://github.com/openclaw/openclaw/commit/29b1a65d1e6800a79782ab3efa07b84116797a6f",
+      "publishedAt": "2026-08-18T10:59:37Z",
+      "summary": "improve(ui): compact GitHub links in chat (#125746) * improve(ui): compact GitHub links in chat * fix(ui): refine GitHub link pills",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show effective exec approval policy in Devices (#125756)",
-      "summaryZh": "重點：修正: show effective exec approval policy in Devices (#125756)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): compact GitHub links in chat (#125746)",
+      "summaryZh": "重點：improve(ui): compact GitHub links in chat (#125746) * improve(ui): compact GitHub links in chat * 修正(ui): refine GitHub ..."
     },
     {
       "id": 10,
-      "title": "fix(media): surface silent attachment failures (#125562)",
-      "link": "https://github.com/openclaw/openclaw/commit/5a28a491b9a07034f7e23e0f4e2db928bba8a807",
-      "publishedAt": "2026-08-18T10:17:29Z",
-      "summary": "fix(media): surface silent attachment failures (#125562) * fix(media): surface silent attachment failures Missing structured images now produce a visible model-facing system note, failed playback transcodes warn once per source identity, and bodyless successful media responses are rejected instead of stored as empty files. * fix(media): persist failed image outcomes * fix(media): skip note lookup without failures",
+      "title": "fix(ui): match fullscreen table presentation (#125692)",
+      "link": "https://github.com/openclaw/openclaw/commit/40597e25b51490d334488da0f78c50cf11b4b8c0",
+      "publishedAt": "2026-08-18T10:56:49Z",
+      "summary": "fix(ui): match fullscreen table presentation (#125692) * fix(ui): match fullscreen table presentation * fix(ui): confirm copied tables with check icon * test(ui): type table style probe safely * test(ui): repair table style parity probe --------- Co-authored-by: RoboClaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(media): surface silent attachment failures (#125562)",
-      "summaryZh": "重點：修正(media): surface silent attachment failures (#125562) * 修正(media): surface silent attachment failures Missing structur..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): match fullscreen table presentation (#125692)",
+      "summaryZh": "重點：修正(ui): match fullscreen table presentation (#125692) * 修正(ui): match fullscreen table presentation * 修正(ui): confirm co..."
     }
   ]
 }
