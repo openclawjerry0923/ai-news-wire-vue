@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-08-18T01:15:13.556Z",
+  "generatedAt": "2026-08-18T02:55:53.146Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(voice-call): expose realtime/streaming stream paths through tails…",
-      "link": "https://github.com/openclaw/openclaw/commit/1ca4103fe9ecc7305430986a976438d6f831ccd9",
-      "publishedAt": "2026-08-18T01:10:45Z",
-      "summary": "fix(voice-call): expose realtime/streaming stream paths through tailscale serve/funnel (#125468) * fix(voice-call): expose realtime/streaming stream paths through tailscale serve/funnel Tailscale serve/funnel now auto-exposes the realtime and streaming WebSocket stream paths when those audio modes are enabled; previously Twilio could not reach wss:// and realtime calls dropped after ~1s with no log. Also: CLI voicecall expose mounts/clears stream paths symmetrically, partial tailscale mounts roll back on failure, and a warning now fires when a call's stream WebSocket never arrives within the token TTL. Reported/observed live by Peter Steinberger. * fix(voice-call): make tailscale stream exposure atomic Preserve configured public Tailscale prefixes when mapping realtime and streaming routes, and roll back the full route set when any mount fails. The CLI now uses the same transactional setup path and reports failure instead of accepting a partial exposure. * fix(voice-call): expose Twilio's configured streaming path Keep realtime routes under the public webhook prefix they advertise, while mounting streaming.streamPath exactly as Twilio emits it. This preserves the canonical public-to-local route list without expanding the provider API outside the scoped repair.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): expose realtime/streaming stream paths through tails…",
-      "summaryZh": "重點：修正(voice-call): expose realtime/streaming stream paths through tailscale serve/funnel (#125468) * 修正(voice-call): expose..."
+      "title": "AI運算框架Ray重大漏洞遭利用",
+      "link": "https://www.ithome.com.tw/news/178204",
+      "publishedAt": "2026-08-18 09:08:26",
+      "summary": "8月17日美國網路安全與基礎設施安全局（CISA）發布公告，指出用於分散式運算與機器學習工作負載的開源AI運算框架Ray，去年修補的已知漏洞CVE-2025-62593已出現遭到積極利用的證據，CISA將其列入已遭利用的漏洞名單（KEV），要求聯邦機構",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "中國人型機器人龍頭宇樹科技 8/19 科創板上市",
-      "link": "https://finance.technews.tw/2026/08/18/unitree-robotics-china-humanoid-robot-star-market-ipo-aug-19th/",
-      "publishedAt": "Tue, 18 Aug 2026 01:10:41 +0000",
-      "summary": "中國人型機器人龍頭廠宇樹科技公告，將於 8 月 19 日在上海證券交易所科創板上市，發行價為每股 150.80 [&#8230;]",
-      "source": "TechNews",
+      "title": "麥當勞、Vodafone等9家大型企業逾360萬筆Azure目錄資料遭兜售，疑與遭竊憑證有關",
+      "link": "https://www.ithome.com.tw/news/178203",
+      "publishedAt": "2026-08-18 09:08:00",
+      "summary": "包括麥當勞（McDonald&#039;s）、Vodafone、Tata Consultancy Services（TCS）及Kyndryl等9家大型企業，傳出其Microsoft Azure環境中的員工目錄資料疑似遭竊。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "improve(ui): rebuild agent GitHub identity panel on settings primitiv…",
-      "link": "https://github.com/openclaw/openclaw/commit/fab7fa9910152db50ae88e550435097167c45511",
-      "publishedAt": "2026-08-18T01:09:22Z",
-      "summary": "improve(ui): rebuild agent GitHub identity panel on settings primitives (#125472) The panel from #125199 rendered raw wire enums in code tags, used form-grid/field markup whose styles the agents page never loads (bare unstyled inputs outside the card), referenced non-existent avatar classes, and put callouts inside the settings group. Rebuild it on the canonical settings primitives: status rows with dot status and friendly source/evidence labels, a System/This Agent segmented scope control, the settings secret input (gains a disabled prop), a danger status row for errors, and a quiet-inherit + primary-save action row. Retitle to \"GitHub Identity\" and move it below Tool Access and Available Right Now. Add a .settings-account primitive for the 20px round avatar. Live-tested on an isolated dev gateway: native-credential verify via the GitHub API, segmented scope switching, and the empty-token error row. Controller behavior unchanged.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): rebuild agent GitHub identity panel on settings primitiv…",
-      "summaryZh": "重點：improve(ui): rebuild agent GitHub identity panel on settings primitives (#125472) The panel from #125199 rendered raw wi..."
-    },
-    {
-      "id": 4,
-      "title": "fix(matrix): keep user ID authorization case-sensitive (#125432)",
-      "link": "https://github.com/openclaw/openclaw/commit/aea7ee708814971c69c3e5455ae94103aece98a9",
-      "publishedAt": "2026-08-18T01:08:25Z",
-      "summary": "fix(matrix): keep user ID authorization case-sensitive (#125432) * fix(matrix): preserve case-sensitive user IDs * docs(matrix): clarify exact user ID casing * fix(matrix): preserve exact IDs during resolution * docs(matrix): clarify approval target casing",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(matrix): keep user ID authorization case-sensitive (#125432)",
-      "summaryZh": "重點：修正(matrix): keep user ID authorization case-sensitive (#125432) * 修正(matrix): preserve case-sensitive user IDs * 文件(matr..."
-    },
-    {
-      "id": 5,
-      "title": "fix(agents): keep node agent tools on dedicated surfaces (#125434)",
-      "link": "https://github.com/openclaw/openclaw/commit/f0fd1c6e82b3d4cdcc0692b7b661c307c07ea24a",
-      "publishedAt": "2026-08-18T01:08:16Z",
-      "summary": "fix(agents): keep node agent tools on dedicated surfaces (#125434) * fix(agents): block generic node tool reentry * fix(agents): enforce node tool ownership for typed actions * fix(agents): clarify dedicated node tool policy errors",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep node agent tools on dedicated surfaces (#125434)",
-      "summaryZh": "重點：修正(agents): keep node agent tools on dedicated surfaces (#125434) * 修正(agents): block generic node tool reentry * 修正(age..."
-    },
-    {
-      "id": 6,
-      "title": "CPO 商用加速 磷化銦巨擘 AXT 7 月底來飆近 160%",
-      "link": "https://finance.technews.tw/2026/08/18/cpo-commercialization-accelerates-indium-phosphide-giant-axt-stock-soars-nearly-160-since-late-july/",
-      "publishedAt": "Tue, 18 Aug 2026 01:00:26 +0000",
-      "summary": "受到市場謠傳磷化銦（InP）基板與磊晶醞釀漲價，以及輝達（Nvidia Corp.）透露用於跨機櫃水平擴展（s [&#8230;]",
-      "source": "TechNews",
+      "title": "紐西蘭指中國紫金山天文臺藉企業合作部署太空設施，可蒐集具軍事價值情報",
+      "link": "https://www.ithome.com.tw/news/178202",
+      "publishedAt": "2026-08-18 09:08:00",
+      "summary": "紐西蘭安全情報局（New Zealand Security Intelligence Service，NZSIS）今年將外國政府利用紐西蘭太空產業列為新興國安風險。地面太空基礎設施（Ground Based Space Infrastructure，GBSI）除了可用於追蹤衛星及蒐集科學資料，也可能被用於提升軍事能力及從事情報活動。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
+      "id": 4,
+      "title": "2026年Q2逾1 Tbps DDoS攻擊季增519%，政府部門遭HTTP DDoS攻擊排名升至第9",
+      "link": "https://www.ithome.com.tw/news/178192",
+      "publishedAt": "2026-08-18 09:08:00",
+      "summary": "2026年第2季流量超過1 Tbps的網路層DDoS攻擊大幅增加。根據網路資安暨內容遞送服務業者Cloudflare統計，2026年上半年共攔下935起這類攻擊，其中第2季達805起，較第1季130起增加519%。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 5,
+      "title": "紅帽Kubernetes叢集管理產品ACM爆漏洞，受限使用者恐取得整個叢集管理權限",
+      "link": "https://www.ithome.com.tw/news/178183",
+      "publishedAt": "2026-08-18 09:08:00",
+      "summary": "企業級開源軟體業者紅帽（Red Hat）揭露旗下Kubernetes多叢集管理產品Red Hat Advanced Cluster Management for Kubernetes（ACM）存在權限提升漏洞CVE-2026-10090。紅帽將這項漏洞列為重要（Important）風險等級，初步CVSS v3.1風險評分達9.0。攻擊者若已取得ACM中樞叢集特定命名空間的edit權限，可能進一步取得整個叢集的cluster-admin管理權限。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix: correct setup provider drift diagnostics (#125523)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa8be5acf90edb2b5d670e8c7702d99552a973a7",
+      "publishedAt": "2026-08-18T02:54:47Z",
+      "summary": "fix: correct setup provider drift diagnostics (#125523) Stop reporting metadata-only setup provider descriptors as missing runtime registrations while preserving genuine provider, CLI, loading, and registration diagnostics. Fixes #125506.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: correct setup provider drift diagnostics (#125523)",
+      "summaryZh": "重點：修正: correct setup provider drift diagnostics (#125523) Stop reporting metadata-only setup provider descriptors as missin..."
+    },
+    {
       "id": 7,
-      "title": "大摩看好亞馬遜 AWS 動能 估股價 2027 年翻倍",
-      "link": "https://finance.technews.tw/2026/08/18/amazons-stock-could-hit-500-by-end-of-2027/",
-      "publishedAt": "Tue, 18 Aug 2026 00:50:27 +0000",
-      "summary": "摩根士丹利（Morgan Stanley，大摩）看好零售暨科技巨頭亞馬遜（Amazon）股價至 2027 年底 [&#8230;]",
+      "title": "Credo 提案為 AI 系統建立開放式小晶片互連標準，致力打破「記憶體牆」瓶頸",
+      "link": "https://technews.tw/2026/08/18/credo-chiplet-ai-systems-break-memory-wall/",
+      "publishedAt": "Tue, 18 Aug 2026 02:50:33 +0000",
+      "summary": "Credo 宣布，將在開放運算計畫（Open Compute Project，OCP）社群內推動一項全新的互連 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "川普政府正勸阻蘋果使用中國長鑫存儲產品，帶動美股記憶體類股上漲",
-      "link": "https://finance.technews.tw/2026/08/18/the-trump-administration-is-discouraging-apple-from-using-products-from-chinas-changxin-memory-technologies-co-ltd/",
-      "publishedAt": "Tue, 18 Aug 2026 00:40:59 +0000",
-      "summary": "在人工智慧（AI）硬體交易樂觀情緒回溫，以及美國政府政策地緣政治因素的共同推動下，記憶體晶片類股在美股18日交 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "Show worktree option only for Git group folders (#125280)",
+      "link": "https://github.com/openclaw/openclaw/commit/a928da457f827ea125c1a38e414e243035992231",
+      "publishedAt": "2026-08-18T02:50:15Z",
+      "summary": "Show worktree option only for Git group folders (#125280) * feat(ui): show worktrees only for Git group folders * feat(ui): enrich group environment picker * fix(ui): preserve worktree defaults on probe errors * fix(ui): reject stale group repository probes * test(ui): type repository inspection helper",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：Show worktree option only for Git group folders (#125280)",
+      "summaryZh": "重點：Show worktree option only for Git group folders (#125280) * 新功能(ui): show worktrees only for Git group folders * 新功能(ui)..."
     },
     {
       "id": 9,
-      "title": "AMD 砸 500 萬英鎊運算資金，支持牛津 BOLD 實驗室 AI 研究",
-      "link": "https://finance.technews.tw/2026/08/18/covering-the-fastest-computers-in-the-world-and-the-people-who-run-them-9/",
-      "publishedAt": "Tue, 18 Aug 2026 00:30:38 +0000",
-      "summary": "AMD 13 日宣布，與牛津大學簽署合作備忘錄，提供英國開放式學習與探索實驗室（BOLD）尖端人工智慧研究最高 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(openai): prevent realtime barge-in truncation errors (#125502)",
+      "link": "https://github.com/openclaw/openclaw/commit/41c0818751334123e9b4d2f28e31c40b847d46ad",
+      "publishedAt": "2026-08-18T02:29:50Z",
+      "summary": "fix(openai): prevent realtime barge-in truncation errors (#125502) * fix(openai): clamp realtime barge-in truncation Clamp OpenAI Realtime barge-in truncation to the audio duration produced for each assistant item. This prevents interruption failures observed live when 3,700 ms of decoded audio was paired with a 3,760 ms transport-clock timestamp. * fix(openai): propagate PCM sideband audio format The browser sideband negotiated PCM16, but its bridge defaulted to G.711 for duration accounting. Propagate the negotiated format so truncation uses the actual PCM duration and closes ClawSweeper's in-scope finding.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): prevent realtime barge-in truncation errors (#125502)",
+      "summaryZh": "重點：修正(openai): prevent realtime barge-in truncation errors (#125502) * 修正(openai): clamp realtime barge-in truncation Clamp..."
     },
     {
       "id": 10,
-      "title": "瞄準清真商機！中國目標成穆斯林世界「超級工廠」，但宗教信任成難關",
-      "link": "https://technews.tw/2026/08/18/china-targets-halal-market-opportunities/",
-      "publishedAt": "Tue, 18 Aug 2026 00:20:00 +0000",
-      "summary": "中國以低成本、量大的優勢快速成為各大產業的「世界工廠」，然而現在中國的製造業，又把目光鎖定全球穆斯林消費市場。 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): keep side panel tab labels visible (#125511)",
+      "link": "https://github.com/openclaw/openclaw/commit/93f7492570ef400f2c776c6c4390839c3e33ced6",
+      "publishedAt": "2026-08-18T02:29:18Z",
+      "summary": "fix(ui): keep side panel tab labels visible (#125511) Restore the block-axis padding reset lost in #125368 so Web Awesome tab labels remain vertically legible while retaining logical inline spacing. Add LTR and RTL browser geometry coverage for the visible label boundary.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep side panel tab labels visible (#125511)",
+      "summaryZh": "重點：修正(ui): keep side panel tab labels visible (#125511) Restore the block-axis padding reset lost in #125368 so Web Awesome..."
     }
   ]
 }
