@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-18T19:27:24.107Z",
+  "generatedAt": "2026-08-18T20:24:22.165Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(test): reuse plugin load-context modules (#125965)",
-      "link": "https://github.com/openclaw/openclaw/commit/a99253f73e6266606a3992e06a721d1a424af38d",
-      "publishedAt": "2026-08-18T19:26:24Z",
-      "summary": "perf(test): reuse plugin load-context modules (#125965)",
+      "title": "fix(ui): never restore a stored draft over typed new-session composer…",
+      "link": "https://github.com/openclaw/openclaw/commit/a57d9b506081505476d899af9b2073d57b0bd674",
+      "publishedAt": "2026-08-18T20:23:31Z",
+      "summary": "fix(ui): never restore a stored draft over typed new-session composer text (#125884) * fix(ui): never restore a stored draft over typed new-session composer text After a reload the new-session composer renders before the gateway recovery scope arrives; selectRoute then zeroes the draft revision, so text typed in that window lost to the stored draft's higher revision and the async restore overwrote (or, interleaved with input, appended to) what the user had typed. Seen on PR #125690 CI (checks-ui-e2e 5/12, run 32122284238) as a doubled composer value. NewSessionDraftPersistence now records a pristine baseline at each programmatic content replacement (page reset, navigation handoff, restore apply) and restores only when no user mutation happened past it; otherwise the typed text wins and persists above the stored revision, including minting a revision for text typed before route activation so that draft still lands. The chat composer sibling is unaffected: its revision lineage persists synchronously to localStorage. * test(ui): run draft-persistence regression in the isolated ui lane The regression test mocks the statically imported durable-composer-persistence helper (the store runtime is only dynamically imported, so under the shared isolate:false module graph its mock alone is packing-dependent). Isolating the file makes the mocks deterministic and keeps the shared-lane file set unchanged so sibling packing does not shift.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse plugin load-context modules (#125965)",
-      "summaryZh": "重點：perf(test): reuse plugin load-context modules (#125965)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): never restore a stored draft over typed new-session composer…",
+      "summaryZh": "重點：修正(ui): never restore a stored draft over typed new-session composer text (#125884) * 修正(ui): never restore a stored dra..."
     },
     {
       "id": 2,
-      "title": "fix: stop --tag main from failing during npm pack (#125949)",
-      "link": "https://github.com/openclaw/openclaw/commit/bb92dc61c8193182892bf7730013ff30ea3efd17",
-      "publishedAt": "2026-08-18T19:22:45Z",
-      "summary": "fix: stop --tag main from failing during npm pack (#125949) * fix: refuse unsupported OpenClaw source package updates * refactor: narrow main update refusal",
+      "title": "fix(gateway): refresh edited skills in agent RPC sessions (#125962)",
+      "link": "https://github.com/openclaw/openclaw/commit/d1a194b52f6a94816fa1344487097b1e6b9f11e1",
+      "publishedAt": "2026-08-18T20:06:48Z",
+      "summary": "fix(gateway): refresh edited skills in agent RPC sessions (#125962) * fix(gateway): watch skills for agent RPC turns * ci: rebalance hosted agent chat shard",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: stop --tag main from failing during npm pack (#125949)",
-      "summaryZh": "重點：修正: stop --tag main from failing during npm pack (#125949) * 修正: refuse unsupported OpenClaw source package updates * re..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): refresh edited skills in agent RPC sessions (#125962)",
+      "summaryZh": "重點：修正(Gateway): refresh edited skills in agent RPC sessions (#125962) * 修正(Gateway): watch skills for agent RPC turns * ci:..."
     },
     {
       "id": 3,
-      "title": "test(ui): stabilize widget hover proof (#125959)",
-      "link": "https://github.com/openclaw/openclaw/commit/3116923ff7d94187bf9562c4d24d9a801a555291",
-      "publishedAt": "2026-08-18T19:21:47Z",
-      "summary": "test(ui): stabilize widget hover proof (#125959)",
+      "title": "test(slack): remove cache reset seams (#125971)",
+      "link": "https://github.com/openclaw/openclaw/commit/6f8e5d90781507f1c11117be87012d8b4f91e8b8",
+      "publishedAt": "2026-08-18T19:47:14Z",
+      "summary": "test(slack): remove cache reset seams (#125971)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): stabilize widget hover proof (#125959)",
-      "summaryZh": "重點：test(ui): stabilize widget hover proof (#125959)..."
+      "titleZh": "OpenClaw 程式碼更新：test(slack): remove cache reset seams (#125971)",
+      "summaryZh": "重點：test(slack): remove cache reset seams (#125971)..."
     },
     {
       "id": 4,
-      "title": "test(providers): remove JSON reader facades (#125956)",
-      "link": "https://github.com/openclaw/openclaw/commit/934a32cd8132dae5823099a0d770b7e4eb8c26c1",
-      "publishedAt": "2026-08-18T19:18:30Z",
-      "summary": "test(providers): remove JSON reader facades (#125956)",
+      "title": "fix(codex): keep large AGENTS.md instructions visible (#125966)",
+      "link": "https://github.com/openclaw/openclaw/commit/d5aff660a248641f2cbc72bbc7a0bf4756473ad7",
+      "publishedAt": "2026-08-18T19:39:52Z",
+      "summary": "fix(codex): keep large AGENTS.md instructions visible (#125966) * fix(codex): raise native project doc budget Default OpenClaw Codex threads to a bounded 128 KiB aggregate project-document budget so large AGENTS.md chains remain visible. Preserve explicit ordinary-thread overrides and keep restricted or lightweight turns at zero. * test(codex): refresh project doc config expectations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(providers): remove JSON reader facades (#125956)",
-      "summaryZh": "重點：test(providers): remove JSON reader facades (#125956)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep large AGENTS.md instructions visible (#125966)",
+      "summaryZh": "重點：修正(codex): keep large AGENTS.md instructions visible (#125966) * 修正(codex): raise native project 文件 budget Default OpenC..."
     },
     {
       "id": 5,
