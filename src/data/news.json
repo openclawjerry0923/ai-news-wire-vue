@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-18T15:31:53.088Z",
+  "generatedAt": "2026-08-18T16:31:41.390Z",
   "items": [
     {
       "id": 1,
-      "title": "test(gateway): pin chat-run lifecycle transitions (#125851)",
-      "link": "https://github.com/openclaw/openclaw/commit/8cfacedabe1ab37bf35bb7a3f0236a64f34ec75c",
-      "publishedAt": "2026-08-18T15:26:04Z",
-      "summary": "test(gateway): pin chat-run lifecycle transitions (#125851)",
+      "title": "perf(test): consolidate shutdown watchdog proof (#125890)",
+      "link": "https://github.com/openclaw/openclaw/commit/d8c1d90edb49c6ffcbf6e43bc78ec57ddec469a0",
+      "publishedAt": "2026-08-18T16:27:35Z",
+      "summary": "perf(test): consolidate shutdown watchdog proof (#125890)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): pin chat-run lifecycle transitions (#125851)",
-      "summaryZh": "重點：test(Gateway): pin chat-run lifecycle transitions (#125851)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): consolidate shutdown watchdog proof (#125890)",
+      "summaryZh": "重點：perf(test): consolidate shutdown watchdog proof (#125890)..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): enforce shutdown deadline during event-loop stalls (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/07a0b51703432770792b0679d32daa608c387c6e",
-      "publishedAt": "2026-08-18T15:14:30Z",
-      "summary": "fix(gateway): enforce shutdown deadline during event-loop stalls (#125863) Use an off-main-thread watchdog for the process-owning Gateway runner so a CPU-bound shutdown cannot outlive the managed restart deadline. Bound agent-harness disposal so listener teardown can continue. Release note: Managed Gateway restarts now recover when shutdown work stalls the event loop while preserving graceful cleanup first. Closes #125840",
+      "title": "chore(ui): refresh control ui locales (#125871)",
+      "link": "https://github.com/openclaw/openclaw/commit/641c9c1943265c9a1f5f040ed247a28754dd84c4",
+      "publishedAt": "2026-08-18T16:25:13Z",
+      "summary": "chore(ui): refresh control ui locales (#125871) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): enforce shutdown deadline during event-loop stalls (#12…",
-      "summaryZh": "重點：修正(Gateway): enforce shutdown deadline during event-loop stalls (#125863) Use an off-main-thread watchdog for the proces..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#125871)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#125871) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 3,
-      "title": "feat(ui): show applied revision changes (#125854)",
-      "link": "https://github.com/openclaw/openclaw/commit/0c0649037c19b2f93a47aa480bc8fd96e0f001c5",
-      "publishedAt": "2026-08-18T15:10:07Z",
-      "summary": "feat(ui): show applied revision changes (#125854) Show bounded predecessor diffs by default so operators can understand applied Skill Workshop revisions without manual comparison. Keep the full revision body one click away and preserve oldest-revision fallback behavior.",
+      "title": "fix: child sessions honor inherited model pins over channel defaults …",
+      "link": "https://github.com/openclaw/openclaw/commit/e011e9db61718b43707efdd19ce4eb3dbc3ed08c",
+      "publishedAt": "2026-08-18T16:24:15Z",
+      "summary": "fix: child sessions honor inherited model pins over channel defaults (#125880) * fix: honor inherited model pins over channel defaults Child sessions now keep parent model pins consistently across reply, status, harness prediction, and agentCommand. * test: align agent command model selection fixtures Keep concurrent override and threaded parent-selection coverage aligned with canonical model normalization and runtime snapshot access.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): show applied revision changes (#125854)",
-      "summaryZh": "重點：新功能(ui): show applied revision changes (#125854) Show bounded predecessor diffs by default so operators can understand a..."
+      "titleZh": "OpenClaw 程式碼更新：修正: child sessions honor inherited 模型 pins over channel defaults …",
+      "summaryZh": "重點：修正: child sessions honor inherited 模型 pins over channel defaults (#125880) * 修正: honor inherited 模型 pins over channel de..."
     },
     {
       "id": 4,
-      "title": "feat(ui): move session filter to a global sidebar toolbar (#125690)",
-      "link": "https://github.com/openclaw/openclaw/commit/c77feb00f3285bf060f41182da5fc308dadb3024",
-      "publishedAt": "2026-08-18T15:09:57Z",
-      "summary": "feat(ui): move session filter to a global sidebar toolbar (#125690) * feat(ui): promote session controls to toolbar * test(ui): add session toolbar proof capture script * chore: register session toolbar proof script * test(ui): target ungrouped session drop zone * fix(ui): trim session toolbar startup cost * docs(ui): point new-session guide at the Sessions toolbar Also name the accepted tradeoff for the inert ungrouped-collapse preference at the partition site (ClawSweeper P1/P3 response). * test(ui): deflake new-session workspace-memory e2e Menu-geometry assertions now measure relative to the picker anchor in one atomic evaluate (immune to unrelated page settles, still catches focus-induced moves). The post-reload refill raced the composer's async draft restore, which appended the stored draft to the typed text; waiting for the restored draft asserts the documented persistence instead. Failed CI shard checks-ui-e2e 5/12 on runs 32122284238 attempts 1-2. * fix(ui): use canonical session owner filter state * chore(ui): keep session toolbar proof artifacts ignored",
+      "title": "fix: report unknown gateway service state when inspection fails (#125…",
+      "link": "https://github.com/openclaw/openclaw/commit/e68e973c0527a6942484f048d647bb5e41d5202a",
+      "publishedAt": "2026-08-18T16:20:02Z",
+      "summary": "fix: report unknown gateway service state when inspection fails (#125734) * fix(daemon): preserve unknown service load state * test(daemon): update service load-state fixtures * fix(onboard): preserve loaded service diagnostic * fix(daemon): preserve unknown lifecycle state * fix(status): preserve loaded JSON fields * fix(daemon): fail restart on unknown service state * fix(daemon): fence unknown service state",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): move session filter to a global sidebar toolbar (#125690)",
-      "summaryZh": "重點：新功能(ui): move session filter to a global sidebar toolbar (#125690) * 新功能(ui): promote session controls to toolbar * test..."
+      "titleZh": "OpenClaw 程式碼更新：修正: report unknown Gateway service state when inspection fails (#125…",
+      "summaryZh": "重點：修正: report unknown Gateway service state when inspection fails (#125734) * 修正(daemon): preserve unknown service load sta..."
     },
     {
       "id": 5,
