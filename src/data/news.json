@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-18T18:38:43.131Z",
+  "generatedAt": "2026-08-18T19:27:24.107Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): allow non-admin cloud sessions (#125787)",
-      "link": "https://github.com/openclaw/openclaw/commit/97a4d324f5c8f32b9c106d6a6e9ed33c180a5fcb",
-      "publishedAt": "2026-08-18T18:33:54Z",
-      "summary": "fix(gateway): allow non-admin cloud sessions (#125787) * fix(gateway): allow non-admin cloud sessions Admin-provisioned shared runners are now usable by operator.write while raw environment, config, and pairing controls remain admin-only. Closes #125602 * chore(test): prune assertion safety baseline * refactor(gateway): isolate cloud reclaim lifecycle * test(gateway): declare Codex dispatch ownership * test(ui): cover session-scoped cloud cleanup * perf(ui): trim tooltip startup path * fix(gateway): fence cloud placement activation * test(gateway): update move recovery dispatch contract * fix(gateway): fail closed on placement recovery * docs(gateway): explain fail-closed move recovery * refactor(gateway): consolidate session mutation target keys",
+      "title": "perf(test): reuse plugin load-context modules (#125965)",
+      "link": "https://github.com/openclaw/openclaw/commit/a99253f73e6266606a3992e06a721d1a424af38d",
+      "publishedAt": "2026-08-18T19:26:24Z",
+      "summary": "perf(test): reuse plugin load-context modules (#125965)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): allow non-admin cloud sessions (#125787)",
-      "summaryZh": "重點：修正(Gateway): allow non-admin cloud sessions (#125787) * 修正(Gateway): allow non-admin cloud sessions Admin-provisioned sh..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse plugin load-context modules (#125965)",
+      "summaryZh": "重點：perf(test): reuse plugin load-context modules (#125965)..."
     },
     {
       "id": 2,
-      "title": "refactor(protocol): remove beta-only expectedRunId from chat.send (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/ef22410985304e22b19cec1d74b493df550cb69e",
-      "publishedAt": "2026-08-18T18:28:36Z",
-      "summary": "refactor(protocol): remove beta-only expectedRunId from chat.send (#125921) The Gateway owns start-or-steer at admission (6515f6a2555d) and no client produces expectedRunId anymore (d84a910fc824). The field shipped only in v2026.8.1-beta.2 - never a stable tag - so it is removed rather than deprecated. Steer sends resolve the selected session's current operation; the exact-match branch, the operation|run target identity discriminator, run_mismatch rejection, and the suggestion producers' active-run-id selection (with its ambiguity failure) are deleted. Provider-native turn fencing (Codex expectedTurnId) is unchanged: the backend-captured runId on the injection target remains.",
+      "title": "fix: stop --tag main from failing during npm pack (#125949)",
+      "link": "https://github.com/openclaw/openclaw/commit/bb92dc61c8193182892bf7730013ff30ea3efd17",
+      "publishedAt": "2026-08-18T19:22:45Z",
+      "summary": "fix: stop --tag main from failing during npm pack (#125949) * fix: refuse unsupported OpenClaw source package updates * refactor: narrow main update refusal",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(protocol): remove beta-only expectedRunId from chat.send (#1…",
-      "summaryZh": "重點：refactor(protocol): remove beta-only expectedRunId from chat.send (#125921) The Gateway owns start-or-steer at admission..."
+      "titleZh": "OpenClaw 程式碼更新：修正: stop --tag main from failing during npm pack (#125949)",
+      "summaryZh": "重點：修正: stop --tag main from failing during npm pack (#125949) * 修正: refuse unsupported OpenClaw source package updates * re..."
     },
     {
       "id": 3,
-      "title": "fix(cli): report broadcast delivery failures (#125915)",
-      "link": "https://github.com/openclaw/openclaw/commit/91cc7d512b0ad33cf9aa8023a23153c28c9e998c",
-      "publishedAt": "2026-08-18T18:28:13Z",
-      "summary": "fix(cli): report broadcast delivery failures (#125915) * fix(cli): report broadcast delivery failures * test(qa): wait for descendant process exit",
+      "title": "test(ui): stabilize widget hover proof (#125959)",
+      "link": "https://github.com/openclaw/openclaw/commit/3116923ff7d94187bf9562c4d24d9a801a555291",
+      "publishedAt": "2026-08-18T19:21:47Z",
+      "summary": "test(ui): stabilize widget hover proof (#125959)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): report broadcast delivery failures (#125915)",
-      "summaryZh": "重點：修正(cli): report broadcast delivery failures (#125915) * 修正(cli): report broadcast delivery failures * test(qa): wait for..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): stabilize widget hover proof (#125959)",
+      "summaryZh": "重點：test(ui): stabilize widget hover proof (#125959)..."
     },
     {
       "id": 4,
-      "title": "fix(browser): repair session lifecycle ownership (#125933)",
-      "link": "https://github.com/openclaw/openclaw/commit/b1d53fcddae58072e5e1efca4eca2bfe62c2acb7",
-      "publishedAt": "2026-08-18T18:20:04Z",
-      "summary": "fix(browser): repair session lifecycle ownership (#125933) Preserve browser availability and profile ownership across node and extension routes, close session-owned node tabs, honor screenshot refs, and hide unavailable tab-bound actions.",
+      "title": "test(providers): remove JSON reader facades (#125956)",
+      "link": "https://github.com/openclaw/openclaw/commit/934a32cd8132dae5823099a0d770b7e4eb8c26c1",
+      "publishedAt": "2026-08-18T19:18:30Z",
+      "summary": "test(providers): remove JSON reader facades (#125956)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): repair session lifecycle ownership (#125933)",
-      "summaryZh": "重點：修正(browser): repair session lifecycle ownership (#125933) Preserve browser availability and profile ownership across nod..."
+      "titleZh": "OpenClaw 程式碼更新：test(providers): remove JSON reader facades (#125956)",
+      "summaryZh": "重點：test(providers): remove JSON reader facades (#125956)..."
     },
     {
       "id": 5,
