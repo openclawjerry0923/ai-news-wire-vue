@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-08-18T11:25:32.436Z",
+  "generatedAt": "2026-08-18T12:46:48.735Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(ui): group Skill Workshop applied revisions per skill with inline…",
+      "link": "https://github.com/openclaw/openclaw/commit/e8044fdffef35faa908f7f1521ee9a4217ddd349",
+      "publishedAt": "2026-08-18T12:30:05Z",
+      "summary": "fix(ui): group Skill Workshop applied revisions per skill with inline history (#125794) The Applied view rendered every applied proposal as an independent recency-sorted row, so one skill's revision history looked like duplicate skills. Applied now shows one row per live skill with a revision-count badge and grouped tab count; the detail pane gains a lazily loaded History section with operations from the ledger's recorded kind. Pending/rejected/quarantined/stale keep one row per proposal. Fixes #125632",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): group Skill Workshop applied revisions per skill with inline…",
+      "summaryZh": "重點：修正(ui): group Skill Workshop applied revisions per skill with inline history (#125794) The Applied view rendered every a..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(ui): split oversized chat side-panel modules (#125770)",
+      "link": "https://github.com/openclaw/openclaw/commit/029f6c14ccc903fef9f7e887195170f2f86b3d70",
+      "publishedAt": "2026-08-18T12:25:01Z",
+      "summary": "refactor(ui): split oversized chat side-panel modules (#125770) * refactor(ui): split chat sidebar modules * fix(ui): break chat sidebar import cycle",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split oversized chat side-panel modules (#125770)",
+      "summaryZh": "重點：refactor(ui): split oversized chat side-panel modules (#125770) * refactor(ui): split chat sidebar modules * 修正(ui): bre..."
+    },
+    {
+      "id": 3,
       "title": "Fortinet併購Virtue AI，補強AI代理安全與紅隊演練能力",
       "link": "https://www.ithome.com.tw/news/178212",
       "publishedAt": "2026-08-18 12:08:55",
@@ -11,7 +33,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "硬體加密貨幣錢包製造商Trezor資料外洩，起因是物流供應商ShipMonk遭駭",
       "link": "https://www.ithome.com.tw/news/178215",
       "publishedAt": "2026-08-18 12:08:39",
@@ -20,7 +42,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "GitHub大規模故障，多項核心服務中斷逾7小時",
       "link": "https://www.ithome.com.tw/news/178216",
       "publishedAt": "2026-08-18 12:08:35",
@@ -29,7 +51,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "Mirai變種殭屍網路Evooo1Bot綁架路由器與工控設備",
       "link": "https://www.ithome.com.tw/news/178213",
       "publishedAt": "2026-08-18 12:08:00",
@@ -38,7 +60,29 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 7,
+      "title": "fix(ci): heal red main - dialog reopen under isolation + startup base…",
+      "link": "https://github.com/openclaw/openclaw/commit/f1453c7c778c90cd347e2435bfb50d447391bd9d",
+      "publishedAt": "2026-08-18T12:06:05Z",
+      "summary": "fix(ci): heal red main - dialog reopen under isolation + startup baseline (#125800) Two landed-PR races left main red (run 32131816085): - #125692's rewritten markdown-tables dialog test drives every interaction through direct handler calls except the reopen, which used a raw expand.click() that only worked via a leaked cross-file document listener in the shared lane; #125766 moved the file to the isolated lane where no such listener exists. Reopen now uses the file's own handler idiom. - Accumulated startup-JS creep from landed features put main 50 B over its gzip budget (344395 B vs 343289 B baseline + 1056 B tolerance). Baseline updated to main's CI-measured bytes via the script's --update-baseline contract.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): heal red main - dialog reopen under isolation + startup base…",
+      "summaryZh": "重點：修正(ci): heal red main - dialog reopen under isolation + startup baseline (#125800) Two landed-PR races left main red (ru..."
+    },
+    {
+      "id": 8,
+      "title": "fix(codex): inherit agent workspace instructions in native subagents …",
+      "link": "https://github.com/openclaw/openclaw/commit/d412c6b284e4e000d27b9d4a849fc46b05f54546",
+      "publishedAt": "2026-08-18T11:45:15Z",
+      "summary": "fix(codex): inherit agent workspace instructions in native subagents (#125783) * fix(codex): inherit agent workspace instructions in native subagents via thread developer instructions * fix(codex): satisfy lint on thread instruction changes * fix(codex): persist frozen agent instructions across supervised materialization",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): inherit agent workspace instructions in native subagents …",
+      "summaryZh": "重點：修正(codex): inherit agent workspace instructions in native subagents (#125783) * 修正(codex): inherit agent workspace instr..."
+    },
+    {
+      "id": 9,
       "title": "勒索軟體Akira以安全模式繞過EDR運作，竊取憑證與檔案進行勒索",
       "link": "https://www.ithome.com.tw/news/178210",
       "publishedAt": "2026-08-18 11:08:50",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "WordPress外掛User Profile Builder存在重大漏洞，逾4萬網站暴露於管理帳號遭接管風險",
       "link": "https://www.ithome.com.tw/news/178211",
       "publishedAt": "2026-08-18 11:08:27",
       "summary": "資安業者Wordfence於8月14日揭露WordPress外掛User Profile Builder存在重大身分驗證繞過漏洞，該外掛用於建立使用者註冊、登入及個人資料管理功能，目前有超過4萬個網站啟用。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(sessions): track context window provenance (#124303)",
-      "link": "https://github.com/openclaw/openclaw/commit/7c65bbcee31bd31fa5b46c84f3a3f54c2cc522fb",
-      "publishedAt": "2026-08-18T11:03:01Z",
-      "summary": "fix(sessions): track context window provenance (#124303) * fix(sessions): track context window provenance * fix(sessions): complete context provenance coverage * fix(sessions): honor authored context window caps * fix(agents): distinguish context source helpers * fix(sessions): clear context provenance on model invalidation * test(codex): preserve local operator authority provenance * fix(context): clamp effective caps to native windows * fix(cron): use the runtime model facade * fix(status): honor session context provenance * test(status): use public context token inputs * test(status): split session row cases * test(status): classify split cases as test support * test(status): declare runtime context provenance * fix(sessions): preserve context ownership through finalization * fix(sessions): apply context provenance to listings * fix(cron): preserve projected context ownership * fix(sessions): scope locked context ownership * fix(status): share session context projection",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): track context window provenance (#124303)",
-      "summaryZh": "重點：修正(sessions): track context window provenance (#124303) * 修正(sessions): track context window provenance * 修正(sessions): ..."
-    },
-    {
-      "id": 8,
-      "title": "fix(ui): seed chat rename from stored label (#125097)",
-      "link": "https://github.com/openclaw/openclaw/commit/70df0311b80df727c9062a01dfa5e8229eb4f8d3",
-      "publishedAt": "2026-08-18T11:01:00Z",
-      "summary": "fix(ui): seed chat rename from stored label (#125097)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): seed chat rename from stored label (#125097)",
-      "summaryZh": "重點：修正(ui): seed chat rename from stored label (#125097)..."
-    },
-    {
-      "id": 9,
-      "title": "improve(ui): compact GitHub links in chat (#125746)",
-      "link": "https://github.com/openclaw/openclaw/commit/29b1a65d1e6800a79782ab3efa07b84116797a6f",
-      "publishedAt": "2026-08-18T10:59:37Z",
-      "summary": "improve(ui): compact GitHub links in chat (#125746) * improve(ui): compact GitHub links in chat * fix(ui): refine GitHub link pills",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): compact GitHub links in chat (#125746)",
-      "summaryZh": "重點：improve(ui): compact GitHub links in chat (#125746) * improve(ui): compact GitHub links in chat * 修正(ui): refine GitHub ..."
-    },
-    {
-      "id": 10,
-      "title": "fix(ui): match fullscreen table presentation (#125692)",
-      "link": "https://github.com/openclaw/openclaw/commit/40597e25b51490d334488da0f78c50cf11b4b8c0",
-      "publishedAt": "2026-08-18T10:56:49Z",
-      "summary": "fix(ui): match fullscreen table presentation (#125692) * fix(ui): match fullscreen table presentation * fix(ui): confirm copied tables with check icon * test(ui): type table style probe safely * test(ui): repair table style parity probe --------- Co-authored-by: RoboClaw",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): match fullscreen table presentation (#125692)",
-      "summaryZh": "重點：修正(ui): match fullscreen table presentation (#125692) * 修正(ui): match fullscreen table presentation * 修正(ui): confirm co..."
     }
   ]
 }
