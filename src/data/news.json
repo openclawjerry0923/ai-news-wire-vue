@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-18T17:27:11.140Z",
+  "generatedAt": "2026-08-18T18:38:43.131Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: consolidate small shared helpers (#125805)",
-      "link": "https://github.com/openclaw/openclaw/commit/fead7fee27598d87f664ff91e828a558a3dd1135",
-      "publishedAt": "2026-08-18T17:23:40Z",
-      "summary": "refactor: consolidate small shared helpers (#125805) * refactor: consolidate small shared helpers * fix: reject inherited Parallels smoke arguments * fix: preserve day-prefixed CPU probe times",
+      "title": "fix(gateway): allow non-admin cloud sessions (#125787)",
+      "link": "https://github.com/openclaw/openclaw/commit/97a4d324f5c8f32b9c106d6a6e9ed33c180a5fcb",
+      "publishedAt": "2026-08-18T18:33:54Z",
+      "summary": "fix(gateway): allow non-admin cloud sessions (#125787) * fix(gateway): allow non-admin cloud sessions Admin-provisioned shared runners are now usable by operator.write while raw environment, config, and pairing controls remain admin-only. Closes #125602 * chore(test): prune assertion safety baseline * refactor(gateway): isolate cloud reclaim lifecycle * test(gateway): declare Codex dispatch ownership * test(ui): cover session-scoped cloud cleanup * perf(ui): trim tooltip startup path * fix(gateway): fence cloud placement activation * test(gateway): update move recovery dispatch contract * fix(gateway): fail closed on placement recovery * docs(gateway): explain fail-closed move recovery * refactor(gateway): consolidate session mutation target keys",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: consolidate small shared helpers (#125805)",
-      "summaryZh": "重點：refactor: consolidate small shared helpers (#125805) * refactor: consolidate small shared helpers * 修正: reject inherited..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): allow non-admin cloud sessions (#125787)",
+      "summaryZh": "重點：修正(Gateway): allow non-admin cloud sessions (#125787) * 修正(Gateway): allow non-admin cloud sessions Admin-provisioned sh..."
     },
     {
       "id": 2,
-      "title": "fix(codex): recover replies after compaction failure (#125895)",
-      "link": "https://github.com/openclaw/openclaw/commit/d204ebe6a4dfd4500bb62a113c2abc10d1cab4d5",
-      "publishedAt": "2026-08-18T17:22:35Z",
-      "summary": "fix(codex): recover replies after compaction failure (#125895) Preserve completed tool work when native Codex compaction fails, close failed compaction progress, and bypass unrelated model/auth failover before isolated finalization. Fixes #125789.",
+      "title": "refactor(protocol): remove beta-only expectedRunId from chat.send (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/ef22410985304e22b19cec1d74b493df550cb69e",
+      "publishedAt": "2026-08-18T18:28:36Z",
+      "summary": "refactor(protocol): remove beta-only expectedRunId from chat.send (#125921) The Gateway owns start-or-steer at admission (6515f6a2555d) and no client produces expectedRunId anymore (d84a910fc824). The field shipped only in v2026.8.1-beta.2 - never a stable tag - so it is removed rather than deprecated. Steer sends resolve the selected session's current operation; the exact-match branch, the operation|run target identity discriminator, run_mismatch rejection, and the suggestion producers' active-run-id selection (with its ambiguity failure) are deleted. Provider-native turn fencing (Codex expectedTurnId) is unchanged: the backend-captured runId on the injection target remains.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): recover replies after compaction failure (#125895)",
-      "summaryZh": "重點：修正(codex): recover replies after compaction failure (#125895) Preserve completed tool work when native Codex compaction ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(protocol): remove beta-only expectedRunId from chat.send (#1…",
+      "summaryZh": "重點：refactor(protocol): remove beta-only expectedRunId from chat.send (#125921) The Gateway owns start-or-steer at admission..."
     },
     {
       "id": 3,
-      "title": "fix(ollama): report streaming responses (#125834)",
-      "link": "https://github.com/openclaw/openclaw/commit/6988551b87266bc98570049bb16f8d97c5db99c2",
-      "publishedAt": "2026-08-18T17:19:48Z",
-      "summary": "fix(ollama): report streaming responses (#125834)",
+      "title": "fix(cli): report broadcast delivery failures (#125915)",
+      "link": "https://github.com/openclaw/openclaw/commit/91cc7d512b0ad33cf9aa8023a23153c28c9e998c",
+      "publishedAt": "2026-08-18T18:28:13Z",
+      "summary": "fix(cli): report broadcast delivery failures (#125915) * fix(cli): report broadcast delivery failures * test(qa): wait for descendant process exit",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ollama): report streaming responses (#125834)",
-      "summaryZh": "重點：修正(ollama): report streaming responses (#125834)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): report broadcast delivery failures (#125915)",
+      "summaryZh": "重點：修正(cli): report broadcast delivery failures (#125915) * 修正(cli): report broadcast delivery failures * test(qa): wait for..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): block unauthorized session lifecycle sources (#125889)",
-      "link": "https://github.com/openclaw/openclaw/commit/96d603f53023ccea028362afa1297a9cd37cef99",
-      "publishedAt": "2026-08-18T17:17:28Z",
-      "summary": "fix(gateway): block unauthorized session lifecycle sources (#125889) * fix(gateway): enforce session participation at lifecycle commits * refactor(gateway): simplify session target extraction",
+      "title": "fix(browser): repair session lifecycle ownership (#125933)",
+      "link": "https://github.com/openclaw/openclaw/commit/b1d53fcddae58072e5e1efca4eca2bfe62c2acb7",
+      "publishedAt": "2026-08-18T18:20:04Z",
+      "summary": "fix(browser): repair session lifecycle ownership (#125933) Preserve browser availability and profile ownership across node and extension routes, close session-owned node tabs, honor screenshot refs, and hide unavailable tab-bound actions.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): block unauthorized session lifecycle sources (#125889)",
-      "summaryZh": "重點：修正(Gateway): block unauthorized session lifecycle sources (#125889) * 修正(Gateway): enforce session participation at life..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): repair session lifecycle ownership (#125933)",
+      "summaryZh": "重點：修正(browser): repair session lifecycle ownership (#125933) Preserve browser availability and profile ownership across nod..."
     },
     {
       "id": 5,
