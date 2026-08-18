@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T09:33:56.042Z",
+  "generatedAt": "2026-08-18T10:28:31.912Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix: show sessions waiting for concurrency slots (#125654)",
-      "link": "https://github.com/openclaw/openclaw/commit/b8ff4fe3d7d687620ce5b4a4785832daca94a74d",
-      "publishedAt": "2026-08-18T09:31:39Z",
-      "summary": "fix: show sessions waiting for concurrency slots (#125654) * fix: show sessions waiting for concurrency slots * test: align queued session integration fixtures * test: distinguish queued and reactivated followups * fix: preserve queued state in workboard and android * fix: project queued status through chat history * test(ui): keep queued sidebar case under line cap",
+      "title": "fix(models): surface ambient CLI logins in gateway model availability…",
+      "link": "https://github.com/openclaw/openclaw/commit/f1b8082d61c14c767d02f0deaf7d940f3529563c",
+      "publishedAt": "2026-08-18T10:25:55Z",
+      "summary": "fix(models): surface ambient CLI logins in gateway model availability (#125772) The gateway models.list auth resolver passed an empty external-CLI scope, so models pinned to CLI runtimes (claude-cli, gemini-cli, minimax) showed 'Sign-in needed' in the Control UI picker while the same gateway executed turns on them fine. Availability now derives the overlay scope from config via resolveExternalCliAuthScopeFromConfig — the same scoping the execution path uses — so the picker matches what the gateway will run. A configured CLI-runtime model is an operator declaration of that CLI's login; with no ambient CLI login the row still reads signed-out.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show sessions waiting for concurrency slots (#125654)",
-      "summaryZh": "重點：修正: show sessions waiting for concurrency slots (#125654) * 修正: show sessions waiting for concurrency slots * test: alig..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): surface ambient CLI logins in Gateway 模型 availability…",
+      "summaryZh": "重點：修正(模型): surface ambient CLI logins in Gateway 模型 availability (#125772) The Gateway 模型.list auth resolver passed an empt..."
     },
     {
       "id": 8,
-      "title": "refactor(ui): make task detail a detail-slot document (#125748)",
-      "link": "https://github.com/openclaw/openclaw/commit/2601bcbc525970d788b1d5e1d3972a567a855e6d",
-      "publishedAt": "2026-08-18T09:28:26Z",
-      "summary": "refactor(ui): make task detail a detail-slot document (#125748) * refactor(ui): make task detail a slot document * test(ui): cover task detail slot teardown",
+      "title": "fix(tts): avoid mislabeled local and ElevenLabs audio (#125628)",
+      "link": "https://github.com/openclaw/openclaw/commit/5f958cf8e69fbc8bc56d9d1c9b6a3784ae7a743d",
+      "publishedAt": "2026-08-18T10:24:44Z",
+      "summary": "fix(tts): avoid mislabeled local and ElevenLabs audio (#125628) * fix(tts): report actual audio output formats Detect local CLI audio containers before conversion and derive ElevenLabs delivery metadata from the effective output format. This prevents MP3 or PCM bytes from being persisted or delivered under incompatible file and voice metadata. * fix(tts-local-cli): distinguish Ogg Opus audio Treat Ogg as a source container unless its first packet is OpusHead, so Vorbis and M4A inputs are transcoded to the requested target instead of being mislabeled as native voice audio. * fix(tts-local-cli): validate MP3 frame headers Require valid MPEG version, layer, bitrate, and sample-rate fields before treating sync bytes as MP3, preventing reserved headers from bypassing conversion under MP3 metadata. * fix(tts-local-cli): validate tagged MP3 output Require structurally valid ID3v2 metadata followed by a strict MPEG frame, and stop trusting recognizable file extensions when their bytes do not match. Unknown or malformed output now fails closed instead of bypassing conversion. * fix(tts-local-cli): accept free-format MPEG audio Treat bitrate index zero as valid free-format MPEG audio and lock the ID3v2.4 footer offset contract with focused regression coverage. * fix(tts-local-cli): normalize all Ogg output Treat Ogg only as a source container and always transcode it to the requested target, so malformed or ambiguous Ogg bytes can never bypass conversion as native voice audio.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor(ui): make task detail a detail-slot 文件ument (#125748)",
-      "summaryZh": "重點：refactor(ui): make task detail a detail-slot 文件ument (#125748) * refactor(ui): make task detail a slot 文件ument * test(ui..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tts): avoid mislabeled local and ElevenLabs audio (#125628)",
+      "summaryZh": "重點：修正(tts): avoid mislabeled local and ElevenLabs audio (#125628) * 修正(tts): report actual audio output formats Detect loca..."
     },
     {
       "id": 9,
-      "title": "fix(voice-call): preserve carrier-confirmed termination state (#125717)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e3e52431e94317e80b08a3798cf32664e5b6d15",
-      "publishedAt": "2026-08-18T09:17:11Z",
-      "summary": "fix(voice-call): preserve carrier-confirmed termination state (#125717) * fix(voice-call): serialize realtime termination * fix(ui): trim debug overlay startup path",
+      "title": "fix: show effective exec approval policy in Devices (#125756)",
+      "link": "https://github.com/openclaw/openclaw/commit/01811fb10752e5873df84e6b087231873e52513c",
+      "publishedAt": "2026-08-18T10:22:31Z",
+      "summary": "fix: show effective exec approval policy in Devices (#125756)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): preserve carrier-confirmed termination state (#125717)",
-      "summaryZh": "重點：修正(voice-call): preserve carrier-confirmed termination state (#125717) * 修正(voice-call): serialize realtime termination ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: show effective exec approval policy in Devices (#125756)",
+      "summaryZh": "重點：修正: show effective exec approval policy in Devices (#125756)..."
     },
     {
       "id": 10,
-      "title": "fix(skills): add never-capture exclusions to autonomous self-learning…",
-      "link": "https://github.com/openclaw/openclaw/commit/5e9920fd804f22dff2350f3901b12ab48f4a0e59",
-      "publishedAt": "2026-08-18T09:15:41Z",
-      "summary": "fix(skills): add never-capture exclusions to autonomous self-learning prompts (#125716) Autonomous self-learning captured junk (transcript fragments, resolved transients, one-off narratives). The experience-review and history-scan prompts now carry an explicit never-capture exclusion list from one shared constant; user-invoked /learn intentionally keeps its own bar, protected by a negative prompt assertion. Operator-notice follow-up: #125723. Fixes #125710",
+      "title": "fix(media): surface silent attachment failures (#125562)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a28a491b9a07034f7e23e0f4e2db928bba8a807",
+      "publishedAt": "2026-08-18T10:17:29Z",
+      "summary": "fix(media): surface silent attachment failures (#125562) * fix(media): surface silent attachment failures Missing structured images now produce a visible model-facing system note, failed playback transcodes warn once per source identity, and bodyless successful media responses are rejected instead of stored as empty files. * fix(media): persist failed image outcomes * fix(media): skip note lookup without failures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): add never-capture exclusions to autonomous self-learning…",
-      "summaryZh": "重點：修正(skills): add never-capture exclusions to autonomous self-learning prompts (#125716) Autonomous self-learning captured..."
+      "titleZh": "OpenClaw 程式碼更新：修正(media): surface silent attachment failures (#125562)",
+      "summaryZh": "重點：修正(media): surface silent attachment failures (#125562) * 修正(media): surface silent attachment failures Missing structur..."
     }
   ]
 }
