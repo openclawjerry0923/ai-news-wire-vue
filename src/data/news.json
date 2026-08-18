@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-18T13:41:53.246Z",
+  "generatedAt": "2026-08-18T14:33:33.649Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): stop agent terminal processes after session archive (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/4589d8514ce189b4adb8f0cf20b2a23ae92902d5",
-      "publishedAt": "2026-08-18T13:27:42Z",
-      "summary": "fix(gateway): stop agent terminal processes after session archive (#125784) * fix(gateway): stop terminal PTYs on session archive Bind agent terminals to the durable session incarnation, drain exact ownership during archive, and terminate every job-control process group in the PTY session.\\n\\nCloses #125769 * test(gateway): cover terminal cleanup on archive * test(gateway): align terminal outcome assertions * test(gateway): preserve session exports in invoke test * fix(gateway): await terminal exit before archive * test(codex): consolidate supervised instruction coverage Move the duplicated two-attempt regression into the canonical thread lifecycle test so the exact two-worker extension shard stays bounded on low-core CI.\\n\\nRelated: #125783",
+      "title": "fix(browser): treat Linux zombies as exited (#125831)",
+      "link": "https://github.com/openclaw/openclaw/commit/b9fb56566b90c3370b7df5c2c8a0905e31bb9d2d",
+      "publishedAt": "2026-08-18T14:32:02Z",
+      "summary": "fix(browser): treat Linux zombies as exited (#125831)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop agent terminal processes after session archive (#1…",
-      "summaryZh": "重點：修正(Gateway): stop agent terminal processes after session archive (#125784) * 修正(Gateway): stop terminal PTYs on session ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): treat Linux zombies as exited (#125831)",
+      "summaryZh": "重點：修正(browser): treat Linux zombies as exited (#125831)..."
     },
     {
       "id": 2,
-      "title": "fix(claws): keep project artifacts deterministic (#125801)",
-      "link": "https://github.com/openclaw/openclaw/commit/68f808f2c4cc1f5490ad0e31c85fc63c6fd7e705",
-      "publishedAt": "2026-08-18T13:09:20Z",
-      "summary": "fix(claws): keep project artifacts deterministic (#125801) * fix(claws): keep project artifacts deterministic * fix(claws): preserve deterministic archive compression * fix(claws): avoid startup zlib import",
+      "title": "refactor(memory): simplify LanceDB embedding lifecycle (#125841)",
+      "link": "https://github.com/openclaw/openclaw/commit/2c5a694ccb1a486dbfbe21e4b09f971327917089",
+      "publishedAt": "2026-08-18T14:21:12Z",
+      "summary": "refactor(memory): simplify LanceDB embedding lifecycle (#125841)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(claws): keep project artifacts deterministic (#125801)",
-      "summaryZh": "重點：修正(claws): keep project artifacts deterministic (#125801) * 修正(claws): keep project artifacts deterministic * 修正(claws):..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(記憶): simplify LanceDB embedding lifecycle (#125841)",
+      "summaryZh": "重點：refactor(記憶): simplify LanceDB embedding lifecycle (#125841)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): retain filtered automation conflict job (#125782)",
-      "link": "https://github.com/openclaw/openclaw/commit/b3ff29d21f5d46eb5a2a3c279a6ba82fd3c241c4",
-      "publishedAt": "2026-08-18T12:52:42Z",
-      "summary": "fix(ui): retain filtered automation conflict job (#125782) * fix(ui): retain filtered cron conflict job * fix(ui): separate cron detail from filters * refactor(ui): simplify authoritative cron job lookup * perf(ui): keep cron route out of startup chunk * fix(ui): separate cron editor from filtered cache",
+      "title": "fix(ci): provide isolated Telegram runtime tmp (#125625)",
+      "link": "https://github.com/openclaw/openclaw/commit/5169760bdef96bfc7653b6107a20e056626bfd87",
+      "publishedAt": "2026-08-18T14:17:37Z",
+      "summary": "fix(ci): provide isolated Telegram runtime tmp (#125625) * fix(ci): provide isolated Telegram runtime tmp * style(test): format Telegram QA regression",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): retain filtered automation conflict job (#125782)",
-      "summaryZh": "重點：修正(ui): retain filtered automation conflict job (#125782) * 修正(ui): retain filtered 排程 conflict job * 修正(ui): separate 排..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): provide isolated Telegram runtime tmp (#125625)",
+      "summaryZh": "重點：修正(ci): provide isolated Telegram runtime tmp (#125625) * 修正(ci): provide isolated Telegram runtime tmp * style(test): f..."
     },
     {
       "id": 4,
-      "title": "fix(ui): group Skill Workshop applied revisions per skill with inline…",
-      "link": "https://github.com/openclaw/openclaw/commit/e8044fdffef35faa908f7f1521ee9a4217ddd349",
-      "publishedAt": "2026-08-18T12:30:05Z",
-      "summary": "fix(ui): group Skill Workshop applied revisions per skill with inline history (#125794) The Applied view rendered every applied proposal as an independent recency-sorted row, so one skill's revision history looked like duplicate skills. Applied now shows one row per live skill with a revision-count badge and grouped tab count; the detail pane gains a lazily loaded History section with operations from the ledger's recorded kind. Pending/rejected/quarantined/stale keep one row per proposal. Fixes #125632",
+      "title": "feat: credit linked session participants as Git co-authors (#125827)",
+      "link": "https://github.com/openclaw/openclaw/commit/4048ae26e0dbf42e6d37acf129a6ea359726cbd0",
+      "publishedAt": "2026-08-18T14:15:01Z",
+      "summary": "feat: credit linked session participants as Git co-authors (#125827) * feat: credit linked session participants as co-authors Authenticated profiles can link GitHub and receive automatic co-author credit in shared coding sessions. * style: format rebased co-author registries * fix: mark profile schema DDL boundary",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): group Skill Workshop applied revisions per skill with inline…",
-      "summaryZh": "重點：修正(ui): group Skill Workshop applied revisions per skill with inline history (#125794) The Applied view rendered every a..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: credit linked session participants as Git co-authors (#125827)",
+      "summaryZh": "重點：新功能: credit linked session participants as Git co-authors (#125827) * 新功能: credit linked session participants as co-auth..."
     },
     {
       "id": 5,
