@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-08-18T12:46:48.735Z",
+  "generatedAt": "2026-08-18T13:41:53.246Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(gateway): stop agent terminal processes after session archive (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/4589d8514ce189b4adb8f0cf20b2a23ae92902d5",
+      "publishedAt": "2026-08-18T13:27:42Z",
+      "summary": "fix(gateway): stop agent terminal processes after session archive (#125784) * fix(gateway): stop terminal PTYs on session archive Bind agent terminals to the durable session incarnation, drain exact ownership during archive, and terminate every job-control process group in the PTY session.\\n\\nCloses #125769 * test(gateway): cover terminal cleanup on archive * test(gateway): align terminal outcome assertions * test(gateway): preserve session exports in invoke test * fix(gateway): await terminal exit before archive * test(codex): consolidate supervised instruction coverage Move the duplicated two-attempt regression into the canonical thread lifecycle test so the exact two-worker extension shard stays bounded on low-core CI.\\n\\nRelated: #125783",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop agent terminal processes after session archive (#1…",
+      "summaryZh": "重點：修正(Gateway): stop agent terminal processes after session archive (#125784) * 修正(Gateway): stop terminal PTYs on session ..."
+    },
+    {
+      "id": 2,
+      "title": "fix(claws): keep project artifacts deterministic (#125801)",
+      "link": "https://github.com/openclaw/openclaw/commit/68f808f2c4cc1f5490ad0e31c85fc63c6fd7e705",
+      "publishedAt": "2026-08-18T13:09:20Z",
+      "summary": "fix(claws): keep project artifacts deterministic (#125801) * fix(claws): keep project artifacts deterministic * fix(claws): preserve deterministic archive compression * fix(claws): avoid startup zlib import",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(claws): keep project artifacts deterministic (#125801)",
+      "summaryZh": "重點：修正(claws): keep project artifacts deterministic (#125801) * 修正(claws): keep project artifacts deterministic * 修正(claws):..."
+    },
+    {
+      "id": 3,
+      "title": "fix(ui): retain filtered automation conflict job (#125782)",
+      "link": "https://github.com/openclaw/openclaw/commit/b3ff29d21f5d46eb5a2a3c279a6ba82fd3c241c4",
+      "publishedAt": "2026-08-18T12:52:42Z",
+      "summary": "fix(ui): retain filtered automation conflict job (#125782) * fix(ui): retain filtered cron conflict job * fix(ui): separate cron detail from filters * refactor(ui): simplify authoritative cron job lookup * perf(ui): keep cron route out of startup chunk * fix(ui): separate cron editor from filtered cache",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): retain filtered automation conflict job (#125782)",
+      "summaryZh": "重點：修正(ui): retain filtered automation conflict job (#125782) * 修正(ui): retain filtered 排程 conflict job * 修正(ui): separate 排..."
+    },
+    {
+      "id": 4,
       "title": "fix(ui): group Skill Workshop applied revisions per skill with inline…",
       "link": "https://github.com/openclaw/openclaw/commit/e8044fdffef35faa908f7f1521ee9a4217ddd349",
       "publishedAt": "2026-08-18T12:30:05Z",
@@ -13,18 +46,7 @@
       "summaryZh": "重點：修正(ui): group Skill Workshop applied revisions per skill with inline history (#125794) The Applied view rendered every a..."
     },
     {
-      "id": 2,
-      "title": "refactor(ui): split oversized chat side-panel modules (#125770)",
-      "link": "https://github.com/openclaw/openclaw/commit/029f6c14ccc903fef9f7e887195170f2f86b3d70",
-      "publishedAt": "2026-08-18T12:25:01Z",
-      "summary": "refactor(ui): split oversized chat side-panel modules (#125770) * refactor(ui): split chat sidebar modules * fix(ui): break chat sidebar import cycle",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): split oversized chat side-panel modules (#125770)",
-      "summaryZh": "重點：refactor(ui): split oversized chat side-panel modules (#125770) * refactor(ui): split chat sidebar modules * 修正(ui): bre..."
-    },
-    {
-      "id": 3,
+      "id": 5,
       "title": "Fortinet併購Virtue AI，補強AI代理安全與紅隊演練能力",
       "link": "https://www.ithome.com.tw/news/178212",
       "publishedAt": "2026-08-18 12:08:55",
@@ -33,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "硬體加密貨幣錢包製造商Trezor資料外洩，起因是物流供應商ShipMonk遭駭",
       "link": "https://www.ithome.com.tw/news/178215",
       "publishedAt": "2026-08-18 12:08:39",
@@ -42,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 7,
       "title": "GitHub大規模故障，多項核心服務中斷逾7小時",
       "link": "https://www.ithome.com.tw/news/178216",
       "publishedAt": "2026-08-18 12:08:35",
@@ -51,35 +73,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "Mirai變種殭屍網路Evooo1Bot綁架路由器與工控設備",
       "link": "https://www.ithome.com.tw/news/178213",
       "publishedAt": "2026-08-18 12:08:00",
       "summary": "8月13日資安公司Fortinet提出警告，他們在追蹤名為Evooo1Bot的殭屍網路，攻擊者以Mirai原始碼為基礎，在DDoS攻擊能力之外整合多種功能，包含加密C2通訊、SSH暴力破解與掃描工具、SOCKS中繼模組，以及憑證嗅探工具等。再者，Evooo1Bot也把近20個已知漏洞列入武器庫，鎖定Alcatel、Netgear、三菱電機、D-Link等多個廠牌的網路及工控設備，Fortinet指出，此殭屍網路從今年7月開始活躍，在許多地區從事活動。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(ci): heal red main - dialog reopen under isolation + startup base…",
-      "link": "https://github.com/openclaw/openclaw/commit/f1453c7c778c90cd347e2435bfb50d447391bd9d",
-      "publishedAt": "2026-08-18T12:06:05Z",
-      "summary": "fix(ci): heal red main - dialog reopen under isolation + startup baseline (#125800) Two landed-PR races left main red (run 32131816085): - #125692's rewritten markdown-tables dialog test drives every interaction through direct handler calls except the reopen, which used a raw expand.click() that only worked via a leaked cross-file document listener in the shared lane; #125766 moved the file to the isolated lane where no such listener exists. Reopen now uses the file's own handler idiom. - Accumulated startup-JS creep from landed features put main 50 B over its gzip budget (344395 B vs 343289 B baseline + 1056 B tolerance). Baseline updated to main's CI-measured bytes via the script's --update-baseline contract.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): heal red main - dialog reopen under isolation + startup base…",
-      "summaryZh": "重點：修正(ci): heal red main - dialog reopen under isolation + startup baseline (#125800) Two landed-PR races left main red (ru..."
-    },
-    {
-      "id": 8,
-      "title": "fix(codex): inherit agent workspace instructions in native subagents …",
-      "link": "https://github.com/openclaw/openclaw/commit/d412c6b284e4e000d27b9d4a849fc46b05f54546",
-      "publishedAt": "2026-08-18T11:45:15Z",
-      "summary": "fix(codex): inherit agent workspace instructions in native subagents (#125783) * fix(codex): inherit agent workspace instructions in native subagents via thread developer instructions * fix(codex): satisfy lint on thread instruction changes * fix(codex): persist frozen agent instructions across supervised materialization",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): inherit agent workspace instructions in native subagents …",
-      "summaryZh": "重點：修正(codex): inherit agent workspace instructions in native subagents (#125783) * 修正(codex): inherit agent workspace instr..."
     },
     {
       "id": 9,
