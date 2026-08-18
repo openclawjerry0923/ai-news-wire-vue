@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T07:38:05.497Z",
+  "generatedAt": "2026-08-18T08:37:06.846Z",
   "items": [
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "title": "硬體加密貨幣錢包製造商Trezor資料外洩，起因是物流供應商ShipMonk遭駭",
       "link": "https://www.ithome.com.tw/news/178215",
       "publishedAt": "2026-08-18 12:08:39",
-      "summary": "8月13日硬體錢包廠商Trezor發布公告，其第三方物流合作夥伴ShipMonk發生資料外洩事件。ShipMonk於8月10日通知其系統遭未授權存取，初步確認遭存取的資料涉及客戶訂單資訊，包括姓名、電子郵件、電話號碼，以及收貨地址。",
+      "summary": "8月13日硬體錢包廠商Trezor發布公告，其第三方物流合作業者ShipMonk發生資料外洩事件。ShipMonk於8月10日通知其系統遭未授權存取，初步確認遭存取的資料涉及客戶訂單資訊，包括姓名、電子郵件、電話號碼，以及收貨地址。",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(auth): surface revoked OAuth state without masking provider failu…",
-      "link": "https://github.com/openclaw/openclaw/commit/9ad1c0c68204b2cbc11bb9b3653ba2b640ac7af0",
-      "publishedAt": "2026-08-18T07:35:06Z",
-      "summary": "fix(auth): surface revoked OAuth state without masking provider failures (#125515) * fix(auth): preserve WHAM classifications and failure recording WHAM 401/403 state now drives accurate re-auth guidance, while inline hook failures are contained after persistence so recorded failures cannot escape or be masked. * docs(plugin-sdk): define auth cooldown classifications document the additive cooldown diagnostic contract and cover its canonical public-SDK projection. * fix(auth): keep WHAM diagnostics source-compatible keep cooldownReason canonical, persist exact WHAM diagnostics in optional cooldownClassification, and preserve operator guidance plus failure-hook containment. * fix(auth): keep failover on canonical cooldown reasons ensure optional WHAM diagnostics never drive scheduling and discard mismatched persisted reason/classification pairs.",
+      "title": "fix(ui): suppress tooltips that repeat visible labels (#125684)",
+      "link": "https://github.com/openclaw/openclaw/commit/afa3e18dea0cfa798757574408a93871d7e14006",
+      "publishedAt": "2026-08-18T08:32:14Z",
+      "summary": "fix(ui): suppress tooltips that repeat visible labels (#125684) * fix(ui): suppress redundant native tooltips * fix(ui): collect visible tooltip text safely",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auth): surface revoked OAuth state without masking provider failu…",
-      "summaryZh": "重點：修正(auth): surface revoked OAuth state without masking provider failures (#125515) * 修正(auth): preserve WHAM classificati..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): suppress tooltips that repeat visible labels (#125684)",
+      "summaryZh": "重點：修正(ui): suppress tooltips that repeat visible labels (#125684) * 修正(ui): suppress redundant native tooltips * 修正(ui): co..."
     },
     {
       "id": 8,
-      "title": "fix(ui): replace user bubble Show more button (#125553)",
-      "link": "https://github.com/openclaw/openclaw/commit/9fb1b7a1a58f0dc739821026c5ad595a32060536",
-      "publishedAt": "2026-08-18T07:34:30Z",
-      "summary": "fix(ui): replace user bubble Show more button (#125553) * fix(ui): replace user bubble show-more button * fix(ui): remove user bubble chevron surface * fix(ui): round user bubble chevron hover * fix(ui): preserve wrapped prompt disclosure * fix(ui): measure wrapped prompt overflow --------- Co-authored-by: RoboClaw",
+      "title": "feat(ui): add typed update recovery actions (#125098)",
+      "link": "https://github.com/openclaw/openclaw/commit/e349d520a28677e62ac1bbabe26db654f32299cf",
+      "publishedAt": "2026-08-18T08:31:21Z",
+      "summary": "feat(ui): add typed update recovery actions (#125098) * feat(ui): add typed update recovery actions * fix(ui): surface update status refresh failures * fix(ui): keep update failure type internal * fix(ui): publish update failure facts atomically * fix(ui): validate update recovery startup budget --------- Co-authored-by: RoboClaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): replace user bubble Show more button (#125553)",
-      "summaryZh": "重點：修正(ui): replace user bubble Show more button (#125553) * 修正(ui): replace user bubble show-more button * 修正(ui): remove u..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add typed update recovery actions (#125098)",
+      "summaryZh": "重點：新功能(ui): add typed update recovery actions (#125098) * 新功能(ui): add typed update recovery actions * 修正(ui): surface upda..."
     },
     {
       "id": 9,
-      "title": "fix(codex): preserve approval timeout outcomes (#125671)",
-      "link": "https://github.com/openclaw/openclaw/commit/9564b9fc006c38b3022c90fb5572e24dca30473e",
-      "publishedAt": "2026-08-18T07:29:15Z",
-      "summary": "fix(codex): preserve approval timeout outcomes (#125671) Preserve operator approval terminal reasons through the harness, map denials and timeouts to Codex decline, and retain visible timeout evidence so the turn can continue instead of being killed.",
+      "title": "perf(agents): avoid duplicate restart recovery scans (#125712)",
+      "link": "https://github.com/openclaw/openclaw/commit/bed37ec377e5fb716415c315876253a099b66fff",
+      "publishedAt": "2026-08-18T08:18:33Z",
+      "summary": "perf(agents): avoid duplicate restart recovery scans (#125712) The startup marker now owns the first fresh store discovery and once-per-startup path tracking, while recovery keeps an independent fresh scan; this removes one scan without freezing deleted/restored stores or marking late rows in an existing path.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve approval timeout outcomes (#125671)",
-      "summaryZh": "重點：修正(codex): preserve approval timeout outcomes (#125671) Preserve operator approval terminal reasons through the harness,..."
+      "titleZh": "OpenClaw 程式碼更新：perf(agents): avoid duplicate restart recovery scans (#125712)",
+      "summaryZh": "重點：perf(agents): avoid duplicate restart recovery scans (#125712) The startup marker now owns the first fresh store discove..."
     },
     {
       "id": 10,
-      "title": "fix(ui): keep unsent draft indicators visible (#125649)",
-      "link": "https://github.com/openclaw/openclaw/commit/ebe9d38a5f9233ae62699ae582f548ac7a73bcd0",
-      "publishedAt": "2026-08-18T07:19:14Z",
-      "summary": "fix(ui): keep unsent draft indicators visible (#125649) * fix(ui): keep unsent draft indicators visible * test(ui): make markdown table copy assertion deterministic * test(ui): await restored draft attachments",
+      "title": "fix(acp): normalize file URLs before approval scoping (#124530)",
+      "link": "https://github.com/openclaw/openclaw/commit/df84250bba5792545d48208f15d38c7b7eb35e97",
+      "publishedAt": "2026-08-18T08:16:32Z",
+      "summary": "fix(acp): normalize file URLs before approval scoping (#124530)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep unsent draft indicators visible (#125649)",
-      "summaryZh": "重點：修正(ui): keep unsent draft indicators visible (#125649) * 修正(ui): keep unsent draft indicators visible * test(ui): make m..."
+      "titleZh": "OpenClaw 程式碼更新：修正(acp): normalize file URLs before approval scoping (#124530)",
+      "summaryZh": "重點：修正(acp): normalize file URLs before approval scoping (#124530)..."
     }
   ]
 }
