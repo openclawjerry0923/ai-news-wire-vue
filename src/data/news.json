@@ -1,8 +1,35 @@
 {
-  "generatedAt": "2026-08-18T03:46:25.646Z",
+  "generatedAt": "2026-08-18T04:35:46.551Z",
   "items": [
     {
       "id": 1,
+      "title": "Fortinet併購Virtue AI，補強AI代理安全與紅隊演練能力",
+      "link": "https://www.ithome.com.tw/news/178212",
+      "publishedAt": "2026-08-18 12:08:55",
+      "summary": "資安業者Fortinet宣布完成併購AI資安新創Virtue AI，藉此補強AI代理安全、紅隊演練及持續AI安全驗證等能力，讓既有AI安全布局進一步涵蓋AI代理與相關工具。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "勒索軟體Akira以安全模式癱瘓EDR運作，竊取憑證與檔案進行勒索",
+      "link": "https://www.ithome.com.tw/news/178210",
+      "publishedAt": "2026-08-18 11:08:50",
+      "summary": "最近兩到三年引起資安界關注的勒索軟體Akira，去年底將加密資料的範圍延伸到Nutanix虛擬機器，如今傳出這些駭客又採用新的攻擊手法，再度引起資安公司的注意。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "WordPress外掛User Profile Builder存在重大漏洞，逾4萬網站暴露於管理帳號遭接管風險",
+      "link": "https://www.ithome.com.tw/news/178211",
+      "publishedAt": "2026-08-18 11:08:27",
+      "summary": "資安業者Wordfence於8月14日揭露WordPress外掛User Profile Builder存在重大身分驗證繞過漏洞，該外掛用於建立使用者註冊、登入及個人資料管理功能，目前有超過4萬個網站啟用。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
       "title": "GitLab修補13個資安漏洞，包含兩個Analytics儀表板高風險漏洞",
       "link": "https://www.ithome.com.tw/news/178207",
       "publishedAt": "2026-08-18 11:08:24",
@@ -11,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 5,
       "title": "微軟著手修補防毒軟體零時差漏洞ShieldBreak",
       "link": "https://www.ithome.com.tw/news/178206",
       "publishedAt": "2026-08-18 11:08:24",
@@ -20,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "AI運算框架Ray重大漏洞遭利用",
       "link": "https://www.ithome.com.tw/news/178204",
       "publishedAt": "2026-08-18 09:08:26",
@@ -29,75 +56,48 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "麥當勞、Vodafone等9家大型企業逾360萬筆Azure目錄資料遭兜售，疑與遭竊憑證有關",
-      "link": "https://www.ithome.com.tw/news/178203",
-      "publishedAt": "2026-08-18 09:08:00",
-      "summary": "包括麥當勞（McDonald&#039;s）、Vodafone、Tata Consultancy Services（TCS）及Kyndryl等9家大型企業，傳出其Microsoft Azure環境中的員工目錄資料疑似遭竊。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "紐西蘭指中國紫金山天文臺藉企業合作部署太空設施，可蒐集具軍事價值情報",
-      "link": "https://www.ithome.com.tw/news/178202",
-      "publishedAt": "2026-08-18 09:08:00",
-      "summary": "紐西蘭安全情報局（New Zealand Security Intelligence Service，NZSIS）今年將外國政府利用紐西蘭太空產業列為新興國安風險。地面太空基礎設施（Ground Based Space Infrastructure，GBSI）除了可用於追蹤衛星及蒐集科學資料，也可能被用於提升軍事能力及從事情報活動。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "2026年Q2逾1 Tbps DDoS攻擊季增519%，政府部門遭HTTP DDoS攻擊排名升至第9",
-      "link": "https://www.ithome.com.tw/news/178192",
-      "publishedAt": "2026-08-18 09:08:00",
-      "summary": "2026年第2季流量超過1 Tbps的網路層DDoS攻擊大幅增加。根據網路資安暨內容遞送服務業者Cloudflare統計，2026年上半年共攔下935起這類攻擊，其中第2季達805起，較第1季130起增加519%。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "fix(tts): classify real transport timeouts as timeouts (#125530)",
-      "link": "https://github.com/openclaw/openclaw/commit/bc9c3a4ad810716811e56cfce71c3f2e04ccb850",
-      "publishedAt": "2026-08-18T03:43:12Z",
-      "summary": "fix(tts): classify real transport timeouts as timeouts (#125530) TTS attempt records only recognized err.name === 'AbortError' as a timeout, but the shared transport names its abort 'TimeoutError' (fetch-timeout.ts) and provider operation deadlines throw plain Errors ending in 'timed out'. Every real HTTP provider timeout was therefore recorded as reasonCode 'provider_error', dead-ending diagnosis in /tts status and telemetry — the timeout classifier was dead code. Recognize all three shapes via one helper shared by the reason code and the formatted error text. The existing classification test crafted an AbortError by hand, green-lighting the misclassification; it now uses the real TimeoutError transport shape.",
+      "title": "improve(ui): reduce startup stylesheet size (#125539)",
+      "link": "https://github.com/openclaw/openclaw/commit/ca8bd59df50a5703f87fa9fd2c32a63349e9b8d1",
+      "publishedAt": "2026-08-18T04:32:46Z",
+      "summary": "improve(ui): reduce startup stylesheet size (#125539) * perf(ui): lazy-load settings workspace styles Amp-Thread-ID: https://ampcode.com/threads/T-01a01277-59ee-703a-b04d-927a3ba733a1 * fix(ui): keep picker styles route scoped Amp-Thread-ID: https://ampcode.com/threads/T-01a01277-59ee-703a-b04d-927a3ba733a1 --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tts): classify real transport timeouts as timeouts (#125530)",
-      "summaryZh": "重點：修正(tts): classify real transport timeouts as timeouts (#125530) TTS attempt records only recognized err.name === 'AbortE..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): reduce startup stylesheet size (#125539)",
+      "summaryZh": "重點：improve(ui): reduce startup stylesheet size (#125539) * perf(ui): lazy-load settings workspace styles Amp-Thread-ID: htt..."
     },
     {
       "id": 8,
-      "title": "fix(google-meet): classify gateway CLI fallback with typed guards ins…",
-      "link": "https://github.com/openclaw/openclaw/commit/ebac7313525a6c6b1c59f16eca5bef71069b2c2e",
-      "publishedAt": "2026-08-18T03:40:46Z",
-      "summary": "fix(google-meet): classify gateway CLI fallback with typed guards instead of message matching (#125495) * fix(google-meet): classify gateway CLI fallback with typed guards instead of message matching Replaces the message-substring classifier in the Meet CLI's gateway-unavailable local fallback with the structural isGatewayTransportError/isGatewayClientRequestError guards (seam shared verbatim with #125458). Decision surface chosen per Meet semantics: uncoded transport closes (unreachable sockets, now incl. ETIMEDOUT/ ENETUNREACH) fall back; coded closes incl. 1006 deliberately do not, since a live gateway may still own Meet browser sessions; unknown-method fallback stays but requires a structural gateway request error. Adds ECONNRESET to GATEWAY_UNREACHABLE_SOCKET_CODES so connect-time resets wrap into the typed unreachable error instead of escaping raw. * test(process): treat Linux zombies as terminated",
+      "title": "fix(agents): keep model resolution on one plugin generation (#125569)",
+      "link": "https://github.com/openclaw/openclaw/commit/d9b69c5b6fb6feb7ec59b32ec8f2aa32e25aebaf",
+      "publishedAt": "2026-08-18T04:32:37Z",
+      "summary": "fix(agents): keep model resolution on one plugin generation (#125569) * fix(agents): pin model resolution to prepared generation * test(agents): complete prepared runtime fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google-meet): classify Gateway CLI fallback with typed guards ins…",
-      "summaryZh": "重點：修正(google-meet): classify Gateway CLI fallback with typed guards instead of message matching (#125495) * 修正(google-meet)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep 模型 resolution on one plugin generation (#125569)",
+      "summaryZh": "重點：修正(agents): keep 模型 resolution on one plugin generation (#125569) * 修正(agents): pin 模型 resolution to prepared generation..."
     },
     {
       "id": 9,
-      "title": "feat(voice-call): let realtime agents end calls (#125525)",
-      "link": "https://github.com/openclaw/openclaw/commit/1acabe40a99e183934c7ff675571c2c05491d37e",
-      "publishedAt": "2026-08-18T03:39:13Z",
-      "summary": "feat(voice-call): let realtime agents end calls (#125525)",
+      "title": "fix(cli): exit non-zero when an agent turn fails (#125557)",
+      "link": "https://github.com/openclaw/openclaw/commit/3ab27a2900959f15b8ab8742c595b30a373560a6",
+      "publishedAt": "2026-08-18T04:31:25Z",
+      "summary": "fix(cli): exit non-zero when an agent turn fails (#125557) The gateway-routed path already mapped terminal run status to an exit code, but the local embedded path did not, so a failed turn exited 0 while its own JSON envelope reported status \"error\". Route both through the canonical agent-run terminal outcome, and fail closed on an unrecognized status since the gateway response carries an open string.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(voice-call): let realtime agents end calls (#125525)",
-      "summaryZh": "重點：新功能(voice-call): let realtime agents end calls (#125525)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): exit non-zero when an agent turn fails (#125557)",
+      "summaryZh": "重點：修正(cli): exit non-zero when an agent turn fails (#125557) The Gateway-routed path already mapped terminal run status to ..."
     },
     {
       "id": 10,
-      "title": "fix(ui): restore full chat history after cached layout changes (#125536)",
-      "link": "https://github.com/openclaw/openclaw/commit/a0c5937fd19debeaad89f7a9869e69b524dbdd5a",
-      "publishedAt": "2026-08-18T03:33:05Z",
-      "summary": "fix(ui): restore full chat history after cached layout changes (#125536) Cached Control UI transcripts no longer show a large blank region or hide earlier loaded messages after layout/transcript-shape changes. Closes #125533",
+      "title": "fix(state): register placement move target_machine_class as additive …",
+      "link": "https://github.com/openclaw/openclaw/commit/c198f8aba4f46546b1225140b81b42b3edad1ffa",
+      "publishedAt": "2026-08-18T04:30:45Z",
+      "summary": "fix(state): register placement move target_machine_class as additive column (#125583) worker_session_placement_moves.target_machine_class was in the canonical state schema and the feature lazy ensureColumn path but not in CLAW_LAZY_ADDITIVE_STATE_COLUMN_DEFINITIONS, so a global state DB that already had the lazily-created table failed the strict startup schema check (column definitions differ) and the gateway crash-looped. Register it as lazy-additive so startup repair adds the column in place, like the sibling worker_session_placements entries.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore full chat history after cached layout changes (#125536)",
-      "summaryZh": "重點：修正(ui): restore full chat history after cached layout changes (#125536) Cached Control UI transcripts no longer show a l..."
+      "titleZh": "OpenClaw 程式碼更新：修正(state): register placement move target_machine_class as additive …",
+      "summaryZh": "重點：修正(state): register placement move target_machine_class as additive column (#125583) worker_session_placement_moves.targ..."
     }
   ]
 }
