@@ -1,8 +1,26 @@
 {
-  "generatedAt": "2026-08-18T02:55:53.146Z",
+  "generatedAt": "2026-08-18T03:46:25.646Z",
   "items": [
     {
       "id": 1,
+      "title": "GitLab修補13個資安漏洞，包含兩個Analytics儀表板高風險漏洞",
+      "link": "https://www.ithome.com.tw/news/178207",
+      "publishedAt": "2026-08-18 11:08:24",
+      "summary": "全球主要DevOps平臺之一的GitLab，近日發布更新，修補Community Edition與Enterprise Edition版的13個漏洞，涵蓋Analytics儀表板、CI/CD、API等服務與套件管理等功能，目前尚無這些漏洞遭實際利用或已有公開PoC的資訊。GitLab團隊已為雲端版GitLab.com服務完成更新，採用自行管理（self-managed）版本的用戶，則應升級至已修補完成的19.2.2、19.1.4與19.0.6等版本。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "微軟著手修補防毒軟體零時差漏洞ShieldBreak",
+      "link": "https://www.ithome.com.tw/news/178206",
+      "publishedAt": "2026-08-18 11:08:24",
+      "summary": "上週資安研究員Nightmare Eclipse於微軟發布8月例行更新（Patch Tuesday）之後，公布防毒軟體Microsoft Defender零時差漏洞ShieldBreak，聲稱是微軟修補RoguePlanet（CVE-2026-50656）不完整造成， 微軟後續承認該漏洞的存在，並著手處理。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
       "title": "AI運算框架Ray重大漏洞遭利用",
       "link": "https://www.ithome.com.tw/news/178204",
       "publishedAt": "2026-08-18 09:08:26",
@@ -11,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "麥當勞、Vodafone等9家大型企業逾360萬筆Azure目錄資料遭兜售，疑與遭竊憑證有關",
       "link": "https://www.ithome.com.tw/news/178203",
       "publishedAt": "2026-08-18 09:08:00",
@@ -20,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "紐西蘭指中國紫金山天文臺藉企業合作部署太空設施，可蒐集具軍事價值情報",
       "link": "https://www.ithome.com.tw/news/178202",
       "publishedAt": "2026-08-18 09:08:00",
@@ -29,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "2026年Q2逾1 Tbps DDoS攻擊季增519%，政府部門遭HTTP DDoS攻擊排名升至第9",
       "link": "https://www.ithome.com.tw/news/178192",
       "publishedAt": "2026-08-18 09:08:00",
@@ -38,66 +56,48 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "紅帽Kubernetes叢集管理產品ACM爆漏洞，受限使用者恐取得整個叢集管理權限",
-      "link": "https://www.ithome.com.tw/news/178183",
-      "publishedAt": "2026-08-18 09:08:00",
-      "summary": "企業級開源軟體業者紅帽（Red Hat）揭露旗下Kubernetes多叢集管理產品Red Hat Advanced Cluster Management for Kubernetes（ACM）存在權限提升漏洞CVE-2026-10090。紅帽將這項漏洞列為重要（Important）風險等級，初步CVSS v3.1風險評分達9.0。攻擊者若已取得ACM中樞叢集特定命名空間的edit權限，可能進一步取得整個叢集的cluster-admin管理權限。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "fix: correct setup provider drift diagnostics (#125523)",
-      "link": "https://github.com/openclaw/openclaw/commit/aa8be5acf90edb2b5d670e8c7702d99552a973a7",
-      "publishedAt": "2026-08-18T02:54:47Z",
-      "summary": "fix: correct setup provider drift diagnostics (#125523) Stop reporting metadata-only setup provider descriptors as missing runtime registrations while preserving genuine provider, CLI, loading, and registration diagnostics. Fixes #125506.",
+      "id": 7,
+      "title": "fix(tts): classify real transport timeouts as timeouts (#125530)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc9c3a4ad810716811e56cfce71c3f2e04ccb850",
+      "publishedAt": "2026-08-18T03:43:12Z",
+      "summary": "fix(tts): classify real transport timeouts as timeouts (#125530) TTS attempt records only recognized err.name === 'AbortError' as a timeout, but the shared transport names its abort 'TimeoutError' (fetch-timeout.ts) and provider operation deadlines throw plain Errors ending in 'timed out'. Every real HTTP provider timeout was therefore recorded as reasonCode 'provider_error', dead-ending diagnosis in /tts status and telemetry — the timeout classifier was dead code. Recognize all three shapes via one helper shared by the reason code and the formatted error text. The existing classification test crafted an AbortError by hand, green-lighting the misclassification; it now uses the real TimeoutError transport shape.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: correct setup provider drift diagnostics (#125523)",
-      "summaryZh": "重點：修正: correct setup provider drift diagnostics (#125523) Stop reporting metadata-only setup provider descriptors as missin..."
-    },
-    {
-      "id": 7,
-      "title": "Credo 提案為 AI 系統建立開放式小晶片互連標準，致力打破「記憶體牆」瓶頸",
-      "link": "https://technews.tw/2026/08/18/credo-chiplet-ai-systems-break-memory-wall/",
-      "publishedAt": "Tue, 18 Aug 2026 02:50:33 +0000",
-      "summary": "Credo 宣布，將在開放運算計畫（Open Compute Project，OCP）社群內推動一項全新的互連 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "titleZh": "OpenClaw 程式碼更新：修正(tts): classify real transport timeouts as timeouts (#125530)",
+      "summaryZh": "重點：修正(tts): classify real transport timeouts as timeouts (#125530) TTS attempt records only recognized err.name === 'AbortE..."
     },
     {
       "id": 8,
-      "title": "Show worktree option only for Git group folders (#125280)",
-      "link": "https://github.com/openclaw/openclaw/commit/a928da457f827ea125c1a38e414e243035992231",
-      "publishedAt": "2026-08-18T02:50:15Z",
-      "summary": "Show worktree option only for Git group folders (#125280) * feat(ui): show worktrees only for Git group folders * feat(ui): enrich group environment picker * fix(ui): preserve worktree defaults on probe errors * fix(ui): reject stale group repository probes * test(ui): type repository inspection helper",
+      "title": "fix(google-meet): classify gateway CLI fallback with typed guards ins…",
+      "link": "https://github.com/openclaw/openclaw/commit/ebac7313525a6c6b1c59f16eca5bef71069b2c2e",
+      "publishedAt": "2026-08-18T03:40:46Z",
+      "summary": "fix(google-meet): classify gateway CLI fallback with typed guards instead of message matching (#125495) * fix(google-meet): classify gateway CLI fallback with typed guards instead of message matching Replaces the message-substring classifier in the Meet CLI's gateway-unavailable local fallback with the structural isGatewayTransportError/isGatewayClientRequestError guards (seam shared verbatim with #125458). Decision surface chosen per Meet semantics: uncoded transport closes (unreachable sockets, now incl. ETIMEDOUT/ ENETUNREACH) fall back; coded closes incl. 1006 deliberately do not, since a live gateway may still own Meet browser sessions; unknown-method fallback stays but requires a structural gateway request error. Adds ECONNRESET to GATEWAY_UNREACHABLE_SOCKET_CODES so connect-time resets wrap into the typed unreachable error instead of escaping raw. * test(process): treat Linux zombies as terminated",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：Show worktree option only for Git group folders (#125280)",
-      "summaryZh": "重點：Show worktree option only for Git group folders (#125280) * 新功能(ui): show worktrees only for Git group folders * 新功能(ui)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(google-meet): classify Gateway CLI fallback with typed guards ins…",
+      "summaryZh": "重點：修正(google-meet): classify Gateway CLI fallback with typed guards instead of message matching (#125495) * 修正(google-meet)..."
     },
     {
       "id": 9,
-      "title": "fix(openai): prevent realtime barge-in truncation errors (#125502)",
-      "link": "https://github.com/openclaw/openclaw/commit/41c0818751334123e9b4d2f28e31c40b847d46ad",
-      "publishedAt": "2026-08-18T02:29:50Z",
-      "summary": "fix(openai): prevent realtime barge-in truncation errors (#125502) * fix(openai): clamp realtime barge-in truncation Clamp OpenAI Realtime barge-in truncation to the audio duration produced for each assistant item. This prevents interruption failures observed live when 3,700 ms of decoded audio was paired with a 3,760 ms transport-clock timestamp. * fix(openai): propagate PCM sideband audio format The browser sideband negotiated PCM16, but its bridge defaulted to G.711 for duration accounting. Propagate the negotiated format so truncation uses the actual PCM duration and closes ClawSweeper's in-scope finding.",
+      "title": "feat(voice-call): let realtime agents end calls (#125525)",
+      "link": "https://github.com/openclaw/openclaw/commit/1acabe40a99e183934c7ff675571c2c05491d37e",
+      "publishedAt": "2026-08-18T03:39:13Z",
+      "summary": "feat(voice-call): let realtime agents end calls (#125525)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(openai): prevent realtime barge-in truncation errors (#125502)",
-      "summaryZh": "重點：修正(openai): prevent realtime barge-in truncation errors (#125502) * 修正(openai): clamp realtime barge-in truncation Clamp..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(voice-call): let realtime agents end calls (#125525)",
+      "summaryZh": "重點：新功能(voice-call): let realtime agents end calls (#125525)..."
     },
     {
       "id": 10,
-      "title": "fix(ui): keep side panel tab labels visible (#125511)",
-      "link": "https://github.com/openclaw/openclaw/commit/93f7492570ef400f2c776c6c4390839c3e33ced6",
-      "publishedAt": "2026-08-18T02:29:18Z",
-      "summary": "fix(ui): keep side panel tab labels visible (#125511) Restore the block-axis padding reset lost in #125368 so Web Awesome tab labels remain vertically legible while retaining logical inline spacing. Add LTR and RTL browser geometry coverage for the visible label boundary.",
+      "title": "fix(ui): restore full chat history after cached layout changes (#125536)",
+      "link": "https://github.com/openclaw/openclaw/commit/a0c5937fd19debeaad89f7a9869e69b524dbdd5a",
+      "publishedAt": "2026-08-18T03:33:05Z",
+      "summary": "fix(ui): restore full chat history after cached layout changes (#125536) Cached Control UI transcripts no longer show a large blank region or hide earlier loaded messages after layout/transcript-shape changes. Closes #125533",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep side panel tab labels visible (#125511)",
-      "summaryZh": "重點：修正(ui): keep side panel tab labels visible (#125511) Restore the block-axis padding reset lost in #125368 so Web Awesome..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore full chat history after cached layout changes (#125536)",
+      "summaryZh": "重點：修正(ui): restore full chat history after cached layout changes (#125536) Cached Control UI transcripts no longer show a l..."
     }
   ]
 }
