@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T08:37:06.846Z",
+  "generatedAt": "2026-08-18T09:33:56.042Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(ui): suppress tooltips that repeat visible labels (#125684)",
-      "link": "https://github.com/openclaw/openclaw/commit/afa3e18dea0cfa798757574408a93871d7e14006",
-      "publishedAt": "2026-08-18T08:32:14Z",
-      "summary": "fix(ui): suppress tooltips that repeat visible labels (#125684) * fix(ui): suppress redundant native tooltips * fix(ui): collect visible tooltip text safely",
+      "title": "fix: show sessions waiting for concurrency slots (#125654)",
+      "link": "https://github.com/openclaw/openclaw/commit/b8ff4fe3d7d687620ce5b4a4785832daca94a74d",
+      "publishedAt": "2026-08-18T09:31:39Z",
+      "summary": "fix: show sessions waiting for concurrency slots (#125654) * fix: show sessions waiting for concurrency slots * test: align queued session integration fixtures * test: distinguish queued and reactivated followups * fix: preserve queued state in workboard and android * fix: project queued status through chat history * test(ui): keep queued sidebar case under line cap",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): suppress tooltips that repeat visible labels (#125684)",
-      "summaryZh": "重點：修正(ui): suppress tooltips that repeat visible labels (#125684) * 修正(ui): suppress redundant native tooltips * 修正(ui): co..."
+      "titleZh": "OpenClaw 程式碼更新：修正: show sessions waiting for concurrency slots (#125654)",
+      "summaryZh": "重點：修正: show sessions waiting for concurrency slots (#125654) * 修正: show sessions waiting for concurrency slots * test: alig..."
     },
     {
       "id": 8,
-      "title": "feat(ui): add typed update recovery actions (#125098)",
-      "link": "https://github.com/openclaw/openclaw/commit/e349d520a28677e62ac1bbabe26db654f32299cf",
-      "publishedAt": "2026-08-18T08:31:21Z",
-      "summary": "feat(ui): add typed update recovery actions (#125098) * feat(ui): add typed update recovery actions * fix(ui): surface update status refresh failures * fix(ui): keep update failure type internal * fix(ui): publish update failure facts atomically * fix(ui): validate update recovery startup budget --------- Co-authored-by: RoboClaw",
+      "title": "refactor(ui): make task detail a detail-slot document (#125748)",
+      "link": "https://github.com/openclaw/openclaw/commit/2601bcbc525970d788b1d5e1d3972a567a855e6d",
+      "publishedAt": "2026-08-18T09:28:26Z",
+      "summary": "refactor(ui): make task detail a detail-slot document (#125748) * refactor(ui): make task detail a slot document * test(ui): cover task detail slot teardown",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add typed update recovery actions (#125098)",
-      "summaryZh": "重點：新功能(ui): add typed update recovery actions (#125098) * 新功能(ui): add typed update recovery actions * 修正(ui): surface upda..."
+      "titleZh": "OpenClaw 文件更新：refactor(ui): make task detail a detail-slot 文件ument (#125748)",
+      "summaryZh": "重點：refactor(ui): make task detail a detail-slot 文件ument (#125748) * refactor(ui): make task detail a slot 文件ument * test(ui..."
     },
     {
       "id": 9,
-      "title": "perf(agents): avoid duplicate restart recovery scans (#125712)",
-      "link": "https://github.com/openclaw/openclaw/commit/bed37ec377e5fb716415c315876253a099b66fff",
-      "publishedAt": "2026-08-18T08:18:33Z",
-      "summary": "perf(agents): avoid duplicate restart recovery scans (#125712) The startup marker now owns the first fresh store discovery and once-per-startup path tracking, while recovery keeps an independent fresh scan; this removes one scan without freezing deleted/restored stores or marking late rows in an existing path.",
+      "title": "fix(voice-call): preserve carrier-confirmed termination state (#125717)",
+      "link": "https://github.com/openclaw/openclaw/commit/5e3e52431e94317e80b08a3798cf32664e5b6d15",
+      "publishedAt": "2026-08-18T09:17:11Z",
+      "summary": "fix(voice-call): preserve carrier-confirmed termination state (#125717) * fix(voice-call): serialize realtime termination * fix(ui): trim debug overlay startup path",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(agents): avoid duplicate restart recovery scans (#125712)",
-      "summaryZh": "重點：perf(agents): avoid duplicate restart recovery scans (#125712) The startup marker now owns the first fresh store discove..."
+      "titleZh": "OpenClaw 程式碼更新：修正(voice-call): preserve carrier-confirmed termination state (#125717)",
+      "summaryZh": "重點：修正(voice-call): preserve carrier-confirmed termination state (#125717) * 修正(voice-call): serialize realtime termination ..."
     },
     {
       "id": 10,
-      "title": "fix(acp): normalize file URLs before approval scoping (#124530)",
-      "link": "https://github.com/openclaw/openclaw/commit/df84250bba5792545d48208f15d38c7b7eb35e97",
-      "publishedAt": "2026-08-18T08:16:32Z",
-      "summary": "fix(acp): normalize file URLs before approval scoping (#124530)",
+      "title": "fix(skills): add never-capture exclusions to autonomous self-learning…",
+      "link": "https://github.com/openclaw/openclaw/commit/5e9920fd804f22dff2350f3901b12ab48f4a0e59",
+      "publishedAt": "2026-08-18T09:15:41Z",
+      "summary": "fix(skills): add never-capture exclusions to autonomous self-learning prompts (#125716) Autonomous self-learning captured junk (transcript fragments, resolved transients, one-off narratives). The experience-review and history-scan prompts now carry an explicit never-capture exclusion list from one shared constant; user-invoked /learn intentionally keeps its own bar, protected by a negative prompt assertion. Operator-notice follow-up: #125723. Fixes #125710",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(acp): normalize file URLs before approval scoping (#124530)",
-      "summaryZh": "重點：修正(acp): normalize file URLs before approval scoping (#124530)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): add never-capture exclusions to autonomous self-learning…",
+      "summaryZh": "重點：修正(skills): add never-capture exclusions to autonomous self-learning prompts (#125716) Autonomous self-learning captured..."
     }
   ]
 }
