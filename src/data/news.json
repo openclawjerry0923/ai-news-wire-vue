@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-19T19:25:31.187Z",
+  "generatedAt": "2026-08-19T20:28:08.341Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: queued deliveries never recover at startup in multi-agent fleets…",
-      "link": "https://github.com/openclaw/openclaw/commit/615ff6ac94154453a2f515737b069bbde85c87b2",
-      "publishedAt": "2026-08-19T19:24:25Z",
-      "summary": "fix: queued deliveries never recover at startup in multi-agent fleets (#126377) * fix(outbound): resolve ambient delivery owner through the system-agent chain Agent-less outbound channel bootstrap resolved its owner via the deprecated throwing resolver, so multi-agent explicit-ownership configs with only agents.defaults.systemAgent.agentId set threw AgentSelectionRequiredError from inside gateway delivery recovery, aborting the whole drain (\"Delivery recovery failed\") for every queued entry. Bootstrap now follows the same ambient owner chain heartbeats and cron use (legacy default, then systemAgent, then sole agent), consolidated into one canonical tryResolveAmbientOwnerAgentId in agent-scope-config; the duplicated chain in cron/agent-id.ts is deleted and heartbeat resolution reuses the helper. Truly ownerless fleets no longer throw either: bootstrap proceeds with global-scope plugin discovery only, never selecting an agent workspace, so per-entry delivery outcomes stay recorded instead of one entry starving the recovery loop. Regression tests fail pre-fix: agent-less bootstrap routes through the configured system-agent owner, and ownerless fleets bootstrap without throwing. * refactor(agents): route ambient owner resolution through one canonical chain The idiom `tryResolveLegacyCompatibilityAgentId(cfg) ?? resolveDefaultAgentId(cfg)` was copied across nine ambient surfaces. It reads like a fallback but is not: when the first call returns undefined, resolveDefaultAgentId reduces to resolveSoleAgentId and throws, so the second leg only ever throws — and neither leg consults agents.defaults.systemAgent.agentId. Every one of those surfaces raised AgentSelectionRequiredError in explicit fleets that own ambient work through a system agent. Promote the chain to one owner in agent-scope-config: tryResolveAmbientOwnerAgentId (undefined when ownerless) and resolveAmbientOwnerAgentId (throws with the caller's existing selection context). The throwing variant is a drop-in for every former composite: identical message when a fleet has no owner, but the system-agent leg now resolves. Converted: resolveDefaultAgentDir (the shared producer behind auth, model catalog, doctor, wizard, and Plugin SDK helpers), config identity-avatar validation, prepared model catalog and registry, session reset, Talk target, main-session routing and its routing-contract fingerprint, session store targets, hooks CLI, plugin LLM completion, and first-run onboarding. resolveDefaultAgentId keeps backing explicit-selection surfaces where 'pass --agent' is the right answer; its deprecation note now sends ambient callers to the new helper. * fix(sessions,hooks): keep agent-narrowing surfaces on explicit selection CI caught the over-reach: session-store listing and hooks status reporting are deliberately explicit-selection surfaces, not ambient system work. Both narrow output to one agent, so adopting agents.defaults.systemAgent.agentId would hide the other agents' sessions/hooks instead of failing with the escape hatches the operator needs. sessions.default-agent-store.test.ts pins that contract by configuring a system agent and still expecting the --agent/--all-agents error. Restore the prior behavior at both sites, spelled honestly as tryResolveLegacyCompatibilityAgentId ?? resolveSoleAgentId — provably identical to the old composite, since the composite's second leg could only ever throw — with a comment recording why these two resist the ambient chain. * test: declare the ambient owner binding in agent-scope mock factories Explicit vi.mock factories enumerate exports, so production calling resolveAmbientOwnerAgentId broke prepared-model-catalog, prepared-model-registry, and channel-resolution with 'No \"resolveAmbientOwnerAgentId\" export is defined on the ... mock'. Declare it in the four factories; channel-resolution now drives the non-throwing variant the bootstrap actually calls. Also restore session-store targets and hooks status to their exact previous code. Both stay out of the ambient chain by design, so the smallest correct diff at an out-of-scope site is none: they now differ from main only by the comment recording why they resist it. * fix(models): resolve the model-config workspace through the ambient owner ClawSweeper P1: prepareModelsConfigContext resolved agentDir through resolveDefaultAgentDir (ambient chain) but its workspace through resolveDefaultAgentId (deprecated throwing chain), so explicit fleets owned by a system agent still failed model preparation on the workspace lookup — a one-sided fix inside a single function. Both halves now resolve the same ambient owner. * docs(agents): describe the widened ambient system-agent ownership config-agents.md claimed 'Other agent-scoped methods do not use this setting as a general default', which this branch makes false: systemAgent.agentId is now the ambient owner for agent dir/workspace resolution, outbound bootstrap and delivery recovery, main-session routing, Talk, and onboarding. Record the widened set, the two surfaces that deliberately still demand explicit selection (sessions, hooks), and delivery recovery's per-entry degradation.",
+      "title": "fix: scope selected provider hook loading (#126427)",
+      "link": "https://github.com/openclaw/openclaw/commit/f68503084b7ad967d9ba763dbe06065d8762042f",
+      "publishedAt": "2026-08-19T20:09:38Z",
+      "summary": "fix: scope selected provider hook loading (#126427) Scope selected-model hook fallback loading to the selected provider so unrelated plugins no longer delay onboarding. Fixes #126408.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: queued deliveries never recover at startup in multi-agent fleets…",
-      "summaryZh": "重點：修正: queued deliveries never recover at startup in multi-agent fleets (#126377) * 修正(outbound): resolve ambient delivery ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: scope selected provider hook loading (#126427)",
+      "summaryZh": "重點：修正: scope selected provider hook loading (#126427) Scope selected-模型 hook fallback loading to the selected provider so u..."
     },
     {
       "id": 2,
-      "title": "refactor(ui): share Control UI resource route contract (#126386)",
-      "link": "https://github.com/openclaw/openclaw/commit/0b715e3f5bfb80e8a93bbf050311011e7d05c98a",
-      "publishedAt": "2026-08-19T19:20:22Z",
-      "summary": "refactor(ui): share Control UI resource route contract (#126386) * refactor(ui): share Control UI resource route contract Gateway and Control UI now share browser-safe resource route grammar, while authorization and domain validation remain handler-owned. * perf(ui): keep resource routes out of startup Narrow browser-safe contract modules and the lazy authenticated avatar loader keep route/cache code out of the startup chunk while the stable Gateway barrel remains compatible.",
+      "title": "docs(agents): restore the non-default scope for systemAgent ownership…",
+      "link": "https://github.com/openclaw/openclaw/commit/fd2fccbc8ed7b8cc35a451be806249e450570788",
+      "publishedAt": "2026-08-19T20:08:34Z",
+      "summary": "docs(agents): restore the non-default scope for systemAgent ownership (#126431) Live-testing #126377 in a real explicit fleet surfaced an inaccuracy that PR introduced. It dropped 'Other agent-scoped methods do not use this setting as a general default', which is still true: only models.list, models.authStatus, skills.status, and doctor.memory.status opt in, while the generic Gateway resolver in agent-id-shared.ts deliberately does not. Verified against a live gateway and CLI on a three-agent explicit fleet with systemAgent.agentId set: 'openclaw models list', 'openclaw sessions', stored session lookup, and TUI startup all still require an explicit agent. Name those surfaces so operators know where the owner does and does not apply.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share Control UI resource route contract (#126386)",
-      "summaryZh": "重點：refactor(ui): share Control UI resource route contract (#126386) * refactor(ui): share Control UI resource route contrac..."
+      "titleZh": "OpenClaw 文件更新：文件(agents): restore the non-default scope for systemAgent ownership…",
+      "summaryZh": "重點：文件(agents): restore the non-default scope for systemAgent ownership (#126431) Live-testing #126377 in a real explicit fl..."
     },
     {
       "id": 3,
-      "title": "fix: restore cloud worker Desktop on node-backed Crabbox workers (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/84c2111b3090ce9473e1169d09448dce579040e7",
-      "publishedAt": "2026-08-19T18:50:48Z",
-      "summary": "fix: restore cloud worker Desktop on node-backed Crabbox workers (#126393) * fix(gateway): carry cloud worker desktops over nodes * fix(crabbox): restore node-backed worker desktops * refactor(crabbox): split worker provider owners",
+      "title": "fix: move raw call transcripts from system to user prompt to protect …",
+      "link": "https://github.com/openclaw/openclaw/commit/24a1139188b6e33be6041ad7f36486c4a5875cae",
+      "publishedAt": "2026-08-19T20:07:59Z",
+      "summary": "fix: move raw call transcripts from system to user prompt to protect provenance (#123846) * Move raw transcript from system to user prompt to protect provenance. * Type fix. * fix(voice-call): harden transcript context handling * fix(voice-call): initialize inbound Twilio control state * test(voice-call): align runtime coordinator fixture --------- Co-authored-by: joshavant",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore cloud worker Desktop on node-backed Crabbox workers (#12…",
-      "summaryZh": "重點：修正: restore cloud worker Desktop on node-backed Crabbox workers (#126393) * 修正(Gateway): carry cloud worker desktops ove..."
+      "titleZh": "OpenClaw 程式碼更新：修正: move raw call transcripts from system to user prompt to protect …",
+      "summaryZh": "重點：修正: move raw call transcripts from system to user prompt to protect provenance (#123846) * Move raw transcript from syst..."
     },
     {
       "id": 4,
-      "title": "fix(ui): close dashboard side panel in split view (#126397)",
-      "link": "https://github.com/openclaw/openclaw/commit/5976e74d1cc8022c82c644f9d2fffbd07473d7a5",
-      "publishedAt": "2026-08-19T18:36:46Z",
-      "summary": "fix(ui): close dashboard side panel in split view (#126397)",
+      "title": "fix(cli): CLI commands crash on multi-agent rosters without --agent (…",
+      "link": "https://github.com/openclaw/openclaw/commit/1ef2ebf1146894359586445d6e315d12245a4fbf",
+      "publishedAt": "2026-08-19T20:02:19Z",
+      "summary": "fix(cli): CLI commands crash on multi-agent rosters without --agent (#126418) * fix(cli): route bare startup on configured inference, not a default agent Bare `openclaw` resolved a single \"default\" agent to decide whether inference was configured. On an explicit multi-agent roster (agents.ownership=\"explicit\" with 2+ entries) that resolution has no answer, so startup threw AgentSelectionRequiredError instead of launching the TUI or onboarding. The branch only needs to know whether inference is configured at all, so it now asks exactly that across the roster and hands off to the TUI, which already owns agent selection and resolves by workspace path first. Routing ambiguous rosters to onboarding instead would have dropped a working multi-agent install back into the setup wizard. * fix(cli): honor the configured system agent for model read commands `openclaw models status`, `models list`, `models auth list`, and `models auth-order get` resolved a deprecated \"default\" agent when --agent was omitted, so they threw AgentSelectionRequiredError on an explicit multi-agent roster. schema.help.core.ts already documents agents.defaults.systemAgent.agentId as the owner for these unscoped reads, and the Gateway twins (models.ts, models-auth-status.ts) already honored it; only the local CLI paths did not. resolveModelsTargetAgent now takes a closed read/mutation mode. Reads resolve explicit --agent, then the configured system agent, then a sole agent. Credential mutations still require an explicit owner rather than guessing which agent to write into, and say so with a flag that exists on those commands. The deprecated resolver is gone from this owner. Help text for the two commands whose default changed now names the system agent.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): close dashboard side panel in split view (#126397)",
-      "summaryZh": "重點：修正(ui): close dashboard side panel in split view (#126397)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): CLI commands crash on multi-agent rosters without --agent (…",
+      "summaryZh": "重點：修正(cli): CLI commands crash on multi-agent rosters without --agent (#126418) * 修正(cli): route bare startup on configured..."
     },
     {
       "id": 5,
