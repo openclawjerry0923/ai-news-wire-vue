@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T08:37:49.348Z",
+  "generatedAt": "2026-08-19T09:34:10.263Z",
   "items": [
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "title": "瑞士加密通訊應用Threema遭大規模DDoS攻擊中斷服務",
       "link": "https://www.ithome.com.tw/news/178266",
       "publishedAt": "2026-08-19 12:08:37",
-      "summary": "瑞士加密通訊應用程式Threema上周公告遭到大規模分散式阻斷服務（DDoS）攻擊，服務不穩近18小時。 Threema說明，8月11日當地時間Threema及其託管合作夥伴Nine遭到一起大規模DDoS攻擊，導致其服務於晚間7:30到11:30之間發生斷線，迫使團隊將服務下線搶修。但這起攻擊持續到8月12日早上，致使Threema持續呈現服務不穩狀態，一直到當天中午12: 23才完全恢復所有服務。Threema於8月14日更新狀態頁說明，公司新增額外的DDoS防護以過濾上游攻擊流量。",
+      "summary": "瑞士加密通訊應用程式Threema上週公告遭到大規模分散式阻斷服務（DDoS）攻擊，服務不穩近18小時。 Threema說明，8月11日當地時間Threema及其託管合作夥伴Nine遭到一起大規模DDoS攻擊，導致其服務於晚間7時30分到11時30分之間發生斷線，迫使團隊將服務下線搶修。但這起攻擊持續到8月12日早上，致使Threema持續呈現服務不穩狀態，一直到當天中午12時23分才完全恢復所有服務。Threema於8月14日更新狀態頁說明，公司新增額外的DDoS防護以過濾上游攻擊流量。",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -48,7 +48,7 @@
     },
     {
       "id": 6,
-      "title": "甫公布的AI工程平臺MLflow伺服器請求偽造漏洞傳出遭到利用，攻擊者意圖竊取雲端憑與機密資料",
+      "title": "甫公布的AI工程平臺MLflow伺服器請求偽造漏洞傳出遭到利用，攻擊者意圖竊取雲端憑證與機密資料",
       "link": "https://www.ithome.com.tw/news/178259",
       "publishedAt": "2026-08-19 11:08:25",
       "summary": "8月18日資安公司watchTowr透過職場社群網站LinkedIn發出警告，管理機器學習與AI開發生命週期的開發平臺MLflow，存在伺服器請求偽造（SSRF）漏洞CVE-2026-64849，此問題開發團隊已在7",
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix: capture GitHub identity from authenticated sign-in (#126114)",
-      "link": "https://github.com/openclaw/openclaw/commit/67750753a2983b653087083ab7bd5ffcc342cfb1",
-      "publishedAt": "2026-08-19T08:35:52Z",
-      "summary": "fix: capture GitHub identity from authenticated sign-in (#126114) * fix: capture GitHub identity from authenticated sign-in Automatically persist verified GitHub identities from Cloudflare Access and Tailscale Serve while keeping public Git co-author credit as a separate opt-in. * test: stabilize cleanup and activity capture * fix(security): bind GitHub profiles by account id * test: scope activity capture to route * fix(security): gate profile requests on identity sync * fix(security): close pending profile authorization gaps * test(ui): stabilize terminal continuation menu * test: stabilize startup recovery timing * test: keep one Codex attempt tools owner * fix(plugins): allow profile-independent gateway reads",
+      "title": "fix(gateway): make activeRunIds presence mean a complete exact run se…",
+      "link": "https://github.com/openclaw/openclaw/commit/e71fc902eece0f795d593e5d4e03ad6e7496d9a7",
+      "publishedAt": "2026-08-19T09:08:57Z",
+      "summary": "fix(gateway): make activeRunIds presence mean a complete exact run set (#126106) * fix(gateway): make activeRunIds presence mean a complete exact run set Session rows no longer emit activeRunIds: [] while hasActiveRun is true. Presence now means the complete exact set of direct run ids; omission means identities are unavailable (projected/embedded owners); [] only ever represents proven idle. Consumers stop guessing: soleActiveSessionRunId() replaces the arbitrary [0] fallbacks in the observer digest, transcript cache key, activity inspector, and stale-terminal reconciliation, each falling back to its owner fact. Follows the maintainer direction from #125983: the field stays as Gateway-owned exact facts; producer-side liveness/observer projections are a named follow-up. * fix(gateway): clear unavailable active run ids in events * fix(gateway): preserve idle active run sets * fix(clients): close active run id cache gaps * test(android): isolate history run snapshot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: capture GitHub identity from authenticated sign-in (#126114)",
-      "summaryZh": "重點：修正: capture GitHub identity from authenticated sign-in (#126114) * 修正: capture GitHub identity from authenticated sign-i..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): make activeRunIds presence mean a complete exact run se…",
+      "summaryZh": "重點：修正(Gateway): make activeRunIds presence mean a complete exact run set (#126106) * 修正(Gateway): make activeRunIds presenc..."
     },
     {
       "id": 8,
-      "title": "test(google-meet): route hooks through test API (#126249)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee338401647d4fee9c028384d84b7ac61b10618f",
-      "publishedAt": "2026-08-19T08:33:09Z",
-      "summary": "test(google-meet): route hooks through test API (#126249)",
+      "title": "test(qa): wait for terminal task metadata (#126256)",
+      "link": "https://github.com/openclaw/openclaw/commit/c695b70a57b935da86ee992e40d01111c9e85baf",
+      "publishedAt": "2026-08-19T09:00:11Z",
+      "summary": "test(qa): wait for terminal task metadata (#126256)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(google-meet): route hooks through test API (#126249)",
-      "summaryZh": "重點：test(google-meet): route hooks through test API (#126249)..."
+      "titleZh": "OpenClaw 程式碼更新：test(qa): wait for terminal task metadata (#126256)",
+      "summaryZh": "重點：test(qa): wait for terminal task metadata (#126256)..."
     },
     {
       "id": 9,
-      "title": "fix(codex): prevent node process control from targeting gateway sessi…",
-      "link": "https://github.com/openclaw/openclaw/commit/fef5fc55f45703e12738dfbe5bf93cfd2a4f6635",
-      "publishedAt": "2026-08-19T08:31:52Z",
-      "summary": "fix(codex): prevent node process control from targeting gateway sessions (#126253)",
+      "title": "fix(skills): require re-review when proposals change (#126156)",
+      "link": "https://github.com/openclaw/openclaw/commit/94eb34fa78088f1a8fe33bbe2736279273997d77",
+      "publishedAt": "2026-08-19T08:52:11Z",
+      "summary": "fix(skills): require re-review when proposals change (#126156) * fix(skills): bind workshop decisions to reviewed revisions * chore(i18n): refresh native source inventory * test(skills): align revision proof with inspect projection * test: align skill workshop regression fixtures * fix(ui): align workshop revision admission proof * fix(ui): keep revision errors out of startup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): prevent node process control from targeting Gateway sessi…",
-      "summaryZh": "重點：修正(codex): prevent node process control from targeting Gateway sessions (#126253)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): require re-review when proposals change (#126156)",
+      "summaryZh": "重點：修正(skills): require re-review when proposals change (#126156) * 修正(skills): bind workshop decisions to reviewed revision..."
     },
     {
       "id": 10,
-      "title": "fix(qa-lab): include plural execution channels (#126140)",
-      "link": "https://github.com/openclaw/openclaw/commit/30337c896212578a1770c5057f6a317eeef62467",
-      "publishedAt": "2026-08-19T08:17:22Z",
-      "summary": "fix(qa-lab): include plural execution channels (#126140) * fix(qa-lab): include plural execution channels * chore(qa-lab): register browser error adapter * fix(qa-lab): keep browser errors within boundaries * fix(qa-lab): redact browser error credentials * fix(sessions): drain sqlite writers during test cleanup * fix(sessions): scope sqlite test handle cleanup * test(codex): dedupe run attempt tools shard * test(codex): converge run attempt tools shard",
+      "title": "refactor(update): simplify lifecycle transactions (#126240)",
+      "link": "https://github.com/openclaw/openclaw/commit/b514fca522ccade9c5c430b61db53e7c2b18212b",
+      "publishedAt": "2026-08-19T08:50:35Z",
+      "summary": "refactor(update): simplify lifecycle transactions (#126240) * refactor(update): simplify lifecycle transactions * ci: use runner-provided ShellCheck * test(infra): stabilize port-release probe",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): include plural execution channels (#126140)",
-      "summaryZh": "重點：修正(qa-lab): include plural execution channels (#126140) * 修正(qa-lab): include plural execution channels * chore(qa-lab):..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(update): simplify lifecycle transactions (#126240)",
+      "summaryZh": "重點：refactor(update): simplify lifecycle transactions (#126240) * refactor(update): simplify lifecycle transactions * ci: us..."
     }
   ]
 }
