@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T07:38:32.402Z",
+  "generatedAt": "2026-08-19T08:37:49.348Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "feat(skills): custodian-only skill library (first wave) (#126186)",
-      "link": "https://github.com/openclaw/openclaw/commit/44736749eb0c87832aeb9c762e88ea54a4bcc571",
-      "publishedAt": "2026-08-19T07:33:02Z",
-      "summary": "feat(skills): custodian-only skill library (first wave) (#126186) * feat(skills): add custodian-only skill library * docs: document custodian skill library * refactor(skills): make custodian skills concrete and non-interactive Replace docs-link-first playbooks with verified openclaw config/message/infer one-liners; drop interactive onboard references; encode the in-session config-write policy boundary (models.*/secrets.* via trusted shell). * fix(skills): corrections from live A/B testing of custodian skills --agent required for models list/auth list in multi-agent rosters; drop hanging channels capabilities probe; telegram target is chatId; roster-safe prove via agent turn (infer model run has no --agent and dead-ends multi-agent setups); note expected not-found on pre-setup config get. * fix(skills): front-load harness plugin check in add-model-provider Gather A/B timing showed the codex plugin dependency surfacing mid-Prove, at the most expensive point (approval gate + turn boundary). Checking and remediating during Gather removes the stall. * fix(skills): keep status inventory unfiltered while scoping custodian source buildWorkspaceSkillStatus forwarding agentId activated the loader's agent allowlist filter, dropping excluded skills from the workshop's status view (collection-review regression on CI). New closed agentSkillFilter mode lets agentId scope custodian-source discovery without filtering the entry list, per the documented status invariant.",
+      "title": "fix: capture GitHub identity from authenticated sign-in (#126114)",
+      "link": "https://github.com/openclaw/openclaw/commit/67750753a2983b653087083ab7bd5ffcc342cfb1",
+      "publishedAt": "2026-08-19T08:35:52Z",
+      "summary": "fix: capture GitHub identity from authenticated sign-in (#126114) * fix: capture GitHub identity from authenticated sign-in Automatically persist verified GitHub identities from Cloudflare Access and Tailscale Serve while keeping public Git co-author credit as a separate opt-in. * test: stabilize cleanup and activity capture * fix(security): bind GitHub profiles by account id * test: scope activity capture to route * fix(security): gate profile requests on identity sync * fix(security): close pending profile authorization gaps * test(ui): stabilize terminal continuation menu * test: stabilize startup recovery timing * test: keep one Codex attempt tools owner * fix(plugins): allow profile-independent gateway reads",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(skills): custodian-only skill library (first wave) (#126186)",
-      "summaryZh": "重點：新功能(skills): custodian-only skill library (first wave) (#126186) * 新功能(skills): add custodian-only skill library * 文件: 文..."
+      "titleZh": "OpenClaw 程式碼更新：修正: capture GitHub identity from authenticated sign-in (#126114)",
+      "summaryZh": "重點：修正: capture GitHub identity from authenticated sign-in (#126114) * 修正: capture GitHub identity from authenticated sign-i..."
     },
     {
       "id": 8,
-      "title": "fix(agents): stale sub-agent failure warning shown after successful s…",
-      "link": "https://github.com/openclaw/openclaw/commit/617bc7ebdd8159940f72ec2c19268b8311e82c3b",
-      "publishedAt": "2026-08-19T07:31:47Z",
-      "summary": "fix(agents): stale sub-agent failure warning shown after successful spawn retry (#126218) * fix(agents): clear sub-agent failure warning after successful spawn retry A failed sessions_spawn followed by a successful retry in the same run kept appending the durable \"Sub-agent failed\" warning to channel replies. The recovery seam (lastToolRecovery) already existed, but sessions_spawn has no stable-target arg key, so its recovery fingerprint fell back to display meta built from label/task/model. Retries adjust those args (drop a rejected cwd, reword the task), the fingerprints never matched, and recordSuccess could not clear the failure. Collapse the sessions_spawn recovery identity to tool level: any later successful spawn in the same run is recovery proof. A lone failed spawn still warns, and a failure after recovery still invalidates the receipt. Observed 2026-08-19 on team.openclaw.ai: Roboclaw's first nested spawn returned forbidden (visible-session cwd outside workspace), the retry without cwd succeeded, the reply said \"Started Investigate…\", and Discord still showed \"⚠️ 🧑‍🔧 Sub-agent failed\". * ci: register run-attempt-tools test in the attempt-light lane #126189 added extensions/codex/src/app-server/run-attempt-tools.test.ts without assigning it to a full-suite lane, so the Vitest ownership audit (test/vitest-projects-config.test.ts) fails on main and every PR head. Register it in the codex app-server attempt-light shard next to its run-attempt siblings.",
+      "title": "test(google-meet): route hooks through test API (#126249)",
+      "link": "https://github.com/openclaw/openclaw/commit/ee338401647d4fee9c028384d84b7ac61b10618f",
+      "publishedAt": "2026-08-19T08:33:09Z",
+      "summary": "test(google-meet): route hooks through test API (#126249)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): stale sub-agent failure warning shown after successful s…",
-      "summaryZh": "重點：修正(agents): stale sub-agent failure warning shown after successful spawn retry (#126218) * 修正(agents): clear sub-agent f..."
+      "titleZh": "OpenClaw 程式碼更新：test(google-meet): route hooks through test API (#126249)",
+      "summaryZh": "重點：test(google-meet): route hooks through test API (#126249)..."
     },
     {
       "id": 9,
-      "title": "test(google-meet): remove testing re-export (#126223)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4b265aa9b708867e06457c74d5c29b16addc21b",
-      "publishedAt": "2026-08-19T07:26:09Z",
-      "summary": "test(google-meet): remove testing re-export (#126223)",
+      "title": "fix(codex): prevent node process control from targeting gateway sessi…",
+      "link": "https://github.com/openclaw/openclaw/commit/fef5fc55f45703e12738dfbe5bf93cfd2a4f6635",
+      "publishedAt": "2026-08-19T08:31:52Z",
+      "summary": "fix(codex): prevent node process control from targeting gateway sessions (#126253)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(google-meet): remove testing re-export (#126223)",
-      "summaryZh": "重點：test(google-meet): remove testing re-export (#126223)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): prevent node process control from targeting Gateway sessi…",
+      "summaryZh": "重點：修正(codex): prevent node process control from targeting Gateway sessions (#126253)..."
     },
     {
       "id": 10,
-      "title": "test(gateway): drop the chat image-capability mask (#126217)",
-      "link": "https://github.com/openclaw/openclaw/commit/1de37dd0af4f54c8c09ac161d27941e1f5596cfd",
-      "publishedAt": "2026-08-19T07:26:05Z",
-      "summary": "test(gateway): drop the chat image-capability mask (#126217) * test(gateway): drop the chat image-capability mask The vi.mock of resolveGatewayModelSupportsImages in server.chat.gateway-server-chat.test.ts was added by #123847 as an isolation workaround while the gateway shard's chat failures were unexplained. The producers are fixed on main (#126183 for the root-work drain race; #126062/#125946/#126113 for detached completion binding), and the exact #126030 shard invocation is green with the mask removed (5/5 on 95ac5b27fa1, 2/2 on this head), so the mask now only hides the real capability-resolution path from the suite. * test(gateway): assert inline-image dispatch after mask removal ClawSweeper P2 on #126217: the two image sends only asserted RPC success and drain, so a silent false from the real capability resolver would offload the images and the suite would stay green without proving the discovered model's image capability. Capture the dispatch args and assert both runs deliver exactly one inline image. Teeth check: with the discovered model narrowed to text-only input, the assertion fails with images undefined (offloaded).",
+      "title": "fix(qa-lab): include plural execution channels (#126140)",
+      "link": "https://github.com/openclaw/openclaw/commit/30337c896212578a1770c5057f6a317eeef62467",
+      "publishedAt": "2026-08-19T08:17:22Z",
+      "summary": "fix(qa-lab): include plural execution channels (#126140) * fix(qa-lab): include plural execution channels * chore(qa-lab): register browser error adapter * fix(qa-lab): keep browser errors within boundaries * fix(qa-lab): redact browser error credentials * fix(sessions): drain sqlite writers during test cleanup * fix(sessions): scope sqlite test handle cleanup * test(codex): dedupe run attempt tools shard * test(codex): converge run attempt tools shard",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): drop the chat image-capability mask (#126217)",
-      "summaryZh": "重點：test(Gateway): drop the chat image-capability mask (#126217) * test(Gateway): drop the chat image-capability mask The vi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa-lab): include plural execution channels (#126140)",
+      "summaryZh": "重點：修正(qa-lab): include plural execution channels (#126140) * 修正(qa-lab): include plural execution channels * chore(qa-lab):..."
     }
   ]
 }
