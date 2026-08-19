@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T09:34:10.263Z",
+  "generatedAt": "2026-08-19T10:29:17.195Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(gateway): make activeRunIds presence mean a complete exact run se…",
-      "link": "https://github.com/openclaw/openclaw/commit/e71fc902eece0f795d593e5d4e03ad6e7496d9a7",
-      "publishedAt": "2026-08-19T09:08:57Z",
-      "summary": "fix(gateway): make activeRunIds presence mean a complete exact run set (#126106) * fix(gateway): make activeRunIds presence mean a complete exact run set Session rows no longer emit activeRunIds: [] while hasActiveRun is true. Presence now means the complete exact set of direct run ids; omission means identities are unavailable (projected/embedded owners); [] only ever represents proven idle. Consumers stop guessing: soleActiveSessionRunId() replaces the arbitrary [0] fallbacks in the observer digest, transcript cache key, activity inspector, and stale-terminal reconciliation, each falling back to its owner fact. Follows the maintainer direction from #125983: the field stays as Gateway-owned exact facts; producer-side liveness/observer projections are a named follow-up. * fix(gateway): clear unavailable active run ids in events * fix(gateway): preserve idle active run sets * fix(clients): close active run id cache gaps * test(android): isolate history run snapshot",
+      "title": "fix: show generated media previews after durable recovery (#126261)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc4ed8dcaf464a1150c4f2952ba1427d0b354475",
+      "publishedAt": "2026-08-19T10:25:51Z",
+      "summary": "fix: show generated media previews after durable recovery (#126261) * fix(gateway): preserve generated media previews on recovery * fix(gateway): align managed media transcript boundary",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): make activeRunIds presence mean a complete exact run se…",
-      "summaryZh": "重點：修正(Gateway): make activeRunIds presence mean a complete exact run set (#126106) * 修正(Gateway): make activeRunIds presenc..."
+      "titleZh": "OpenClaw 程式碼更新：修正: show generated media previews after durable recovery (#126261)",
+      "summaryZh": "重點：修正: show generated media previews after durable recovery (#126261) * 修正(Gateway): preserve generated media previews on r..."
     },
     {
       "id": 8,
-      "title": "test(qa): wait for terminal task metadata (#126256)",
-      "link": "https://github.com/openclaw/openclaw/commit/c695b70a57b935da86ee992e40d01111c9e85baf",
-      "publishedAt": "2026-08-19T09:00:11Z",
-      "summary": "test(qa): wait for terminal task metadata (#126256)",
+      "title": "feat: add per-project cloud worker profile defaults (#126238)",
+      "link": "https://github.com/openclaw/openclaw/commit/46ef757a291cb64feab0df9940c946dc14395c97",
+      "publishedAt": "2026-08-19T10:20:39Z",
+      "summary": "feat: add per-project cloud worker profile defaults (#126238) * feat(config): add cloud worker project profiles * feat(gateway): resolve project cloud worker profiles * docs(gateway): document project profile defaults * fix(gateway): require admin for project profile dispatch",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(qa): wait for terminal task metadata (#126256)",
-      "summaryZh": "重點：test(qa): wait for terminal task metadata (#126256)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: add per-project cloud worker profile defaults (#126238)",
+      "summaryZh": "重點：新功能: add per-project cloud worker profile defaults (#126238) * 新功能(config): add cloud worker project profiles * 新功能(Gate..."
     },
     {
       "id": 9,
-      "title": "fix(skills): require re-review when proposals change (#126156)",
-      "link": "https://github.com/openclaw/openclaw/commit/94eb34fa78088f1a8fe33bbe2736279273997d77",
-      "publishedAt": "2026-08-19T08:52:11Z",
-      "summary": "fix(skills): require re-review when proposals change (#126156) * fix(skills): bind workshop decisions to reviewed revisions * chore(i18n): refresh native source inventory * test(skills): align revision proof with inspect projection * test: align skill workshop regression fixtures * fix(ui): align workshop revision admission proof * fix(ui): keep revision errors out of startup",
+      "title": "fix(codex): reap app-server descendant processes (#126285)",
+      "link": "https://github.com/openclaw/openclaw/commit/9f8d53d6fb145851d8a43d79e19904f78c1163a3",
+      "publishedAt": "2026-08-19T10:08:18Z",
+      "summary": "fix(codex): reap app-server descendant processes (#126285) * fix(codex): reap app-server descendant processes Contain the exact live Codex app-server ancestry before transport close so independently grouped MCP descendants cannot survive client retirement or overlap a replacement.\\n\\nCloses #119760. * fix(codex): retain proven app-server descendants * fix(codex): converge app-server quiescence * fix(codex): bound app-server stop retries * fix(codex): hold app-server root through eof * fix(codex): bound app-server quiescence * fix(codex): release stopped app-server processes * fix(codex): bound app-server containment work * fix(codex): bound process inspection asynchronously",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): require re-review when proposals change (#126156)",
-      "summaryZh": "重點：修正(skills): require re-review when proposals change (#126156) * 修正(skills): bind workshop decisions to reviewed revision..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): reap app-server descendant processes (#126285)",
+      "summaryZh": "重點：修正(codex): reap app-server descendant processes (#126285) * 修正(codex): reap app-server descendant processes Contain the ..."
     },
     {
       "id": 10,
-      "title": "refactor(update): simplify lifecycle transactions (#126240)",
-      "link": "https://github.com/openclaw/openclaw/commit/b514fca522ccade9c5c430b61db53e7c2b18212b",
-      "publishedAt": "2026-08-19T08:50:35Z",
-      "summary": "refactor(update): simplify lifecycle transactions (#126240) * refactor(update): simplify lifecycle transactions * ci: use runner-provided ShellCheck * test(infra): stabilize port-release probe",
+      "title": "fix(ci): restore protocol lint and Codex shard ownership (#126275)",
+      "link": "https://github.com/openclaw/openclaw/commit/9436ad57b024613b86a5e907483c5831c2580b83",
+      "publishedAt": "2026-08-19T10:01:46Z",
+      "summary": "fix(ci): restore protocol lint and Codex shard ownership (#126275) * fix(protocol): route patch result through type barrel * fix(protocol): keep schema type barrel registry-free * fix(test): restore Codex attempt tools shard owner",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(update): simplify lifecycle transactions (#126240)",
-      "summaryZh": "重點：refactor(update): simplify lifecycle transactions (#126240) * refactor(update): simplify lifecycle transactions * ci: us..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore protocol lint and Codex shard ownership (#126275)",
+      "summaryZh": "重點：修正(ci): restore protocol lint and Codex shard ownership (#126275) * 修正(protocol): route patch result through type barrel..."
     }
   ]
 }
