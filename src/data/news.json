@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T10:29:17.195Z",
+  "generatedAt": "2026-08-19T11:25:29.493Z",
   "items": [
     {
       "id": 1,
@@ -48,6 +48,17 @@
     },
     {
       "id": 6,
+      "title": "fix(discord): preserve realtime speaker context (#123243)",
+      "link": "https://github.com/openclaw/openclaw/commit/55f6700fe18f98d0e5ec02b7d8c20add204d281a",
+      "publishedAt": "2026-08-19T11:25:24Z",
+      "summary": "fix(discord): preserve realtime speaker context (#123243)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): preserve realtime speaker context (#123243)",
+      "summaryZh": "重點：修正(Discord): preserve realtime speaker context (#123243)..."
+    },
+    {
+      "id": 7,
       "title": "甫公布的AI工程平臺MLflow伺服器請求偽造漏洞傳出遭到利用，攻擊者意圖竊取雲端憑證與機密資料",
       "link": "https://www.ithome.com.tw/news/178259",
       "publishedAt": "2026-08-19 11:08:25",
@@ -56,48 +67,37 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "fix: show generated media previews after durable recovery (#126261)",
-      "link": "https://github.com/openclaw/openclaw/commit/bc4ed8dcaf464a1150c4f2952ba1427d0b354475",
-      "publishedAt": "2026-08-19T10:25:51Z",
-      "summary": "fix: show generated media previews after durable recovery (#126261) * fix(gateway): preserve generated media previews on recovery * fix(gateway): align managed media transcript boundary",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show generated media previews after durable recovery (#126261)",
-      "summaryZh": "重點：修正: show generated media previews after durable recovery (#126261) * 修正(Gateway): preserve generated media previews on r..."
-    },
-    {
       "id": 8,
-      "title": "feat: add per-project cloud worker profile defaults (#126238)",
-      "link": "https://github.com/openclaw/openclaw/commit/46ef757a291cb64feab0df9940c946dc14395c97",
-      "publishedAt": "2026-08-19T10:20:39Z",
-      "summary": "feat: add per-project cloud worker profile defaults (#126238) * feat(config): add cloud worker project profiles * feat(gateway): resolve project cloud worker profiles * docs(gateway): document project profile defaults * fix(gateway): require admin for project profile dispatch",
+      "title": "feat(ui): unify focused presentation routes (#126143)",
+      "link": "https://github.com/openclaw/openclaw/commit/4af09d4961c9a2db802ac78209da77cdc022e445",
+      "publishedAt": "2026-08-19T10:41:29Z",
+      "summary": "feat(ui): unify focused presentation routes (#126143) * feat(ui): unify focused presentation routes /focus/ replaces unshipped standalone query links across dashboard, terminal, desktop, and native apps. Gateway-served index assets are anchored so nested documents resolve their bundles from the Control UI base path. * test(gateway): narrow emitted asset URLs Fixes check:test-types TS18048/TS2322 by dropping unmatched optional captures before comparing emitted asset URLs. * test(docs): follow centralized cloud secret guidance Fixes the stale current-main docs test after #126132 centralized GCP and Hetzner setup in docker-vm-runtime. * test(ui): retry missing locator reads The 500ms locator text read can time out while the menu label is still rendering, causing expect.poll to reject instead of using its owning 10s retry window. Treat only Playwright TimeoutError as a missing value so the outer poll retries while page-closure and arbitrary failures still surface. * test(android): capture TLS probe coroutine The TLS probe test inferred its coroutine from mutable scope children, racing unrelated child startup and teardown in CI. Capture the exact Job from inside the probe coroutine and join that owner before asserting the stale-attempt guard. * fix(gateway): preserve plugin focus routes Keep approval handling ahead of plugin dispatch, but treat focus documents as an unclaimed Control UI fallback after plugin authentication and routing. Exact and prefix plugin routes therefore retain ownership, while unclaimed reads serve the focus document and other methods return 404. * fix(ui): migrate released terminal links Preserve stable v2026.7.1 terminal query compatibility by rewriting the root/base ?view=terminal URL once to the canonical /focus/terminal path with history.replace. Keep URL parsing path-only, and leave the removed desktop and dashboard query forms as a hard cut. * test(codex): assign run-attempt tools shard Cached filtered configs caused duplicate ownership, and the test lacked a canonical full-suite owner. * test(ui): keep cloud recovery proof state-owned The recovery test should assert owner state and reload identity, while dedicated tests own transient alert visibility. * test(qa): wait for outbound bus state * fix(qa): reserve gateway ports through staging * refactor(qa): keep socket creation in gateway owner",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: add per-project cloud worker profile defaults (#126238)",
-      "summaryZh": "重點：新功能: add per-project cloud worker profile defaults (#126238) * 新功能(config): add cloud worker project profiles * 新功能(Gate..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): unify focused presentation routes (#126143)",
+      "summaryZh": "重點：新功能(ui): unify focused presentation routes (#126143) * 新功能(ui): unify focused presentation routes /focus/ replaces unshi..."
     },
     {
       "id": 9,
-      "title": "fix(codex): reap app-server descendant processes (#126285)",
-      "link": "https://github.com/openclaw/openclaw/commit/9f8d53d6fb145851d8a43d79e19904f78c1163a3",
-      "publishedAt": "2026-08-19T10:08:18Z",
-      "summary": "fix(codex): reap app-server descendant processes (#126285) * fix(codex): reap app-server descendant processes Contain the exact live Codex app-server ancestry before transport close so independently grouped MCP descendants cannot survive client retirement or overlap a replacement.\\n\\nCloses #119760. * fix(codex): retain proven app-server descendants * fix(codex): converge app-server quiescence * fix(codex): bound app-server stop retries * fix(codex): hold app-server root through eof * fix(codex): bound app-server quiescence * fix(codex): release stopped app-server processes * fix(codex): bound app-server containment work * fix(codex): bound process inspection asynchronously",
+      "title": "test: trim residual exact-subset assertions (#126293)",
+      "link": "https://github.com/openclaw/openclaw/commit/9814b14c90b6b7df02bc27719dff228fda4152f4",
+      "publishedAt": "2026-08-19T10:41:20Z",
+      "summary": "test: trim residual exact-subset assertions (#126293)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): reap app-server descendant processes (#126285)",
-      "summaryZh": "重點：修正(codex): reap app-server descendant processes (#126285) * 修正(codex): reap app-server descendant processes Contain the ..."
+      "titleZh": "OpenClaw 程式碼更新：test: trim residual exact-subset assertions (#126293)",
+      "summaryZh": "重點：test: trim residual exact-subset assertions (#126293)..."
     },
     {
       "id": 10,
-      "title": "fix(ci): restore protocol lint and Codex shard ownership (#126275)",
-      "link": "https://github.com/openclaw/openclaw/commit/9436ad57b024613b86a5e907483c5831c2580b83",
-      "publishedAt": "2026-08-19T10:01:46Z",
-      "summary": "fix(ci): restore protocol lint and Codex shard ownership (#126275) * fix(protocol): route patch result through type barrel * fix(protocol): keep schema type barrel registry-free * fix(test): restore Codex attempt tools shard owner",
+      "title": "fix(nextcloud-talk): prevent shared proxy webhook lockouts (#126251)",
+      "link": "https://github.com/openclaw/openclaw/commit/2020fc2274e3bf1cd30de923dc2c3d5e876a6aa7",
+      "publishedAt": "2026-08-19T10:29:21Z",
+      "summary": "fix(nextcloud-talk): prevent shared proxy webhook lockouts (#126251) * fix(nextcloud-talk): isolate proxy webhook rate limits * fix(nextcloud-talk): preserve proxy fallback buckets",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore protocol lint and Codex shard ownership (#126275)",
-      "summaryZh": "重點：修正(ci): restore protocol lint and Codex shard ownership (#126275) * 修正(protocol): route patch result through type barrel..."
+      "titleZh": "OpenClaw 程式碼更新：修正(nextcloud-talk): prevent shared proxy webhook lockouts (#126251)",
+      "summaryZh": "重點：修正(nextcloud-talk): prevent shared proxy webhook lockouts (#126251) * 修正(nextcloud-talk): isolate proxy webhook rate lim..."
     }
   ]
 }
