@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-19T20:28:08.341Z",
+  "generatedAt": "2026-08-19T21:25:34.710Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: scope selected provider hook loading (#126427)",
-      "link": "https://github.com/openclaw/openclaw/commit/f68503084b7ad967d9ba763dbe06065d8762042f",
-      "publishedAt": "2026-08-19T20:09:38Z",
-      "summary": "fix: scope selected provider hook loading (#126427) Scope selected-model hook fallback loading to the selected provider so unrelated plugins no longer delay onboarding. Fixes #126408.",
+      "title": "fix(ui): refresh device labels after rename (#126432)",
+      "link": "https://github.com/openclaw/openclaw/commit/a3ca8466eeac172476f5249cacb9fbafbd73085d",
+      "publishedAt": "2026-08-19T21:18:50Z",
+      "summary": "fix(ui): refresh device labels after rename (#126432) * fix(ui): refresh device labels after rename * fix(ci): classify device label refresh event for mobile * chore(protocol): regenerate Android gateway events",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: scope selected provider hook loading (#126427)",
-      "summaryZh": "重點：修正: scope selected provider hook loading (#126427) Scope selected-模型 hook fallback loading to the selected provider so u..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): refresh device labels after rename (#126432)",
+      "summaryZh": "重點：修正(ui): refresh device labels after rename (#126432) * 修正(ui): refresh device labels after rename * 修正(ci): classify dev..."
     },
     {
       "id": 2,
-      "title": "docs(agents): restore the non-default scope for systemAgent ownership…",
-      "link": "https://github.com/openclaw/openclaw/commit/fd2fccbc8ed7b8cc35a451be806249e450570788",
-      "publishedAt": "2026-08-19T20:08:34Z",
-      "summary": "docs(agents): restore the non-default scope for systemAgent ownership (#126431) Live-testing #126377 in a real explicit fleet surfaced an inaccuracy that PR introduced. It dropped 'Other agent-scoped methods do not use this setting as a general default', which is still true: only models.list, models.authStatus, skills.status, and doctor.memory.status opt in, while the generic Gateway resolver in agent-id-shared.ts deliberately does not. Verified against a live gateway and CLI on a three-agent explicit fleet with systemAgent.agentId set: 'openclaw models list', 'openclaw sessions', stored session lookup, and TUI startup all still require an explicit agent. Name those surfaces so operators know where the owner does and does not apply.",
+      "title": "fix(crabbox): harden worker desktop setup (#126417)",
+      "link": "https://github.com/openclaw/openclaw/commit/513ec6218c922470164a243392dbce8490b24eca",
+      "publishedAt": "2026-08-19T21:13:06Z",
+      "summary": "fix(crabbox): harden worker desktop setup (#126417) * fix(crabbox): harden desktop provisioning * docs(gateway): clarify worker desktop routes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(agents): restore the non-default scope for systemAgent ownership…",
-      "summaryZh": "重點：文件(agents): restore the non-default scope for systemAgent ownership (#126431) Live-testing #126377 in a real explicit fl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): harden worker desktop setup (#126417)",
+      "summaryZh": "重點：修正(crabbox): harden worker desktop setup (#126417) * 修正(crabbox): harden desktop provisioning * 文件(Gateway): clarify wor..."
     },
     {
       "id": 3,
-      "title": "fix: move raw call transcripts from system to user prompt to protect …",
-      "link": "https://github.com/openclaw/openclaw/commit/24a1139188b6e33be6041ad7f36486c4a5875cae",
-      "publishedAt": "2026-08-19T20:07:59Z",
-      "summary": "fix: move raw call transcripts from system to user prompt to protect provenance (#123846) * Move raw transcript from system to user prompt to protect provenance. * Type fix. * fix(voice-call): harden transcript context handling * fix(voice-call): initialize inbound Twilio control state * test(voice-call): align runtime coordinator fixture --------- Co-authored-by: joshavant",
+      "title": "fix(ui): keep mobile sidebar session menus reachable (#126355)",
+      "link": "https://github.com/openclaw/openclaw/commit/d8fd2937aa2710f409637790a38cc1210b1e8352",
+      "publishedAt": "2026-08-19T21:00:39Z",
+      "summary": "fix(ui): keep mobile sidebar session menus reachable (#126355) * fix(ui): keep mobile sidebar menus in viewport * fix(ui): bound compact sidebar menu height * fix(ui): restore Open PR cursor marker Co-authored-by: Tak Hoffman --------- Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: move raw call transcripts from system to user prompt to protect …",
-      "summaryZh": "重點：修正: move raw call transcripts from system to user prompt to protect provenance (#123846) * Move raw transcript from syst..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep mobile sidebar session menus reachable (#126355)",
+      "summaryZh": "重點：修正(ui): keep mobile sidebar session menus reachable (#126355) * 修正(ui): keep mobile sidebar menus in viewport * 修正(ui): ..."
     },
     {
       "id": 4,
-      "title": "fix(cli): CLI commands crash on multi-agent rosters without --agent (…",
-      "link": "https://github.com/openclaw/openclaw/commit/1ef2ebf1146894359586445d6e315d12245a4fbf",
-      "publishedAt": "2026-08-19T20:02:19Z",
-      "summary": "fix(cli): CLI commands crash on multi-agent rosters without --agent (#126418) * fix(cli): route bare startup on configured inference, not a default agent Bare `openclaw` resolved a single \"default\" agent to decide whether inference was configured. On an explicit multi-agent roster (agents.ownership=\"explicit\" with 2+ entries) that resolution has no answer, so startup threw AgentSelectionRequiredError instead of launching the TUI or onboarding. The branch only needs to know whether inference is configured at all, so it now asks exactly that across the roster and hands off to the TUI, which already owns agent selection and resolves by workspace path first. Routing ambiguous rosters to onboarding instead would have dropped a working multi-agent install back into the setup wizard. * fix(cli): honor the configured system agent for model read commands `openclaw models status`, `models list`, `models auth list`, and `models auth-order get` resolved a deprecated \"default\" agent when --agent was omitted, so they threw AgentSelectionRequiredError on an explicit multi-agent roster. schema.help.core.ts already documents agents.defaults.systemAgent.agentId as the owner for these unscoped reads, and the Gateway twins (models.ts, models-auth-status.ts) already honored it; only the local CLI paths did not. resolveModelsTargetAgent now takes a closed read/mutation mode. Reads resolve explicit --agent, then the configured system agent, then a sole agent. Credential mutations still require an explicit owner rather than guessing which agent to write into, and say so with a flag that exists on those commands. The deprecated resolver is gone from this owner. Help text for the two commands whose default changed now names the system agent.",
+      "title": "fix(e2e): use packaged CLI in git fixtures (#126383)",
+      "link": "https://github.com/openclaw/openclaw/commit/ee6cab4a2e4ed92f55b3afceb56cd70179acbeee",
+      "publishedAt": "2026-08-19T21:00:25Z",
+      "summary": "fix(e2e): use packaged CLI in git fixtures (#126383)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): CLI commands crash on multi-agent rosters without --agent (…",
-      "summaryZh": "重點：修正(cli): CLI commands crash on multi-agent rosters without --agent (#126418) * 修正(cli): route bare startup on configured..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): use packaged CLI in git 修正tures (#126383)",
+      "summaryZh": "重點：修正(e2e): use packaged CLI in git 修正tures (#126383)..."
     },
     {
       "id": 5,
