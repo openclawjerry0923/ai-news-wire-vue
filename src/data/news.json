@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-19T18:35:43.816Z",
+  "generatedAt": "2026-08-19T19:25:31.187Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): render one assistant reply when history and the terminal eve…",
-      "link": "https://github.com/openclaw/openclaw/commit/e47637809ce907fb7e0dabf61bf3e323fe3a5436",
-      "publishedAt": "2026-08-19T18:33:22Z",
-      "summary": "fix(ui): render one assistant reply when history and the terminal event race (#126382) * fix(ui): render one assistant reply when history and the terminal event race A finished run's reply reached the Control UI twice: the durable transcript row and the pane's own terminal projection shared no identity, so the projection reducer kept both and the transcript collapsed them behind the \"x2\" duplicate badge. The gateway's chat final event carries no message id, and a durable assistant row carries no run id, so the reducer's same-run promotion could never match them. A WeakMap side channel hid the duplicate only when history happened to be applied before the terminal event arrived, which made the badge look intermittent. The pane now admits the durable assistant row of the run it is finishing through the reducer, attributed to that run, so the durable row adopts the terminal projection in place; the reducer refuses to downgrade a row that already carries a transcript id back to an id-less projection. Splits the run-terminal bookkeeping tests into a sibling file to stay under the max-lines ratchet. * fix(ui): bind a late reply row to its run only when it carries that reply The terminal tombstone outlives its run by design, so attributing every unowned assistant row to it could stamp a delayed older row with a newer run's id; the reducer then matched that row to the newer run's terminal projection and replaced the answer the user should see. The tombstone now claims only the row carrying the reply already projected for that run.",
+      "title": "fix: queued deliveries never recover at startup in multi-agent fleets…",
+      "link": "https://github.com/openclaw/openclaw/commit/615ff6ac94154453a2f515737b069bbde85c87b2",
+      "publishedAt": "2026-08-19T19:24:25Z",
+      "summary": "fix: queued deliveries never recover at startup in multi-agent fleets (#126377) * fix(outbound): resolve ambient delivery owner through the system-agent chain Agent-less outbound channel bootstrap resolved its owner via the deprecated throwing resolver, so multi-agent explicit-ownership configs with only agents.defaults.systemAgent.agentId set threw AgentSelectionRequiredError from inside gateway delivery recovery, aborting the whole drain (\"Delivery recovery failed\") for every queued entry. Bootstrap now follows the same ambient owner chain heartbeats and cron use (legacy default, then systemAgent, then sole agent), consolidated into one canonical tryResolveAmbientOwnerAgentId in agent-scope-config; the duplicated chain in cron/agent-id.ts is deleted and heartbeat resolution reuses the helper. Truly ownerless fleets no longer throw either: bootstrap proceeds with global-scope plugin discovery only, never selecting an agent workspace, so per-entry delivery outcomes stay recorded instead of one entry starving the recovery loop. Regression tests fail pre-fix: agent-less bootstrap routes through the configured system-agent owner, and ownerless fleets bootstrap without throwing. * refactor(agents): route ambient owner resolution through one canonical chain The idiom `tryResolveLegacyCompatibilityAgentId(cfg) ?? resolveDefaultAgentId(cfg)` was copied across nine ambient surfaces. It reads like a fallback but is not: when the first call returns undefined, resolveDefaultAgentId reduces to resolveSoleAgentId and throws, so the second leg only ever throws — and neither leg consults agents.defaults.systemAgent.agentId. Every one of those surfaces raised AgentSelectionRequiredError in explicit fleets that own ambient work through a system agent. Promote the chain to one owner in agent-scope-config: tryResolveAmbientOwnerAgentId (undefined when ownerless) and resolveAmbientOwnerAgentId (throws with the caller's existing selection context). The throwing variant is a drop-in for every former composite: identical message when a fleet has no owner, but the system-agent leg now resolves. Converted: resolveDefaultAgentDir (the shared producer behind auth, model catalog, doctor, wizard, and Plugin SDK helpers), config identity-avatar validation, prepared model catalog and registry, session reset, Talk target, main-session routing and its routing-contract fingerprint, session store targets, hooks CLI, plugin LLM completion, and first-run onboarding. resolveDefaultAgentId keeps backing explicit-selection surfaces where 'pass --agent' is the right answer; its deprecation note now sends ambient callers to the new helper. * fix(sessions,hooks): keep agent-narrowing surfaces on explicit selection CI caught the over-reach: session-store listing and hooks status reporting are deliberately explicit-selection surfaces, not ambient system work. Both narrow output to one agent, so adopting agents.defaults.systemAgent.agentId would hide the other agents' sessions/hooks instead of failing with the escape hatches the operator needs. sessions.default-agent-store.test.ts pins that contract by configuring a system agent and still expecting the --agent/--all-agents error. Restore the prior behavior at both sites, spelled honestly as tryResolveLegacyCompatibilityAgentId ?? resolveSoleAgentId — provably identical to the old composite, since the composite's second leg could only ever throw — with a comment recording why these two resist the ambient chain. * test: declare the ambient owner binding in agent-scope mock factories Explicit vi.mock factories enumerate exports, so production calling resolveAmbientOwnerAgentId broke prepared-model-catalog, prepared-model-registry, and channel-resolution with 'No \"resolveAmbientOwnerAgentId\" export is defined on the ... mock'. Declare it in the four factories; channel-resolution now drives the non-throwing variant the bootstrap actually calls. Also restore session-store targets and hooks status to their exact previous code. Both stay out of the ambient chain by design, so the smallest correct diff at an out-of-scope site is none: they now differ from main only by the comment recording why they resist it. * fix(models): resolve the model-config workspace through the ambient owner ClawSweeper P1: prepareModelsConfigContext resolved agentDir through resolveDefaultAgentDir (ambient chain) but its workspace through resolveDefaultAgentId (deprecated throwing chain), so explicit fleets owned by a system agent still failed model preparation on the workspace lookup — a one-sided fix inside a single function. Both halves now resolve the same ambient owner. * docs(agents): describe the widened ambient system-agent ownership config-agents.md claimed 'Other agent-scoped methods do not use this setting as a general default', which this branch makes false: systemAgent.agentId is now the ambient owner for agent dir/workspace resolution, outbound bootstrap and delivery recovery, main-session routing, Talk, and onboarding. Record the widened set, the two surfaces that deliberately still demand explicit selection (sessions, hooks), and delivery recovery's per-entry degradation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): render one assistant reply when history and the terminal eve…",
-      "summaryZh": "重點：修正(ui): render one assistant reply when history and the terminal event race (#126382) * 修正(ui): render one assistant rep..."
+      "titleZh": "OpenClaw 程式碼更新：修正: queued deliveries never recover at startup in multi-agent fleets…",
+      "summaryZh": "重點：修正: queued deliveries never recover at startup in multi-agent fleets (#126377) * 修正(outbound): resolve ambient delivery ..."
     },
     {
       "id": 2,
-      "title": "fix: stop routing IDs from masquerading as delivery receipts (#126385)",
-      "link": "https://github.com/openclaw/openclaw/commit/61d217fd2af4be89ea1353ff27a934237544be97",
-      "publishedAt": "2026-08-19T18:33:16Z",
-      "summary": "fix: stop routing IDs from masquerading as delivery receipts (#126385) * fix(channels): separate routing from receipt identity Routing identifiers no longer fabricate message delivery evidence; provider-canonical thread placement is preserved. * fix(channels): preserve conflicting receipt threads Keep aggregate thread placement absent when provider receipt parts disagree, even when a requested route thread is available.",
+      "title": "refactor(ui): share Control UI resource route contract (#126386)",
+      "link": "https://github.com/openclaw/openclaw/commit/0b715e3f5bfb80e8a93bbf050311011e7d05c98a",
+      "publishedAt": "2026-08-19T19:20:22Z",
+      "summary": "refactor(ui): share Control UI resource route contract (#126386) * refactor(ui): share Control UI resource route contract Gateway and Control UI now share browser-safe resource route grammar, while authorization and domain validation remain handler-owned. * perf(ui): keep resource routes out of startup Narrow browser-safe contract modules and the lazy authenticated avatar loader keep route/cache code out of the startup chunk while the stable Gateway barrel remains compatible.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: stop routing IDs from masquerading as delivery receipts (#126385)",
-      "summaryZh": "重點：修正: stop routing IDs from masquerading as delivery receipts (#126385) * 修正(channels): separate routing from receipt iden..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share Control UI resource route contract (#126386)",
+      "summaryZh": "重點：refactor(ui): share Control UI resource route contract (#126386) * refactor(ui): share Control UI resource route contrac..."
     },
     {
       "id": 3,
-      "title": "fix(agents): preserve empty CLI subagent completions (#126379)",
-      "link": "https://github.com/openclaw/openclaw/commit/341551937ef05c593d3cb9eab5c668609d142cec",
-      "publishedAt": "2026-08-19T18:30:43Z",
-      "summary": "fix(agents): preserve empty CLI subagent completions (#126379) * fix(agents): preserve empty CLI subagent completions * chore(qa): remove retired Matrix coverage leaf * refactor: consolidate shared runtime ownership * fix(scripts): keep runtime build coercion dependency-light * chore: remove release-owned changelog entry",
+      "title": "fix: restore cloud worker Desktop on node-backed Crabbox workers (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/84c2111b3090ce9473e1169d09448dce579040e7",
+      "publishedAt": "2026-08-19T18:50:48Z",
+      "summary": "fix: restore cloud worker Desktop on node-backed Crabbox workers (#126393) * fix(gateway): carry cloud worker desktops over nodes * fix(crabbox): restore node-backed worker desktops * refactor(crabbox): split worker provider owners",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve empty CLI subagent completions (#126379)",
-      "summaryZh": "重點：修正(agents): preserve empty CLI subagent completions (#126379) * 修正(agents): preserve empty CLI subagent completions * ch..."
+      "titleZh": "OpenClaw 程式碼更新：修正: restore cloud worker Desktop on node-backed Crabbox workers (#12…",
+      "summaryZh": "重點：修正: restore cloud worker Desktop on node-backed Crabbox workers (#126393) * 修正(Gateway): carry cloud worker desktops ove..."
     },
     {
       "id": 4,
-      "title": "fix(providers): prevent malformed streamed tool calls (#126391)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a9e21d3bc3f7a12a18672138bdcfeaba8a253ca",
-      "publishedAt": "2026-08-19T18:30:09Z",
-      "summary": "fix(providers): prevent malformed streamed tool calls (#126391) Co-authored-by: 曾令彪 0668001395",
+      "title": "fix(ui): close dashboard side panel in split view (#126397)",
+      "link": "https://github.com/openclaw/openclaw/commit/5976e74d1cc8022c82c644f9d2fffbd07473d7a5",
+      "publishedAt": "2026-08-19T18:36:46Z",
+      "summary": "fix(ui): close dashboard side panel in split view (#126397)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(providers): prevent malformed streamed tool calls (#126391)",
-      "summaryZh": "重點：修正(providers): prevent malformed streamed tool calls (#126391) Co-authored-by: 曾令彪 0668001395..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): close dashboard side panel in split view (#126397)",
+      "summaryZh": "重點：修正(ui): close dashboard side panel in split view (#126397)..."
     },
     {
       "id": 5,
