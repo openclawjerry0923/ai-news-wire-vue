@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-08-19T15:31:35.068Z",
+  "generatedAt": "2026-08-19T16:31:59.698Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(ui): keep retained dashboards warm (#126339)",
+      "link": "https://github.com/openclaw/openclaw/commit/543b4a85cfa34c150926bb9d68588c27a7972318",
+      "publishedAt": "2026-08-19T16:31:53Z",
+      "summary": "fix(ui): keep retained dashboards warm (#126339)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep retained dashboards warm (#126339)",
+      "summaryZh": "重點：修正(ui): keep retained dashboards warm (#126339)..."
+    },
+    {
+      "id": 2,
+      "title": "fix(line): deliver a location LINE cannot render instead of dropping …",
+      "link": "https://github.com/openclaw/openclaw/commit/14b59a06f57b1be87efc15417732d3d3268064c8",
+      "publishedAt": "2026-08-19T16:29:51Z",
+      "summary": "fix(line): deliver a location LINE cannot render instead of dropping it (#126298) * fix(line): deliver a location LINE cannot render instead of dropping it A location whose title or address is blank makes LINE reject the whole request, so every delivery path filtered it out before sending. The reply then arrived without the pin, and nothing told the user or the operator that a part of the message had been removed: the coordinates the sender supplied were discarded silently. The location builder now answers with the values the sender wrote — the non-blank label plus the coordinates — as a text message, so an unrenderable pin degrades into something the chat can show instead of disappearing. Both delivery paths inherit that from the single builder, and the three call sites that used to skip a null result no longer have a branch to take. Live validation against the Messaging API confirms the shape: the authored location is rejected with \"May not be empty\" on messages[0].address, the same rejection kills an entire batch that also carries valid text, and both degraded forms validate cleanly. * fix(line): bound the location fallback to LINE's text limit Nothing caps the location labels at the schema, so a long title with a blank address produced one raw text message past LINE's 5,000-character limit — the provider rejected it and the location was lost exactly as silently as before. The pin path already caps each label at 100 characters. Name that limit and apply it in the fallback too, so both forms carry the same bound instead of one of them re-deriving the provider's rules. * test(line): merge the duplicate send.js imports",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(line): deliver a location LINE cannot render instead of dropping …",
+      "summaryZh": "重點：修正(line): deliver a location LINE cannot render instead of dropping it (#126298) * 修正(line): deliver a location LINE can..."
+    },
+    {
+      "id": 3,
+      "title": "fix(cli): resolve infer command owners via --agent and systemAgent fa…",
+      "link": "https://github.com/openclaw/openclaw/commit/4994f7bacf308269a0770b4a912c44a746cccec7",
+      "publishedAt": "2026-08-19T15:44:52Z",
+      "summary": "fix(cli): resolve infer command owners via --agent and systemAgent fallback (#126234) * fix(cli): resolve infer command owners via --agent and systemAgent fallback Multi-agent rosters (agents.ownership=explicit) dead-ended every infer runner command: resolveDefaultAgentId threw AgentSelectionRequiredError telling callers to pass --agent, a flag none of the commands registered, and agents.defaults.systemAgent.agentId was ignored. Route model run, image generate/edit/describe/describe-many, video generate, embedding create, and model auth logout through the existing resolveCapabilityProviderAgentId chain (explicit --agent, then agents.defaults.systemAgent.agentId, then the sole agent) with per-command error surfaces, and register --agent on each command. * docs(config): scope systemAgent infer fallback help to agent-owned commands",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): resolve infer command owners via --agent and systemAgent fa…",
+      "summaryZh": "重點：修正(cli): resolve infer command owners via --agent and systemAgent fallback (#126234) * 修正(cli): resolve infer command ow..."
+    },
+    {
+      "id": 4,
       "title": "refactor(canvas): make the panel a widget presenter (#126030)",
       "link": "https://github.com/openclaw/openclaw/commit/ae55a4090c4e77260a67b86960589830fa03228d",
       "publishedAt": "2026-08-19T15:21:07Z",
@@ -11,39 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：refactor(canvas): make the panel a widget presenter (#126030)",
       "summaryZh": "重點：refactor(canvas): make the panel a widget presenter (#126030) * refactor(canvas): retire legacy host and commands * refa..."
-    },
-    {
-      "id": 2,
-      "title": "fix(cli): emit JSON for docs search failures (#126331)",
-      "link": "https://github.com/openclaw/openclaw/commit/c90226dc53ab3466dbce1a108955580964d4388c",
-      "publishedAt": "2026-08-19T15:20:41Z",
-      "summary": "fix(cli): emit JSON for docs search failures (#126331)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(cli): emit JSON for 文件 search failures (#126331)",
-      "summaryZh": "重點：修正(cli): emit JSON for 文件 search failures (#126331)..."
-    },
-    {
-      "id": 3,
-      "title": "improve(ui): unify transient surface elevation (#125065)",
-      "link": "https://github.com/openclaw/openclaw/commit/b24430fd04232a3ce6fe0adc6add39647dcf0114",
-      "publishedAt": "2026-08-19T14:44:35Z",
-      "summary": "improve(ui): unify transient surface elevation (#125065) * refactor(ui): unify transient surface tokens * test(ui): reveal transient session menu before click * test(ui): scope transient menu surface to session row * test(ui): target transient session menu by accessible owner * test(ui): capture transient surface proof * fix(ci): register Codex tool coverage * fix(protocol): keep version exports compact",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): unify transient surface elevation (#125065)",
-      "summaryZh": "重點：improve(ui): unify transient surface elevation (#125065) * refactor(ui): unify transient surface tokens * test(ui): reve..."
-    },
-    {
-      "id": 4,
-      "title": "feat(llama-cpp): support external llama-server",
-      "link": "https://github.com/openclaw/openclaw/commit/c2de3206d43a2a8fd6d16b2270cc1ab3fd5780f8",
-      "publishedAt": "2026-08-19T14:32:00Z",
-      "summary": "feat(llama-cpp): support external llama-server * feat(llama-cpp): add external server provider * feat(llama-cpp): document external server setup * refactor(llama-cpp): harden external provider boundaries * fix(llama-cpp): support external structured output * fix(llama-cpp): isolate replacement endpoint credentials * test(llama-cpp): register external live shard * fix(llama-cpp): preserve explicit endpoint authorization * fix(llama-cpp): clear disabled inline credentials * fix(llama-cpp): preserve external local service configs * test(llama-cpp): cover retained external configs * test(llama-cpp): cover authorization precedence",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(llama-cpp): support external llama-server",
-      "summaryZh": "重點：新功能(llama-cpp): support external llama-server * 新功能(llama-cpp): add external server provider * 新功能(llama-cpp): 文件ument e..."
     },
     {
       "id": 5,
