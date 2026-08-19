@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-19T17:26:50.736Z",
+  "generatedAt": "2026-08-19T18:35:43.816Z",
   "items": [
     {
       "id": 1,
-      "title": "test(plugins): refresh Codex exec scan baseline (#126215)",
-      "link": "https://github.com/openclaw/openclaw/commit/957f013454d486341bc7643a8093798a28c17bfb",
-      "publishedAt": "2026-08-19T17:23:17Z",
-      "summary": "test(plugins): refresh Codex exec scan baseline (#126215) Punchcard-Session: frost-orchard-lantern-ze",
+      "title": "fix(ui): render one assistant reply when history and the terminal eve…",
+      "link": "https://github.com/openclaw/openclaw/commit/e47637809ce907fb7e0dabf61bf3e323fe3a5436",
+      "publishedAt": "2026-08-19T18:33:22Z",
+      "summary": "fix(ui): render one assistant reply when history and the terminal event race (#126382) * fix(ui): render one assistant reply when history and the terminal event race A finished run's reply reached the Control UI twice: the durable transcript row and the pane's own terminal projection shared no identity, so the projection reducer kept both and the transcript collapsed them behind the \"x2\" duplicate badge. The gateway's chat final event carries no message id, and a durable assistant row carries no run id, so the reducer's same-run promotion could never match them. A WeakMap side channel hid the duplicate only when history happened to be applied before the terminal event arrived, which made the badge look intermittent. The pane now admits the durable assistant row of the run it is finishing through the reducer, attributed to that run, so the durable row adopts the terminal projection in place; the reducer refuses to downgrade a row that already carries a transcript id back to an id-less projection. Splits the run-terminal bookkeeping tests into a sibling file to stay under the max-lines ratchet. * fix(ui): bind a late reply row to its run only when it carries that reply The terminal tombstone outlives its run by design, so attributing every unowned assistant row to it could stamp a delayed older row with a newer run's id; the reducer then matched that row to the newer run's terminal projection and replaced the answer the user should see. The tombstone now claims only the row carrying the reply already projected for that run.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(plugins): refresh Codex exec scan baseline (#126215)",
-      "summaryZh": "重點：test(plugins): refresh Codex exec scan baseline (#126215) Punchcard-Session: frost-orchard-lantern-ze..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): render one assistant reply when history and the terminal eve…",
+      "summaryZh": "重點：修正(ui): render one assistant reply when history and the terminal event race (#126382) * 修正(ui): render one assistant rep..."
     },
     {
       "id": 2,
-      "title": "refactor(llama-cpp): adopt canonical runtime owners (#126371)",
-      "link": "https://github.com/openclaw/openclaw/commit/7c1779e6e3a841dda0cdfe0971494a340605b1be",
-      "publishedAt": "2026-08-19T17:17:59Z",
-      "summary": "refactor(llama-cpp): adopt canonical runtime owners (#126371)",
+      "title": "fix: stop routing IDs from masquerading as delivery receipts (#126385)",
+      "link": "https://github.com/openclaw/openclaw/commit/61d217fd2af4be89ea1353ff27a934237544be97",
+      "publishedAt": "2026-08-19T18:33:16Z",
+      "summary": "fix: stop routing IDs from masquerading as delivery receipts (#126385) * fix(channels): separate routing from receipt identity Routing identifiers no longer fabricate message delivery evidence; provider-canonical thread placement is preserved. * fix(channels): preserve conflicting receipt threads Keep aggregate thread placement absent when provider receipt parts disagree, even when a requested route thread is available.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(llama-cpp): adopt canonical runtime owners (#126371)",
-      "summaryZh": "重點：refactor(llama-cpp): adopt canonical runtime owners (#126371)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: stop routing IDs from masquerading as delivery receipts (#126385)",
+      "summaryZh": "重點：修正: stop routing IDs from masquerading as delivery receipts (#126385) * 修正(channels): separate routing from receipt iden..."
     },
     {
       "id": 3,
-      "title": "fix(doctor): prevent update repair OOM on large session stores (#126353)",
-      "link": "https://github.com/openclaw/openclaw/commit/61221c4c20ec511ba239648a5f4f7998d5c35459",
-      "publishedAt": "2026-08-19T17:14:00Z",
-      "summary": "fix(doctor): prevent update repair OOM on large session stores (#126353) * fix(doctor): bound large session-store repairs Prevent post-core update finalization from retaining complete session JSON corpora. Move Doctor repair planning and rewrites onto ordered bounded SQLite owner scans with stale-decision revalidation and selective hydration. Co-authored-by: Hannes Rudolph * test(doctor): expose memory helper to deadcode scan --------- Co-authored-by: Hannes Rudolph",
+      "title": "fix(agents): preserve empty CLI subagent completions (#126379)",
+      "link": "https://github.com/openclaw/openclaw/commit/341551937ef05c593d3cb9eab5c668609d142cec",
+      "publishedAt": "2026-08-19T18:30:43Z",
+      "summary": "fix(agents): preserve empty CLI subagent completions (#126379) * fix(agents): preserve empty CLI subagent completions * chore(qa): remove retired Matrix coverage leaf * refactor: consolidate shared runtime ownership * fix(scripts): keep runtime build coercion dependency-light * chore: remove release-owned changelog entry",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): prevent update repair OOM on large session stores (#126353)",
-      "summaryZh": "重點：修正(文件tor): prevent update repair OOM on large session stores (#126353) * 修正(文件tor): bound large session-store repairs Pr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve empty CLI subagent completions (#126379)",
+      "summaryZh": "重點：修正(agents): preserve empty CLI subagent completions (#126379) * 修正(agents): preserve empty CLI subagent completions * ch..."
     },
     {
       "id": 4,
-      "title": "fix: large base64 attachments on /v1/responses crash the gateway with…",
-      "link": "https://github.com/openclaw/openclaw/commit/80dcef5044c75f74e4f59e83e217d79d69391ffe",
-      "publishedAt": "2026-08-19T17:11:37Z",
-      "summary": "fix: large base64 attachments on /v1/responses crash the gateway with heap OOM (#126017) * fix(media): stop canonicalizeBase64 allocating one cons-string node per char Per-character append built a rope of ~25 bytes per input character, all live until the final join — a 20 MB base64 attachment transiently needed ~700-900 MB of heap and OOM-crashed the gateway on POST /v1/responses. Validate in the same single pass but collect contiguous non-whitespace runs as slices; already-canonical input is returned unchanged with zero allocations. Measured: 15 MiB attachment 659 MB -> 0 MB transient heap, 4.3 s -> 0.2 s. * fix(media): bound canonicalizeBase64 cleanup memory by input length Review found the run-slicing cleanup unbounded for adversarial input: alternating data characters and whitespace retains one slice object per run (measured 421 MB of heap for an 8 MiB payload shredded to one run per character). Replace the run collection with a single output buffer materialized on the first whitespace and filled in the same validating pass: canonical input still returns unchanged with zero allocations, and any whitespace shape now costs at most one buffer bounded by the input length (measured 0 MB heap delta, 210 ms for the same shredded payload). Adds the many-short-runs regression test the review asked for, guarding both heapUsed and arrayBuffers. * refactor(media): condense canonicalizeBase64 invariant comment Review asked for the repository's 1-3-line invariant form: keep why the buffer is lazy and bounded, drop the implementation-history narration. * chore: retrigger CI (flaky gateway-server shard) * test(media): update base64 memory comment Punchcard-Session: frost-cedar-willow-ae --------- Co-authored-by: Vincent Koc",
+      "title": "fix(providers): prevent malformed streamed tool calls (#126391)",
+      "link": "https://github.com/openclaw/openclaw/commit/8a9e21d3bc3f7a12a18672138bdcfeaba8a253ca",
+      "publishedAt": "2026-08-19T18:30:09Z",
+      "summary": "fix(providers): prevent malformed streamed tool calls (#126391) Co-authored-by: 曾令彪 0668001395",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: large base64 attachments on /v1/responses crash the Gateway with…",
-      "summaryZh": "重點：修正: large base64 attachments on /v1/responses crash the Gateway with heap OOM (#126017) * 修正(media): stop canonicalizeBa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(providers): prevent malformed streamed tool calls (#126391)",
+      "summaryZh": "重點：修正(providers): prevent malformed streamed tool calls (#126391) Co-authored-by: 曾令彪 0668001395..."
     },
     {
       "id": 5,
