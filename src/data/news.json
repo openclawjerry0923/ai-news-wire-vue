@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-20T14:36:15.796Z",
+  "generatedAt": "2026-08-20T15:34:01.071Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(qa): trigger Mantis proof from pull requests (#126658)",
-      "link": "https://github.com/openclaw/openclaw/commit/8458777e6a7538cab894455516793ea7d9f51ac5",
-      "publishedAt": "2026-08-20T14:35:51Z",
-      "summary": "feat(qa): trigger Mantis proof from pull requests (#126658) Add trusted ClawSweeper-label and maintainer-comment dispatch for Mantis Telegram proof. Short-circuit non-visible PRs before desktop setup while preserving exact-head, fork, credential, and comment-ownership boundaries.",
+      "title": "fix(cron): release session admission during cleanup (#126413)",
+      "link": "https://github.com/openclaw/openclaw/commit/e2f841bf1c1286940e3e89627ec2dc02514d9325",
+      "publishedAt": "2026-08-20T15:33:45Z",
+      "summary": "fix(cron): release session admission during cleanup (#126413) * fix(cron): release session admission during cleanup * test(cron): cover admission release after lifecycle error * test(cron): scope terminal lifecycle failure injection --------- Co-authored-by: VACInc Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(qa): trigger Mantis proof from pull requests (#126658)",
-      "summaryZh": "重點：新功能(qa): trigger Mantis proof from pull requests (#126658) Add trusted ClawSweeper-label and maintainer-comment dispatch..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): 版本發布 session admission during cleanup (#126413)",
+      "summaryZh": "重點：修正(排程): 版本發布 session admission during cleanup (#126413) * 修正(排程): 版本發布 session admission during cleanup * test(排程): cove..."
     },
     {
       "id": 2,
-      "title": "fix(apple): gate gateway RPC polling on the hello method catalog (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/923e972564cec0d2ce1dd9e46325a571ac52818e",
-      "publishedAt": "2026-08-20T14:31:04Z",
-      "summary": "fix(apple): gate gateway RPC polling on the hello method catalog (#126559) * fix(apple): gate gateway RPC polling on the hello method catalog Released 2026.7.x gateways authorize before method dispatch and reject unknown methods with INVALID_REQUEST / \"missing scope: operator.admin\", which never names the method, so the shared Swift kit's error-text matchers could not detect an unsupported gateway: queued sends wedged in a delay-free sessions.branches.list reconcile loop, question.list burned its retry budget per health event, and progressCard.get fired a rejected fetch per event. Port the Android fix pattern (#126540): generalize the progressCard-only transport seam into tri-state gatewayAdvertisesMethod(_:), make hello catalog parsing distinguish absent (nil) from empty, route branch listing through a catalog-checking dispatch point with a typed BranchListingUnadvertisedError, tighten error-text matching to the modern \"unknown method:\" shape, and skip question.list/progressCard.get when unadvertised. Regression tests encode the exact 2026.7.1-2 wire shape and fail pre-fix (A/B verified). * fix(apple): keep explicit unsupported branch-listing replies releasing sends ClawSweeper P1: the tightened matcher dropped the shipped acceptance of explicit unsupported/unimplemented GatewayResponseError replies that name sessions.branches.list, which would wedge queued sends on a pre-catalog gateway emitting that shape. Collapse the matcher onto the bridged localizedDescription (errorDescription always prefixes the method name), preserving both legacy qualifier shapes while still rejecting bare missing-scope denials and the old false-positive-prone INVALID_REQUEST arm; add the releasing-send regression test.",
+      "title": "fix(agents): stabilize process session order (#126706)",
+      "link": "https://github.com/openclaw/openclaw/commit/9e3d7c93cfac13de15d4d5eb1df8ae254a6ccd12",
+      "publishedAt": "2026-08-20T15:33:42Z",
+      "summary": "fix(agents): stabilize process session order (#126706)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(apple): gate Gateway RPC polling on the hello method catalog (#12…",
-      "summaryZh": "重點：修正(apple): gate Gateway RPC polling on the hello method catalog (#126559) * 修正(apple): gate Gateway RPC polling on the h..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): stabilize process session order (#126706)",
+      "summaryZh": "重點：修正(agents): stabilize process session order (#126706)..."
     },
     {
       "id": 3,
-      "title": "feat(ui): manage automation condition triggers (#126534)",
-      "link": "https://github.com/openclaw/openclaw/commit/267ffc4754a08181f1a15ff7cfbd0f4d817ca25a",
-      "publishedAt": "2026-08-20T14:20:01Z",
-      "summary": "feat(ui): manage automation condition triggers (#126534) * feat(ui): manage cron condition triggers * test(models): isolate ambient CLI availability Co-authored-by: Tak Hoffman --------- Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
+      "title": "fix(policy): preserve profile in unknown-agent guidance (#126710)",
+      "link": "https://github.com/openclaw/openclaw/commit/b9249ffa5ca46980d822736bcaadad1859ad977a",
+      "publishedAt": "2026-08-20T15:32:05Z",
+      "summary": "fix(policy): preserve profile in unknown-agent guidance (#126710)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): manage automation condition triggers (#126534)",
-      "summaryZh": "重點：新功能(ui): manage automation condition triggers (#126534) * 新功能(ui): manage 排程 condition triggers * test(模型): isolate ambi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(policy): preserve profile in unknown-agent guidance (#126710)",
+      "summaryZh": "重點：修正(policy): preserve profile in unknown-agent guidance (#126710)..."
     },
     {
       "id": 4,
-      "title": "fix(memory): keep owner-only tool omission quiet (#126679)",
-      "link": "https://github.com/openclaw/openclaw/commit/fdac5c56c54895cadbcd73773f27225fa7d0a56b",
-      "publishedAt": "2026-08-20T14:17:05Z",
-      "summary": "fix(memory): keep owner-only tool omission quiet (#126679)",
+      "title": "fix(test): use activated service worker build signal (#126584)",
+      "link": "https://github.com/openclaw/openclaw/commit/36ca7df091f19f677695560706b6fa16cbdec2cf",
+      "publishedAt": "2026-08-20T15:29:50Z",
+      "summary": "fix(test): use activated service worker build signal (#126584)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): keep owner-only tool omission quiet (#126679)",
-      "summaryZh": "重點：修正(記憶): keep owner-only tool omission quiet (#126679)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): use activated service worker build signal (#126584)",
+      "summaryZh": "重點：修正(test): use activated service worker build signal (#126584)..."
     },
     {
       "id": 5,
