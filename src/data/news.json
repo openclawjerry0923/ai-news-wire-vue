@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-20T21:28:03.457Z",
+  "generatedAt": "2026-08-20T22:27:48.771Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(web-fetch): extract readable content from XHTML pages (#126835)",
-      "link": "https://github.com/openclaw/openclaw/commit/cd5002610dea097989d84f8b6c6fdf9cd675c34d",
-      "publishedAt": "2026-08-20T21:26:50Z",
-      "summary": "fix(web-fetch): extract readable content from XHTML pages (#126835)",
+      "title": "fix(openai): preserve OAuth realtime session policy (#126363)",
+      "link": "https://github.com/openclaw/openclaw/commit/7c959c85f91735b2051588883f603d633a6b35e7",
+      "publishedAt": "2026-08-20T22:17:03Z",
+      "summary": "fix(openai): preserve OAuth realtime session policy (#126363) Co-authored-by: Clawdbot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(web-fetch): extract readable content from XHTML pages (#126835)",
-      "summaryZh": "重點：修正(web-fetch): extract readable content from XHTML pages (#126835)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): preserve OAuth realtime session policy (#126363)",
+      "summaryZh": "重點：修正(openai): preserve OAuth realtime session policy (#126363) Co-authored-by: Clawdbot..."
     },
     {
       "id": 2,
-      "title": "fix(cli): message send cannot address channels from npm-installed plu…",
-      "link": "https://github.com/openclaw/openclaw/commit/4c52d3fe9df3c5463876107e38c87b85ea64607c",
-      "publishedAt": "2026-08-20T20:56:01Z",
-      "summary": "fix(cli): message send cannot address channels from npm-installed plugins (#126700) * fix(cli): message send cannot address channels from npm-installed plugins Target resolution, channel enumeration, and target-prefix inference only consulted the process-root channel registry, so message CLI actions running against a scoped registry handle could not see installed channel plugins even though selection and send execution could. Carry the selection-resolved plugin into target resolution, fall back to the registry handle in scope for resolver-owned lookups, and list runtime-visible channel plugins for channel selection and prefix inference. * fix(cli): keep runtime-visible channel reads import-light Importing channel-resolution from the target-prefix leaf pulled the plugin bootstrap/loader graph into every consumer and reordered module loading under distant vi.mock factories (subagent-registry.steer-restart failed in CI with a hoisting TDZ). Move the scoped-registry reads into a dedicated import-light module, share its registry matcher with channel-resolution, and drop the mock workarounds the heavier graph had required. * chore(ui): re-baseline startup JS for the outbound scoped-registry reads CI measured 348285 B gzip on the merge ref (baseline 347023 + 1056 tolerance). The first CI round measured 347784 B, so most of the growth is main-side drift since the 2026-08-19 baseline; the outbound changes account for roughly 60 B in a local A/B. Updated with the documented --update-baseline --startup-js-bytes flow using the CI value. * Revert \"chore(ui): re-baseline startup JS for the outbound scoped-registry reads\" This reverts commit f60bd4c45f0596d0ba614656be289a3a1268562b. * fix(cli): plan broadcast accounts from runtime-visible channel plugins The unscoped message broadcast --account planner still enumerated only process-root plugins, so a registry-scoped installed channel could not join broadcast candidate planning. Use the runtime-visible read and cover the scoped and no-scope paths. * fix(cli): honor scoped channel plugin precedence * fix(outbound): preserve loaded plugin fallback order --------- Co-authored-by: Patrick Erichsen",
+      "title": "fix(channels): keep started ingress deliveries admissible after their…",
+      "link": "https://github.com/openclaw/openclaw/commit/c972fda893ecbc15a3de1228f755e8e7afd35f61",
+      "publishedAt": "2026-08-20T22:10:34Z",
+      "summary": "fix(channels): keep started ingress deliveries admissible after their inherited root releases (#126590)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): message send cannot address channels from npm-installed plu…",
-      "summaryZh": "重點：修正(cli): message send cannot address channels from npm-installed plugins (#126700) * 修正(cli): message send cannot addres..."
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): keep started ingress deliveries admissible after their…",
+      "summaryZh": "重點：修正(channels): keep started ingress deliveries admissible after their inherited root 版本發布s (#126590)..."
     },
     {
       "id": 3,
-      "title": "refactor(sandbox): canonicalize backend ownership (#126828)",
-      "link": "https://github.com/openclaw/openclaw/commit/1362490b804efe497be34a17e88f47ec9fa1b9c4",
-      "publishedAt": "2026-08-20T20:52:15Z",
-      "summary": "refactor(sandbox): canonicalize backend ownership (#126828)",
+      "title": "fix(firecrawl): prevent canceled requests from caching late results (…",
+      "link": "https://github.com/openclaw/openclaw/commit/6c9aae7ceeaf72c7d33c3a23f1586a7314648f5a",
+      "publishedAt": "2026-08-20T22:09:38Z",
+      "summary": "fix(firecrawl): prevent canceled requests from caching late results (#126857)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(sandbox): canonicalize backend ownership (#126828)",
-      "summaryZh": "重點：refactor(sandbox): canonicalize backend ownership (#126828)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(firecrawl): prevent canceled requests from caching late results (…",
+      "summaryZh": "重點：修正(firecrawl): prevent canceled requests from caching late results (#126857)..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): honor local port for usage and stability queries (#126832)",
-      "link": "https://github.com/openclaw/openclaw/commit/21bab3a8ac395e00abc260e4d62a7cb6083b08d2",
-      "publishedAt": "2026-08-20T20:51:36Z",
-      "summary": "fix(gateway): honor local port for usage and stability queries (#126832)",
+      "title": "fix(gateway): own post-ready drain cancellation (#126855)",
+      "link": "https://github.com/openclaw/openclaw/commit/6086ccb85bda5bc508dd49c6be0c986f4bea35c4",
+      "publishedAt": "2026-08-20T22:05:18Z",
+      "summary": "fix(gateway): own post-ready drain cancellation (#126855)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): honor local port for usage and stability queries (#126832)",
-      "summaryZh": "重點：修正(Gateway): honor local port for usage and stability queries (#126832)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): own post-ready drain cancellation (#126855)",
+      "summaryZh": "重點：修正(Gateway): own post-ready drain cancellation (#126855)..."
     },
     {
       "id": 5,
