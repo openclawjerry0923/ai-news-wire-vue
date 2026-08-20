@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T07:41:04.083Z",
+  "generatedAt": "2026-08-20T08:38:46.640Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "refactor(sessions): remove thinking selection provenance (#126561)",
-      "link": "https://github.com/openclaw/openclaw/commit/966c233dcc5ce7c419b43250005cc0b6f578b201",
-      "publishedAt": "2026-08-20T07:38:45Z",
-      "summary": "refactor(sessions): remove thinking selection provenance (#126561) * refactor(sessions): remove thinking selection provenance * test(gateway): fix shared-worker reasoning cleanup * test(gateway): avoid shared-worker merge overlap",
+      "title": "fix(release): accept trusted Codex scan layouts (#126588)",
+      "link": "https://github.com/openclaw/openclaw/commit/45ed68e6ea62abd115d91481d31803e11269bd88",
+      "publishedAt": "2026-08-20T08:38:27Z",
+      "summary": "fix(release): accept trusted Codex scan layouts (#126588) Allow the trusted release inventory to accept exactly one complete reviewed Codex source layout while remaining fail closed for partial, mixed, duplicate, absent, or unknown layouts. Frozen-candidate and upstream Codex contract proof are recorded in the PR.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): remove thinking selection provenance (#126561)",
-      "summaryZh": "重點：refactor(sessions): remove thinking selection provenance (#126561) * refactor(sessions): remove thinking selection prove..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): accept trusted Codex scan layouts (#126588)",
+      "summaryZh": "重點：修正(版本發布): accept trusted Codex scan layouts (#126588) Allow the trusted 版本發布 inventory to accept exactly one complete re..."
     },
     {
       "id": 8,
-      "title": "fix(onboard): keep token suppression in guided setup (#126580)",
-      "link": "https://github.com/openclaw/openclaw/commit/83c0f8117374a6e0a8e79070094ecc12ad0a1fb3",
-      "publishedAt": "2026-08-20T07:38:40Z",
-      "summary": "fix(onboard): keep token suppression in guided setup (#126580)",
+      "title": "fix: prevent incompatible cloud runtime dispatches (#126585)",
+      "link": "https://github.com/openclaw/openclaw/commit/1d2986b06fbe5d85bab5fda799abb880d28f3827",
+      "publishedAt": "2026-08-20T08:31:27Z",
+      "summary": "fix: prevent incompatible cloud runtime dispatches (#126585) * fix(ui): gate cloud profiles by runtime mode * test(gateway): expect cloud placement mode * test(gateway): keep route suite within lint budget",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): keep token suppression in guided setup (#126580)",
-      "summaryZh": "重點：修正(onboard): keep token suppression in guided setup (#126580)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: prevent incompatible cloud runtime dispatches (#126585)",
+      "summaryZh": "重點：修正: prevent incompatible cloud runtime dispatches (#126585) * 修正(ui): gate cloud profiles by runtime mode * test(Gateway..."
     },
     {
       "id": 9,
-      "title": "fix(onboard): keep OpenRouter API keys with their provider (#126578)",
-      "link": "https://github.com/openclaw/openclaw/commit/921e9450133e78a9752692a5fb72ab4b12adf79c",
-      "publishedAt": "2026-08-20T07:35:27Z",
-      "summary": "fix(onboard): keep OpenRouter API keys with their provider (#126578)",
+      "title": "improve(ui): refine chat widget host and image actions (#125250)",
+      "link": "https://github.com/openclaw/openclaw/commit/68ae235318c01aeea6e62c793d3f79b9662b86ae",
+      "publishedAt": "2026-08-20T08:27:56Z",
+      "summary": "improve(ui): refine chat widget host and image actions (#125250) * improve(ui): refine chat widget host actions * fix(ui): keep widget pin presentation unchanged * fix(ui): compact widget actions and restore rounded host * style(ui): format widget action menu * test(canvas): refresh widget host document contract * test(ui): model the widget host wrapper * fix(ui): preserve retained widget downloads * fix(ci): register Codex tool coverage * fix(protocol): keep version exports compact * fix(ui): preserve widget action outcomes --------- Co-authored-by: RoboClaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): keep OpenRouter API keys with their provider (#126578)",
-      "summaryZh": "重點：修正(onboard): keep OpenRouter API keys with their provider (#126578)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): refine chat widget host and image actions (#125250)",
+      "summaryZh": "重點：improve(ui): refine chat widget host and image actions (#125250) * improve(ui): refine chat widget host actions * 修正(ui)..."
     },
     {
       "id": 10,
-      "title": "fix(memory): reject unknown --agent ids and keep the hint runnable (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/75fcb1fbb9aa84017e0ce4103ee95465c8fb74a5",
-      "publishedAt": "2026-08-20T07:32:59Z",
-      "summary": "fix(memory): reject unknown --agent ids and keep the hint runnable (#126570) The memory CLI resolved --agent by returning the caller's string verbatim, so an id that is not configured produced a confident empty result: `memory status` rendered a panel for it, `memory index` fabricated a workspace- path, and `memory search` reported No matches. A typo read as an empty memory rather than a nonexistent agent, while hooks, status --usage, capability, migrate, and session targets already rejected unknown ids. Consolidate that duplicated check into resolveConfiguredAgentId beside the agent roster owner, reuse it at the matching core sites, and route memory to it through the existing memory-core host-runtime facade so no new plugin SDK surface is added. The canonical hint uses formatCliCommand rather than a literal: under a profile or container the bare command is wrong, so consolidating on a literal would have regressed the hooks and migrate hints and left the status, capability, and session-target hints unrunnable.",
+      "title": "test(ui): make formatNextRun weekday assertion locale-portable (#125164)",
+      "link": "https://github.com/openclaw/openclaw/commit/bd6802ffb65d516d6f5f1d87502ad286540684c9",
+      "publishedAt": "2026-08-20T08:25:28Z",
+      "summary": "test(ui): make formatNextRun weekday assertion locale-portable (#125164) The \"includes weekday and relative time\" test computed the expected weekday with the ambient host locale (`toLocaleDateString(undefined, ...)`) while `formatNextRun` formats the weekday through `i18n.getLocale()` (default \"en\"). On hosts whose default locale is not English (e.g. `LANG=zh_CN.UTF-8` -> \"周一\"), the two diverge and the slice assertion fails: `expected 'Mon,' to be '周一, '`. Mirror `i18n.getLocale()` in the test so the expected weekday always matches the locale the presenter uses. No production behavior change. Verified: passes under `LANG=zh_CN.UTF-8` and `LANG=C` via `pnpm test:unit:fast -- test/ui.presenter-next-run.test.ts`. AI-assisted.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): reject unknown --agent ids and keep the hint runnable (#…",
-      "summaryZh": "重點：修正(記憶): reject unknown --agent ids and keep the hint runnable (#126570) The 記憶 CLI resolved --agent by returning the cal..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): make formatNextRun weekday assertion locale-portable (#125164)",
+      "summaryZh": "重點：test(ui): make formatNextRun weekday assertion locale-portable (#125164) The \"includes weekday and relative time\" test c..."
     }
   ]
 }
