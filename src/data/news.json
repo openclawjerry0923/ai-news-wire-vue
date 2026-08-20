@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-20T13:46:56.300Z",
+  "generatedAt": "2026-08-20T14:36:15.796Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(claude-cli): apply thinking and keep live sessions warm (#125528)",
-      "link": "https://github.com/openclaw/openclaw/commit/1b9d3ac57d135e11c7d70ee2979590025f3b5ace",
-      "publishedAt": "2026-08-20T13:44:49Z",
-      "summary": "fix(claude-cli): apply thinking and keep live sessions warm (#125528) * fix(models): preserve CLI runtime thinking capabilities * fix(models): preserve configured thinking overrides * fix: keep Claude live CLI process warm across captured turns MCP delivery capture no longer kills the warm Claude process after every turn. Capture-key admission is fenced by grant activate/deactivate so prompt-cache continuity can survive across messages. Co-authored-by: Cursor * fix(claude-cli): apply thinking levels * fix(claude-cli): materialize thinking capabilities * test(claude-cli): cover warm thinking budget reuse * test(models): restore prepared catalog contracts * fix(agents): restore catalog test boundaries * fix(agents): break prepared catalog import cycle * refactor(gateway): extract model-choice runtime resolution into public-projection module Keeps models-list-result.ts under the max-lines cap after the origin/main merge by moving resolveModelChoiceAgentRuntime next to the projection helpers it feeds. Claude-Session: https://claude.ai/code/session_01QXUQuDVataA5o16kxNnmoX * test(claude-cli): cover thinking cache reuse * test(claude-cli): cover captured live reuse * fix(claude-cli): rotate MCP grants across live turns * fix(anthropic): respect mandatory adaptive thinking * fix(claude-cli): restore warm MCP bearer * fix(anthropic): keep Mythos adaptive thinking * test(claude-cli): prove live MCP cache reuse * test(claude-cli): align live cache coverage * fix(claude-cli): reuse live sessions across MCP grant rotation * test(claude-cli): satisfy cache lane static gates * fix(claude-cli): preserve runtime thinking policy * fix(thinking): honor concrete runtime policy * fix(gateway): honor mandatory thinking in model list * refactor(auto-reply): extract prepared catalog merge * docs(cli-backend): document thinking execution input * refactor(auto-reply): extract catalog lookup helper * style(auto-reply): format catalog helper import * fix(claude-cli): stabilize live context budget * fix(auto-reply): type prepared context metadata --------- Co-authored-by: VACInc Co-authored-by: Cursor Co-authored-by: Patrick Erichsen",
+      "title": "feat(qa): trigger Mantis proof from pull requests (#126658)",
+      "link": "https://github.com/openclaw/openclaw/commit/8458777e6a7538cab894455516793ea7d9f51ac5",
+      "publishedAt": "2026-08-20T14:35:51Z",
+      "summary": "feat(qa): trigger Mantis proof from pull requests (#126658) Add trusted ClawSweeper-label and maintainer-comment dispatch for Mantis Telegram proof. Short-circuit non-visible PRs before desktop setup while preserving exact-head, fork, credential, and comment-ownership boundaries.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(claude-cli): apply thinking and keep live sessions warm (#125528)",
-      "summaryZh": "重點：修正(claude-cli): apply thinking and keep live sessions warm (#125528) * 修正(模型): preserve CLI runtime thinking capabilitie..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(qa): trigger Mantis proof from pull requests (#126658)",
+      "summaryZh": "重點：新功能(qa): trigger Mantis proof from pull requests (#126658) Add trusted ClawSweeper-label and maintainer-comment dispatch..."
     },
     {
       "id": 2,
-      "title": "fix(macos): keep elevation computer control active (#126674)",
-      "link": "https://github.com/openclaw/openclaw/commit/4b3227597037386ffceaf206b94e798af625bb04",
-      "publishedAt": "2026-08-20T13:39:06Z",
-      "summary": "fix(macos): keep elevation computer control active (#126674)",
+      "title": "fix(apple): gate gateway RPC polling on the hello method catalog (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/923e972564cec0d2ce1dd9e46325a571ac52818e",
+      "publishedAt": "2026-08-20T14:31:04Z",
+      "summary": "fix(apple): gate gateway RPC polling on the hello method catalog (#126559) * fix(apple): gate gateway RPC polling on the hello method catalog Released 2026.7.x gateways authorize before method dispatch and reject unknown methods with INVALID_REQUEST / \"missing scope: operator.admin\", which never names the method, so the shared Swift kit's error-text matchers could not detect an unsupported gateway: queued sends wedged in a delay-free sessions.branches.list reconcile loop, question.list burned its retry budget per health event, and progressCard.get fired a rejected fetch per event. Port the Android fix pattern (#126540): generalize the progressCard-only transport seam into tri-state gatewayAdvertisesMethod(_:), make hello catalog parsing distinguish absent (nil) from empty, route branch listing through a catalog-checking dispatch point with a typed BranchListingUnadvertisedError, tighten error-text matching to the modern \"unknown method:\" shape, and skip question.list/progressCard.get when unadvertised. Regression tests encode the exact 2026.7.1-2 wire shape and fail pre-fix (A/B verified). * fix(apple): keep explicit unsupported branch-listing replies releasing sends ClawSweeper P1: the tightened matcher dropped the shipped acceptance of explicit unsupported/unimplemented GatewayResponseError replies that name sessions.branches.list, which would wedge queued sends on a pre-catalog gateway emitting that shape. Collapse the matcher onto the bridged localizedDescription (errorDescription always prefixes the method name), preserving both legacy qualifier shapes while still rejecting bare missing-scope denials and the old false-positive-prone INVALID_REQUEST arm; add the releasing-send regression test.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): keep elevation computer control active (#126674)",
-      "summaryZh": "重點：修正(macos): keep elevation computer control active (#126674)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(apple): gate Gateway RPC polling on the hello method catalog (#12…",
+      "summaryZh": "重點：修正(apple): gate Gateway RPC polling on the hello method catalog (#126559) * 修正(apple): gate Gateway RPC polling on the h..."
     },
     {
       "id": 3,
-      "title": "fix(memory): reject overdue embedding results (#126667)",
-      "link": "https://github.com/openclaw/openclaw/commit/e71fc9420c87523f0a131a881130287fa8857407",
-      "publishedAt": "2026-08-20T13:34:11Z",
-      "summary": "fix(memory): reject overdue embedding results (#126667)",
+      "title": "feat(ui): manage automation condition triggers (#126534)",
+      "link": "https://github.com/openclaw/openclaw/commit/267ffc4754a08181f1a15ff7cfbd0f4d817ca25a",
+      "publishedAt": "2026-08-20T14:20:01Z",
+      "summary": "feat(ui): manage automation condition triggers (#126534) * feat(ui): manage cron condition triggers * test(models): isolate ambient CLI availability Co-authored-by: Tak Hoffman --------- Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): reject overdue embedding results (#126667)",
-      "summaryZh": "重點：修正(記憶): reject overdue embedding results (#126667)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): manage automation condition triggers (#126534)",
+      "summaryZh": "重點：新功能(ui): manage automation condition triggers (#126534) * 新功能(ui): manage 排程 condition triggers * test(模型): isolate ambi..."
     },
     {
       "id": 4,
-      "title": "fix(ui): keep peer identity stable when actions appear (#126287)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e6b29d23a95edb5df616b108a4e068d040d5b55",
-      "publishedAt": "2026-08-20T13:30:14Z",
-      "summary": "fix(ui): keep peer identity stable when actions appear (#126287) * fix(ui): keep peer identity stable when actions appear * fix(ui): keep mobile peer actions trailing",
+      "title": "fix(memory): keep owner-only tool omission quiet (#126679)",
+      "link": "https://github.com/openclaw/openclaw/commit/fdac5c56c54895cadbcd73773f27225fa7d0a56b",
+      "publishedAt": "2026-08-20T14:17:05Z",
+      "summary": "fix(memory): keep owner-only tool omission quiet (#126679)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep peer identity stable when actions appear (#126287)",
-      "summaryZh": "重點：修正(ui): keep peer identity stable when actions appear (#126287) * 修正(ui): keep peer identity stable when actions appear ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): keep owner-only tool omission quiet (#126679)",
+      "summaryZh": "重點：修正(記憶): keep owner-only tool omission quiet (#126679)..."
     },
     {
       "id": 5,
