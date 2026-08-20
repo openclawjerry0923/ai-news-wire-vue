@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T05:31:15.191Z",
+  "generatedAt": "2026-08-20T06:46:47.447Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix: New Session stays on Models unavailable after a missing catalog …",
-      "link": "https://github.com/openclaw/openclaw/commit/33744584f38f41699918220f69ffb8e37b7c5ecd",
-      "publishedAt": "2026-08-20T05:21:01Z",
-      "summary": "fix: New Session stays on Models unavailable after a missing catalog owner (#125450) * fix: New Session stays on Models unavailable after a missing catalog owner Control UI chat.metadata cached the first unavailable snapshot, and a partial auth-bind publication could fail-close the picker while sibling owners were still stale. Co-authored-by: Cursor * test(gateway): type unavailable metadata owner fixture * test(gateway): cover sticky metadata recovery boundary * test(gateway): reuse metadata boundary server * test(gateway): remove chat metadata shard order race --------- Co-authored-by: VACInc Co-authored-by: Cursor Co-authored-by: Patrick Erichsen",
+      "title": "fix(crabbox): keep worker wallpaper in XFCE session (#126560)",
+      "link": "https://github.com/openclaw/openclaw/commit/c15f31df4942f2d70359f7bbc73d69f2c7618c0c",
+      "publishedAt": "2026-08-20T06:45:53Z",
+      "summary": "fix(crabbox): keep worker wallpaper in XFCE session (#126560) Bind setup to the active worker-owned XFCE session and reload the existing renderer so desktop recovery does not leave a black wallpaper.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: New Session stays on 模型 unavailable after a missing catalog …",
-      "summaryZh": "重點：修正: New Session stays on 模型 unavailable after a missing catalog owner (#125450) * 修正: New Session stays on 模型 unavailabl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): keep worker wallpaper in XFCE session (#126560)",
+      "summaryZh": "重點：修正(crabbox): keep worker wallpaper in XFCE session (#126560) Bind setup to the active worker-owned XFCE session and relo..."
     },
     {
       "id": 8,
-      "title": "fix(memory): detect offline source drift in status (#126535)",
-      "link": "https://github.com/openclaw/openclaw/commit/6a637469a09b4e20637fb2056ba56bc9e154301e",
-      "publishedAt": "2026-08-20T05:14:38Z",
-      "summary": "fix(memory): detect offline source drift in status (#126535) * fix(memory): detect offline source drift in status * fix(status): preserve memory source inspection * test(status): cover memory source inspection",
+      "title": "test(gateway): resolve mocked implementations without factory timing",
+      "link": "https://github.com/openclaw/openclaw/commit/e294c154a6c7aace5ded3425587f191f13ce3e29",
+      "publishedAt": "2026-08-20T06:36:39Z",
+      "summary": "test(gateway): resolve mocked implementations without factory timing `server.sessions.compaction-read-errors` captured the real transcript reader as a side effect of its `vi.mock` factory and consumed it in `beforeEach`. Vitest runs a factory on first import of the mocked module, and the gateway-server project is `isolate: false`, so on a warm module graph the factory can still be unrun when the hook fires. Run 32335933003 hit that on `main`: all five tests failed with `transcript reader mock was not initialized` while the same 24-file shard passes locally in the same order. Resolve the real implementations with `vi.importActual` at use time instead, so there is no state that can be observed before it is written. Applies the same repair to the two siblings sharing the invariant: `server.sessions.create` (which had worked around it by force-importing both mocked modules in `beforeAll`) and `client-voice-session` (whose `beforeEach` silently skipped installing the real append when the capture was missing). `tools.optional` keeps its guard: it evaluates inside the mock implementation, so the factory has necessarily run by then.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): detect offline source drift in status (#126535)",
-      "summaryZh": "重點：修正(記憶): detect offline source drift in status (#126535) * 修正(記憶): detect offline source drift in status * 修正(status): pr..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): resolve mocked implementations without factory timing",
+      "summaryZh": "重點：test(Gateway): resolve mocked implementations without factory timing `server.sessions.compaction-read-errors` captured t..."
     },
     {
       "id": 9,
-      "title": "fix(gateway): defer restored subagent recovery until ready (#126523)",
-      "link": "https://github.com/openclaw/openclaw/commit/4b55192f818c0bfd00cd2bb2d9447fd38dca7e39",
-      "publishedAt": "2026-08-20T04:55:17Z",
-      "summary": "fix(gateway): defer restored subagent recovery until ready (#126523)",
+      "title": "fix(qa): isolate character eval artifacts (#126558)",
+      "link": "https://github.com/openclaw/openclaw/commit/dc59703a1614cfd2446946942370694909736066",
+      "publishedAt": "2026-08-20T06:31:01Z",
+      "summary": "fix(qa): isolate character eval artifacts (#126558)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): defer restored subagent recovery until ready (#126523)",
-      "summaryZh": "重點：修正(Gateway): defer restored subagent recovery until ready (#126523)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): isolate character eval artifacts (#126558)",
+      "summaryZh": "重點：修正(qa): isolate character eval artifacts (#126558)..."
     },
     {
       "id": 10,
-      "title": "fix(models): preserve Codex selection for catalog-seeded models (#126…",
-      "link": "https://github.com/openclaw/openclaw/commit/9441e3fe6e556379875731706151cb7759745bed",
-      "publishedAt": "2026-08-20T04:54:57Z",
-      "summary": "fix(models): preserve Codex selection for catalog-seeded models (#126531) * fix(models): keep catalog compat out of route overrides * fix(models): preserve authored compat provenance --------- Co-authored-by: Ayaan Zaidi",
+      "title": "fix(gateway): release channel startup gate before handoff (#126555)",
+      "link": "https://github.com/openclaw/openclaw/commit/bf03acef3932ad19e76ad7bb64a6edc5fe487d97",
+      "publishedAt": "2026-08-20T06:29:01Z",
+      "summary": "fix(gateway): release channel startup gate before handoff (#126555)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): preserve Codex selection for catalog-seeded 模型 (#126…",
-      "summaryZh": "重點：修正(模型): preserve Codex selection for catalog-seeded 模型 (#126531) * 修正(模型): keep catalog compat out of route overrides * ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): 版本發布 channel startup gate before handoff (#126555)",
+      "summaryZh": "重點：修正(Gateway): 版本發布 channel startup gate before handoff (#126555)..."
     }
   ]
 }
