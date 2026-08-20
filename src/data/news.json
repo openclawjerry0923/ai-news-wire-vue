@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-20T20:28:38.861Z",
+  "generatedAt": "2026-08-20T21:28:03.457Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(discord): demote expected command truncation logs (#126824)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4178c7eb15a0dd2b8b44804348e256f1a109a34",
-      "publishedAt": "2026-08-20T20:26:44Z",
-      "summary": "fix(discord): demote expected command truncation logs (#126824)",
+      "title": "fix(web-fetch): extract readable content from XHTML pages (#126835)",
+      "link": "https://github.com/openclaw/openclaw/commit/cd5002610dea097989d84f8b6c6fdf9cd675c34d",
+      "publishedAt": "2026-08-20T21:26:50Z",
+      "summary": "fix(web-fetch): extract readable content from XHTML pages (#126835)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): demote expected command truncation logs (#126824)",
-      "summaryZh": "重點：修正(Discord): demote expected command truncation logs (#126824)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(web-fetch): extract readable content from XHTML pages (#126835)",
+      "summaryZh": "重點：修正(web-fetch): extract readable content from XHTML pages (#126835)..."
     },
     {
       "id": 2,
-      "title": "chore(ui): refresh control ui locales (#126614)",
-      "link": "https://github.com/openclaw/openclaw/commit/ddf73d4ca2ef0b12818d7913f3ab68027ad58101",
-      "publishedAt": "2026-08-20T20:16:10Z",
-      "summary": "chore(ui): refresh control ui locales (#126614) Co-authored-by: github-actions[bot]",
+      "title": "fix(cli): message send cannot address channels from npm-installed plu…",
+      "link": "https://github.com/openclaw/openclaw/commit/4c52d3fe9df3c5463876107e38c87b85ea64607c",
+      "publishedAt": "2026-08-20T20:56:01Z",
+      "summary": "fix(cli): message send cannot address channels from npm-installed plugins (#126700) * fix(cli): message send cannot address channels from npm-installed plugins Target resolution, channel enumeration, and target-prefix inference only consulted the process-root channel registry, so message CLI actions running against a scoped registry handle could not see installed channel plugins even though selection and send execution could. Carry the selection-resolved plugin into target resolution, fall back to the registry handle in scope for resolver-owned lookups, and list runtime-visible channel plugins for channel selection and prefix inference. * fix(cli): keep runtime-visible channel reads import-light Importing channel-resolution from the target-prefix leaf pulled the plugin bootstrap/loader graph into every consumer and reordered module loading under distant vi.mock factories (subagent-registry.steer-restart failed in CI with a hoisting TDZ). Move the scoped-registry reads into a dedicated import-light module, share its registry matcher with channel-resolution, and drop the mock workarounds the heavier graph had required. * chore(ui): re-baseline startup JS for the outbound scoped-registry reads CI measured 348285 B gzip on the merge ref (baseline 347023 + 1056 tolerance). The first CI round measured 347784 B, so most of the growth is main-side drift since the 2026-08-19 baseline; the outbound changes account for roughly 60 B in a local A/B. Updated with the documented --update-baseline --startup-js-bytes flow using the CI value. * Revert \"chore(ui): re-baseline startup JS for the outbound scoped-registry reads\" This reverts commit f60bd4c45f0596d0ba614656be289a3a1268562b. * fix(cli): plan broadcast accounts from runtime-visible channel plugins The unscoped message broadcast --account planner still enumerated only process-root plugins, so a registry-scoped installed channel could not join broadcast candidate planning. Use the runtime-visible read and cover the scoped and no-scope paths. * fix(cli): honor scoped channel plugin precedence * fix(outbound): preserve loaded plugin fallback order --------- Co-authored-by: Patrick Erichsen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#126614)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#126614) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): message send cannot address channels from npm-installed plu…",
+      "summaryZh": "重點：修正(cli): message send cannot address channels from npm-installed plugins (#126700) * 修正(cli): message send cannot addres..."
     },
     {
       "id": 3,
-      "title": "fix(ci): trust maintainer-authored dependency changes",
-      "link": "https://github.com/openclaw/openclaw/commit/b52d2f08f51840eb386b4829b20656b239d13bee",
-      "publishedAt": "2026-08-20T20:09:22Z",
-      "summary": "fix(ci): trust maintainer-authored dependency changes",
+      "title": "refactor(sandbox): canonicalize backend ownership (#126828)",
+      "link": "https://github.com/openclaw/openclaw/commit/1362490b804efe497be34a17e88f47ec9fa1b9c4",
+      "publishedAt": "2026-08-20T20:52:15Z",
+      "summary": "refactor(sandbox): canonicalize backend ownership (#126828)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): trust maintainer-authored dependency changes",
-      "summaryZh": "重點：修正(ci): trust maintainer-authored dependency changes..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(sandbox): canonicalize backend ownership (#126828)",
+      "summaryZh": "重點：refactor(sandbox): canonicalize backend ownership (#126828)..."
     },
     {
       "id": 4,
-      "title": "fix(tui): route messages to the replacement agent session (#126820)",
-      "link": "https://github.com/openclaw/openclaw/commit/97c0455add24b2a4c31fe8f1bb4cccb0c8562f34",
-      "publishedAt": "2026-08-20T20:04:25Z",
-      "summary": "fix(tui): route messages to the replacement agent session (#126820)",
+      "title": "fix(gateway): honor local port for usage and stability queries (#126832)",
+      "link": "https://github.com/openclaw/openclaw/commit/21bab3a8ac395e00abc260e4d62a7cb6083b08d2",
+      "publishedAt": "2026-08-20T20:51:36Z",
+      "summary": "fix(gateway): honor local port for usage and stability queries (#126832)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): route messages to the replacement agent session (#126820)",
-      "summaryZh": "重點：修正(tui): route messages to the replacement agent session (#126820)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): honor local port for usage and stability queries (#126832)",
+      "summaryZh": "重點：修正(Gateway): honor local port for usage and stability queries (#126832)..."
     },
     {
       "id": 5,
