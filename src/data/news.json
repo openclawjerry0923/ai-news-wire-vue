@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-20T15:34:01.071Z",
+  "generatedAt": "2026-08-20T16:35:33.375Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(cron): release session admission during cleanup (#126413)",
-      "link": "https://github.com/openclaw/openclaw/commit/e2f841bf1c1286940e3e89627ec2dc02514d9325",
-      "publishedAt": "2026-08-20T15:33:45Z",
-      "summary": "fix(cron): release session admission during cleanup (#126413) * fix(cron): release session admission during cleanup * test(cron): cover admission release after lifecycle error * test(cron): scope terminal lifecycle failure injection --------- Co-authored-by: VACInc Co-authored-by: Peter Steinberger",
+      "title": "fix(config): validate config writes against the config being written …",
+      "link": "https://github.com/openclaw/openclaw/commit/46c71b564ed2b2ac874e73b0068265a5ad853b03",
+      "publishedAt": "2026-08-20T16:32:57Z",
+      "summary": "fix(config): validate config writes against the config being written (#126734) * fix(config): validate config writes against the config being written writeConfigFileFromContext passed the pre-write snapshot's plugin metadata into strict validation. During onboarding that snapshot belongs to an intermediate config written by agent creation, which has no plugin entries, so its scoped manifest registry is empty. Validating the final candidate against it made every plugin entry added by the same write look unknown, and non-interactive onboarding warned that the openai and codex entries it had just written were stale or uninstalled. Drop the stale snapshot so validation resolves the manifest registry from the candidate it is actually validating. Strict semantic validation is unchanged, and the registry load stays lazy. * fix(ci): raise the Control UI startup JS baseline to unblock main main is red on the Control UI startup-JS ratchet: unrelated PR #126725 measures 348289 B and this branch measures 348351 B against a 347023 B baseline + 1056 B tolerance. Twenty-six UI commits have landed since the last bump (#126474), none individually large. Baseline moves to the CI-measured 348351 B, well under the 358400 B maintainer-approved ceiling that still guards cumulative creep.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): 版本發布 session admission during cleanup (#126413)",
-      "summaryZh": "重點：修正(排程): 版本發布 session admission during cleanup (#126413) * 修正(排程): 版本發布 session admission during cleanup * test(排程): cove..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): validate config writes against the config being written …",
+      "summaryZh": "重點：修正(config): validate config writes against the config being written (#126734) * 修正(config): validate config writes again..."
     },
     {
       "id": 2,
-      "title": "fix(agents): stabilize process session order (#126706)",
-      "link": "https://github.com/openclaw/openclaw/commit/9e3d7c93cfac13de15d4d5eb1df8ae254a6ccd12",
-      "publishedAt": "2026-08-20T15:33:42Z",
-      "summary": "fix(agents): stabilize process session order (#126706)",
+      "title": "fix(onboard): enable Runway and Alibaba video provider authentication…",
+      "link": "https://github.com/openclaw/openclaw/commit/7975432eb5250a0a4068bcea5c471b1996d9db2e",
+      "publishedAt": "2026-08-20T16:30:48Z",
+      "summary": "fix(onboard): enable Runway and Alibaba video provider authentication (#126722) * fix(onboard): enable Runway and Alibaba video provider authentication * perf(ui): load image lightbox only when opening images * perf(ui): defer onboarding memory import outside setup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): stabilize process session order (#126706)",
-      "summaryZh": "重點：修正(agents): stabilize process session order (#126706)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): enable Runway and Alibaba video provider authentication…",
+      "summaryZh": "重點：修正(onboard): enable Runway and Alibaba video provider authentication (#126722) * 修正(onboard): enable Runway and Alibaba ..."
     },
     {
       "id": 3,
-      "title": "fix(policy): preserve profile in unknown-agent guidance (#126710)",
-      "link": "https://github.com/openclaw/openclaw/commit/b9249ffa5ca46980d822736bcaadad1859ad977a",
-      "publishedAt": "2026-08-20T15:32:05Z",
-      "summary": "fix(policy): preserve profile in unknown-agent guidance (#126710)",
+      "title": "fix(macos): install CLI automatically during remote onboarding (#126723)",
+      "link": "https://github.com/openclaw/openclaw/commit/e20a3298b13d683a91905970ce1c68678793b590",
+      "publishedAt": "2026-08-20T16:14:55Z",
+      "summary": "fix(macos): install CLI automatically during remote onboarding (#126723)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(policy): preserve profile in unknown-agent guidance (#126710)",
-      "summaryZh": "重點：修正(policy): preserve profile in unknown-agent guidance (#126710)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): install CLI automatically during remote onboarding (#126723)",
+      "summaryZh": "重點：修正(macos): install CLI automatically during remote onboarding (#126723)..."
     },
     {
       "id": 4,
-      "title": "fix(test): use activated service worker build signal (#126584)",
-      "link": "https://github.com/openclaw/openclaw/commit/36ca7df091f19f677695560706b6fa16cbdec2cf",
-      "publishedAt": "2026-08-20T15:29:50Z",
-      "summary": "fix(test): use activated service worker build signal (#126584)",
+      "title": "chore(i18n): refresh native locales (#126696)",
+      "link": "https://github.com/openclaw/openclaw/commit/d40cbfef4754a9ccb58415b489642b42de1419ae",
+      "publishedAt": "2026-08-20T16:06:59Z",
+      "summary": "chore(i18n): refresh native locales (#126696) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): use activated service worker build signal (#126584)",
-      "summaryZh": "重點：修正(test): use activated service worker build signal (#126584)..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#126696)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#126696) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 5,
