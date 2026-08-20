@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T06:46:47.447Z",
+  "generatedAt": "2026-08-20T07:41:04.083Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(crabbox): keep worker wallpaper in XFCE session (#126560)",
-      "link": "https://github.com/openclaw/openclaw/commit/c15f31df4942f2d70359f7bbc73d69f2c7618c0c",
-      "publishedAt": "2026-08-20T06:45:53Z",
-      "summary": "fix(crabbox): keep worker wallpaper in XFCE session (#126560) Bind setup to the active worker-owned XFCE session and reload the existing renderer so desktop recovery does not leave a black wallpaper.",
+      "title": "refactor(sessions): remove thinking selection provenance (#126561)",
+      "link": "https://github.com/openclaw/openclaw/commit/966c233dcc5ce7c419b43250005cc0b6f578b201",
+      "publishedAt": "2026-08-20T07:38:45Z",
+      "summary": "refactor(sessions): remove thinking selection provenance (#126561) * refactor(sessions): remove thinking selection provenance * test(gateway): fix shared-worker reasoning cleanup * test(gateway): avoid shared-worker merge overlap",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): keep worker wallpaper in XFCE session (#126560)",
-      "summaryZh": "重點：修正(crabbox): keep worker wallpaper in XFCE session (#126560) Bind setup to the active worker-owned XFCE session and relo..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): remove thinking selection provenance (#126561)",
+      "summaryZh": "重點：refactor(sessions): remove thinking selection provenance (#126561) * refactor(sessions): remove thinking selection prove..."
     },
     {
       "id": 8,
-      "title": "test(gateway): resolve mocked implementations without factory timing",
-      "link": "https://github.com/openclaw/openclaw/commit/e294c154a6c7aace5ded3425587f191f13ce3e29",
-      "publishedAt": "2026-08-20T06:36:39Z",
-      "summary": "test(gateway): resolve mocked implementations without factory timing `server.sessions.compaction-read-errors` captured the real transcript reader as a side effect of its `vi.mock` factory and consumed it in `beforeEach`. Vitest runs a factory on first import of the mocked module, and the gateway-server project is `isolate: false`, so on a warm module graph the factory can still be unrun when the hook fires. Run 32335933003 hit that on `main`: all five tests failed with `transcript reader mock was not initialized` while the same 24-file shard passes locally in the same order. Resolve the real implementations with `vi.importActual` at use time instead, so there is no state that can be observed before it is written. Applies the same repair to the two siblings sharing the invariant: `server.sessions.create` (which had worked around it by force-importing both mocked modules in `beforeAll`) and `client-voice-session` (whose `beforeEach` silently skipped installing the real append when the capture was missing). `tools.optional` keeps its guard: it evaluates inside the mock implementation, so the factory has necessarily run by then.",
+      "title": "fix(onboard): keep token suppression in guided setup (#126580)",
+      "link": "https://github.com/openclaw/openclaw/commit/83c0f8117374a6e0a8e79070094ecc12ad0a1fb3",
+      "publishedAt": "2026-08-20T07:38:40Z",
+      "summary": "fix(onboard): keep token suppression in guided setup (#126580)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): resolve mocked implementations without factory timing",
-      "summaryZh": "重點：test(Gateway): resolve mocked implementations without factory timing `server.sessions.compaction-read-errors` captured t..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): keep token suppression in guided setup (#126580)",
+      "summaryZh": "重點：修正(onboard): keep token suppression in guided setup (#126580)..."
     },
     {
       "id": 9,
-      "title": "fix(qa): isolate character eval artifacts (#126558)",
-      "link": "https://github.com/openclaw/openclaw/commit/dc59703a1614cfd2446946942370694909736066",
-      "publishedAt": "2026-08-20T06:31:01Z",
-      "summary": "fix(qa): isolate character eval artifacts (#126558)",
+      "title": "fix(onboard): keep OpenRouter API keys with their provider (#126578)",
+      "link": "https://github.com/openclaw/openclaw/commit/921e9450133e78a9752692a5fb72ab4b12adf79c",
+      "publishedAt": "2026-08-20T07:35:27Z",
+      "summary": "fix(onboard): keep OpenRouter API keys with their provider (#126578)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): isolate character eval artifacts (#126558)",
-      "summaryZh": "重點：修正(qa): isolate character eval artifacts (#126558)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): keep OpenRouter API keys with their provider (#126578)",
+      "summaryZh": "重點：修正(onboard): keep OpenRouter API keys with their provider (#126578)..."
     },
     {
       "id": 10,
-      "title": "fix(gateway): release channel startup gate before handoff (#126555)",
-      "link": "https://github.com/openclaw/openclaw/commit/bf03acef3932ad19e76ad7bb64a6edc5fe487d97",
-      "publishedAt": "2026-08-20T06:29:01Z",
-      "summary": "fix(gateway): release channel startup gate before handoff (#126555)",
+      "title": "fix(memory): reject unknown --agent ids and keep the hint runnable (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/75fcb1fbb9aa84017e0ce4103ee95465c8fb74a5",
+      "publishedAt": "2026-08-20T07:32:59Z",
+      "summary": "fix(memory): reject unknown --agent ids and keep the hint runnable (#126570) The memory CLI resolved --agent by returning the caller's string verbatim, so an id that is not configured produced a confident empty result: `memory status` rendered a panel for it, `memory index` fabricated a workspace- path, and `memory search` reported No matches. A typo read as an empty memory rather than a nonexistent agent, while hooks, status --usage, capability, migrate, and session targets already rejected unknown ids. Consolidate that duplicated check into resolveConfiguredAgentId beside the agent roster owner, reuse it at the matching core sites, and route memory to it through the existing memory-core host-runtime facade so no new plugin SDK surface is added. The canonical hint uses formatCliCommand rather than a literal: under a profile or container the bare command is wrong, so consolidating on a literal would have regressed the hooks and migrate hints and left the status, capability, and session-target hints unrunnable.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): 版本發布 channel startup gate before handoff (#126555)",
-      "summaryZh": "重點：修正(Gateway): 版本發布 channel startup gate before handoff (#126555)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): reject unknown --agent ids and keep the hint runnable (#…",
+      "summaryZh": "重點：修正(記憶): reject unknown --agent ids and keep the hint runnable (#126570) The 記憶 CLI resolved --agent by returning the cal..."
     }
   ]
 }
