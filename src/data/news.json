@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-20T16:35:33.375Z",
+  "generatedAt": "2026-08-20T17:29:25.866Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(config): validate config writes against the config being written …",
-      "link": "https://github.com/openclaw/openclaw/commit/46c71b564ed2b2ac874e73b0068265a5ad853b03",
-      "publishedAt": "2026-08-20T16:32:57Z",
-      "summary": "fix(config): validate config writes against the config being written (#126734) * fix(config): validate config writes against the config being written writeConfigFileFromContext passed the pre-write snapshot's plugin metadata into strict validation. During onboarding that snapshot belongs to an intermediate config written by agent creation, which has no plugin entries, so its scoped manifest registry is empty. Validating the final candidate against it made every plugin entry added by the same write look unknown, and non-interactive onboarding warned that the openai and codex entries it had just written were stale or uninstalled. Drop the stale snapshot so validation resolves the manifest registry from the candidate it is actually validating. Strict semantic validation is unchanged, and the registry load stays lazy. * fix(ci): raise the Control UI startup JS baseline to unblock main main is red on the Control UI startup-JS ratchet: unrelated PR #126725 measures 348289 B and this branch measures 348351 B against a 347023 B baseline + 1056 B tolerance. Twenty-six UI commits have landed since the last bump (#126474), none individually large. Baseline moves to the CI-measured 348351 B, well under the 358400 B maintainer-approved ceiling that still guards cumulative creep.",
+      "title": "fix(discord): preserve message text from every embed (#126752)",
+      "link": "https://github.com/openclaw/openclaw/commit/aafa61be65e31a3e06f768556f69d537d2b54aea",
+      "publishedAt": "2026-08-20T17:28:20Z",
+      "summary": "fix(discord): preserve message text from every embed (#126752) * fix(discord): preserve text from every message embed * chore(discord): shrink assertion baseline after embed cleanup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): validate config writes against the config being written …",
-      "summaryZh": "重點：修正(config): validate config writes against the config being written (#126734) * 修正(config): validate config writes again..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): preserve message text from every embed (#126752)",
+      "summaryZh": "重點：修正(Discord): preserve message text from every embed (#126752) * 修正(Discord): preserve text from every message embed * ch..."
     },
     {
       "id": 2,
-      "title": "fix(onboard): enable Runway and Alibaba video provider authentication…",
-      "link": "https://github.com/openclaw/openclaw/commit/7975432eb5250a0a4068bcea5c471b1996d9db2e",
-      "publishedAt": "2026-08-20T16:30:48Z",
-      "summary": "fix(onboard): enable Runway and Alibaba video provider authentication (#126722) * fix(onboard): enable Runway and Alibaba video provider authentication * perf(ui): load image lightbox only when opening images * perf(ui): defer onboarding memory import outside setup",
+      "title": "fix(onboard): honor explicit provider auth choice (#117883)",
+      "link": "https://github.com/openclaw/openclaw/commit/3f2d3f995849d2756c5587aefe33884780149183",
+      "publishedAt": "2026-08-20T17:28:02Z",
+      "summary": "fix(onboard): honor explicit provider auth choice (#117883) * fix(onboard): honor explicit auth when keeping the current model Co-authored-by: Jony * test(onboard): preserve existing config across wizard snapshots --------- Co-authored-by: Peter Steinberger Co-authored-by: Jony",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): enable Runway and Alibaba video provider authentication…",
-      "summaryZh": "重點：修正(onboard): enable Runway and Alibaba video provider authentication (#126722) * 修正(onboard): enable Runway and Alibaba ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): honor explicit provider auth choice (#117883)",
+      "summaryZh": "重點：修正(onboard): honor explicit provider auth choice (#117883) * 修正(onboard): honor explicit auth when keeping the current 模..."
     },
     {
       "id": 3,
-      "title": "fix(macos): install CLI automatically during remote onboarding (#126723)",
-      "link": "https://github.com/openclaw/openclaw/commit/e20a3298b13d683a91905970ce1c68678793b590",
-      "publishedAt": "2026-08-20T16:14:55Z",
-      "summary": "fix(macos): install CLI automatically during remote onboarding (#126723)",
+      "title": "perf(ui): keep config render helpers lazy (#126754)",
+      "link": "https://github.com/openclaw/openclaw/commit/9dc391c75bd970fcc8fc0554335f9fd99230890e",
+      "publishedAt": "2026-08-20T17:22:55Z",
+      "summary": "perf(ui): keep config render helpers lazy (#126754) Restore the cross-platform Control UI startup gzip budget by keeping render-only sensitive-path helpers outside the startup config-draft graph. Preserve existing behavior and caller APIs while moving generic schema, search, and path helpers to their existing startup owner.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): install CLI automatically during remote onboarding (#126723)",
-      "summaryZh": "重點：修正(macos): install CLI automatically during remote onboarding (#126723)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): keep config render helpers lazy (#126754)",
+      "summaryZh": "重點：perf(ui): keep config render helpers lazy (#126754) Restore the cross-platform Control UI startup gzip budget by keeping..."
     },
     {
       "id": 4,
-      "title": "chore(i18n): refresh native locales (#126696)",
-      "link": "https://github.com/openclaw/openclaw/commit/d40cbfef4754a9ccb58415b489642b42de1419ae",
-      "publishedAt": "2026-08-20T16:06:59Z",
-      "summary": "chore(i18n): refresh native locales (#126696) Co-authored-by: github-actions[bot]",
+      "title": "fix(ui): stop provider probes after agent selection changes (#126750)",
+      "link": "https://github.com/openclaw/openclaw/commit/695c16b7bcae4f3346ae89353b0f6d090304797b",
+      "publishedAt": "2026-08-20T17:21:57Z",
+      "summary": "fix(ui): stop provider probes after agent selection changes (#126750)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#126696)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#126696) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop provider probes after agent selection changes (#126750)",
+      "summaryZh": "重點：修正(ui): stop provider probes after agent selection changes (#126750)..."
     },
     {
       "id": 5,
