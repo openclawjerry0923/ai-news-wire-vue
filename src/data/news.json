@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T05:32:51.148Z",
+  "generatedAt": "2026-08-21T06:48:12.600Z",
   "items": [
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "title": "思科修補網路自動化與協同管理平臺Crosswork滿分重大漏洞",
       "link": "https://www.ithome.com.tw/news/178334",
       "publishedAt": "2026-08-21 12:08:36",
-      "summary": "8月19日思科發布資安公告，釋出網路自動化與協同管理平臺Crosswork安全強化更新，修補重大漏洞CVE-2026-20030、CVE-2026-20357、CVE-2026-20358，以及CVE-2026-20359，值得留意的是，這些漏洞非常危險，CVE-2026-20359的CVSS嚴重性評分為9.9，其餘3個弱點評分達到滿分10分，由於沒有其他緩解措施，思科呼籲用戶應儘速更新。",
+      "summary": "8月19日思科發布資安公告，釋出網路自動化與協同管理平臺Crosswork安全強化更新，修補重大漏洞CVE-2026-20030、CVE-2026-20357、CVE-2026-20358，以及CVE-2026-20359，值得留意的是，這些漏洞非常危險，CVE-2026-20359的CVSS嚴重性評分為9.9，其餘3個弱點評分達到滿分10分，影響7.2.1以前的所有版本，無論是Data Gate",
       "source": "iThome",
       "tag": "繁中"
     },
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(macos): unblock remote onboarding after local Gateway failure (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/9a64770ea6aded88b8babee84d4deb6ca6a6e686",
-      "publishedAt": "2026-08-21T05:32:36Z",
-      "summary": "fix(macos): unblock remote onboarding after local Gateway failure (#127033)",
+      "title": "fix(agents): distinguish review routing from enforcement (#126216)",
+      "link": "https://github.com/openclaw/openclaw/commit/73ff2d2f45b26856882423d9ae87a76a727ac7cd",
+      "publishedAt": "2026-08-21T06:47:14Z",
+      "summary": "fix(agents): distinguish review routing from enforcement (#126216)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): unblock remote onboarding after local Gateway failure (#1…",
-      "summaryZh": "重點：修正(macos): unblock remote onboarding after local Gateway failure (#127033)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): distinguish review routing from enforcement (#126216)",
+      "summaryZh": "重點：修正(agents): distinguish review routing from enforcement (#126216)..."
     },
     {
       "id": 8,
-      "title": "fix(tui): clear stale session display names (#127029)",
-      "link": "https://github.com/openclaw/openclaw/commit/0a377a5b537c5840fb57d93899e780b57525ce10",
-      "publishedAt": "2026-08-21T05:32:01Z",
-      "summary": "fix(tui): clear stale session display names (#127029)",
+      "title": "fix(ui): associate steering work by target run (#126997)",
+      "link": "https://github.com/openclaw/openclaw/commit/faa1cfc5983c9c62d4e1e3e5fb122884d6f55244",
+      "publishedAt": "2026-08-21T06:45:40Z",
+      "summary": "fix(ui): associate steering work by target run (#126997)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): clear stale session display names (#127029)",
-      "summaryZh": "重點：修正(tui): clear stale session display names (#127029)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): associate steering work by target run (#126997)",
+      "summaryZh": "重點：修正(ui): associate steering work by target run (#126997)..."
     },
     {
       "id": 9,
-      "title": "test(onboard): follow canonical secret-ref storage (#126965)",
-      "link": "https://github.com/openclaw/openclaw/commit/7efc077abea21821aecf8b328114444446f5e955",
-      "publishedAt": "2026-08-21T05:31:14Z",
-      "summary": "test(onboard): follow canonical secret-ref storage (#126965) Co-authored-by: Amp",
+      "title": "fix(ui): collapse completed pre-steer work",
+      "link": "https://github.com/openclaw/openclaw/commit/b2d49afd8e5c99d9a8e916df6ee061b7ed2e3328",
+      "publishedAt": "2026-08-21T06:45:40Z",
+      "summary": "fix(ui): collapse completed pre-steer work",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(onboard): follow canonical secret-ref storage (#126965)",
-      "summaryZh": "重點：test(onboard): follow canonical secret-ref storage (#126965) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): collapse completed pre-steer work",
+      "summaryZh": "重點：修正(ui): collapse completed pre-steer work..."
     },
     {
       "id": 10,
-      "title": "feat(control-ui): stream live draft previews in the typing indicator …",
-      "link": "https://github.com/openclaw/openclaw/commit/e7cfff2167352c965e53299fec6327a34fffa70b",
-      "publishedAt": "2026-08-21T05:30:41Z",
-      "summary": "feat(control-ui): stream live draft previews in the typing indicator (#126994) * feat(control-ui): stream live draft previews in the typing indicator Multi-identity sessions now show what a teammate is typing, not just that they are typing: the composer's per-keystroke session.typing sends carry a bounded tail of the draft (optional preview field, 400 code points max), the gateway throttle re-emits on changed payloads at 250ms (boolean-only stays at 1s, trailing edge keeps the latest draft), and the transcript renders a per-actor bubble with the live text plus a blinking caret. Actors without preview data keep the three-dot bubble. Previews are ephemeral presence: never persisted, never part of the session transcript or model context, excluded from aria-live regions, and gated by the existing >=2-live-viewers, sharing-role, and incognito checks. No new config surface. * chore(protocol): regenerate Swift gateway models for typing preview * fix(gateway): aggregate typing previews across same-actor connections A boolean-only session.typing update from a second connection of the same actor (another tab or device) erased their live draft preview, because typing liveness aggregated per actor while the broadcast preview came only from the latest request. Preview aggregation now lives with the connection aggregation owner: updateTypingConnections tracks per-connection previews and returns the newest non-empty preview among live connections, so the broadcast keeps the active draft until its connection stops or expires. Regression fails pre-fix (event lost its preview field).",
+      "title": "fix(codex): preserve steering transcript order",
+      "link": "https://github.com/openclaw/openclaw/commit/69fa1a8eab550986e5f04b9b37c09192a6d2b3cb",
+      "publishedAt": "2026-08-21T06:45:40Z",
+      "summary": "fix(codex): preserve steering transcript order",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(control-ui): stream live draft previews in the typing indicator …",
-      "summaryZh": "重點：新功能(control-ui): stream live draft previews in the typing indicator (#126994) * 新功能(control-ui): stream live draft previ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve steering transcript order",
+      "summaryZh": "重點：修正(codex): preserve steering transcript order..."
     }
   ]
 }
