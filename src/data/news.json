@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-21T20:26:06.541Z",
+  "generatedAt": "2026-08-21T21:24:45.445Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(ui): add Person grouping mode for sessions sidebar and sessions …",
-      "link": "https://github.com/openclaw/openclaw/commit/3ea90bdcdb30f2ad18a68203fee09fa7824170a1",
-      "publishedAt": "2026-08-21T20:21:43Z",
-      "summary": "feat(ui): add Person grouping mode for sessions sidebar and sessions page (#127346) * feat(ui): add Person grouping mode for sessions sidebar and sessions page Sessions can now be grouped by their durable owner identity: the sidebar Group-by menu gains a capability-gated Person mode (self first, humans by label, agent identities after; ownerless rows keep their smart zones), and the sessions page gains the matching person mode. Person section headers render the owner avatar and profile label; the mock dev server now advertises the multi-identity policy and carries explicit row owners the way the gateway projects createdActor fallbacks. * feat(ui): gate sessions-page Person grouping on the identity capability Mirrors the sidebar: the Person option hides without hasMultipleSessionSharingIdentities and a stored Person preference renders as None until the capability returns.",
+      "title": "perf(gateway-client): skip unused timing dispatch (#127566)",
+      "link": "https://github.com/openclaw/openclaw/commit/41acededbc5751d6c6eafa0716c73326459451b4",
+      "publishedAt": "2026-08-21T21:21:07Z",
+      "summary": "perf(gateway-client): skip unused timing dispatch (#127566) Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add Person grouping mode for sessions sidebar and sessions …",
-      "summaryZh": "重點：新功能(ui): add Person grouping mode for sessions sidebar and sessions page (#127346) * 新功能(ui): add Person grouping mode f..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway-client): skip unused timing dispatch (#127566)",
+      "summaryZh": "重點：perf(Gateway-client): skip unused timing dispatch (#127566) Co-authored-by: Amp..."
     },
     {
       "id": 2,
-      "title": "ci: remove the Test Performance Agent",
-      "link": "https://github.com/openclaw/openclaw/commit/7909ea698374c945cbddb7bb6ffdd07ad88a9072",
-      "publishedAt": "2026-08-21T20:19:14Z",
-      "summary": "ci: remove the Test Performance Agent The workflow ran a Codex agent over the full test suite and pushed `test: optimize slow tests` straight to `main` under `contents: write`, with no pull request and no human review. Its gates were a path allowlist, a no-add/delete/rename rule, a non-decreasing total test count, and `pnpm check:changed` -- which covers changed lanes, not the full suite. Test optimization is exactly the class of change where a plausible edit can weaken coverage without moving the test count, so unattended landing is the wrong trade. Autonomous commits to `main` are not something this repo wants. It had also been inert since well before this. The daily-cadence gate excluded prior runs with `select(.status != \"cancelled\")`, but a finished cancelled run reports `status: \"completed\"` with `conclusion: \"cancelled\"` -- verified against run 32506655531, which that filter counts as a prior run. Its `concurrency` block sets `cancel-in-progress: false`, so main's push rate produced dozens of cancelled runs per hour and every trigger skipped, reporting green after ~2 minutes of doing nothing. No `test: optimize slow tests` commit has ever landed on `main`. `pnpm test:perf:groups` and the rest of the performance tooling it drove stay; they are useful by hand and documented in docs/reference/test.md. Repository secret OPENCLAW_TEST_PERF_AGENT_OPENAI_API_KEY now has no consumer and can be deleted.",
+      "title": "perf(test): speed up model provider recovery observations (#127570)",
+      "link": "https://github.com/openclaw/openclaw/commit/69d30923bfd9c3027c6dac5ca2291242549dd19b",
+      "publishedAt": "2026-08-21T21:17:24Z",
+      "summary": "perf(test): speed up model provider recovery observations (#127570)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: remove the Test Performance Agent",
-      "summaryZh": "重點：ci: remove the Test Performance Agent The workflow ran a Codex agent over the full test suite and pushed `test: optimize..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): speed up 模型 provider recovery observations (#127570)",
+      "summaryZh": "重點：perf(test): speed up 模型 provider recovery observations (#127570)..."
     },
     {
       "id": 3,
-      "title": "perf(test): speed up browser extension state observations (#127471)",
-      "link": "https://github.com/openclaw/openclaw/commit/731e9e768152855430b7270802f8808451afbfcc",
-      "publishedAt": "2026-08-21T20:18:11Z",
-      "summary": "perf(test): speed up browser extension state observations (#127471)",
+      "title": "test(msteams): pin reply threading and reaction routing across conver…",
+      "link": "https://github.com/openclaw/openclaw/commit/b6894751d24bd240880d7254c784d3f78f06a7c6",
+      "publishedAt": "2026-08-21T21:16:38Z",
+      "summary": "test(msteams): pin reply threading and reaction routing across conversation kinds (#127568) Table-driven regressions prove personal and group sends never carry a Teams thread suffix while channels preserve ;messageid, and that agent react actions route to the prepared Graph target per conversation kind with exact result payloads and inbound reaction event labels. Parity proof for Microsoft Lobster patches 0038/0026 via giodl73-repo/lobster-plugins-and-patches.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): speed up browser extension state observations (#127471)",
-      "summaryZh": "重點：perf(test): speed up browser extension state observations (#127471)..."
+      "titleZh": "OpenClaw 程式碼更新：test(msteams): pin reply threading and reaction routing across conver…",
+      "summaryZh": "重點：test(msteams): pin reply threading and reaction routing across conversation kinds (#127568) Table-driven regressions pro..."
     },
     {
       "id": 4,
-      "title": "fix(ui): align run history dropdown text (#127443)",
-      "link": "https://github.com/openclaw/openclaw/commit/229ce32e3272e92b08cfe7ed73b62ab68ecdbd6c",
-      "publishedAt": "2026-08-21T20:12:10Z",
-      "summary": "fix(ui): align run history dropdown text (#127443) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
+      "title": "fix(recovery): keep queued replies alive during session watchdog repa…",
+      "link": "https://github.com/openclaw/openclaw/commit/14cebc477ada8cf5a31324039e5ba661f8f5da3e",
+      "publishedAt": "2026-08-21T21:14:26Z",
+      "summary": "fix(recovery): keep queued replies alive during session watchdog repair (#127510) * fix(recovery): preserve queued turns during session watchdog repair * test(plugins): make stalled response timeout deterministic",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): align run history dropdown text (#127443)",
-      "summaryZh": "重點：修正(ui): align run history dropdown text (#127443) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman..."
+      "titleZh": "OpenClaw 程式碼更新：修正(recovery): keep queued replies alive during session watchdog repa…",
+      "summaryZh": "重點：修正(recovery): keep queued replies alive during session watchdog repair (#127510) * 修正(recovery): preserve queued turns d..."
     },
     {
       "id": 5,
