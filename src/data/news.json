@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-21T22:25:07.473Z",
+  "generatedAt": "2026-08-21T23:24:24.383Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(onboard): keep provider credentials with named first agents (#127…",
-      "link": "https://github.com/openclaw/openclaw/commit/c801579020472dd55f2380db66c7851446572fe1",
-      "publishedAt": "2026-08-21T22:20:58Z",
-      "summary": "fix(onboard): keep provider credentials with named first agents (#127572) * fix(onboard): keep provider credentials with named first agents * fix(onboard): preserve workspace in provider choice normalization",
+      "title": "fix(ui): preserve owner filters across gateway reconnects (#127676)",
+      "link": "https://github.com/openclaw/openclaw/commit/7dca0a099a2f613b6b5e6e279a4a53bbe2fafc7e",
+      "publishedAt": "2026-08-21T23:20:06Z",
+      "summary": "fix(ui): preserve owner filters across gateway reconnects (#127676) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): keep provider credentials with named first agents (#127…",
-      "summaryZh": "重點：修正(onboard): keep provider credentials with named first agents (#127572) * 修正(onboard): keep provider credentials with n..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve owner filters across Gateway reconnects (#127676)",
+      "summaryZh": "重點：修正(ui): preserve owner filters across Gateway reconnects (#127676) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman..."
     },
     {
       "id": 2,
-      "title": "feat(ui): add live CPU/memory/delay sparkline graphs to the system bu…",
-      "link": "https://github.com/openclaw/openclaw/commit/9903e404ef9ffb2212f8822054001c3d972f696f",
-      "publishedAt": "2026-08-21T22:06:17Z",
-      "summary": "feat(ui): add live CPU/memory/delay sparkline graphs to the system busyness overlay (#127650) * feat(ui): add cpu/memory graphs to system busyness overlay * refactor(ui): redesign busyness overlay vitals as sparkline stat tiles Merge the duplicated sparkline row and numeric tile grid into three vital tiles (CPU, memory, event-loop delay) with gradient area charts, a live pulse dot, pointer scrubbing with value+age readout, and a danger tint driven by the gateway's own event-loop degradation reasons. Memory auto-ranges its baseline so RSS trends stay visible.",
+      "title": "fix(ui): add brand icons for all provider auth choices (#127668)",
+      "link": "https://github.com/openclaw/openclaw/commit/fb95562e9614b3f7a7ca0ead1c7bcb0c93c6da84",
+      "publishedAt": "2026-08-21T23:09:03Z",
+      "summary": "fix(ui): add brand icons for all provider auth choices (#127668) The provider picker enumerates every plugin's providerAuthChoices (63 provider ids), but the bundled icon set only covered CodexBar's 52 marks, so Arcee, Baseten, BytePlus, Cerebras, Cohere, DeepInfra, Featherless, Fireworks, Hugging Face, Meta, NVIDIA, Together, and many more rendered as lettered fallback badges. Adds 24 monochrome marks from @lobehub/icons-static-svg v1.94.0 (MIT, metadata-cleaned; mapping documented in ATTRIBUTION.md) and aliases variant provider ids (kilocode, kimi-coding, xiaomi, ollama-cloud, tencent-tokenhub, vercel-ai-gateway, ...) onto existing marks. GMI Cloud, SGLang, and Vydra keep the lettered fallback: no vector mark exists upstream.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add live CPU/記憶/delay sparkline graphs to the system bu…",
-      "summaryZh": "重點：新功能(ui): add live CPU/記憶/delay sparkline graphs to the system busyness overlay (#127650) * 新功能(ui): add cpu/記憶 graphs to..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): add brand icons for all provider auth choices (#127668)",
+      "summaryZh": "重點：修正(ui): add brand icons for all provider auth choices (#127668) The provider picker enumerates every plugin's providerAu..."
     },
     {
       "id": 3,
-      "title": "test(runner): reset console routing between non-isolated files (#127604)",
-      "link": "https://github.com/openclaw/openclaw/commit/75b736c2526305b78b4bef1cebc9691a264a041b",
-      "publishedAt": "2026-08-21T21:49:05Z",
-      "summary": "test(runner): reset console routing between non-isolated files (#127604) enableConsoleCapture() replaces every console method with a forwarder and routeLogsToStderr()/`--json` mode latch loggingState.forceConsoleToStderr, which production only unwinds at process exit. loggingState is keyed off globalThis so it survives vi.resetModules(), so a shared Vitest worker carried both into the next file: the inherited forwarder writes to process.stderr and the next file's console.error spy records nothing. That is the source of the order-dependent `src/entry.run-main.test.ts > keeps expected conditions at exit 1` flake in shard core-unit-src-security-2 — it failed only on workers that ran src/mcp/codex-supervision-tools-serve.test.ts (serveCodexSupervisionToolsMcp -> routeLogsToStderr) first. Restore the worker's baseline console methods and logging state in the runner's existing cross-file cleanup, and drop the two consumer-side workarounds that were compensating for it.",
+      "title": "fix(channels): degrade unavailable credential files (#127539)",
+      "link": "https://github.com/openclaw/openclaw/commit/ef447abdeed1bfe7dfdf28d166b295986dbd069c",
+      "publishedAt": "2026-08-21T23:08:45Z",
+      "summary": "fix(channels): degrade unavailable credential files (#127539) * fix(channels): degrade unavailable credential files * fix(msteams): gate unavailable credential actions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(runner): reset console routing between non-isolated files (#127604)",
-      "summaryZh": "重點：test(runner): reset console routing between non-isolated files (#127604) enableConsoleCapture() replaces every console m..."
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): degrade unavailable credential files (#127539)",
+      "summaryZh": "重點：修正(channels): degrade unavailable credential files (#127539) * 修正(channels): degrade unavailable credential files * 修正(m..."
     },
     {
       "id": 4,
-      "title": "fix(ui): separate settings footer actions from build info (#127597)",
-      "link": "https://github.com/openclaw/openclaw/commit/f95443125be6f61e980c26128e9ea7b448d243f3",
-      "publishedAt": "2026-08-21T21:48:42Z",
-      "summary": "fix(ui): separate settings footer actions from build info (#127597) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): separate settings footer actions from build info (#127597)",
-      "summaryZh": "重點：修正(ui): separate settings footer actions from build info (#127597) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4..."
+      "title": "企業 AI 導入為何卡關？主管親自示範與打造「容錯文化」是落地關鍵",
+      "link": "https://technews.tw/2026/08/22/workforce-development-in-the-age-of-ai/",
+      "publishedAt": "Fri, 21 Aug 2026 23:00:44 +0000",
+      "summary": "人工智慧加速進入企業流程之際，如何讓員工真正用起來，正成為比採購工具更棘手的課題。專家指出，許多組織已完成導入 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "fix(gateway): clear stale credential warnings after channel plugin re…",
+      "link": "https://github.com/openclaw/openclaw/commit/be0bcb395d7a8cfefd8a7939cc50ab66533cd66b",
+      "publishedAt": "2026-08-21T22:58:48Z",
+      "summary": "fix(gateway): clear stale credential warnings after channel plugin removal (#127503) * fix(gateway): retire removed channel credential owners Retire stale account diagnostics only after successful channel plugin removal. Preserve independently owned credential diagnostics across snapshot replacement and rollback. * test(gateway): cover plugin-disable owner pruning",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): clear stale credential warnings after channel plugin re…",
+      "summaryZh": "重點：修正(Gateway): clear stale credential warnings after channel plugin removal (#127503) * 修正(Gateway): retire removed channe..."
+    },
+    {
+      "id": 6,
       "title": "AI 幾分鐘搞定地震模擬，柏克萊實驗室新框架 CGM-GM 曝光",
       "link": "https://technews.tw/2026/08/22/berkeley-lab-develops-ai-model-to-speed-earthquake-ground-motion-simulations/",
       "publishedAt": "Fri, 21 Aug 2026 16:00:39 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "調整大腦免疫反應，找回阿茲海默症患者失去的睡眠",
       "link": "https://technews.tw/2026/08/22/scientists-restore-two-hours-of-sleep-without-clearing-brain-plaques/",
       "publishedAt": "Fri, 21 Aug 2026 16:00:26 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "超低溫液體在微重力下沸騰，冷卻效率反而更高？",
       "link": "https://technews.tw/2026/08/22/ultra-cold-liquids-boil-in-microgravity-boosting-cooling-efficiency/",
       "publishedAt": "Fri, 21 Aug 2026 16:00:06 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "GitHub揭露8月大當機原因，基礎設施容量未跟上使用成長",
       "link": "https://www.ithome.com.tw/news/178335",
       "publishedAt": "2026-08-21 12:08:45",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "思科修補網路自動化與協同管理平臺Crosswork滿分重大漏洞",
       "link": "https://www.ithome.com.tw/news/178334",
       "publishedAt": "2026-08-21 12:08:36",
       "summary": "8月19日思科發布資安公告，釋出網路自動化與協同管理平臺Crosswork安全強化更新，修補重大漏洞CVE-2026-20030、CVE-2026-20357、CVE-2026-20358，以及CVE-2026-20359，值得留意的是，這些漏洞非常危險，CVE-2026-20359的CVSS嚴重性評分為9.9，其餘3個弱點評分達到滿分10分，影響7.2.1以前的所有版本，無論是Data Gate",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google兩天內二度更新Chrome 151，再修補7個資安漏洞",
-      "link": "https://www.ithome.com.tw/news/178332",
-      "publishedAt": "2026-08-21 12:08:14",
-      "summary": "Google才於8月18日發布Chrome 151更新，短短兩天後又於8月20日再次推出修補版本，將Windows與Mac平臺穩定版更新至151.0.7922.173與151.0.7922.174，Linux版本更新至151.0.7922.173，同時Android版也更新為151.0.7922.173。",
       "source": "iThome",
       "tag": "繁中"
     }
