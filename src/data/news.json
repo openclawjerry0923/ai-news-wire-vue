@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-21T13:44:56.981Z",
+  "generatedAt": "2026-08-21T14:35:08.392Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): align configured automation trigger status (#126784)",
-      "link": "https://github.com/openclaw/openclaw/commit/9050d9b0a79ee542ca4fb51cd0dd7abf0d00849c",
-      "publishedAt": "2026-08-21T13:23:18Z",
-      "summary": "fix(ui): align configured automation trigger status (#126784) Vertically center the configured trigger label with the Advanced heading and cover the rendered geometry in Chromium. Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
+      "title": "fix(ui): copy task results through clipboard fallback (#127181)",
+      "link": "https://github.com/openclaw/openclaw/commit/2cbfade48b617ef5dea7e8ef47737959d0918009",
+      "publishedAt": "2026-08-21T14:31:58Z",
+      "summary": "fix(ui): copy task results through clipboard fallback (#127181) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): align configured automation trigger status (#126784)",
-      "summaryZh": "重點：修正(ui): align configured automation trigger status (#126784) Vertically center the configured trigger label with the Adv..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): copy task results through clipboard fallback (#127181)",
+      "summaryZh": "重點：修正(ui): copy task results through clipboard fallback (#127181) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b54..."
     },
     {
       "id": 2,
-      "title": "fix: exec treats empty workdir from models as omitted (#126509)",
-      "link": "https://github.com/openclaw/openclaw/commit/6132c6f6cba00866d62e3ecb9234213bde55da74",
-      "publishedAt": "2026-08-21T13:14:42Z",
-      "summary": "fix: exec treats empty workdir from models as omitted (#126509) * fix(exec): treat exact empty workdir as omitted Small tool-calling models fill every optional field of the exec schema, so exec arrives with workdir: \"\" instead of omitting the field. The empty string was treated as a literal path and the command was refused, wasting agent turns and surfacing misleading failures (e.g. the model concluding the runtime is unavailable). Normalize only the exact empty string to omitted at the workdir input boundary; whitespace-only and nonempty invalid paths remain fail-closed. Closes #126390 * fix(exec): align exec schema with empty-workdir behavior The shared model-facing schema still declared blank and whitespace workdirs invalid while the resolver now treats an exact empty string as omitted. Update the schema description to state that an empty string means omitted and only whitespace-only values are invalid, and update the schema assertion accordingly.",
+      "title": "test(extensions): close cached agent databases before removing fixtur…",
+      "link": "https://github.com/openclaw/openclaw/commit/ff83e3efe811d561aee0e8d7cd38047294b1cb58",
+      "publishedAt": "2026-08-21T14:22:57Z",
+      "summary": "test(extensions): close cached agent databases before removing fixture state dirs (#126352) Doctor migrations and auth-profile writes open per-agent and shared state databases under the fixture's temporary directory. Clearing the plugin state store or the runtime auth snapshots does not release those handles, so Windows fails the directory removal with EBUSY while Linux unlinks the open files and stays green. Close the cached databases before each removal, matching the ordering the zalouser and zalo fixtures already use.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: exec treats empty workdir from 模型 as omitted (#126509)",
-      "summaryZh": "重點：修正: exec treats empty workdir from 模型 as omitted (#126509) * 修正(exec): treat exact empty workdir as omitted Small tool-c..."
+      "titleZh": "OpenClaw 程式碼更新：test(extensions): close cached agent databases before removing 修正tur…",
+      "summaryZh": "重點：test(extensions): close cached agent databases before removing 修正ture state dirs (#126352) 文件tor migrations and auth-pro..."
     },
     {
       "id": 3,
-      "title": "fix(normalization-core): preserve non-Error object causes with extra …",
-      "link": "https://github.com/openclaw/openclaw/commit/587c7524e58dfd21d49fade5fbc5550c4c3fb3c9",
-      "publishedAt": "2026-08-21T13:09:25Z",
-      "summary": "fix(normalization-core): preserve non-Error object causes with extra keys in formatErrorMessage (#126654) * fix(normalization-core): preserve non-Error object causes with extra keys The cause-chain branch of formatErrorMessage called only formatStatusAndCode(cause) with no stringifyUnknown fallback, while the top-level branch used formatStatusAndCode(value) ?? stringifyUnknown(value). formatStatusAndCode returns undefined for any object whose keys are not exactly status/code, so a non-Error object cause carrying extra keys (e.g. { statusCode: 429 } or { status: 503, code: \"UNAVAILABLE\", requestId: \"abc\" }) was silently dropped — appendCauseMessage(undefined) no-op'd and the loop broke, losing the diagnostic/retryable detail. Mirror the top-level branch: appendCauseMessage(formatStatusAndCode(cause) ?? stringifyUnknown(cause)). Behavior-neutral for causes that already render; restores the dropped detail for the asymmetric case. stringifyUnknown is a local helper in the same file. Closes #126652 Co-Authored-By: Claude * test(normalization-core): assert structured cause metadata --------- Co-authored-by: ruel225 Co-authored-by: Claude Co-authored-by: Altay",
+      "title": "improve(ui): declutter Automations across desktop and mobile (#127198)",
+      "link": "https://github.com/openclaw/openclaw/commit/f94f9453147f0d8109937439ae7c6403fa62fbd3",
+      "publishedAt": "2026-08-21T13:56:43Z",
+      "summary": "improve(ui): declutter Automations across desktop and mobile (#127198) * improve(ui): declutter automations list * test: align automation UI and process cleanup Co-authored-by: Tak Hoffman --------- Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(normalization-core): preserve non-Error object causes with extra …",
-      "summaryZh": "重點：修正(normalization-core): preserve non-Error object causes with extra keys in formatErrorMessage (#126654) * 修正(normalizat..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): declutter Automations across desktop and mobile (#127198)",
+      "summaryZh": "重點：improve(ui): declutter Automations across desktop and mobile (#127198) * improve(ui): declutter automations list * test:..."
     },
     {
       "id": 4,
-      "title": "fix(control-ui): autocomplete model thinking levels (#123507)",
-      "link": "https://github.com/openclaw/openclaw/commit/efbcb57569abb684b43c481058f76b1f9ec63f5e",
-      "publishedAt": "2026-08-21T13:02:33Z",
-      "summary": "fix(control-ui): autocomplete model thinking levels (#123507) * fix(control-ui): autocomplete model thinking levels * fix(control-ui): keep thinking options model-current * fix(control-ui): execute catalog thinking levels * fix(control-ui): close stale think picker --------- Co-authored-by: Jesse Merhi",
+      "title": "improve: show condition activity in automation history (#127200)",
+      "link": "https://github.com/openclaw/openclaw/commit/7498391c81378a3cad4314b391b726f20dd89596",
+      "publishedAt": "2026-08-21T13:55:32Z",
+      "summary": "improve: show condition activity in automation history (#127200) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): autocomplete 模型 thinking levels (#123507)",
-      "summaryZh": "重點：修正(control-ui): autocomplete 模型 thinking levels (#123507) * 修正(control-ui): autocomplete 模型 thinking levels * 修正(control..."
+      "titleZh": "OpenClaw 程式碼更新：improve: show condition activity in automation history (#127200)",
+      "summaryZh": "重點：improve: show condition activity in automation history (#127200) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman..."
     },
     {
       "id": 5,
