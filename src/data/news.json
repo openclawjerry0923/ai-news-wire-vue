@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-08-21T15:33:32.185Z",
+  "generatedAt": "2026-08-21T16:34:51.816Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: persist manual Codex compactions (#127230)",
-      "link": "https://github.com/openclaw/openclaw/commit/f65b7e06eaa66b9ce5fe2b3ca3549fbb7834acaa",
-      "publishedAt": "2026-08-21T15:24:53Z",
-      "summary": "fix: persist manual Codex compactions (#127230)",
+      "title": "perf(googlechat): render bullet markers in one pass (#127274)",
+      "link": "https://github.com/openclaw/openclaw/commit/4343b38ce7630fddaa16bfb72262e071d25424f6",
+      "publishedAt": "2026-08-21T16:34:18Z",
+      "summary": "perf(googlechat): render bullet markers in one pass (#127274) Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: persist manual Codex compactions (#127230)",
-      "summaryZh": "重點：修正: persist manual Codex compactions (#127230)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(googlechat): render bullet markers in one pass (#127274)",
+      "summaryZh": "重點：perf(googlechat): render bullet markers in one pass (#127274) Co-authored-by: Amp..."
     },
     {
       "id": 2,
-      "title": "test: cover durable compaction activity",
-      "link": "https://github.com/openclaw/openclaw/commit/7b5430a2d3937756435620eea88ea3cd3d19f53b",
-      "publishedAt": "2026-08-21T15:24:53Z",
-      "summary": "test: cover durable compaction activity",
+      "title": "fix(providers): report request acceptance consistently (#126028)",
+      "link": "https://github.com/openclaw/openclaw/commit/1319e1e606525e8b764aac43eb817a90daa9efc5",
+      "publishedAt": "2026-08-21T16:32:07Z",
+      "summary": "fix(providers): report request acceptance consistently (#126028) * fix(providers): restore provider acceptance lifecycle * fix(providers): cancel streams on acceptance failure * test(amazon-bedrock): split stream lifecycle coverage * refactor(providers): keep acceptance lifecycle private * refactor(providers): make acceptance observation synchronous * refactor(providers): narrow private observer safely * fix(google): keep response hook within retry deadline * test(ui): tolerate subpixel spacing variance * test(ui): wait for durable draft before reload",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: cover durable compaction activity",
-      "summaryZh": "重點：test: cover durable compaction activity..."
+      "titleZh": "OpenClaw 程式碼更新：修正(providers): report request acceptance consistently (#126028)",
+      "summaryZh": "重點：修正(providers): report request acceptance consistently (#126028) * 修正(providers): restore provider acceptance lifecycle *..."
     },
     {
       "id": 3,
-      "title": "fix: preserve Codex compaction activity",
-      "link": "https://github.com/openclaw/openclaw/commit/a5bac03e514d06033f99d3c4b6cb9b78fc268c17",
-      "publishedAt": "2026-08-21T15:24:53Z",
-      "summary": "fix: preserve Codex compaction activity",
+      "title": "fix(scripts): keep Windows lint runs from failing before any file is …",
+      "link": "https://github.com/openclaw/openclaw/commit/830196c62855bf1d7284b54e233375e10c5e447c",
+      "publishedAt": "2026-08-21T16:31:50Z",
+      "summary": "fix(scripts): keep Windows lint runs from failing before any file is checked (#126274) * fix(scripts): keep Windows lint runs from failing before any file is checked `pnpm lint:extensions` aborts on Windows whenever the plugin SDK boundary cache is cold: the boundary prep spawns `node_modules/.bin/tsgo` directly, and Windows cannot execute the extensionless pnpm shim, so the run dies with ENOENT before oxlint checks a single file. The stylelint runner reached by `check-changed` fails the same way for the same reason. Both now build their child process with `createManagedCommandInvocation`, the launcher every other repo tool runner already uses, which routes the shim through cmd.exe on Windows and returns the command unchanged everywhere else. Off Windows the spawned command, arguments, and options are byte-identical to before, so only the broken platform changes behavior. * fix(scripts): stop the lint pipeline from spawning a tool shim directly `pnpm lint` reaches stylelint through the same raw shim spawn that broke the boundary prep, so the pipeline dies on Windows after oxlint succeeds. Route it through the managed launcher like every other tool runner. The remaining hazard is structural: the resolver hands out a path that only some callers know to normalize, and the three sites that forgot were spread across two spawn shapes. Add a static guard so a shim can only flow into a launcher that understands the platform, and so the next occurrence fails on Linux CI instead of on a contributor's Windows machine. * test(scripts): trim Windows shim regression coverage Punchcard-Session: cobalt-orchard-willow-2q --------- Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve Codex compaction activity",
-      "summaryZh": "重點：修正: preserve Codex compaction activity..."
+      "titleZh": "OpenClaw 程式碼更新：修正(scripts): keep Windows lint runs from failing before any file is …",
+      "summaryZh": "重點：修正(scripts): keep Windows lint runs from failing before any file is checked (#126274) * 修正(scripts): keep Windows lint r..."
     },
     {
       "id": 4,
-      "title": "fix(ui): copy Lobsterdex links through clipboard fallback (#127194)",
-      "link": "https://github.com/openclaw/openclaw/commit/3ae7ba319461c00aba59e0d1b74df0ac0e21f45e",
-      "publishedAt": "2026-08-21T15:13:49Z",
-      "summary": "fix(ui): copy Lobsterdex links through clipboard fallback (#127194) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
+      "title": "fix(release): allow unreleased changelog in SHA preflight (#127019)",
+      "link": "https://github.com/openclaw/openclaw/commit/c4d07b398b87a85562c82d0dad6c238d0d9d286e",
+      "publishedAt": "2026-08-21T16:28:36Z",
+      "summary": "fix(release): allow unreleased changelog in SHA preflight (#127019)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): copy Lobsterdex links through clipboard fallback (#127194)",
-      "summaryZh": "重點：修正(ui): copy Lobsterdex links through clipboard fallback (#127194) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): allow un版本發布d changelog in SHA preflight (#127019)",
+      "summaryZh": "重點：修正(版本發布): allow un版本發布d changelog in SHA preflight (#127019)..."
     },
     {
       "id": 5,
+      "title": "AI 幾分鐘搞定地震模擬，柏克萊實驗室新框架 CGM-GM 曝光",
+      "link": "https://technews.tw/2026/08/22/berkeley-lab-develops-ai-model-to-speed-earthquake-ground-motion-simulations/",
+      "publishedAt": "Fri, 21 Aug 2026 16:00:39 +0000",
+      "summary": "美國勞倫斯柏克萊國家實驗室（Berkeley Lab）宣布，研究團隊開發出一套名為 CGM-GM 的機器學習框 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "調整大腦免疫反應，找回阿茲海默症患者失去的睡眠",
+      "link": "https://technews.tw/2026/08/22/scientists-restore-two-hours-of-sleep-without-clearing-brain-plaques/",
+      "publishedAt": "Fri, 21 Aug 2026 16:00:26 +0000",
+      "summary": "阿茲海默症不只導致記憶衰退，許多患者還會出現失眠、淺眠等睡眠障礙。過去科學家認為，這是腦中的類澱粉蛋白異常堆積 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "超低溫液體在微重力下沸騰，冷卻效率反而更高？",
+      "link": "https://technews.tw/2026/08/22/ultra-cold-liquids-boil-in-microgravity-boosting-cooling-efficiency/",
+      "publishedAt": "Fri, 21 Aug 2026 16:00:06 +0000",
+      "summary": "在深邃黑暗的宇宙深處，航太電子設備與火箭燃料依然會產生極高的熱量。隨著深空探索任務越走越遠，科學家迫切需要弄懂 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "GitHub揭露8月大當機原因，基礎設施容量未跟上使用成長",
       "link": "https://www.ithome.com.tw/news/178335",
       "publishedAt": "2026-08-21 12:08:45",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "思科修補網路自動化與協同管理平臺Crosswork滿分重大漏洞",
       "link": "https://www.ithome.com.tw/news/178334",
       "publishedAt": "2026-08-21 12:08:36",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Google兩天內二度更新Chrome 151，再修補7個資安漏洞",
       "link": "https://www.ithome.com.tw/news/178332",
       "publishedAt": "2026-08-21 12:08:14",
       "summary": "Google才於8月18日發布Chrome 151更新，短短兩天後又於8月20日再次推出修補版本，將Windows與Mac平臺穩定版更新至151.0.7922.173與151.0.7922.174，Linux版本更新至151.0.7922.173，同時Android版也更新為151.0.7922.173。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Cursor公開Origin底層Git架構，以S3預寫日誌因應AI代理大量儲存庫",
-      "link": "https://www.ithome.com.tw/news/178333",
-      "publishedAt": "2026-08-21 12:08:10",
-      "summary": "Cursor公開程式碼託管服務Origin的底層Git儲存系統Continuity，採用S3相容物件儲存中的預寫日誌（WAL）保存每次推送的資料，本機Git儲存庫則成為可隨時重建的快取。新架構主要因應兩種負載，一是企業持續擴大的大型單一儲存庫，另一種則是AI代理大量建立但很少使用的小型儲存庫。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Apache HttpComponents Client存在可讓攻擊者偽造伺服器回應的重大漏洞",
-      "link": "https://www.ithome.com.tw/news/178330",
-      "publishedAt": "2026-08-21 11:08:55",
-      "summary": "Apache HttpComponents Client存在一項重大風險漏洞，風險值高達CVSS 9.1，可讓攻擊者以有效憑證偽造伺服器回應，但這項漏洞不影響經典版HttpClient。 Apache HttpComponents Client（簡稱HttpClient）是一個開源Java函式庫，專門用於處理HTTP協定的客戶端請求與回應。這項編號CVE-2026-71290的漏洞屬於TLS主機名稱驗證不當漏洞，出現在使用HttpClient非同步版本時，HostnameVerificationPolicy#BUILTIN設定不會生效。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Zimbra遠端程式碼執行漏洞遭到利用",
-      "link": "https://www.ithome.com.tw/news/178329",
-      "publishedAt": "2026-08-21 11:08:34",
-      "summary": "波蘭電腦緊急應變團隊CERT Polska於8月17日提出警告，他們已掌握郵件伺服器系統Zimbra已知漏洞CVE-2026-73570遭到利用的情況，且攻擊活動仍在持續進行。對此，他們呼籲用戶應儘速更新Zimbra，並檢查特定事件記錄，以及最近一個月使用者在指定資料夾裡建立的檔案內容，來確認是否遭到入侵。",
       "source": "iThome",
       "tag": "繁中"
     }
