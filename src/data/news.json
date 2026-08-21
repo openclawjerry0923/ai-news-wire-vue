@@ -1,8 +1,44 @@
 {
-  "generatedAt": "2026-08-21T01:19:43.105Z",
+  "generatedAt": "2026-08-21T03:03:05.558Z",
   "items": [
     {
       "id": 1,
+      "title": "全球首座SEMI E187資安檢測實驗室在臺啟用，為半導體設備做好資安把關工作",
+      "link": "https://www.ithome.com.tw/news/178323",
+      "publishedAt": "2026-08-21 10:08:49",
+      "summary": "資策會8月20日正式啟用全球首座SEMI E187資安檢測實驗室，將半導體設備資安標準與認驗證制度轉化為實際檢測能力。數發部長林宜敬表示，SEMI E187由數發部、SEMI及台積電共同推動，可降低半導體供應鏈資安風險，協助設備商爭取訂單及拓展海外市場，同時減少臺灣廠商對歐美檢測機構的依賴；資策會董事長黃仲銘則指出，這座實驗室的啟用，代表臺灣從資安標準的遵循者，進一步成為制度建立者與把關者。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "甫修補的GitLab重大GraphQL漏洞遭到利用",
+      "link": "https://www.ithome.com.tw/news/178319",
+      "publishedAt": "2026-08-21 10:08:47",
+      "summary": "8月17日GitLab開發團隊發布更新，修補GraphQL弱點CVE-2026-19478、CVE-2026-19650，其中重大等級的CVE-2026-19478，傳出已遭利用。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "Mac版ChatGPT新增Apple Messages外掛、歐盟地區加入電腦使用紀錄",
+      "link": "https://www.ithome.com.tw/news/178320",
+      "publishedAt": "2026-08-21 10:08:09",
+      "summary": "macOS版ChatGPT及Codex本周加入數項功能，包括能為用戶傳送Apple訊息、Codex用戶可分享對話串給他人、歐盟地區用戶還能獲得電腦使用紀錄。 本周OpenAI為macOS版ChatGPT及代理式開發工具Codex加入的第一項功能是新增Apple Messages外掛。現在各方案的ChatGPT macOS版App都能安裝，不過只有Codex和ChatGPT Work才能啟用新功能。安裝完成後，ChatGPT就能讀取和搜尋iMessages、簡訊或RCS訊息，還能代用戶從Messages App傳送訊息。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "企業PQC轉型不一定要先全面盤點密碼學資產，分類工作負載後再規畫升級",
+      "link": "https://www.ithome.com.tw/news/178314",
+      "publishedAt": "2026-08-21 09:08:00",
+      "summary": "雲端服務業者AWS近期提出企業後量子密碼學（Post-Quantum Cryptography，PQC）轉型建議。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 5,
       "title": "Unsloth更新Dynamic v3.0 GGUF量化方法，相同檔案尺寸下提高量化模型精度",
       "link": "https://www.ithome.com.tw/news/178318",
       "publishedAt": "2026-08-21 08:08:15",
@@ -11,93 +47,57 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(channels): preserve delivery after preview cleanup (#126922)",
-      "link": "https://github.com/openclaw/openclaw/commit/07c8b42a71b0856f3a822ca641322a1aa0a49f3c",
-      "publishedAt": "2026-08-21T01:18:25Z",
-      "summary": "fix(channels): preserve delivery after preview cleanup (#126922)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): preserve delivery after preview cleanup (#126922)",
-      "summaryZh": "重點：修正(channels): preserve delivery after preview cleanup (#126922)..."
-    },
-    {
-      "id": 3,
-      "title": "fix(setup): preserve chat handoff during inference repair (#109938)",
-      "link": "https://github.com/openclaw/openclaw/commit/2064e416e3eef1cf48a8926d54c580a4649a6b5c",
-      "publishedAt": "2026-08-21T01:16:14Z",
-      "summary": "fix(setup): preserve chat handoff during inference repair (#109938) Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(setup): preserve chat handoff during inference repair (#109938)",
-      "summaryZh": "重點：修正(setup): preserve chat handoff during inference repair (#109938) Co-authored-by: Peter Steinberger..."
-    },
-    {
-      "id": 4,
-      "title": "fix(ui): surface provider-usage failures instead of silent empty pane…",
-      "link": "https://github.com/openclaw/openclaw/commit/034325d3e2aac129fe4173b15645cea961d502ff",
-      "publishedAt": "2026-08-21T01:15:14Z",
-      "summary": "fix(ui): surface provider-usage failures instead of silent empty panels (#120309) * fix(ui): surface provider-usage failures instead of empty panels * fix(ui): complete typed route-data fixtures and stop reporting cancelled usage requests as failed - Add providerUsageUnavailable to the five UsageRouteData fixtures in gateway-source-replacement.test.ts; check-test-types passes again. - requestProviderUsage reports failed only for non-cancelled rejections; an aborted request is the caller superseding its own load, not an outage. - Cover answered, failed, and cancelled outcomes. * chore(ui): keep ProviderUsageFetch local to its module * fix(ui): clear the provider failure flag when an aggregate usage load fails - A failed aggregate refresh says nothing about provider usage; the stale flag no longer keeps claiming the last provider request failed after a later usage.cost or sessions.usage rejection. - Sequential regression: usage.status failure, then an aggregate failure, ends with the flag cleared. * test(ui): type the usage route data on the test element * test(ui): cover provider usage request outcomes * fix(ui): model provider usage request outcome * fix(ui): preserve provider usage outcomes * fix(ui): resolve provider usage build",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): surface provider-usage failures instead of silent empty pane…",
-      "summaryZh": "重點：修正(ui): surface provider-usage failures instead of silent empty panels (#120309) * 修正(ui): surface provider-usage failur..."
-    },
-    {
-      "id": 5,
-      "title": "test: trim plugin test duplicates (#126917)",
-      "link": "https://github.com/openclaw/openclaw/commit/319df0e7a1546fcc358c7f8ad85cb96a33bf15ea",
-      "publishedAt": "2026-08-21T01:07:27Z",
-      "summary": "test: trim plugin test duplicates (#126917)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: trim plugin test duplicates (#126917)",
-      "summaryZh": "重點：test: trim plugin test duplicates (#126917)..."
-    },
-    {
       "id": 6,
-      "title": "馬斯克曝星艦捕捉要再等等 SpaceX 摔 4% 失守 IPO 價",
-      "link": "https://finance.technews.tw/2026/08/21/spacex-stock-drops-4-losing-ipo-price/",
-      "publishedAt": "Fri, 21 Aug 2026 01:00:42 +0000",
-      "summary": "受巨型火箭「星艦」（Starship）進展不如預期衝擊，太空探索技術公司 SpaceX 股價再度跌破 6 月首 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): preserve active commentary on steer (#126886)",
+      "link": "https://github.com/openclaw/openclaw/commit/b6bf9a7154f4077fd22fa28125721e4112458624",
+      "publishedAt": "2026-08-21T03:01:29Z",
+      "summary": "fix(ui): preserve active commentary on steer (#126886) Control UI now preserves active-run commentary and tool progress when a follow-up steers the same run, while fresh sends still clear stale projection state. Fixes #126938. Reviewed-by: @shakkernerd",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve active commentary on steer (#126886)",
+      "summaryZh": "重點：修正(ui): preserve active commentary on steer (#126886) Control UI now preserves active-run commentary and tool progress w..."
     },
     {
       "id": 7,
-      "title": "歐盟課徵低價包裹關稅，立陶宛自中國進口量大減",
-      "link": "https://technews.tw/2026/08/21/eu-tariffs-low-value-parcels-lithuania-china-imports-plummet/",
-      "publishedAt": "Fri, 21 Aug 2026 00:50:38 +0000",
-      "summary": "歐盟 7 月起對低價電商包裹開徵關稅，立陶宛物流業者表示，來自中國等非歐盟國家的小額包裹量明顯下滑，部分業者指 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(e2e): follow shared auth ownership in onboarding proof (#126958)",
+      "link": "https://github.com/openclaw/openclaw/commit/be891d2ac0ab11bf84cac8b4584127a044eca4e6",
+      "publishedAt": "2026-08-21T03:01:25Z",
+      "summary": "fix(e2e): follow shared auth ownership in onboarding proof (#126958)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): follow shared auth ownership in onboarding proof (#126958)",
+      "summaryZh": "重點：修正(e2e): follow shared auth ownership in onboarding proof (#126958)..."
     },
     {
       "id": 8,
-      "title": "繼 SK 海力士買庫藏股，三星傳將推 2 兆多元股東回饋計畫",
-      "link": "https://finance.technews.tw/2026/08/21/samsung-reportedly-2-trillion-won-shareholder-return-plan-after-sk-hynix-buyback/",
-      "publishedAt": "Fri, 21 Aug 2026 00:40:03 +0000",
-      "summary": "繼韓國記憶體晶片大廠 SK 海力士 19 日宣布大規模庫藏股計畫，韓國媒體 20 日報導，對手三星也將在月底宣 [&#8230;]",
+      "title": "泡泡瑪特 H1 獲利年增一成，料全年收入增 2 成難達標",
+      "link": "https://finance.technews.tw/2026/08/21/pop-mart-sees-20-full-year-revenue-growth-target-as-challenging/",
+      "publishedAt": "Fri, 21 Aug 2026 03:00:55 +0000",
+      "summary": "綜合港媒報導，中國潮玩公司泡泡瑪特公布，2026 年上半年淨利潤 50.38 億元（人民幣，下同）、年增 10 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "晶片走向系統、先進封裝成關鍵戰場！Rapidus：晶圓代工、基板、OSAT 廠競爭加劇",
-      "link": "https://technews.tw/2026/08/21/rapidus-ocp-apac-summit-2026/",
-      "publishedAt": "Fri, 21 Aug 2026 00:30:34 +0000",
-      "summary": "隨著 AI 浪潮推動半導體產業從「晶片」走向「系統」，先進封裝的重要性也快速提升。Rapidus Design [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "chore(release): refresh config docs baseline (#126956)",
+      "link": "https://github.com/openclaw/openclaw/commit/630175d87f09f7463218091b801b460074246837",
+      "publishedAt": "2026-08-21T02:58:27Z",
+      "summary": "chore(release): refresh config docs baseline (#126956)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：chore(版本發布): refresh config 文件 baseline (#126956)",
+      "summaryZh": "重點：chore(版本發布): refresh config 文件 baseline (#126956)..."
     },
     {
       "id": 10,
-      "title": "血糖飆升自動釋放 GLP-1，「智慧益生菌」拚兩年內進軍美國",
-      "link": "https://technews.tw/2026/08/21/smart-probiotics-detect-blood-glucose-and-secrete-glp-1/",
-      "publishedAt": "Fri, 21 Aug 2026 00:30:17 +0000",
-      "summary": "華東師範大學（East China Normal University）團隊研發出一款經基因改造「智慧」益生菌 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): label composer textareas (#126952)",
+      "link": "https://github.com/openclaw/openclaw/commit/ee337708de67fedc2645d3ac48970d84877bf8ac",
+      "publishedAt": "2026-08-21T02:54:49Z",
+      "summary": "fix(ui): label composer textareas (#126952) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): label composer textareas (#126952)",
+      "summaryZh": "重點：修正(ui): label composer textareas (#126952) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd..."
     }
   ]
 }
