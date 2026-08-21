@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-21T12:48:46.692Z",
+  "generatedAt": "2026-08-21T13:44:56.981Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): avoid session lookup for stream events (#125872)",
-      "link": "https://github.com/openclaw/openclaw/commit/17d1204b7606a52f0a03a1b58f07df08e34aecd5",
-      "publishedAt": "2026-08-21T12:31:24Z",
-      "summary": "fix(gateway): avoid session lookup for stream events (#125872)",
+      "title": "fix(ui): align configured automation trigger status (#126784)",
+      "link": "https://github.com/openclaw/openclaw/commit/9050d9b0a79ee542ca4fb51cd0dd7abf0d00849c",
+      "publishedAt": "2026-08-21T13:23:18Z",
+      "summary": "fix(ui): align configured automation trigger status (#126784) Vertically center the configured trigger label with the Advanced heading and cover the rendered geometry in Chromium. Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): avoid session lookup for stream events (#125872)",
-      "summaryZh": "重點：修正(Gateway): avoid session lookup for stream events (#125872)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): align configured automation trigger status (#126784)",
+      "summaryZh": "重點：修正(ui): align configured automation trigger status (#126784) Vertically center the configured trigger label with the Adv..."
     },
     {
       "id": 2,
-      "title": "fix(mantis): keep Telegram proof running and honest (#127108)",
-      "link": "https://github.com/openclaw/openclaw/commit/e8d2b8cb18c9786ba5b9a82e9647adbb83914913",
-      "publishedAt": "2026-08-21T12:23:54Z",
-      "summary": "fix(mantis): keep Telegram proof running and honest (#127108) Make long, free-form Telegram proof runs truthful and resilient. Keep the trusted mock harness current across historical SUTs, preserve intentional silence and blocked outcomes, remove fixed attempt/lifetime caps, and export cropped motion proof without the prior memory spike. Co-authored-by: Ayaan Zaidi",
+      "title": "fix: exec treats empty workdir from models as omitted (#126509)",
+      "link": "https://github.com/openclaw/openclaw/commit/6132c6f6cba00866d62e3ecb9234213bde55da74",
+      "publishedAt": "2026-08-21T13:14:42Z",
+      "summary": "fix: exec treats empty workdir from models as omitted (#126509) * fix(exec): treat exact empty workdir as omitted Small tool-calling models fill every optional field of the exec schema, so exec arrives with workdir: \"\" instead of omitting the field. The empty string was treated as a literal path and the command was refused, wasting agent turns and surfacing misleading failures (e.g. the model concluding the runtime is unavailable). Normalize only the exact empty string to omitted at the workdir input boundary; whitespace-only and nonempty invalid paths remain fail-closed. Closes #126390 * fix(exec): align exec schema with empty-workdir behavior The shared model-facing schema still declared blank and whitespace workdirs invalid while the resolver now treats an exact empty string as omitted. Update the schema description to state that an empty string means omitted and only whitespace-only values are invalid, and update the schema assertion accordingly.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): keep Telegram proof running and honest (#127108)",
-      "summaryZh": "重點：修正(mantis): keep Telegram proof running and honest (#127108) Make long, free-form Telegram proof runs truthful and resil..."
+      "titleZh": "OpenClaw 程式碼更新：修正: exec treats empty workdir from 模型 as omitted (#126509)",
+      "summaryZh": "重點：修正: exec treats empty workdir from 模型 as omitted (#126509) * 修正(exec): treat exact empty workdir as omitted Small tool-c..."
     },
     {
       "id": 3,
-      "title": "perf(plugins): reuse provider ownership metadata (#127178)",
-      "link": "https://github.com/openclaw/openclaw/commit/085044cd5f414b25ef505b6db7b1029ad7992f0d",
-      "publishedAt": "2026-08-21T12:21:44Z",
-      "summary": "perf(plugins): reuse provider ownership metadata (#127178) Co-authored-by: Amp",
+      "title": "fix(normalization-core): preserve non-Error object causes with extra …",
+      "link": "https://github.com/openclaw/openclaw/commit/587c7524e58dfd21d49fade5fbc5550c4c3fb3c9",
+      "publishedAt": "2026-08-21T13:09:25Z",
+      "summary": "fix(normalization-core): preserve non-Error object causes with extra keys in formatErrorMessage (#126654) * fix(normalization-core): preserve non-Error object causes with extra keys The cause-chain branch of formatErrorMessage called only formatStatusAndCode(cause) with no stringifyUnknown fallback, while the top-level branch used formatStatusAndCode(value) ?? stringifyUnknown(value). formatStatusAndCode returns undefined for any object whose keys are not exactly status/code, so a non-Error object cause carrying extra keys (e.g. { statusCode: 429 } or { status: 503, code: \"UNAVAILABLE\", requestId: \"abc\" }) was silently dropped — appendCauseMessage(undefined) no-op'd and the loop broke, losing the diagnostic/retryable detail. Mirror the top-level branch: appendCauseMessage(formatStatusAndCode(cause) ?? stringifyUnknown(cause)). Behavior-neutral for causes that already render; restores the dropped detail for the asymmetric case. stringifyUnknown is a local helper in the same file. Closes #126652 Co-Authored-By: Claude * test(normalization-core): assert structured cause metadata --------- Co-authored-by: ruel225 Co-authored-by: Claude Co-authored-by: Altay",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins): reuse provider ownership metadata (#127178)",
-      "summaryZh": "重點：perf(plugins): reuse provider ownership metadata (#127178) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(normalization-core): preserve non-Error object causes with extra …",
+      "summaryZh": "重點：修正(normalization-core): preserve non-Error object causes with extra keys in formatErrorMessage (#126654) * 修正(normalizat..."
     },
     {
       "id": 4,
-      "title": "fix(heartbeat): honor configured session for monitor wakes (#127153)",
-      "link": "https://github.com/openclaw/openclaw/commit/02bba8ee847460e1579e0a3c8f4d1d13c1e728b7",
-      "publishedAt": "2026-08-21T12:11:01Z",
-      "summary": "fix(heartbeat): honor configured session for monitor wakes (#127153) Sessionless interval heartbeat monitor and task wakes now defer to the configured heartbeat session, while explicit user sessions and ordinary cron event queue ownership remain unchanged. Maintainer replacement for #116373 because the external fork cannot satisfy the strict Clownfish landing transaction. The replacement preserves the accepted patch exactly on current main. Fixes #116205. Thanks @sloptop-the-terrible for the original patch and @QQSHI13 for the report. Co-authored-by: sloptop-the-terrible",
+      "title": "fix(control-ui): autocomplete model thinking levels (#123507)",
+      "link": "https://github.com/openclaw/openclaw/commit/efbcb57569abb684b43c481058f76b1f9ec63f5e",
+      "publishedAt": "2026-08-21T13:02:33Z",
+      "summary": "fix(control-ui): autocomplete model thinking levels (#123507) * fix(control-ui): autocomplete model thinking levels * fix(control-ui): keep thinking options model-current * fix(control-ui): execute catalog thinking levels * fix(control-ui): close stale think picker --------- Co-authored-by: Jesse Merhi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): honor configured session for monitor wakes (#127153)",
-      "summaryZh": "重點：修正(heartbeat): honor configured session for monitor wakes (#127153) Sessionless interval heartbeat monitor and task wake..."
+      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): autocomplete 模型 thinking levels (#123507)",
+      "summaryZh": "重點：修正(control-ui): autocomplete 模型 thinking levels (#123507) * 修正(control-ui): autocomplete 模型 thinking levels * 修正(control..."
     },
     {
       "id": 5,
