@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-21T18:36:54.340Z",
+  "generatedAt": "2026-08-21T19:25:51.134Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(sessions): preserve ownership across lifecycle and maintenance (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/0a20c5715450637284f2cbd3800fcc559474dfd1",
-      "publishedAt": "2026-08-21T18:34:59Z",
-      "summary": "fix(sessions): preserve ownership across lifecycle and maintenance (#127344) * fix(sessions): preserve ownership across lifecycle and maintenance * test(gateway): recognize owner-complete session projections",
+      "title": "fix gateway conversation route ownership (#126424)",
+      "link": "https://github.com/openclaw/openclaw/commit/0b8596607208b1be7c963c701cbce8d45d565bf2",
+      "publishedAt": "2026-08-21T19:20:21Z",
+      "summary": "fix gateway conversation route ownership (#126424)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): preserve ownership across lifecycle and maintenance (#…",
-      "summaryZh": "重點：修正(sessions): preserve ownership across lifecycle and maintenance (#127344) * 修正(sessions): preserve ownership across li..."
+      "titleZh": "OpenClaw 程式碼更新：修正 Gateway conversation route ownership (#126424)",
+      "summaryZh": "重點：修正 Gateway conversation route ownership (#126424)..."
     },
     {
       "id": 2,
-      "title": "fix(plugins): reuse published metadata on hot paths (#127355)",
-      "link": "https://github.com/openclaw/openclaw/commit/cddc1acdf7f9f2d60de89a5b700fb0261a5dcb6a",
-      "publishedAt": "2026-08-21T18:33:39Z",
-      "summary": "fix(plugins): reuse published metadata on hot paths (#127355)",
+      "title": "fix(ui): announce custom theme import results (#127380)",
+      "link": "https://github.com/openclaw/openclaw/commit/90d1c43f5a185735891f5a0d30d3d0e0c7557f47",
+      "publishedAt": "2026-08-21T19:17:27Z",
+      "summary": "fix(ui): announce custom theme import results (#127380) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): reuse published metadata on hot paths (#127355)",
-      "summaryZh": "重點：修正(plugins): reuse published metadata on hot paths (#127355)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): announce custom theme import results (#127380)",
+      "summaryZh": "重點：修正(ui): announce custom theme import results (#127380) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a..."
     },
     {
       "id": 3,
-      "title": "feat(ui): explain decision receipts in Activity (#126007)",
-      "link": "https://github.com/openclaw/openclaw/commit/ccbfa6c3a3251dad79d7f93e612c914defb7d1ac",
-      "publishedAt": "2026-08-21T18:33:32Z",
-      "summary": "feat(ui): explain decision receipts in Activity (#126007) * fix(audit): project safe decision receipt displays * docs(agents): preserve audit display privacy * fix(ci): satisfy audit receipt guardrails",
+      "title": "fix: /restart restarts the gateway over and over instead of once (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/1b998c0d84de7aeb46b1de550dcf682e84f4d53e",
+      "publishedAt": "2026-08-21T19:12:58Z",
+      "summary": "fix: /restart restarts the gateway over and over instead of once (#127179) The /restart command is dispatched from a durable channel ingress row. The gateway begins its restart drain before that dispatch returns, so the row is still claimed when root-work admission closes. The drain sees GatewayDrainingError and releases the row without spending its retry budget (#125918), which is correct for an ordinary message and wrong for a command that caused the drain: the successor gateway claims the same row and runs /restart again, forever. Every boot is clean, so the gateway looks healthy throughout. Adopt the ingress claim in the restart command handler before scheduling the restart. The command is not idempotent, so losing the acknowledgement is better than an unbounded restart loop. The drain's deferral branch is unchanged. Co-authored-by: Marvinthebored",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): explain decision receipts in Activity (#126007)",
-      "summaryZh": "重點：新功能(ui): explain decision receipts in Activity (#126007) * 修正(audit): project safe decision receipt displays * 文件(agents..."
+      "titleZh": "OpenClaw 程式碼更新：修正: /restart restarts the Gateway over and over instead of once (#12…",
+      "summaryZh": "重點：修正: /restart restarts the Gateway over and over instead of once (#127179) The /restart command is dispatched from a dura..."
     },
     {
       "id": 4,
-      "title": "fix(channels): retry timed-out ingress messages (#127090)",
-      "link": "https://github.com/openclaw/openclaw/commit/ee79b0a49ae4b0ecd30f9e483c70c0f49f20232c",
-      "publishedAt": "2026-08-21T18:25:27Z",
-      "summary": "fix(channels): retry timed-out ingress messages (#127090) Co-authored-by: PollyBot13",
+      "title": "fix(cli): give hooks enable/disable failures a next step (#127370)",
+      "link": "https://github.com/openclaw/openclaw/commit/5afc6fb0fb0345516b004e3d593cd507ea5e5af0",
+      "publishedAt": "2026-08-21T19:11:59Z",
+      "summary": "fix(cli): give hooks enable/disable failures a next step (#127370) * fix(cli): give hooks enable/disable failures a next step resolveHookForToggle threw bare messages for not-found, ambiguous, and ineligible hooks while formatHookInfo, the sibling lookup in the same file, already pointed operators at openclaw hooks list. Name the colliding candidates, the missing requirements, and the install route using data the hook status entry already carries, bounded through the existing summarizeStringEntries helper. * refactor(cli): split hooks report rendering out of hooks-cli The new toggle diagnostics pushed src/cli/hooks-cli.ts to 709 lines, over the 700-line cap. Move the hooks list/info/check renderers and their formatting helpers to hooks-cli.format.ts so command wiring and report rendering each stay readable; no suppression added.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): retry timed-out ingress messages (#127090)",
-      "summaryZh": "重點：修正(channels): retry timed-out ingress messages (#127090) Co-authored-by: PollyBot13..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): give hooks enable/disable failures a next step (#127370)",
+      "summaryZh": "重點：修正(cli): give hooks enable/disable failures a next step (#127370) * 修正(cli): give hooks enable/disable failures a next s..."
     },
     {
       "id": 5,
