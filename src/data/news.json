@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-21T21:24:45.445Z",
+  "generatedAt": "2026-08-21T22:25:07.473Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(gateway-client): skip unused timing dispatch (#127566)",
-      "link": "https://github.com/openclaw/openclaw/commit/41acededbc5751d6c6eafa0716c73326459451b4",
-      "publishedAt": "2026-08-21T21:21:07Z",
-      "summary": "perf(gateway-client): skip unused timing dispatch (#127566) Co-authored-by: Amp",
+      "title": "fix(onboard): keep provider credentials with named first agents (#127…",
+      "link": "https://github.com/openclaw/openclaw/commit/c801579020472dd55f2380db66c7851446572fe1",
+      "publishedAt": "2026-08-21T22:20:58Z",
+      "summary": "fix(onboard): keep provider credentials with named first agents (#127572) * fix(onboard): keep provider credentials with named first agents * fix(onboard): preserve workspace in provider choice normalization",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway-client): skip unused timing dispatch (#127566)",
-      "summaryZh": "重點：perf(Gateway-client): skip unused timing dispatch (#127566) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): keep provider credentials with named first agents (#127…",
+      "summaryZh": "重點：修正(onboard): keep provider credentials with named first agents (#127572) * 修正(onboard): keep provider credentials with n..."
     },
     {
       "id": 2,
-      "title": "perf(test): speed up model provider recovery observations (#127570)",
-      "link": "https://github.com/openclaw/openclaw/commit/69d30923bfd9c3027c6dac5ca2291242549dd19b",
-      "publishedAt": "2026-08-21T21:17:24Z",
-      "summary": "perf(test): speed up model provider recovery observations (#127570)",
+      "title": "feat(ui): add live CPU/memory/delay sparkline graphs to the system bu…",
+      "link": "https://github.com/openclaw/openclaw/commit/9903e404ef9ffb2212f8822054001c3d972f696f",
+      "publishedAt": "2026-08-21T22:06:17Z",
+      "summary": "feat(ui): add live CPU/memory/delay sparkline graphs to the system busyness overlay (#127650) * feat(ui): add cpu/memory graphs to system busyness overlay * refactor(ui): redesign busyness overlay vitals as sparkline stat tiles Merge the duplicated sparkline row and numeric tile grid into three vital tiles (CPU, memory, event-loop delay) with gradient area charts, a live pulse dot, pointer scrubbing with value+age readout, and a danger tint driven by the gateway's own event-loop degradation reasons. Memory auto-ranges its baseline so RSS trends stay visible.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): speed up 模型 provider recovery observations (#127570)",
-      "summaryZh": "重點：perf(test): speed up 模型 provider recovery observations (#127570)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add live CPU/記憶/delay sparkline graphs to the system bu…",
+      "summaryZh": "重點：新功能(ui): add live CPU/記憶/delay sparkline graphs to the system busyness overlay (#127650) * 新功能(ui): add cpu/記憶 graphs to..."
     },
     {
       "id": 3,
-      "title": "test(msteams): pin reply threading and reaction routing across conver…",
-      "link": "https://github.com/openclaw/openclaw/commit/b6894751d24bd240880d7254c784d3f78f06a7c6",
-      "publishedAt": "2026-08-21T21:16:38Z",
-      "summary": "test(msteams): pin reply threading and reaction routing across conversation kinds (#127568) Table-driven regressions prove personal and group sends never carry a Teams thread suffix while channels preserve ;messageid, and that agent react actions route to the prepared Graph target per conversation kind with exact result payloads and inbound reaction event labels. Parity proof for Microsoft Lobster patches 0038/0026 via giodl73-repo/lobster-plugins-and-patches.",
+      "title": "test(runner): reset console routing between non-isolated files (#127604)",
+      "link": "https://github.com/openclaw/openclaw/commit/75b736c2526305b78b4bef1cebc9691a264a041b",
+      "publishedAt": "2026-08-21T21:49:05Z",
+      "summary": "test(runner): reset console routing between non-isolated files (#127604) enableConsoleCapture() replaces every console method with a forwarder and routeLogsToStderr()/`--json` mode latch loggingState.forceConsoleToStderr, which production only unwinds at process exit. loggingState is keyed off globalThis so it survives vi.resetModules(), so a shared Vitest worker carried both into the next file: the inherited forwarder writes to process.stderr and the next file's console.error spy records nothing. That is the source of the order-dependent `src/entry.run-main.test.ts > keeps expected conditions at exit 1` flake in shard core-unit-src-security-2 — it failed only on workers that ran src/mcp/codex-supervision-tools-serve.test.ts (serveCodexSupervisionToolsMcp -> routeLogsToStderr) first. Restore the worker's baseline console methods and logging state in the runner's existing cross-file cleanup, and drop the two consumer-side workarounds that were compensating for it.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(msteams): pin reply threading and reaction routing across conver…",
-      "summaryZh": "重點：test(msteams): pin reply threading and reaction routing across conversation kinds (#127568) Table-driven regressions pro..."
+      "titleZh": "OpenClaw 程式碼更新：test(runner): reset console routing between non-isolated files (#127604)",
+      "summaryZh": "重點：test(runner): reset console routing between non-isolated files (#127604) enableConsoleCapture() replaces every console m..."
     },
     {
       "id": 4,
-      "title": "fix(recovery): keep queued replies alive during session watchdog repa…",
-      "link": "https://github.com/openclaw/openclaw/commit/14cebc477ada8cf5a31324039e5ba661f8f5da3e",
-      "publishedAt": "2026-08-21T21:14:26Z",
-      "summary": "fix(recovery): keep queued replies alive during session watchdog repair (#127510) * fix(recovery): preserve queued turns during session watchdog repair * test(plugins): make stalled response timeout deterministic",
+      "title": "fix(ui): separate settings footer actions from build info (#127597)",
+      "link": "https://github.com/openclaw/openclaw/commit/f95443125be6f61e980c26128e9ea7b448d243f3",
+      "publishedAt": "2026-08-21T21:48:42Z",
+      "summary": "fix(ui): separate settings footer actions from build info (#127597) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(recovery): keep queued replies alive during session watchdog repa…",
-      "summaryZh": "重點：修正(recovery): keep queued replies alive during session watchdog repair (#127510) * 修正(recovery): preserve queued turns d..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): separate settings footer actions from build info (#127597)",
+      "summaryZh": "重點：修正(ui): separate settings footer actions from build info (#127597) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4..."
     },
     {
       "id": 5,
