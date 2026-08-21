@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T06:48:12.600Z",
+  "generatedAt": "2026-08-21T07:42:20.754Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(agents): distinguish review routing from enforcement (#126216)",
-      "link": "https://github.com/openclaw/openclaw/commit/73ff2d2f45b26856882423d9ae87a76a727ac7cd",
-      "publishedAt": "2026-08-21T06:47:14Z",
-      "summary": "fix(agents): distinguish review routing from enforcement (#126216)",
+      "title": "perf(test): speed up model provider page observation polling (#127085)",
+      "link": "https://github.com/openclaw/openclaw/commit/8ac7dd254c39c7a86f0a2c15ae313626a563dfd9",
+      "publishedAt": "2026-08-21T07:40:36Z",
+      "summary": "perf(test): speed up model provider page observation polling (#127085)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): distinguish review routing from enforcement (#126216)",
-      "summaryZh": "重點：修正(agents): distinguish review routing from enforcement (#126216)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): speed up 模型 provider page observation polling (#127085)",
+      "summaryZh": "重點：perf(test): speed up 模型 provider page observation polling (#127085)..."
     },
     {
       "id": 8,
-      "title": "fix(ui): associate steering work by target run (#126997)",
-      "link": "https://github.com/openclaw/openclaw/commit/faa1cfc5983c9c62d4e1e3e5fb122884d6f55244",
-      "publishedAt": "2026-08-21T06:45:40Z",
-      "summary": "fix(ui): associate steering work by target run (#126997)",
+      "title": "fix(agents): remove a deleted agent's cron jobs on the offline delete…",
+      "link": "https://github.com/openclaw/openclaw/commit/58127fa73ed5255a95b7a982929292b4ac5408f5",
+      "publishedAt": "2026-08-21T07:31:17Z",
+      "summary": "fix(agents): remove a deleted agent's cron jobs on the offline delete path (#127075) * fix(agents): remove a deleted agent's cron jobs on the offline delete path Follow-up to #127037, which fixed the exec-approvals half of the same gap and named this one explicitly. `agents delete` tries the Gateway first and falls back to a local path. The Gateway handler nests two transactional cleanups around the roster commit -- cron wrapping approvals wrapping the config write. After #127037 the offline path did the inner one; it still skipped cron. So deleting an agent without a Gateway left its scheduled jobs enabled: $ openclaw agents delete cronprobe --force Deleted agent: cronprobe /state/openclaw.sqlite \"select job_id, name, agent_id, enabled from cron_jobs\" 975cb750-... | cronprobe-job | cronprobe | 1 $ openclaw cron list cronprobe-job every 1h Next: in 59m idle To be accurate about severity: this is not silent. Each firing records `error: \"cron job agent is unavailable: cronprobe\"` and `cron list` flips to `error`. The defect is that the job keeps its schedule forever, and that recreating an agent with the same id points it at the new agent. The fallback had collapsed two different reasons into one `null` return, which is what made the fix look unsafe at first: credential failures happen *before* transport, so a live scheduler may still own the cron store, while an unreachable Gateway means nothing else is holding it. `maybeDeleteAgentThroughGateway` now returns a discriminated union, and only the unreachable branch mutates the store directly. The credentials branch commits the roster, warns, and sets `cronCleanupSkipped: true` in JSON. The local `CronService` construction already existed inside `local-request-context.ts`; it moves to `src/cron/local-service.ts` and both callers share it rather than growing a second cron mutation path. That extraction also switches the default-owner resolver from `tryResolveLegacyCompatibilityAgentId` to `tryResolveAmbientOwnerAgentId`, which is a superset -- it honors an explicitly configured `agents.defaults.systemAgent.agentId` and otherwise falls back to exactly the previous function. Live testing showed agentless memory-dreaming jobs need it to load under explicit agent ownership. Production +89/-62. * test(agents): split the delete suite so the new cron coverage stays under the cap The 40-line cron regression test added in the previous commit pushed `src/commands/agents.delete.test.ts` to 1018 code lines, over the 1000 cap, and `check-lint-core-3` went red. Repo policy forbids a `max-lines` suppression. Unlike the earlier `cron/view.test.ts` split there was no describe-level seam -- 23 flat tests in a single describe -- so the split follows subject instead. The seven workspace-lifecycle tests (trashing, sharing, overlap, symlink reachability, workspace-state cleanup) move to `agents.delete.workspace.test.ts`. `vi.mock` and `vi.hoisted` are per-file and cannot be imported, so the mock preamble and the shared `beforeEach` are declared in both files; the helper block above them is unchanged in each. Each file then imports only what it uses, which is why the import lists differ. Trimming to a hair under the cap by moving only the new test was possible and rejected: it would have left the file at ~978 code lines, back at the cap within a couple of changes. This leaves 749 and 603 physical lines. No test content changed: 27 passed before, 27 after.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): associate steering work by target run (#126997)",
-      "summaryZh": "重點：修正(ui): associate steering work by target run (#126997)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): remove a deleted agent's 排程 jobs on the offline delete…",
+      "summaryZh": "重點：修正(agents): remove a deleted agent's 排程 jobs on the offline delete path (#127075) * 修正(agents): remove a deleted agent's..."
     },
     {
       "id": 9,
-      "title": "fix(ui): collapse completed pre-steer work",
-      "link": "https://github.com/openclaw/openclaw/commit/b2d49afd8e5c99d9a8e916df6ee061b7ed2e3328",
-      "publishedAt": "2026-08-21T06:45:40Z",
-      "summary": "fix(ui): collapse completed pre-steer work",
+      "title": "fix(release): keep protected tooling trusted after main moves (#126881)",
+      "link": "https://github.com/openclaw/openclaw/commit/fa86caf94f64c66c3fed4955cb763ed6c4e80055",
+      "publishedAt": "2026-08-21T07:24:31Z",
+      "summary": "fix(release): keep protected tooling trusted after main moves (#126881) * fix(release): keep protected tooling trusted after main moves * fix(release): cover protected tooling recovery paths * fix(release): honor live tooling contracts * fix(release): revalidate tooling at npm publish * fix(release): bind npm publishers to live tooling * fix(release): preserve trusted dispatch identity * fix(release): revalidate parent authorization * fix(release): bind ClawHub to release parent * docs(release): define frozen tooling identity * test(release): align ClawHub protected dispatch ref * fix(release): trust protected plugin npm preflight tooling * docs(release): scope protected writer guarantees * fix(release): keep protected tooling foundation npm-only * test(release): cover trusted npm preflight tooling",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): collapse completed pre-steer work",
-      "summaryZh": "重點：修正(ui): collapse completed pre-steer work..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): keep protected tooling trusted after main moves (#126881)",
+      "summaryZh": "重點：修正(版本發布): keep protected tooling trusted after main moves (#126881) * 修正(版本發布): keep protected tooling trusted after mai..."
     },
     {
       "id": 10,
-      "title": "fix(codex): preserve steering transcript order",
-      "link": "https://github.com/openclaw/openclaw/commit/69fa1a8eab550986e5f04b9b37c09192a6d2b3cb",
-      "publishedAt": "2026-08-21T06:45:40Z",
-      "summary": "fix(codex): preserve steering transcript order",
+      "title": "fix(cron): surface Code Mode MCP resolution failures (#121796)",
+      "link": "https://github.com/openclaw/openclaw/commit/b470422371b6a6664edb931d36d5c81d2c11ad8a",
+      "publishedAt": "2026-08-21T07:15:35Z",
+      "summary": "fix(cron): surface Code Mode MCP resolution failures (#121796) Amp-Thread-ID: https://ampcode.com/threads/T-01a0220e-1365-736f-b0f8-bfe122e23a8f Co-authored-by: Grynn",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve steering transcript order",
-      "summaryZh": "重點：修正(codex): preserve steering transcript order..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): surface Code Mode MCP resolution failures (#121796)",
+      "summaryZh": "重點：修正(排程): surface Code Mode MCP resolution failures (#121796) Amp-Thread-ID: https://ampcode.com/threads/T-01a0220e-1365-7..."
     }
   ]
 }
