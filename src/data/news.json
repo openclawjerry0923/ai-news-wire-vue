@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-22T22:22:09.267Z",
+  "generatedAt": "2026-08-22T23:21:03.841Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(sessions): show collaboration details in CLI (#128035)",
-      "link": "https://github.com/openclaw/openclaw/commit/cc56ea534f78b9494afcd0a6fbf7b7cafaf8a418",
-      "publishedAt": "2026-08-22T22:14:04Z",
-      "summary": "fix(sessions): show collaboration details in CLI (#128035) * fix(sessions): expose collaboration details in CLI * fix(sessions): normalize shared visibility --------- Co-authored-by: Amp",
+      "title": "fix(matrix): guard malformed poll answers instead of throwing TypeErr…",
+      "link": "https://github.com/openclaw/openclaw/commit/8f18edfa10ab52b83083da4d1fd4e0f7e2d2e43f",
+      "publishedAt": "2026-08-22T23:17:41Z",
+      "summary": "fix(matrix): guard malformed poll answers instead of throwing TypeError (#123231) * fix(matrix): guard malformed poll answers instead of throwing TypeError parsePollStart mapped poll.answers with no runtime shape check, but poll event content is sender-controlled JSON. A poll start event with answers not an array, null entries, or non-string ids threw a TypeError that bubbled through thread/reply context building to the ingress top-level catch, silently dropping the whole message - and every later message replying to or threading on that poll. Drop malformed entries (and return null when nothing valid remains) instead of throwing. * fix(matrix): normalize malformed poll text Signed-off-by: sallyom * fix(matrix): use guarded poll records Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): show collaboration details in CLI (#128035)",
-      "summaryZh": "重點：修正(sessions): show collaboration details in CLI (#128035) * 修正(sessions): expose collaboration details in CLI * 修正(sessi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(matrix): guard malformed poll answers instead of throwing TypeErr…",
+      "summaryZh": "重點：修正(matrix): guard malformed poll answers instead of throwing TypeError (#123231) * 修正(matrix): guard malformed poll answ..."
     },
     {
       "id": 2,
-      "title": "fix(test): expose diagnostics when Vitest stalls (#128020)",
-      "link": "https://github.com/openclaw/openclaw/commit/b7cafbe7e82686b14c0f7c8e7af83194fd05ad42",
-      "publishedAt": "2026-08-22T21:37:40Z",
-      "summary": "fix(test): expose diagnostics when Vitest stalls (#128020) * fix(test): print Vitest timeout process diagnostics * fix(test): bound Vitest timeout diagnostics * fix(test): classify Vitest diagnostic commands * fix(test): unify Vitest command diagnostics",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): expose diagnostics when Vitest stalls (#128020)",
-      "summaryZh": "重點：修正(test): expose diagnostics when Vitest stalls (#128020) * 修正(test): print Vitest timeout process diagnostics * 修正(test..."
+      "title": "學生負責下令，AI 負責讀大學：AI 代理「幫上課」成高等教育危機",
+      "link": "https://technews.tw/2026/08/23/i-found-a-prompt-that-keeps-ai-agents-from-taking-tasks-too-far/",
+      "publishedAt": "Sat, 22 Aug 2026 23:00:19 +0000",
+      "summary": "AI 代理正將大學線上課程的作弊問題推向新階段。《紐約時報》報導，學生只要下簡單指令，如「登入並完成我的測驗」 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "perf(browser): streamline snapshot finalization (#128036)",
-      "link": "https://github.com/openclaw/openclaw/commit/d6679815a8357ea98f6f3c487ed0b77900bafc04",
-      "publishedAt": "2026-08-22T21:20:18Z",
-      "summary": "perf(browser): streamline snapshot finalization (#128036) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "fix: macOS onboarding waits for Gateway restart (#127713)",
+      "link": "https://github.com/openclaw/openclaw/commit/7d95cff39d61a583e976b9d2492462bcbb48aab0",
+      "publishedAt": "2026-08-22T22:51:04Z",
+      "summary": "fix: macOS onboarding waits for Gateway restart (#127713) * fix(onboarding): wait for inference gateway restart Co-authored-by: hannesrudolph * fix(onboarding): preserve custodian handoff after restart Co-authored-by: hannesrudolph * refactor(macos): share activation restart finalization Co-authored-by: hannesrudolph * style(macos): format restart reconciliation Co-authored-by: hannesrudolph * fix(macos): compile restart finalization Co-authored-by: hannesrudolph * test(macos): sequence onboarding restart proof Co-authored-by: hannesrudolph * test(macos): finish onboarding after activation Co-authored-by: Tak Hoffman Co-authored-by: hannesrudolph * test(macos): reuse managed restart proof Co-authored-by: Tak Hoffman Co-authored-by: Hannes Rudolph * test(macos): assert receipt before handoff cleanup Co-authored-by: Tak Hoffman Co-authored-by: Hannes Rudolph * fix(onboarding): keep restart verification bounded Co-authored-by: Tak Hoffman Co-authored-by: Hannes Rudolph --------- Co-authored-by: RoboClaw Co-authored-by: hannesrudolph",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(browser): streamline snapshot finalization (#128036)",
-      "summaryZh": "重點：perf(browser): streamline snapshot finalization (#128036) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-762..."
+      "titleZh": "OpenClaw 程式碼更新：修正: macOS onboarding waits for Gateway restart (#127713)",
+      "summaryZh": "重點：修正: macOS onboarding waits for Gateway restart (#127713) * 修正(onboarding): wait for inference Gateway restart Co-authore..."
     },
     {
       "id": 4,
-      "title": "feat(audit): explain plugin and remote actions (#126027)",
-      "link": "https://github.com/openclaw/openclaw/commit/40a6b50cc1c6710fecb6a10df762bb67d4b8b5cd",
-      "publishedAt": "2026-08-22T21:06:54Z",
-      "summary": "feat(audit): explain plugin and remote actions (#126027) * fix(audit): converge action receipts after U2 * docs(agents): clarify receipt authority fencing",
+      "title": "perf(cron): skip history for future jobs (#128048)",
+      "link": "https://github.com/openclaw/openclaw/commit/a3c007fb45d3a1e55ab30a9d3f50cd631f9163cf",
+      "publishedAt": "2026-08-22T22:48:53Z",
+      "summary": "perf(cron): skip history for future jobs (#128048) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(audit): explain plugin and remote actions (#126027)",
-      "summaryZh": "重點：新功能(audit): explain plugin and remote actions (#126027) * 修正(audit): converge action receipts after U2 * 文件(agents): cla..."
+      "titleZh": "OpenClaw 程式碼更新：perf(排程): skip history for future jobs (#128048)",
+      "summaryZh": "重點：perf(排程): skip history for future jobs (#128048) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-49..."
     },
     {
       "id": 5,
+      "title": "fix(ui): ignore malformed realtime talk audio frames instead of throw…",
+      "link": "https://github.com/openclaw/openclaw/commit/bcb3e3f09850ec56f93103f289e37144103a2863",
+      "publishedAt": "2026-08-22T22:46:30Z",
+      "summary": "fix(ui): ignore malformed realtime talk audio frames instead of throwing (#119215) Malformed realtime Talk PCM frames are now ignored instead of escaping the playback queue as exceptions, preserving subsequent browser audio playback. Reviewed-by: @shakkernerd",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): ignore malformed realtime talk audio frames instead of throw…",
+      "summaryZh": "重點：修正(ui): ignore malformed realtime talk audio frames instead of throwing (#119215) Malformed realtime Talk PCM frames are..."
+    },
+    {
+      "id": 6,
       "title": "銀河系演化史翻新，誕生初期即歷經大規模「星系併吞」",
       "link": "https://technews.tw/2026/08/23/hst-unravels-mystery-of-the-milky-way-early-mergers/",
       "publishedAt": "Sat, 22 Aug 2026 16:00:50 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "超級電腦資料塞車有解！新壓縮術每秒可吞 60GB，速度暴增 640 倍",
       "link": "https://technews.tw/2026/08/23/covering-the-fastest-computers-in-the-world-and-the-people-who-run-them-11/",
       "publishedAt": "Sat, 22 Aug 2026 16:00:46 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "大麻關鍵成分 THC，可能幫助 PTSD 患者擺脫揮之不去的惡夢",
       "link": "https://technews.tw/2026/08/23/thc-medication-made-ptsd-nightmares-disappear-for-more-than-a-third-of-patients/",
       "publishedAt": "Sat, 22 Aug 2026 16:00:21 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "告別 7 歲法則迷思！科學家全新毛孩年齡公式，1 歲狗等於 31 歲成年人",
       "link": "https://technews.tw/2026/08/22/scientists-new-formula-for-dog-age/",
       "publishedAt": "Sat, 22 Aug 2026 08:10:16 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "打破運動頻率迷思，研究證實：每週一次 75 分鐘「間歇性快走」也能有效燃脂",
       "link": "https://technews.tw/2026/08/22/weekly-75-min-burns-fat/",
       "publishedAt": "Sat, 22 Aug 2026 08:00:09 +0000",
       "summary": "現代人生活忙碌，常以「沒時間」為由放棄運動。然而，頂尖學術期刊《Nature Communications》最 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "日月光子公司 ISE Labs 購入加州矽谷建物，為碼美國在地半導體製造布局",
-      "link": "https://finance.technews.tw/2026/08/22/ase-technology-holding-co-ltd-ise-labs-acquires-building-in-silicon-valley-california/",
-      "publishedAt": "Sat, 22 Aug 2026 07:00:10 +0000",
-      "summary": "全球半導體封測龍頭日月光投控21日代全資子公司ISE Labs發布重訊指出，宣布其董事會已於美國時間20日決議 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
