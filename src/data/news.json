@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-08-22T06:40:09.755Z",
+  "generatedAt": "2026-08-22T07:31:52.144Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(channels): honor queued replies without receipts (#127667)",
-      "link": "https://github.com/openclaw/openclaw/commit/2fdfd64a1aa9929d905d4aef39453c545efdbc16",
-      "publishedAt": "2026-08-22T06:38:52Z",
-      "summary": "fix(channels): honor queued replies without receipts (#127667) Restore compatibility-aware visible dispatch detection when legacy prepared runners return queued counters without a settled receipt. Preserve settled-receipt authority. Co-authored-by: Marvinthebored",
+      "title": "fix(models): scope status alias resolution to the selected agent (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/4c866a9beea852c53676517ef24e9baf12408e48",
+      "publishedAt": "2026-08-22T07:29:20Z",
+      "summary": "fix(models): scope status alias resolution to the selected agent (#127631) `models status --agent` selected the agent's primary and fallbacks but resolved aliases from global defaults only, so a bare per-agent alias was displayed and probed as a different provider than the runtime selects. Status, --check, auth diagnostics, provider-use reporting and --probe could all inspect the wrong route and report false missing or auth state. The canonical resolvers already merge per-agent model rows when given an agentId, so this passes the agentId that was already resolved locally and deletes the synthetic global-default config that carried the agent primary. Displayed aliases now come from the effective agent-scoped index, which applies per-agent replacement instead of reading agents.defaults.models. Unscoped status keeps reporting global defaults. Refs #127585",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): honor queued replies without receipts (#127667)",
-      "summaryZh": "重點：修正(channels): honor queued replies without receipts (#127667) Restore compatibility-aware visible dispatch detection whe..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): scope status alias resolution to the selected agent (#12…",
+      "summaryZh": "重點：修正(模型): scope status alias resolution to the selected agent (#127631) `模型 status --agent` selected the agent's primary a..."
     },
     {
       "id": 2,
-      "title": "perf(ui): stop rescanning whole replies on every streamed chunk (#127…",
-      "link": "https://github.com/openclaw/openclaw/commit/dacfd0978670ef53b3d18ca228d601a3ba8cc981",
-      "publishedAt": "2026-08-22T06:38:32Z",
-      "summary": "perf(ui): stop rescanning whole replies on every streamed chunk (#127749) * perf(ui): scan streaming markdown incrementally * perf(ui): own streaming markdown cache invalidation Co-authored-by: vyctorbrzezowski * docs: respect release-owned changelog policy Release-note context remains documented in the pull request evidence. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: Peter Steinberger",
+      "title": "fix(agents): preserve existing files after failed host writes (#118470)",
+      "link": "https://github.com/openclaw/openclaw/commit/a0f3457f3800b245cf0c11d5e43c5b94924af906",
+      "publishedAt": "2026-08-22T07:26:45Z",
+      "summary": "fix(agents): preserve existing files after failed host writes (#118470) Preserve existing unrestricted host files when a write or edit fails partway through by updating regular files in place and restoring the original prefix and length. Writable-but-unreadable regular files now fail before mutation. Co-authored-by: yetval Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ui): stop rescanning whole replies on every streamed chunk (#127…",
-      "summaryZh": "重點：perf(ui): stop rescanning whole replies on every streamed chunk (#127749) * perf(ui): scan streaming markdown incrementa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve existing files after failed host writes (#118470)",
+      "summaryZh": "重點：修正(agents): preserve existing files after failed host writes (#118470) Preserve existing unrestricted host files when a ..."
     },
     {
       "id": 3,
-      "title": "fix(onboard): emit JSON on option-validation failures (#127794)",
-      "link": "https://github.com/openclaw/openclaw/commit/32cf13dc90e427d559561c061a69171341d4295f",
-      "publishedAt": "2026-08-22T06:23:15Z",
-      "summary": "fix(onboard): emit JSON on option-validation failures (#127794) `openclaw onboard --json` wrote a JSON object to stdout on success, and the top-level CLI handler emitted {\"ok\":false,\"error\":...} for thrown errors, but every option-validation rejection printed to stderr and exited 1 with an empty stdout. Automation parsing stdout got a valid object for some bad flags and a parse error for others, with no way to tell a rejected flag from a crash. Measured before this change, all with --json and all with empty stdout: --mode, --flow, --daemon-runtime, --gateway-bind, --gateway-auth, --gateway-token-ref-env, a missing --gateway-password, and --auth-choice. Routes every onboarding option rejection through one shared primitive that emits { ok: false, phase: \"options\", message } when --json is set, then reports and exits exactly as before. 'options' joins the existing phase vocabulary ('daemon-install', 'gateway-health'). Every human message, stderr stream, and exit code is unchanged; this only adds the stdout object that was missing.",
+      "title": "fix(skills): preserve local changes during updates (#118190)",
+      "link": "https://github.com/openclaw/openclaw/commit/ff6db34233dfa1540dcf18cadf5ba6d34727936c",
+      "publishedAt": "2026-08-22T07:02:04Z",
+      "summary": "fix(skills): preserve local changes during updates (#118190) Prevent ClawHub skill updates from silently replacing locally modified files. Verify recorded install digests at the rollback boundary, restore on mismatch, and require explicit --force for unverifiable legacy installs. Co-authored-by: yetval Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): emit JSON on option-validation failures (#127794)",
-      "summaryZh": "重點：修正(onboard): emit JSON on option-validation failures (#127794) `OpenClaw onboard --json` wrote a JSON object to stdout o..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): preserve local changes during updates (#118190)",
+      "summaryZh": "重點：修正(skills): preserve local changes during updates (#118190) Prevent ClawHub skill updates from silently replacing locall..."
     },
     {
       "id": 4,
-      "title": "fix(ui): avoid nested activity main landmark (#127789)",
-      "link": "https://github.com/openclaw/openclaw/commit/c8d6604261ef8fc2b5d88a0c39831cf16d9d0a58",
-      "publishedAt": "2026-08-22T06:08:38Z",
-      "summary": "fix(ui): avoid nested activity main landmark (#127789) Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): avoid nested activity main landmark (#127789)",
-      "summaryZh": "重點：修正(ui): avoid nested activity main landmark (#127789) Co-authored-by: Amp..."
+      "title": "日月光子公司 ISE Labs 購入加州矽谷建物，為碼美國在地半導體製造布局",
+      "link": "https://finance.technews.tw/2026/08/22/ase-technology-holding-co-ltd-ise-labs-acquires-building-in-silicon-valley-california/",
+      "publishedAt": "Sat, 22 Aug 2026 07:00:10 +0000",
+      "summary": "全球半導體封測龍頭日月光投控21日代全資子公司ISE Labs發布重訊指出，宣布其董事會已於美國時間20日決議 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "智慧手錶好意評估反成壓力？「睡眠分數」讓使用者陷評分焦慮",
+      "link": "https://technews.tw/2026/08/22/deconstructing-the-sleep-anxiety-trap-of-wearable-devices/",
+      "publishedAt": "Sat, 22 Aug 2026 07:00:10 +0000",
+      "summary": "想像這情境：凌晨 3 點，手機螢幕的光在黑暗中亮起。不是因為失眠而滑手機，而是先醒了，第一件事卻是抬起手腕，看 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "perf(ui): skip highlighting unfinished code blocks while streaming (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/e22dc4b2875dddb120ad262e3d234bc1d6fca2bb",
+      "publishedAt": "2026-08-22T06:41:00Z",
+      "summary": "perf(ui): skip highlighting unfinished code blocks while streaming (#127754) * perf(ui): defer open-fence highlighting * perf(ui): simplify unfinished fence highlighting Co-authored-by: vyctorbrzezowski * docs: avoid concurrent changelog insertion conflict * docs: respect release-owned changelog policy Release-note context and before-after UI proof remain in the pull request. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): skip highlighting unfinished code blocks while streaming (#…",
+      "summaryZh": "重點：perf(ui): skip highlighting unfinished code blocks while streaming (#127754) * perf(ui): defer open-fence highlighting *..."
+    },
+    {
+      "id": 7,
       "title": "Quanta Computer 與 Quantinuum 攜手打造大規模量子運算的產業基礎",
       "link": "https://technews.tw/2026/08/22/quanta-quantinuum-sign-joint-development-agreement/",
       "publishedAt": "Sat, 22 Aug 2026 06:00:57 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "核冬天恐引發全球大饑荒，美學者警告：美俄若爆發核戰將致 64 億人喪生",
       "link": "https://technews.tw/2026/08/22/nuclear-war-killing-billions/",
       "publishedAt": "Sat, 22 Aug 2026 06:00:39 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "挖角 Google TPU 創始大將，藉人才、技術、資金 Anthropic 佈局自主研發 AI 晶片",
       "link": "https://finance.technews.tw/2026/08/22/anthropic-is-developing-its-own-ai-chips/",
       "publishedAt": "Sat, 22 Aug 2026 06:00:10 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "隱藏式把手終結令，中國啟動史上最大汽車召回案",
       "link": "https://technews.tw/2026/08/22/china-recall-millions-of-car/",
       "publishedAt": "Sat, 22 Aug 2026 05:31:34 +0000",
       "summary": "中國政府先前發布新規定，自 2027 年起全面禁止隱藏式車門把手，這項規定不僅涉及新車，也包含已經上路的車輛， [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "10 年投資百億美元設立研究實驗室，美光罕見為記憶體產業布局下一步",
-      "link": "https://finance.technews.tw/2026/08/22/micron-makes-a-rare-move-to-plan-the-next-step-in-the-memory-industry/",
-      "publishedAt": "Sat, 22 Aug 2026 05:00:56 +0000",
-      "summary": "記憶體大廠美光日前宣布了一項在記憶體晶片產業中相當罕見的重大戰略決定，也就是計劃在未來十年內投資高達 100 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "5,600 萬年前暖化事件反使森林退化，學者警告今日地球恐重演歷史",
-      "link": "https://technews.tw/2026/08/22/forests-withered-during-an-ancient-warming-episode-history-could-repeat-itself/",
-      "publishedAt": "Sat, 22 Aug 2026 05:00:22 +0000",
-      "summary": "《Science》發表的最新研究指出，約 5,600 萬年前古老升溫事件讓森林明顯稀疏，削弱儲碳力；團隊警告， [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
