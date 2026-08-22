@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-08-22T12:39:27.265Z",
+  "generatedAt": "2026-08-22T13:31:42.079Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(channels): resolve registered plugins before agent workspace (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/4f5905373d171d1bdef573fd287b42ef9da0c25d",
+      "publishedAt": "2026-08-22T12:49:44Z",
+      "summary": "fix(channels): resolve registered plugins before agent workspace (#124709) * fix(channels): resolve registered plugins before agent workspace * fix(channels): scope registered plugin fast path to directory * fix(channels): restrict directory fast path to loaded plugins",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): resolve registered plugins before agent workspace (#12…",
+      "summaryZh": "重點：修正(channels): resolve registered plugins before agent workspace (#124709) * 修正(channels): resolve registered plugins bef..."
+    },
+    {
+      "id": 2,
+      "title": "fix(mantis): pin harness pdf tool model to the catalog model (#127882)",
+      "link": "https://github.com/openclaw/openclaw/commit/e8e656f451b8e6e059cffc9d5d98f6de256c9bab",
+      "publishedAt": "2026-08-22T12:48:42Z",
+      "summary": "fix(mantis): pin harness pdf tool model to the catalog model (#127882) The pdf tool auto-resolves its model from plugin manifest defaults (openai gpt-5.5), which the Mantis SUT catalog does not define, so every pdf round trip died with \"Unknown model: openai/gpt-5.5\" before native-vs-fallback dispatch (run 32572580656). Pin agents.defaults.pdfModel to the only harness model and account for the pdf tool's own provider request in the staged-media recipe wait/pins.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mantis): pin harness pdf tool 模型 to the catalog 模型 (#127882)",
+      "summaryZh": "重點：修正(mantis): pin harness pdf tool 模型 to the catalog 模型 (#127882) The pdf tool auto-resolves its 模型 from plugin manifest d..."
+    },
+    {
+      "id": 3,
+      "title": "perf(imessage): reuse prepared inbound account service (#127877)",
+      "link": "https://github.com/openclaw/openclaw/commit/90c951aabf9531d51c89d8a822040e5699275c30",
+      "publishedAt": "2026-08-22T12:40:49Z",
+      "summary": "perf(imessage): reuse prepared inbound account service (#127877) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(imessage): reuse prepared inbound account service (#127877)",
+      "summaryZh": "重點：perf(imessage): reuse prepared inbound account service (#127877) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-9..."
+    },
+    {
+      "id": 4,
       "title": "docs(mantis): script catalog-tool turns through Code Mode exec (#127878)",
       "link": "https://github.com/openclaw/openclaw/commit/f4cb54578397aa4cced6a0fa563774b1e71be018",
       "publishedAt": "2026-08-22T12:17:03Z",
@@ -11,39 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 文件更新：文件(mantis): script catalog-tool turns through Code Mode exec (#127878)",
       "summaryZh": "重點：文件(mantis): script catalog-tool turns through Code Mode exec (#127878) * 文件(mantis): script catalog-tool turns through C..."
-    },
-    {
-      "id": 2,
-      "title": "fix(backup): validate git log limit strictly (#127875)",
-      "link": "https://github.com/openclaw/openclaw/commit/c5121ada6cbf541c68f0213d24f178c3b2cce982",
-      "publishedAt": "2026-08-22T12:15:44Z",
-      "summary": "fix(backup): validate git log limit strictly (#127875) Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(backup): validate git log limit strictly (#127875)",
-      "summaryZh": "重點：修正(backup): validate git log limit strictly (#127875) Co-authored-by: Amp..."
-    },
-    {
-      "id": 3,
-      "title": "fix(sqlite): isolate read-only snapshot preparation to stop WAL lock …",
-      "link": "https://github.com/openclaw/openclaw/commit/5248c2fac7c4c8bc06a75c68bdc98d091bd9af4e",
-      "publishedAt": "2026-08-22T11:39:18Z",
-      "summary": "fix(sqlite): isolate read-only snapshot preparation to stop WAL lock drops (#127855) Runs prepareSqliteReadOnlyLocation[Sync] in a short-lived child process so POSIX close() can no longer drop the gateway's WAL locks (the #125744 producer), and adds a Linux WAL sidecar split-brain tripwire that invalidates and evicts a connection whose -wal/-shm fds no longer match the on-disk sidecars. Regression net: F_GETLK lock-survival test plus platform-agnostic smoke/error tests.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): isolate read-only snapshot preparation to stop WAL lock …",
-      "summaryZh": "重點：修正(sqlite): isolate read-only snapshot preparation to stop WAL lock drops (#127855) Runs prepareSqliteReadOnlyLocation[S..."
-    },
-    {
-      "id": 4,
-      "title": "fix(mantis): keep caller stdin for the lease-fenced command (#127871)",
-      "link": "https://github.com/openclaw/openclaw/commit/c7199713c283d2254c200d459a429230adba1da7",
-      "publishedAt": "2026-08-22T11:22:29Z",
-      "summary": "fix(mantis): keep caller stdin for the lease-fenced command (#127871) The lease fence backgrounds its child to watch the lost-lease marker, and a backgrounded command's stdin defaults to /dev/null — so the workflow's piped agent prompt vanished and every agentic proof run died instantly with 'No prompt provided via stdin' (observed in run 32569181167). An explicit",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): keep caller stdin for the lease-fenced command (#127871)",
-      "summaryZh": "重點：修正(mantis): keep caller stdin for the lease-fenced command (#127871) The lease fence backgrounds its child to watch the ..."
     },
     {
       "id": 5,
