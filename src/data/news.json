@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-22T11:20:36.376Z",
+  "generatedAt": "2026-08-22T12:39:27.265Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(mattermost): decode inbound websocket frames once (#127870)",
-      "link": "https://github.com/openclaw/openclaw/commit/95c193879acae8d3916a438a35a1b8ecec47939a",
-      "publishedAt": "2026-08-22T11:17:02Z",
-      "summary": "perf(mattermost): decode inbound websocket frames once (#127870) Co-authored-by: Amp",
+      "title": "docs(mantis): script catalog-tool turns through Code Mode exec (#127878)",
+      "link": "https://github.com/openclaw/openclaw/commit/f4cb54578397aa4cced6a0fa563774b1e71be018",
+      "publishedAt": "2026-08-22T12:17:03Z",
+      "summary": "docs(mantis): script catalog-tool turns through Code Mode exec (#127878) * docs(mantis): script catalog-tool turns through Code Mode exec Run 32570733988 blocked both lanes with 'Tool pdf not found': the proof agent scripted a top-level pdf function_call, but the SUT agent runs Code Mode where catalog tools execute from JavaScript inside exec. Document the canonical route in the proof prompt, add a complete exec(pdf) scripted-event example plus the document-extract configPatch to the staged-media recipe, and pin the new guidance in the workflow test. * docs(mantis): wait for the exec round trip before finish ClawSweeper P2: send releases the mock response once the outbound message is visible, and finish tears the lane down, so a slow exec/pdf round trip could lose its function_call_output follow-up. Observe until the cumulative provider-request count covers the follow-up and assert the recorded function_call_output before finish; pin the contract in the workflow test.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(mattermost): decode inbound websocket frames once (#127870)",
-      "summaryZh": "重點：perf(mattermost): decode inbound websocket frames once (#127870) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 文件更新：文件(mantis): script catalog-tool turns through Code Mode exec (#127878)",
+      "summaryZh": "重點：文件(mantis): script catalog-tool turns through Code Mode exec (#127878) * 文件(mantis): script catalog-tool turns through C..."
     },
     {
       "id": 2,
-      "title": "fix(cli): sanitize node describe commands (#127856)",
-      "link": "https://github.com/openclaw/openclaw/commit/c7f5151f27e9aab68ad0763ec7f261d4f6866b04",
-      "publishedAt": "2026-08-22T11:03:31Z",
-      "summary": "fix(cli): sanitize node describe commands (#127856) Co-authored-by: Amp",
+      "title": "fix(backup): validate git log limit strictly (#127875)",
+      "link": "https://github.com/openclaw/openclaw/commit/c5121ada6cbf541c68f0213d24f178c3b2cce982",
+      "publishedAt": "2026-08-22T12:15:44Z",
+      "summary": "fix(backup): validate git log limit strictly (#127875) Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): sanitize node describe commands (#127856)",
-      "summaryZh": "重點：修正(cli): sanitize node describe commands (#127856) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(backup): validate git log limit strictly (#127875)",
+      "summaryZh": "重點：修正(backup): validate git log limit strictly (#127875) Co-authored-by: Amp..."
     },
     {
       "id": 3,
-      "title": "feat(e2e): record provider media content facts for Mantis proofs (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/d9d44981fbe6ebb69e8718ea3aa18d783f33b4a3",
-      "publishedAt": "2026-08-22T11:00:30Z",
-      "summary": "feat(e2e): record provider media content facts for Mantis proofs (#127830) * feat(e2e): record provider media content facts * docs(mantis): list staged-media recipe in recipe index * fix(mantis): isolate mock provider evidence * fix(mantis): state provider facts as tamper-evident, not provenance-trusted The mock sidecar makes provider request facts tamper-evident: candidate code cannot alter or remove a recorded request. It cannot make them provenance-authenticated — every process in the SUT container shares the internal network, UID, and gateway config, so nothing distinguishes the gateway flow from any other candidate-originated request. The proof prompt and busy-queue recipe now state exactly that property instead of calling the facts trusted. * fix(mantis): redact unparseable provider request bodies Media redaction walks the parsed JSON body, so a request that fails JSON.parse fell back to logging the raw text — leaking base64 payloads the redactor exists to strip. Unparseable bodies now log a bounded byte-count marker instead; regression posts a malformed body carrying a data URL and asserts the payload never reaches the record. * fix(mantis): expose newest provider records through a seq-stamped tail The lane's requests surface kept the first 100 provider records, so a session longer than the window hid exactly the newest requests a proof asserts on. The mock server now stamps each record with a producer-owned absolute seq ordinal, and the lane reads a bounded 128-record tail — mirroring the sibling botApiRequests window. Regression writes 130 records and asserts the tail keeps seq 3..130; it fails pre-fix.",
+      "title": "fix(sqlite): isolate read-only snapshot preparation to stop WAL lock …",
+      "link": "https://github.com/openclaw/openclaw/commit/5248c2fac7c4c8bc06a75c68bdc98d091bd9af4e",
+      "publishedAt": "2026-08-22T11:39:18Z",
+      "summary": "fix(sqlite): isolate read-only snapshot preparation to stop WAL lock drops (#127855) Runs prepareSqliteReadOnlyLocation[Sync] in a short-lived child process so POSIX close() can no longer drop the gateway's WAL locks (the #125744 producer), and adds a Linux WAL sidecar split-brain tripwire that invalidates and evicts a connection whose -wal/-shm fds no longer match the on-disk sidecars. Regression net: F_GETLK lock-survival test plus platform-agnostic smoke/error tests.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(e2e): record provider media content facts for Mantis proofs (#12…",
-      "summaryZh": "重點：新功能(e2e): record provider media content facts for Mantis proofs (#127830) * 新功能(e2e): record provider media content fact..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): isolate read-only snapshot preparation to stop WAL lock …",
+      "summaryZh": "重點：修正(sqlite): isolate read-only snapshot preparation to stop WAL lock drops (#127855) Runs prepareSqliteReadOnlyLocation[S..."
     },
     {
       "id": 4,
-      "title": "perf(e2e): reuse one authorized Telegram Desktop session per Mantis r…",
-      "link": "https://github.com/openclaw/openclaw/commit/da0cb592ddbe3d4e0c322db68545cf0fdc3f8fe1",
-      "publishedAt": "2026-08-22T10:28:12Z",
-      "summary": "perf(e2e): reuse one authorized Telegram Desktop session per Mantis run (#127835) * refactor(mantis): reuse authorized desktop captures * fix(mantis): budget desktop authorization failures * chore(mantis): bound desktop proof retries * fix(e2e): drop unused recorder failure fact type export * fix(ci): route Mantis desktop teardown through the recorder wrapper Cleanup invoked the internal recorder executable as mantis-sut, which is deliberately kept out of the docker group and cannot read the recorder-owned session file; teardown therefore failed and blocked safe_to_release. The cleanup step already runs as the recorder user, so call the public wrapper whose exec shim cds into the session root. * fix(e2e): make recorder failure fact lane-readable; document v2 lifecycle The Mantis workflow runs the recorder as the desktop user while the lane reads the authorization-failure fact as mantis-sut; 0600 made that read fail EACCES and silently disabled the two-attempt retry budget. Write the fact 0644 — the 0770 attempt directory bounds visibility. Update the mantis doc's recorder section for the v2 session lifecycle: required --session handle with healthy-session reuse, capture-only stop, and teardown owning authorization termination and lease release.",
+      "title": "fix(mantis): keep caller stdin for the lease-fenced command (#127871)",
+      "link": "https://github.com/openclaw/openclaw/commit/c7199713c283d2254c200d459a429230adba1da7",
+      "publishedAt": "2026-08-22T11:22:29Z",
+      "summary": "fix(mantis): keep caller stdin for the lease-fenced command (#127871) The lease fence backgrounds its child to watch the lost-lease marker, and a backgrounded command's stdin defaults to /dev/null — so the workflow's piped agent prompt vanished and every agentic proof run died instantly with 'No prompt provided via stdin' (observed in run 32569181167). An explicit",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(e2e): reuse one authorized Telegram Desktop session per Mantis r…",
-      "summaryZh": "重點：perf(e2e): reuse one authorized Telegram Desktop session per Mantis run (#127835) * refactor(mantis): reuse authorized d..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mantis): keep caller stdin for the lease-fenced command (#127871)",
+      "summaryZh": "重點：修正(mantis): keep caller stdin for the lease-fenced command (#127871) The lease fence backgrounds its child to watch the ..."
     },
     {
       "id": 5,
