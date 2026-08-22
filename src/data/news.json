@@ -1,41 +1,88 @@
 {
-  "generatedAt": "2026-08-22T05:27:33.123Z",
+  "generatedAt": "2026-08-22T06:40:09.755Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(onboard): name the available providers when --import-from is unkn…",
-      "link": "https://github.com/openclaw/openclaw/commit/500bb6031d1768425e99e1288b9c76807b21d52d",
-      "publishedAt": "2026-08-22T05:12:32Z",
-      "summary": "fix(onboard): name the available providers when --import-from is unknown (#127780) Onboarding answered an unknown --import-from with \"Migration provider \\\"x\\\" is not installed or bundled. Install it before starting the transactional import.\" — no list of valid ids, no next command, and advice to go install something that is usually just a typo. Its siblings already do this correctly: resolveMigrationProvider appends \"Available providers: ...\" and the migrate selection helper appends \"Available skills: ...\". The missing --import-from case in onboarding itself already points at `openclaw migrate list`. Only the unknown-id case dead-ended. Collapses the two duplicated throws into one guard used by every path, which also closes a gap: the no-back-navigation branch returned the picker result without validating it at all.",
+      "title": "fix(channels): honor queued replies without receipts (#127667)",
+      "link": "https://github.com/openclaw/openclaw/commit/2fdfd64a1aa9929d905d4aef39453c545efdbc16",
+      "publishedAt": "2026-08-22T06:38:52Z",
+      "summary": "fix(channels): honor queued replies without receipts (#127667) Restore compatibility-aware visible dispatch detection when legacy prepared runners return queued counters without a settled receipt. Preserve settled-receipt authority. Co-authored-by: Marvinthebored",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): name the available providers when --import-from is unkn…",
-      "summaryZh": "重點：修正(onboard): name the available providers when --import-from is unknown (#127780) Onboarding answered an unknown --impor..."
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): honor queued replies without receipts (#127667)",
+      "summaryZh": "重點：修正(channels): honor queued replies without receipts (#127667) Restore compatibility-aware visible dispatch detection whe..."
     },
     {
       "id": 2,
-      "title": "perf(gateway): avoid single-chunk request body copy (#127783)",
-      "link": "https://github.com/openclaw/openclaw/commit/15569b210ef4cdf2ae60e972289b44bb9a3bae03",
-      "publishedAt": "2026-08-22T05:12:09Z",
-      "summary": "perf(gateway): avoid single-chunk request body copy (#127783) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "perf(ui): stop rescanning whole replies on every streamed chunk (#127…",
+      "link": "https://github.com/openclaw/openclaw/commit/dacfd0978670ef53b3d18ca228d601a3ba8cc981",
+      "publishedAt": "2026-08-22T06:38:32Z",
+      "summary": "perf(ui): stop rescanning whole replies on every streamed chunk (#127749) * perf(ui): scan streaming markdown incrementally * perf(ui): own streaming markdown cache invalidation Co-authored-by: vyctorbrzezowski * docs: respect release-owned changelog policy Release-note context remains documented in the pull request evidence. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): avoid single-chunk request body copy (#127783)",
-      "summaryZh": "重點：perf(Gateway): avoid single-chunk request body copy (#127783) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): stop rescanning whole replies on every streamed chunk (#127…",
+      "summaryZh": "重點：perf(ui): stop rescanning whole replies on every streamed chunk (#127749) * perf(ui): scan streaming markdown incrementa..."
     },
     {
       "id": 3,
-      "title": "fix(codex): accept bounded upstream prompt provenance (#127730)",
-      "link": "https://github.com/openclaw/openclaw/commit/80beef6ff73643de49b9fc39b26625cde1e8b205",
-      "publishedAt": "2026-08-22T05:02:48Z",
-      "summary": "fix(codex): accept bounded upstream prompt provenance (#127730) Allow exact upstream prompt provenance to use the existing 512 KiB settled-projection budget while preserving ordinary text bounds and aggregate accounting. Co-authored-by: Marvinthebored",
+      "title": "fix(onboard): emit JSON on option-validation failures (#127794)",
+      "link": "https://github.com/openclaw/openclaw/commit/32cf13dc90e427d559561c061a69171341d4295f",
+      "publishedAt": "2026-08-22T06:23:15Z",
+      "summary": "fix(onboard): emit JSON on option-validation failures (#127794) `openclaw onboard --json` wrote a JSON object to stdout on success, and the top-level CLI handler emitted {\"ok\":false,\"error\":...} for thrown errors, but every option-validation rejection printed to stderr and exited 1 with an empty stdout. Automation parsing stdout got a valid object for some bad flags and a parse error for others, with no way to tell a rejected flag from a crash. Measured before this change, all with --json and all with empty stdout: --mode, --flow, --daemon-runtime, --gateway-bind, --gateway-auth, --gateway-token-ref-env, a missing --gateway-password, and --auth-choice. Routes every onboarding option rejection through one shared primitive that emits { ok: false, phase: \"options\", message } when --json is set, then reports and exits exactly as before. 'options' joins the existing phase vocabulary ('daemon-install', 'gateway-health'). Every human message, stderr stream, and exit code is unchanged; this only adds the stdout object that was missing.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): accept bounded upstream prompt provenance (#127730)",
-      "summaryZh": "重點：修正(codex): accept bounded upstream prompt provenance (#127730) Allow exact upstream prompt provenance to use the existin..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): emit JSON on option-validation failures (#127794)",
+      "summaryZh": "重點：修正(onboard): emit JSON on option-validation failures (#127794) `OpenClaw onboard --json` wrote a JSON object to stdout o..."
     },
     {
       "id": 4,
+      "title": "fix(ui): avoid nested activity main landmark (#127789)",
+      "link": "https://github.com/openclaw/openclaw/commit/c8d6604261ef8fc2b5d88a0c39831cf16d9d0a58",
+      "publishedAt": "2026-08-22T06:08:38Z",
+      "summary": "fix(ui): avoid nested activity main landmark (#127789) Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): avoid nested activity main landmark (#127789)",
+      "summaryZh": "重點：修正(ui): avoid nested activity main landmark (#127789) Co-authored-by: Amp..."
+    },
+    {
+      "id": 5,
+      "title": "Quanta Computer 與 Quantinuum 攜手打造大規模量子運算的產業基礎",
+      "link": "https://technews.tw/2026/08/22/quanta-quantinuum-sign-joint-development-agreement/",
+      "publishedAt": "Sat, 22 Aug 2026 06:00:57 +0000",
+      "summary": "名列《財富》全球 500 大企業的先進運算與雲端基礎設施製造商 Quanta Computer（簡稱Quant [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "核冬天恐引發全球大饑荒，美學者警告：美俄若爆發核戰將致 64 億人喪生",
+      "link": "https://technews.tw/2026/08/22/nuclear-war-killing-billions/",
+      "publishedAt": "Sat, 22 Aug 2026 06:00:39 +0000",
+      "summary": "美國軍控與核戰研究學者 16 日發出強烈警告，隨著俄羅斯持續對烏克蘭及其西方盟友發出核威脅，全球正面臨更迫切的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "挖角 Google TPU 創始大將，藉人才、技術、資金 Anthropic 佈局自主研發 AI 晶片",
+      "link": "https://finance.technews.tw/2026/08/22/anthropic-is-developing-its-own-ai-chips/",
+      "publishedAt": "Sat, 22 Aug 2026 06:00:10 +0000",
+      "summary": "隨著人工智慧（AI）領域競爭白熱化，開發知名 AI 科技廠商 Anthropic 正式宣告進軍半導體領域。An [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "隱藏式把手終結令，中國啟動史上最大汽車召回案",
+      "link": "https://technews.tw/2026/08/22/china-recall-millions-of-car/",
+      "publishedAt": "Sat, 22 Aug 2026 05:31:34 +0000",
+      "summary": "中國政府先前發布新規定，自 2027 年起全面禁止隱藏式車門把手，這項規定不僅涉及新車，也包含已經上路的車輛， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "10 年投資百億美元設立研究實驗室，美光罕見為記憶體產業布局下一步",
       "link": "https://finance.technews.tw/2026/08/22/micron-makes-a-rare-move-to-plan-the-next-step-in-the-memory-industry/",
       "publishedAt": "Sat, 22 Aug 2026 05:00:56 +0000",
@@ -44,58 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "5,600 萬年前暖化事件反使森林退化，學者警告今日地球恐重演歷史",
       "link": "https://technews.tw/2026/08/22/forests-withered-during-an-ancient-warming-episode-history-could-repeat-itself/",
       "publishedAt": "Sat, 22 Aug 2026 05:00:22 +0000",
       "summary": "《Science》發表的最新研究指出，約 5,600 萬年前古老升溫事件讓森林明顯稀疏，削弱儲碳力；團隊警告， [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "fix(onboard): reject --gateway-bind custom without a valid customBind…",
-      "link": "https://github.com/openclaw/openclaw/commit/ec3937696791cce3b7271ab94b7352b65ef2e327",
-      "publishedAt": "2026-08-22T04:59:01Z",
-      "summary": "fix(onboard): reject --gateway-bind custom without a valid customBindHost (#127779) Non-interactive onboarding accepted `--gateway-bind custom` with no `gateway.customBindHost`, wrote `bind: \"custom\"` to the config, and reported success. The Gateway refuses that config outright: Gateway failed to start: gateway.bind=custom requires gateway.customBindHost. `doctor` and `config validate` both call the written config healthy, so the first sign of trouble is a Gateway that will not start. Every other onboarding flag already rejects a mode whose companion value is missing (--gateway-auth password, --auth-choice openai-api-key, --auth-choice custom-api-key). This restores the same contract for bind, reusing the same validateDottedDecimalIPv4Input the interactive wizard and `openclaw configure` apply to this field. Pre-seeding gateway.customBindHost keeps working.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboard): reject --Gateway-bind custom without a valid customBind…",
-      "summaryZh": "重點：修正(onboard): reject --Gateway-bind custom without a valid customBindHost (#127779) Non-interactive onboarding accepted `..."
-    },
-    {
-      "id": 7,
-      "title": "夠全球用 780 年！日本開採南鳥島深海「釔」礦，美日聯手打破中國稀土壟斷",
-      "link": "https://technews.tw/2026/08/22/japan-us-minamitorishima-deep-sea-rare-earths-yttrium-780-year-semiconductor-supply/",
-      "publishedAt": "Sat, 22 Aug 2026 04:00:28 +0000",
-      "summary": "面對中國收緊稀土出口管制，日本正加速開發南鳥島周邊約 6,000 公尺深海的海底稀土礦藏，並與美國強化合作。 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "半導體市場需求強烈，富士軟片擴建關鍵化學品產線",
-      "link": "https://finance.technews.tw/2026/08/22/fujifilm-expands-key-chemical-production-line/",
-      "publishedAt": "Sat, 22 Aug 2026 04:00:26 +0000",
-      "summary": "隨著全球人工智慧（AI）資料中心大舉擴建，半導體供應鏈出現瓶頸與短缺，傳統相機與辦公事務機大廠富士軟片 (Fu [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "隨著 Starlink 在軌衛星數量接近 11,000 顆，SpaceX 股價跟著上漲",
-      "link": "https://finance.technews.tw/2026/08/22/starlink-has-nearly-11000-satellites-in-orbit-and-spacexs-stock-price-rose-accordingly/",
-      "publishedAt": "Sat, 22 Aug 2026 03:00:58 +0000",
-      "summary": "SpaceX 隨著星鏈 （Starlink） 衛星網路快速擴張，加上即將到來的股份解禁，以及龐大資本支出的多重 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Sora 關門它卻爆紅，AI 影片新創 Higgsfield 如何逆勢衝出 54 億美元身價",
-      "link": "https://technews.tw/2026/08/22/higgsfield-valued-at-5-4bn-as-goldman-and-intel-back-ai-video-start-up/",
-      "publishedAt": "Sat, 22 Aug 2026 03:00:14 +0000",
-      "summary": "AI 影片新創 Higgsfield 8 月 17 日宣布完成 4 億美元（約新台幣 127 億元）B 輪募資 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
