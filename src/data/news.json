@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-22T18:30:46.778Z",
+  "generatedAt": "2026-08-22T19:22:28.288Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(plugins): share schema validation format scope (#128004)",
-      "link": "https://github.com/openclaw/openclaw/commit/bb6dba54ef97aac71b8c7a62db2b77b57b1b5e3e",
-      "publishedAt": "2026-08-22T18:18:27Z",
-      "summary": "perf(plugins): share schema validation format scope (#128004) Co-authored-by: Amp",
+      "title": "fix(agents): heartbeat runs no longer block visible turns (#126853)",
+      "link": "https://github.com/openclaw/openclaw/commit/d0700b3bc26bc409e4d7aaaf38f7e1d71053b2f3",
+      "publishedAt": "2026-08-22T19:15:18Z",
+      "summary": "fix(agents): heartbeat runs no longer block visible turns (#126853) * fix(heartbeat): keep background runs off the main lane * docs(queue): describe heartbeat background lane * fix(agents): forward heartbeat lane to embedded fallback * test(agents): prove heartbeat and visible lane overlap * test(agents): expose heartbeat lane in embedded harnesses * refactor(agents): keep heartbeat lane choice at fallback boundary Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins): share schema validation format scope (#128004)",
-      "summaryZh": "重點：perf(plugins): share schema validation format scope (#128004) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): heartbeat runs no longer block visible turns (#126853)",
+      "summaryZh": "重點：修正(agents): heartbeat runs no longer block visible turns (#126853) * 修正(heartbeat): keep background runs off the main la..."
     },
     {
       "id": 2,
-      "title": "feat(ui): add a Claude CLI 200K/1M context-window switch to the model…",
-      "link": "https://github.com/openclaw/openclaw/commit/041938bc2f73201c763f53584a59e25664650fa6",
-      "publishedAt": "2026-08-22T17:55:23Z",
-      "summary": "feat(ui): add a Claude CLI 200K/1M context-window switch to the model picker (#127951) Adds a generic plugin-declared selectable-context-window surface mirroring thinkingLevels: ModelCatalogEntry.contextWindows + contextWindowDefault through catalog normalization and the gateway protocol, session validation on sessions.create/patch, and a 200K/1M switch inside the Control UI model picker for Claude CLI 5-series models. The Anthropic plugin owns the option mapping: explicit 1m → `[1m]` argv suffix, 200k → bare id + CLAUDE_CODE_DISABLE_1M_CONTEXT=1, omitted → bare id (shipped default argv). Run budgets follow the selection on both CLI and native paths, so a 200K session gets a matching auto-compact window instead of a silent 1M budget. Review fixes landed in this PR: run-owner prepared-fact plumbing so ordinary replies honor the selection; atomic catalog overlay merge and normalization for the options/default tuple; one-owner tuple reads in the picker; sessions.create key-presence patch semantics; native-run budget capping. Feature direction and in-picker switch shape by @obviyus (maintainer review).",
+      "title": "fix: show WebChat attachments from active runs [AI-assisted] (#127879)",
+      "link": "https://github.com/openclaw/openclaw/commit/23854c39fc7d87b659d5ae1ab86a97880f2fd210",
+      "publishedAt": "2026-08-22T19:09:06Z",
+      "summary": "fix: show WebChat attachments from active runs [AI-assisted] (#127879) * fix(webchat): preserve message-tool attachments Forward registered projects through visible sessions_spawn. Co-authored-by: Tak Hoffman * fix(webchat): bind delivery mirrors to tool calls * fix(webchat): require exact delivery mirror ids * chore(pr): split project selection from attachment fix --------- Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add a Claude CLI 200K/1M context-window switch to the 模型…",
-      "summaryZh": "重點：新功能(ui): add a Claude CLI 200K/1M context-window switch to the 模型 picker (#127951) Adds a generic plugin-declared select..."
+      "titleZh": "OpenClaw 程式碼更新：修正: show WebChat attachments from active runs [AI-assisted] (#127879)",
+      "summaryZh": "重點：修正: show WebChat attachments from active runs [AI-assisted] (#127879) * 修正(webchat): preserve message-tool attachments F..."
     },
     {
       "id": 3,
-      "title": "fix(tui): honor system-agent history limit (#127993)",
-      "link": "https://github.com/openclaw/openclaw/commit/8126d45242626e9026569a1880306990636bbc1b",
-      "publishedAt": "2026-08-22T17:51:05Z",
-      "summary": "fix(tui): honor system-agent history limit (#127993) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
+      "title": "fix(openai): return structured failure for malformed OAuth token JSON…",
+      "link": "https://github.com/openclaw/openclaw/commit/0a35d54846a14540fc8ba8feaab8a2f3076b1fba",
+      "publishedAt": "2026-08-22T19:00:33Z",
+      "summary": "fix(openai): return structured failure for malformed OAuth token JSON (#122962) * fix(openai): return structured failure for malformed OAuth token JSON A truncated or otherwise malformed token response from auth.openai.com made response.json() throw a raw SyntaxError. The exchange path called the shared parser outside its try/catch, so the exception escaped exchangeOpenAIAuthorizationCode and crashed the login flow instead of surfacing a structured failure. Catch parse errors inside readOpenAITokenResponse so both exchange and refresh return a failed TokenResult. * ci: retrigger checks after concurrency-cancelled lint run",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): honor system-agent history limit (#127993)",
-      "summaryZh": "重點：修正(tui): honor system-agent history limit (#127993) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916..."
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): return structured failure for malformed OAuth token JSON…",
+      "summaryZh": "重點：修正(openai): return structured failure for malformed OAuth token JSON (#122962) * 修正(openai): return structured failure f..."
     },
     {
       "id": 4,
-      "title": "perf(sessions): skip duplicate transcript root preparation (#127990)",
-      "link": "https://github.com/openclaw/openclaw/commit/6ea8a7111cbe1a7192c1cbd22150fe9b7b8cc5ed",
-      "publishedAt": "2026-08-22T17:16:49Z",
-      "summary": "perf(sessions): skip duplicate transcript root preparation (#127990) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "perf(mantis): build proof lanes runtime-only (#128007)",
+      "link": "https://github.com/openclaw/openclaw/commit/2eecf3d3f2cc66467137345722233831dc34fdce",
+      "publishedAt": "2026-08-22T18:45:24Z",
+      "summary": "perf(mantis): build proof lanes runtime-only (#128007) The proof gateways execute runtime JS only; declarations forced a ~177s unified rebuild per lane because the declaration cache key is an aggregate source hash. OPENCLAW_RUN_NODE_SKIP_DTS_BUILD=1 on profile full now selects the runtime artifact surface via the uncached generic tsdown graph, both Mantis lanes pass it through, and the baseline archive moves to an isolated mantis-runtime-v1 namespace. Measured candidate build: 177.1s -> 33.05s.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): skip duplicate transcript root preparation (#127990)",
-      "summaryZh": "重點：perf(sessions): skip duplicate transcript root preparation (#127990) Amp-Thread-ID: https://ampcode.com/threads/T-01a021..."
+      "titleZh": "OpenClaw 程式碼更新：perf(mantis): build proof lanes runtime-only (#128007)",
+      "summaryZh": "重點：perf(mantis): build proof lanes runtime-only (#128007) The proof Gateways execute runtime JS only; declarations forced a..."
     },
     {
       "id": 5,
@@ -74,7 +74,7 @@
     },
     {
       "id": 8,
-      "title": "告別 7 歲法則迷思！科學家全新毛孩年齡公式，1 歲狗已是 31 歲人類成年人",
+      "title": "告別 7 歲法則迷思！科學家全新毛孩年齡公式，1 歲狗等於 31 歲成年人",
       "link": "https://technews.tw/2026/08/22/scientists-new-formula-for-dog-age/",
       "publishedAt": "Sat, 22 Aug 2026 08:10:16 +0000",
       "summary": "許多飼主在幫愛犬慶生時，總習慣將狗的實際年齡 「乘以 7」 來估算相當於人類的幾歲。然而，一項發表於 《細胞系 [&#8230;]",
