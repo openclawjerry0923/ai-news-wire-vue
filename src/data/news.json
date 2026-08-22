@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-22T13:31:42.079Z",
+  "generatedAt": "2026-08-22T14:21:45.086Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(channels): resolve registered plugins before agent workspace (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/4f5905373d171d1bdef573fd287b42ef9da0c25d",
-      "publishedAt": "2026-08-22T12:49:44Z",
-      "summary": "fix(channels): resolve registered plugins before agent workspace (#124709) * fix(channels): resolve registered plugins before agent workspace * fix(channels): scope registered plugin fast path to directory * fix(channels): restrict directory fast path to loaded plugins",
+      "title": "refactor(tui): sanitize streamed markdown once per delta (#127838)",
+      "link": "https://github.com/openclaw/openclaw/commit/ea1cd39d6c9ac880eaa531e57c98219d8c559e57",
+      "publishedAt": "2026-08-22T13:41:33Z",
+      "summary": "refactor(tui): sanitize streamed markdown once per delta (#127838)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): resolve registered plugins before agent workspace (#12…",
-      "summaryZh": "重點：修正(channels): resolve registered plugins before agent workspace (#124709) * 修正(channels): resolve registered plugins bef..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(tui): sanitize streamed markdown once per delta (#127838)",
+      "summaryZh": "重點：refactor(tui): sanitize streamed markdown once per delta (#127838)..."
     },
     {
       "id": 2,
-      "title": "fix(mantis): pin harness pdf tool model to the catalog model (#127882)",
-      "link": "https://github.com/openclaw/openclaw/commit/e8e656f451b8e6e059cffc9d5d98f6de256c9bab",
-      "publishedAt": "2026-08-22T12:48:42Z",
-      "summary": "fix(mantis): pin harness pdf tool model to the catalog model (#127882) The pdf tool auto-resolves its model from plugin manifest defaults (openai gpt-5.5), which the Mantis SUT catalog does not define, so every pdf round trip died with \"Unknown model: openai/gpt-5.5\" before native-vs-fallback dispatch (run 32572580656). Pin agents.defaults.pdfModel to the only harness model and account for the pdf tool's own provider request in the staged-media recipe wait/pins.",
+      "title": "perf(ui): stop re-comparing the whole session catalog on every live e…",
+      "link": "https://github.com/openclaw/openclaw/commit/353d0aefafccdfd5e00521d7175011f25622655e",
+      "publishedAt": "2026-08-22T13:39:42Z",
+      "summary": "perf(ui): stop re-comparing the whole session catalog on every live event (#127819) * perf(ui): scope live catalog comparisons * fix(ui): keep metadata updates on stable catalog cadence",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): pin harness pdf tool 模型 to the catalog 模型 (#127882)",
-      "summaryZh": "重點：修正(mantis): pin harness pdf tool 模型 to the catalog 模型 (#127882) The pdf tool auto-resolves its 模型 from plugin manifest d..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): stop re-comparing the whole session catalog on every live e…",
+      "summaryZh": "重點：perf(ui): stop re-comparing the whole session catalog on every live event (#127819) * perf(ui): scope live catalog compa..."
     },
     {
       "id": 3,
-      "title": "perf(imessage): reuse prepared inbound account service (#127877)",
-      "link": "https://github.com/openclaw/openclaw/commit/90c951aabf9531d51c89d8a822040e5699275c30",
-      "publishedAt": "2026-08-22T12:40:49Z",
-      "summary": "perf(imessage): reuse prepared inbound account service (#127877) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "refactor(ui): share background task active count (#127832)",
+      "link": "https://github.com/openclaw/openclaw/commit/8ebc6bc8755506676b46d62c024d29b46839b4ad",
+      "publishedAt": "2026-08-22T13:37:45Z",
+      "summary": "refactor(ui): share background task active count (#127832)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(imessage): reuse prepared inbound account service (#127877)",
-      "summaryZh": "重點：perf(imessage): reuse prepared inbound account service (#127877) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-9..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share background task active count (#127832)",
+      "summaryZh": "重點：refactor(ui): share background task active count (#127832)..."
     },
     {
       "id": 4,
-      "title": "docs(mantis): script catalog-tool turns through Code Mode exec (#127878)",
-      "link": "https://github.com/openclaw/openclaw/commit/f4cb54578397aa4cced6a0fa563774b1e71be018",
-      "publishedAt": "2026-08-22T12:17:03Z",
-      "summary": "docs(mantis): script catalog-tool turns through Code Mode exec (#127878) * docs(mantis): script catalog-tool turns through Code Mode exec Run 32570733988 blocked both lanes with 'Tool pdf not found': the proof agent scripted a top-level pdf function_call, but the SUT agent runs Code Mode where catalog tools execute from JavaScript inside exec. Document the canonical route in the proof prompt, add a complete exec(pdf) scripted-event example plus the document-extract configPatch to the staged-media recipe, and pin the new guidance in the workflow test. * docs(mantis): wait for the exec round trip before finish ClawSweeper P2: send releases the mock response once the outbound message is visible, and finish tears the lane down, so a slow exec/pdf round trip could lose its function_call_output follow-up. Observe until the cumulative provider-request count covers the follow-up and assert the recorded function_call_output before finish; pin the contract in the workflow test.",
+      "title": "fix(ui): show channel probe busy state (#127903)",
+      "link": "https://github.com/openclaw/openclaw/commit/d3ad7108eb78a45bd0b1fc583bac925890c86031",
+      "publishedAt": "2026-08-22T13:32:46Z",
+      "summary": "fix(ui): show channel probe busy state (#127903) Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(mantis): script catalog-tool turns through Code Mode exec (#127878)",
-      "summaryZh": "重點：文件(mantis): script catalog-tool turns through Code Mode exec (#127878) * 文件(mantis): script catalog-tool turns through C..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): show channel probe busy state (#127903)",
+      "summaryZh": "重點：修正(ui): show channel probe busy state (#127903) Co-authored-by: Amp..."
     },
     {
       "id": 5,
