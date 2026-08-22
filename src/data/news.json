@@ -1,8 +1,41 @@
 {
-  "generatedAt": "2026-08-22T17:20:28.892Z",
+  "generatedAt": "2026-08-22T18:30:46.778Z",
   "items": [
     {
       "id": 1,
+      "title": "perf(plugins): share schema validation format scope (#128004)",
+      "link": "https://github.com/openclaw/openclaw/commit/bb6dba54ef97aac71b8c7a62db2b77b57b1b5e3e",
+      "publishedAt": "2026-08-22T18:18:27Z",
+      "summary": "perf(plugins): share schema validation format scope (#128004) Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): share schema validation format scope (#128004)",
+      "summaryZh": "重點：perf(plugins): share schema validation format scope (#128004) Co-authored-by: Amp..."
+    },
+    {
+      "id": 2,
+      "title": "feat(ui): add a Claude CLI 200K/1M context-window switch to the model…",
+      "link": "https://github.com/openclaw/openclaw/commit/041938bc2f73201c763f53584a59e25664650fa6",
+      "publishedAt": "2026-08-22T17:55:23Z",
+      "summary": "feat(ui): add a Claude CLI 200K/1M context-window switch to the model picker (#127951) Adds a generic plugin-declared selectable-context-window surface mirroring thinkingLevels: ModelCatalogEntry.contextWindows + contextWindowDefault through catalog normalization and the gateway protocol, session validation on sessions.create/patch, and a 200K/1M switch inside the Control UI model picker for Claude CLI 5-series models. The Anthropic plugin owns the option mapping: explicit 1m → `[1m]` argv suffix, 200k → bare id + CLAUDE_CODE_DISABLE_1M_CONTEXT=1, omitted → bare id (shipped default argv). Run budgets follow the selection on both CLI and native paths, so a 200K session gets a matching auto-compact window instead of a silent 1M budget. Review fixes landed in this PR: run-owner prepared-fact plumbing so ordinary replies honor the selection; atomic catalog overlay merge and normalization for the options/default tuple; one-owner tuple reads in the picker; sessions.create key-presence patch semantics; native-run budget capping. Feature direction and in-picker switch shape by @obviyus (maintainer review).",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add a Claude CLI 200K/1M context-window switch to the 模型…",
+      "summaryZh": "重點：新功能(ui): add a Claude CLI 200K/1M context-window switch to the 模型 picker (#127951) Adds a generic plugin-declared select..."
+    },
+    {
+      "id": 3,
+      "title": "fix(tui): honor system-agent history limit (#127993)",
+      "link": "https://github.com/openclaw/openclaw/commit/8126d45242626e9026569a1880306990636bbc1b",
+      "publishedAt": "2026-08-22T17:51:05Z",
+      "summary": "fix(tui): honor system-agent history limit (#127993) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): honor system-agent history limit (#127993)",
+      "summaryZh": "重點：修正(tui): honor system-agent history limit (#127993) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916..."
+    },
+    {
+      "id": 4,
       "title": "perf(sessions): skip duplicate transcript root preparation (#127990)",
       "link": "https://github.com/openclaw/openclaw/commit/6ea8a7111cbe1a7192c1cbd22150fe9b7b8cc5ed",
       "publishedAt": "2026-08-22T17:16:49Z",
@@ -11,39 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：perf(sessions): skip duplicate transcript root preparation (#127990)",
       "summaryZh": "重點：perf(sessions): skip duplicate transcript root preparation (#127990) Amp-Thread-ID: https://ampcode.com/threads/T-01a021..."
-    },
-    {
-      "id": 2,
-      "title": "refactor(ui): drop the detail-panel message upgrade path that never r…",
-      "link": "https://github.com/openclaw/openclaw/commit/276ceaf19a7c7fa22be8e704c8f5cf3af33d1c63",
-      "publishedAt": "2026-08-22T17:12:11Z",
-      "summary": "refactor(ui): drop the detail-panel message upgrade path that never runs (#127846) * refactor(ui): remove dead detail message upgrade * refactor(ui): internalize raw message extraction * test(ui): preserve tool detail sidebar output * refactor(ui): remove dead detail loader kind * refactor(ui): remove orphaned detail request state",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): drop the detail-panel message upgrade path that never r…",
-      "summaryZh": "重點：refactor(ui): drop the detail-panel message upgrade path that never runs (#127846) * refactor(ui): remove dead detail me..."
-    },
-    {
-      "id": 3,
-      "title": "perf(ui): keep split divider drag within frame budget (#127840)",
-      "link": "https://github.com/openclaw/openclaw/commit/f70947bf619f1daa47f188ad6466688d2cff7abc",
-      "publishedAt": "2026-08-22T17:02:53Z",
-      "summary": "perf(ui): keep split divider drag within frame budget (#127840) * perf(ui): keep split resize work within frames * test(ui): prove shared divider drag persistence",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ui): keep split divider drag within frame budget (#127840)",
-      "summaryZh": "重點：perf(ui): keep split divider drag within frame budget (#127840) * perf(ui): keep split resize work within frames * test(..."
-    },
-    {
-      "id": 4,
-      "title": "fix(ui): size agent menu grid to content (#127969)",
-      "link": "https://github.com/openclaw/openclaw/commit/70c2be7e6aab3e983ca0053b965b7b8812a62378",
-      "publishedAt": "2026-08-22T16:50:38Z",
-      "summary": "fix(ui): size agent menu grid to content (#127969) * fix(ui): size agent grid to content * chore(ci): shrink agent menu assertion baseline",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): size agent menu grid to content (#127969)",
-      "summaryZh": "重點：修正(ui): size agent menu grid to content (#127969) * 修正(ui): size agent grid to content * chore(ci): shrink agent menu as..."
     },
     {
       "id": 5,
