@@ -1,8 +1,30 @@
 {
-  "generatedAt": "2026-08-22T14:21:45.086Z",
+  "generatedAt": "2026-08-22T15:21:06.991Z",
   "items": [
     {
       "id": 1,
+      "title": "perf(whatsapp): reuse inbound message projection (#127958)",
+      "link": "https://github.com/openclaw/openclaw/commit/963fafbb16522239228d10383cf89356c84e2ab3",
+      "publishedAt": "2026-08-22T14:51:03Z",
+      "summary": "perf(whatsapp): reuse inbound message projection (#127958) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(whatsapp): reuse inbound message projection (#127958)",
+      "summaryZh": "重點：perf(whatsapp): reuse inbound message projection (#127958) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-76..."
+    },
+    {
+      "id": 2,
+      "title": "fix(agents): resolve pdf tool models through the canonical resolver (…",
+      "link": "https://github.com/openclaw/openclaw/commit/71b5de40611144b2406c0d28c9cc459b64b693bb",
+      "publishedAt": "2026-08-22T14:32:07Z",
+      "summary": "fix(agents): resolve pdf tool models through the canonical resolver (#127952) Inside gateway runs the prepared model runtime is a static snapshot whose ModelRegistry is empty on a fresh state dir; configured models are served through the snapshot's prepared facts. The pdf tool resolved candidates via the registry-only resolveModelFromRegistry helper, so every fallback candidate failed with `Unknown model` while the main turn and image tool (already on resolveModelAsync) worked. Resolve each pdf candidate through resolveModelAsync with the prepared stores, matching the image sibling, and delete the registry-only helper. Adds a regression test that acquires a real static prepared runtime on a fresh state dir with a config-inline model. Observed live: Mantis run 32574012855 (both lanes died in the pdf bridge).",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): resolve pdf tool 模型 through the canonical resolver (…",
+      "summaryZh": "重點：修正(agents): resolve pdf tool 模型 through the canonical resolver (#127952) Inside Gateway runs the prepared 模型 runtime is ..."
+    },
+    {
+      "id": 3,
       "title": "refactor(tui): sanitize streamed markdown once per delta (#127838)",
       "link": "https://github.com/openclaw/openclaw/commit/ea1cd39d6c9ac880eaa531e57c98219d8c559e57",
       "publishedAt": "2026-08-22T13:41:33Z",
@@ -13,7 +35,7 @@
       "summaryZh": "重點：refactor(tui): sanitize streamed markdown once per delta (#127838)..."
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "perf(ui): stop re-comparing the whole session catalog on every live e…",
       "link": "https://github.com/openclaw/openclaw/commit/353d0aefafccdfd5e00521d7175011f25622655e",
       "publishedAt": "2026-08-22T13:39:42Z",
@@ -22,28 +44,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：perf(ui): stop re-comparing the whole session catalog on every live e…",
       "summaryZh": "重點：perf(ui): stop re-comparing the whole session catalog on every live event (#127819) * perf(ui): scope live catalog compa..."
-    },
-    {
-      "id": 3,
-      "title": "refactor(ui): share background task active count (#127832)",
-      "link": "https://github.com/openclaw/openclaw/commit/8ebc6bc8755506676b46d62c024d29b46839b4ad",
-      "publishedAt": "2026-08-22T13:37:45Z",
-      "summary": "refactor(ui): share background task active count (#127832)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share background task active count (#127832)",
-      "summaryZh": "重點：refactor(ui): share background task active count (#127832)..."
-    },
-    {
-      "id": 4,
-      "title": "fix(ui): show channel probe busy state (#127903)",
-      "link": "https://github.com/openclaw/openclaw/commit/d3ad7108eb78a45bd0b1fc583bac925890c86031",
-      "publishedAt": "2026-08-22T13:32:46Z",
-      "summary": "fix(ui): show channel probe busy state (#127903) Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): show channel probe busy state (#127903)",
-      "summaryZh": "重點：修正(ui): show channel probe busy state (#127903) Co-authored-by: Amp..."
     },
     {
       "id": 5,
