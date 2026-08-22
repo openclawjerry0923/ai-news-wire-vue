@@ -1,41 +1,70 @@
 {
-  "generatedAt": "2026-08-22T07:31:52.144Z",
+  "generatedAt": "2026-08-22T08:30:34.670Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(models): scope status alias resolution to the selected agent (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/4c866a9beea852c53676517ef24e9baf12408e48",
-      "publishedAt": "2026-08-22T07:29:20Z",
-      "summary": "fix(models): scope status alias resolution to the selected agent (#127631) `models status --agent` selected the agent's primary and fallbacks but resolved aliases from global defaults only, so a bare per-agent alias was displayed and probed as a different provider than the runtime selects. Status, --check, auth diagnostics, provider-use reporting and --probe could all inspect the wrong route and report false missing or auth state. The canonical resolvers already merge per-agent model rows when given an agentId, so this passes the agentId that was already resolved locally and deletes the synthetic global-default config that carried the agent primary. Displayed aliases now come from the effective agent-scoped index, which applies per-agent replacement instead of reading agents.defaults.models. Unscoped status keeps reporting global defaults. Refs #127585",
+      "title": "perf(googlechat): skip empty inbound media projection (#127803)",
+      "link": "https://github.com/openclaw/openclaw/commit/36d50b20098e8e45bc7a97b020d9755ab7a27414",
+      "publishedAt": "2026-08-22T08:11:36Z",
+      "summary": "perf(googlechat): skip empty inbound media projection (#127803) Amp-Thread-ID: https://ampcode.com/threads/T-01a027e5-4658-70ad-93c0-0e7c5e2fdd63 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): scope status alias resolution to the selected agent (#12…",
-      "summaryZh": "重點：修正(模型): scope status alias resolution to the selected agent (#127631) `模型 status --agent` selected the agent's primary a..."
+      "titleZh": "OpenClaw 程式碼更新：perf(googlechat): skip empty inbound media projection (#127803)",
+      "summaryZh": "重點：perf(googlechat): skip empty inbound media projection (#127803) Amp-Thread-ID: https://ampcode.com/threads/T-01a027e5-46..."
     },
     {
       "id": 2,
-      "title": "fix(agents): preserve existing files after failed host writes (#118470)",
-      "link": "https://github.com/openclaw/openclaw/commit/a0f3457f3800b245cf0c11d5e43c5b94924af906",
-      "publishedAt": "2026-08-22T07:26:45Z",
-      "summary": "fix(agents): preserve existing files after failed host writes (#118470) Preserve existing unrestricted host files when a write or edit fails partway through by updating regular files in place and restoring the original prefix and length. Writable-but-unreadable regular files now fail before mutation. Co-authored-by: yetval Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve existing files after failed host writes (#118470)",
-      "summaryZh": "重點：修正(agents): preserve existing files after failed host writes (#118470) Preserve existing unrestricted host files when a ..."
+      "title": "告別 7 歲法則迷思！科學家全新毛孩年齡公式，1 歲狗已是 31 歲人類成年人",
+      "link": "https://technews.tw/2026/08/22/scientists-new-formula-for-dog-age/",
+      "publishedAt": "Sat, 22 Aug 2026 08:10:16 +0000",
+      "summary": "許多飼主在幫愛犬慶生時，總習慣將狗的實際年齡 「乘以 7」 來估算相當於人類的幾歲。然而，一項發表於 《細胞系 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(skills): preserve local changes during updates (#118190)",
-      "link": "https://github.com/openclaw/openclaw/commit/ff6db34233dfa1540dcf18cadf5ba6d34727936c",
-      "publishedAt": "2026-08-22T07:02:04Z",
-      "summary": "fix(skills): preserve local changes during updates (#118190) Prevent ClawHub skill updates from silently replacing locally modified files. Verify recorded install digests at the rollback boundary, restore on mismatch, and require explicit --force for unverifiable legacy installs. Co-authored-by: yetval Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): announce session sharing errors (#127801)",
+      "link": "https://github.com/openclaw/openclaw/commit/81002dd250c36b5c924e735fe8cecb52a46ec379",
+      "publishedAt": "2026-08-22T08:08:49Z",
+      "summary": "fix(ui): announce session sharing errors (#127801) Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): preserve local changes during updates (#118190)",
-      "summaryZh": "重點：修正(skills): preserve local changes during updates (#118190) Prevent ClawHub skill updates from silently replacing locall..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): announce session sharing errors (#127801)",
+      "summaryZh": "重點：修正(ui): announce session sharing errors (#127801) Co-authored-by: Amp..."
     },
     {
       "id": 4,
+      "title": "fix: preserve source code in tool results (#127697)",
+      "link": "https://github.com/openclaw/openclaw/commit/0ab65784782d3eb9542d70a40850f276b7c31b6b",
+      "publishedAt": "2026-08-22T08:00:45Z",
+      "summary": "fix: preserve source code in tool results (#127697) Preserve opaque source strings across tool-result replay while retaining masking for direct .env reads, registered or recognizable secrets, structured sensitive fields, and payment data.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve source code in tool results (#127697)",
+      "summaryZh": "重點：修正: preserve source code in tool results (#127697) Preserve opaque source strings across tool-result replay while retain..."
+    },
+    {
+      "id": 5,
+      "title": "打破運動頻率迷思，研究證實：每週一次 75 分鐘「間歇性快走」也能有效燃脂",
+      "link": "https://technews.tw/2026/08/22/weekly-75-min-burns-fat/",
+      "publishedAt": "Sat, 22 Aug 2026 08:00:09 +0000",
+      "summary": "現代人生活忙碌，常以「沒時間」為由放棄運動。然而，頂尖學術期刊《Nature Communications》最 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "perf(mantis): parallelize proof builds and warm caches (#127798)",
+      "link": "https://github.com/openclaw/openclaw/commit/460f5b6c61492640b2dad14e1cf1cd9f1ad1ab54",
+      "publishedAt": "2026-08-22T07:53:36Z",
+      "summary": "perf(mantis): parallelize proof builds and warm caches (#127798) * perf(mantis): parallelize proof builds and warm caches * fix(mantis): size build image for the copied pnpm store * chore(ui): refresh startup JS gzip baseline after streamed-markdown perf work Identical source measures 345034-345058 B across builds while the committed baseline left only a 9 B margin under the 512 B ratchet tolerance, so build-artifacts flips on gzip nondeterminism (green on main run 32559609413, red on PR run 32559442295, red locally). Regenerated with scripts/check-control-ui-performance.mts --update-baseline; the 350 KiB hard ceiling still bounds creep.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(mantis): parallelize proof builds and warm caches (#127798)",
+      "summaryZh": "重點：perf(mantis): parallelize proof builds and warm caches (#127798) * perf(mantis): parallelize proof builds and warm cache..."
+    },
+    {
+      "id": 7,
       "title": "日月光子公司 ISE Labs 購入加州矽谷建物，為碼美國在地半導體製造布局",
       "link": "https://finance.technews.tw/2026/08/22/ase-technology-holding-co-ltd-ise-labs-acquires-building-in-silicon-valley-california/",
       "publishedAt": "Sat, 22 Aug 2026 07:00:10 +0000",
@@ -44,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 8,
       "title": "智慧手錶好意評估反成壓力？「睡眠分數」讓使用者陷評分焦慮",
       "link": "https://technews.tw/2026/08/22/deconstructing-the-sleep-anxiety-trap-of-wearable-devices/",
       "publishedAt": "Sat, 22 Aug 2026 07:00:10 +0000",
@@ -53,18 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "perf(ui): skip highlighting unfinished code blocks while streaming (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/e22dc4b2875dddb120ad262e3d234bc1d6fca2bb",
-      "publishedAt": "2026-08-22T06:41:00Z",
-      "summary": "perf(ui): skip highlighting unfinished code blocks while streaming (#127754) * perf(ui): defer open-fence highlighting * perf(ui): simplify unfinished fence highlighting Co-authored-by: vyctorbrzezowski * docs: avoid concurrent changelog insertion conflict * docs: respect release-owned changelog policy Release-note context and before-after UI proof remain in the pull request. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ui): skip highlighting unfinished code blocks while streaming (#…",
-      "summaryZh": "重點：perf(ui): skip highlighting unfinished code blocks while streaming (#127754) * perf(ui): defer open-fence highlighting *..."
-    },
-    {
-      "id": 7,
+      "id": 9,
       "title": "Quanta Computer 與 Quantinuum 攜手打造大規模量子運算的產業基礎",
       "link": "https://technews.tw/2026/08/22/quanta-quantinuum-sign-joint-development-agreement/",
       "publishedAt": "Sat, 22 Aug 2026 06:00:57 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "核冬天恐引發全球大饑荒，美學者警告：美俄若爆發核戰將致 64 億人喪生",
       "link": "https://technews.tw/2026/08/22/nuclear-war-killing-billions/",
       "publishedAt": "Sat, 22 Aug 2026 06:00:39 +0000",
       "summary": "美國軍控與核戰研究學者 16 日發出強烈警告，隨著俄羅斯持續對烏克蘭及其西方盟友發出核威脅，全球正面臨更迫切的 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "挖角 Google TPU 創始大將，藉人才、技術、資金 Anthropic 佈局自主研發 AI 晶片",
-      "link": "https://finance.technews.tw/2026/08/22/anthropic-is-developing-its-own-ai-chips/",
-      "publishedAt": "Sat, 22 Aug 2026 06:00:10 +0000",
-      "summary": "隨著人工智慧（AI）領域競爭白熱化，開發知名 AI 科技廠商 Anthropic 正式宣告進軍半導體領域。An [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "隱藏式把手終結令，中國啟動史上最大汽車召回案",
-      "link": "https://technews.tw/2026/08/22/china-recall-millions-of-car/",
-      "publishedAt": "Sat, 22 Aug 2026 05:31:34 +0000",
-      "summary": "中國政府先前發布新規定，自 2027 年起全面禁止隱藏式車門把手，這項規定不僅涉及新車，也包含已經上路的車輛， [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
