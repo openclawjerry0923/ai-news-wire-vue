@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-22T20:22:40.986Z",
+  "generatedAt": "2026-08-22T21:22:09.012Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): anchor limited access status in header actions (#128024)",
-      "link": "https://github.com/openclaw/openclaw/commit/21a04cef93663b2c88ed12df2908fb2861797e71",
-      "publishedAt": "2026-08-22T20:18:23Z",
-      "summary": "fix(ui): anchor limited access status in header actions (#128024) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
+      "title": "perf(browser): streamline snapshot finalization (#128036)",
+      "link": "https://github.com/openclaw/openclaw/commit/d6679815a8357ea98f6f3c487ed0b77900bafc04",
+      "publishedAt": "2026-08-22T21:20:18Z",
+      "summary": "perf(browser): streamline snapshot finalization (#128036) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): anchor limited access status in header actions (#128024)",
-      "summaryZh": "重點：修正(ui): anchor limited access status in header actions (#128024) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman..."
+      "titleZh": "OpenClaw 程式碼更新：perf(browser): streamline snapshot finalization (#128036)",
+      "summaryZh": "重點：perf(browser): streamline snapshot finalization (#128036) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-762..."
     },
     {
       "id": 2,
-      "title": "fix(ui): refresh account models without repeated probes (#127725)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4dbe235f8465e48c551f5c5522b4f6c8f6dae70",
-      "publishedAt": "2026-08-22T20:00:16Z",
-      "summary": "fix(ui): refresh account models without repeated probes (#127725)",
+      "title": "feat(audit): explain plugin and remote actions (#126027)",
+      "link": "https://github.com/openclaw/openclaw/commit/40a6b50cc1c6710fecb6a10df762bb67d4b8b5cd",
+      "publishedAt": "2026-08-22T21:06:54Z",
+      "summary": "feat(audit): explain plugin and remote actions (#126027) * fix(audit): converge action receipts after U2 * docs(agents): clarify receipt authority fencing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): refresh account 模型 without repeated probes (#127725)",
-      "summaryZh": "重點：修正(ui): refresh account 模型 without repeated probes (#127725)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(audit): explain plugin and remote actions (#126027)",
+      "summaryZh": "重點：新功能(audit): explain plugin and remote actions (#126027) * 修正(audit): converge action receipts after U2 * 文件(agents): cla..."
     },
     {
       "id": 3,
-      "title": "perf(slack): reuse thread history text projection (#128022)",
-      "link": "https://github.com/openclaw/openclaw/commit/07f2129c30097d6158bc11c07c49ca86fabebcd8",
-      "publishedAt": "2026-08-22T19:51:43Z",
-      "summary": "perf(slack): reuse thread history text projection (#128022) Co-authored-by: Amp",
+      "title": "feat(ui): environment differentiation for the Control UI (gateway.con…",
+      "link": "https://github.com/openclaw/openclaw/commit/224d11f2221df3ff8b9c66667feacadb62fab445",
+      "publishedAt": "2026-08-22T21:06:28Z",
+      "summary": "feat(ui): environment differentiation for the Control UI (gateway.controlUi.environment) (#127711) * feat(ui): differentiate gateway environments in Control UI * fix(ui): guard sidebar environment read for partial session-data hosts * fix(ui): clear environment presentation when refreshed config is unset",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(slack): reuse thread history text projection (#128022)",
-      "summaryZh": "重點：perf(slack): reuse thread history text projection (#128022) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): environment differentiation for the Control UI (Gateway.con…",
+      "summaryZh": "重點：新功能(ui): environment differentiation for the Control UI (Gateway.controlUi.environment) (#127711) * 新功能(ui): differentia..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): record display-cap truncation structurally on projected…",
-      "link": "https://github.com/openclaw/openclaw/commit/736b0c424b7bc1f330d264f5c79a05cd6a4c30c2",
-      "publishedAt": "2026-08-22T19:46:27Z",
-      "summary": "fix(gateway): record display-cap truncation structurally on projected chat messages (#126342) * fix(gateway): record display-cap truncation structurally on projected chat messages The chat display projection truncates message text at the display cap and appends an in-band \"...(truncated)...\" sentinel, but it discarded the truncation fact: truncateChatHistoryText returns { text, truncated } and every call site folded `truncated` into the local `changed` flag, which only decides whether a block is replaced. session.message payloads and chat.history rows therefore carried no structural signal, so any consumer other than the Control UI could not tell a bounded preview from the authoritative message, and the Control UI itself fell back to substring-matching the sentinel inside rendered Markdown. Track `truncated` as its own fact through the block and message sanitizers and, where the cap is applied, record `__openclaw: { truncated: true, reason: \"display-cap\" }` on the projected message — the sibling of the existing `reason: \"oversized\"` transcript marker. Existing `__openclaw` metadata (transcript id/seq, sender profile) is preserved, and an upstream `oversized` reason is never overwritten. The cap itself is unchanged (#95318). Coverage: the display-cap marker on both history transports (WebSocket and SSE), inside content blocks, absent on untruncated rows, oversized reason preserved; a live session.message event over a real gateway subscriber; and the chat.history -> chat.message.get round-trip asserting the marker on the capped row and its absence on the full row. Two existing exact-shape assertions in server-methods.test.ts updated to the new contract. Closes #126229 Co-Authored-By: Claude Fable 5 Claude-Session: https://claude.ai/code/session_013n5eSiz5Uy57civqEnUMAS * fix(ui): gate the full-message fetch flag to assistant rows Review follow-up. The Gateway now marks every display-capped projection, user rows included. The Control UI's shouldFetchFullMessage consulted that marker role-agnostically, while the expander that consumes the flag renders loaded content for assistant rows alone — so the flag's contract and its consumer disagreed for capped user rows. Gate the flag at its producer: assistant-only, covering both the metadata arm and the sentinel arm. The two consumers in chat-message-group.ts key purely off this flag and need no change. Tested at the flag itself (chat-message-markdown.test.ts): a capped user row now yields shouldFetchFullMessage=false, a capped assistant row stays true, an untruncated assistant row stays false; the user-row case fails on the pre-fix code. Note: driving renderChatThread with a materialized capped user row, reply wired, and this gate removed produced zero loader calls, so the render path already blocks the fetch upstream; this change aligns the flag's contract with that behavior rather than closing an observed request. Co-Authored-By: Claude Fable 5 Claude-Session: https://claude.ai/code/session_013n5eSiz5Uy57civqEnUMAS * fix(gateway): carry tool-result diff truncation into the display-cap marker Review follow-up. projectToolResultDetails capped details.diff through truncateChatHistoryText but kept only .text, so a display-capped tool-result diff never reached the message-level marker and its projected history/event row stayed indistinguishable from a complete one — the same discard the first commit fixed for text fields, one level down. Return { details, truncated } from the helper and aggregate the fact at both call sites: the tool-result content block inside a message and the tool-result-shaped message. Workspace-conflict details keep precedence and are unaffected. Covered on both tool-result shapes (marker present, sentinel present) and the negative (diff within the cap stays unmarked); the positive case fails on the pre-fix helper. Co-Authored-By: Claude Fable 5 Claude-Session: https://claude.ai/code/session_013n5eSiz5Uy57civqEnUMAS * fix(ui): detect display-cap truncation by the structural marker alone Review follow-up. The Gateway now records every display-cap truncation as __openclaw.truncated, so the Control UI's sentinel fallback — treating literal Markdown ending in \"...(truncated)...\" as proof of a cap — is obsolete and wrong: an ordinary assistant reply that merely contains that text would spuriously enter the full-message load path. The in-band sentinel is just Markdown to the UI. Use only __openclaw.truncated === true. No gateway-version compatibility is carried, per the Control UI coupling policy (UI ships with its Gateway). Fixtures in chat-message.test.ts and chat-transcript-render .test.ts that expressed truncation via the sentinel now carry the marker, as the Gateway emits; a new case proves a markerless reply containing the sentinel text is not fetched, and fails with the fallback present. Co-Authored-By: Claude Fable 5 Claude-Session: https://claude.ai/code/session_013n5eSiz5Uy57civqEnUMAS * test(ui): seed the display-cap marker in the message-actions e2e mock The sentinel-only fetch fallback is gone, so the mock Gateway in chat-message-actions.e2e.test.ts — which seeded the truncated assistant message with a preview ending in \"...(truncated)...\" but no structural marker — no longer triggers the full-message load, and the test timed out waiting for chat.message.get. Seed __openclaw.truncated/reason as the Gateway now emits. Reproduced the CI timeout locally at the prior head and confirmed the pass with real Chromium. Co-Authored-By: Claude Fable 5 Claude-Session: https://claude.ai/code/session_013n5eSiz5Uy57civqEnUMAS --------- Co-authored-by: Claude Fable 5",
+      "title": "fix(models): reuse prepared metadata during browse (#127847)",
+      "link": "https://github.com/openclaw/openclaw/commit/a9e3b69750e0491ee219cf5fbfcc842f73b075f7",
+      "publishedAt": "2026-08-22T20:59:57Z",
+      "summary": "fix(models): reuse prepared metadata during browse (#127847) Channel `/models` now reuses the Gateway-prepared plugin metadata snapshot and visibility policy across model resolution, keeping browse responses responsive while preserving plugin-owned aliases. Fixes #127379. Reviewed-by: @shakkernerd",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): record display-cap truncation structurally on projected…",
-      "summaryZh": "重點：修正(Gateway): record display-cap truncation structurally on projected chat messages (#126342) * 修正(Gateway): record displ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): reuse prepared metadata during browse (#127847)",
+      "summaryZh": "重點：修正(模型): reuse prepared metadata during browse (#127847) Channel `/模型` now reuses the Gateway-prepared plugin metadata sn..."
     },
     {
       "id": 5,
