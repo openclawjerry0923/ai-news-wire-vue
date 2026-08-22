@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-08-22T04:33:09.432Z",
+  "generatedAt": "2026-08-22T05:27:33.123Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(media): skip unused local MIME sniff (#127772)",
-      "link": "https://github.com/openclaw/openclaw/commit/6cb08cb8ee9ee6235c7bd1f5f3fd7b85b8673ce7",
-      "publishedAt": "2026-08-22T04:15:00Z",
-      "summary": "perf(media): skip unused local MIME sniff (#127772) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "fix(onboard): name the available providers when --import-from is unkn…",
+      "link": "https://github.com/openclaw/openclaw/commit/500bb6031d1768425e99e1288b9c76807b21d52d",
+      "publishedAt": "2026-08-22T05:12:32Z",
+      "summary": "fix(onboard): name the available providers when --import-from is unknown (#127780) Onboarding answered an unknown --import-from with \"Migration provider \\\"x\\\" is not installed or bundled. Install it before starting the transactional import.\" — no list of valid ids, no next command, and advice to go install something that is usually just a typo. Its siblings already do this correctly: resolveMigrationProvider appends \"Available providers: ...\" and the migrate selection helper appends \"Available skills: ...\". The missing --import-from case in onboarding itself already points at `openclaw migrate list`. Only the unknown-id case dead-ended. Collapses the two duplicated throws into one guard used by every path, which also closes a gap: the no-back-navigation branch returned the picker result without validating it at all.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(media): skip unused local MIME sniff (#127772)",
-      "summaryZh": "重點：perf(media): skip unused local MIME sniff (#127772) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): name the available providers when --import-from is unkn…",
+      "summaryZh": "重點：修正(onboard): name the available providers when --import-from is unknown (#127780) Onboarding answered an unknown --impor..."
     },
     {
       "id": 2,
-      "title": "fix(doctor): repair plugin host links before startup migration (#126830)",
-      "link": "https://github.com/openclaw/openclaw/commit/ef18fbe56684416136d0111e0c9c4f323bda0ae9",
-      "publishedAt": "2026-08-22T04:07:24Z",
-      "summary": "fix(doctor): repair plugin host links before startup migration (#126830) Repair managed OpenClaw host links under the startup migration lease before plugin state migrations, preventing retained Codex upgrades from repeating the same readiness failure. Co-authored-by: Jason O'Neal Co-authored-by: Ayaan Zaidi",
+      "title": "perf(gateway): avoid single-chunk request body copy (#127783)",
+      "link": "https://github.com/openclaw/openclaw/commit/15569b210ef4cdf2ae60e972289b44bb9a3bae03",
+      "publishedAt": "2026-08-22T05:12:09Z",
+      "summary": "perf(gateway): avoid single-chunk request body copy (#127783) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): repair plugin host links before startup migration (#126830)",
-      "summaryZh": "重點：修正(文件tor): repair plugin host links before startup migration (#126830) Repair managed OpenClaw host links under the star..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): avoid single-chunk request body copy (#127783)",
+      "summaryZh": "重點：perf(Gateway): avoid single-chunk request body copy (#127783) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a..."
     },
     {
       "id": 3,
-      "title": "fix: preserve internal reply images across gateway restart (#127729)",
-      "link": "https://github.com/openclaw/openclaw/commit/8c1ea2382618e36235d57aaeb86faa989d32d7be",
-      "publishedAt": "2026-08-22T04:03:58Z",
-      "summary": "fix: preserve internal reply images across gateway restart (#127729) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
+      "title": "fix(codex): accept bounded upstream prompt provenance (#127730)",
+      "link": "https://github.com/openclaw/openclaw/commit/80beef6ff73643de49b9fc39b26625cde1e8b205",
+      "publishedAt": "2026-08-22T05:02:48Z",
+      "summary": "fix(codex): accept bounded upstream prompt provenance (#127730) Allow exact upstream prompt provenance to use the existing 512 KiB settled-projection budget while preserving ordinary text bounds and aggregate accounting. Co-authored-by: Marvinthebored",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve internal reply images across Gateway restart (#127729)",
-      "summaryZh": "重點：修正: preserve internal reply images across Gateway restart (#127729) Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): accept bounded upstream prompt provenance (#127730)",
+      "summaryZh": "重點：修正(codex): accept bounded upstream prompt provenance (#127730) Allow exact upstream prompt provenance to use the existin..."
     },
     {
       "id": 4,
-      "title": "fix: Code Mode shell calls stall near yield deadline (#127759)",
-      "link": "https://github.com/openclaw/openclaw/commit/7329a8d3d7a01f3f3c106a66882d194c5c7be67b",
-      "publishedAt": "2026-08-22T04:02:03Z",
-      "summary": "fix: Code Mode shell calls stall near yield deadline (#127759) * fix: prevent Code Mode shell waits from stalling Co-authored-by: Tak Hoffman * fix: honor remaining Code Mode deadline --------- Co-authored-by: RoboClaw Co-authored-by: Tak Hoffman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Code Mode shell calls stall near yield deadline (#127759)",
-      "summaryZh": "重點：修正: Code Mode shell calls stall near yield deadline (#127759) * 修正: prevent Code Mode shell waits from stalling Co-autho..."
+      "title": "10 年投資百億美元設立研究實驗室，美光罕見為記憶體產業布局下一步",
+      "link": "https://finance.technews.tw/2026/08/22/micron-makes-a-rare-move-to-plan-the-next-step-in-the-memory-industry/",
+      "publishedAt": "Sat, 22 Aug 2026 05:00:56 +0000",
+      "summary": "記憶體大廠美光日前宣布了一項在記憶體晶片產業中相當罕見的重大戰略決定，也就是計劃在未來十年內投資高達 100 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "5,600 萬年前暖化事件反使森林退化，學者警告今日地球恐重演歷史",
+      "link": "https://technews.tw/2026/08/22/forests-withered-during-an-ancient-warming-episode-history-could-repeat-itself/",
+      "publishedAt": "Sat, 22 Aug 2026 05:00:22 +0000",
+      "summary": "《Science》發表的最新研究指出，約 5,600 萬年前古老升溫事件讓森林明顯稀疏，削弱儲碳力；團隊警告， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix(onboard): reject --gateway-bind custom without a valid customBind…",
+      "link": "https://github.com/openclaw/openclaw/commit/ec3937696791cce3b7271ab94b7352b65ef2e327",
+      "publishedAt": "2026-08-22T04:59:01Z",
+      "summary": "fix(onboard): reject --gateway-bind custom without a valid customBindHost (#127779) Non-interactive onboarding accepted `--gateway-bind custom` with no `gateway.customBindHost`, wrote `bind: \"custom\"` to the config, and reported success. The Gateway refuses that config outright: Gateway failed to start: gateway.bind=custom requires gateway.customBindHost. `doctor` and `config validate` both call the written config healthy, so the first sign of trouble is a Gateway that will not start. Every other onboarding flag already rejects a mode whose companion value is missing (--gateway-auth password, --auth-choice openai-api-key, --auth-choice custom-api-key). This restores the same contract for bind, reusing the same validateDottedDecimalIPv4Input the interactive wizard and `openclaw configure` apply to this field. Pre-seeding gateway.customBindHost keeps working.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): reject --Gateway-bind custom without a valid customBind…",
+      "summaryZh": "重點：修正(onboard): reject --Gateway-bind custom without a valid customBindHost (#127779) Non-interactive onboarding accepted `..."
+    },
+    {
+      "id": 7,
       "title": "夠全球用 780 年！日本開採南鳥島深海「釔」礦，美日聯手打破中國稀土壟斷",
       "link": "https://technews.tw/2026/08/22/japan-us-minamitorishima-deep-sea-rare-earths-yttrium-780-year-semiconductor-supply/",
       "publishedAt": "Sat, 22 Aug 2026 04:00:28 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "半導體市場需求強烈，富士軟片擴建關鍵化學品產線",
       "link": "https://finance.technews.tw/2026/08/22/fujifilm-expands-key-chemical-production-line/",
       "publishedAt": "Sat, 22 Aug 2026 04:00:26 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "隨著 Starlink 在軌衛星數量接近 11,000 顆，SpaceX 股價跟著上漲",
       "link": "https://finance.technews.tw/2026/08/22/starlink-has-nearly-11000-satellites-in-orbit-and-spacexs-stock-price-rose-accordingly/",
       "publishedAt": "Sat, 22 Aug 2026 03:00:58 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Sora 關門它卻爆紅，AI 影片新創 Higgsfield 如何逆勢衝出 54 億美元身價",
       "link": "https://technews.tw/2026/08/22/higgsfield-valued-at-5-4bn-as-goldman-and-intel-back-ai-video-start-up/",
       "publishedAt": "Sat, 22 Aug 2026 03:00:14 +0000",
       "summary": "AI 影片新創 Higgsfield 8 月 17 日宣布完成 4 億美元（約新台幣 127 億元）B 輪募資 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "維基百科創辦人 Jimmy Wales：AI 難以複製「信任」，人類查核角色無可取代",
-      "link": "https://technews.tw/2026/08/22/wikipedia-founder-jimmy-wales-ai/",
-      "publishedAt": "Sat, 22 Aug 2026 02:30:43 +0000",
-      "summary": "維基百科（Wikipedia）共同創辦人吉米·威爾斯（Jimmy Wales）近日受訪時直言，儘管人工智慧（A [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "大巨蛋 Garden City 開幕，東區霸主 Sogo 放話「絕對不會輸給 101！」",
-      "link": "https://finance.technews.tw/2026/08/22/garden-city-vs-tp101/",
-      "publishedAt": "Sat, 22 Aug 2026 02:00:52 +0000",
-      "summary": "「我絕對不會輸給 101 啊！」活動一開始，遠東 Sogo 營業總經理吳素吟就霸氣宣示。 8月22日，蓋在台北 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
