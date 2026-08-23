@@ -1,41 +1,79 @@
 {
-  "generatedAt": "2026-08-23T05:29:40.967Z",
+  "generatedAt": "2026-08-23T06:40:59.967Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(memory-wiki): ignore structural markers in query text (#128105)",
-      "link": "https://github.com/openclaw/openclaw/commit/f5553a8fee0efcb87757a65d24a3899f50529b3c",
-      "publishedAt": "2026-08-23T05:26:49Z",
-      "summary": "fix(memory-wiki): ignore structural markers in query text (#128105)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): ignore structural markers in query text (#128105)",
-      "summaryZh": "重點：修正(記憶-wiki): ignore structural markers in query text (#128105)..."
+      "title": "Ox Alpha 模型竄紅 AI 圈，免費試用背後身分引發猜測",
+      "link": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work/",
+      "publishedAt": "Sun, 23 Aug 2026 06:39:39 +0000",
+      "summary": "一款名為「Ox Alpha」的神祕模型被放上 OpenRouter、OpenCode 平台，近日在開發者社群引 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat(mantis): add long-held active turn recipe (#128117)",
-      "link": "https://github.com/openclaw/openclaw/commit/c03c12c7bbe12422507f82acc85ea28804728f48",
-      "publishedAt": "2026-08-23T05:23:53Z",
-      "summary": "feat(mantis): add long-held active turn recipe (#128117) Capture the proven mechanics from proof run 32616859410 (PR #127950) as a reusable recipe: dual 600s timeout config patch, Code Mode exec events file, streamed chunkDelayMs hold, and the observe-loop pattern around the 60s cap. Require agents to record recipe-suggestion.md after scenario-mechanics iteration so future discoveries persist.",
+      "title": "fix(gateway): honor requested session preview length (#125201)",
+      "link": "https://github.com/openclaw/openclaw/commit/33abd627313167f8516e1b1632e71190070a72c6",
+      "publishedAt": "2026-08-23T06:37:58Z",
+      "summary": "fix(gateway): honor requested session preview length (#125201) * fix(gateway): honor session preview length * fix(gateway): cap session preview budgets",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(mantis): add long-held active turn recipe (#128117)",
-      "summaryZh": "重點：新功能(mantis): add long-held active turn recipe (#128117) Capture the proven mechanics from proof run 32616859410 (PR #127..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): honor requested session preview length (#125201)",
+      "summaryZh": "重點：修正(Gateway): honor requested session preview length (#125201) * 修正(Gateway): honor session preview length * 修正(Gateway):..."
     },
     {
       "id": 3,
-      "title": "refactor(plugins): unify synchronous message hooks (#127797)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d696fbe0d2bf53b8f590743a325667ea94f3f41",
-      "publishedAt": "2026-08-23T05:15:31Z",
-      "summary": "refactor(plugins): unify synchronous message hooks (#127797)",
+      "title": "perf(ci): shard Control UI E2E by measured duration, not source bytes",
+      "link": "https://github.com/openclaw/openclaw/commit/733d8f994fb67107ee98a12b76ed80bd83b55211",
+      "publishedAt": "2026-08-23T06:27:21Z",
+      "summary": "perf(ci): shard Control UI E2E by measured duration, not source bytes checks-ui-e2e now owns the CI wall: in run 32617320781 its seven slowest shards ran 199-245s while the tallest compact node job was 182s. The sequencer already does greedy longest-first bin packing -- it was just weighting by source bytes as a \"zero-state duration proxy\", and that proxy is too weak. Across 247 suites bytes correlate with wall time at r=0.79 and mispredict by 3.6x (0.20-0.73 s/KB), so the packer filled one shard to 182s against a 130s ideal while another took 86s. Hint the 30 slowest suites with measured seconds and keep the byte proxy for the long tail, whose 3.5s median file is interchangeable. Replaying the real per-file durations through the packer: widest shard 171s -> 137s. With ~63s of per-job overhead that is roughly 245s -> 200s on the tallest ui-e2e job, at which point checks-ui (199s) becomes the pole, so this is worth ~45s of wall and no extra runners. Durations are medians over runs 32617320781 and 32617488420, each normalized by its own VM speed first; the two runs agreed within p10 0.88 / p90 1.17, so the per-file numbers are stable rather than one noisy sample. Unhinted files still rebalance automatically off source size, so new suites need no table edit. A guard asserts every hint still points at a real suite, because a renamed file would otherwise rot into a silent byte-proxy fallback.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): unify synchronous message hooks (#127797)",
-      "summaryZh": "重點：refactor(plugins): unify synchronous message hooks (#127797)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ci): shard Control UI E2E by measured duration, not source bytes",
+      "summaryZh": "重點：perf(ci): shard Control UI E2E by measured duration, not source bytes checks-ui-e2e now owns the CI wall: in run 3261732..."
     },
     {
       "id": 4,
+      "title": "fix(subagents): interrupted tasks lose real user instructions after r…",
+      "link": "https://github.com/openclaw/openclaw/commit/ac65c91baa1f3805f68d53f05734db52b4528fe4",
+      "publishedAt": "2026-08-23T06:24:46Z",
+      "summary": "fix(subagents): interrupted tasks lose real user instructions after restart (#128104) * fix(subagents): preserve real direction during restart recovery * chore: keep release-owned changelog out of recovery fix",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): interrupted tasks lose real user instructions after r…",
+      "summaryZh": "重點：修正(subagents): interrupted tasks lose real user instructions after restart (#128104) * 修正(subagents): preserve real dire..."
+    },
+    {
+      "id": 5,
+      "title": "fix(mantis): fence lost Telegram leases without a ten-second delay (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/20336860eb95ecda5b8ccaa90005b79d4ee05db4",
+      "publishedAt": "2026-08-23T06:16:29Z",
+      "summary": "fix(mantis): fence lost Telegram leases without a ten-second delay (#128122) * perf(mantis): fence lost Telegram leases without delay * test(mantis): enforce prompt lost-lease fencing",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mantis): fence lost Telegram leases without a ten-second delay (#…",
+      "summaryZh": "重點：修正(mantis): fence lost Telegram leases without a ten-second delay (#128122) * perf(mantis): fence lost Telegram leases w..."
+    },
+    {
+      "id": 6,
+      "title": "華為針對亞太地區以安全智慧連結理念，全面升級星河 AI 網路，躍升產業數位智能化",
+      "link": "https://infosecu.technews.tw/2026/08/23/huawei-upgrades-xinghe-ai-network-asia-pacific-secure-intelligent-connectivity-digital-intelligence/",
+      "publishedAt": "Sun, 23 Aug 2026 06:00:52 +0000",
+      "summary": "「華為資料通訊創新高峰會 2026•亞太」在峇里島圓滿落幕，本次大會吸引了近 500 位產業領袖、技術專家與生 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "DARPA 新計畫 SHINE 鎖定受損迴路，助大腦精準自我修復",
+      "link": "https://technews.tw/2026/08/23/darpa-shine/",
+      "publishedAt": "Sun, 23 Aug 2026 06:00:43 +0000",
+      "summary": "美國國防高等研究計畫署（DARPA）目前正推動一項新計畫，目標是透過非侵入式的方式，協助受傷的大腦重建受損的神 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "AI 當心理諮商師夠格嗎，專家解析：現有模型有「知識」卻缺乏「智慧」",
       "link": "https://technews.tw/2026/08/23/ai-generated-mental-health-advice-gets-uplifted-via-a-strong-dose-of-artificial-wisdom/",
       "publishedAt": "Sun, 23 Aug 2026 05:00:34 +0000",
@@ -44,18 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "release-publish/c96e81375014-1787462685",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2Fc96e81375014-1787462685",
-      "publishedAt": "2026-08-23T04:59:18Z",
-      "summary": "fix(doctor): migrate legacy Claude CLI allowlists to canonical refs (…",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：版本發布-publish/c96e81375014-1787462685",
-      "summaryZh": "重點：修正(文件tor): migrate legacy Claude CLI allowlists to canonical refs (…..."
-    },
-    {
-      "id": 6,
+      "id": 9,
       "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
       "link": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions/",
       "publishedAt": "Sun, 23 Aug 2026 04:00:03 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "流量見頂後的第二成長曲線，LINE 台灣將「日常需求」轉化為商機的突圍之道",
       "link": "https://finance.technews.tw/2026/08/23/ine-has-90percent-reach-how-can-it-keep-growing/",
       "publishedAt": "Sun, 23 Aug 2026 03:00:41 +0000",
       "summary": "當核心業務成長觸頂，企業該如何找出下一個獲利引擎？當 2017 年陳立人加入 LINE 台灣成為執行長時，這個 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "AI 化身第一道篩檢工具，及早揪出全球 10 億人的脂肪肝危機",
-      "link": "https://technews.tw/2026/08/23/theres-a-fatty-liver-epidemic-ai-could-help-get-ahead-of-it/",
-      "publishedAt": "Sun, 23 Aug 2026 02:30:13 +0000",
-      "summary": "全球脂肪肝負擔持續攀升，研究人員正把目光投向人工智慧，盼能把原本難以察覺的早期風險提早找出來。根據最新整理，全 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "記憶體成本攀升，NVIDIA 明年起調漲 AI 伺服器價格、漲幅逾 15%",
-      "link": "https://technews.tw/2026/08/23/nvidia-notifies-customers-of-ai-related-price-hikes-above-15-percent/",
-      "publishedAt": "Sun, 23 Aug 2026 02:29:41 +0000",
-      "summary": "NVIDIA 部分大型客戶已被告知，隨著記憶體成本大幅飆升，搭載 NVIDIA 晶片的 AI 伺服器價格將調漲 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "毛利率飆 65%、股價卻重挫二成，On 跑鞋寧放慢成長也不降價的祕密",
-      "link": "https://finance.technews.tw/2026/08/23/on-running-shoes-secret-65-gross-margin-20-stock-plunge-prefers-slow-growth-no-price-cuts/",
-      "publishedAt": "Sun, 23 Aug 2026 02:00:14 +0000",
-      "summary": "一份毛利率創新高的財報，為何卻換來上市以來最慘的單日股價崩跌？ On（昂跑）近日公布2026年第二季財報，毛利 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
