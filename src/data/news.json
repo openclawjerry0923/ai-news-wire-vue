@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-23T13:32:31.072Z",
+  "generatedAt": "2026-08-23T14:23:51.623Z",
   "items": [
     {
       "id": 1,
-      "title": "test(infra): stop the ssh tunnel stderr cases hanging the suite (#128…",
-      "link": "https://github.com/openclaw/openclaw/commit/225a3958887690d5cab922f70b6753985b7cc2ba",
-      "publishedAt": "2026-08-23T13:30:21Z",
-      "summary": "test(infra): stop the ssh tunnel stderr cases hanging the suite (#128027) These two cases enable fake timers and then let the fake ssh spawn open a real loopback socket. startSshPortForward waits for that listener with setTimeout retries against a Date.now() deadline, and fake timers freeze both, so a listener that is not up on the first probe never gets a retry and never reaches its own timeout. The case then hangs until the suite timeout instead of failing on its 1000ms budget. The listener usually wins that race on an idle machine, which is why this only shows up as an occasional 120s CI timeout. Real timers make the case deterministic and cost nothing: the file still runs in about 350ms.",
+      "title": "fix(ui): restore approved inbox panel layout after lazy-chunk split (…",
+      "link": "https://github.com/openclaw/openclaw/commit/5000f32b8db1db9c5fffcff80bcc19e64d4e085f",
+      "publishedAt": "2026-08-23T14:22:51Z",
+      "summary": "fix(ui): restore approved inbox panel layout after lazy-chunk split (#128201) * fix(ui): restore Inbox panel spacing * fix(ui): stabilize Inbox update state * fix(ui): keep updates in Inbox * fix(ui): keep update status authoritative * test(ui): add gateway-shaped update fixtures * fix(ui): preserve read-only update campaign visibility * fix(ui): preserve update handoff after Inbox closes * fix(ui): keep floating updates Inbox-owned * refactor(ui): isolate update schedule projection",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(infra): stop the ssh tunnel stderr cases hanging the suite (#128…",
-      "summaryZh": "重點：test(infra): stop the ssh tunnel stderr cases hanging the suite (#128027) These two cases enable fake timers and then le..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore approved inbox panel layout after lazy-chunk split (…",
+      "summaryZh": "重點：修正(ui): restore approved inbox panel layout after lazy-chunk split (#128201) * 修正(ui): restore Inbox panel spacing * 修正(..."
     },
     {
       "id": 2,
-      "title": "fix(media): preserve filename-derived attachment classification (#128…",
-      "link": "https://github.com/openclaw/openclaw/commit/62cc06be8430097c26767c4ff1f84a36097a8933",
-      "publishedAt": "2026-08-23T13:18:59Z",
-      "summary": "fix(media): preserve filename-derived attachment classification (#128220)",
+      "title": "perf(gateway): index targeted connections (#128198)",
+      "link": "https://github.com/openclaw/openclaw/commit/bbdf7abcff42835c07be4158b7e09226276200a9",
+      "publishedAt": "2026-08-23T14:13:33Z",
+      "summary": "perf(gateway): index targeted connections (#128198) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(media): preserve filename-derived attachment classification (#128…",
-      "summaryZh": "重點：修正(media): preserve filename-derived attachment classification (#128220)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): index targeted connections (#128198)",
+      "summaryZh": "重點：perf(Gateway): index targeted connections (#128198) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c..."
     },
     {
       "id": 3,
-      "title": "fix(test): gateway publication suite fails Windows teardown with EBUS…",
-      "link": "https://github.com/openclaw/openclaw/commit/60ae513bd9c620234ef074eff76c2f3afc1811e1",
-      "publishedAt": "2026-08-23T13:15:12Z",
-      "summary": "fix(test): gateway publication suite fails Windows teardown with EBUSY (#127201) The harness removed its fixture root while a per-agent SQLite handle opened under it was still cached, so the transcript-report restart case failed in teardown on Windows instead of in an assertion. Closing the agent cache after the shared state database only moves the lock, because the agent close releases leases through shared state and reopens it. Ordering the two closes the way the zalo and zalouser fixtures already do releases every handle before the removal, with no retry budget needed.",
+      "title": "fix(ui): keep visible chat messages authoritative over late snapshot …",
+      "link": "https://github.com/openclaw/openclaw/commit/4ac8b983b4a616139442c385cc4321dc00df710e",
+      "publishedAt": "2026-08-23T14:05:39Z",
+      "summary": "fix(ui): keep visible chat messages authoritative over late snapshot hydration (#128146) * fix(ui): keep visible chat rows authoritative over late stored snapshots The stored-snapshot ordering fence only detected replacements through the in-memory snapshot cache. Live appends and optimistic first-turn handoffs update the visible rows without populating that cache, so a delayed IndexedDB read could still replace newer visible messages with stale stored content. Skip persistent hydration whenever the pane already has visible rows for the session. * test(ui): split stored-snapshot hydration coverage into its own file chat-pane.test.ts had grown past the lint line budget. Move the persistent-snapshot hydration tests (including the new ordering-fence regression) into chat-pane-snapshot-hydration.test.ts and share the pane initialization fixtures through the existing test support module. * fix(ui): merge stored history with pending prompts * test(agents): make workspace bootstrap cache test deterministic",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): Gateway publication suite fails Windows teardown with EBUS…",
-      "summaryZh": "重點：修正(test): Gateway publication suite fails Windows teardown with EBUSY (#127201) The harness removed its 修正ture root whil..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep visible chat messages authoritative over late snapshot …",
+      "summaryZh": "重點：修正(ui): keep visible chat messages authoritative over late snapshot hydration (#128146) * 修正(ui): keep visible chat rows..."
     },
     {
       "id": 4,
-      "title": "test(agents): isolate provider failover mocks (#128207)",
-      "link": "https://github.com/openclaw/openclaw/commit/e87ff850e106d890978cee44982605f838f49ef7",
-      "publishedAt": "2026-08-23T13:12:20Z",
-      "summary": "test(agents): isolate provider failover mocks (#128207) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
+      "title": "release-publish/eed27fdb88c0-1787493831: fix(release): admit final beta QA evidence (#128231)",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2Feed27fdb88c0-1787493831",
+      "publishedAt": "2026-08-23T13:55:21Z",
+      "summary": "Admit the exact final beta candidate to the existing fail-closed statusless QA compatibility profile and its parameterized validation matrix.",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): isolate provider failover mocks (#128207)",
-      "summaryZh": "重點：test(agents): isolate provider failover mocks (#128207) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-..."
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/eed27fdb88c0-1787493831: 修正(版本發布): admit final beta QA evidence (#128231)",
+      "summaryZh": "重點：Admit the exact final beta candidate to the existing fail-closed statusless QA compatibility profile and its parameteriz..."
     },
     {
       "id": 5,
+      "title": "藍牙耳機連線遭占用，阿里電商平台被抓包用 WebAudio 建數位指紋",
+      "link": "https://infosecu.technews.tw/2026/08/23/aliexpress-reportedly-uses-webaudio-fingerprinting-to-keep-bluetooth-headphones-connected/",
+      "publishedAt": "Sun, 23 Aug 2026 13:29:32 +0000",
+      "summary": "一名使用藍牙耳機的使用者注意到，自己無法透過手機播放音樂，因為藍牙耳機遭占用，播放電腦瀏覽器來自 AliExp [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "韓國晶片貿易順差飆新高，半導體出口受惠 AI 熱潮",
       "link": "https://technews.tw/2026/08/23/south-korea-s-chip-boom-is-incredible/",
       "publishedAt": "Sun, 23 Aug 2026 08:19:53 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "動物園裡的雙向奔赴，科學家發現人類圍觀或許是亞洲小爪水獺最愛的活動",
       "link": "https://technews.tw/2026/08/23/otters-enjoy-human-visitors/",
       "publishedAt": "Sun, 23 Aug 2026 08:00:02 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "吃了會看見「小人國」？神祕蘑菇為何會引發集體幻覺，科學家：找不到致幻成分",
       "link": "https://technews.tw/2026/08/23/scientists-identify-mushroom-behind-tiny-people-hallucinations/",
       "publishedAt": "Sun, 23 Aug 2026 07:00:25 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Ox Alpha 模型竄紅 AI 圈，免費試用背後身分引發猜測",
       "link": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work/",
       "publishedAt": "Sun, 23 Aug 2026 06:39:39 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "華為針對亞太地區以安全智慧連結理念，全面升級星河 AI 網路，躍升產業數位智能化",
       "link": "https://infosecu.technews.tw/2026/08/23/huawei-upgrades-xinghe-ai-network-asia-pacific-secure-intelligent-connectivity-digital-intelligence/",
       "publishedAt": "Sun, 23 Aug 2026 06:00:52 +0000",
       "summary": "「華為資料通訊創新高峰會 2026•亞太」在峇里島圓滿落幕，本次大會吸引了近 500 位產業領袖、技術專家與生 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "DARPA 新計畫 SHINE 鎖定受損迴路，助大腦精準自我修復",
-      "link": "https://technews.tw/2026/08/23/darpa-shine/",
-      "publishedAt": "Sun, 23 Aug 2026 06:00:43 +0000",
-      "summary": "美國國防高等研究計畫署（DARPA）目前正推動一項新計畫，目標是透過非侵入式的方式，協助受傷的大腦重建受損的神 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
