@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-23T14:23:51.623Z",
+  "generatedAt": "2026-08-23T15:22:37.709Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): restore approved inbox panel layout after lazy-chunk split (…",
-      "link": "https://github.com/openclaw/openclaw/commit/5000f32b8db1db9c5fffcff80bcc19e64d4e085f",
-      "publishedAt": "2026-08-23T14:22:51Z",
-      "summary": "fix(ui): restore approved inbox panel layout after lazy-chunk split (#128201) * fix(ui): restore Inbox panel spacing * fix(ui): stabilize Inbox update state * fix(ui): keep updates in Inbox * fix(ui): keep update status authoritative * test(ui): add gateway-shaped update fixtures * fix(ui): preserve read-only update campaign visibility * fix(ui): preserve update handoff after Inbox closes * fix(ui): keep floating updates Inbox-owned * refactor(ui): isolate update schedule projection",
+      "title": "fix(plugins): plugins update reports a version downgrade as a success…",
+      "link": "https://github.com/openclaw/openclaw/commit/25f20cbc7fd9f5728a13c77146e39e0e7ffba799",
+      "publishedAt": "2026-08-23T15:22:16Z",
+      "summary": "fix(plugins): plugins update reports a version downgrade as a successful update (#127874) * fix(plugins): report version downgrades as downgrades `plugins update` compared only for equality when building update outcomes, so installing an older version than the one already present reported `Updated : -> .` The same equality-only check produced `Updated hook pack ...` for hook packs, which the same command prints through the same renderer. Compare version direction with the release-aware comparator already used to gate bundled-plugin updates, and say \"Downgraded\" / \"Would downgrade\" when an install moves backwards. Outcome status is unchanged: consumers read it as \"did the install change?\", and a downgrade is a change. * test(hooks): track and clean the hook pack fixture directories The parameterized downgrade cases created a temp directory per run with no cleanup. Use the shared tracked temp-dir helper so each case removes what it created.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore approved inbox panel layout after lazy-chunk split (…",
-      "summaryZh": "重點：修正(ui): restore approved inbox panel layout after lazy-chunk split (#128201) * 修正(ui): restore Inbox panel spacing * 修正(..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): plugins update reports a version downgrade as a success…",
+      "summaryZh": "重點：修正(plugins): plugins update reports a version downgrade as a successful update (#127874) * 修正(plugins): report version d..."
     },
     {
       "id": 2,
-      "title": "perf(gateway): index targeted connections (#128198)",
-      "link": "https://github.com/openclaw/openclaw/commit/bbdf7abcff42835c07be4158b7e09226276200a9",
-      "publishedAt": "2026-08-23T14:13:33Z",
-      "summary": "perf(gateway): index targeted connections (#128198) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "perf(models): reuse projected list rows (#128248)",
+      "link": "https://github.com/openclaw/openclaw/commit/cd86b59a35a5ed1eafa4a9a9155b608cc201d23b",
+      "publishedAt": "2026-08-23T15:20:59Z",
+      "summary": "perf(models): reuse projected list rows (#128248) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): index targeted connections (#128198)",
-      "summaryZh": "重點：perf(Gateway): index targeted connections (#128198) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c..."
+      "titleZh": "OpenClaw 程式碼更新：perf(模型): reuse projected list rows (#128248)",
+      "summaryZh": "重點：perf(模型): reuse projected list rows (#128248) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c1..."
     },
     {
       "id": 3,
-      "title": "fix(ui): keep visible chat messages authoritative over late snapshot …",
-      "link": "https://github.com/openclaw/openclaw/commit/4ac8b983b4a616139442c385cc4321dc00df710e",
-      "publishedAt": "2026-08-23T14:05:39Z",
-      "summary": "fix(ui): keep visible chat messages authoritative over late snapshot hydration (#128146) * fix(ui): keep visible chat rows authoritative over late stored snapshots The stored-snapshot ordering fence only detected replacements through the in-memory snapshot cache. Live appends and optimistic first-turn handoffs update the visible rows without populating that cache, so a delayed IndexedDB read could still replace newer visible messages with stale stored content. Skip persistent hydration whenever the pane already has visible rows for the session. * test(ui): split stored-snapshot hydration coverage into its own file chat-pane.test.ts had grown past the lint line budget. Move the persistent-snapshot hydration tests (including the new ordering-fence regression) into chat-pane-snapshot-hydration.test.ts and share the pane initialization fixtures through the existing test support module. * fix(ui): merge stored history with pending prompts * test(agents): make workspace bootstrap cache test deterministic",
+      "title": "fix(ui): keep panel load errors compact (#128225)",
+      "link": "https://github.com/openclaw/openclaw/commit/49bdbe600540626dcddabb4cff4aba8a0f36b996",
+      "publishedAt": "2026-08-23T15:19:47Z",
+      "summary": "fix(ui): keep panel load errors compact (#128225) * fix(ui): keep panel load errors compact * test(ui): wait for draft owner before persistence * test(ui): drop duplicate draft restore case",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep visible chat messages authoritative over late snapshot …",
-      "summaryZh": "重點：修正(ui): keep visible chat messages authoritative over late snapshot hydration (#128146) * 修正(ui): keep visible chat rows..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep panel load errors compact (#128225)",
+      "summaryZh": "重點：修正(ui): keep panel load errors compact (#128225) * 修正(ui): keep panel load errors compact * test(ui): wait for draft own..."
     },
     {
       "id": 4,
-      "title": "release-publish/eed27fdb88c0-1787493831: fix(release): admit final beta QA evidence (#128231)",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2Feed27fdb88c0-1787493831",
-      "publishedAt": "2026-08-23T13:55:21Z",
-      "summary": "Admit the exact final beta candidate to the existing fail-closed statusless QA compatibility profile and its parameterized validation matrix.",
-      "source": "OpenClaw Releases",
+      "title": "fix(gateway): retain idle manual channel stops (#128237)",
+      "link": "https://github.com/openclaw/openclaw/commit/8578b8f55cf77ddb161891b662a02f8c8c2a80ba",
+      "publishedAt": "2026-08-23T15:04:23Z",
+      "summary": "fix(gateway): retain idle manual channel stops (#128237) Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：版本發布-publish/eed27fdb88c0-1787493831: 修正(版本發布): admit final beta QA evidence (#128231)",
-      "summaryZh": "重點：Admit the exact final beta candidate to the existing fail-closed statusless QA compatibility profile and its parameteriz..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): retain idle manual channel stops (#128237)",
+      "summaryZh": "重點：修正(Gateway): retain idle manual channel stops (#128237) Co-authored-by: Amp..."
     },
     {
       "id": 5,
