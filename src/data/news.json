@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-23T04:37:06.417Z",
+  "generatedAt": "2026-08-23T05:29:40.967Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): make Settings Escape contextual (#128099)",
-      "link": "https://github.com/openclaw/openclaw/commit/663f4e796d300587111ed6ccc64daa9b65ab995e",
-      "publishedAt": "2026-08-23T04:35:24Z",
-      "summary": "fix(ui): make Settings Escape contextual (#128099) * fix(ui): make Settings Escape contextual Co-authored-by: shakkernerd * fix(ui): scope Settings Escape to search --------- Co-authored-by: Peter Steinberger Co-authored-by: shakkernerd",
+      "title": "fix(memory-wiki): ignore structural markers in query text (#128105)",
+      "link": "https://github.com/openclaw/openclaw/commit/f5553a8fee0efcb87757a65d24a3899f50529b3c",
+      "publishedAt": "2026-08-23T05:26:49Z",
+      "summary": "fix(memory-wiki): ignore structural markers in query text (#128105)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): make Settings Escape contextual (#128099)",
-      "summaryZh": "重點：修正(ui): make Settings Escape contextual (#128099) * 修正(ui): make Settings Escape contextual Co-authored-by: shakkernerd ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): ignore structural markers in query text (#128105)",
+      "summaryZh": "重點：修正(記憶-wiki): ignore structural markers in query text (#128105)..."
     },
     {
       "id": 2,
-      "title": "fix(ui): let keyboard users choose a profile avatar (#128095)",
-      "link": "https://github.com/openclaw/openclaw/commit/36512898810c97d07b07f136c2f17d8801c7fda2",
-      "publishedAt": "2026-08-23T04:17:04Z",
-      "summary": "fix(ui): let keyboard users choose a profile avatar (#128095) * fix(ui): make profile avatar picker keyboard accessible Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b * test(ui): stabilize avatar keyboard activation proof --------- Co-authored-by: Amp",
+      "title": "feat(mantis): add long-held active turn recipe (#128117)",
+      "link": "https://github.com/openclaw/openclaw/commit/c03c12c7bbe12422507f82acc85ea28804728f48",
+      "publishedAt": "2026-08-23T05:23:53Z",
+      "summary": "feat(mantis): add long-held active turn recipe (#128117) Capture the proven mechanics from proof run 32616859410 (PR #127950) as a reusable recipe: dual 600s timeout config patch, Code Mode exec events file, streamed chunkDelayMs hold, and the observe-loop pattern around the 60s cap. Require agents to record recipe-suggestion.md after scenario-mechanics iteration so future discoveries persist.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): let keyboard users choose a profile avatar (#128095)",
-      "summaryZh": "重點：修正(ui): let keyboard users choose a profile avatar (#128095) * 修正(ui): make profile avatar picker keyboard accessible Am..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(mantis): add long-held active turn recipe (#128117)",
+      "summaryZh": "重點：新功能(mantis): add long-held active turn recipe (#128117) Capture the proven mechanics from proof run 32616859410 (PR #127..."
     },
     {
       "id": 3,
-      "title": "feat(ui): add session hovercards (#125068)",
-      "link": "https://github.com/openclaw/openclaw/commit/434fd0c106902c432a18f3842e050a8b31a76d5a",
-      "publishedAt": "2026-08-23T04:13:05Z",
-      "summary": "feat(ui): add session hovercards (#125068) * feat(ui): add session hovercards * fix(ui): polish session hovercards * fix(ui): rearm focused session hovercards * fix(ui): suppress hovercards across session menus * fix(ui): preserve hovercard focus on refresh * fix(ui): restore focus after hovercard refresh * fix(ui): distinguish pending plan steps * fix(ui): spin active plan steps * fix(ui): mute active plan spinner * fix(ui): align plan status glyphs * chore(ui): tighten session hovercard implementation * perf(ui): keep hovercard age formatting lazy * test(ui): drop non-regressing hovercard marker case",
+      "title": "refactor(plugins): unify synchronous message hooks (#127797)",
+      "link": "https://github.com/openclaw/openclaw/commit/4d696fbe0d2bf53b8f590743a325667ea94f3f41",
+      "publishedAt": "2026-08-23T05:15:31Z",
+      "summary": "refactor(plugins): unify synchronous message hooks (#127797)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add session hovercards (#125068)",
-      "summaryZh": "重點：新功能(ui): add session hovercards (#125068) * 新功能(ui): add session hovercards * 修正(ui): polish session hovercards * 修正(ui)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): unify synchronous message hooks (#127797)",
+      "summaryZh": "重點：refactor(plugins): unify synchronous message hooks (#127797)..."
     },
     {
       "id": 4,
-      "title": "fix(heartbeat): deliver exec completions with disabled cadence (#126895)",
-      "link": "https://github.com/openclaw/openclaw/commit/7afbb7072ad7e73a8de53a14ebabbe85c8c92607",
-      "publishedAt": "2026-08-23T04:10:18Z",
-      "summary": "fix(heartbeat): deliver exec completions with disabled cadence (#126895) With agents.defaults.heartbeat.every set to \"0m\", a background exec completion queued its system event and requested a targeted exec-event wake, but the shared unscheduled-wake policy only admitted immediate wakes, so the follow-up agent turn silently never ran. Admit the exact exec-event/event producer shape (session or agent target required) in one per-source predicate, dispatch wake timers outside the requesting attempt's transcript-writer context, and document that \"0m\" disables recurring cadence only. Closes #62505 Co-authored-by: Jason O'Neal Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): deliver exec completions with disabled cadence (#126895)",
-      "summaryZh": "重點：修正(heartbeat): deliver exec completions with disabled cadence (#126895) With agents.defaults.heartbeat.every set to \"0m\"..."
+      "title": "AI 當心理諮商師夠格嗎，專家解析：現有模型有「知識」卻缺乏「智慧」",
+      "link": "https://technews.tw/2026/08/23/ai-generated-mental-health-advice-gets-uplifted-via-a-strong-dose-of-artificial-wisdom/",
+      "publishedAt": "Sun, 23 Aug 2026 05:00:34 +0000",
+      "summary": "隨著越來越多人把生成式 AI 當作心理支持與情緒傾訴對象，外界對這類工具能否真正提供可靠建議的討論也持續升溫。 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "release-publish/c96e81375014-1787462685",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2Fc96e81375014-1787462685",
+      "publishedAt": "2026-08-23T04:59:18Z",
+      "summary": "fix(doctor): migrate legacy Claude CLI allowlists to canonical refs (…",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/c96e81375014-1787462685",
+      "summaryZh": "重點：修正(文件tor): migrate legacy Claude CLI allowlists to canonical refs (…..."
+    },
+    {
+      "id": 6,
       "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
       "link": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions/",
       "publishedAt": "Sun, 23 Aug 2026 04:00:03 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "流量見頂後的第二成長曲線，LINE 台灣將「日常需求」轉化為商機的突圍之道",
       "link": "https://finance.technews.tw/2026/08/23/ine-has-90percent-reach-how-can-it-keep-growing/",
       "publishedAt": "Sun, 23 Aug 2026 03:00:41 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "AI 化身第一道篩檢工具，及早揪出全球 10 億人的脂肪肝危機",
       "link": "https://technews.tw/2026/08/23/theres-a-fatty-liver-epidemic-ai-could-help-get-ahead-of-it/",
       "publishedAt": "Sun, 23 Aug 2026 02:30:13 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "記憶體成本攀升，NVIDIA 明年起調漲 AI 伺服器價格、漲幅逾 15%",
       "link": "https://technews.tw/2026/08/23/nvidia-notifies-customers-of-ai-related-price-hikes-above-15-percent/",
       "publishedAt": "Sun, 23 Aug 2026 02:29:41 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "毛利率飆 65%、股價卻重挫二成，On 跑鞋寧放慢成長也不降價的祕密",
       "link": "https://finance.technews.tw/2026/08/23/on-running-shoes-secret-65-gross-margin-20-stock-plunge-prefers-slow-growth-no-price-cuts/",
       "publishedAt": "Sun, 23 Aug 2026 02:00:14 +0000",
       "summary": "一份毛利率創新高的財報，為何卻換來上市以來最慘的單日股價崩跌？ On（昂跑）近日公布2026年第二季財報，毛利 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "長得像海馬卻不是海馬？3D 骨骼掃描與基因定序揭開深海「海木偶」身世",
-      "link": "https://technews.tw/2026/08/23/sea-muppet/",
-      "publishedAt": "Sun, 23 Aug 2026 01:30:57 +0000",
-      "summary": "澳洲南部深海的一項最新研究，徹底推翻了科學界對幾種奇特小魚長久以來的分類認知。研究團隊透過微型電腦斷層掃描（M [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
