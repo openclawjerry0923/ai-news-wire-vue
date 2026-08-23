@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-23T15:22:37.709Z",
+  "generatedAt": "2026-08-23T16:26:18.100Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(plugins): plugins update reports a version downgrade as a success…",
-      "link": "https://github.com/openclaw/openclaw/commit/25f20cbc7fd9f5728a13c77146e39e0e7ffba799",
-      "publishedAt": "2026-08-23T15:22:16Z",
-      "summary": "fix(plugins): plugins update reports a version downgrade as a successful update (#127874) * fix(plugins): report version downgrades as downgrades `plugins update` compared only for equality when building update outcomes, so installing an older version than the one already present reported `Updated : -> .` The same equality-only check produced `Updated hook pack ...` for hook packs, which the same command prints through the same renderer. Compare version direction with the release-aware comparator already used to gate bundled-plugin updates, and say \"Downgraded\" / \"Would downgrade\" when an install moves backwards. Outcome status is unchanged: consumers read it as \"did the install change?\", and a downgrade is a change. * test(hooks): track and clean the hook pack fixture directories The parameterized downgrade cases created a temp directory per run with no cleanup. Use the shared tracked temp-dir helper so each case removes what it created.",
+      "title": "fix(release): install Bun smoke from candidate payload (#128243)",
+      "link": "https://github.com/openclaw/openclaw/commit/6cde399d52796f7a25caecd8dafd234f17892b68",
+      "publishedAt": "2026-08-23T16:25:46Z",
+      "summary": "fix(release): install Bun smoke from candidate payload (#128243) * fix(release): bind Bun smoke to candidate payload * test(release): align Bun payload workflow contract",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): plugins update reports a version downgrade as a success…",
-      "summaryZh": "重點：修正(plugins): plugins update reports a version downgrade as a successful update (#127874) * 修正(plugins): report version d..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): install Bun smoke from candidate payload (#128243)",
+      "summaryZh": "重點：修正(版本發布): install Bun smoke from candidate payload (#128243) * 修正(版本發布): bind Bun smoke to candidate payload * test(版本發布..."
     },
     {
       "id": 2,
-      "title": "perf(models): reuse projected list rows (#128248)",
-      "link": "https://github.com/openclaw/openclaw/commit/cd86b59a35a5ed1eafa4a9a9155b608cc201d23b",
-      "publishedAt": "2026-08-23T15:20:59Z",
-      "summary": "perf(models): reuse projected list rows (#128248) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "fix(logging): preserve UUID token fragments (#128258)",
+      "link": "https://github.com/openclaw/openclaw/commit/5355a7ad855dc916a31f6d774afffd9e4a521357",
+      "publishedAt": "2026-08-23T16:23:53Z",
+      "summary": "fix(logging): preserve UUID token fragments (#128258)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(模型): reuse projected list rows (#128248)",
-      "summaryZh": "重點：perf(模型): reuse projected list rows (#128248) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c1..."
+      "titleZh": "OpenClaw 程式碼更新：修正(logging): preserve UUID token fragments (#128258)",
+      "summaryZh": "重點：修正(logging): preserve UUID token fragments (#128258)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): keep panel load errors compact (#128225)",
-      "link": "https://github.com/openclaw/openclaw/commit/49bdbe600540626dcddabb4cff4aba8a0f36b996",
-      "publishedAt": "2026-08-23T15:19:47Z",
-      "summary": "fix(ui): keep panel load errors compact (#128225) * fix(ui): keep panel load errors compact * test(ui): wait for draft owner before persistence * test(ui): drop duplicate draft restore case",
+      "title": "fix: include disabled automations in doctor authority hint (#127998)",
+      "link": "https://github.com/openclaw/openclaw/commit/ae9a72a4fed47453f288c20de36859ce4592eaa7",
+      "publishedAt": "2026-08-23T16:21:54Z",
+      "summary": "fix: include disabled automations in doctor authority hint (#127998)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep panel load errors compact (#128225)",
-      "summaryZh": "重點：修正(ui): keep panel load errors compact (#128225) * 修正(ui): keep panel load errors compact * test(ui): wait for draft own..."
+      "titleZh": "OpenClaw 文件更新：修正: include disabled automations in 文件tor authority hint (#127998)",
+      "summaryZh": "重點：修正: include disabled automations in 文件tor authority hint (#127998)..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): retain idle manual channel stops (#128237)",
-      "link": "https://github.com/openclaw/openclaw/commit/8578b8f55cf77ddb161891b662a02f8c8c2a80ba",
-      "publishedAt": "2026-08-23T15:04:23Z",
-      "summary": "fix(gateway): retain idle manual channel stops (#128237) Co-authored-by: Amp",
+      "title": "fix(macos): reject invalid gateway ports before tunnel setup (#128260)",
+      "link": "https://github.com/openclaw/openclaw/commit/bf91e00d36cc94db57d23fd15a6a3c2aaa10f7ab",
+      "publishedAt": "2026-08-23T16:21:05Z",
+      "summary": "fix(macos): reject invalid gateway ports before tunnel setup (#128260)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): retain idle manual channel stops (#128237)",
-      "summaryZh": "重點：修正(Gateway): retain idle manual channel stops (#128237) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): reject invalid Gateway ports before tunnel setup (#128260)",
+      "summaryZh": "重點：修正(macos): reject invalid Gateway ports before tunnel setup (#128260)..."
     },
     {
       "id": 5,
