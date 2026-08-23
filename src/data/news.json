@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-08-23T03:02:57.814Z",
+  "generatedAt": "2026-08-23T04:37:06.417Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(ui): make Settings Escape contextual (#128099)",
+      "link": "https://github.com/openclaw/openclaw/commit/663f4e796d300587111ed6ccc64daa9b65ab995e",
+      "publishedAt": "2026-08-23T04:35:24Z",
+      "summary": "fix(ui): make Settings Escape contextual (#128099) * fix(ui): make Settings Escape contextual Co-authored-by: shakkernerd * fix(ui): scope Settings Escape to search --------- Co-authored-by: Peter Steinberger Co-authored-by: shakkernerd",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): make Settings Escape contextual (#128099)",
+      "summaryZh": "重點：修正(ui): make Settings Escape contextual (#128099) * 修正(ui): make Settings Escape contextual Co-authored-by: shakkernerd ..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ui): let keyboard users choose a profile avatar (#128095)",
+      "link": "https://github.com/openclaw/openclaw/commit/36512898810c97d07b07f136c2f17d8801c7fda2",
+      "publishedAt": "2026-08-23T04:17:04Z",
+      "summary": "fix(ui): let keyboard users choose a profile avatar (#128095) * fix(ui): make profile avatar picker keyboard accessible Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b * test(ui): stabilize avatar keyboard activation proof --------- Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): let keyboard users choose a profile avatar (#128095)",
+      "summaryZh": "重點：修正(ui): let keyboard users choose a profile avatar (#128095) * 修正(ui): make profile avatar picker keyboard accessible Am..."
+    },
+    {
+      "id": 3,
+      "title": "feat(ui): add session hovercards (#125068)",
+      "link": "https://github.com/openclaw/openclaw/commit/434fd0c106902c432a18f3842e050a8b31a76d5a",
+      "publishedAt": "2026-08-23T04:13:05Z",
+      "summary": "feat(ui): add session hovercards (#125068) * feat(ui): add session hovercards * fix(ui): polish session hovercards * fix(ui): rearm focused session hovercards * fix(ui): suppress hovercards across session menus * fix(ui): preserve hovercard focus on refresh * fix(ui): restore focus after hovercard refresh * fix(ui): distinguish pending plan steps * fix(ui): spin active plan steps * fix(ui): mute active plan spinner * fix(ui): align plan status glyphs * chore(ui): tighten session hovercard implementation * perf(ui): keep hovercard age formatting lazy * test(ui): drop non-regressing hovercard marker case",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): add session hovercards (#125068)",
+      "summaryZh": "重點：新功能(ui): add session hovercards (#125068) * 新功能(ui): add session hovercards * 修正(ui): polish session hovercards * 修正(ui)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(heartbeat): deliver exec completions with disabled cadence (#126895)",
+      "link": "https://github.com/openclaw/openclaw/commit/7afbb7072ad7e73a8de53a14ebabbe85c8c92607",
+      "publishedAt": "2026-08-23T04:10:18Z",
+      "summary": "fix(heartbeat): deliver exec completions with disabled cadence (#126895) With agents.defaults.heartbeat.every set to \"0m\", a background exec completion queued its system event and requested a targeted exec-event wake, but the shared unscheduled-wake policy only admitted immediate wakes, so the follow-up agent turn silently never ran. Admit the exact exec-event/event producer shape (session or agent target required) in one per-source predicate, dispatch wake timers outside the requesting attempt's transcript-writer context, and document that \"0m\" disables recurring cadence only. Closes #62505 Co-authored-by: Jason O'Neal Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): deliver exec completions with disabled cadence (#126895)",
+      "summaryZh": "重點：修正(heartbeat): deliver exec completions with disabled cadence (#126895) With agents.defaults.heartbeat.every set to \"0m\"..."
+    },
+    {
+      "id": 5,
+      "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
+      "link": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions/",
+      "publishedAt": "Sun, 23 Aug 2026 04:00:03 +0000",
+      "summary": "美國人工智慧（AI）公司 Anthropic 執行長阿莫迪（Dario Amodei）、OpenAI 執行奧特 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "流量見頂後的第二成長曲線，LINE 台灣將「日常需求」轉化為商機的突圍之道",
       "link": "https://finance.technews.tw/2026/08/23/ine-has-90percent-reach-how-can-it-keep-growing/",
       "publishedAt": "Sun, 23 Aug 2026 03:00:41 +0000",
@@ -11,51 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(gateway): restore HTTP subagent completion announces [AI-assisted…",
-      "link": "https://github.com/openclaw/openclaw/commit/672ac118c34f2a221d71146e690bbb0a6b3e75bf",
-      "publishedAt": "2026-08-23T02:47:23Z",
-      "summary": "fix(gateway): restore HTTP subagent completion announces [AI-assisted] (#128068) * fix(gateway): restore HTTP subagent completion announces * test(gateway): prove HTTP resolver retires with instance",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): restore HTTP subagent completion announces [AI-assisted…",
-      "summaryZh": "重點：修正(Gateway): restore HTTP subagent completion announces [AI-assisted] (#128068) * 修正(Gateway): restore HTTP subagent com..."
-    },
-    {
-      "id": 3,
-      "title": "perf(process): avoid rescanning exited runs (#128080)",
-      "link": "https://github.com/openclaw/openclaw/commit/794a198b8d0f56e90dc4f013d11ec2b47209e4b4",
-      "publishedAt": "2026-08-23T02:39:57Z",
-      "summary": "perf(process): avoid rescanning exited runs (#128080) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(process): avoid rescanning exited runs (#128080)",
-      "summaryZh": "重點：perf(process): avoid rescanning exited runs (#128080) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a3..."
-    },
-    {
-      "id": 4,
-      "title": "fix(auth): preserve non-lock store write errors (#128049)",
-      "link": "https://github.com/openclaw/openclaw/commit/5d42eb82db22ce04c8674bda086e5bd2dfa2f5c9",
-      "publishedAt": "2026-08-23T02:33:45Z",
-      "summary": "fix(auth): preserve non-lock store write errors (#128049) * fix(auth): preserve non-lock store write errors * fix(agent): preserve terminal result on auth bookkeeping failure * fix(auth): preserve plugin SDK write semantics Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auth): preserve non-lock store write errors (#128049)",
-      "summaryZh": "重點：修正(auth): preserve non-lock store write errors (#128049) * 修正(auth): preserve non-lock store write errors * 修正(agent): p..."
-    },
-    {
-      "id": 5,
-      "title": "fix(mantis): surface lane block reasons in proof verdicts (#128013)",
-      "link": "https://github.com/openclaw/openclaw/commit/0541595a6934c5f5989b1ed108425921475cf3d5",
-      "publishedAt": "2026-08-23T02:30:58Z",
-      "summary": "fix(mantis): surface lane block reasons in proof verdicts (#128013)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): surface lane block reasons in proof verdicts (#128013)",
-      "summaryZh": "重點：修正(mantis): surface lane block reasons in proof verdicts (#128013)..."
-    },
-    {
-      "id": 6,
+      "id": 7,
       "title": "AI 化身第一道篩檢工具，及早揪出全球 10 億人的脂肪肝危機",
       "link": "https://technews.tw/2026/08/23/theres-a-fatty-liver-epidemic-ai-could-help-get-ahead-of-it/",
       "publishedAt": "Sun, 23 Aug 2026 02:30:13 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "記憶體成本攀升，NVIDIA 明年起調漲 AI 伺服器價格、漲幅逾 15%",
       "link": "https://technews.tw/2026/08/23/nvidia-notifies-customers-of-ai-related-price-hikes-above-15-percent/",
       "publishedAt": "Sun, 23 Aug 2026 02:29:41 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "毛利率飆 65%、股價卻重挫二成，On 跑鞋寧放慢成長也不降價的祕密",
       "link": "https://finance.technews.tw/2026/08/23/on-running-shoes-secret-65-gross-margin-20-stock-plunge-prefers-slow-growth-no-price-cuts/",
       "publishedAt": "Sun, 23 Aug 2026 02:00:14 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "長得像海馬卻不是海馬？3D 骨骼掃描與基因定序揭開深海「海木偶」身世",
       "link": "https://technews.tw/2026/08/23/sea-muppet/",
       "publishedAt": "Sun, 23 Aug 2026 01:30:57 +0000",
       "summary": "澳洲南部深海的一項最新研究，徹底推翻了科學界對幾種奇特小魚長久以來的分類認知。研究團隊透過微型電腦斷層掃描（M [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "群創法說焦點「騰籠換鳥」！未回應台積電 CoPoS 合作問題，TGV 玻璃基板最快 2028 年量產",
-      "link": "https://technews.tw/2026/08/23/innolux-earnings-call-26q2/",
-      "publishedAt": "Sun, 23 Aug 2026 01:00:46 +0000",
-      "summary": "《財訊》報導，群創 18 日舉行線上法說會，外界關注的焦點包括 FOPLP（扇出型面板級封裝）量產狀況、玻璃基 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
