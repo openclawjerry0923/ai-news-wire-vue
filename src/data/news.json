@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-23T11:21:02.491Z",
+  "generatedAt": "2026-08-23T12:40:20.989Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(slack): consume reply threading only after accepted delivery (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/9ad09970b49d0f08a8aaa3978ded4d7a680502a1",
-      "publishedAt": "2026-08-23T11:16:49Z",
-      "summary": "fix(slack): consume reply threading only after accepted delivery (#128182)",
+      "title": "fix(agents): include ctimeMs in workspace file cache identity (#127769)",
+      "link": "https://github.com/openclaw/openclaw/commit/ab7d5c92ace7029727d9bacb537b069be9c32f03",
+      "publishedAt": "2026-08-23T12:35:39Z",
+      "summary": "fix(agents): include ctimeMs in workspace file cache identity (#127769) A same-inode, equal-size in-place edit whose mtime is restored (via sync/restore/editor tooling) left the workspace bootstrap cache serving stale content for the lifetime of the process. ctimeMs is updated by the OS on every metadata change and cannot be restored via utimes, so adding it to the cache identity detects the edit. Matches the existing ctime freshness pattern in assistant-avatar-cache.ts and plugin-registry-snapshot.ts. Closes #127504",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): consume reply threading only after accepted delivery (#12…",
-      "summaryZh": "重點：修正(slack): consume reply threading only after accepted delivery (#128182)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): include ctimeMs in workspace file cache identity (#127769)",
+      "summaryZh": "重點：修正(agents): include ctimeMs in workspace file cache identity (#127769) A same-inode, equal-size in-place edit whose mtim..."
     },
     {
       "id": 2,
-      "title": "fix(discord): malformed gateway HELLO frame kills the bot's socket li…",
-      "link": "https://github.com/openclaw/openclaw/commit/6c37eb01d9a12e80ba7d216cf3c5af3a99a31d1e",
-      "publishedAt": "2026-08-23T11:14:15Z",
-      "summary": "fix(discord): malformed gateway HELLO frame kills the bot's socket listener (#121468) * fix(discord): survive malformed gateway HELLO frames The HELLO branch dereferenced payload.d through a bare cast and replaced only null/undefined with the 45s default, so a { op: 10, d: null } frame threw a TypeError out of the socket message listener (no try/catch), and a zero, negative, sub-second, or out-of-range interval reached setTimeout unchanged, scheduling the first heartbeat immediately. Normalize the HELLO body with the canonical record guard and accept the interval only inside the timer-safe range, matching the QQ gateway. The cast is removed rather than guarded. * fix(discord): honor any heartbeat interval the gateway can schedule Review of the first revision pointed out that the 1000 ms lower bound was an interoperability break: a compatible gateway negotiating, say, 500 ms would have had its interval replaced by the 45s default and then been disconnected as unresponsive. Discord documents no lower bound. Drop the bound to a positive timer-safe integer, so shape validation and the timer ceiling stay while every interval this client can actually schedule is honored. Regression rows pin 500 ms and 1 ms.",
+      "title": "fix(release): preserve native prebuilds in git fixtures (#128210)",
+      "link": "https://github.com/openclaw/openclaw/commit/0d18fa8d8bdcc747ab6d8ba4663d91f7bcbef7aa",
+      "publishedAt": "2026-08-23T12:33:05Z",
+      "summary": "fix(release): preserve native prebuilds in git fixtures (#128210)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): malformed Gateway HELLO frame kills the bot's socket li…",
-      "summaryZh": "重點：修正(Discord): malformed Gateway HELLO frame kills the bot's socket listener (#121468) * 修正(Discord): survive malformed Ga..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): preserve native prebuilds in git 修正tures (#128210)",
+      "summaryZh": "重點：修正(版本發布): preserve native prebuilds in git 修正tures (#128210)..."
     },
     {
       "id": 3,
-      "title": "fix(macos): attach the onboarding CLI install prompt to the window (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/47436e447e45e8200a25559e145efadfa8f871c0",
-      "publishedAt": "2026-08-23T11:09:08Z",
-      "summary": "fix(macos): attach the onboarding CLI install prompt to the window (#128183) * fix(macos): attach the onboarding CLI install prompt to the window On an unreleased build, the onboarding CLI page resolved its install target through NSAlert.runModal() — a detached app-modal panel that is absent from the app's AX window list and freely covered by system permission dialogs. Live repro: with two TCC prompts stacked over it, the main thread sat parked in runModal for 30+ minutes while the page showed an active \"Install OpenClaw\" spinner, the close button was disabled, and busyReason claimed an install was in flight — before the user had chosen anything. A spinner that means \"answer a dialog you cannot see\" is a silent-failure trap. The prompt (both the confirm-stable alert and the channel chooser) is now a sheet attached to the onboarding window via beginSheetModal, so it stays z-ordered with the window and AX-visible. The busy state is honest: a new .choosingTarget phase renders the install row as pending instead of running, and installingCLI/close-disabled/busyReason only engage after a target is actually chosen. Non-onboarding callers (checkAndPromptIfNeeded) keep runModal by passing no window. All alert text and button order unchanged. * style(macos): wrap sheetPresentationWindow property body",
+      "title": "test: shrink Discord assertion baseline (#128203)",
+      "link": "https://github.com/openclaw/openclaw/commit/7d816a2a065b685dcf9b6bcd87ff8df53e93bdfe",
+      "publishedAt": "2026-08-23T12:16:57Z",
+      "summary": "test: shrink Discord assertion baseline (#128203) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): attach the onboarding CLI install prompt to the window (#…",
-      "summaryZh": "重點：修正(macos): attach the onboarding CLI install prompt to the window (#128183) * 修正(macos): attach the onboarding CLI insta..."
+      "titleZh": "OpenClaw 程式碼更新：test: shrink Discord assertion baseline (#128203)",
+      "summaryZh": "重點：test: shrink Discord assertion baseline (#128203) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-4..."
     },
     {
       "id": 4,
-      "title": "fix(ui): refuse late open/attach replies after terminal connection di…",
-      "link": "https://github.com/openclaw/openclaw/commit/cbc89fc5a1f6f8c39b436d3c3b4ff5deb3fb60eb",
-      "publishedAt": "2026-08-23T11:05:12Z",
-      "summary": "fix(ui): refuse late open/attach replies after terminal connection dispose (#128147)",
+      "title": "fix(outbound): prevent remote gateway duplicate sends (#128202)",
+      "link": "https://github.com/openclaw/openclaw/commit/500c9b4ea64ccc47018ba5433399fc3ef29d58b9",
+      "publishedAt": "2026-08-23T12:14:48Z",
+      "summary": "fix(outbound): prevent remote gateway duplicate sends (#128202) When the agent runtime talks to a remote Gateway (gateway.mode \"remote\" or a gatewayUrl/gatewayToken override), the message tool withholds the runtime identity, so a proven-not-sent outbound failure kept its durable retry row and also surfaced as an error the model would answer by resending — a duplicate once the queue replayed the row. - deliver-queue-execute: mark the thrown error recoveryOwnedRetry when the proven-not-sent row stays replay-eligible (one retry owner per row) - message.action: additive UNAVAILABLE detail code OUTBOUND_DELIVERY_QUEUED - message tool: project that error into a non-throwing delivery_queued result (\"queued, will retry automatically, do not resend\") and keep the autogenerated idempotency-key mapping so an identical resend collapses Validated with unit tests and a real-Telegram remote-gateway E2E (affected on main: duplicate; fixed: single send, delivery_queued). Closes #124279 Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): refuse late open/attach replies after terminal connection di…",
-      "summaryZh": "重點：修正(ui): refuse late open/attach replies after terminal connection dispose (#128147)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(outbound): prevent remote Gateway duplicate sends (#128202)",
+      "summaryZh": "重點：修正(outbound): prevent remote Gateway duplicate sends (#128202) When the agent runtime talks to a remote Gateway (Gateway..."
     },
     {
       "id": 5,
