@@ -1,19 +1,79 @@
 {
-  "generatedAt": "2026-08-22T23:21:03.841Z",
+  "generatedAt": "2026-08-23T01:21:52.160Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(matrix): guard malformed poll answers instead of throwing TypeErr…",
-      "link": "https://github.com/openclaw/openclaw/commit/8f18edfa10ab52b83083da4d1fd4e0f7e2d2e43f",
-      "publishedAt": "2026-08-22T23:17:41Z",
-      "summary": "fix(matrix): guard malformed poll answers instead of throwing TypeError (#123231) * fix(matrix): guard malformed poll answers instead of throwing TypeError parsePollStart mapped poll.answers with no runtime shape check, but poll event content is sender-controlled JSON. A poll start event with answers not an array, null entries, or non-string ids threw a TypeError that bubbled through thread/reply context building to the ingress top-level catch, silently dropping the whole message - and every later message replying to or threading on that poll. Drop malformed entries (and return null when nothing valid remains) instead of throwing. * fix(matrix): normalize malformed poll text Signed-off-by: sallyom * fix(matrix): use guarded poll records Signed-off-by: sallyom --------- Signed-off-by: sallyom Co-authored-by: sallyom",
+      "title": "perf(ui): stop long-lived request and session caches from growing for…",
+      "link": "https://github.com/openclaw/openclaw/commit/d75164c46d43b3fd3c32c69f1820bccdeabbe54f",
+      "publishedAt": "2026-08-23T01:15:46Z",
+      "summary": "perf(ui): stop long-lived request and session caches from growing forever (#127818) * perf(ui): bound long-lived request and session state * fix(gateway-client): prevent request id collisions * fix(ui): preserve ordering across agent caches * fix(ui): preserve session order after pruning * fix(ui): retain cached session order during loading * fix(ui): evict removed agent session caches * test(ui): cover canonical session cache pruning",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(matrix): guard malformed poll answers instead of throwing TypeErr…",
-      "summaryZh": "重點：修正(matrix): guard malformed poll answers instead of throwing TypeError (#123231) * 修正(matrix): guard malformed poll answ..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): stop long-lived request and session caches from growing for…",
+      "summaryZh": "重點：perf(ui): stop long-lived request and session caches from growing forever (#127818) * perf(ui): bound long-lived request..."
     },
     {
       "id": 2,
+      "title": "fix(ui): show busy avatar chooser as disabled (#128059)",
+      "link": "https://github.com/openclaw/openclaw/commit/6ed8954c8a3261f58ec02f5be47933737697ff22",
+      "publishedAt": "2026-08-23T01:09:22Z",
+      "summary": "fix(ui): show busy avatar chooser as disabled (#128059) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a916-d4a94cbd3e3b Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): show busy avatar chooser as disabled (#128059)",
+      "summaryZh": "重點：修正(ui): show busy avatar chooser as disabled (#128059) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f4-b547-7788-a..."
+    },
+    {
+      "id": 3,
+      "title": "群創法說焦點「騰籠換鳥」！未回應台積電 CoPoS 合作問題，TGV 玻璃基板最快 2028 年量產",
+      "link": "https://technews.tw/2026/08/23/innolux-earnings-call-26q2/",
+      "publishedAt": "Sun, 23 Aug 2026 01:00:46 +0000",
+      "summary": "《財訊》報導，群創 18 日舉行線上法說會，外界關注的焦點包括 FOPLP（扇出型面板級封裝）量產狀況、玻璃基 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "fix(ui): make login recovery commands copyable (#128047)",
+      "link": "https://github.com/openclaw/openclaw/commit/422e805877df64eee810583a20adc07dd57902d4",
+      "publishedAt": "2026-08-23T00:56:20Z",
+      "summary": "fix(ui): make login recovery commands copyable (#128047) * fix(ui): make login recovery commands copyable * fix(ui): trim login recovery command segmentation --------- Co-authored-by: IWhatsskill",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): make login recovery commands copyable (#128047)",
+      "summaryZh": "重點：修正(ui): make login recovery commands copyable (#128047) * 修正(ui): make login recovery commands copyable * 修正(ui): trim l..."
+    },
+    {
+      "id": 5,
+      "title": "perf(ui): stop a pending approval countdown from re-rendering the who…",
+      "link": "https://github.com/openclaw/openclaw/commit/008412212f4334bf9fe83d36d3f93364991e2302",
+      "publishedAt": "2026-08-23T00:37:55Z",
+      "summary": "perf(ui): stop a pending approval countdown from re-rendering the whole chat every second (#127844) * perf(ui): localize approval countdown updates * fix(ui): retain approval countdown controller * fix(ui): refresh approval aria description * fix(ui): localize approval aria refresh * test(ui): await approval countdown render * test(ui): await inline approval countdown",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): stop a pending approval countdown from re-rendering the who…",
+      "summaryZh": "重點：perf(ui): stop a pending approval countdown from re-rendering the whole chat every second (#127844) * perf(ui): localize..."
+    },
+    {
+      "id": 6,
+      "title": "治了癌症卻痛了關節，破解免疫療法副作用謎團：「免疫記憶」竟是發炎加劇元兇",
+      "link": "https://technews.tw/2026/08/23/immune-memory/",
+      "publishedAt": "Sun, 23 Aug 2026 00:30:51 +0000",
+      "summary": "癌症免疫療法為許多患者帶來抗癌的新曙光，但其伴隨的副作用卻也讓部分患者苦不堪言。美國德州大學安德森癌症中心（M [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "星雲大師、王永慶被收服，40 年老字號鈺通營造靠「極限完工」創 24 年營收新高",
+      "link": "https://finance.technews.tw/2026/08/23/yuh-tong-construction/",
+      "publishedAt": "Sun, 23 Aug 2026 00:00:18 +0000",
+      "summary": "從廟宇、校園到醫院、無人機廠，鈺通營造什麼案子都敢接。40 年來不挑肥揀瘦，靠的是「別人不想做，我把它做好」的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "學生負責下令，AI 負責讀大學：AI 代理「幫上課」成高等教育危機",
       "link": "https://technews.tw/2026/08/23/i-found-a-prompt-that-keeps-ai-agents-from-taking-tasks-too-far/",
       "publishedAt": "Sat, 22 Aug 2026 23:00:19 +0000",
@@ -22,40 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix: macOS onboarding waits for Gateway restart (#127713)",
-      "link": "https://github.com/openclaw/openclaw/commit/7d95cff39d61a583e976b9d2492462bcbb48aab0",
-      "publishedAt": "2026-08-22T22:51:04Z",
-      "summary": "fix: macOS onboarding waits for Gateway restart (#127713) * fix(onboarding): wait for inference gateway restart Co-authored-by: hannesrudolph * fix(onboarding): preserve custodian handoff after restart Co-authored-by: hannesrudolph * refactor(macos): share activation restart finalization Co-authored-by: hannesrudolph * style(macos): format restart reconciliation Co-authored-by: hannesrudolph * fix(macos): compile restart finalization Co-authored-by: hannesrudolph * test(macos): sequence onboarding restart proof Co-authored-by: hannesrudolph * test(macos): finish onboarding after activation Co-authored-by: Tak Hoffman Co-authored-by: hannesrudolph * test(macos): reuse managed restart proof Co-authored-by: Tak Hoffman Co-authored-by: Hannes Rudolph * test(macos): assert receipt before handoff cleanup Co-authored-by: Tak Hoffman Co-authored-by: Hannes Rudolph * fix(onboarding): keep restart verification bounded Co-authored-by: Tak Hoffman Co-authored-by: Hannes Rudolph --------- Co-authored-by: RoboClaw Co-authored-by: hannesrudolph",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: macOS onboarding waits for Gateway restart (#127713)",
-      "summaryZh": "重點：修正: macOS onboarding waits for Gateway restart (#127713) * 修正(onboarding): wait for inference Gateway restart Co-authore..."
-    },
-    {
-      "id": 4,
-      "title": "perf(cron): skip history for future jobs (#128048)",
-      "link": "https://github.com/openclaw/openclaw/commit/a3c007fb45d3a1e55ab30a9d3f50cd631f9163cf",
-      "publishedAt": "2026-08-22T22:48:53Z",
-      "summary": "perf(cron): skip history for future jobs (#128048) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(排程): skip history for future jobs (#128048)",
-      "summaryZh": "重點：perf(排程): skip history for future jobs (#128048) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-49..."
-    },
-    {
-      "id": 5,
-      "title": "fix(ui): ignore malformed realtime talk audio frames instead of throw…",
-      "link": "https://github.com/openclaw/openclaw/commit/bcb3e3f09850ec56f93103f289e37144103a2863",
-      "publishedAt": "2026-08-22T22:46:30Z",
-      "summary": "fix(ui): ignore malformed realtime talk audio frames instead of throwing (#119215) Malformed realtime Talk PCM frames are now ignored instead of escaping the playback queue as exceptions, preserving subsequent browser audio playback. Reviewed-by: @shakkernerd",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): ignore malformed realtime talk audio frames instead of throw…",
-      "summaryZh": "重點：修正(ui): ignore malformed realtime talk audio frames instead of throwing (#119215) Malformed realtime Talk PCM frames are..."
-    },
-    {
-      "id": 6,
+      "id": 9,
       "title": "銀河系演化史翻新，誕生初期即歷經大規模「星系併吞」",
       "link": "https://technews.tw/2026/08/23/hst-unravels-mystery-of-the-milky-way-early-mergers/",
       "publishedAt": "Sat, 22 Aug 2026 16:00:50 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "超級電腦資料塞車有解！新壓縮術每秒可吞 60GB，速度暴增 640 倍",
       "link": "https://technews.tw/2026/08/23/covering-the-fastest-computers-in-the-world-and-the-people-who-run-them-11/",
       "publishedAt": "Sat, 22 Aug 2026 16:00:46 +0000",
       "summary": "高效能運算（HPC）長期面臨兩難：GPU 讓科學模擬越跑越快、規模越來越大，但產生資料量也迅速膨脹，儲存與傳輸 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "大麻關鍵成分 THC，可能幫助 PTSD 患者擺脫揮之不去的惡夢",
-      "link": "https://technews.tw/2026/08/23/thc-medication-made-ptsd-nightmares-disappear-for-more-than-a-third-of-patients/",
-      "publishedAt": "Sat, 22 Aug 2026 16:00:21 +0000",
-      "summary": "對許多創傷後壓力症候群（PTSD）患者而言，痛苦的記憶不只白天出現，甚至夢中也可能反覆重演。這類與創傷相關的惡 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "告別 7 歲法則迷思！科學家全新毛孩年齡公式，1 歲狗等於 31 歲成年人",
-      "link": "https://technews.tw/2026/08/22/scientists-new-formula-for-dog-age/",
-      "publishedAt": "Sat, 22 Aug 2026 08:10:16 +0000",
-      "summary": "許多飼主在幫愛犬慶生時，總習慣將狗的實際年齡 「乘以 7」 來估算相當於人類的幾歲。然而，一項發表於 《細胞系 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "打破運動頻率迷思，研究證實：每週一次 75 分鐘「間歇性快走」也能有效燃脂",
-      "link": "https://technews.tw/2026/08/22/weekly-75-min-burns-fat/",
-      "publishedAt": "Sat, 22 Aug 2026 08:00:09 +0000",
-      "summary": "現代人生活忙碌，常以「沒時間」為由放棄運動。然而，頂尖學術期刊《Nature Communications》最 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
