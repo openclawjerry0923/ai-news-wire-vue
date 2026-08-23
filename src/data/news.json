@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-23T10:24:03.775Z",
+  "generatedAt": "2026-08-23T11:21:02.491Z",
   "items": [
     {
       "id": 1,
-      "title": "improve(ui): unify sidebar footer and issues panel (#125070)",
-      "link": "https://github.com/openclaw/openclaw/commit/d26e097263c13239394488b12c4b68bd8fa05cc8",
-      "publishedAt": "2026-08-23T10:20:33Z",
-      "summary": "improve(ui): unify sidebar footer and issues panel (#125070) * improve(ui): unify sidebar footer and issues panel * improve(ui): compact sidebar inbox footer * improve(ui): enlarge inbox mascot * improve(ui): enlarge inbox heading * improve(ui): add inbox item context * fix(ui): align identity menu trailing rail * fix(ui): restore identity menu build age * improve(ui): add sidebar update indicator * fix(mock): restore pending inbox approvals * improve(ui): remove sidebar footer border * improve(ui): align identity menu header * fix(ui): center identity theme icon * improve(ui): refine build hovercard * improve(ui): unify inbox attention red * fix(ui): gate sidebar update indicator * improve(ui): clarify inbox item rows * improve(ui): clarify inbox triage * experiment(ui): separate inbox items * fix(ui): scope inbox to chat sidebar * improve(ui): pad build hovercard * improve(ui): add inbox empty state * improve(ui): align inbox popover * fix(ui): square inbox separators * improve(ui): reorder sidebar update * improve(ui): simplify approval inbox rows * fix(ui): shift inbox beside update * improve(ui): add mobile inbox sheet * fix(ui): align sidebar footer controls * improve(ui): space footer actions * fix(ui): delay update hover expansion * improve(ui): shorten mobile inbox sheet * fix(ui): extend inbox row hover * improve(ui): strengthen inbox chrome * fix(ui): remove update tooltip * improve(ui): anchor inbox above trigger * fix(ui): align approval row padding * fix(ui): hide initial inbox dismiss * improve(ui): lift approval command surface * improve(ui): clarify approval command surface * improve(ui): tighten inbox header * improve(ui): anchor sidebar catalog alerts * fix(ui): gate footer update indicator * improve(ui): soften sidebar catalog alert * fix(ui): emphasize deny on hover * fix(ui): unify inbox row separators * fix(ui): lift sidebar catalog alert * fix(ui): preserve sidebar scroll fade * fix(ui): align inbox icon rail * improve(ui): emphasize approval action * fix(ui): fill approval primary action * fix(ui): preserve approval action fill * fix(mock): clear sidebar catalog alert * fix(ui): show approval action fill * fix(ui): hide adjacent inbox separators * improve(ui): refine sidebar footer divider * fix(ui): square inbox row hover * fix(ui): preserve inbox inline action contrast * improve(ui): mute neutral inbox icons * improve(ui): move reconnect into details * improve(ui): refine mobile inbox sheet * improve(ui): remove duplicate agent approvals * refactor(ui): close out sidebar inbox * test(ui): remove duplicated sidebar coverage * fix(ui): restore sidebar inbox boundaries * test(ui): include lazy update styles in cursor policy",
+      "title": "fix(slack): consume reply threading only after accepted delivery (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/9ad09970b49d0f08a8aaa3978ded4d7a680502a1",
+      "publishedAt": "2026-08-23T11:16:49Z",
+      "summary": "fix(slack): consume reply threading only after accepted delivery (#128182)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): unify sidebar footer and issues panel (#125070)",
-      "summaryZh": "重點：improve(ui): unify sidebar footer and issues panel (#125070) * improve(ui): unify sidebar footer and issues panel * impr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): consume reply threading only after accepted delivery (#12…",
+      "summaryZh": "重點：修正(slack): consume reply threading only after accepted delivery (#128182)..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): prevent silent delivery loss on closing connections (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/7700a3b3e331e4c97ca81668b0a6d4e27159e723",
-      "publishedAt": "2026-08-23T09:54:59Z",
-      "summary": "fix(gateway): prevent silent delivery loss on closing connections (#128144) * fix(gateway): reject sends on closing websocket transports * fix(gateway): share websocket readiness without eager imports",
+      "title": "fix(discord): malformed gateway HELLO frame kills the bot's socket li…",
+      "link": "https://github.com/openclaw/openclaw/commit/6c37eb01d9a12e80ba7d216cf3c5af3a99a31d1e",
+      "publishedAt": "2026-08-23T11:14:15Z",
+      "summary": "fix(discord): malformed gateway HELLO frame kills the bot's socket listener (#121468) * fix(discord): survive malformed gateway HELLO frames The HELLO branch dereferenced payload.d through a bare cast and replaced only null/undefined with the 45s default, so a { op: 10, d: null } frame threw a TypeError out of the socket message listener (no try/catch), and a zero, negative, sub-second, or out-of-range interval reached setTimeout unchanged, scheduling the first heartbeat immediately. Normalize the HELLO body with the canonical record guard and accept the interval only inside the timer-safe range, matching the QQ gateway. The cast is removed rather than guarded. * fix(discord): honor any heartbeat interval the gateway can schedule Review of the first revision pointed out that the 1000 ms lower bound was an interoperability break: a compatible gateway negotiating, say, 500 ms would have had its interval replaced by the 45s default and then been disconnected as unresponsive. Discord documents no lower bound. Drop the bound to a positive timer-safe integer, so shape validation and the timer ceiling stay while every interval this client can actually schedule is honored. Regression rows pin 500 ms and 1 ms.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): prevent silent delivery loss on closing connections (#1…",
-      "summaryZh": "重點：修正(Gateway): prevent silent delivery loss on closing connections (#128144) * 修正(Gateway): reject sends on closing websoc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): malformed Gateway HELLO frame kills the bot's socket li…",
+      "summaryZh": "重點：修正(Discord): malformed Gateway HELLO frame kills the bot's socket listener (#121468) * 修正(Discord): survive malformed Ga..."
     },
     {
       "id": 3,
-      "title": "fix(ui): keep mount recovery working when the service worker is broke…",
-      "link": "https://github.com/openclaw/openclaw/commit/9dbc72a544a89412adc3c63d0be14a1369a89513",
-      "publishedAt": "2026-08-23T09:42:54Z",
-      "summary": "fix(ui): keep mount recovery working when the service worker is broken (#128167)",
+      "title": "fix(macos): attach the onboarding CLI install prompt to the window (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/47436e447e45e8200a25559e145efadfa8f871c0",
+      "publishedAt": "2026-08-23T11:09:08Z",
+      "summary": "fix(macos): attach the onboarding CLI install prompt to the window (#128183) * fix(macos): attach the onboarding CLI install prompt to the window On an unreleased build, the onboarding CLI page resolved its install target through NSAlert.runModal() — a detached app-modal panel that is absent from the app's AX window list and freely covered by system permission dialogs. Live repro: with two TCC prompts stacked over it, the main thread sat parked in runModal for 30+ minutes while the page showed an active \"Install OpenClaw\" spinner, the close button was disabled, and busyReason claimed an install was in flight — before the user had chosen anything. A spinner that means \"answer a dialog you cannot see\" is a silent-failure trap. The prompt (both the confirm-stable alert and the channel chooser) is now a sheet attached to the onboarding window via beginSheetModal, so it stays z-ordered with the window and AX-visible. The busy state is honest: a new .choosingTarget phase renders the install row as pending instead of running, and installingCLI/close-disabled/busyReason only engage after a target is actually chosen. Non-onboarding callers (checkAndPromptIfNeeded) keep runModal by passing no window. All alert text and button order unchanged. * style(macos): wrap sheetPresentationWindow property body",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep mount recovery working when the service worker is broke…",
-      "summaryZh": "重點：修正(ui): keep mount recovery working when the service worker is broken (#128167)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): attach the onboarding CLI install prompt to the window (#…",
+      "summaryZh": "重點：修正(macos): attach the onboarding CLI install prompt to the window (#128183) * 修正(macos): attach the onboarding CLI insta..."
     },
     {
       "id": 4,
-      "title": "fix(cli): render channel capability JSON failures (#128155)",
-      "link": "https://github.com/openclaw/openclaw/commit/0a70356c558ccd6a7582a14c9c720e92eb552201",
-      "publishedAt": "2026-08-23T09:36:36Z",
-      "summary": "fix(cli): render channel capability JSON failures (#128155)",
+      "title": "fix(ui): refuse late open/attach replies after terminal connection di…",
+      "link": "https://github.com/openclaw/openclaw/commit/cbc89fc5a1f6f8c39b436d3c3b4ff5deb3fb60eb",
+      "publishedAt": "2026-08-23T11:05:12Z",
+      "summary": "fix(ui): refuse late open/attach replies after terminal connection dispose (#128147)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): render channel capability JSON failures (#128155)",
-      "summaryZh": "重點：修正(cli): render channel capability JSON failures (#128155)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): refuse late open/attach replies after terminal connection di…",
+      "summaryZh": "重點：修正(ui): refuse late open/attach replies after terminal connection dispose (#128147)..."
     },
     {
       "id": 5,
