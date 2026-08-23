@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-08-23T06:40:59.967Z",
+  "generatedAt": "2026-08-23T07:33:19.315Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(mantis): enforce verdict-expectation coherence and publish agent …",
+      "link": "https://github.com/openclaw/openclaw/commit/352095882e603500be37d85e379084bb79858635",
+      "publishedAt": "2026-08-23T07:12:34Z",
+      "summary": "fix(mantis): enforce verdict-expectation coherence and publish agent analysis files (#128124) * fix(mantis): enforce verdict-expectation coherence and publish agent analysis files Mantis run 32619081130 on #127989 published an overall `pass` while its own manifest recorded that the candidate expectation was not observed: per-lane `status` was mechanical capture success and the agent's judgment lived only in `expected` prose, so nothing reconciled the two before publication. - `mantis-evidence.json` schemaVersion 2: each comparison lane carries a required boolean `expectationMet`. The desktop agent sets it in the same manifest edit as `expected`; mechanical producers (Telegram live, web UI, Slack, Discord) derive it from lane status. - `scripts/mantis/publish-pr-evidence.mjs` is the single enforcement owner: it requires the booleans, recomputes `pass`/`outcome`, downgrades a contradictory pass claim to `fail`, and renders a visible \"verdict downgraded\" note. The desktop workflow invokes it with `--validate-only` before upload or comment. - Agent top-level `*.json`/`*.md` analysis files (assertions, comparisons, recipe suggestion) now survive the quarantine rebuild and upload, so cited evidence actually exists in the artifact. * fix(mantis): derive expectations from trusted lane facts",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mantis): enforce verdict-expectation coherence and publish agent …",
+      "summaryZh": "重點：修正(mantis): enforce verdict-expectation coherence and publish agent analysis files (#128124) * 修正(mantis): enforce verdi..."
+    },
+    {
+      "id": 2,
+      "title": "fix(cron): persist outbound route only after successful delivery (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/0774c20d50e207f817f143b0bb722112fff8496c",
+      "publishedAt": "2026-08-23T07:06:48Z",
+      "summary": "fix(cron): persist outbound route only after successful delivery (#126145) Cron delivery persisted the resolved outbound session route before the platform send, so a failed delivery still rewrote the session store and later sends kept targeting the bad route (#112710). Resolution is now read-only and the route commits only on platform evidence: first identified delivery result, partial-reach failure, concurrent receipt adoption, or a delivered batch. This mirrors the gateway send path. Behavior change: a cron delivery that never reaches the recipient leaves the session route untouched instead of rebinding it. Co-authored-by: SunnyShu0925 Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): persist outbound route only after successful delivery (#12…",
+      "summaryZh": "重點：修正(排程): persist outbound route only after successful delivery (#126145) 排程 delivery persisted the resolved outbound sess..."
+    },
+    {
+      "id": 3,
+      "title": "fix(mcp): prevent duplicate add replacement (#128129)",
+      "link": "https://github.com/openclaw/openclaw/commit/4c8f1de565cf0687b265953c24ee6d0c2c499cf7",
+      "publishedAt": "2026-08-23T07:03:03Z",
+      "summary": "fix(mcp): prevent duplicate add replacement (#128129) Co-authored-by: Amp",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): prevent duplicate add replacement (#128129)",
+      "summaryZh": "重點：修正(mcp): prevent duplicate add replacement (#128129) Co-authored-by: Amp..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(backup): unify required path resolution (#128132)",
+      "link": "https://github.com/openclaw/openclaw/commit/68b4aab8b3896d970c85daea356e37fdd59e9300",
+      "publishedAt": "2026-08-23T07:02:03Z",
+      "summary": "refactor(backup): unify required path resolution (#128132)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(backup): unify required path resolution (#128132)",
+      "summaryZh": "重點：refactor(backup): unify required path resolution (#128132)..."
+    },
+    {
+      "id": 5,
+      "title": "吃了會看見「小人國」？神祕蘑菇為何會引發集體幻覺，科學家：找不到致幻成分",
+      "link": "https://technews.tw/2026/08/23/scientists-identify-mushroom-behind-tiny-people-hallucinations/",
+      "publishedAt": "Sun, 23 Aug 2026 07:00:25 +0000",
+      "summary": "「醫生，我現在頭好暈&#8230;&#8230;而且，我好像看到好多『小人』在房間裡走動。啊，他跳到我的碗裡面 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Ox Alpha 模型竄紅 AI 圈，免費試用背後身分引發猜測",
       "link": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work/",
       "publishedAt": "Sun, 23 Aug 2026 06:39:39 +0000",
@@ -11,51 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(gateway): honor requested session preview length (#125201)",
-      "link": "https://github.com/openclaw/openclaw/commit/33abd627313167f8516e1b1632e71190070a72c6",
-      "publishedAt": "2026-08-23T06:37:58Z",
-      "summary": "fix(gateway): honor requested session preview length (#125201) * fix(gateway): honor session preview length * fix(gateway): cap session preview budgets",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): honor requested session preview length (#125201)",
-      "summaryZh": "重點：修正(Gateway): honor requested session preview length (#125201) * 修正(Gateway): honor session preview length * 修正(Gateway):..."
-    },
-    {
-      "id": 3,
-      "title": "perf(ci): shard Control UI E2E by measured duration, not source bytes",
-      "link": "https://github.com/openclaw/openclaw/commit/733d8f994fb67107ee98a12b76ed80bd83b55211",
-      "publishedAt": "2026-08-23T06:27:21Z",
-      "summary": "perf(ci): shard Control UI E2E by measured duration, not source bytes checks-ui-e2e now owns the CI wall: in run 32617320781 its seven slowest shards ran 199-245s while the tallest compact node job was 182s. The sequencer already does greedy longest-first bin packing -- it was just weighting by source bytes as a \"zero-state duration proxy\", and that proxy is too weak. Across 247 suites bytes correlate with wall time at r=0.79 and mispredict by 3.6x (0.20-0.73 s/KB), so the packer filled one shard to 182s against a 130s ideal while another took 86s. Hint the 30 slowest suites with measured seconds and keep the byte proxy for the long tail, whose 3.5s median file is interchangeable. Replaying the real per-file durations through the packer: widest shard 171s -> 137s. With ~63s of per-job overhead that is roughly 245s -> 200s on the tallest ui-e2e job, at which point checks-ui (199s) becomes the pole, so this is worth ~45s of wall and no extra runners. Durations are medians over runs 32617320781 and 32617488420, each normalized by its own VM speed first; the two runs agreed within p10 0.88 / p90 1.17, so the per-file numbers are stable rather than one noisy sample. Unhinted files still rebalance automatically off source size, so new suites need no table edit. A guard asserts every hint still points at a real suite, because a renamed file would otherwise rot into a silent byte-proxy fallback.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ci): shard Control UI E2E by measured duration, not source bytes",
-      "summaryZh": "重點：perf(ci): shard Control UI E2E by measured duration, not source bytes checks-ui-e2e now owns the CI wall: in run 3261732..."
-    },
-    {
-      "id": 4,
-      "title": "fix(subagents): interrupted tasks lose real user instructions after r…",
-      "link": "https://github.com/openclaw/openclaw/commit/ac65c91baa1f3805f68d53f05734db52b4528fe4",
-      "publishedAt": "2026-08-23T06:24:46Z",
-      "summary": "fix(subagents): interrupted tasks lose real user instructions after restart (#128104) * fix(subagents): preserve real direction during restart recovery * chore: keep release-owned changelog out of recovery fix",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(subagents): interrupted tasks lose real user instructions after r…",
-      "summaryZh": "重點：修正(subagents): interrupted tasks lose real user instructions after restart (#128104) * 修正(subagents): preserve real dire..."
-    },
-    {
-      "id": 5,
-      "title": "fix(mantis): fence lost Telegram leases without a ten-second delay (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/20336860eb95ecda5b8ccaa90005b79d4ee05db4",
-      "publishedAt": "2026-08-23T06:16:29Z",
-      "summary": "fix(mantis): fence lost Telegram leases without a ten-second delay (#128122) * perf(mantis): fence lost Telegram leases without delay * test(mantis): enforce prompt lost-lease fencing",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): fence lost Telegram leases without a ten-second delay (#…",
-      "summaryZh": "重點：修正(mantis): fence lost Telegram leases without a ten-second delay (#128122) * perf(mantis): fence lost Telegram leases w..."
-    },
-    {
-      "id": 6,
+      "id": 7,
       "title": "華為針對亞太地區以安全智慧連結理念，全面升級星河 AI 網路，躍升產業數位智能化",
       "link": "https://infosecu.technews.tw/2026/08/23/huawei-upgrades-xinghe-ai-network-asia-pacific-secure-intelligent-connectivity-digital-intelligence/",
       "publishedAt": "Sun, 23 Aug 2026 06:00:52 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "DARPA 新計畫 SHINE 鎖定受損迴路，助大腦精準自我修復",
       "link": "https://technews.tw/2026/08/23/darpa-shine/",
       "publishedAt": "Sun, 23 Aug 2026 06:00:43 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "AI 當心理諮商師夠格嗎，專家解析：現有模型有「知識」卻缺乏「智慧」",
       "link": "https://technews.tw/2026/08/23/ai-generated-mental-health-advice-gets-uplifted-via-a-strong-dose-of-artificial-wisdom/",
       "publishedAt": "Sun, 23 Aug 2026 05:00:34 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
       "link": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions/",
       "publishedAt": "Sun, 23 Aug 2026 04:00:03 +0000",
       "summary": "美國人工智慧（AI）公司 Anthropic 執行長阿莫迪（Dario Amodei）、OpenAI 執行奧特 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "流量見頂後的第二成長曲線，LINE 台灣將「日常需求」轉化為商機的突圍之道",
-      "link": "https://finance.technews.tw/2026/08/23/ine-has-90percent-reach-how-can-it-keep-growing/",
-      "publishedAt": "Sun, 23 Aug 2026 03:00:41 +0000",
-      "summary": "當核心業務成長觸頂，企業該如何找出下一個獲利引擎？當 2017 年陳立人加入 LINE 台灣成為執行長時，這個 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
