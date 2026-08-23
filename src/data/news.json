@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-23T18:30:22.497Z",
+  "generatedAt": "2026-08-23T19:21:31.896Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ios): show recent usage days first (#117222)",
-      "link": "https://github.com/openclaw/openclaw/commit/19cbceeba39e2d12a4612c9fe9b4369af4573a69",
-      "publishedAt": "2026-08-23T18:25:35Z",
-      "summary": "fix(ios): show recent usage days first (#117222) * fix(ios): show recent usage days first Use the device calendar for daily usage buckets so late-evening and travel activity stays on the expected date. Co-authored-by: Barnett Klane * fix(ios): satisfy native validation Keep the generated i18n inventory aligned and use the optional Data-to-String conversion required by the iOS lint policy. Co-authored-by: Barnett Klane * test(ios): publish native usage ordering proof Add a deterministic 20-day Usage fixture and an exact-head XCUITest that verifies the newest fourteen rows, captures the corrected native screen, and publishes the PNG separately from App Store screenshots. Keep screenshot proof running after unrelated lifecycle-test failures and lock the artifact path into the Fastlane gate tests. Co-authored-by: Barnett Klane * fix(ci): serialize Swift tests on hosted forks Keep the 12-vCPU Blacksmith path parallel while avoiding process and timing contention on hosted fork runners.\\n\\nCo-authored-by: Barnett Klane * fix(ci): budget hosted serial Swift tests * chore(ci): keep usage fix scoped to iOS * test(ios): fail closed on missing usage proof * test(ios): simplify usage proof scope --------- Co-authored-by: Barnett Klane",
+      "title": "fix(agents): treat native hook relay records with a dead pid as absen…",
+      "link": "https://github.com/openclaw/openclaw/commit/b3b33d24195d1e914a863eeca1c6308f707a83f6",
+      "publishedAt": "2026-08-23T19:21:05Z",
+      "summary": "fix(agents): treat native hook relay records with a dead pid as absent (#128112) * fix(agents): treat native hook relay records with a dead pid as absent readNativeHookRelayClientBridgeRecord's expiry check never consulted the recorded pid, so a bridge whose owning process died kept resolving as a live locator for its full TTL. Lookups then spent their deadline retrying a connection to an unreachable loopback port instead of falling back. Extract the ESRCH liveness check already used by registration-time pruning into a shared helper and consult it in the cold client lookup path before attempting a connection. * refactor(agents): reuse PID liveness helper --------- Co-authored-by: Bek",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): show recent usage days first (#117222)",
-      "summaryZh": "重點：修正(ios): show recent usage days first (#117222) * 修正(ios): show recent usage days first Use the device calendar for dail..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): treat native hook relay records with a dead pid as absen…",
+      "summaryZh": "重點：修正(agents): treat native hook relay records with a dead pid as absent (#128112) * 修正(agents): treat native hook relay re..."
     },
     {
       "id": 2,
-      "title": "refactor(workboard): consolidate gateway and schema helpers (#128307)",
-      "link": "https://github.com/openclaw/openclaw/commit/90a9027688b73a58bd44296dbad726575f3964b9",
-      "publishedAt": "2026-08-23T18:14:01Z",
-      "summary": "refactor(workboard): consolidate gateway and schema helpers (#128307)",
+      "title": "test(providers): deduplicate failover and streaming fixtures (#128338)",
+      "link": "https://github.com/openclaw/openclaw/commit/42d87c67315fda27570504e0bf3c8a9dd1269533",
+      "publishedAt": "2026-08-23T19:19:05Z",
+      "summary": "test(providers): deduplicate failover and streaming fixtures (#128338)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(workboard): consolidate Gateway and schema helpers (#128307)",
-      "summaryZh": "重點：refactor(workboard): consolidate Gateway and schema helpers (#128307)..."
+      "titleZh": "OpenClaw 程式碼更新：test(providers): deduplicate failover and streaming 修正tures (#128338)",
+      "summaryZh": "重點：test(providers): deduplicate failover and streaming 修正tures (#128338)..."
     },
     {
       "id": 3,
-      "title": "fix(telegram): preserve inbound Markdown link destinations and labels…",
-      "link": "https://github.com/openclaw/openclaw/commit/f256c635267b787cbab9cd16db0e4e8279e089aa",
-      "publishedAt": "2026-08-23T18:09:36Z",
-      "summary": "fix(telegram): preserve inbound Markdown link destinations and labels (#128297)",
+      "title": "fix(diffs): restore GET/HEAD Content-Length parity on viewer routes (…",
+      "link": "https://github.com/openclaw/openclaw/commit/06eb925c84c8024c1a75b1ee638399f203de394d",
+      "publishedAt": "2026-08-23T19:14:53Z",
+      "summary": "fix(diffs): restore GET/HEAD Content-Length parity on viewer routes (#120280) * fix(diffs): send Content-Length on viewer HEAD responses * test(diffs): build generated viewer runtime fixture before http tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): preserve inbound Markdown link destinations and labels…",
-      "summaryZh": "重點：修正(Telegram): preserve inbound Markdown link destinations and labels (#128297)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(diffs): restore GET/HEAD Content-Length parity on viewer routes (…",
+      "summaryZh": "重點：修正(diffs): restore GET/HEAD Content-Length parity on viewer routes (#120280) * 修正(diffs): send Content-Length on viewer ..."
     },
     {
       "id": 4,
-      "title": "perf(telegram): reuse prepared outbound thread params (#128308)",
-      "link": "https://github.com/openclaw/openclaw/commit/000aea1d7a3c3ce5463283347b82de0e2bd7dabf",
-      "publishedAt": "2026-08-23T18:05:00Z",
-      "summary": "perf(telegram): reuse prepared outbound thread params (#128308) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-984a-7628-a30c-491c166ff247 Co-authored-by: Amp",
+      "title": "fix(agents): preserve failed block delivery and pending media (#128337)",
+      "link": "https://github.com/openclaw/openclaw/commit/5fe02bf5148f04bbe9e0152c9a9bcee325cb43e9",
+      "publishedAt": "2026-08-23T19:14:06Z",
+      "summary": "fix(agents): preserve failed block delivery and pending media (#128337)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Telegram): reuse prepared outbound thread params (#128308)",
-      "summaryZh": "重點：perf(Telegram): reuse prepared outbound thread params (#128308) Amp-Thread-ID: https://ampcode.com/threads/T-01a021f5-98..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve failed block delivery and pending media (#128337)",
+      "summaryZh": "重點：修正(agents): preserve failed block delivery and pending media (#128337)..."
     },
     {
       "id": 5,
