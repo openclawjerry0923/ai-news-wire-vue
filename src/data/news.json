@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-08-23T07:33:19.315Z",
+  "generatedAt": "2026-08-23T08:30:21.466Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(mantis): enforce verdict-expectation coherence and publish agent …",
-      "link": "https://github.com/openclaw/openclaw/commit/352095882e603500be37d85e379084bb79858635",
-      "publishedAt": "2026-08-23T07:12:34Z",
-      "summary": "fix(mantis): enforce verdict-expectation coherence and publish agent analysis files (#128124) * fix(mantis): enforce verdict-expectation coherence and publish agent analysis files Mantis run 32619081130 on #127989 published an overall `pass` while its own manifest recorded that the candidate expectation was not observed: per-lane `status` was mechanical capture success and the agent's judgment lived only in `expected` prose, so nothing reconciled the two before publication. - `mantis-evidence.json` schemaVersion 2: each comparison lane carries a required boolean `expectationMet`. The desktop agent sets it in the same manifest edit as `expected`; mechanical producers (Telegram live, web UI, Slack, Discord) derive it from lane status. - `scripts/mantis/publish-pr-evidence.mjs` is the single enforcement owner: it requires the booleans, recomputes `pass`/`outcome`, downgrades a contradictory pass claim to `fail`, and renders a visible \"verdict downgraded\" note. The desktop workflow invokes it with `--validate-only` before upload or comment. - Agent top-level `*.json`/`*.md` analysis files (assertions, comparisons, recipe suggestion) now survive the quarantine rebuild and upload, so cited evidence actually exists in the artifact. * fix(mantis): derive expectations from trusted lane facts",
+      "title": "fix(cli): reject conflicting read-only doctor postures (#128142)",
+      "link": "https://github.com/openclaw/openclaw/commit/2a793c120343ab155db81c3d5153fdfb67394d73",
+      "publishedAt": "2026-08-23T08:26:39Z",
+      "summary": "fix(cli): reject conflicting read-only doctor postures (#128142)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mantis): enforce verdict-expectation coherence and publish agent …",
-      "summaryZh": "重點：修正(mantis): enforce verdict-expectation coherence and publish agent analysis files (#128124) * 修正(mantis): enforce verdi..."
+      "titleZh": "OpenClaw 文件更新：修正(cli): reject conflicting read-only 文件tor postures (#128142)",
+      "summaryZh": "重點：修正(cli): reject conflicting read-only 文件tor postures (#128142)..."
     },
     {
       "id": 2,
-      "title": "fix(cron): persist outbound route only after successful delivery (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/0774c20d50e207f817f143b0bb722112fff8496c",
-      "publishedAt": "2026-08-23T07:06:48Z",
-      "summary": "fix(cron): persist outbound route only after successful delivery (#126145) Cron delivery persisted the resolved outbound session route before the platform send, so a failed delivery still rewrote the session store and later sends kept targeting the bad route (#112710). Resolution is now read-only and the route commits only on platform evidence: first identified delivery result, partial-reach failure, concurrent receipt adoption, or a delivered batch. This mirrors the gateway send path. Behavior change: a cron delivery that never reaches the recipient leaves the session route untouched instead of rebinding it. Co-authored-by: SunnyShu0925 Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): persist outbound route only after successful delivery (#12…",
-      "summaryZh": "重點：修正(排程): persist outbound route only after successful delivery (#126145) 排程 delivery persisted the resolved outbound sess..."
+      "title": "韓國晶片貿易順差飆新高，半導體出口受惠 AI 熱潮",
+      "link": "https://technews.tw/2026/08/23/south-korea-s-chip-boom-is-incredible/",
+      "publishedAt": "Sun, 23 Aug 2026 08:19:53 +0000",
+      "summary": "AI 已將韓國的晶片產業，轉變成一個具全球規模的產業。 總體經濟和資本市場分析刊物 The Kobeissi [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(mcp): prevent duplicate add replacement (#128129)",
-      "link": "https://github.com/openclaw/openclaw/commit/4c8f1de565cf0687b265953c24ee6d0c2c499cf7",
-      "publishedAt": "2026-08-23T07:03:03Z",
-      "summary": "fix(mcp): prevent duplicate add replacement (#128129) Co-authored-by: Amp",
+      "title": "fix(agents): prevent reloads from losing queued replies or restoring …",
+      "link": "https://github.com/openclaw/openclaw/commit/79e675521f7cea83e1f939d9a96214120394d135",
+      "publishedAt": "2026-08-23T08:10:00Z",
+      "summary": "fix(agents): prevent reloads from losing queued replies or restoring stale credentials (#128138) * fix(agents): fence retired prepared runtime generations * test(agents): prove queued turns survive credential reload",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mcp): prevent duplicate add replacement (#128129)",
-      "summaryZh": "重點：修正(mcp): prevent duplicate add replacement (#128129) Co-authored-by: Amp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): prevent reloads from losing queued replies or restoring …",
+      "summaryZh": "重點：修正(agents): prevent reloads from losing queued replies or restoring stale credentials (#128138) * 修正(agents): fence reti..."
     },
     {
       "id": 4,
-      "title": "refactor(backup): unify required path resolution (#128132)",
-      "link": "https://github.com/openclaw/openclaw/commit/68b4aab8b3896d970c85daea356e37fdd59e9300",
-      "publishedAt": "2026-08-23T07:02:03Z",
-      "summary": "refactor(backup): unify required path resolution (#128132)",
+      "title": "fix(onboard): provider setup changes the wrong agent model in managed…",
+      "link": "https://github.com/openclaw/openclaw/commit/c0197b6a800b374898add87a37e0a6ea42e74bb9",
+      "publishedAt": "2026-08-23T08:04:57Z",
+      "summary": "fix(onboard): provider setup changes the wrong agent model in managed fleets (#128119) * fix(onboard): keep provider model selection on the system agent * fix(onboard): preserve inherited fleet model defaults",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(backup): unify required path resolution (#128132)",
-      "summaryZh": "重點：refactor(backup): unify required path resolution (#128132)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): provider setup changes the wrong agent 模型 in managed…",
+      "summaryZh": "重點：修正(onboard): provider setup changes the wrong agent 模型 in managed fleets (#128119) * 修正(onboard): keep provider 模型 selec..."
     },
     {
       "id": 5,
+      "title": "動物園裡的雙向奔赴，科學家發現人類圍觀或許是亞洲小爪水獺最愛的活動",
+      "link": "https://technews.tw/2026/08/23/otters-enjoy-human-visitors/",
+      "publishedAt": "Sun, 23 Aug 2026 08:00:02 +0000",
+      "summary": "人們造訪動物園時，常擔心熱鬧人潮會對動物造成心理壓力。然而，根據發表於《Journal of Zoologic [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix(cli): render task validation JSON failures (#127750)",
+      "link": "https://github.com/openclaw/openclaw/commit/2e04f762ea5647dbbf2193f71af96cdf0fd7b2ea",
+      "publishedAt": "2026-08-23T07:54:06Z",
+      "summary": "fix(cli): render task validation JSON failures (#127750)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): render task validation JSON failures (#127750)",
+      "summaryZh": "重點：修正(cli): render task validation JSON failures (#127750)..."
+    },
+    {
+      "id": 7,
       "title": "吃了會看見「小人國」？神祕蘑菇為何會引發集體幻覺，科學家：找不到致幻成分",
       "link": "https://technews.tw/2026/08/23/scientists-identify-mushroom-behind-tiny-people-hallucinations/",
       "publishedAt": "Sun, 23 Aug 2026 07:00:25 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "Ox Alpha 模型竄紅 AI 圈，免費試用背後身分引發猜測",
       "link": "https://technews.tw/2026/08/23/ox-alpha-is-a-frontier-ai-model-built-for-efficient-coding-and-agentic-work/",
       "publishedAt": "Sun, 23 Aug 2026 06:39:39 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "華為針對亞太地區以安全智慧連結理念，全面升級星河 AI 網路，躍升產業數位智能化",
       "link": "https://infosecu.technews.tw/2026/08/23/huawei-upgrades-xinghe-ai-network-asia-pacific-secure-intelligent-connectivity-digital-intelligence/",
       "publishedAt": "Sun, 23 Aug 2026 06:00:52 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "DARPA 新計畫 SHINE 鎖定受損迴路，助大腦精準自我修復",
       "link": "https://technews.tw/2026/08/23/darpa-shine/",
       "publishedAt": "Sun, 23 Aug 2026 06:00:43 +0000",
       "summary": "美國國防高等研究計畫署（DARPA）目前正推動一項新計畫，目標是透過非侵入式的方式，協助受傷的大腦重建受損的神 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "AI 當心理諮商師夠格嗎，專家解析：現有模型有「知識」卻缺乏「智慧」",
-      "link": "https://technews.tw/2026/08/23/ai-generated-mental-health-advice-gets-uplifted-via-a-strong-dose-of-artificial-wisdom/",
-      "publishedAt": "Sun, 23 Aug 2026 05:00:34 +0000",
-      "summary": "隨著越來越多人把生成式 AI 當作心理支持與情緒傾訴對象，外界對這類工具能否真正提供可靠建議的討論也持續升溫。 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "三人小組產出抵 40 人，AI 未釀失業潮卻悄悄顛覆勞動市場遊戲規則",
-      "link": "https://technews.tw/2026/08/23/ai-not-causing-job-loss-research-truth-jobs-not-disappearing-vulnerable-positions/",
-      "publishedAt": "Sun, 23 Aug 2026 04:00:03 +0000",
-      "summary": "美國人工智慧（AI）公司 Anthropic 執行長阿莫迪（Dario Amodei）、OpenAI 執行奧特 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
