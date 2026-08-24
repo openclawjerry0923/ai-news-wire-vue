@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-24T16:37:48.179Z",
+  "generatedAt": "2026-08-24T17:31:10.731Z",
   "items": [
     {
       "id": 1,
-      "title": "feat: persist stateful transcript display semantics (#126943)",
-      "link": "https://github.com/openclaw/openclaw/commit/59abf3de62c71921aea1e322b717b79285af8a66",
-      "publishedAt": "2026-08-24T16:36:21Z",
-      "summary": "feat: persist stateful transcript display semantics (#126943) Persist stateful transcript display semantics through one shared reducer for incremental and rebuilt projections. Refs #126914.",
+      "title": "fix(qa): run explicitly selected Telegram RTT scenarios (#128795)",
+      "link": "https://github.com/openclaw/openclaw/commit/7d08e40e2f1de5e68773032872465e92312eaa13",
+      "publishedAt": "2026-08-24T17:26:30Z",
+      "summary": "fix(qa): run explicitly selected Telegram RTT scenarios (#128795) * fix(qa): support explicit Telegram RTT scenarios * docs(qa): document Telegram RTT scenario selection * fix(qa): expose Telegram RTT scenario in manual E2E * fix(qa): gate historical Telegram downgrade proof",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: persist stateful transcript display semantics (#126943)",
-      "summaryZh": "重點：新功能: persist stateful transcript display semantics (#126943) Persist stateful transcript display semantics through one s..."
+      "titleZh": "OpenClaw 程式碼更新：修正(qa): run explicitly selected Telegram RTT scenarios (#128795)",
+      "summaryZh": "重點：修正(qa): run explicitly selected Telegram RTT scenarios (#128795) * 修正(qa): support explicit Telegram RTT scenarios * 文件(..."
     },
     {
       "id": 2,
-      "title": "improve(ui): open short session links without extra lookup (#128778)",
-      "link": "https://github.com/openclaw/openclaw/commit/053b89d80f6bcea0fcc2f422ea5ad37a72eaa81b",
-      "publishedAt": "2026-08-24T16:33:20Z",
-      "summary": "improve(ui): open short session links without extra lookup (#128778) * perf(ui): remove short session route waterfall * docs: clarify short link gateway requirement",
+      "title": "fix(codex): preserve GitHub tool capability (#128807)",
+      "link": "https://github.com/openclaw/openclaw/commit/56664c5cfb550057fb30fff2c8e6ea3b0676904c",
+      "publishedAt": "2026-08-24T17:12:19Z",
+      "summary": "fix(codex): preserve GitHub tool capability (#128807)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): open short session links without extra lookup (#128778)",
-      "summaryZh": "重點：improve(ui): open short session links without extra lookup (#128778) * perf(ui): remove short session route waterfall * ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve GitHub tool capability (#128807)",
+      "summaryZh": "重點：修正(codex): preserve GitHub tool capability (#128807)..."
     },
     {
       "id": 3,
-      "title": "feat: persist bounded transcript display rows (#126939)",
-      "link": "https://github.com/openclaw/openclaw/commit/59a92211801e035eed84561c17057a92bf3bec5d",
-      "publishedAt": "2026-08-24T16:28:49Z",
-      "summary": "feat: persist bounded transcript display rows (#126939) Persist bounded transcript display rows and lazy projection lifecycle in the per-agent SQLite store. Refs #126914.",
+      "title": "test(ui): split settings node suite by concern (#128788)",
+      "link": "https://github.com/openclaw/openclaw/commit/d2d58a58c63f858828535cf6ffd2144e1569e61a",
+      "publishedAt": "2026-08-24T17:10:19Z",
+      "summary": "test(ui): split settings node suite by concern (#128788) * test(ui): split settings node suite by concern ui/src/app/settings.node.test.ts sat at 999 oxlint-counted lines against the 1000-line max-lines cap, so any added assertion failed the core lint shard — and, as in #128474, could pass locally while only the merge ref tripped the cap. Split the 42-test monolith along the surfaces it actually covers: the base file keeps gateway URL derivation, tab-local token handling, and per-gateway session scoping; preference persistence and layout persistence move to dotted siblings, matching the existing settings.sidebar-prefs.node.test.ts precedent. Test names and count are unchanged (47 across the settings node suites, before and after). The location/base-path/settings-fixture helpers and the storage lifecycle hooks are now shared from ui/src/test-helpers/settings-node.ts instead of being copy-pasted per file; sidebar-prefs drops its duplicate copies too. * test(node-host): write fake container-engine state atomically checks-node-compact-large-3 failed twice on this branch in different tests of node-worker-supervisor.container.test.ts, most recently with \"SyntaxError: Unexpected end of JSON input\" raised from the fake engine's load() while the supervisor ran `docker rm --force`. The shim saved container state with a truncating fs.writeFileSync while sibling shim invocations (rm, inspect, wait, ps) read the same path, so a reader could observe the zero-length window and exit 1. Write to a \".pending\" sibling and rename over the target instead; rename is atomic, so readers always see a complete previous or next state. The ps handler filters on the \".container.json\" suffix, so pending files are ignored. A concurrent write/read probe over the old pattern produced 2014 partial reads in 212900; the same probe over write-then-rename produced 0 in 203468. Not reproducible end-to-end on macOS, where the truncation window is far narrower than on the loaded Linux shard.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: persist bounded transcript display rows (#126939)",
-      "summaryZh": "重點：新功能: persist bounded transcript display rows (#126939) Persist bounded transcript display rows and lazy projection lifec..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): split settings node suite by concern (#128788)",
+      "summaryZh": "重點：test(ui): split settings node suite by concern (#128788) * test(ui): split settings node suite by concern ui/src/app/set..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): preserve cloud node ownership (#128780)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d8bfab33ec87924ffe65f07e382b6b7565c335f",
-      "publishedAt": "2026-08-24T15:53:12Z",
-      "summary": "fix(gateway): preserve cloud node ownership (#128780) Keep durable cloud node bindings out of ordinary device placement until enrollment retirement is proven, and fail closed when worker ownership inventory cannot be read.\\n\\nRefs #128769",
+      "title": "fix(worktrees): stop repeated startup cleanup errors (#128761)",
+      "link": "https://github.com/openclaw/openclaw/commit/dbf412074270f31015fd380e47bd56c81de5fde8",
+      "publishedAt": "2026-08-24T17:02:38Z",
+      "summary": "fix(worktrees): stop repeated startup cleanup errors (#128761) * fix(worktrees): collect ignored nested checkouts * fix(worktrees): preserve ignored foreign repositories * test(worktrees): cover empty ignored foreign repositories",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve cloud node ownership (#128780)",
-      "summaryZh": "重點：修正(Gateway): preserve cloud node ownership (#128780) Keep durable cloud node bindings out of ordinary device placement u..."
+      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): stop repeated startup cleanup errors (#128761)",
+      "summaryZh": "重點：修正(worktrees): stop repeated startup cleanup errors (#128761) * 修正(worktrees): collect ignored nested checkouts * 修正(wor..."
     },
     {
       "id": 5,
