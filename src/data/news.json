@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T05:38:28.853Z",
+  "generatedAt": "2026-08-24T06:59:02.195Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(ci): gate source package producers (#128463)",
-      "link": "https://github.com/openclaw/openclaw/commit/1ece62a4d80720727a0f7afc81a13ccc5090dfb6",
-      "publishedAt": "2026-08-24T05:30:10Z",
-      "summary": "fix(ci): gate source package producers (#128463) * fix(release): preflight package source metadata * fix(ci): gate source package producers * fix(ci): preflight canonical package producers * fix(ci): skip no-package source setup * fix(ci): normalize source package validation * fix(ci): normalize Docker package reporting * fix(ci): avoid generic dependency guard * test(ci): cover gated package identity",
+      "title": "fix(gateway): refresh health when channel plugins change (#128503)",
+      "link": "https://github.com/openclaw/openclaw/commit/d0944184c8a6971b6a5b9ad5fef059c53072f157",
+      "publishedAt": "2026-08-24T06:57:58Z",
+      "summary": "fix(gateway): refresh health when channel plugins change (#128503)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): gate source package producers (#128463)",
-      "summaryZh": "重點：修正(ci): gate source package producers (#128463) * 修正(版本發布): preflight package source metadata * 修正(ci): gate source pack..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): refresh health when channel plugins change (#128503)",
+      "summaryZh": "重點：修正(Gateway): refresh health when channel plugins change (#128503)..."
     },
     {
       "id": 8,
-      "title": "fix(media): normalize HEIC image sequence inputs (#128501)",
-      "link": "https://github.com/openclaw/openclaw/commit/f59c743c0b925dd0ada9dfdd84905c07029e8d4f",
-      "publishedAt": "2026-08-24T05:26:20Z",
-      "summary": "fix(media): normalize HEIC image sequence inputs (#128501)",
+      "title": "fix(subagents): bound escaped output for the third child-result call …",
+      "link": "https://github.com/openclaw/openclaw/commit/60613b74477d3165ee26ee0bd4910a0837ccab36",
+      "publishedAt": "2026-08-24T06:56:11Z",
+      "summary": "fix(subagents): bound escaped output for the third child-result call site (#124171) formatChildResultData was the last of three identical Child result/Subagent result wrapPromptDataBlock call sites without maxEscapedChars/truncationMarker. wrapPromptDataBlockWithTag truncates to maxChars before escaping <>, so an angle-bracket-dense child result (code/XML/HTML output) could still expand the escaped block up to ~4x the intended 512-char budget. Bring this site in line with the other two, already fixed by carrier PR #119731 (agent-steering-queue.ts, internal-events.ts). Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(media): normalize HEIC image sequence inputs (#128501)",
-      "summaryZh": "重點：修正(media): normalize HEIC image sequence inputs (#128501)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): bound escaped output for the third child-result call …",
+      "summaryZh": "重點：修正(subagents): bound escaped output for the third child-result call site (#124171) formatChildResultData was the last of..."
     },
     {
       "id": 9,
-      "title": "fix(gateway): retain completed status in streamed tool snapshots (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/42a2963457bcc94fa4ee4af83da9112901d850e4",
-      "publishedAt": "2026-08-24T05:25:48Z",
-      "summary": "fix(gateway): retain completed status in streamed tool snapshots (#128510)",
+      "title": "fix(cron): fence stale execution generations (#128573)",
+      "link": "https://github.com/openclaw/openclaw/commit/68c48422cc6e8cecc65dad2e0129afc0bbff167a",
+      "publishedAt": "2026-08-24T06:55:15Z",
+      "summary": "fix(cron): fence stale execution generations (#128573) Assessment of Microsoft's Lobster patch 0008 via giodl73-repo/lobster-plugins-and-patches.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): retain completed status in streamed tool snapshots (#12…",
-      "summaryZh": "重點：修正(Gateway): retain completed status in streamed tool snapshots (#128510)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): fence stale execution generations (#128573)",
+      "summaryZh": "重點：修正(排程): fence stale execution generations (#128573) Assessment of Microsoft's Lobster patch 0008 via giodl73-repo/lobste..."
     },
     {
       "id": 10,
-      "title": "refactor(plugins)!: remove OpenProse (#128494)",
-      "link": "https://github.com/openclaw/openclaw/commit/ca6fea301ba94144796fed67035dd97364679da4",
-      "publishedAt": "2026-08-24T05:09:46Z",
-      "summary": "refactor(plugins)!: remove OpenProse (#128494) Remove the bundled OpenProse plugin and /prose command now that upstream owns the maintained Agent Skill. Preserve /prose as migration documentation and let Doctor clean stale plugin configuration. BREAKING CHANGE: The bundled OpenProse plugin and /prose command are removed. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(agents): reject hidden output across model verification and syste…",
+      "link": "https://github.com/openclaw/openclaw/commit/f990954337e97fdd179733cd2f378e62dfd09bc0",
+      "publishedAt": "2026-08-24T06:54:28Z",
+      "summary": "fix(agents): reject hidden output across model verification and system turns (#128570)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins)!: remove OpenProse (#128494)",
-      "summaryZh": "重點：refactor(plugins)!: remove OpenProse (#128494) Remove the bundled OpenProse plugin and /prose command now that upstream ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): reject hidden output across 模型 verification and syste…",
+      "summaryZh": "重點：修正(agents): reject hidden output across 模型 verification and system turns (#128570)..."
     }
   ]
 }
