@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-24T12:50:58.446Z",
+  "generatedAt": "2026-08-24T13:51:50.762Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(clickclack): stop queued messages after account shutdown (#128672)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e438e9d0bf35cd7799a46e21606b7657ac3f784",
-      "publishedAt": "2026-08-24T12:50:44Z",
-      "summary": "fix(clickclack): stop queued messages after account shutdown (#128672) * fix(clickclack): fence inbound callbacks after account shutdown * test(clickclack): reuse shared deferred helper in shutdown coverage",
+      "title": "fix(apple): surface rejected chat session settings (#128737)",
+      "link": "https://github.com/openclaw/openclaw/commit/2b8fe12f0bb4b76c4daeb6b8ba106f2743bf8af8",
+      "publishedAt": "2026-08-24T13:49:50Z",
+      "summary": "fix(apple): surface rejected chat session settings (#128737)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(clickclack): stop queued messages after account shutdown (#128672)",
-      "summaryZh": "重點：修正(clickclack): stop queued messages after account shutdown (#128672) * 修正(clickclack): fence inbound callbacks after ac..."
+      "titleZh": "OpenClaw 程式碼更新：修正(apple): surface rejected chat session settings (#128737)",
+      "summaryZh": "重點：修正(apple): surface rejected chat session settings (#128737)..."
     },
     {
       "id": 2,
-      "title": "fix(tui): keep picker request ownership current (#117285)",
-      "link": "https://github.com/openclaw/openclaw/commit/0e0ec19291477207ebd4923857ba120452b7b26a",
-      "publishedAt": "2026-08-24T12:50:28Z",
-      "summary": "fix(tui): keep picker request ownership current (#117285)",
+      "title": "improve(ui): stop sidebar rows rearranging themselves on hover (#125820)",
+      "link": "https://github.com/openclaw/openclaw/commit/dea053e32f4cca1207f980d643f7c6ef795fd9f9",
+      "publishedAt": "2026-08-24T13:40:26Z",
+      "summary": "improve(ui): stop sidebar rows rearranging themselves on hover (#125820) * improve(ui): put session row actions on the title line Two-line sidebar rows centred the pin and menu buttons across the whole row, so they floated between the title and the line below, and hover reserved their width from the entire text column while fading the status endcap out. Hovering a row therefore truncated the subtitle and hid its badges, spinner, unread dot and relative time — the row rearranged itself under the pointer just to show two controls. The buttons now anchor to the title line, derived from the link's top padding plus half the title's line box, and only the title yields their width. The second line keeps its content and its icons. Single-line rows are untouched: their one line already is the title line, so #126455's centring and the endcap beside the title stay exactly as they are. The reservation is deliberately not transitioned: startHoverMarquee measures clientWidth synchronously on mouseenter, so an animated width would make long titles scroll short and would silence titles that only overflow once the buttons are up. * fix(ui): keep second-line state lit while the actions are up Hovering a two-line row to reach the pin or menu also faded its trailing state out, so the run spinner disappeared under the pointer — the row stopped telling you it was still working at the moment you reached for its controls. That trade existed because the actions used to cover the endcap. On a two-line row they now sit on the title line and cover nothing, so the second line keeps its spinner, unread dot, badges and time. Single-line rows still trade: there the endcap genuinely shares the actions' line. * fix(ui): stop hiding row state and clipping it with the actions Two problems the first pass left behind, both visible on hover: The unread dot vanished the moment the pointer arrived on a single-line row. That row reserves the action width in its text column, which already slides the endcap clear, but the old fade still ran — so the dot disappeared while the badges beside it stayed, reading as a glitch rather than a swap. Nothing trades places with the actions now, on either row shape. A 24px control centred on the 18px title line also hung 3px into the row below, so a hovered button's fill would clip the top of the badges that now stay lit there. Two-line rows shrink the control to the line it sits on; the 14px glyph is unchanged and coarse pointers keep the full 24px target. Measured on the preview: single-line endcap ends at 183 with the first action at 186, and the action box now ends exactly where the second line begins. * fix(ui): even out endcap spacing and drop the touch swap leftovers The unread dot sat further from the badges than they sat from each other: 6px between the badges, 14.5px before the dot. The state box carried min-width and min-height of 24px, sized to match the action button it used to trade places with, so a 7px dot got 8.5px of padding a side. Nothing trades now, so the box sizes to its glyphs and the endcap keeps one 6px rhythm. The touch block kept the other half of that arrangement: state and actions sharing a grid cell, and the relative-time trail permanently hidden. Both go the same way — on touch the second line now keeps its content like everywhere else. Covered by a case whose state holds a single dot, which is the only shape where the padded box was visible; it reports [6,14.5] against the old CSS. * fix(ui): draw every session row glyph at one size The row drew seven different glyph sizes on the same two lines: archive 11px, badges and spinner 12px, board 13px, fork and the action icons 14px, attention 15px, with stroke widths of 1.6, 1.7 and 1.8 mixed among them. Side by side on one line that reads as broken alignment rather than a hierarchy. They now resolve one --session-row-glyph-size and one --session-row-glyph-stroke declared on .session-row-host, so the whole row moves together and a new glyph inherits the rhythm instead of picking its own. Every rule keeps its previous value as the var fallback, so the same components rendered outside a session row are untouched. The unread dot stays 7px: it is a dot rather than a glyph, and matching it to a 14px line icon would turn it into a blob. A test walks a row carrying badges, fork provenance, a spinner and the action icons and asserts one distinct size across them; against the old CSS it reports [\"14x14\",\"12x12\"]. * fix(ui): size the session row run ring optically The ring inks its whole box while the line icons beside it only ink 9-10px of their 14px box, so unifying it to the glyph token made it read a size larger than the pin and menu glyphs on the same line. Give the row host its own ring token three px down from the glyph size; surfaces outside a row keep the ring's previous 12px. * fix(ui): put the whole session row trailing column on one grid The action buttons stepped 25px inside 24px hover targets while the endcap's badges stepped 20px and ran flush to the row edge, so a badge, dot or ring never landed under the icon above it. Derive both gaps and the endcap's inset from the action box, and give the state group a glyph-wide floor so bare shapes centre on the same axis as icons drawn in a box. * fix(ui): tighten the session row trailing column Matching the endcap to a 24px action box spaced the badges 11px apart, which read airier than before the grid landed. Take the action box to 20px so the pitch drops to 21 and the badges return to a 6px-ish gap, derive the title's hover reservation from that box instead of a fixed 52px, and let touch keep the square button on two-line rows now that no hover fill can clip the badges. * fix(ui): type the session row test fixtures and endcap lookups check:test-types caught three errors the ui lane does not cover: the badge fixtures pass hasAutomation and incognito, which the sessionRow helper never declared, and the endcap gap probe indexed a possibly-empty NodeList. * fix(ui): repair session row hover review findings * fix(ui): preserve catalog sidebar interaction state * fix(ui): preserve catalog interaction state during rerenders * perf(ui): keep session rows within CSS budget * test(ui): satisfy immutable array lint * fix(ui): preserve catalog identity across session release * fix(ui): remeasure adopted row live state",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): keep picker request ownership current (#117285)",
-      "summaryZh": "重點：修正(tui): keep picker request ownership current (#117285)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): stop sidebar rows rearranging themselves on hover (#125820)",
+      "summaryZh": "重點：improve(ui): stop sidebar rows rearranging themselves on hover (#125820) * improve(ui): put session row actions on the t..."
     },
     {
       "id": 3,
-      "title": "refactor(build): reuse canonical direct-run entrypoint guard (#128715)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d8e87cc3c890e76d8740f10c682d8852b7ec929",
-      "publishedAt": "2026-08-24T12:50:16Z",
-      "summary": "refactor(build): reuse canonical direct-run entrypoint guard (#128715)",
+      "title": "fix(sqlite): stage read-only snapshots in private user cache (#128635)",
+      "link": "https://github.com/openclaw/openclaw/commit/c7f70f338ac12f7e9a40a8f7267d2f59a647c6ea",
+      "publishedAt": "2026-08-24T13:40:09Z",
+      "summary": "fix(sqlite): stage read-only snapshots in private user cache (#128635) * fix(sqlite): stage read-only snapshots in private user cache * fix(sqlite): correct snapshot cache and staging diagnostics * fix(sqlite): diagnose snapshot cache allocation failures * fix(sqlite): unwrap Windows snapshot staging errors * fix(sqlite): diagnose sanitized staging allocation errors * fix(sqlite): scope snapshot staging errors to allocated directory",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(build): reuse canonical direct-run entrypoint guard (#128715)",
-      "summaryZh": "重點：refactor(build): reuse canonical direct-run entrypoint guard (#128715)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): stage read-only snapshots in private user cache (#128635)",
+      "summaryZh": "重點：修正(sqlite): stage read-only snapshots in private user cache (#128635) * 修正(sqlite): stage read-only snapshots in private..."
     },
     {
       "id": 4,
-      "title": "fix(llama-cpp): preserve managed local embedding batch capacity (#128…",
-      "link": "https://github.com/openclaw/openclaw/commit/97b13b1735d2a7b72f9aa583acee67a0fd94afd1",
-      "publishedAt": "2026-08-24T12:46:59Z",
-      "summary": "fix(llama-cpp): preserve managed local embedding batch capacity (#128721) Preserve the contributor fix from #127288 and its original Git author. Thanks @cantoblanco for the original issue and pull request. Co-authored-by: Alex",
+      "title": "fix(android): preserve capture dates and requested photo resolution (…",
+      "link": "https://github.com/openclaw/openclaw/commit/ca3c3db1afb4c0b02da19846e4489f252b11702c",
+      "publishedAt": "2026-08-24T13:39:43Z",
+      "summary": "fix(android): preserve capture dates and requested photo resolution (#125550) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(llama-cpp): preserve managed local embedding batch capacity (#128…",
-      "summaryZh": "重點：修正(llama-cpp): preserve managed local embedding batch capacity (#128721) Preserve the contributor 修正 from #127288 and it..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): preserve capture dates and requested photo resolution (…",
+      "summaryZh": "重點：修正(android): preserve capture dates and requested photo resolution (#125550) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 5,
