@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-24T18:40:07.304Z",
+  "generatedAt": "2026-08-24T19:29:35.869Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(node-host): recover worker hosting after transient initialization…",
-      "link": "https://github.com/openclaw/openclaw/commit/bf83a4dde8f00e5d330bd00de79cb0232fe6ae09",
-      "publishedAt": "2026-08-24T18:06:52Z",
-      "summary": "fix(node-host): recover worker hosting after transient initialization failures (#128798) * fix(node-host): retry worker supervisor initialization Clear failed initialization ownership for retry, retain valid container supervisors after transient reconciliation errors, and retry from the runtime until capacity becomes authoritative or shutdown cancels the lifecycle.\\n\\nRefs #128794 * fix(node-host): preserve permanent container mismatch failures Keep durable engine and daemon-context mismatches on the actionable disabled path while retrying only transient supervisor reconciliation failures.\\n\\nRefs #128794 * fix(node-host): withdraw hosting on late context mismatch Stop retrying when a later reconciliation attempt proves a permanent container context mismatch, close the supervisor, and withdraw worker hosting from runner inventory.\\n\\nRefs #128794",
+      "title": "feat(ui): search sessions and catalogs from command palette (#128356)",
+      "link": "https://github.com/openclaw/openclaw/commit/798c21af7b964cd3a57c9ed3666ae6ade4a6cf02",
+      "publishedAt": "2026-08-24T19:27:12Z",
+      "summary": "feat(ui): search sessions and catalogs from command palette (#128356) * feat(ui): search session context from command palette Co-authored-by: VACInc * fix(ui): harden unified session search Co-authored-by: VACInc * fix(ui): preserve control UI style budget Co-authored-by: VACInc * feat(ui): search command palette catalogs Co-authored-by: VACInc * fix(ui): surface incomplete palette searches Co-authored-by: VACInc * fix(ui): distinguish incomplete transcript results Co-authored-by: VACInc --------- Co-authored-by: VACInc Co-authored-by: roboclaw-bot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(node-host): recover worker hosting after transient initialization…",
-      "summaryZh": "重點：修正(node-host): recover worker hosting after transient initialization failures (#128798) * 修正(node-host): retry worker su..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): search sessions and catalogs from command palette (#128356)",
+      "summaryZh": "重點：新功能(ui): search sessions and catalogs from command palette (#128356) * 新功能(ui): search session context from command pale..."
     },
     {
       "id": 2,
-      "title": "fix(chat): show native commentary progress (#128793)",
-      "link": "https://github.com/openclaw/openclaw/commit/5238648a3b8e67825f5eebefbb2a31ab1c70e55a",
-      "publishedAt": "2026-08-24T17:58:26Z",
-      "summary": "fix(chat): show native commentary progress (#128793) Preserve native provider commentary as keyed progress items across live delivery and history reloads while keeping cursor pagination reachable. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(gateway): reuse verified GitHub profiles during outages (#128833)",
+      "link": "https://github.com/openclaw/openclaw/commit/6fe4e11a786bdd6ba366bb34a0c2e0f91fe3bc85",
+      "publishedAt": "2026-08-24T19:15:48Z",
+      "summary": "fix(gateway): reuse verified GitHub profiles during outages (#128833)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(chat): show native commentary progress (#128793)",
-      "summaryZh": "重點：修正(chat): show native commentary progress (#128793) Preserve native provider commentary as keyed progress items across l..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reuse verified GitHub profiles during outages (#128833)",
+      "summaryZh": "重點：修正(Gateway): reuse verified GitHub profiles during outages (#128833)..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): fill older chat pages without duplicate transcript stor…",
-      "link": "https://github.com/openclaw/openclaw/commit/3c2667ca40f1ba18da6cb1942b03f50c28b07356",
-      "publishedAt": "2026-08-24T17:43:59Z",
-      "summary": "fix(gateway): fill older chat pages without duplicate transcript storage (#128810) * fix(gateway): page visible chat history without duplicate storage * chore: keep release changelog owned by release automation",
+      "title": "fix(update): keep managed handoff as successor owner (#128212)",
+      "link": "https://github.com/openclaw/openclaw/commit/e1a700840a76d0b852503d2b0dee6ae4f60a7ea8",
+      "publishedAt": "2026-08-24T18:56:20Z",
+      "summary": "fix(update): keep managed handoff as successor owner (#128212) * fix(update): make managed handoff own successor Park the exact native service before Gateway close and coalesce same-root handoff requests so only the detached updater can activate and restart. * refactor(update): reuse restart ownership helpers * test(gateway): isolate supervisor restart fixtures * fix(update): cancel handoff before restart fallback * fix(update): harden managed service handoff * fix(update): use canonical SQLite opener * fix(update): preserve lifecycle runtime boundaries",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): fill older chat pages without duplicate transcript stor…",
-      "summaryZh": "重點：修正(Gateway): fill older chat pages without duplicate transcript storage (#128810) * 修正(Gateway): page visible chat histo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): keep managed handoff as successor owner (#128212)",
+      "summaryZh": "重點：修正(update): keep managed handoff as successor owner (#128212) * 修正(update): make managed handoff own successor Park the ..."
     },
     {
       "id": 4,
-      "title": "improve: serialize Telegram Mantis proofs (#128811)",
-      "link": "https://github.com/openclaw/openclaw/commit/614e084cf842501f316d94a4426a0342397f93e4",
-      "publishedAt": "2026-08-24T17:40:45Z",
-      "summary": "improve: serialize Telegram Mantis proofs (#128811) Queue Telegram-visible Mantis proofs at workflow level so only one shared-user run allocates a runner at a time. Co-authored-by: Ayaan Zaidi",
+      "title": "feat(ui): load owner sessions before shared roster (#128767)",
+      "link": "https://github.com/openclaw/openclaw/commit/b0e8a985ee11ac94aa76513f4da6b5693334c409",
+      "publishedAt": "2026-08-24T18:50:36Z",
+      "summary": "feat(ui): load owner sessions before shared roster (#128767) * feat(ui): load owner sessions before shared roster Co-authored-by: VACInc * fix(ui): preserve owner roster across refreshes Co-authored-by: VACInc --------- Co-authored-by: roboclaw-bot Co-authored-by: VACInc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: serialize Telegram Mantis proofs (#128811)",
-      "summaryZh": "重點：improve: serialize Telegram Mantis proofs (#128811) Queue Telegram-visible Mantis proofs at workflow level so only one s..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): load owner sessions before shared roster (#128767)",
+      "summaryZh": "重點：新功能(ui): load owner sessions before shared roster (#128767) * 新功能(ui): load owner sessions before shared roster Co-autho..."
     },
     {
       "id": 5,
