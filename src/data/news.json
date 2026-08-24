@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T06:59:02.195Z",
+  "generatedAt": "2026-08-24T08:01:00.598Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(gateway): refresh health when channel plugins change (#128503)",
-      "link": "https://github.com/openclaw/openclaw/commit/d0944184c8a6971b6a5b9ad5fef059c53072f157",
-      "publishedAt": "2026-08-24T06:57:58Z",
-      "summary": "fix(gateway): refresh health when channel plugins change (#128503)",
+      "title": "fix(subagents): hide private commentary from logs and completion anno…",
+      "link": "https://github.com/openclaw/openclaw/commit/ccc4e69052d15f95b09eb94f611fcbe4257b7079",
+      "publishedAt": "2026-08-24T07:57:53Z",
+      "summary": "fix(subagents): hide private commentary from logs and completion announcements (#128584) * fix(subagents): hide commentary in logs and completion announcements * refactor(agents): remove obsolete test-only history sanitizer export",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): refresh health when channel plugins change (#128503)",
-      "summaryZh": "重點：修正(Gateway): refresh health when channel plugins change (#128503)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): hide private commentary from logs and completion anno…",
+      "summaryZh": "重點：修正(subagents): hide private commentary from logs and completion announcements (#128584) * 修正(subagents): hide commentary..."
     },
     {
       "id": 8,
-      "title": "fix(subagents): bound escaped output for the third child-result call …",
-      "link": "https://github.com/openclaw/openclaw/commit/60613b74477d3165ee26ee0bd4910a0837ccab36",
-      "publishedAt": "2026-08-24T06:56:11Z",
-      "summary": "fix(subagents): bound escaped output for the third child-result call site (#124171) formatChildResultData was the last of three identical Child result/Subagent result wrapPromptDataBlock call sites without maxEscapedChars/truncationMarker. wrapPromptDataBlockWithTag truncates to maxChars before escaping <>, so an angle-bracket-dense child result (code/XML/HTML output) could still expand the escaped block up to ~4x the intended 512-char budget. Bring this site in line with the other two, already fixed by carrier PR #119731 (agent-steering-queue.ts, internal-events.ts). Co-authored-by: Peter Steinberger",
+      "title": "refactor(xai): share responses tool request transport (#128571)",
+      "link": "https://github.com/openclaw/openclaw/commit/68ba1ef641e5a8a4d78cfdb7873b8f2a8b20d37c",
+      "publishedAt": "2026-08-24T07:57:28Z",
+      "summary": "refactor(xai): share responses tool request transport (#128571) * refactor(xai): share responses tool request transport * refactor(xai): remove unused responses body test seam * test(xai): preserve responses request contracts at fetch boundaries",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(subagents): bound escaped output for the third child-result call …",
-      "summaryZh": "重點：修正(subagents): bound escaped output for the third child-result call site (#124171) formatChildResultData was the last of..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(xai): share responses tool request transport (#128571)",
+      "summaryZh": "重點：refactor(xai): share responses tool request transport (#128571) * refactor(xai): share responses tool request transport ..."
     },
     {
       "id": 9,
-      "title": "fix(cron): fence stale execution generations (#128573)",
-      "link": "https://github.com/openclaw/openclaw/commit/68c48422cc6e8cecc65dad2e0129afc0bbff167a",
-      "publishedAt": "2026-08-24T06:55:15Z",
-      "summary": "fix(cron): fence stale execution generations (#128573) Assessment of Microsoft's Lobster patch 0008 via giodl73-repo/lobster-plugins-and-patches.",
+      "title": "fix(location): reject future-dated cached fixes (#128591)",
+      "link": "https://github.com/openclaw/openclaw/commit/65309488120e488e36281edd497bc1d2122da235",
+      "publishedAt": "2026-08-24T07:57:04Z",
+      "summary": "fix(location): reject future-dated cached fixes (#128591)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): fence stale execution generations (#128573)",
-      "summaryZh": "重點：修正(排程): fence stale execution generations (#128573) Assessment of Microsoft's Lobster patch 0008 via giodl73-repo/lobste..."
+      "titleZh": "OpenClaw 程式碼更新：修正(location): reject future-dated cached 修正 (#128591)",
+      "summaryZh": "重點：修正(location): reject future-dated cached 修正 (#128591)..."
     },
     {
       "id": 10,
-      "title": "fix(agents): reject hidden output across model verification and syste…",
-      "link": "https://github.com/openclaw/openclaw/commit/f990954337e97fdd179733cd2f378e62dfd09bc0",
-      "publishedAt": "2026-08-24T06:54:28Z",
-      "summary": "fix(agents): reject hidden output across model verification and system turns (#128570)",
+      "title": "fix(cron): run history omits cache token counters, leaving token tota…",
+      "link": "https://github.com/openclaw/openclaw/commit/109cde78be674c83ac0395690b6f19d9a077b4f0",
+      "publishedAt": "2026-08-24T07:53:46Z",
+      "summary": "fix(cron): run history omits cache token counters, leaving token totals unexplainable (#124657) * fix(cron): record cache token counters in run telemetry CronUsageSummary declares cache_read_tokens and cache_write_tokens, the gateway-protocol schema and UI types accept them, and the run-history read path normalizes them, but the single writer of CronRunTelemetry[\"usage\"] never assigned either field. Both values were already in scope and were folded into the total_tokens it did write, so every cron run record reported a total larger than input_tokens + output_tokens with no field explaining the remainder. Operators use run history to attribute token spend per job. Cache reads cost roughly an order of magnitude less than fresh input tokens and the ratio varies per job, so two jobs with identical input_tokens could differ severalfold in real cost with nothing in the record to tell them apart. The remainder was not a usable substitute either: the Math.max against the provider aggregate means it is the cache buckets or a provider total, and no field distinguished the two. Assign both fields when nonzero, matching the adjacent total_tokens guard, so records from providers reporting no cache usage stay byte-identical and historical records keep parsing unchanged. Refs #124647 * test(cron): assert cache counters in diagnostic-events usage record This assertion pinned the pre-fix shape: the fixture reports cacheRead 7 and cacheWrite 3, and expected total_tokens 160 against input 50 + output 100. The 10-token remainder it accepted without comment is exactly the cache buckets, which is the accounting gap this branch fixes. Updated to assert both counters rather than relax the toEqual, so the record stays required to account for its own total. * fix(cron): construct complete run usage without mutation Co-authored-by: Koduri Mahesh Bhushan Chowdary --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): reject hidden output across 模型 verification and syste…",
-      "summaryZh": "重點：修正(agents): reject hidden output across 模型 verification and system turns (#128570)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): run history omits cache token counters, leaving token tota…",
+      "summaryZh": "重點：修正(排程): run history omits cache token counters, leaving token totals unexplainable (#124657) * 修正(排程): record cache toke..."
     }
   ]
 }
