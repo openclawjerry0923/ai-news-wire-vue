@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T10:37:20.311Z",
+  "generatedAt": "2026-08-24T11:28:59.987Z",
   "items": [
     {
       "id": 1,
@@ -57,6 +57,39 @@
     },
     {
       "id": 7,
+      "title": "perf(ui): consolidate Control UI boot chunk graph for HTTP/1.1 gatewa…",
+      "link": "https://github.com/openclaw/openclaw/commit/8fe2c1b83ca2a30d62892d3bf188588190155fd0",
+      "publishedAt": "2026-08-24T10:55:37Z",
+      "summary": "perf(ui): consolidate Control UI boot chunk graph for HTTP/1.1 gateways (#128514) * perf(ui): consolidate Control UI boot chunk graph for HTTP/1.1 gateways The Control UI boot flow (app shell + sidebar + chat route) lazily loaded ~124 automatic chunks in one burst after the gateway handshake, which the gateway's HTTP/1.1 transport serializes into ~24 six-connection round-trips on high-latency links (Tailscale, remote gateways). Add a measured boot-module manifest (ui/config/control-ui-boot-modules.json, regenerated via pnpm ui:boot-manifest:gen) and a control-ui-boot codeSplitting group that merges exactly that module set into a handful of chunks with recursive dependency inclusion. Lazy islands (locales, ghostty-web, novnc, non-default routes) keep their own chunks; stale manifest entries degrade gracefully back to automatic chunking. Measured on the built dist with the mocked gateway (chat route, 3 runs): unique boot JS requests 140 -> 45, raw boot JS 3751 -> 3717 KiB, chat composer interactive at simulated 50 ms RTT ~1600 ms -> ~575 ms. Largest-CSS budget rises 45 -> 47 KiB for the merged boot CSS; startup JS gzip baseline ratchets down (345049 -> 339214 B) as consolidation shrinks the startup graph. * chore(ui): refresh boot module manifest after rebase onto current main * fix(ui): stop the pending lazy shell action replay loop starving boot When a pending lazy shell action (command palette open, panel toggle) replayed while the shell was still splash-gated, the dispatched event had no rendered element to consume it and re-entered requestLazyElement in a microtask cycle: request -> load -> replay -> dispatch -> request. The cycle starved tasks (Gateway WebSocket messages included), so the boot never finished and the recovery e2e froze on the splash screen. Gate replay on the element actually being rendered: the controller skips the action after load until the host's render root contains the tag, and restorePendingLazyAction skips dispatch while a defined element is still render-gated. The host retries after every completed update, so the replay fires on the update that first renders the element. Regression test fails on the pre-fix controller. * fix(ui): re-anchor the scope-upgrade details popover before opening wa-popover resolves its `for` target once per property change and never re-resolves a missing or replaced anchor. The trigger with the shared id can render after the popover's first update (the header trigger ships with the lazy chat chunk), leaving the opened popover permanently invisible: active popup with a native [popover] part stuck at UA display:none because showPopover() never ran without an anchor. Re-arm the watcher when opening while the anchor is missing or disconnected. * test(ui): compare settled layouts in device-scope stability assertions The 0.5px no-move assertions sampled geometry that later reflowed when the details surface's first render fetched glyph subsets, reporting sub-pixel drift the open never caused. Burn in the one-time open per context and sample the baseline adjacent to the click. * fix(ui): map the keyboard shortcuts dialog in lazy replay gating Current main added the keyboard-shortcuts lazy shell event; the replay gate's exhaustive event-to-element record needs its entry. * chore(ui): refresh startup budget baseline after rebase onto current main",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): consolidate Control UI boot chunk graph for HTTP/1.1 gatewa…",
+      "summaryZh": "重點：perf(ui): consolidate Control UI boot chunk graph for HTTP/1.1 Gateways (#128514) * perf(ui): consolidate Control UI boo..."
+    },
+    {
+      "id": 8,
+      "title": "fix(deps): align Anthropic Agent SDK lock (#128671)",
+      "link": "https://github.com/openclaw/openclaw/commit/d9165f9813fb81bbe0593d1f389cedc16335bcd4",
+      "publishedAt": "2026-08-24T10:54:40Z",
+      "summary": "fix(deps): align Anthropic Agent SDK lock (#128671)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(deps): align Anthropic Agent SDK lock (#128671)",
+      "summaryZh": "重點：修正(deps): align Anthropic Agent SDK lock (#128671)..."
+    },
+    {
+      "id": 9,
+      "title": "test(audit): event-loop probes fail on shared-runner jitter instead o…",
+      "link": "https://github.com/openclaw/openclaw/commit/1bca825105e5d332939ac8966a8dba54f1412fc2",
+      "publishedAt": "2026-08-24T10:38:37Z",
+      "summary": "test(audit): event-loop probes fail on shared-runner jitter instead of real blocking [AI-assisted] (#128228) * test(audit): prove nonblocking writes without timer jitter Co-authored-by: Sean Bennett * test(audit): restore observed SQLite methods without lint violations Co-authored-by: Sean Bennett --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(audit): event-loop probes fail on shared-runner jitter instead o…",
+      "summaryZh": "重點：test(audit): event-loop probes fail on shared-runner jitter instead of real blocking [AI-assisted] (#128228) * test(audi..."
+    },
+    {
+      "id": 10,
       "title": "fix(discord): preserve distinct super reaction events (#128649)",
       "link": "https://github.com/openclaw/openclaw/commit/a9fdb68496d636461d11e8be29323de55636e337",
       "publishedAt": "2026-08-24T10:17:10Z",
@@ -65,39 +98,6 @@
       "tag": "OpenClaw",
       "titleZh": "OpenClaw 程式碼更新：修正(Discord): preserve distinct super reaction events (#128649)",
       "summaryZh": "重點：修正(Discord): preserve distinct super reaction events (#128649)..."
-    },
-    {
-      "id": 8,
-      "title": "fix(ui): remove visible widget scrollbar tracks (#128538)",
-      "link": "https://github.com/openclaw/openclaw/commit/00a7c4b6ce4125d350fd4c01813980160ac7b524",
-      "publishedAt": "2026-08-24T10:15:05Z",
-      "summary": "fix(ui): remove visible widget scrollbar tracks (#128538) * fix(ui): remove widget scrollbar tracks * fix(ui): preserve widget scrollbar fallbacks * test(ui): prove widget scrollbar themes * fix(ui): match widget scrollbar theme * test(canvas): keep widget theme allowlist aligned",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): remove visible widget scrollbar tracks (#128538)",
-      "summaryZh": "重點：修正(ui): remove visible widget scrollbar tracks (#128538) * 修正(ui): remove widget scrollbar tracks * 修正(ui): preserve wid..."
-    },
-    {
-      "id": 9,
-      "title": "fix(ui): keep Model Setup visible while checking AI access (#128636)",
-      "link": "https://github.com/openclaw/openclaw/commit/b431a2300bd05b0937cead1b4731340eb4233e41",
-      "publishedAt": "2026-08-24T10:04:43Z",
-      "summary": "fix(ui): keep Model Setup visible while checking AI access (#128636) * fix(ui): keep model setup visible while checking * fix(ui): align setup skeleton with model state",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep 模型 Setup visible while checking AI access (#128636)",
-      "summaryZh": "重點：修正(ui): keep 模型 Setup visible while checking AI access (#128636) * 修正(ui): keep 模型 setup visible while checking * 修正(ui)..."
-    },
-    {
-      "id": 10,
-      "title": "perf(ci): split Telegram prerelease tests (#128459)",
-      "link": "https://github.com/openclaw/openclaw/commit/cf4f112425c5469839c8d50da8e451fdc9c6daf3",
-      "publishedAt": "2026-08-24T10:02:46Z",
-      "summary": "perf(ci): split Telegram prerelease tests (#128459) * perf(ci): split Telegram prerelease tests * fix(ci): preserve Telegram test process recycling * fix(ci): shard runnable Telegram tests * fix(ci): cap Telegram prerelease jobs * fix(ci): correct Telegram shard heredoc * test(ci): type Telegram prerelease matrix * docs(ci): explain Telegram prerelease shards",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ci): split Telegram pre版本發布 tests (#128459)",
-      "summaryZh": "重點：perf(ci): split Telegram pre版本發布 tests (#128459) * perf(ci): split Telegram pre版本發布 tests * 修正(ci): preserve Telegram te..."
     }
   ]
 }
