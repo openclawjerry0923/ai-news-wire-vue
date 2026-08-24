@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-24T17:31:10.731Z",
+  "generatedAt": "2026-08-24T18:40:07.304Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(qa): run explicitly selected Telegram RTT scenarios (#128795)",
-      "link": "https://github.com/openclaw/openclaw/commit/7d08e40e2f1de5e68773032872465e92312eaa13",
-      "publishedAt": "2026-08-24T17:26:30Z",
-      "summary": "fix(qa): run explicitly selected Telegram RTT scenarios (#128795) * fix(qa): support explicit Telegram RTT scenarios * docs(qa): document Telegram RTT scenario selection * fix(qa): expose Telegram RTT scenario in manual E2E * fix(qa): gate historical Telegram downgrade proof",
+      "title": "fix(node-host): recover worker hosting after transient initialization…",
+      "link": "https://github.com/openclaw/openclaw/commit/bf83a4dde8f00e5d330bd00de79cb0232fe6ae09",
+      "publishedAt": "2026-08-24T18:06:52Z",
+      "summary": "fix(node-host): recover worker hosting after transient initialization failures (#128798) * fix(node-host): retry worker supervisor initialization Clear failed initialization ownership for retry, retain valid container supervisors after transient reconciliation errors, and retry from the runtime until capacity becomes authoritative or shutdown cancels the lifecycle.\\n\\nRefs #128794 * fix(node-host): preserve permanent container mismatch failures Keep durable engine and daemon-context mismatches on the actionable disabled path while retrying only transient supervisor reconciliation failures.\\n\\nRefs #128794 * fix(node-host): withdraw hosting on late context mismatch Stop retrying when a later reconciliation attempt proves a permanent container context mismatch, close the supervisor, and withdraw worker hosting from runner inventory.\\n\\nRefs #128794",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): run explicitly selected Telegram RTT scenarios (#128795)",
-      "summaryZh": "重點：修正(qa): run explicitly selected Telegram RTT scenarios (#128795) * 修正(qa): support explicit Telegram RTT scenarios * 文件(..."
+      "titleZh": "OpenClaw 程式碼更新：修正(node-host): recover worker hosting after transient initialization…",
+      "summaryZh": "重點：修正(node-host): recover worker hosting after transient initialization failures (#128798) * 修正(node-host): retry worker su..."
     },
     {
       "id": 2,
-      "title": "fix(codex): preserve GitHub tool capability (#128807)",
-      "link": "https://github.com/openclaw/openclaw/commit/56664c5cfb550057fb30fff2c8e6ea3b0676904c",
-      "publishedAt": "2026-08-24T17:12:19Z",
-      "summary": "fix(codex): preserve GitHub tool capability (#128807)",
+      "title": "fix(chat): show native commentary progress (#128793)",
+      "link": "https://github.com/openclaw/openclaw/commit/5238648a3b8e67825f5eebefbb2a31ab1c70e55a",
+      "publishedAt": "2026-08-24T17:58:26Z",
+      "summary": "fix(chat): show native commentary progress (#128793) Preserve native provider commentary as keyed progress items across live delivery and history reloads while keeping cursor pagination reachable. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): preserve GitHub tool capability (#128807)",
-      "summaryZh": "重點：修正(codex): preserve GitHub tool capability (#128807)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(chat): show native commentary progress (#128793)",
+      "summaryZh": "重點：修正(chat): show native commentary progress (#128793) Preserve native provider commentary as keyed progress items across l..."
     },
     {
       "id": 3,
-      "title": "test(ui): split settings node suite by concern (#128788)",
-      "link": "https://github.com/openclaw/openclaw/commit/d2d58a58c63f858828535cf6ffd2144e1569e61a",
-      "publishedAt": "2026-08-24T17:10:19Z",
-      "summary": "test(ui): split settings node suite by concern (#128788) * test(ui): split settings node suite by concern ui/src/app/settings.node.test.ts sat at 999 oxlint-counted lines against the 1000-line max-lines cap, so any added assertion failed the core lint shard — and, as in #128474, could pass locally while only the merge ref tripped the cap. Split the 42-test monolith along the surfaces it actually covers: the base file keeps gateway URL derivation, tab-local token handling, and per-gateway session scoping; preference persistence and layout persistence move to dotted siblings, matching the existing settings.sidebar-prefs.node.test.ts precedent. Test names and count are unchanged (47 across the settings node suites, before and after). The location/base-path/settings-fixture helpers and the storage lifecycle hooks are now shared from ui/src/test-helpers/settings-node.ts instead of being copy-pasted per file; sidebar-prefs drops its duplicate copies too. * test(node-host): write fake container-engine state atomically checks-node-compact-large-3 failed twice on this branch in different tests of node-worker-supervisor.container.test.ts, most recently with \"SyntaxError: Unexpected end of JSON input\" raised from the fake engine's load() while the supervisor ran `docker rm --force`. The shim saved container state with a truncating fs.writeFileSync while sibling shim invocations (rm, inspect, wait, ps) read the same path, so a reader could observe the zero-length window and exit 1. Write to a \".pending\" sibling and rename over the target instead; rename is atomic, so readers always see a complete previous or next state. The ps handler filters on the \".container.json\" suffix, so pending files are ignored. A concurrent write/read probe over the old pattern produced 2014 partial reads in 212900; the same probe over write-then-rename produced 0 in 203468. Not reproducible end-to-end on macOS, where the truncation window is far narrower than on the loaded Linux shard.",
+      "title": "fix(gateway): fill older chat pages without duplicate transcript stor…",
+      "link": "https://github.com/openclaw/openclaw/commit/3c2667ca40f1ba18da6cb1942b03f50c28b07356",
+      "publishedAt": "2026-08-24T17:43:59Z",
+      "summary": "fix(gateway): fill older chat pages without duplicate transcript storage (#128810) * fix(gateway): page visible chat history without duplicate storage * chore: keep release changelog owned by release automation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): split settings node suite by concern (#128788)",
-      "summaryZh": "重點：test(ui): split settings node suite by concern (#128788) * test(ui): split settings node suite by concern ui/src/app/set..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): fill older chat pages without duplicate transcript stor…",
+      "summaryZh": "重點：修正(Gateway): fill older chat pages without duplicate transcript storage (#128810) * 修正(Gateway): page visible chat histo..."
     },
     {
       "id": 4,
-      "title": "fix(worktrees): stop repeated startup cleanup errors (#128761)",
-      "link": "https://github.com/openclaw/openclaw/commit/dbf412074270f31015fd380e47bd56c81de5fde8",
-      "publishedAt": "2026-08-24T17:02:38Z",
-      "summary": "fix(worktrees): stop repeated startup cleanup errors (#128761) * fix(worktrees): collect ignored nested checkouts * fix(worktrees): preserve ignored foreign repositories * test(worktrees): cover empty ignored foreign repositories",
+      "title": "improve: serialize Telegram Mantis proofs (#128811)",
+      "link": "https://github.com/openclaw/openclaw/commit/614e084cf842501f316d94a4426a0342397f93e4",
+      "publishedAt": "2026-08-24T17:40:45Z",
+      "summary": "improve: serialize Telegram Mantis proofs (#128811) Queue Telegram-visible Mantis proofs at workflow level so only one shared-user run allocates a runner at a time. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): stop repeated startup cleanup errors (#128761)",
-      "summaryZh": "重點：修正(worktrees): stop repeated startup cleanup errors (#128761) * 修正(worktrees): collect ignored nested checkouts * 修正(wor..."
+      "titleZh": "OpenClaw 程式碼更新：improve: serialize Telegram Mantis proofs (#128811)",
+      "summaryZh": "重點：improve: serialize Telegram Mantis proofs (#128811) Queue Telegram-visible Mantis proofs at workflow level so only one s..."
     },
     {
       "id": 5,
