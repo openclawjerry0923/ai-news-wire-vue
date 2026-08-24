@@ -1,8 +1,50 @@
 {
-  "generatedAt": "2026-08-24T13:51:50.762Z",
+  "generatedAt": "2026-08-24T14:42:03.970Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(ui): reuse canonical UUID generation (#128753)",
+      "link": "https://github.com/openclaw/openclaw/commit/3cf23294a59d2a012011a097013789c5dbb0bced",
+      "publishedAt": "2026-08-24T14:39:04Z",
+      "summary": "refactor(ui): reuse canonical UUID generation (#128753)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): reuse canonical UUID generation (#128753)",
+      "summaryZh": "重點：refactor(ui): reuse canonical UUID generation (#128753)..."
+    },
+    {
+      "id": 2,
+      "title": "將來月球若找到「生命跡象」，可能是太空人帶去的：地球微生物或能在月球南極活下來",
+      "link": "https://technews.tw/2026/08/24/earth-microbes-may-survive-on-the-moons-south-pole/",
+      "publishedAt": "Mon, 24 Aug 2026 14:25:19 +0000",
+      "summary": "人類準備重返月球並建立長期基地，一項最新研究指出，跟隨太空人一起「偷渡」到太空的地球微生物，極有可能在月球南極 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 3,
+      "title": "fix: agent.wait can return error before the same run later ends succe…",
+      "link": "https://github.com/openclaw/openclaw/commit/b8d6e799a31d469f60277427472b87036b1f9be7",
+      "publishedAt": "2026-08-24T13:59:58Z",
+      "summary": "fix: agent.wait can return error before the same run later ends successfully (#120606) * fix(gateway): preserve agent wait through late success * fix(gateway): keep timed-out agent waits fail-closed * fix(gateway): recover late lifecycle success across observers * fix(tui): preserve authoritative terminal outcomes --------- Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: agent.wait can return error before the same run later ends succe…",
+      "summaryZh": "重點：修正: agent.wait can return error before the same run later ends successfully (#120606) * 修正(Gateway): preserve agent wait..."
+    },
+    {
+      "id": 4,
+      "title": "fix(gateway): skip worker bootstrap during teardown replay (#128745)",
+      "link": "https://github.com/openclaw/openclaw/commit/84fd10db2a1b7b3d7038eec276d7bc8bea88a3f0",
+      "publishedAt": "2026-08-24T13:58:25Z",
+      "summary": "fix(gateway): skip worker bootstrap during teardown replay (#128745) Preserve replay-safe lease adoption, then route destroy-requested node and SSH environments directly through canonical teardown without bundle installation or credential minting.\\n\\nRefs #128744",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): skip worker bootstrap during teardown replay (#128745)",
+      "summaryZh": "重點：修正(Gateway): skip worker bootstrap during teardown replay (#128745) Preserve replay-safe lease adoption, then route dest..."
+    },
+    {
+      "id": 5,
       "title": "fix(apple): surface rejected chat session settings (#128737)",
       "link": "https://github.com/openclaw/openclaw/commit/2b8fe12f0bb4b76c4daeb6b8ba106f2743bf8af8",
       "publishedAt": "2026-08-24T13:49:50Z",
@@ -13,40 +55,7 @@
       "summaryZh": "重點：修正(apple): surface rejected chat session settings (#128737)..."
     },
     {
-      "id": 2,
-      "title": "improve(ui): stop sidebar rows rearranging themselves on hover (#125820)",
-      "link": "https://github.com/openclaw/openclaw/commit/dea053e32f4cca1207f980d643f7c6ef795fd9f9",
-      "publishedAt": "2026-08-24T13:40:26Z",
-      "summary": "improve(ui): stop sidebar rows rearranging themselves on hover (#125820) * improve(ui): put session row actions on the title line Two-line sidebar rows centred the pin and menu buttons across the whole row, so they floated between the title and the line below, and hover reserved their width from the entire text column while fading the status endcap out. Hovering a row therefore truncated the subtitle and hid its badges, spinner, unread dot and relative time — the row rearranged itself under the pointer just to show two controls. The buttons now anchor to the title line, derived from the link's top padding plus half the title's line box, and only the title yields their width. The second line keeps its content and its icons. Single-line rows are untouched: their one line already is the title line, so #126455's centring and the endcap beside the title stay exactly as they are. The reservation is deliberately not transitioned: startHoverMarquee measures clientWidth synchronously on mouseenter, so an animated width would make long titles scroll short and would silence titles that only overflow once the buttons are up. * fix(ui): keep second-line state lit while the actions are up Hovering a two-line row to reach the pin or menu also faded its trailing state out, so the run spinner disappeared under the pointer — the row stopped telling you it was still working at the moment you reached for its controls. That trade existed because the actions used to cover the endcap. On a two-line row they now sit on the title line and cover nothing, so the second line keeps its spinner, unread dot, badges and time. Single-line rows still trade: there the endcap genuinely shares the actions' line. * fix(ui): stop hiding row state and clipping it with the actions Two problems the first pass left behind, both visible on hover: The unread dot vanished the moment the pointer arrived on a single-line row. That row reserves the action width in its text column, which already slides the endcap clear, but the old fade still ran — so the dot disappeared while the badges beside it stayed, reading as a glitch rather than a swap. Nothing trades places with the actions now, on either row shape. A 24px control centred on the 18px title line also hung 3px into the row below, so a hovered button's fill would clip the top of the badges that now stay lit there. Two-line rows shrink the control to the line it sits on; the 14px glyph is unchanged and coarse pointers keep the full 24px target. Measured on the preview: single-line endcap ends at 183 with the first action at 186, and the action box now ends exactly where the second line begins. * fix(ui): even out endcap spacing and drop the touch swap leftovers The unread dot sat further from the badges than they sat from each other: 6px between the badges, 14.5px before the dot. The state box carried min-width and min-height of 24px, sized to match the action button it used to trade places with, so a 7px dot got 8.5px of padding a side. Nothing trades now, so the box sizes to its glyphs and the endcap keeps one 6px rhythm. The touch block kept the other half of that arrangement: state and actions sharing a grid cell, and the relative-time trail permanently hidden. Both go the same way — on touch the second line now keeps its content like everywhere else. Covered by a case whose state holds a single dot, which is the only shape where the padded box was visible; it reports [6,14.5] against the old CSS. * fix(ui): draw every session row glyph at one size The row drew seven different glyph sizes on the same two lines: archive 11px, badges and spinner 12px, board 13px, fork and the action icons 14px, attention 15px, with stroke widths of 1.6, 1.7 and 1.8 mixed among them. Side by side on one line that reads as broken alignment rather than a hierarchy. They now resolve one --session-row-glyph-size and one --session-row-glyph-stroke declared on .session-row-host, so the whole row moves together and a new glyph inherits the rhythm instead of picking its own. Every rule keeps its previous value as the var fallback, so the same components rendered outside a session row are untouched. The unread dot stays 7px: it is a dot rather than a glyph, and matching it to a 14px line icon would turn it into a blob. A test walks a row carrying badges, fork provenance, a spinner and the action icons and asserts one distinct size across them; against the old CSS it reports [\"14x14\",\"12x12\"]. * fix(ui): size the session row run ring optically The ring inks its whole box while the line icons beside it only ink 9-10px of their 14px box, so unifying it to the glyph token made it read a size larger than the pin and menu glyphs on the same line. Give the row host its own ring token three px down from the glyph size; surfaces outside a row keep the ring's previous 12px. * fix(ui): put the whole session row trailing column on one grid The action buttons stepped 25px inside 24px hover targets while the endcap's badges stepped 20px and ran flush to the row edge, so a badge, dot or ring never landed under the icon above it. Derive both gaps and the endcap's inset from the action box, and give the state group a glyph-wide floor so bare shapes centre on the same axis as icons drawn in a box. * fix(ui): tighten the session row trailing column Matching the endcap to a 24px action box spaced the badges 11px apart, which read airier than before the grid landed. Take the action box to 20px so the pitch drops to 21 and the badges return to a 6px-ish gap, derive the title's hover reservation from that box instead of a fixed 52px, and let touch keep the square button on two-line rows now that no hover fill can clip the badges. * fix(ui): type the session row test fixtures and endcap lookups check:test-types caught three errors the ui lane does not cover: the badge fixtures pass hasAutomation and incognito, which the sessionRow helper never declared, and the endcap gap probe indexed a possibly-empty NodeList. * fix(ui): repair session row hover review findings * fix(ui): preserve catalog sidebar interaction state * fix(ui): preserve catalog interaction state during rerenders * perf(ui): keep session rows within CSS budget * test(ui): satisfy immutable array lint * fix(ui): preserve catalog identity across session release * fix(ui): remeasure adopted row live state",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(ui): stop sidebar rows rearranging themselves on hover (#125820)",
-      "summaryZh": "重點：improve(ui): stop sidebar rows rearranging themselves on hover (#125820) * improve(ui): put session row actions on the t..."
-    },
-    {
-      "id": 3,
-      "title": "fix(sqlite): stage read-only snapshots in private user cache (#128635)",
-      "link": "https://github.com/openclaw/openclaw/commit/c7f70f338ac12f7e9a40a8f7267d2f59a647c6ea",
-      "publishedAt": "2026-08-24T13:40:09Z",
-      "summary": "fix(sqlite): stage read-only snapshots in private user cache (#128635) * fix(sqlite): stage read-only snapshots in private user cache * fix(sqlite): correct snapshot cache and staging diagnostics * fix(sqlite): diagnose snapshot cache allocation failures * fix(sqlite): unwrap Windows snapshot staging errors * fix(sqlite): diagnose sanitized staging allocation errors * fix(sqlite): scope snapshot staging errors to allocated directory",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): stage read-only snapshots in private user cache (#128635)",
-      "summaryZh": "重點：修正(sqlite): stage read-only snapshots in private user cache (#128635) * 修正(sqlite): stage read-only snapshots in private..."
-    },
-    {
-      "id": 4,
-      "title": "fix(android): preserve capture dates and requested photo resolution (…",
-      "link": "https://github.com/openclaw/openclaw/commit/ca3c3db1afb4c0b02da19846e4489f252b11702c",
-      "publishedAt": "2026-08-24T13:39:43Z",
-      "summary": "fix(android): preserve capture dates and requested photo resolution (#125550) Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): preserve capture dates and requested photo resolution (…",
-      "summaryZh": "重點：修正(android): preserve capture dates and requested photo resolution (#125550) Co-authored-by: Peter Steinberger..."
-    },
-    {
-      "id": 5,
+      "id": 6,
       "title": "Atlassian發布8月分更新，修補旗下產品逾80個漏洞",
       "link": "https://www.ithome.com.tw/news/178373",
       "publishedAt": "2026-08-24 12:08:55",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Anthropic釋出Mythos 5資安能力，企業版可直接掃碼修漏洞",
       "link": "https://www.ithome.com.tw/news/178369",
       "publishedAt": "2026-08-24 12:08:47",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "中國駭客UAT-10147鎖定易受攻擊伺服器，透過AI打造的工具從事攻擊",
       "link": "https://www.ithome.com.tw/news/178368",
       "publishedAt": "2026-08-24 12:08:36",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "駭客組織Ransom Busters號稱能協助勒索軟體受害者復原，並從勒索集團刪除竊得資料",
       "link": "https://www.ithome.com.tw/news/178371",
       "publishedAt": "2026-08-24 12:08:17",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Hugging Face傳尋求出售，估值上看130億美元",
       "link": "https://www.ithome.com.tw/news/178366",
       "publishedAt": "2026-08-24 11:08:54",
       "summary": "Business Insider本周引述消息來源報導，開源AI平臺Hugging Face正在探索出售的可能性，若交易成真，估值可能超過130億美元。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Splunk發布8月份更新，修補逾150個漏洞",
-      "link": "https://www.ithome.com.tw/news/178364",
-      "publishedAt": "2026-08-24 11:08:54",
-      "summary": "資安與日誌分析平臺業者Splunk於8月19日發布8份資安公告，修補超過150個漏洞，涵蓋自身的Splunk Enterprise與SOAR平臺，Universal Forwarder代理程式，配套的應用程式與外掛程式，以及第三方元件。",
       "source": "iThome",
       "tag": "繁中"
     }
