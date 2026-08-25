@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-25T15:41:50.905Z",
+  "generatedAt": "2026-08-25T16:37:36.020Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(skills): detach experience review generation scope (#129218)",
-      "link": "https://github.com/openclaw/openclaw/commit/9cfb4ff956c9b50e713f8774b576d9edd8db50a7",
-      "publishedAt": "2026-08-25T15:30:42Z",
-      "summary": "fix(skills): detach experience review generation scope (#129218) Skill Workshop experience review arms a timer inside the foreground turn's prepared-runtime generation scope. When the timer fired after that generation was superseded (runtime config publication, idle expiry), the review admitted under the stale generation and failed with \"prepared model runtime plugin generation was superseded\". Create the timer's async resource outside the parent scope so detached review work admits on the current generation. Regression test: schedules inside a prepared generation scope and asserts the review callbacks observe no inherited generation; fails on pre-fix code. Co-authored-by: Josh Lehman",
+      "title": "refactor(discord): unify reaction client resolution (#129441)",
+      "link": "https://github.com/openclaw/openclaw/commit/4fd42aa037484cc428e745ef4012f351c5b6c041",
+      "publishedAt": "2026-08-25T16:37:20Z",
+      "summary": "refactor(discord): unify reaction client resolution (#129441)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(skills): detach experience review generation scope (#129218)",
-      "summaryZh": "重點：修正(skills): detach experience review generation scope (#129218) Skill Workshop experience review arms a timer inside the..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): unify reaction client resolution (#129441)",
+      "summaryZh": "重點：refactor(Discord): unify reaction client resolution (#129441)..."
     },
     {
       "id": 2,
-      "title": "fix(browser): detect selected profile executable consistently (#129394)",
-      "link": "https://github.com/openclaw/openclaw/commit/1699e98400113eba7dca9d7dd8a22fa91d199072",
-      "publishedAt": "2026-08-25T15:30:05Z",
-      "summary": "fix(browser): detect selected profile executable consistently (#129394)",
+      "title": "fix(macos): keep onboarding progress aligned with recommended setup (…",
+      "link": "https://github.com/openclaw/openclaw/commit/2a33d749e53441cb67ff1fa76c4a341d681708c1",
+      "publishedAt": "2026-08-25T16:31:07Z",
+      "summary": "fix(macos): keep onboarding progress aligned with recommended setup (#129435)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): detect selected profile executable consistently (#129394)",
-      "summaryZh": "重點：修正(browser): detect selected profile executable consistently (#129394)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): keep onboarding progress aligned with recommended setup (…",
+      "summaryZh": "重點：修正(macos): keep onboarding progress aligned with recommended setup (#129435)..."
     },
     {
       "id": 3,
-      "title": "fix(whatsapp): avoid mentions inside unterminated inline code (#129281)",
-      "link": "https://github.com/openclaw/openclaw/commit/d53ea9cf4d453a390d0244ce1c0aa2c09e18f52a",
-      "publishedAt": "2026-08-25T15:15:51Z",
-      "summary": "fix(whatsapp): avoid mentions inside unterminated inline code (#129281) * fix(whatsapp): avoid mentions inside unterminated inline code * fix(whatsapp): protect mentions across soft code line breaks * fix(whatsapp): honor escaped multiline code delimiter runs",
+      "title": "fix(update): fail the git updater when the final HEAD verification pr…",
+      "link": "https://github.com/openclaw/openclaw/commit/336ce945f038229961952bd1006ef8fe4db93e7f",
+      "publishedAt": "2026-08-25T16:24:11Z",
+      "summary": "fix(update): fail the git updater when the final HEAD verification probe errors (#129036) The git updater classified blocking step failures before appending the final \"git rev-parse HEAD (after)\" probe, so a nonzero exit from that probe was invisible to findBlockingGitFailure. The result could report status:\"ok\" with a null after.sha even though the installed revision was never verified. Route the failed probe through rollbackError(\"head-verification-failed\"), matching every other failure path, so the checkout is rolled back and no after identity is fabricated. Fixes #127412",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): avoid mentions inside unterminated inline code (#129281)",
-      "summaryZh": "重點：修正(whatsapp): avoid mentions inside unterminated inline code (#129281) * 修正(whatsapp): avoid mentions inside unterminate..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): fail the git updater when the final HEAD verification pr…",
+      "summaryZh": "重點：修正(update): fail the git updater when the final HEAD verification probe errors (#129036) The git updater classified bloc..."
     },
     {
       "id": 4,
-      "title": "fix: clean retired Claude auth before Doctor health (#129375)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a93f681c00d1f31b4b719ada52998630ff46012",
-      "publishedAt": "2026-08-25T15:15:07Z",
-      "summary": "fix: clean retired Claude auth before Doctor health (#129375) Doctor now persists repaired configuration, removes retired Claude CLI auth state, and then reports health from the canonical store. Refs #129333.",
+      "title": "fix(workboard): heal oversized persisted notifications (#120999)",
+      "link": "https://github.com/openclaw/openclaw/commit/b0e9fd62522ec2b2e269bffed9d97f968e4a4bef",
+      "publishedAt": "2026-08-25T16:20:12Z",
+      "summary": "fix(workboard): heal oversized persisted notifications (#120999) Preserve the existing UTF-16-safe notification cap at the canonical metadata normalization boundary so a legacy oversized row cannot abort dispatch or starve sibling cards. Move the existing capText helper into its normalization owner without production growth. Co-authored-by: licheer-zte Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: clean retired Claude auth before 文件tor health (#129375)",
-      "summaryZh": "重點：修正: clean retired Claude auth before 文件tor health (#129375) 文件tor now persists repaired configuration, removes retired C..."
+      "titleZh": "OpenClaw 程式碼更新：修正(workboard): heal oversized persisted notifications (#120999)",
+      "summaryZh": "重點：修正(workboard): heal oversized persisted notifications (#120999) Preserve the existing UTF-16-safe notification cap at th..."
     },
     {
       "id": 5,
