@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-25T14:45:21.269Z",
+  "generatedAt": "2026-08-25T15:41:50.905Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: isolate native CLI availability resolver (#129374)",
-      "link": "https://github.com/openclaw/openclaw/commit/2390f3d938d2d2dc4aeca1cac9925fa8fd636a16",
-      "publishedAt": "2026-08-25T14:30:08Z",
-      "summary": "refactor: isolate native CLI availability resolver (#129374) Moved native CLI availability ownership resolution into the model-list auth owner and removed the stale test callback, restoring lint without changing behavior. Refs #129332.",
+      "title": "fix(skills): detach experience review generation scope (#129218)",
+      "link": "https://github.com/openclaw/openclaw/commit/9cfb4ff956c9b50e713f8774b576d9edd8db50a7",
+      "publishedAt": "2026-08-25T15:30:42Z",
+      "summary": "fix(skills): detach experience review generation scope (#129218) Skill Workshop experience review arms a timer inside the foreground turn's prepared-runtime generation scope. When the timer fired after that generation was superseded (runtime config publication, idle expiry), the review admitted under the stale generation and failed with \"prepared model runtime plugin generation was superseded\". Create the timer's async resource outside the parent scope so detached review work admits on the current generation. Regression test: schedules inside a prepared generation scope and asserts the review callbacks observe no inherited generation; fails on pre-fix code. Co-authored-by: Josh Lehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: isolate native CLI availability resolver (#129374)",
-      "summaryZh": "重點：refactor: isolate native CLI availability resolver (#129374) Moved native CLI availability ownership resolution into the..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): detach experience review generation scope (#129218)",
+      "summaryZh": "重點：修正(skills): detach experience review generation scope (#129218) Skill Workshop experience review arms a timer inside the..."
     },
     {
       "id": 2,
-      "title": "fix(telegram): preserve sent replies when required pins fail (#129342)",
-      "link": "https://github.com/openclaw/openclaw/commit/433cf95d71b261b574d02fa6511d306ea05ba6bd",
-      "publishedAt": "2026-08-25T14:20:39Z",
-      "summary": "fix(telegram): preserve sent replies when required pins fail (#129342)",
+      "title": "fix(browser): detect selected profile executable consistently (#129394)",
+      "link": "https://github.com/openclaw/openclaw/commit/1699e98400113eba7dca9d7dd8a22fa91d199072",
+      "publishedAt": "2026-08-25T15:30:05Z",
+      "summary": "fix(browser): detect selected profile executable consistently (#129394)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): preserve sent replies when required pins fail (#129342)",
-      "summaryZh": "重點：修正(Telegram): preserve sent replies when required pins fail (#129342)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): detect selected profile executable consistently (#129394)",
+      "summaryZh": "重點：修正(browser): detect selected profile executable consistently (#129394)..."
     },
     {
       "id": 3,
-      "title": "fix(discord): prevent accidental mentions inside unfinished code (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/712a97d2ab5ca982c19b3dd95a3b8d02e8abf626",
-      "publishedAt": "2026-08-25T14:11:28Z",
-      "summary": "fix(discord): prevent accidental mentions inside unfinished code (#129338) * fix(discord): protect mentions inside unfinished inline code * fix(discord): respect escaped inline-code delimiters",
+      "title": "fix(whatsapp): avoid mentions inside unterminated inline code (#129281)",
+      "link": "https://github.com/openclaw/openclaw/commit/d53ea9cf4d453a390d0244ce1c0aa2c09e18f52a",
+      "publishedAt": "2026-08-25T15:15:51Z",
+      "summary": "fix(whatsapp): avoid mentions inside unterminated inline code (#129281) * fix(whatsapp): avoid mentions inside unterminated inline code * fix(whatsapp): protect mentions across soft code line breaks * fix(whatsapp): honor escaped multiline code delimiter runs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): prevent accidental mentions inside unfinished code (#12…",
-      "summaryZh": "重點：修正(Discord): prevent accidental mentions inside unfinished code (#129338) * 修正(Discord): protect mentions inside unfinis..."
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): avoid mentions inside unterminated inline code (#129281)",
+      "summaryZh": "重點：修正(whatsapp): avoid mentions inside unterminated inline code (#129281) * 修正(whatsapp): avoid mentions inside unterminate..."
     },
     {
       "id": 4,
-      "title": "test: refresh Anthropic auth fixtures (#129369)",
-      "link": "https://github.com/openclaw/openclaw/commit/18234ea96456fde53ac81f56a3370f9409fc7d66",
-      "publishedAt": "2026-08-25T14:08:24Z",
-      "summary": "test: refresh Anthropic auth fixtures (#129369) Updated Anthropic auth tests to use a managed profile and completed provider-runtime mocks so the suites exercise current behavior.",
+      "title": "fix: clean retired Claude auth before Doctor health (#129375)",
+      "link": "https://github.com/openclaw/openclaw/commit/8a93f681c00d1f31b4b719ada52998630ff46012",
+      "publishedAt": "2026-08-25T15:15:07Z",
+      "summary": "fix: clean retired Claude auth before Doctor health (#129375) Doctor now persists repaired configuration, removes retired Claude CLI auth state, and then reports health from the canonical store. Refs #129333.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: refresh Anthropic auth 修正tures (#129369)",
-      "summaryZh": "重點：test: refresh Anthropic auth 修正tures (#129369) Updated Anthropic auth tests to use a managed profile and completed provi..."
+      "titleZh": "OpenClaw 文件更新：修正: clean retired Claude auth before 文件tor health (#129375)",
+      "summaryZh": "重點：修正: clean retired Claude auth before 文件tor health (#129375) 文件tor now persists repaired configuration, removes retired C..."
     },
     {
       "id": 5,
