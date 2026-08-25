@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-25T16:37:36.020Z",
+  "generatedAt": "2026-08-25T17:31:49.598Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(discord): unify reaction client resolution (#129441)",
-      "link": "https://github.com/openclaw/openclaw/commit/4fd42aa037484cc428e745ef4012f351c5b6c041",
-      "publishedAt": "2026-08-25T16:37:20Z",
-      "summary": "refactor(discord): unify reaction client resolution (#129441)",
+      "title": "fix(slack): preserve long legacy interactive text (#127994)",
+      "link": "https://github.com/openclaw/openclaw/commit/a2ef21e433694eed3389071cda08b47593b08f99",
+      "publishedAt": "2026-08-25T17:28:31Z",
+      "summary": "fix(slack): preserve long legacy interactive text (#127994) * fix(slack): preserve long interactive and presentation text * fix(slack): retain every outbound delivery receipt Co-authored-by: Peter Steinberger * test(slack): narrow presentation regression fixtures Co-authored-by: Peter Steinberger * fix(slack): preserve single-message presentation edits Co-authored-by: Peter Steinberger --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): unify reaction client resolution (#129441)",
-      "summaryZh": "重點：refactor(Discord): unify reaction client resolution (#129441)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): preserve long legacy interactive text (#127994)",
+      "summaryZh": "重點：修正(slack): preserve long legacy interactive text (#127994) * 修正(slack): preserve long interactive and presentation text ..."
     },
     {
       "id": 2,
-      "title": "fix(macos): keep onboarding progress aligned with recommended setup (…",
-      "link": "https://github.com/openclaw/openclaw/commit/2a33d749e53441cb67ff1fa76c4a341d681708c1",
-      "publishedAt": "2026-08-25T16:31:07Z",
-      "summary": "fix(macos): keep onboarding progress aligned with recommended setup (#129435)",
+      "title": "fix(ui): align sidebar unread dot with pull-request rows (#129477)",
+      "link": "https://github.com/openclaw/openclaw/commit/a6810bb00e760adc2d5daadf1301a1f8f09b841e",
+      "publishedAt": "2026-08-25T17:26:53Z",
+      "summary": "fix(ui): align sidebar unread dot with pull-request rows (#129477) The trailing unread dot sat 3.5px inboard on rows that also show a pull-request icon, so the dots did not form one column down the sidebar. `.session-row-state` centred its glyphs as one flex box, which only lands the glyph on the action-icon axis when the box holds exactly one glyph. Give each glyph its own fixed 14px grid track instead, so the trailing glyph keeps that axis regardless of what precedes it.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): keep onboarding progress aligned with recommended setup (…",
-      "summaryZh": "重點：修正(macos): keep onboarding progress aligned with recommended setup (#129435)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): align sidebar unread dot with pull-request rows (#129477)",
+      "summaryZh": "重點：修正(ui): align sidebar unread dot with pull-request rows (#129477) The trailing unread dot sat 3.5px inboard on rows that..."
     },
     {
       "id": 3,
-      "title": "fix(update): fail the git updater when the final HEAD verification pr…",
-      "link": "https://github.com/openclaw/openclaw/commit/336ce945f038229961952bd1006ef8fe4db93e7f",
-      "publishedAt": "2026-08-25T16:24:11Z",
-      "summary": "fix(update): fail the git updater when the final HEAD verification probe errors (#129036) The git updater classified blocking step failures before appending the final \"git rev-parse HEAD (after)\" probe, so a nonzero exit from that probe was invisible to findBlockingGitFailure. The result could report status:\"ok\" with a null after.sha even though the installed revision was never verified. Route the failed probe through rollbackError(\"head-verification-failed\"), matching every other failure path, so the checkout is rolled back and no after identity is fabricated. Fixes #127412",
+      "title": "fix(feishu): preserve rich-post attachment order and avoid duplicate …",
+      "link": "https://github.com/openclaw/openclaw/commit/4800ef499c18b8e7b9e90eee3089792f8bb97275",
+      "publishedAt": "2026-08-25T17:23:00Z",
+      "summary": "fix(feishu): preserve rich-post attachment order and avoid duplicate downloads (#129472)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): fail the git updater when the final HEAD verification pr…",
-      "summaryZh": "重點：修正(update): fail the git updater when the final HEAD verification probe errors (#129036) The git updater classified bloc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(feishu): preserve rich-post attachment order and avoid duplicate …",
+      "summaryZh": "重點：修正(feishu): preserve rich-post attachment order and avoid duplicate downloads (#129472)..."
     },
     {
       "id": 4,
-      "title": "fix(workboard): heal oversized persisted notifications (#120999)",
-      "link": "https://github.com/openclaw/openclaw/commit/b0e9fd62522ec2b2e269bffed9d97f968e4a4bef",
-      "publishedAt": "2026-08-25T16:20:12Z",
-      "summary": "fix(workboard): heal oversized persisted notifications (#120999) Preserve the existing UTF-16-safe notification cap at the canonical metadata normalization boundary so a legacy oversized row cannot abort dispatch or starve sibling cards. Move the existing capText helper into its normalization owner without production growth. Co-authored-by: licheer-zte Co-authored-by: Peter Steinberger",
+      "title": "fix(ios): preserve keyboard feedback during voice capture (#129462)",
+      "link": "https://github.com/openclaw/openclaw/commit/1998fd8e0f87c597d55c6c6c3b7ae198f40d30b8",
+      "publishedAt": "2026-08-25T17:22:24Z",
+      "summary": "fix(ios): preserve keyboard feedback during voice capture (#129462)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(workboard): heal oversized persisted notifications (#120999)",
-      "summaryZh": "重點：修正(workboard): heal oversized persisted notifications (#120999) Preserve the existing UTF-16-safe notification cap at th..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): preserve keyboard feedback during voice capture (#129462)",
+      "summaryZh": "重點：修正(ios): preserve keyboard feedback during voice capture (#129462)..."
     },
     {
       "id": 5,
