@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-08-25T03:53:46.328Z",
+  "generatedAt": "2026-08-25T04:38:47.150Z",
   "items": [
     {
       "id": 1,
+      "title": "WordPress外掛Elementor Pro存在遠端執行程式碼重大漏洞，影響逾1000萬網站",
+      "link": "https://www.ithome.com.tw/news/178405",
+      "publishedAt": "2026-08-25 12:08:37",
+      "summary": "資安研究機構Patchstack與Wordfence近日分別獨立揭露，WordPress外掛程式Elementor",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "IBM公布首個能執行主機及Arm應用的雙架構晶片",
       "link": "https://www.ithome.com.tw/news/178398",
       "publishedAt": "2026-08-25 11:08:48",
@@ -11,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "人形機器人首度打破100米及400米短跑人類紀錄",
       "link": "https://www.ithome.com.tw/news/178403",
       "publishedAt": "2026-08-25 11:08:04",
@@ -20,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Microsoft 365免費授權用戶傳被刪除OneDrive資料，影響規模傳達17.1萬個非營利組織",
       "link": "https://www.ithome.com.tw/news/178397",
       "publishedAt": "2026-08-25 11:08:04",
@@ -29,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Android銀行木馬ToxicPanda 2.0擴大攻擊，瞄準349款金融應用",
       "link": "https://www.ithome.com.tw/news/178394",
       "publishedAt": "2026-08-25 07:08:55",
@@ -38,7 +47,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "中國迷你電腦品牌GEEKOM舊版驅動套件遭判定含Asruex木馬，涉及6款AMD機種",
       "link": "https://www.ithome.com.tw/news/178386",
       "publishedAt": "2026-08-25 07:08:54",
@@ -47,57 +56,48 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "美國司法部與TikTok、ByteDance兒童隱私訴訟以4億美元和解",
-      "link": "https://www.ithome.com.tw/news/178396",
-      "publishedAt": "2026-08-25 07:08:35",
-      "summary": "美國司法部宣布，TikTok、母公司ByteDance及關係企業同意支付4億美元，和解2024年提出的兒童隱私訴訟。案件涉及《兒童線上隱私保護法》（COPPA），美國政府指控TikTok在未取得家長同意下蒐集及保存13歲以下兒童的個人資料。司法部表示，本案追償金額位居COPPA案件歷來前列。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "fix(anthropic): keep Agent SDK session warm after first turn (#128985)",
-      "link": "https://github.com/openclaw/openclaw/commit/1af9b07e30df15fb5387a5650cc48f7033f8fc2d",
-      "publishedAt": "2026-08-25T03:33:10Z",
-      "summary": "fix(anthropic): keep Agent SDK session warm after first turn (#128985) Seed the SDK-owned version before environment fingerprinting so resumed turns retain the live query and prompt cache. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): retain cloud profiles after refresh failure (#128996)",
+      "link": "https://github.com/openclaw/openclaw/commit/1e22f7b85b55e4adb28578fad90425db74451f08",
+      "publishedAt": "2026-08-25T04:36:19Z",
+      "summary": "fix(ui): retain cloud profiles after refresh failure (#128996)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): keep Agent SDK session warm after first turn (#128985)",
-      "summaryZh": "重點：修正(anthropic): keep Agent SDK session warm after first turn (#128985) Seed the SDK-owned version before environment fing..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): retain cloud profiles after refresh failure (#128996)",
+      "summaryZh": "重點：修正(ui): retain cloud profiles after refresh failure (#128996)..."
     },
     {
       "id": 8,
-      "title": "fix: /models stops working after an unrelated config edit and never r…",
-      "link": "https://github.com/openclaw/openclaw/commit/70e6aa135a54280796f092b828dad4d159143560",
-      "publishedAt": "2026-08-25T03:20:35Z",
-      "summary": "fix: /models stops working after an unrelated config edit and never recovers (#128608) * fix: /models stops working after an unrelated config edit and never recovers A config transaction whose reload plan is empty publishes the new runtime config but never advances the prepared model owner's config stamp. Owners are stamped with a hash of the whole config, so a key with no bearing on models leaves every strict-policy catalog read rejected for the life of the gateway process. Advance the model-neutral config stamp in place on no-op publications instead of rebuilding the prepared generation, which the planner has already determined is unnecessary. Existing leases keep their immutable snapshot, auth bindings carry onto the restamped snapshot, pending builds restamp at commit, and read-only owners are untouched. Deferred startup publication now resolves its config inside the serialized refresh so a no-op commit landing mid-startup cannot publish an already-stale stamp. Related: #128515 Co-Authored-By: Claude Opus 5 * fix(gateway): rebuild prepared owners from the committed runtime config The no-op commit path resolves secrets and commits prepared.config, but the rebuild that follows used the source-derived candidate. Where resolution returns a different object -- secrets.providers.* edits, which are exactly the changes that must rebuild rather than restamp -- the rebuilt owner carries an identity no reader supplies, so every strict catalog read rejects it and the failure this change removes reappears on its own fallback path. Reuse the config the runtime-commit hook already receives, cleared per transaction so a rebuild cannot inherit one committed by an earlier one. Co-Authored-By: Claude Opus 5 * test(gateway): cover the resolved-config auth rewarm The ownership scenario returned the config secrets activation received, so a rebuild against the source candidate looked correct. Let activation resolve to a distinct object and assert by identity which config the rebuild used -- deep equality matches either object and proves nothing. Fails without the committed-config selection, passes with it. Co-Authored-By: Claude Opus 5 * fix(gateway): preserve prepared runtime options on auth rewarm --------- Co-authored-by: Marvinthebored Co-authored-by: Claude Opus 5 Co-authored-by: Ayaan Zaidi",
+      "title": "fix(cli): write telemetry JSON to stdout (#129003)",
+      "link": "https://github.com/openclaw/openclaw/commit/b57d629ddb6d73924b4f8ca1754c61290cfba633",
+      "publishedAt": "2026-08-25T04:32:33Z",
+      "summary": "fix(cli): write telemetry JSON to stdout (#129003)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: /模型 stops working after an unrelated config edit and never r…",
-      "summaryZh": "重點：修正: /模型 stops working after an unrelated config edit and never recovers (#128608) * 修正: /模型 stops working after an unrel..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): write telemetry JSON to stdout (#129003)",
+      "summaryZh": "重點：修正(cli): write telemetry JSON to stdout (#129003)..."
     },
     {
       "id": 9,
-      "title": "fix(cli): render models refresh JSON failures (#128981)",
-      "link": "https://github.com/openclaw/openclaw/commit/0022cd2542049a54f9ae93dcb20825ffc961f2c2",
-      "publishedAt": "2026-08-25T03:18:17Z",
-      "summary": "fix(cli): render models refresh JSON failures (#128981)",
+      "title": "fix(ui): restore selected dashboard side tab (#128867)",
+      "link": "https://github.com/openclaw/openclaw/commit/935c555c98d6b38af76faa6a0b1370353d1828df",
+      "publishedAt": "2026-08-25T03:58:08Z",
+      "summary": "fix(ui): restore selected dashboard side tab (#128867) * fix(ui): restore selected dashboard side tab * test(ui): avoid iframe in side-tab persistence fixture --------- Co-authored-by: roboclaw-bot Co-authored-by: Jason (Json)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): render 模型 refresh JSON failures (#128981)",
-      "summaryZh": "重點：修正(cli): render 模型 refresh JSON failures (#128981)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore selected dashboard side tab (#128867)",
+      "summaryZh": "重點：修正(ui): restore selected dashboard side tab (#128867) * 修正(ui): restore selected dashboard side tab * test(ui): avoid if..."
     },
     {
       "id": 10,
-      "title": "fix(qa): clean partial cloud proof startup (#128977)",
-      "link": "https://github.com/openclaw/openclaw/commit/f3defc7c86bc9ff63921e555642a508faf04c3ad",
-      "publishedAt": "2026-08-25T03:08:50Z",
-      "summary": "fix(qa): clean partial cloud proof startup (#128977)",
+      "title": "fix(slack): reject file downloads outside requested conversation (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/f68b80887e3b28e6725e97fba94a3adfed41e31c",
+      "publishedAt": "2026-08-25T03:57:53Z",
+      "summary": "fix(slack): reject file downloads outside requested conversation (#128903) * fix(slack): bind file downloads to requested scope * test: keep download scope fixture type-safe * fix(slack): preserve scope through file URL refresh * fix(slack): validate file share evidence",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): clean partial cloud proof startup (#128977)",
-      "summaryZh": "重點：修正(qa): clean partial cloud proof startup (#128977)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): reject file downloads outside requested conversation (#12…",
+      "summaryZh": "重點：修正(slack): reject file downloads outside requested conversation (#128903) * 修正(slack): bind file downloads to requested ..."
     }
   ]
 }
