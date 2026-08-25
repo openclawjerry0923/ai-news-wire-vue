@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-25T18:39:25.012Z",
+  "generatedAt": "2026-08-25T19:31:57.224Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(llama-cpp): prefer loaded models during existing-server setup (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/8bfcdbe884ce9fbdc7bce96b4daec60d8f04a97c",
-      "publishedAt": "2026-08-25T18:35:48Z",
-      "summary": "fix(llama-cpp): prefer loaded models during existing-server setup (#129509)",
+      "title": "fix(discord): honor silent sticker and thread-reply delivery (#129479)",
+      "link": "https://github.com/openclaw/openclaw/commit/f000fdb3174f88da24f6fc1e1702c464c84a5026",
+      "publishedAt": "2026-08-25T19:25:44Z",
+      "summary": "fix(discord): honor silent sticker and thread-reply delivery (#129479) * fix(discord): honor silent sticker and thread reply sends * fix(discord): preserve default silent delivery action shapes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(llama-cpp): prefer loaded 模型 during existing-server setup (#1…",
-      "summaryZh": "重點：修正(llama-cpp): prefer loaded 模型 during existing-server setup (#129509)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): honor silent sticker and thread-reply delivery (#129479)",
+      "summaryZh": "重點：修正(Discord): honor silent sticker and thread-reply delivery (#129479) * 修正(Discord): honor silent sticker and thread rep..."
     },
     {
       "id": 2,
-      "title": "fix(hooks): reload mutable handlers after restored-mtime edits (#128477)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e76b5a742d6479cc2961ef09425baadfbdea4d5",
-      "publishedAt": "2026-08-25T18:34:33Z",
-      "summary": "fix(hooks): reload mutable handlers after restored-mtime edits (#128477)",
+      "title": "fix(codex): back off between app-server startup retries (#129505)",
+      "link": "https://github.com/openclaw/openclaw/commit/3254b7f7aaf939c0c03fa43834bdb3f044fe634c",
+      "publishedAt": "2026-08-25T19:20:38Z",
+      "summary": "fix(codex): back off between app-server startup retries (#129505) * fix(codex): back off between app-server startup retries A transient Codex app-server startup exit could burn all three startup attempts inside one contention window: codex 0.149.1 hard-fails StateRuntime::init after its five-second SQLite busy timeout when another Codex instance (e.g. Codex Desktop) is actively using the same codex home, and the startup loop restarted immediately, so attempts 1-3 raced the same held lock roughly six seconds apart and onboarding's Codex candidate died with 'initialize transport failed after request write'. The same activation retried later succeeds in one attempt. Keep the canonical three-attempt owner but wait 1s before attempt 2 and 2s before attempt 3 (zero for executable-selection changes), abortable via the existing startup abandonment signal. Non-transport errors still fail immediately. Production LOC net-neutral. Upstream contract verified in ../codex at rust-v0.149.1: app-server/src/lib.rs:613 (fatal init), rollout/src/state_db.rs:45 (CLI warns instead), state/src/sqlite.rs:285 (5s busy_timeout). Four hermetic child-process regressions: first-spawn exit recovers; contention outlasting immediate retries recovers only with backoff (fails pre-fix); persistent exits stop at three attempts; unsupported version fails after one. * chore: drop worker scratch file",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(hooks): reload mutable handlers after restored-mtime edits (#128477)",
-      "summaryZh": "重點：修正(hooks): reload mutable handlers after restored-mtime edits (#128477)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): back off between app-server startup retries (#129505)",
+      "summaryZh": "重點：修正(codex): back off between app-server startup retries (#129505) * 修正(codex): back off between app-server startup retrie..."
     },
     {
       "id": 3,
-      "title": "fix(discord): resolve default account for presence actions (#127748)",
-      "link": "https://github.com/openclaw/openclaw/commit/9a8755f6e34d1f96f2320a6ec2db04e1a2d60c7a",
-      "publishedAt": "2026-08-25T18:24:44Z",
-      "summary": "fix(discord): resolve default account for presence actions (#127748) Co-authored-by: Peter Steinberger",
+      "title": "fix(ollama): recognize mapped IPv6 loopback endpoints (#129522)",
+      "link": "https://github.com/openclaw/openclaw/commit/4d87010cc4919a549cac2d30c4f936e9c51cc198",
+      "publishedAt": "2026-08-25T19:08:26Z",
+      "summary": "fix(ollama): recognize mapped IPv6 loopback endpoints (#129522)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): resolve default account for presence actions (#127748)",
-      "summaryZh": "重點：修正(Discord): resolve default account for presence actions (#127748) Co-authored-by: Peter Steinberger..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ollama): recognize mapped IPv6 loopback endpoints (#129522)",
+      "summaryZh": "重點：修正(ollama): recognize mapped IPv6 loopback endpoints (#129522)..."
     },
     {
       "id": 4,
-      "title": "fix(diagnostics): defer watchdog abort during preflight (#125929)",
-      "link": "https://github.com/openclaw/openclaw/commit/9bf766fa8991dfcde16cf97018272ace62ffd426",
-      "publishedAt": "2026-08-25T18:24:27Z",
-      "summary": "fix(diagnostics): defer watchdog abort during preflight (#125929)",
+      "title": "fix(ai): keep SSE cancellation from blocking outcomes (#128488)",
+      "link": "https://github.com/openclaw/openclaw/commit/4da57168d3c1970419e93e59a91e65466518231b",
+      "publishedAt": "2026-08-25T19:01:24Z",
+      "summary": "fix(ai): keep SSE cancellation from blocking outcomes (#128488)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): defer watchdog abort during preflight (#125929)",
-      "summaryZh": "重點：修正(diagnostics): defer watchdog abort during preflight (#125929)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ai): keep SSE cancellation from blocking outcomes (#128488)",
+      "summaryZh": "重點：修正(ai): keep SSE cancellation from blocking outcomes (#128488)..."
     },
     {
       "id": 5,
