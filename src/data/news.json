@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-25T19:31:57.224Z",
+  "generatedAt": "2026-08-25T20:29:00.016Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(discord): honor silent sticker and thread-reply delivery (#129479)",
-      "link": "https://github.com/openclaw/openclaw/commit/f000fdb3174f88da24f6fc1e1702c464c84a5026",
-      "publishedAt": "2026-08-25T19:25:44Z",
-      "summary": "fix(discord): honor silent sticker and thread-reply delivery (#129479) * fix(discord): honor silent sticker and thread reply sends * fix(discord): preserve default silent delivery action shapes",
+      "title": "docs(skills): teach current TaskFlow managedFlows runtime (#125647)",
+      "link": "https://github.com/openclaw/openclaw/commit/888c8422013e13023164c62d734f31ebb54ff572",
+      "publishedAt": "2026-08-25T20:28:48Z",
+      "summary": "docs(skills): teach current TaskFlow managedFlows runtime (#125647) Bundled TaskFlow skills still named the removed tasks.flow alias, so following them on main fails. Point them at managedFlows and flows instead. Co-authored-by: Cursor",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): honor silent sticker and thread-reply delivery (#129479)",
-      "summaryZh": "重點：修正(Discord): honor silent sticker and thread-reply delivery (#129479) * 修正(Discord): honor silent sticker and thread rep..."
+      "titleZh": "OpenClaw 文件更新：文件(skills): teach current TaskFlow managedFlows runtime (#125647)",
+      "summaryZh": "重點：文件(skills): teach current TaskFlow managedFlows runtime (#125647) Bundled TaskFlow skills still named the removed tasks...."
     },
     {
       "id": 2,
-      "title": "fix(codex): back off between app-server startup retries (#129505)",
-      "link": "https://github.com/openclaw/openclaw/commit/3254b7f7aaf939c0c03fa43834bdb3f044fe634c",
-      "publishedAt": "2026-08-25T19:20:38Z",
-      "summary": "fix(codex): back off between app-server startup retries (#129505) * fix(codex): back off between app-server startup retries A transient Codex app-server startup exit could burn all three startup attempts inside one contention window: codex 0.149.1 hard-fails StateRuntime::init after its five-second SQLite busy timeout when another Codex instance (e.g. Codex Desktop) is actively using the same codex home, and the startup loop restarted immediately, so attempts 1-3 raced the same held lock roughly six seconds apart and onboarding's Codex candidate died with 'initialize transport failed after request write'. The same activation retried later succeeds in one attempt. Keep the canonical three-attempt owner but wait 1s before attempt 2 and 2s before attempt 3 (zero for executable-selection changes), abortable via the existing startup abandonment signal. Non-transport errors still fail immediately. Production LOC net-neutral. Upstream contract verified in ../codex at rust-v0.149.1: app-server/src/lib.rs:613 (fatal init), rollout/src/state_db.rs:45 (CLI warns instead), state/src/sqlite.rs:285 (5s busy_timeout). Four hermetic child-process regressions: first-spawn exit recovers; contention outlasting immediate retries recovers only with backoff (fails pre-fix); persistent exits stop at three attempts; unsupported version fails after one. * chore: drop worker scratch file",
+      "title": "fix(kilocode): restore known default router pricing (#129546)",
+      "link": "https://github.com/openclaw/openclaw/commit/3c23457040b3c7e8911005360530947c9e272713",
+      "publishedAt": "2026-08-25T20:27:22Z",
+      "summary": "fix(kilocode): restore known default router pricing (#129546)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): back off between app-server startup retries (#129505)",
-      "summaryZh": "重點：修正(codex): back off between app-server startup retries (#129505) * 修正(codex): back off between app-server startup retrie..."
+      "titleZh": "OpenClaw 程式碼更新：修正(kilocode): restore known default router pricing (#129546)",
+      "summaryZh": "重點：修正(kilocode): restore known default router pricing (#129546)..."
     },
     {
       "id": 3,
-      "title": "fix(ollama): recognize mapped IPv6 loopback endpoints (#129522)",
-      "link": "https://github.com/openclaw/openclaw/commit/4d87010cc4919a549cac2d30c4f936e9c51cc198",
-      "publishedAt": "2026-08-25T19:08:26Z",
-      "summary": "fix(ollama): recognize mapped IPv6 loopback endpoints (#129522)",
+      "title": "fix(ui): automation actions fail and schedule changes unexpectedly (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/a8d53504990539948df6861144f62c517e7032a7",
+      "publishedAt": "2026-08-25T20:21:09Z",
+      "summary": "fix(ui): automation actions fail and schedule changes unexpectedly (#129469) * fix(ui): keep automation actions and schedules valid * test(ui): keep cloned stream schedule fixtures mutable * test(ui): register pairing sidebar before lifecycle teardown * fix(anthropic): keep provider policy artifacts lightweight * test(vitest): assign codex startup retry to its owner shard",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ollama): recognize mapped IPv6 loopback endpoints (#129522)",
-      "summaryZh": "重點：修正(ollama): recognize mapped IPv6 loopback endpoints (#129522)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): automation actions fail and schedule changes unexpectedly (#…",
+      "summaryZh": "重點：修正(ui): automation actions fail and schedule changes unexpectedly (#129469) * 修正(ui): keep automation actions and schedu..."
     },
     {
       "id": 4,
-      "title": "fix(ai): keep SSE cancellation from blocking outcomes (#128488)",
-      "link": "https://github.com/openclaw/openclaw/commit/4da57168d3c1970419e93e59a91e65466518231b",
-      "publishedAt": "2026-08-25T19:01:24Z",
-      "summary": "fix(ai): keep SSE cancellation from blocking outcomes (#128488)",
+      "title": "fix(macos): paused Gateway setup loses recovery after CLI installatio…",
+      "link": "https://github.com/openclaw/openclaw/commit/f4d067ec079b0082334b57af8d4d5de71f56e870",
+      "publishedAt": "2026-08-25T20:20:43Z",
+      "summary": "fix(macos): paused Gateway setup loses recovery after CLI installation (#129566) * fix(macos): keep paused gateway onboarding recovery visible * fix(macos): preserve native onboarding translation inventory",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ai): keep SSE cancellation from blocking outcomes (#128488)",
-      "summaryZh": "重點：修正(ai): keep SSE cancellation from blocking outcomes (#128488)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): paused Gateway setup loses recovery after CLI installatio…",
+      "summaryZh": "重點：修正(macos): paused Gateway setup loses recovery after CLI installation (#129566) * 修正(macos): keep paused Gateway onboard..."
     },
     {
       "id": 5,
