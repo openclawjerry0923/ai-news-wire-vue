@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T05:34:38.472Z",
+  "generatedAt": "2026-08-26T06:50:25.498Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(macos): surface node service recovery commands (#129874)",
-      "link": "https://github.com/openclaw/openclaw/commit/f61ae1193d0cbd40b6af5b9126d287c6354ca1e2",
-      "publishedAt": "2026-08-26T05:32:01Z",
-      "summary": "fix(macos): surface node service recovery commands (#129874)",
+      "title": "fix(android): preserve disconnected node gateway status (#129839)",
+      "link": "https://github.com/openclaw/openclaw/commit/fc64c5704a773438059c20a0db154e63bcfb8a47",
+      "publishedAt": "2026-08-26T06:45:27Z",
+      "summary": "fix(android): preserve disconnected node gateway status (#129839)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): surface node service recovery commands (#129874)",
-      "summaryZh": "重點：修正(macos): surface node service recovery commands (#129874)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): preserve disconnected node Gateway status (#129839)",
+      "summaryZh": "重點：修正(android): preserve disconnected node Gateway status (#129839)..."
     },
     {
       "id": 8,
-      "title": "fix(macos): show progress when retrying an existing AI connection (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/58bb40c99b024e8babbfc1b31c2473f3e0b67808",
-      "publishedAt": "2026-08-26T05:29:33Z",
-      "summary": "fix(macos): show progress when retrying an existing AI connection (#129863)",
+      "title": "improve: verify packaged runtime on Bun 1.4 (#129552)",
+      "link": "https://github.com/openclaw/openclaw/commit/0229fe7a2a90341b73aa21c895b98e650b4bd4de",
+      "publishedAt": "2026-08-26T06:41:05Z",
+      "summary": "improve: verify packaged runtime on Bun 1.4 (#129552) * test: exercise packaged OpenClaw under Bun Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * docs: align Bun runtime guidance Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): show progress when retrying an existing AI connection (#1…",
-      "summaryZh": "重點：修正(macos): show progress when retrying an existing AI connection (#129863)..."
+      "titleZh": "OpenClaw 程式碼更新：improve: verify packaged runtime on Bun 1.4 (#129552)",
+      "summaryZh": "重點：improve: verify packaged runtime on Bun 1.4 (#129552) * test: exercise packaged OpenClaw under Bun Amp-Thread-ID: https:..."
     },
     {
       "id": 9,
-      "title": "fix(ui): fill collapsed progress-card hover to the composer edge (#12…",
-      "link": "https://github.com/openclaw/openclaw/commit/4e864dff2159fd57345e6117792bc6cc67b7d2bc",
-      "publishedAt": "2026-08-26T05:29:02Z",
-      "summary": "fix(ui): fill collapsed progress-card hover to the composer edge (#129869) Collapsed, the composer progress card's hover highlight painted only the band, leaving slivers of the resting background in the underlap strip and the arcs beside the composer's rounded corners. Move the collapsed hover fill to the card container (clipped to the full rounded shape, extending under the composer) and keep the summary-scoped fill for the expanded state.",
+      "title": "fix(ui): align mobile toast actions (#129909)",
+      "link": "https://github.com/openclaw/openclaw/commit/1f881019f495507dd1c9b44f285f7d834eb30615",
+      "publishedAt": "2026-08-26T06:40:19Z",
+      "summary": "fix(ui): align mobile toast actions (#129909) * test(ui): cover responsive toast alignment * fix(ui): align mobile toast actions Co-authored-by: Tak Hoffman --------- Co-authored-by: roboclaw-bot Co-authored-by: Tak Hoffman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): fill collapsed progress-card hover to the composer edge (#12…",
-      "summaryZh": "重點：修正(ui): fill collapsed progress-card hover to the composer edge (#129869) Collapsed, the composer progress card's hover ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): align mobile toast actions (#129909)",
+      "summaryZh": "重點：修正(ui): align mobile toast actions (#129909) * test(ui): cover responsive toast alignment * 修正(ui): align mobile toast a..."
     },
     {
       "id": 10,
-      "title": "fix(agents): retry live model switches outside fallback chain (#114214)",
-      "link": "https://github.com/openclaw/openclaw/commit/6956a2ed5edfd735ad14335bc973aae04153afc7",
-      "publishedAt": "2026-08-26T05:28:57Z",
-      "summary": "fix(agents): retry live model switches outside fallback chain (#114214) * fix(agents): retry unconfigured live model switches Signed-off-by: Ho Lim * refactor(agents): centralize live switch target resolution Signed-off-by: Ho Lim * test(agents): clarify stale switch fallback model Signed-off-by: Ho Lim * docs(agents): clarify live model switch retry behavior Co-authored-by: Ho Lim --------- Signed-off-by: Ho Lim Co-authored-by: Peter Steinberger",
+      "title": "fix(reply): prevent private prompt context leaking into delivered rep…",
+      "link": "https://github.com/openclaw/openclaw/commit/580210423c17d7ff292268c85387d66895c437e3",
+      "publishedAt": "2026-08-26T06:39:31Z",
+      "summary": "fix(reply): prevent private prompt context leaking into delivered replies (#115745) * fix(reply): redact private prompt context before delivery Protect final and streaming replies from exact copied inbound prompts, including same-line, fenced, quoted, and partial streaming variants. Preserve safe literal examples and suppress empty exec-output placeholders. Fixes #78177. Co-authored-by: SnowSky1 * test(telegram): own reply privacy delivery integration Move real Telegram HTTP privacy regressions into the plugin-owned test graph and drive finalized inbound dispatch through the public SDK. Co-authored-by: SnowSky1 * fix(reply): redact multiline quoted private prompt context Recognize standard, indented, and nested Markdown blockquotes in final replies and withhold every incremental quoted streaming prefix before private history can reach Telegram. Co-authored-by: SnowSky1 * fix(reply): redact decorated private prompt streams Match exact prompt-owned Markdown formatting per line and withhold every streamed prefix, including headings, indented code, list continuations, mixed wrappers, repeated markers, and safe same-line text. Co-authored-by: SnowSky1 * fix(reply): redact carriage-return prompt copies Accept every source-normalized line-ending variant before private context reaches final replies, streaming, or Telegram delivery. Co-authored-by: SnowSky1 * fix(reply): bound streamed private prompt candidate scans Reject non-marker candidates before allocating suffixes and fail closed on repeated verified marker floods to prevent quadratic streaming work. Co-authored-by: SnowSky1 * fix(reply): keep prompt-line character extraction type-safe Use the canonical non-empty source-line character once so strict core, test, lint, and plugin boundary compilers agree without changing privacy behavior. Co-authored-by: SnowSky1 --------- Co-authored-by: SnowSky1",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): retry live 模型 switches outside fallback chain (#114214)",
-      "summaryZh": "重點：修正(agents): retry live 模型 switches outside fallback chain (#114214) * 修正(agents): retry unconfigured live 模型 switches Si..."
+      "titleZh": "OpenClaw 程式碼更新：修正(reply): prevent private prompt context leaking into delivered rep…",
+      "summaryZh": "重點：修正(reply): prevent private prompt context leaking into delivered replies (#115745) * 修正(reply): redact private prompt co..."
     }
   ]
 }
