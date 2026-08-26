@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-08-26T16:17:57.132Z",
+  "generatedAt": "2026-08-26T19:03:35.240Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(subagents): wake idle parents after completion (#129993)",
-      "link": "https://github.com/openclaw/openclaw/commit/f2ff510e21986f9b7700b16f4785ec1bd40f1b74",
-      "publishedAt": "2026-08-26T16:03:00Z",
-      "summary": "fix(subagents): wake idle parents after completion (#129993) Carry the exact Gateway owner through detached subagent completion so idle parents receive results without another inbound message. Fence reactivation writes and final agent dispatch when that owner retires. Co-authored-by: Marvinthebored Co-authored-by: Ayaan Zaidi",
+      "title": "refactor(buzz): consolidate relay snapshot lifecycle owners (#130300)",
+      "link": "https://github.com/openclaw/openclaw/commit/c5810109f65e71eea89daadc07e0df82215f2417",
+      "publishedAt": "2026-08-26T19:00:49Z",
+      "summary": "refactor(buzz): consolidate relay snapshot lifecycle owners (#130300)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(subagents): wake idle parents after completion (#129993)",
-      "summaryZh": "重點：修正(subagents): wake idle parents after completion (#129993) Carry the exact Gateway owner through detached subagent comp..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(buzz): consolidate relay snapshot lifecycle owners (#130300)",
+      "summaryZh": "重點：refactor(buzz): consolidate relay snapshot lifecycle owners (#130300)..."
     },
     {
       "id": 2,
-      "title": "fix(ui): keep progress in main chat when side chat opens (#130109)",
-      "link": "https://github.com/openclaw/openclaw/commit/60ef0d169faa82ad7786fe6a85961fb429d26c0a",
-      "publishedAt": "2026-08-26T15:55:14Z",
-      "summary": "fix(ui): keep progress in main chat when side chat opens (#130109) * fix(ui): keep progress in main chat when side chat opens * fix(ui): align progress placement with current chat",
+      "title": "fix(e2e): mount prerelease registry verifier (#130288)",
+      "link": "https://github.com/openclaw/openclaw/commit/21df0f36a48324076a69693af8c7a12a8c747608",
+      "publishedAt": "2026-08-26T18:58:43Z",
+      "summary": "fix(e2e): mount prerelease registry verifier (#130288) Amp-Thread-ID: https://ampcode.com/threads/T-01a039ee-f7c4-71d8-8b71-e028dbd60493 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep progress in main chat when side chat opens (#130109)",
-      "summaryZh": "重點：修正(ui): keep progress in main chat when side chat opens (#130109) * 修正(ui): keep progress in main chat when side chat op..."
+      "titleZh": "OpenClaw 程式碼更新：修正(e2e): mount pre版本發布 registry verifier (#130288)",
+      "summaryZh": "重點：修正(e2e): mount pre版本發布 registry verifier (#130288) Amp-Thread-ID: https://ampcode.com/threads/T-01a039ee-f7c4-71d8-8b71-..."
     },
     {
       "id": 3,
-      "title": "fix(infra): prevent $-pattern injection in home directory tilde expan…",
-      "link": "https://github.com/openclaw/openclaw/commit/20eef858aafbf6a3c45b0f20366a08192996f91b",
-      "publishedAt": "2026-08-26T15:24:10Z",
-      "summary": "fix(infra): prevent $-pattern injection in home directory tilde expansion (#122991) * fix(infra): prevent dollar-pattern injection in home dir tilde expansion String.replace interprets dollar-amp/dollar-1/dollar-backtick in the replacement string. When the home directory contains these sequences (e.g. a username with a dollar sign), tilde expansion via .replace(/^~/, fallbackHome) corrupts the path silently. Use a function replacement so the home path is treated literally, matching the pattern already fixed in terminal-core/display-string (#111398). Two call sites: resolveRawHomeDir and expandHomePrefix. * fix(daemon): prevent dollar-pattern injection in state dir tilde expansion Address review rank-up: the daemon state-path expansion deliberately does not use the core helper and still passed home as a string replacement. Apply the callback form here too and add a literal-dollar regression to the existing service-env suite (fails on the string form, passes with the callback). * fix(launcher): keep literal $ patterns when expanding tilde OPENCLAW_HOME * fix(ui): keep literal $ patterns in local media tilde expansion * test(ui): prove literal-$ tilde local media preview through Control UI e2e * test(ui): align literal-dollar media proof with compact attachment contract Preserve the current authenticated metadata and ticket-scoped download behavior while exercising the real Chromium Control UI under a literal-dollar home. Co-authored-by: liyuanbin --------- Co-authored-by: Peter Steinberger",
+      "title": "docs(secrets): make the credential-request tool discoverable and warn…",
+      "link": "https://github.com/openclaw/openclaw/commit/6287056d26353e025f65b5fa51f01c5a708df042",
+      "publishedAt": "2026-08-26T18:56:12Z",
+      "summary": "docs(secrets): make the credential-request tool discoverable and warn about empty hosts (#130299) The tool page shipped with the feature but nothing pointed at it: the tools index still listed only ask_user under human input, and neither the secrets CLI page nor ask-user mentioned it. Add those three references. The page also missed the trap the card invites: the allowed-hosts field is editable, and clearing it stores a secret that can never be substituted at egress, so the request looks successful and the credential is unusable. Warn where the operator edits it, say what a skipped or expired prompt means for the agent, and drop wording left over from when requests could ask for an env value.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(infra): prevent $-pattern injection in home directory tilde expan…",
-      "summaryZh": "重點：修正(infra): prevent $-pattern injection in home directory tilde expansion (#122991) * 修正(infra): prevent dollar-pattern i..."
+      "titleZh": "OpenClaw 文件更新：文件(secrets): make the credential-request tool discoverable and warn…",
+      "summaryZh": "重點：文件(secrets): make the credential-request tool discoverable and warn about empty hosts (#130299) The tool page shipped wi..."
     },
     {
       "id": 4,
-      "title": "feat(audit): record session action decisions (#129093)",
-      "link": "https://github.com/openclaw/openclaw/commit/e6ed7e30cc5ff26be72f81edfe590a0288caa4b2",
-      "publishedAt": "2026-08-26T15:21:37Z",
-      "summary": "feat(audit): record session action decisions (#129093) * feat(audit): record session action decisions * fix(protocol): preserve session sharing client compatibility",
+      "title": "fix(cli): report failed message actions accurately (#130281)",
+      "link": "https://github.com/openclaw/openclaw/commit/061ac829b864dfe66ef678db9be87d5966cb43bd",
+      "publishedAt": "2026-08-26T18:55:23Z",
+      "summary": "fix(cli): report failed message actions accurately (#130281)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(audit): record session action decisions (#129093)",
-      "summaryZh": "重點：新功能(audit): record session action decisions (#129093) * 新功能(audit): record session action decisions * 修正(protocol): pres..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): report failed message actions accurately (#130281)",
+      "summaryZh": "重點：修正(cli): report failed message actions accurately (#130281)..."
     },
     {
       "id": 5,
+      "title": "蘋果發表會 9/10 登場，iPhone 18 Pro、摺疊 iPhone 將現身？",
+      "link": "https://technews.tw/2026/08/27/2026-apple-event/",
+      "publishedAt": "Wed, 26 Aug 2026 16:41:23 +0000",
+      "summary": "蘋果稍早釋出了今年秋季新品發表會邀請函，今年以「驚喜耀現，開新篇」為主旨，似乎以「開新篇」暗示將推出新系列機款 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "AI資安業者Alice募資1.4億美元，AI業務兩年成長逾500%",
       "link": "https://www.ithome.com.tw/news/178446",
       "publishedAt": "2026-08-26 12:08:44",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "恩智浦推出MCX A5 MCU，為工業與IoT邊緣裝置導入PQC防護",
       "link": "https://www.ithome.com.tw/news/178441",
       "publishedAt": "2026-08-26 11:08:49",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "逾270臺郵件伺服器Zimbra遭SNMP通知元件漏洞入侵",
       "link": "https://www.ithome.com.tw/news/178444",
       "publishedAt": "2026-08-26 11:08:28",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "CI/CD平臺TeamCity重大漏洞被用於攻擊澳洲組織",
       "link": "https://www.ithome.com.tw/news/178443",
       "publishedAt": "2026-08-26 11:08:26",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Visual Studio 2026擴充Git多分支開發，Copilot可依任務調整推理強度",
       "link": "https://www.ithome.com.tw/news/178442",
       "publishedAt": "2026-08-26 11:08:12",
       "summary": "微軟Visual Studio 2026八月更新釋出18.9版本，加入Git工作樹與子模組管理，開發者可在同一個Git儲存庫建立多個獨立工作目錄，並同時處理不同分支，也能直接管理專案引用的其他Git儲存庫。GitHub Copilot則新增模型思考強度設定，可依工作複雜度選擇低、中、高三種等級，調整推理深度、回應速度與權杖（token）用量。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "蘋果同步改款Mac mini與Mac Studio，打造專為AI而生的桌機陣容",
-      "link": "https://www.ithome.com.tw/news/178445",
-      "publishedAt": "2026-08-26 11:08:08",
-      "summary": "蘋果週二（8/25）同步更新Mac mini與Mac Studio，兩款產品的改版均以強化AI效能為核心訴求。",
       "source": "iThome",
       "tag": "繁中"
     }
