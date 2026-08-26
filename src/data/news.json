@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-26T14:44:11.796Z",
+  "generatedAt": "2026-08-26T16:17:57.132Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(agents): share session token normalization (#130162)",
-      "link": "https://github.com/openclaw/openclaw/commit/376510eb712818ba987781fb7326dd318c2030bc",
-      "publishedAt": "2026-08-26T14:43:27Z",
-      "summary": "refactor(agents): share session token normalization (#130162)",
+      "title": "fix(subagents): wake idle parents after completion (#129993)",
+      "link": "https://github.com/openclaw/openclaw/commit/f2ff510e21986f9b7700b16f4785ec1bd40f1b74",
+      "publishedAt": "2026-08-26T16:03:00Z",
+      "summary": "fix(subagents): wake idle parents after completion (#129993) Carry the exact Gateway owner through detached subagent completion so idle parents receive results without another inbound message. Fence reactivation writes and final agent dispatch when that owner retires. Co-authored-by: Marvinthebored Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): share session token normalization (#130162)",
-      "summaryZh": "重點：refactor(agents): share session token normalization (#130162)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): wake idle parents after completion (#129993)",
+      "summaryZh": "重點：修正(subagents): wake idle parents after completion (#129993) Carry the exact Gateway owner through detached subagent comp..."
     },
     {
       "id": 2,
-      "title": "fix(android): preserve document attachments in offline chat history (…",
-      "link": "https://github.com/openclaw/openclaw/commit/84164699944476aa913b6727dfc29b70f3a736a3",
-      "publishedAt": "2026-08-26T14:43:14Z",
-      "summary": "fix(android): preserve document attachments in offline chat history (#130163)",
+      "title": "fix(ui): keep progress in main chat when side chat opens (#130109)",
+      "link": "https://github.com/openclaw/openclaw/commit/60ef0d169faa82ad7786fe6a85961fb429d26c0a",
+      "publishedAt": "2026-08-26T15:55:14Z",
+      "summary": "fix(ui): keep progress in main chat when side chat opens (#130109) * fix(ui): keep progress in main chat when side chat opens * fix(ui): align progress placement with current chat",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(android): preserve 文件ument attachments in offline chat history (…",
-      "summaryZh": "重點：修正(android): preserve 文件ument attachments in offline chat history (#130163)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep progress in main chat when side chat opens (#130109)",
+      "summaryZh": "重點：修正(ui): keep progress in main chat when side chat opens (#130109) * 修正(ui): keep progress in main chat when side chat op..."
     },
     {
       "id": 3,
-      "title": "fix(onboarding): honor skip-bootstrap when creating agent identity (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/8c1c1f8c8f5024756fc0d1a7170e1f05695db1c4",
-      "publishedAt": "2026-08-26T14:42:41Z",
-      "summary": "fix(onboarding): honor skip-bootstrap when creating agent identity (#130153)",
+      "title": "fix(infra): prevent $-pattern injection in home directory tilde expan…",
+      "link": "https://github.com/openclaw/openclaw/commit/20eef858aafbf6a3c45b0f20366a08192996f91b",
+      "publishedAt": "2026-08-26T15:24:10Z",
+      "summary": "fix(infra): prevent $-pattern injection in home directory tilde expansion (#122991) * fix(infra): prevent dollar-pattern injection in home dir tilde expansion String.replace interprets dollar-amp/dollar-1/dollar-backtick in the replacement string. When the home directory contains these sequences (e.g. a username with a dollar sign), tilde expansion via .replace(/^~/, fallbackHome) corrupts the path silently. Use a function replacement so the home path is treated literally, matching the pattern already fixed in terminal-core/display-string (#111398). Two call sites: resolveRawHomeDir and expandHomePrefix. * fix(daemon): prevent dollar-pattern injection in state dir tilde expansion Address review rank-up: the daemon state-path expansion deliberately does not use the core helper and still passed home as a string replacement. Apply the callback form here too and add a literal-dollar regression to the existing service-env suite (fails on the string form, passes with the callback). * fix(launcher): keep literal $ patterns when expanding tilde OPENCLAW_HOME * fix(ui): keep literal $ patterns in local media tilde expansion * test(ui): prove literal-$ tilde local media preview through Control UI e2e * test(ui): align literal-dollar media proof with compact attachment contract Preserve the current authenticated metadata and ticket-scoped download behavior while exercising the real Chromium Control UI under a literal-dollar home. Co-authored-by: liyuanbin --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(onboarding): honor skip-bootstrap when creating agent identity (#…",
-      "summaryZh": "重點：修正(onboarding): honor skip-bootstrap when creating agent identity (#130153)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(infra): prevent $-pattern injection in home directory tilde expan…",
+      "summaryZh": "重點：修正(infra): prevent $-pattern injection in home directory tilde expansion (#122991) * 修正(infra): prevent dollar-pattern i..."
     },
     {
       "id": 4,
-      "title": "fix(cron): reject blank explicit Telegram thread IDs (#129841)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e0b90fd09fa5198a014836687ad935a8b3bc194",
-      "publishedAt": "2026-08-26T14:38:10Z",
-      "summary": "fix(cron): reject blank explicit Telegram thread IDs (#129841)",
+      "title": "feat(audit): record session action decisions (#129093)",
+      "link": "https://github.com/openclaw/openclaw/commit/e6ed7e30cc5ff26be72f81edfe590a0288caa4b2",
+      "publishedAt": "2026-08-26T15:21:37Z",
+      "summary": "feat(audit): record session action decisions (#129093) * feat(audit): record session action decisions * fix(protocol): preserve session sharing client compatibility",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): reject blank explicit Telegram thread IDs (#129841)",
-      "summaryZh": "重點：修正(排程): reject blank explicit Telegram thread IDs (#129841)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(audit): record session action decisions (#129093)",
+      "summaryZh": "重點：新功能(audit): record session action decisions (#129093) * 新功能(audit): record session action decisions * 修正(protocol): pres..."
     },
     {
       "id": 5,
