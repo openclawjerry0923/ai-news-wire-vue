@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T08:43:18.350Z",
+  "generatedAt": "2026-08-26T09:41:40.300Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "chore(deps): refresh dependencies after seven-day cooldown (#129941)",
-      "link": "https://github.com/openclaw/openclaw/commit/1605dbd3efef1c10da95c4a9bbb51a19a9d07865",
-      "publishedAt": "2026-08-26T08:37:37Z",
-      "summary": "chore(deps): refresh dependencies after seven-day cooldown (#129941) * chore(deps): refresh dependencies after cooldown * chore(deps): refresh sherpa-onnx runtime to v1.13.6 * test(ios): refresh Fastlane pin expectations",
+      "title": "fix(skills): share the foreground prompt prefix with the experience r…",
+      "link": "https://github.com/openclaw/openclaw/commit/a901d33184744877e9448769dc9c6a4f582a3586",
+      "publishedAt": "2026-08-26T09:39:54Z",
+      "summary": "fix(skills): share the foreground prompt prefix with the experience review (#130013) The detached Skill Workshop experience review rebuilt its system prompt and tool catalog from a different context than the foreground turn, so every review missed the prompt cache. Native harnesses (embedded, Codex, Copilot) now hand the review the same foreground prompt context via buildEmbeddedForegroundPromptContext; the review reuses the foreground prefix and gates execution to skill_workshop while keeping the catalog identical. Reviews without a foreground prompt (CLI hook contexts) are skipped.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(deps): refresh dependencies after seven-day cooldown (#129941)",
-      "summaryZh": "重點：chore(deps): refresh dependencies after seven-day cooldown (#129941) * chore(deps): refresh dependencies after cooldown ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): share the foreground prompt pre修正 with the experience r…",
+      "summaryZh": "重點：修正(skills): share the foreground prompt pre修正 with the experience review (#130013) The detached Skill Workshop experienc..."
     },
     {
       "id": 8,
-      "title": "fix(agents): keep automation tool guidance consistent (#129953)",
-      "link": "https://github.com/openclaw/openclaw/commit/3316bfd5aba1320fea8ce38e773c07327adbbdbf",
-      "publishedAt": "2026-08-26T08:36:13Z",
-      "summary": "fix(agents): keep automation tool guidance consistent (#129953)",
+      "title": "refactor(logbook): consolidate batch enqueueing (#129996)",
+      "link": "https://github.com/openclaw/openclaw/commit/a674615dffa66d8dee730e7cd92141d5cf98b84d",
+      "publishedAt": "2026-08-26T09:39:50Z",
+      "summary": "refactor(logbook): consolidate batch enqueueing (#129996) Amp-Thread-ID: https://ampcode.com/threads/T-01a03a19-be71-77a7-a886-4c688012c709 Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep automation tool guidance consistent (#129953)",
-      "summaryZh": "重點：修正(agents): keep automation tool guidance consistent (#129953)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(logbook): consolidate batch enqueueing (#129996)",
+      "summaryZh": "重點：refactor(logbook): consolidate batch enqueueing (#129996) Amp-Thread-ID: https://ampcode.com/threads/T-01a03a19-be71-77a..."
     },
     {
       "id": 9,
-      "title": "feat(secrets): opt-in traffic allowlist for the secret egress proxy (…",
-      "link": "https://github.com/openclaw/openclaw/commit/4708c0b60755d95eeea7c0fee882c15cd895747b",
-      "publishedAt": "2026-08-26T08:36:09Z",
-      "summary": "feat(secrets): opt-in traffic allowlist for the secret egress proxy (#129880) * feat(secrets): add opt-in traffic allowlist to the secret egress proxy Add secrets.egressProxy.allowedHosts: when present, the egress proxy refuses non-sentinel requests and CONNECT tunnels to hosts outside the effective allowed set (configured list, hosts bound to the run's registered secrets, and bypassHosts) with a typed host-not-allowed refusal naming the remediation. Empty array is lockdown; omitting the key keeps the previous unrestricted behavior. Sentinel substitution, per-secret destination binding, proxy auth, and bypass tunnels are unchanged; the allowlist is defense in depth for cooperating traffic since bypass-surviving sentinels remain the primary defense. * fix(secrets): validate egress proxy allowlist hostnames at the config boundary Extract the exact-host contract from the secret store into a canonical normalizeExactAllowedHost helper and validate secrets.egressProxy allowedHosts and bypassHosts entries through it. Schemes, ports, wildcards, and malformed hostnames are now rejected when config is accepted instead of throwing during egress-proxy startup, which the runtime normalizer did for both keys before this change. * fix(doctor): repair unusable secret egress proxy host entries Tightening the egress-proxy host schema can invalidate an existing config: a disabled proxy with a malformed bypassHosts entry loaded fine before and now fails validation, which exits the Gateway with code 78. Add the matching doctor --fix migration. Invalid entries never functioned (the proxy's own hostname normalizer threw on them at startup), so they are dropped rather than canonicalized; enabled and valid entries are preserved untouched.",
+      "title": "refactor(meeting-bot): inline audio fallback guard (#129975)",
+      "link": "https://github.com/openclaw/openclaw/commit/a2cf17b461c62509ebc99a4337503b2f086a8a4d",
+      "publishedAt": "2026-08-26T09:38:40Z",
+      "summary": "refactor(meeting-bot): inline audio fallback guard (#129975) Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-6475-7130-8be6-39147410914b Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(secrets): opt-in traffic allowlist for the secret egress proxy (…",
-      "summaryZh": "重點：新功能(secrets): opt-in traffic allowlist for the secret egress proxy (#129880) * 新功能(secrets): add opt-in traffic allowlis..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(meeting-bot): inline audio fallback guard (#129975)",
+      "summaryZh": "重點：refactor(meeting-bot): inline audio fallback guard (#129975) Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-6475-..."
     },
     {
       "id": 10,
-      "title": "fix: honor session policy for widget approvals (#129970)",
-      "link": "https://github.com/openclaw/openclaw/commit/9f9ad632460ee81a91b8207f2f634d7b20d0262a",
-      "publishedAt": "2026-08-26T08:34:24Z",
-      "summary": "fix: honor session policy for widget approvals (#129970)",
+      "title": "fix(browser): bound batch action files (#115882)",
+      "link": "https://github.com/openclaw/openclaw/commit/87b93b53036fb1aaaf87fe95a3ea161465ceb0b0",
+      "publishedAt": "2026-08-26T09:37:42Z",
+      "summary": "fix(browser): bound batch action files (#115882) * fix(browser): bound batch action files * fix(browser): preserve legacy file input while bounding batches Co-authored-by: sunlit-deng --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: honor session policy for widget approvals (#129970)",
-      "summaryZh": "重點：修正: honor session policy for widget approvals (#129970)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): bound batch action files (#115882)",
+      "summaryZh": "重點：修正(browser): bound batch action files (#115882) * 修正(browser): bound batch action files * 修正(browser): preserve legacy f..."
     }
   ]
 }
