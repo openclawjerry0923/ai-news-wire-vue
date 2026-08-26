@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T06:50:25.498Z",
+  "generatedAt": "2026-08-26T07:46:50.488Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(android): preserve disconnected node gateway status (#129839)",
-      "link": "https://github.com/openclaw/openclaw/commit/fc64c5704a773438059c20a0db154e63bcfb8a47",
-      "publishedAt": "2026-08-26T06:45:27Z",
-      "summary": "fix(android): preserve disconnected node gateway status (#129839)",
+      "title": "fix(reply): stop advertising unavailable media messaging tools (#129944)",
+      "link": "https://github.com/openclaw/openclaw/commit/a63cfce81c691840de5e7ec79899823b5e1e5890",
+      "publishedAt": "2026-08-26T07:46:43Z",
+      "summary": "fix(reply): stop advertising unavailable media messaging tools (#129944) * fix(reply): stop advertising unavailable media messaging tools * test(agents): wait for complete process-tree readiness payload",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): preserve disconnected node Gateway status (#129839)",
-      "summaryZh": "重點：修正(android): preserve disconnected node Gateway status (#129839)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(reply): stop advertising unavailable media messaging tools (#129944)",
+      "summaryZh": "重點：修正(reply): stop advertising unavailable media messaging tools (#129944) * 修正(reply): stop advertising unavailable media ..."
     },
     {
       "id": 8,
-      "title": "improve: verify packaged runtime on Bun 1.4 (#129552)",
-      "link": "https://github.com/openclaw/openclaw/commit/0229fe7a2a90341b73aa21c895b98e650b4bd4de",
-      "publishedAt": "2026-08-26T06:41:05Z",
-      "summary": "improve: verify packaged runtime on Bun 1.4 (#129552) * test: exercise packaged OpenClaw under Bun Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * docs: align Bun runtime guidance Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 --------- Co-authored-by: Amp",
+      "title": "fix(android): restore attachment-only chat rewind and fork actions (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/36560c6a64c6bd6eab6a3c8c07a50eaa747fa5ce",
+      "publishedAt": "2026-08-26T07:45:55Z",
+      "summary": "fix(android): restore attachment-only chat rewind and fork actions (#129951)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: verify packaged runtime on Bun 1.4 (#129552)",
-      "summaryZh": "重點：improve: verify packaged runtime on Bun 1.4 (#129552) * test: exercise packaged OpenClaw under Bun Amp-Thread-ID: https:..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): restore attachment-only chat rewind and fork actions (#…",
+      "summaryZh": "重點：修正(android): restore attachment-only chat rewind and fork actions (#129951)..."
     },
     {
       "id": 9,
-      "title": "fix(ui): align mobile toast actions (#129909)",
-      "link": "https://github.com/openclaw/openclaw/commit/1f881019f495507dd1c9b44f285f7d834eb30615",
-      "publishedAt": "2026-08-26T06:40:19Z",
-      "summary": "fix(ui): align mobile toast actions (#129909) * test(ui): cover responsive toast alignment * fix(ui): align mobile toast actions Co-authored-by: Tak Hoffman --------- Co-authored-by: roboclaw-bot Co-authored-by: Tak Hoffman",
+      "title": "fix(sandbox): stop exposing environment values in process listings (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/29966f4f7099bf574b286baa3dfe018812c791e7",
+      "publishedAt": "2026-08-26T07:45:50Z",
+      "summary": "fix(sandbox): stop exposing environment values in process listings (#129781) * fix(sandbox): keep environment values out of process arguments Route Docker and Podman environment values through private env files, and stage SSH and OpenShell environments separately from command argv. Container env-file values are now explicitly single-line. * fix(sandbox): always clean staged SSH environment Remove staged SSH and OpenShell exec scripts during finalization even when the local SSH process exits normally with a non-shell error code. * test(openshell): align remote seed and staged exec fixtures * fix(sandbox): validate container environment transport early Reject Docker and Podman environment entries that secure env files cannot represent during config validation, with manual remediation guidance while preserving SSH and OpenShell multiline values. * fix(config): keep sandbox env validation cold Share the dependency-light scope and environment merge contract between runtime resolution and Docker/Podman config validation so isolated config and Doctor flows do not load runtime state.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): align mobile toast actions (#129909)",
-      "summaryZh": "重點：修正(ui): align mobile toast actions (#129909) * test(ui): cover responsive toast alignment * 修正(ui): align mobile toast a..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): stop exposing environment values in process listings (#…",
+      "summaryZh": "重點：修正(sandbox): stop exposing environment values in process listings (#129781) * 修正(sandbox): keep environment values out o..."
     },
     {
       "id": 10,
-      "title": "fix(reply): prevent private prompt context leaking into delivered rep…",
-      "link": "https://github.com/openclaw/openclaw/commit/580210423c17d7ff292268c85387d66895c437e3",
-      "publishedAt": "2026-08-26T06:39:31Z",
-      "summary": "fix(reply): prevent private prompt context leaking into delivered replies (#115745) * fix(reply): redact private prompt context before delivery Protect final and streaming replies from exact copied inbound prompts, including same-line, fenced, quoted, and partial streaming variants. Preserve safe literal examples and suppress empty exec-output placeholders. Fixes #78177. Co-authored-by: SnowSky1 * test(telegram): own reply privacy delivery integration Move real Telegram HTTP privacy regressions into the plugin-owned test graph and drive finalized inbound dispatch through the public SDK. Co-authored-by: SnowSky1 * fix(reply): redact multiline quoted private prompt context Recognize standard, indented, and nested Markdown blockquotes in final replies and withhold every incremental quoted streaming prefix before private history can reach Telegram. Co-authored-by: SnowSky1 * fix(reply): redact decorated private prompt streams Match exact prompt-owned Markdown formatting per line and withhold every streamed prefix, including headings, indented code, list continuations, mixed wrappers, repeated markers, and safe same-line text. Co-authored-by: SnowSky1 * fix(reply): redact carriage-return prompt copies Accept every source-normalized line-ending variant before private context reaches final replies, streaming, or Telegram delivery. Co-authored-by: SnowSky1 * fix(reply): bound streamed private prompt candidate scans Reject non-marker candidates before allocating suffixes and fail closed on repeated verified marker floods to prevent quadratic streaming work. Co-authored-by: SnowSky1 * fix(reply): keep prompt-line character extraction type-safe Use the canonical non-empty source-line character once so strict core, test, lint, and plugin boundary compilers agree without changing privacy behavior. Co-authored-by: SnowSky1 --------- Co-authored-by: SnowSky1",
+      "title": "feat(daemon): support Bun 1.4 managed services (#129593)",
+      "link": "https://github.com/openclaw/openclaw/commit/6a6635abb3b58faf86fb98438f776426b404e1f3",
+      "publishedAt": "2026-08-26T07:45:43Z",
+      "summary": "feat(daemon): support Bun 1.4 managed services (#129593) * feat(daemon): support Bun 1.4 managed runtimes Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * fix(daemon): enforce Bun SQLite safety Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * fix(daemon): preserve lightweight Bun startup Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * docs: show Bun runtime opt-in commands Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 --------- Co-authored-by: Amp",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): prevent private prompt context leaking into delivered rep…",
-      "summaryZh": "重點：修正(reply): prevent private prompt context leaking into delivered replies (#115745) * 修正(reply): redact private prompt co..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(daemon): support Bun 1.4 managed services (#129593)",
+      "summaryZh": "重點：新功能(daemon): support Bun 1.4 managed services (#129593) * 新功能(daemon): support Bun 1.4 managed runtimes Amp-Thread-ID: h..."
     }
   ]
 }
