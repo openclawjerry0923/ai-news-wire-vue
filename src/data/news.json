@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T07:46:50.488Z",
+  "generatedAt": "2026-08-26T08:43:18.350Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "fix(reply): stop advertising unavailable media messaging tools (#129944)",
-      "link": "https://github.com/openclaw/openclaw/commit/a63cfce81c691840de5e7ec79899823b5e1e5890",
-      "publishedAt": "2026-08-26T07:46:43Z",
-      "summary": "fix(reply): stop advertising unavailable media messaging tools (#129944) * fix(reply): stop advertising unavailable media messaging tools * test(agents): wait for complete process-tree readiness payload",
+      "title": "chore(deps): refresh dependencies after seven-day cooldown (#129941)",
+      "link": "https://github.com/openclaw/openclaw/commit/1605dbd3efef1c10da95c4a9bbb51a19a9d07865",
+      "publishedAt": "2026-08-26T08:37:37Z",
+      "summary": "chore(deps): refresh dependencies after seven-day cooldown (#129941) * chore(deps): refresh dependencies after cooldown * chore(deps): refresh sherpa-onnx runtime to v1.13.6 * test(ios): refresh Fastlane pin expectations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(reply): stop advertising unavailable media messaging tools (#129944)",
-      "summaryZh": "重點：修正(reply): stop advertising unavailable media messaging tools (#129944) * 修正(reply): stop advertising unavailable media ..."
+      "titleZh": "OpenClaw 程式碼更新：chore(deps): refresh dependencies after seven-day cooldown (#129941)",
+      "summaryZh": "重點：chore(deps): refresh dependencies after seven-day cooldown (#129941) * chore(deps): refresh dependencies after cooldown ..."
     },
     {
       "id": 8,
-      "title": "fix(android): restore attachment-only chat rewind and fork actions (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/36560c6a64c6bd6eab6a3c8c07a50eaa747fa5ce",
-      "publishedAt": "2026-08-26T07:45:55Z",
-      "summary": "fix(android): restore attachment-only chat rewind and fork actions (#129951)",
+      "title": "fix(agents): keep automation tool guidance consistent (#129953)",
+      "link": "https://github.com/openclaw/openclaw/commit/3316bfd5aba1320fea8ce38e773c07327adbbdbf",
+      "publishedAt": "2026-08-26T08:36:13Z",
+      "summary": "fix(agents): keep automation tool guidance consistent (#129953)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): restore attachment-only chat rewind and fork actions (#…",
-      "summaryZh": "重點：修正(android): restore attachment-only chat rewind and fork actions (#129951)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): keep automation tool guidance consistent (#129953)",
+      "summaryZh": "重點：修正(agents): keep automation tool guidance consistent (#129953)..."
     },
     {
       "id": 9,
-      "title": "fix(sandbox): stop exposing environment values in process listings (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/29966f4f7099bf574b286baa3dfe018812c791e7",
-      "publishedAt": "2026-08-26T07:45:50Z",
-      "summary": "fix(sandbox): stop exposing environment values in process listings (#129781) * fix(sandbox): keep environment values out of process arguments Route Docker and Podman environment values through private env files, and stage SSH and OpenShell environments separately from command argv. Container env-file values are now explicitly single-line. * fix(sandbox): always clean staged SSH environment Remove staged SSH and OpenShell exec scripts during finalization even when the local SSH process exits normally with a non-shell error code. * test(openshell): align remote seed and staged exec fixtures * fix(sandbox): validate container environment transport early Reject Docker and Podman environment entries that secure env files cannot represent during config validation, with manual remediation guidance while preserving SSH and OpenShell multiline values. * fix(config): keep sandbox env validation cold Share the dependency-light scope and environment merge contract between runtime resolution and Docker/Podman config validation so isolated config and Doctor flows do not load runtime state.",
+      "title": "feat(secrets): opt-in traffic allowlist for the secret egress proxy (…",
+      "link": "https://github.com/openclaw/openclaw/commit/4708c0b60755d95eeea7c0fee882c15cd895747b",
+      "publishedAt": "2026-08-26T08:36:09Z",
+      "summary": "feat(secrets): opt-in traffic allowlist for the secret egress proxy (#129880) * feat(secrets): add opt-in traffic allowlist to the secret egress proxy Add secrets.egressProxy.allowedHosts: when present, the egress proxy refuses non-sentinel requests and CONNECT tunnels to hosts outside the effective allowed set (configured list, hosts bound to the run's registered secrets, and bypassHosts) with a typed host-not-allowed refusal naming the remediation. Empty array is lockdown; omitting the key keeps the previous unrestricted behavior. Sentinel substitution, per-secret destination binding, proxy auth, and bypass tunnels are unchanged; the allowlist is defense in depth for cooperating traffic since bypass-surviving sentinels remain the primary defense. * fix(secrets): validate egress proxy allowlist hostnames at the config boundary Extract the exact-host contract from the secret store into a canonical normalizeExactAllowedHost helper and validate secrets.egressProxy allowedHosts and bypassHosts entries through it. Schemes, ports, wildcards, and malformed hostnames are now rejected when config is accepted instead of throwing during egress-proxy startup, which the runtime normalizer did for both keys before this change. * fix(doctor): repair unusable secret egress proxy host entries Tightening the egress-proxy host schema can invalidate an existing config: a disabled proxy with a malformed bypassHosts entry loaded fine before and now fails validation, which exits the Gateway with code 78. Add the matching doctor --fix migration. Invalid entries never functioned (the proxy's own hostname normalizer threw on them at startup), so they are dropped rather than canonicalized; enabled and valid entries are preserved untouched.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): stop exposing environment values in process listings (#…",
-      "summaryZh": "重點：修正(sandbox): stop exposing environment values in process listings (#129781) * 修正(sandbox): keep environment values out o..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(secrets): opt-in traffic allowlist for the secret egress proxy (…",
+      "summaryZh": "重點：新功能(secrets): opt-in traffic allowlist for the secret egress proxy (#129880) * 新功能(secrets): add opt-in traffic allowlis..."
     },
     {
       "id": 10,
-      "title": "feat(daemon): support Bun 1.4 managed services (#129593)",
-      "link": "https://github.com/openclaw/openclaw/commit/6a6635abb3b58faf86fb98438f776426b404e1f3",
-      "publishedAt": "2026-08-26T07:45:43Z",
-      "summary": "feat(daemon): support Bun 1.4 managed services (#129593) * feat(daemon): support Bun 1.4 managed runtimes Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * fix(daemon): enforce Bun SQLite safety Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * fix(daemon): preserve lightweight Bun startup Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 * docs: show Bun runtime opt-in commands Amp-Thread-ID: https://ampcode.com/threads/T-01a037b7-66db-71f0-91e7-1578b383afb2 --------- Co-authored-by: Amp",
+      "title": "fix: honor session policy for widget approvals (#129970)",
+      "link": "https://github.com/openclaw/openclaw/commit/9f9ad632460ee81a91b8207f2f634d7b20d0262a",
+      "publishedAt": "2026-08-26T08:34:24Z",
+      "summary": "fix: honor session policy for widget approvals (#129970)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(daemon): support Bun 1.4 managed services (#129593)",
-      "summaryZh": "重點：新功能(daemon): support Bun 1.4 managed services (#129593) * 新功能(daemon): support Bun 1.4 managed runtimes Amp-Thread-ID: h..."
+      "titleZh": "OpenClaw 程式碼更新：修正: honor session policy for widget approvals (#129970)",
+      "summaryZh": "重點：修正: honor session policy for widget approvals (#129970)..."
     }
   ]
 }
