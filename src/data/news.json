@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-08-29T17:00:37.338Z",
+  "generatedAt": "2026-08-29T20:31:21.698Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(compaction): keep split-turn context noncanonical (#132618)",
-      "link": "https://github.com/openclaw/openclaw/commit/28ceb5309686f9484742fb84b4e1a8ad1e93c804",
-      "publishedAt": "2026-08-29T16:59:07Z",
-      "summary": "fix(compaction): keep split-turn context noncanonical (#132618) Co-authored-by: roboclaw-bot Co-authored-by: Vito Cappello",
+      "title": "test: keep fork shutdown proof on native worker profiles (#132820)",
+      "link": "https://github.com/openclaw/openclaw/commit/f9b3bcccdba3dc159c6484c30f56974b90a6d938",
+      "publishedAt": "2026-08-29T20:23:00Z",
+      "summary": "test: keep fork shutdown proof on native worker profiles (#132820)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(compaction): keep split-turn context noncanonical (#132618)",
-      "summaryZh": "重點：修正(compaction): keep split-turn context noncanonical (#132618) Co-authored-by: roboclaw-bot Co-authored-by: Vito Cappell..."
+      "titleZh": "OpenClaw 程式碼更新：test: keep fork shutdown proof on native worker profiles (#132820)",
+      "summaryZh": "重點：test: keep fork shutdown proof on native worker profiles (#132820)..."
     },
     {
       "id": 2,
-      "title": "fix(build): ignore tool scratch churn in boundary topology walks (#13…",
-      "link": "https://github.com/openclaw/openclaw/commit/60792c288f410801b9ba9004835f27dde0e745d1",
-      "publishedAt": "2026-08-29T16:56:38Z",
-      "summary": "fix(build): ignore tool scratch churn in boundary topology walks (#132719) The extension-boundary topology snapshot walked every entry under installed roots, so transient tool scratch (vite's node_modules/.vite-temp config bundles, jiti/vitest caches) minted mid-compile flipped the before/after namespace digest and killed pnpm check:changed extension-lint preparation with 'Boundary configuration or resolution topology changed during compilation', discarding a completed native emit. Skip dot-entries under installed roots except .pnpm: package names cannot start with '.', so bare-specifier resolution never enters them, while pnpm's virtual store stays in the walk. Install-driven metadata changes remain covered by lockfile and .modules.yaml content hashes. Accepted tradeoff: vite's EACCES/deno fallback writes .timestamp-*.mjs next to the config file outside installed roots and is not excluded; an unwritable node_modules breaks pnpm itself long before this scanner. Reproduced live: prepare-extension-package-boundary-artifacts racing a real vite loadConfigFromFile loop failed at the seal step pre-fix and completes post-fix with 429 transient temp files churning; warm rerun reports every unit fresh. Regression test fails pre-fix with the exact production error.",
+      "title": "test(gateway): restore event authorization fixture coverage (#132760)",
+      "link": "https://github.com/openclaw/openclaw/commit/65ace404283432275bb30a93b05a507d101d1e20",
+      "publishedAt": "2026-08-29T20:17:56Z",
+      "summary": "test(gateway): restore event authorization fixture coverage (#132760) Model recording sockets as OPEN so the event authorization matrix reaches the production scope checks after the transport readiness guard.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(build): ignore tool scratch churn in boundary topology walks (#13…",
-      "summaryZh": "重點：修正(build): ignore tool scratch churn in boundary topology walks (#132719) The extension-boundary topology snapshot walke..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): restore event authorization 修正ture coverage (#132760)",
+      "summaryZh": "重點：test(Gateway): restore event authorization 修正ture coverage (#132760) 模型 recording sockets as OPEN so the event authoriza..."
     },
     {
       "id": 3,
-      "title": "fix(codex): keep stored images in active-turn steering (#132429)",
-      "link": "https://github.com/openclaw/openclaw/commit/510568848fd1c1447b689041797daa46487775ef",
-      "publishedAt": "2026-08-29T16:55:47Z",
-      "summary": "fix(codex): keep stored images in active-turn steering (#132429) * fix(codex): keep stored images in active-turn steering Hydrate inline and offloaded images from canonical recorder facts before same-turn dispatch. Preserve FIFO and live-turn authority, reject incomplete image preparation without consuming fallback input, and keep successful question claims non-replayable. * fix(codex): keep steering image contracts acyclic Keep image-order types as a dependency leaf and register the stored-image regression suite in its canonical CI shard.",
+      "title": "test(workshop): exercise experience review through real owners (#132707)",
+      "link": "https://github.com/openclaw/openclaw/commit/8cd61f02bf48c190a439ccb53d56e9f47a87a110",
+      "publishedAt": "2026-08-29T19:57:47Z",
+      "summary": "test(workshop): exercise experience review through real owners (#132707)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep stored images in active-turn steering (#132429)",
-      "summaryZh": "重點：修正(codex): keep stored images in active-turn steering (#132429) * 修正(codex): keep stored images in active-turn steering ..."
+      "titleZh": "OpenClaw 程式碼更新：test(workshop): exercise experience review through real owners (#132707)",
+      "summaryZh": "重點：test(workshop): exercise experience review through real owners (#132707)..."
     },
     {
       "id": 4,
-      "title": "fix(secrets): recognize default store aliases during inspection (#132…",
-      "link": "https://github.com/openclaw/openclaw/commit/dc74eacd5b2245d6454754d95ab3c60df3995446",
-      "publishedAt": "2026-08-29T16:54:57Z",
-      "summary": "fix(secrets): recognize default store aliases during inspection (#132696) Keep valid store-backed credentials and manifest-gated tools discoverable when a source-specific default alias shares its name with another provider source. Read-only auth inspection still leaves unresolved store availability unknown; runtime resolution remains authoritative.",
+      "title": "fix(macos): keep CLI install complete when Gateway startup fails (#12…",
+      "link": "https://github.com/openclaw/openclaw/commit/cfa802d73e54e3ef23c0a467edfc2a78bbddd6f4",
+      "publishedAt": "2026-08-29T19:46:48Z",
+      "summary": "fix(macos): keep CLI install complete when Gateway startup fails (#128350) * fix(macos): separate CLI and Gateway setup states Co-authored-by: VACInc * fix(macos): preserve gateway-resolved install state Co-authored-by: VACInc --------- Co-authored-by: Peter Steinberger Co-authored-by: VACInc Co-authored-by: roboclaw-bot Co-authored-by: Vito Cappello",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(secrets): recognize default store aliases during inspection (#132…",
-      "summaryZh": "重點：修正(secrets): recognize default store aliases during inspection (#132696) Keep valid store-backed credentials and manifes..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): keep CLI install complete when Gateway startup fails (#12…",
+      "summaryZh": "重點：修正(macos): keep CLI install complete when Gateway startup fails (#128350) * 修正(macos): separate CLI and Gateway setup st..."
     },
     {
       "id": 5,
