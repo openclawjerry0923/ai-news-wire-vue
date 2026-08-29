@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-08-29T12:38:09.292Z",
+  "generatedAt": "2026-08-29T17:00:37.338Z",
   "items": [
     {
       "id": 1,
-      "title": "test(ui): reuse cold-open probes for sidebar inventory (#132580)",
-      "link": "https://github.com/openclaw/openclaw/commit/cda8825fa4ac948356d3aa611ad8aa927eb8e90a",
-      "publishedAt": "2026-08-29T12:36:04Z",
-      "summary": "test(ui): reuse cold-open probes for sidebar inventory (#132580)",
+      "title": "fix(compaction): keep split-turn context noncanonical (#132618)",
+      "link": "https://github.com/openclaw/openclaw/commit/28ceb5309686f9484742fb84b4e1a8ad1e93c804",
+      "publishedAt": "2026-08-29T16:59:07Z",
+      "summary": "fix(compaction): keep split-turn context noncanonical (#132618) Co-authored-by: roboclaw-bot Co-authored-by: Vito Cappello",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): reuse cold-open probes for sidebar inventory (#132580)",
-      "summaryZh": "重點：test(ui): reuse cold-open probes for sidebar inventory (#132580)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(compaction): keep split-turn context noncanonical (#132618)",
+      "summaryZh": "重點：修正(compaction): keep split-turn context noncanonical (#132618) Co-authored-by: roboclaw-bot Co-authored-by: Vito Cappell..."
     },
     {
       "id": 2,
-      "title": "fix(memory): preserve deadline failure classification (#121073)",
-      "link": "https://github.com/openclaw/openclaw/commit/6e296ea32495cc3ec20ecbc3430e425a900927b6",
-      "publishedAt": "2026-08-29T12:34:26Z",
-      "summary": "fix(memory): preserve deadline failure classification (#121073)",
+      "title": "fix(build): ignore tool scratch churn in boundary topology walks (#13…",
+      "link": "https://github.com/openclaw/openclaw/commit/60792c288f410801b9ba9004835f27dde0e745d1",
+      "publishedAt": "2026-08-29T16:56:38Z",
+      "summary": "fix(build): ignore tool scratch churn in boundary topology walks (#132719) The extension-boundary topology snapshot walked every entry under installed roots, so transient tool scratch (vite's node_modules/.vite-temp config bundles, jiti/vitest caches) minted mid-compile flipped the before/after namespace digest and killed pnpm check:changed extension-lint preparation with 'Boundary configuration or resolution topology changed during compilation', discarding a completed native emit. Skip dot-entries under installed roots except .pnpm: package names cannot start with '.', so bare-specifier resolution never enters them, while pnpm's virtual store stays in the walk. Install-driven metadata changes remain covered by lockfile and .modules.yaml content hashes. Accepted tradeoff: vite's EACCES/deno fallback writes .timestamp-*.mjs next to the config file outside installed roots and is not excluded; an unwritable node_modules breaks pnpm itself long before this scanner. Reproduced live: prepare-extension-package-boundary-artifacts racing a real vite loadConfigFromFile loop failed at the seal step pre-fix and completes post-fix with 429 transient temp files churning; warm rerun reports every unit fresh. Regression test fails pre-fix with the exact production error.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): preserve deadline failure classification (#121073)",
-      "summaryZh": "重點：修正(記憶): preserve deadline failure classification (#121073)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(build): ignore tool scratch churn in boundary topology walks (#13…",
+      "summaryZh": "重點：修正(build): ignore tool scratch churn in boundary topology walks (#132719) The extension-boundary topology snapshot walke..."
     },
     {
       "id": 3,
-      "title": "test(state): track current agent schema in eligibility checks",
-      "link": "https://github.com/openclaw/openclaw/commit/16367468a7edce977360becc72443943d805593d",
-      "publishedAt": "2026-08-29T12:30:18Z",
-      "summary": "test(state): track current agent schema in eligibility checks",
+      "title": "fix(codex): keep stored images in active-turn steering (#132429)",
+      "link": "https://github.com/openclaw/openclaw/commit/510568848fd1c1447b689041797daa46487775ef",
+      "publishedAt": "2026-08-29T16:55:47Z",
+      "summary": "fix(codex): keep stored images in active-turn steering (#132429) * fix(codex): keep stored images in active-turn steering Hydrate inline and offloaded images from canonical recorder facts before same-turn dispatch. Preserve FIFO and live-turn authority, reject incomplete image preparation without consuming fallback input, and keep successful question claims non-replayable. * fix(codex): keep steering image contracts acyclic Keep image-order types as a dependency leaf and register the stored-image regression suite in its canonical CI shard.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(state): track current agent schema in eligibility checks",
-      "summaryZh": "重點：test(state): track current agent schema in eligibility checks..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep stored images in active-turn steering (#132429)",
+      "summaryZh": "重點：修正(codex): keep stored images in active-turn steering (#132429) * 修正(codex): keep stored images in active-turn steering ..."
     },
     {
       "id": 4,
-      "title": "test(ui): skip idle animation frames between cloud retries (#132579)",
-      "link": "https://github.com/openclaw/openclaw/commit/da1f6dd43e43439345929c8573b13a34b1e17b84",
-      "publishedAt": "2026-08-29T12:29:34Z",
-      "summary": "test(ui): skip idle animation frames between cloud retries (#132579)",
+      "title": "fix(secrets): recognize default store aliases during inspection (#132…",
+      "link": "https://github.com/openclaw/openclaw/commit/dc74eacd5b2245d6454754d95ab3c60df3995446",
+      "publishedAt": "2026-08-29T16:54:57Z",
+      "summary": "fix(secrets): recognize default store aliases during inspection (#132696) Keep valid store-backed credentials and manifest-gated tools discoverable when a source-specific default alias shares its name with another provider source. Read-only auth inspection still leaves unresolved store availability unknown; runtime resolution remains authoritative.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): skip idle animation frames between cloud retries (#132579)",
-      "summaryZh": "重點：test(ui): skip idle animation frames between cloud retries (#132579)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(secrets): recognize default store aliases during inspection (#132…",
+      "summaryZh": "重點：修正(secrets): recognize default store aliases during inspection (#132696) Keep valid store-backed credentials and manifes..."
     },
     {
       "id": 5,
+      "title": "AI 設計「胞內抗體」有望為阿茲海默症、巴金森氏症與漸凍症開啟新療法",
+      "link": "https://technews.tw/2026/08/30/ai-designed-intrabodies-could-unlock-new-treatments-for-alzheimers-parkinsons-and-mnd/",
+      "publishedAt": "Sat, 29 Aug 2026 16:00:30 +0000",
+      "summary": "英國艾塞克斯大學（University of Essex）運用人工智慧（AI）重新設計抗體，開發出可直接在人類 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "NASA 韋伯望遠鏡捕捉「獅子星雲」，紅外線視角揭開垂死恆星的壯麗終章",
+      "link": "https://technews.tw/2026/08/30/lion-nebula/",
+      "publishedAt": "Sat, 29 Aug 2026 16:00:21 +0000",
+      "summary": "韋伯太空望遠鏡近日釋出了行星狀星雲 NGC 2392 的最新紅外線影像。這個因外觀神似獅子而得名的「獅子星雲」 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "美國 FDA 核准首款 ET 全線新藥！藥華藥 Ropeg 橫跨兩大血癌領域",
       "link": "https://finance.technews.tw/2026/08/29/aml/",
       "publishedAt": "Sat, 29 Aug 2026 09:03:52 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "輝達財報出爐股價跌轉升！但擔保金額超越單季營收，輝達循環融資風險成焦點",
       "link": "https://finance.technews.tw/2026/08/29/nvidia-earnings-stock-rebound-jensen-huang-revolving-financing-concern/",
       "publishedAt": "Sat, 29 Aug 2026 08:00:47 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "首創「AI for All」全民免費代幣！韓國豪擲 10 兆韓元實現算力自由",
       "link": "https://finance.technews.tw/2026/08/29/ai-for-all/",
       "publishedAt": "Sat, 29 Aug 2026 07:36:08 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "科技巨頭的兩手策略：嚴打「AI 垃圾」，卻加速擁抱生成式未來",
       "link": "https://technews.tw/2026/08/29/tech-giants-ai-slop/",
       "publishedAt": "Sat, 29 Aug 2026 07:30:19 +0000",
       "summary": "矽谷近來一面加強清理所謂的「AI 垃圾內容」（AI Slop），一面卻沒有放慢擁抱生成式技術的腳步。從音樂、社 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "科學家破解諾羅病毒的 RNA 結構，制定全新疫苗策略",
-      "link": "https://technews.tw/2026/08/29/scientists-unravel-norovirus-rna-structure-new-vaccine-strategies/",
-      "publishedAt": "Sat, 29 Aug 2026 07:00:26 +0000",
-      "summary": "諾羅病毒（norovirus）是造成急性腸胃炎的重要病毒之一，感染後常出現噁心、嘔吐與腹瀉等症狀，而且傳染力極 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "為何人類沒毛卻獨留腋毛？演化生物學家揭開兩大隱藏功能",
-      "link": "https://technews.tw/2026/08/29/human-armpit-hair/",
-      "publishedAt": "Sat, 29 Aug 2026 06:30:05 +0000",
-      "summary": "許多人將腋毛視為青春期後必須定期清理的「麻煩」，但演化生物學家的看法卻恰好相反。他們認為，真正值得深究的並非人 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
