@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-08-30T04:06:55.251Z",
+  "generatedAt": "2026-08-30T10:17:42.364Z",
   "items": [
     {
       "id": 1,
+      "title": "開發框架Next.js修補兩項重大RCE漏洞，Windows部署及AVIF影像最佳化受影響",
+      "link": "https://www.ithome.com.tw/news/178520",
+      "publishedAt": "2026-08-30 12:08:54",
+      "summary": "開發框架Next.js團隊釋出15.5.24與16.3.3，修補兩項重大未經身分驗證遠端程式碼執行（RCE）漏洞。一項影響特定Windows伺服器部署，另一項則出現在AVIF影像最佳化功能，問題源自底層影像處理函式庫libheif。攻擊者在符合條件的情況下不需登入，就可能在伺服器執行任意程式碼。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "數發部五大AI政策上路一年，林宜敬盤點最新成果",
       "link": "https://www.ithome.com.tw/news/178528",
       "publishedAt": "2026-08-30 12:08:11",
@@ -11,91 +20,82 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "refactor(doctor): share count label formatter (#133056)",
-      "link": "https://github.com/openclaw/openclaw/commit/043fa17b0c7dec8de55a56ac911431cfa1e7e8a2",
-      "publishedAt": "2026-08-30T04:06:03Z",
-      "summary": "refactor(doctor): share count label formatter (#133056)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor(文件tor): share count label formatter (#133056)",
-      "summaryZh": "重點：refactor(文件tor): share count label formatter (#133056)..."
-    },
-    {
       "id": 3,
-      "title": "fix: cloud sessions fail when source builds and worker packages diffe…",
-      "link": "https://github.com/openclaw/openclaw/commit/f76b7fffd9834ad6527d470689cd3a20f29b3f46",
-      "publishedAt": "2026-08-30T03:59:41Z",
-      "summary": "fix: cloud sessions fail when source builds and worker packages differ (#133037) * fix: automatically align cloud nodes with the running build * test: stop cloud bootstrap fixtures gracefully * test: preserve updater fixture build metadata after postbuild",
+      "title": "fix(desktop): keep concurrent VNC viewers on one connection (#133226)",
+      "link": "https://github.com/openclaw/openclaw/commit/6549b0a7c534750d9d6cbef305233b162704b291",
+      "publishedAt": "2026-08-30T10:12:32Z",
+      "summary": "fix(desktop): keep concurrent VNC viewers on one connection (#133226) Retain each node viewer's inspected RFB connection through authentication so concurrent cloud and paired-node viewers do not double TigerVNC's pending connection attempts. Preserve buffered final frames and finish WebSocket closure before retiring desktop or portal control invocations.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: cloud sessions fail when source builds and worker packages diffe…",
-      "summaryZh": "重點：修正: cloud sessions fail when source builds and worker packages differ (#133037) * 修正: automatically align cloud nodes wi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(desktop): keep concurrent VNC viewers on one connection (#133226)",
+      "summaryZh": "重點：修正(desktop): keep concurrent VNC viewers on one connection (#133226) Retain each node viewer's inspected RFB connection ..."
     },
     {
       "id": 4,
-      "title": "fix: prevent cold image analysis from timing out during setup (#133045)",
-      "link": "https://github.com/openclaw/openclaw/commit/b111319fcd8ec27ae7e2436ca51dd7637287c62a",
-      "publishedAt": "2026-08-30T03:54:51Z",
-      "summary": "fix: prevent cold image analysis from timing out during setup (#133045) * fix: prevent cold image analysis from timing out during setup * test: keep agent tool type checks within the shard budget",
+      "title": "fix(agents): guide denied plugin approvals (#130009)",
+      "link": "https://github.com/openclaw/openclaw/commit/e42bb23a84933669c67173ed3b7640567b6f1ce9",
+      "publishedAt": "2026-08-30T09:59:58Z",
+      "summary": "fix(agents): guide denied plugin approvals (#130009) Return one final denial outcome from the plugin approval owner for both embedded and Gateway paths. This tells the agent that the tool did not run, the closed request cannot be approved again, and the same call must not be retried. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent cold image analysis from timing out during setup (#133045)",
-      "summaryZh": "重點：修正: prevent cold image analysis from timing out during setup (#133045) * 修正: prevent cold image analysis from timing out..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): guide denied plugin approvals (#130009)",
+      "summaryZh": "重點：修正(agents): guide denied plugin approvals (#130009) Return one final denial outcome from the plugin approval owner for b..."
     },
     {
       "id": 5,
-      "title": "feat(qa): run Telegram RTT through userbot leases (#133030)",
-      "link": "https://github.com/openclaw/openclaw/commit/906a63c43ff21acc83a382f64fcb7fc7f6e1c469",
-      "publishedAt": "2026-08-30T03:51:32Z",
-      "summary": "feat(qa): run Telegram RTT through userbot leases (#133030) Replace the static two-bot Telegram RTT credential path with the shared Convex Test Server userbot pool. Keep one TDLib user process for the suite, route the SUT through the Test Bot API proxy, preserve reply ordering, and stop owned resources when the lease ends. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(delivery): rearm queue timers across clock jumps (#129913)",
+      "link": "https://github.com/openclaw/openclaw/commit/ecdc8b95dbdcae479ec89099a72de3c1c88f27e6",
+      "publishedAt": "2026-08-30T09:57:35Z",
+      "summary": "fix(delivery): rearm queue timers across clock jumps (#129913) Use a monotonic deadline for process-local session-delivery timer preemption while keeping durable queue timestamps on the wall clock. Add exact-main clock-jump regressions and a real Gateway HTTP/WebSocket delivery trace through completed queue settlement. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(qa): run Telegram RTT through userbot leases (#133030)",
-      "summaryZh": "重點：新功能(qa): run Telegram RTT through userbot leases (#133030) Replace the static two-bot Telegram RTT credential path with ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(delivery): rearm queue timers across clock jumps (#129913)",
+      "summaryZh": "重點：修正(delivery): rearm queue timers across clock jumps (#129913) Use a monotonic deadline for process-local session-deliver..."
     },
     {
       "id": 6,
-      "title": "(留稿)MOSAIC 顯微鏡結合超算與開源軟體，打破生物數據「看得到算不完」瓶頸",
-      "link": "https://technews.tw/2026/08/30/building-the-computational-mind-for-the-swiss-army-knife-of-microscopes/",
-      "publishedAt": "Sun, 30 Aug 2026 03:30:27 +0000",
-      "summary": "美國勞倫斯柏克萊國家實驗室（Berkeley Lab）與合作機構於 18 日宣布，已開發出一款名為 MOSAI [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "ci: own generated publication Git lifecycle (#133228)",
+      "link": "https://github.com/openclaw/openclaw/commit/ec67c671830d9e915b3bc7efdb31c0fb8b68e214",
+      "publishedAt": "2026-08-30T09:49:40Z",
+      "summary": "ci: own generated publication Git lifecycle (#133228)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：ci: own generated publication Git lifecycle (#133228)",
+      "summaryZh": "重點：ci: own generated publication Git lifecycle (#133228)..."
     },
     {
       "id": 7,
-      "title": "公開網路數據已耗盡，破產公司「數位遺產」成 AI 訓練資料新戰場",
-      "link": "https://infosecu.technews.tw/2026/08/30/digital-assets-of-bankrupt-companies-become-hot-targets-for-ai-startup/",
-      "publishedAt": "Sun, 30 Aug 2026 03:00:47 +0000",
-      "summary": "2026 年 5 月，美國廉航 Spirit Airlines 無預警熄燈，這是過去 25 年來，美國首家完全 [&#8230;]",
+      "title": "【科普】四颱共舞挑戰預報，從衛星、雷達到飛機，人類追颱風的科技攻防",
+      "link": "https://technews.tw/2026/08/30/weather-radar-satellite-typhoon/",
+      "publishedAt": "Sun, 30 Aug 2026 09:13:06 +0000",
+      "summary": "8月 24 日前後，西北太平洋及南海同時出現 4 個熱帶氣旋系統（沙德爾、紫檀、簡拉維、閃電），是太平洋睽違 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "TechInsights 深度分析麒麟 9030 Pro，設備代差仍難以彌補",
-      "link": "https://technews.tw/2026/08/30/techinsight-analyze-kirin-9030-pro/",
-      "publishedAt": "Sun, 30 Aug 2026 02:57:34 +0000",
-      "summary": "知名晶片逆向工程機構 TechInsights 最新釋出華為旗艦處理器「麒麟 9030 Pro」的完整製程分析 [&#8230;]",
+      "title": "後勤潛力無窮，大型商用補給船僅花九天完成改裝成為美軍自主駕駛無人艦",
+      "link": "https://technews.tw/2026/08/30/sea-machines-robotocs-took-only-9-days-transferring-large-commercial-supply-ship-into-autonomous-ship-for-us-army/",
+      "publishedAt": "Sun, 30 Aug 2026 09:05:54 +0000",
+      "summary": "美國軍方近年積極建構無人艦隊，但從零開始設計打造全新艦艇不僅動輒耗時數年，預算更是天文數字，新創科技公司 Se [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "毛孔大開、毒性升級，極端高溫正讓農藥加速滲入 240 萬美國農工體內",
-      "link": "https://technews.tw/2026/08/30/us-farmworkers-health-dual-threat-heat-pesticides/",
-      "publishedAt": "Sun, 30 Aug 2026 02:30:44 +0000",
-      "summary": "研究顯示，隨著全球氣溫持續升高，農藥對美國農業勞工的危害正被進一步放大。對全美約 240 萬名農工而言，熱浪不 [&#8230;]",
+      "title": "減重神藥 GLP-1 顛覆美國醫療產業，富國銀行指「肥胖藥物」研發首度超車癌症",
+      "link": "https://technews.tw/2026/08/30/glp1-disrupts-us-healthcare/",
+      "publishedAt": "Sun, 30 Aug 2026 08:30:37 +0000",
+      "summary": "根據富國銀行（Wells Fargo）的最新報告指出，GLP-1 減重藥物正以前所未有的速度重塑美國醫療產業的 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "「半導體材料聯盟」盛大成立，徐秀蘭：現在是台灣半導體業拯救「材料侏儒困境」的最好時機",
-      "link": "https://finance.technews.tw/2026/08/30/semi-taiwan-materials-alliance/",
-      "publishedAt": "Sun, 30 Aug 2026 02:00:10 +0000",
-      "summary": "SEMICON 半導體展前夕，SEMI 國際半導體產業協會 21 日邀請 34 家國內外業者，舉行「半導體材料 [&#8230;]",
+      "title": "中國上班族掀週三神隱潮，打破連五天「班感」",
+      "link": "https://technews.tw/2026/08/30/china-wednesday-leave-trending/",
+      "publishedAt": "Sun, 30 Aug 2026 08:00:05 +0000",
+      "summary": "最近在中國的社群媒體上，一群上班族悄悄發展出一套新的職場生存學：不辭職、不申請年休長假，也不在週一或週五請成小 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
