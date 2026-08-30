@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-08-30T10:17:42.364Z",
+  "generatedAt": "2026-08-30T15:10:51.780Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(skills): recover colon-rich text frontmatter (#122884)",
+      "link": "https://github.com/openclaw/openclaw/commit/149a18598fe935afbfd09483da4ae4f5effb7b17",
+      "publishedAt": "2026-08-30T15:06:51Z",
+      "summary": "fix(skills): recover colon-rich text frontmatter (#122884) Restore shipped skill discovery compatibility for colon-rich read_when and summary text. Keep structured YAML strict and preserve the existing description recovery contract. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): recover colon-rich text frontmatter (#122884)",
+      "summaryZh": "重點：修正(skills): recover colon-rich text frontmatter (#122884) Restore shipped skill discovery compatibility for colon-rich r..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(tests): isolate planner environment fixtures (#133325)",
+      "link": "https://github.com/openclaw/openclaw/commit/a5e563e0068bb40c4eb8fdf0091ddae8b91a4765",
+      "publishedAt": "2026-08-30T15:06:23Z",
+      "summary": "refactor(tests): isolate planner environment fixtures (#133325)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(tests): isolate planner environment 修正tures (#133325)",
+      "summaryZh": "重點：refactor(tests): isolate planner environment 修正tures (#133325)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(media): restore AVI attachment playback and file extensions (#133…",
+      "link": "https://github.com/openclaw/openclaw/commit/1a11f9c6f3a2feee066a3c8cce44af08263ee414",
+      "publishedAt": "2026-08-30T15:01:23Z",
+      "summary": "fix(media): restore AVI attachment playback and file extensions (#133329)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(media): restore AVI attachment playback and file extensions (#133…",
+      "summaryZh": "重點：修正(media): restore AVI attachment playback and file extensions (#133329)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(discord): suppress replies targeting other bots (#130327)",
+      "link": "https://github.com/openclaw/openclaw/commit/09f9e53557f441e39370528c6e5fd8c14a69da5d",
+      "publishedAt": "2026-08-30T14:59:40Z",
+      "summary": "fix(discord): suppress replies targeting other bots (#130327) Broaden the existing opt-in `ignoreOtherMentions` policy so ambient Discord bots do not answer unmentioned replies addressed to another non-webhook bot. Partition inbound debounce batches by genuine reply target so adjacent messages cannot inherit the wrong routing decision. Explicit mentions, forwards, human replies, webhook replies, and replies to the current bot keep their existing behavior. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): suppress replies targeting other bots (#130327)",
+      "summaryZh": "重點：修正(Discord): suppress replies targeting other bots (#130327) Broaden the existing opt-in `ignoreOtherMentions` policy so..."
+    },
+    {
+      "id": 5,
       "title": "開發框架Next.js修補兩項重大RCE漏洞，Windows部署及AVIF影像最佳化受影響",
       "link": "https://www.ithome.com.tw/news/178520",
       "publishedAt": "2026-08-30 12:08:54",
@@ -11,57 +55,13 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "數發部五大AI政策上路一年，林宜敬盤點最新成果",
       "link": "https://www.ithome.com.tw/news/178528",
       "publishedAt": "2026-08-30 12:08:11",
       "summary": "數位發展部部長林宜敬近日在2026數位政府高峰會上，說明上任近一年來，如何運用五大政策工具，推動臺灣AI產業生態圈和主權AI的進展。 去年9月1日，林宜敬從政務次長，接任數發部部長一職，他在上任媒體茶敘中強調，數位發展部將透過算力、資料、人才、行銷、資金等五大政策工具，積極建構一個健康的軟體產業生態系，確保臺灣能在AI革命中佔據領先地位。 林宜敬指出：「科技的創新、突破與發展，必須來自於民間自由而公平的競爭，政府最重要的任務是，創造一個適合 AI 產業發展的生態系。」",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 3,
-      "title": "fix(desktop): keep concurrent VNC viewers on one connection (#133226)",
-      "link": "https://github.com/openclaw/openclaw/commit/6549b0a7c534750d9d6cbef305233b162704b291",
-      "publishedAt": "2026-08-30T10:12:32Z",
-      "summary": "fix(desktop): keep concurrent VNC viewers on one connection (#133226) Retain each node viewer's inspected RFB connection through authentication so concurrent cloud and paired-node viewers do not double TigerVNC's pending connection attempts. Preserve buffered final frames and finish WebSocket closure before retiring desktop or portal control invocations.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(desktop): keep concurrent VNC viewers on one connection (#133226)",
-      "summaryZh": "重點：修正(desktop): keep concurrent VNC viewers on one connection (#133226) Retain each node viewer's inspected RFB connection ..."
-    },
-    {
-      "id": 4,
-      "title": "fix(agents): guide denied plugin approvals (#130009)",
-      "link": "https://github.com/openclaw/openclaw/commit/e42bb23a84933669c67173ed3b7640567b6f1ce9",
-      "publishedAt": "2026-08-30T09:59:58Z",
-      "summary": "fix(agents): guide denied plugin approvals (#130009) Return one final denial outcome from the plugin approval owner for both embedded and Gateway paths. This tells the agent that the tool did not run, the closed request cannot be approved again, and the same call must not be retried. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): guide denied plugin approvals (#130009)",
-      "summaryZh": "重點：修正(agents): guide denied plugin approvals (#130009) Return one final denial outcome from the plugin approval owner for b..."
-    },
-    {
-      "id": 5,
-      "title": "fix(delivery): rearm queue timers across clock jumps (#129913)",
-      "link": "https://github.com/openclaw/openclaw/commit/ecdc8b95dbdcae479ec89099a72de3c1c88f27e6",
-      "publishedAt": "2026-08-30T09:57:35Z",
-      "summary": "fix(delivery): rearm queue timers across clock jumps (#129913) Use a monotonic deadline for process-local session-delivery timer preemption while keeping durable queue timestamps on the wall clock. Add exact-main clock-jump regressions and a real Gateway HTTP/WebSocket delivery trace through completed queue settlement. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(delivery): rearm queue timers across clock jumps (#129913)",
-      "summaryZh": "重點：修正(delivery): rearm queue timers across clock jumps (#129913) Use a monotonic deadline for process-local session-deliver..."
-    },
-    {
-      "id": 6,
-      "title": "ci: own generated publication Git lifecycle (#133228)",
-      "link": "https://github.com/openclaw/openclaw/commit/ec67c671830d9e915b3bc7efdb31c0fb8b68e214",
-      "publishedAt": "2026-08-30T09:49:40Z",
-      "summary": "ci: own generated publication Git lifecycle (#133228)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: own generated publication Git lifecycle (#133228)",
-      "summaryZh": "重點：ci: own generated publication Git lifecycle (#133228)..."
     },
     {
       "id": 7,
