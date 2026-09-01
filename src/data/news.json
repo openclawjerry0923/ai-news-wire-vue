@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-01T13:10:27.827Z",
+  "generatedAt": "2026-09-01T17:39:11.344Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): preserve duration quantities across locales (#133224)",
-      "link": "https://github.com/openclaw/openclaw/commit/3cdf1180dcbbdcc5f6f05574d9a0427350f7aab0",
-      "publishedAt": "2026-09-01T13:04:06Z",
-      "summary": "fix(ui): preserve duration quantities across locales (#133224) Share duration decomposition between core and the Control UI, preserving locale presentation without repeated rounding or dropped nonadjacent units. Keep compact millisecond output limited to subsecond inputs so large finite values match the existing core formatter. Remove the duplicate UI logic and the private sole-caller normalizer.",
+      "title": "fix: bind ClawHub publication source to the authorized commit (#135368)",
+      "link": "https://github.com/openclaw/openclaw/commit/e2af1ca885ce7d0c042c05329fd87a056fc21f5a",
+      "publishedAt": "2026-09-01T17:37:24Z",
+      "summary": "fix: bind ClawHub publication source to the authorized commit (#135368)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve duration quantities across locales (#133224)",
-      "summaryZh": "重點：修正(ui): preserve duration quantities across locales (#133224) Share duration decomposition between core and the Control ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: bind ClawHub publication source to the authorized 提交 (#135368)",
+      "summaryZh": "重點：修正: bind ClawHub publication source to the authorized 提交 (#135368)..."
     },
     {
       "id": 2,
-      "title": "chore(ui): refresh control ui locales (#135201)",
-      "link": "https://github.com/openclaw/openclaw/commit/f61666a6fa655d14d048b16338b1d49943399dea",
-      "publishedAt": "2026-09-01T12:58:32Z",
-      "summary": "chore(ui): refresh control ui locales (#135201) Co-authored-by: github-actions[bot]",
+      "title": "refactor(agents): reuse the loaded MCP summary configuration (#135369)",
+      "link": "https://github.com/openclaw/openclaw/commit/1d725f3c91a4a9c425f28d1ded303f2736a945c6",
+      "publishedAt": "2026-09-01T17:35:20Z",
+      "summary": "refactor(agents): reuse the loaded MCP summary configuration (#135369)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#135201)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#135201) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): reuse the loaded MCP summary configuration (#135369)",
+      "summaryZh": "重點：refactor(agents): reuse the loaded MCP summary configuration (#135369)..."
     },
     {
       "id": 3,
-      "title": "fix(macos): bind exec approval fixtures to the canonical cwd owner (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/986cedda11f3c81fb700b55e56d7406a5ecd6367",
-      "publishedAt": "2026-09-01T12:57:00Z",
-      "summary": "fix(macos): bind exec approval fixtures to the canonical cwd owner (#134937) * test(macos): bind exec approval fixtures to the canonical cwd owner The cwd-bound approval hash moved from Foundation path folding to POSIX realpath in #131717, but ExecAllowlistTests kept a verbatim copy of the deleted implementation. The two agree only when the process working directory is not reached through a symlink, so the suite fails for any checkout under /tmp or /var while CI's runner path hides it. Delete the duplicated normalization and pin the symlink identity the production owner actually guarantees. * test(macos): reach the shared cwd hash vector through production Foundation folds existing /private paths back to their aliases in both directions, so the divergence is not limited to checkouts entered through a symlink; correct the helper comment accordingly. The exact cross-platform digest was only asserted against the fixture. TypeScript pins the same literal through its production builder, so assert it against resolveAllowAlwaysPatterns here too.",
+      "title": "fix(memory-lancedb): preserve capture progress through compaction (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/e41d2b7e51bf4e3fa9a4b9f22f5fd1b1f0719c46",
+      "publishedAt": "2026-09-01T17:33:25Z",
+      "summary": "fix(memory-lancedb): preserve capture progress through compaction (#131329) * fix(memory-lancedb): stop re-embedding old messages after cursor fingerprint eviction resolveAutoCaptureStartIndex's fallback to a full rescan from index 0 (when the cursor's tracked message fingerprint can no longer be found, e.g. after history compaction rewrites it) had no content-based guard against reprocessing messages the cursor already captured earlier in the same session. Once the fingerprint search missed once, every subsequent turn re-embedded surviving old messages from the start of history -- confirmed live as months-old conversation content being re-submitted to the embedding endpoint continuously, at roughly 1 call/second for hours. Track a bounded (20-entry) list of recently captured message fingerprints on the cursor and skip already-captured messages by content regardless of scan position, independent of resolveAutoCaptureStartIndex's position-based resume heuristic. Co-Authored-By: Claude Sonnet 5 Claude-Session: https://claude.ai/code/session_01Vk2cBRQdErwRtPea8VuhG6 * fix(memory-lancedb): track duplicate-checked messages so they aren't re-embedded The fingerprint guard added in the previous commit only marked a message as captured when db.store() ran. When findCleanDuplicateMemory found an existing match instead, the code skipped storing but never recorded the fingerprint, so a message whose embedding had already been computed and checked could still be re-embedded on a later fingerprint-miss rescan. Track the fingerprint whenever the embedding-consuming work for a message reaches a conclusion -- stored new or matched an existing duplicate -- since both are non-repeatable outcomes. * test(memory-lancedb): prove survivor suppression against real OpenAI embeddings + LanceDB ClawSweeper P1: the existing mocked-harness coverage for this fix (index.test.ts's 're-embeds an already-captured surviving message once its cursor fingerprint is evicted from history') spies on the embeddings client and LanceDB runtime directly -- it proves this module's own selection logic but not that a real configured plugin, real OpenAI embeddings endpoint, and real LanceDB storage agree on the same call count. Added a live case to the existing memory-lancedb.live.test.ts (gated on OPENCLAW_LIVE_TEST=1 + OPENAI_API_KEY, already exercising real OpenAI embeddings + real LanceDB for the store/recall/duplicate/forget flow) that reproduces the exact compaction scenario: turn 1 captures two facts, turn 2 simulates a real compaction where the tracked message evicted from history but an earlier, already-captured message survives verbatim ahead of one genuinely new fact. OpenAIEmbeddingCallCounter counts real POST requests to api.openai.com's /embeddings endpoint via a fetch wrapper (same established pattern as the openai-responses continuation live tests), so the assertion is on the real embedding provider's actual call count, not a spy. Confirmed this fails against the pre-fix production code (4 real embedding calls -- the surviving message really did get re-embedded against the live API) and passes with this branch's fix (3 calls). Proof, real run against api.openai.com + real LanceDB: $ OPENCLAW_LIVE_TEST=1 OPENAI_API_KEY=*** node --import ./scripts/tsx.mjs scripts/test-live.mts \\ extensions/memory-lancedb/memory-lancedb.live.test.ts ✓ memory plugin live tests > memory tools work end-to-end 21828ms ✓ memory plugin live tests > does not re-embed a surviving auto-capture message after real compaction 561ms Test Files 1 passed (1) Tests 2 passed (2) * fix(memory-lancedb): preserve capture progress through compaction Track retained occurrences and completed text at the capture owner, serialize overlapping captures, and drain automatic capture before storage closes. Co-authored-by: Markus Hartung --------- Co-authored-by: Claude Sonnet 5 Co-authored-by: Peter Steinberger Co-authored-by: Markus Hartung",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): bind exec approval 修正tures to the canonical cwd owner (#…",
-      "summaryZh": "重點：修正(macos): bind exec approval 修正tures to the canonical cwd owner (#134937) * test(macos): bind exec approval 修正tures to ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-lancedb): preserve capture progress through compaction (#1…",
+      "summaryZh": "重點：修正(記憶-lancedb): preserve capture progress through compaction (#131329) * 修正(記憶-lancedb): stop re-embedding old messages ..."
     },
     {
       "id": 4,
-      "title": "refactor(qa): share evidence builder execution context (#135158)",
-      "link": "https://github.com/openclaw/openclaw/commit/a38636247a9f8f1d18d8954e553225c8bec6369f",
-      "publishedAt": "2026-09-01T12:56:22Z",
-      "summary": "refactor(qa): share evidence builder execution context (#135158)",
+      "title": "feat(update): enter built-in triage after failures (#134865)",
+      "link": "https://github.com/openclaw/openclaw/commit/eb270a122cbf506c17fd133b0b28e64e0681319b",
+      "publishedAt": "2026-09-01T17:32:41Z",
+      "summary": "feat(update): enter built-in triage after failures (#134865) * feat(update): enter built-in triage after failures * test(triage): make command indentation assertion explicit * test(update): use real helpers in finalization process fixture * test(google-meet): isolate callback timeout propagation * fix(update): admit commands before collecting failure diagnostics * fix(build): preserve named protocol schema declaration types * fix(build): validate annotated protocol registry composition * docs(update): clarify diagnosis after service refusals * fix(build): align protocol registry with main",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(qa): share evidence builder execution context (#135158)",
-      "summaryZh": "重點：refactor(qa): share evidence builder execution context (#135158)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(update): enter built-in triage after failures (#134865)",
+      "summaryZh": "重點：新功能(update): enter built-in triage after failures (#134865) * 新功能(update): enter built-in triage after failures * test(t..."
     },
     {
       "id": 5,
+      "title": "高通推兩款 Dragonwing 新處理器，瞄準消費、工業智慧邊緣運算",
+      "link": "https://technews.tw/2026/09/01/qualcomm-dragonwing-q-2390-and-iq-2390/",
+      "publishedAt": "Tue, 01 Sep 2026 14:14:01 +0000",
+      "summary": "高通宣布推出兩款最新 Dragonwing 處理器，以擴大產品組合。隨著市場對能夠在本地端感知、分析資料並採取 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Microsoft 365驗證異常擴大，Exchange Online郵件與Teams等多項服務受影響",
       "link": "https://www.ithome.com.tw/news/178571",
       "publishedAt": "2026-09-01 12:09:58",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "FTC攜22州控告Amazon廣告拍賣「暗藏加價」逾7年",
       "link": "https://www.ithome.com.tw/news/178572",
       "publishedAt": "2026-09-01 12:09:16",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "研究人員Nightmare Eclipse公開Nvidia記憶體中斷漏洞GreenSection",
       "link": "https://www.ithome.com.tw/news/178574",
       "publishedAt": "2026-09-01 12:09:07",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "駭客假冒《俠盜獵車手VI》外流遊戲檔案，散布惡意程式",
       "link": "https://www.ithome.com.tw/news/178573",
       "publishedAt": "2026-09-01 12:09:04",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "供應鏈成本飆升！高通 9 月起調漲晶片價格，漲幅達雙位數",
       "link": "https://technews.tw/2026/09/01/qualcomm-raising-chip-prices/",
       "publishedAt": "Tue, 01 Sep 2026 11:45:25 +0000",
       "summary": "晶片大廠高通將自 9 月 1 日起調漲晶片價格，漲幅達雙位數。據外媒報導，高通早在今年 7 月已通知客戶，9 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "美國槍砲監管機構ATF遭網路入侵，勒索軟體組織Qilin聲稱犯行",
-      "link": "https://www.ithome.com.tw/news/178569",
-      "publishedAt": "2026-09-01 11:09:30",
-      "summary": "美國菸酒槍砲及爆炸物管理局（Bureau of Alcohol, Tobacco, Firearms and Explosives，ATF）8月26日發布公告，證實發生重大資安事件，一套獨立系統遭到入侵，ATF在發現事件後立即終止其與受影響環境的連線，並展開事件應變，同時與美國司法部合作展開調查。ATF指出，遭入侵的系統為獨立運作，目前沒有跡象顯示此次事件波及ATF企業網路、電子槍械申請系統（eForms）或其他系統，日常任務也未受影響。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
