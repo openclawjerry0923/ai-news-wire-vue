@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-01T20:40:17.580Z",
+  "generatedAt": "2026-09-01T23:04:42.796Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(migrate): consolidate selection handling (#135497)",
-      "link": "https://github.com/openclaw/openclaw/commit/0730b41693592e7dbce141d0dc8dda6ad33eddb3",
-      "publishedAt": "2026-09-01T20:22:14Z",
-      "summary": "refactor(migrate): consolidate selection handling (#135497)",
+      "title": "perf: avoid unused startup metadata scope hashing (#135477)",
+      "link": "https://github.com/openclaw/openclaw/commit/d9d19fefb4bb1a6b6274356069cc0b32699ee001",
+      "publishedAt": "2026-09-01T23:03:46Z",
+      "summary": "perf: avoid unused startup metadata scope hashing (#135477)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(migrate): consolidate selection handling (#135497)",
-      "summaryZh": "重點：refactor(migrate): consolidate selection handling (#135497)..."
+      "titleZh": "OpenClaw 程式碼更新：perf: avoid unused startup metadata scope hashing (#135477)",
+      "summaryZh": "重點：perf: avoid unused startup metadata scope hashing (#135477)..."
     },
     {
       "id": 2,
-      "title": "feat(skills): add personal libraries for shared Gateways (#134068)",
-      "link": "https://github.com/openclaw/openclaw/commit/75bcd267f5e72086fa5361e263b0f6cb1248adc6",
-      "publishedAt": "2026-09-01T20:15:37Z",
-      "summary": "feat(skills): add personal libraries for shared Gateways (#134068) * feat(skills): add personal libraries for shared Gateways * fix(skills): validate ZIP imports with fs-safe 0.7.0 Use the published platform-package boundary and remove copied native assets. Keep CLI bootstrap imports lazy, preserve sealed-worker defaults, and align archive fixtures and current-main contracts with the stricter dependency. * fix: own partial output staging before publication * docs(skills): clarify Claude library delivery * docs: leave skills release notes to release automation * fix(skills): simplify library dispatch and preserve resource identity Share the Workshop schema and descriptor across local and worker paths, remove redundant adapters and UI/import/CLI duplication, and preserve lossless directory identities in remote skill transfer. The cleanup removes 114 production lines; a child-process regression proves adjacent large file indexes cannot share authority. * fix(skills): preserve declaration and compiled worker boundaries Keep the exact protocol fragment types named during declaration emission to avoid TS7056 without changing runtime schemas. Observe resolved subprocess entry URLs in generation tests and derive full-tree audit roots from the canonical worker build registry. Cold real Gateway and node-worker E2E: 2 passed. Protocol checks and package declarations passed. Fresh P0-scoped Codex autoreview returned no findings. Local artifact tests and hosted CI continue before landing. * test(auth): type the optional stdin fixture property honestly The ReadStream intersection kept isTTY required, so deleting an originally absent own property failed TS2790. Use the optional property surface the fixture actually owns, without a cast. The auth-login integration test and exact CI type-check stripe 4/5 pass; fresh P0-scoped Codex review is clean. * fix(gateway): keep health discovery out of credential migration Passive post-connect health synchronously loaded dormant Matrix credential checkers and blocked the Gateway event loop for 6.5 seconds on clean Linux. Keep loaded and configured channel inventory while leaving persisted-only discovery to setup and migration. Real resolver regression fails before and passes after; original Linux guard cases pass at unchanged deadlines. Health and inventory coverage: 49 passing tests. * test(node): synchronize worker prewarm cancellation by readiness Replace competing readiness and completion timers with a held HTTP request from the real child. Require peer close, cancellation rejection, and queued install completion, then join owned operations on every exit. The full installer suite passes all 27 cases; Windows hosted proof remains pending.",
+      "title": "perf(cli): avoid materializing unused process output (#135602)",
+      "link": "https://github.com/openclaw/openclaw/commit/0b1c26db6d7f669e7d353596b4732bf71aeb4e59",
+      "publishedAt": "2026-09-01T23:02:22Z",
+      "summary": "perf(cli): avoid materializing unused process output (#135602)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(skills): add personal libraries for shared Gateways (#134068)",
-      "summaryZh": "重點：新功能(skills): add personal libraries for shared Gateways (#134068) * 新功能(skills): add personal libraries for shared Gatew..."
+      "titleZh": "OpenClaw 程式碼更新：perf(cli): avoid materializing unused process output (#135602)",
+      "summaryZh": "重點：perf(cli): avoid materializing unused process output (#135602)..."
     },
     {
       "id": 3,
-      "title": "docs(ios): cut 2026.8.11 release notes",
-      "link": "https://github.com/openclaw/openclaw/commit/753853a7d93ef392c363624714edf186c7ad5dcd",
-      "publishedAt": "2026-09-01T20:12:59Z",
-      "summary": "docs(ios): cut 2026.8.11 release notes",
+      "title": "perf: resolve web fetch providers once in their owner (#135504)",
+      "link": "https://github.com/openclaw/openclaw/commit/0635e09a31a78fe01e76e2dac76780501f57c4d3",
+      "publishedAt": "2026-09-01T23:00:56Z",
+      "summary": "perf: resolve web fetch providers once in their owner (#135504) * perf: resolve web fetch providers once in their owner * chore(web-fetch): tighten assertion baseline after simplification",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(ios): cut 2026.8.11 版本發布 notes",
-      "summaryZh": "重點：文件(ios): cut 2026.8.11 版本發布 notes..."
+      "titleZh": "OpenClaw 程式碼更新：perf: resolve web fetch providers once in their owner (#135504)",
+      "summaryZh": "重點：perf: resolve web fetch providers once in their owner (#135504) * perf: resolve web fetch providers once in their owner ..."
     },
     {
       "id": 4,
-      "title": "fix(auto-reply): refresh stale session dispatches",
-      "link": "https://github.com/openclaw/openclaw/commit/b49119b44f41b16a4bde85acc5ace2d4969023e6",
-      "publishedAt": "2026-09-01T20:00:28Z",
-      "summary": "fix(auto-reply): refresh stale session dispatches ## What Problem This Solves A durable inbound message can capture one session ID and reach reply admission after a concurrent reset or owner rotation commits a replacement session. The stale attempt fails before user-visible work with `Session changed while starting work. Retry.` and can keep the same ingress lane occupied across retries. Fixes #135149. ## Root Cause The dispatch pipeline reused its first session snapshot after the session owner changed. A repeated conflict then stayed under the generic retry rule, which requires both eight attempts and 24 hours before a terminal failure. The delayed head kept later updates in the same lane blocked. Telegram and grammY also wrap the original error twice, so top-level classification cannot identify the conflict. ## Fix - Visible pre-dispatch invalidation now carries a typed owner signal. - Dispatch rebuilds its complete state once from the durable session store. - Actual stale ownership conflicts use a dedicated code; generic storage invalidations keep their existing retry behavior. - The ingress retry owner follows nested error causes and terminates only the dedicated conflict at its configured attempt budget. - Archived, tombstoned, heartbeat, and queued-followup behavior does not change. - Generic transport failures retain the existing attempt-and-age rule. ## Evidence - Current-main red at `f1fb06eef9b46b55359f27451c10f0ba0996b534`: the final test bytes showed release at the attempt budget, missing conflict codes at each owner, generic deterministic diff-baseline conflicts, no Telegram dead letter, and a blocked same-lane follower. - Exact-head green at `1d0e517f412de0c6940ce6cbd03444285d5c6fb6`: all 328 focused tests passed with a disk-backed temporary directory. - The Telegram regression drives the durable queue, monitor, grammY middleware, shared drain, nested error graph, terminal failed row, and following same-lane update. - Generic diff-baseline read and persistence failures remain `SESSION_WORK_START_INVALIDATED` and do not take the attempt-only terminal path. - Exact-head continuous integration is the final platform gate. ## Live-proof limitation A public Telegram reset cancels the admitted turn, and message hooks run after admission, so neither can create this exact stale-start interleave. Direct database replacement would bypass the lifecycle owner under test. The deterministic Telegram E2E therefore drives the real durable queue, monitor, grammY wrapper graph, shared drain, terminal failed row, and same-lane follower without adding a production-only pause. A Test Server run confirmed this boundary with a source Gateway and public `sessions.reset`: three real DM inputs reached the provider, the reset completed, and no stale-start conflict was emitted because reset ran after admission and canceled the in-flight lifecycle instead. This negative trace is retained privately. The requested positive live trace is skipped because no supported external control exists before admission; adding a production pause or mutating the session database directly would invalidate the owner-boundary proof. ## ClawSweeper rank-up moves - Applied: stale ownership conflicts now have a dedicated code; storage failures retain the generic retry policy. - Applied: exact-head required checks completed successfully. - Skipped with proof: a positive Test Server stale-start trace is not safely reachable through public controls; the real attempt exercised the distinct reset-cancellation path described above. ## Worked on by - @brettdaman - @obviyus Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auto-reply): refresh stale session dispatches",
-      "summaryZh": "重點：修正(auto-reply): refresh stale session dispatches ## What Problem This Solves A durable inbound message can capture one s..."
+      "title": "世界機器人大會中國廠商齊聚，從技術展示走向產業化驗證",
+      "link": "https://technews.tw/2026/09/02/world-robot-conference-china-manufacturers-tech-showcase-industrialization-validation/",
+      "publishedAt": "Tue, 01 Sep 2026 23:00:11 +0000",
+      "summary": "2026 年世界機器人大會（World Robot Conference，下稱WRC）於 8 月 19~23 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "perf: avoid copying outbound node duplex fragments (#135475)",
+      "link": "https://github.com/openclaw/openclaw/commit/2cf5cb2a2c5678bb1b09010491037da7b40c8797",
+      "publishedAt": "2026-09-01T22:56:50Z",
+      "summary": "perf: avoid copying outbound node duplex fragments (#135475)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf: avoid copying outbound node duplex fragments (#135475)",
+      "summaryZh": "重點：perf: avoid copying outbound node duplex fragments (#135475)..."
+    },
+    {
+      "id": 6,
       "title": "高通推兩款 Dragonwing 新處理器，瞄準消費、工業智慧邊緣運算",
       "link": "https://technews.tw/2026/09/01/qualcomm-dragonwing-q-2390-and-iq-2390/",
       "publishedAt": "Tue, 01 Sep 2026 14:14:01 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Microsoft 365驗證異常擴大，Exchange Online郵件與Teams等多項服務受影響",
       "link": "https://www.ithome.com.tw/news/178571",
       "publishedAt": "2026-09-01 12:09:58",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "FTC攜22州控告Amazon廣告拍賣「暗藏加價」逾7年",
       "link": "https://www.ithome.com.tw/news/178572",
       "publishedAt": "2026-09-01 12:09:16",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "研究人員Nightmare Eclipse公開Nvidia記憶體中斷漏洞GreenSection",
       "link": "https://www.ithome.com.tw/news/178574",
       "publishedAt": "2026-09-01 12:09:07",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "駭客假冒《俠盜獵車手VI》外流遊戲檔案，散布惡意程式",
       "link": "https://www.ithome.com.tw/news/178573",
       "publishedAt": "2026-09-01 12:09:04",
       "summary": "遊戲《俠盜獵車手VI》（GTA VI）於近期傳出檔案外流消息後，駭客隨即利用玩家期待心理，藉由假冒的該遊戲外流檔案散布惡意軟體。這起事件的起因，是一位代號CyberLeek的爆料者於8月中旬陸續外洩該遊戲的影片與地圖，隨後網路上開始流傳號稱GTA VI完整遊戲內容的113GB ISO檔案。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "供應鏈成本飆升！高通 9 月起調漲晶片價格，漲幅達雙位數",
-      "link": "https://technews.tw/2026/09/01/qualcomm-raising-chip-prices/",
-      "publishedAt": "Tue, 01 Sep 2026 11:45:25 +0000",
-      "summary": "晶片大廠高通將自 9 月 1 日起調漲晶片價格，漲幅達雙位數。據外媒報導，高通早在今年 7 月已通知客戶，9 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
