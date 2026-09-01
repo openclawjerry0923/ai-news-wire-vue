@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-01T07:23:22.081Z",
+  "generatedAt": "2026-09-01T13:10:27.827Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(ui): preserve duration quantities across locales (#133224)",
+      "link": "https://github.com/openclaw/openclaw/commit/3cdf1180dcbbdcc5f6f05574d9a0427350f7aab0",
+      "publishedAt": "2026-09-01T13:04:06Z",
+      "summary": "fix(ui): preserve duration quantities across locales (#133224) Share duration decomposition between core and the Control UI, preserving locale presentation without repeated rounding or dropped nonadjacent units. Keep compact millisecond output limited to subsecond inputs so large finite values match the existing core formatter. Remove the duplicate UI logic and the private sole-caller normalizer.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve duration quantities across locales (#133224)",
+      "summaryZh": "重點：修正(ui): preserve duration quantities across locales (#133224) Share duration decomposition between core and the Control ..."
+    },
+    {
+      "id": 2,
+      "title": "chore(ui): refresh control ui locales (#135201)",
+      "link": "https://github.com/openclaw/openclaw/commit/f61666a6fa655d14d048b16338b1d49943399dea",
+      "publishedAt": "2026-09-01T12:58:32Z",
+      "summary": "chore(ui): refresh control ui locales (#135201) Co-authored-by: github-actions[bot]",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#135201)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#135201) Co-authored-by: github-actions[bot]..."
+    },
+    {
+      "id": 3,
+      "title": "fix(macos): bind exec approval fixtures to the canonical cwd owner (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/986cedda11f3c81fb700b55e56d7406a5ecd6367",
+      "publishedAt": "2026-09-01T12:57:00Z",
+      "summary": "fix(macos): bind exec approval fixtures to the canonical cwd owner (#134937) * test(macos): bind exec approval fixtures to the canonical cwd owner The cwd-bound approval hash moved from Foundation path folding to POSIX realpath in #131717, but ExecAllowlistTests kept a verbatim copy of the deleted implementation. The two agree only when the process working directory is not reached through a symlink, so the suite fails for any checkout under /tmp or /var while CI's runner path hides it. Delete the duplicated normalization and pin the symlink identity the production owner actually guarantees. * test(macos): reach the shared cwd hash vector through production Foundation folds existing /private paths back to their aliases in both directions, so the divergence is not limited to checkouts entered through a symlink; correct the helper comment accordingly. The exact cross-platform digest was only asserted against the fixture. TypeScript pins the same literal through its production builder, so assert it against resolveAllowAlwaysPatterns here too.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): bind exec approval 修正tures to the canonical cwd owner (#…",
+      "summaryZh": "重點：修正(macos): bind exec approval 修正tures to the canonical cwd owner (#134937) * test(macos): bind exec approval 修正tures to ..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(qa): share evidence builder execution context (#135158)",
+      "link": "https://github.com/openclaw/openclaw/commit/a38636247a9f8f1d18d8954e553225c8bec6369f",
+      "publishedAt": "2026-09-01T12:56:22Z",
+      "summary": "refactor(qa): share evidence builder execution context (#135158)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(qa): share evidence builder execution context (#135158)",
+      "summaryZh": "重點：refactor(qa): share evidence builder execution context (#135158)..."
+    },
+    {
+      "id": 5,
       "title": "Microsoft 365驗證異常擴大，Exchange Online郵件與Teams等多項服務受影響",
       "link": "https://www.ithome.com.tw/news/178571",
       "publishedAt": "2026-09-01 12:09:58",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "FTC攜22州控告Amazon廣告拍賣「暗藏加價」逾7年",
       "link": "https://www.ithome.com.tw/news/178572",
       "publishedAt": "2026-09-01 12:09:16",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "研究人員Nightmare Eclipse公開Nvidia記憶體中斷漏洞GreenSection",
       "link": "https://www.ithome.com.tw/news/178574",
       "publishedAt": "2026-09-01 12:09:07",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "駭客假冒《俠盜獵車手VI》外流遊戲檔案，散布惡意程式",
       "link": "https://www.ithome.com.tw/news/178573",
       "publishedAt": "2026-09-01 12:09:04",
@@ -38,66 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
+      "title": "供應鏈成本飆升！高通 9 月起調漲晶片價格，漲幅達雙位數",
+      "link": "https://technews.tw/2026/09/01/qualcomm-raising-chip-prices/",
+      "publishedAt": "Tue, 01 Sep 2026 11:45:25 +0000",
+      "summary": "晶片大廠高通將自 9 月 1 日起調漲晶片價格，漲幅達雙位數。據外媒報導，高通早在今年 7 月已通知客戶，9 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 10,
       "title": "美國槍砲監管機構ATF遭網路入侵，勒索軟體組織Qilin聲稱犯行",
       "link": "https://www.ithome.com.tw/news/178569",
       "publishedAt": "2026-09-01 11:09:30",
       "summary": "美國菸酒槍砲及爆炸物管理局（Bureau of Alcohol, Tobacco, Firearms and Explosives，ATF）8月26日發布公告，證實發生重大資安事件，一套獨立系統遭到入侵，ATF在發現事件後立即終止其與受影響環境的連線，並展開事件應變，同時與美國司法部合作展開調查。ATF指出，遭入侵的系統為獨立運作，目前沒有跡象顯示此次事件波及ATF企業網路、電子槍械申請系統（eForms）或其他系統，日常任務也未受影響。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "研究人員Nightmare Eclipse公布卡巴斯基、Avast防毒軟體的零時差漏洞",
-      "link": "https://www.ithome.com.tw/news/178570",
-      "publishedAt": "2026-09-01 11:09:13",
-      "summary": "屢次槓上微軟的資安研究人員Nightmare Eclipse（Chaotic Eclipse），在8月上旬公布Microsoft Defender零時差漏洞ShieldBreak之後，最近將研究對象轉向其他廠牌的防毒軟體。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test(realtime): reuse canonical terminal fixture promise helpers (#13…",
-      "link": "https://github.com/openclaw/openclaw/commit/4a2edc54888a132822cf79b63f3214186940c980",
-      "publishedAt": "2026-09-01T07:18:31Z",
-      "summary": "test(realtime): reuse canonical terminal fixture promise helpers (#134949)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(realtime): reuse canonical terminal 修正ture promise helpers (#13…",
-      "summaryZh": "重點：test(realtime): reuse canonical terminal 修正ture promise helpers (#134949)..."
-    },
-    {
-      "id": 8,
-      "title": "feat: configure a global managed worktree storage root (#134872)",
-      "link": "https://github.com/openclaw/openclaw/commit/4f8164436768860651e74aa66eb838e9010a482b",
-      "publishedAt": "2026-09-01T07:18:00Z",
-      "summary": "feat: configure a global managed worktree storage root (#134872) * feat: configure a global managed worktree storage root * refactor: remove obsolete managed worktree path lookup * test: refresh session fixture config before runtime publication * docs: clarify bare home directory worktree roots * fix: protect nested worktree roots during orphan cleanup",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: configure a global managed worktree storage root (#134872)",
-      "summaryZh": "重點：新功能: configure a global managed worktree storage root (#134872) * 新功能: configure a global managed worktree storage root ..."
-    },
-    {
-      "id": 9,
-      "title": "fix(slack): start socket and relay accounts with inactive signing sec…",
-      "link": "https://github.com/openclaw/openclaw/commit/3ae010ce8b3e978dffcd90df11e46bd3b67bb59a",
-      "publishedAt": "2026-09-01T07:17:16Z",
-      "summary": "fix(slack): start socket and relay accounts with inactive signing secrets (#134827)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): start socket and relay accounts with inactive signing sec…",
-      "summaryZh": "重點：修正(slack): start socket and relay accounts with inactive signing secrets (#134827)..."
-    },
-    {
-      "id": 10,
-      "title": "fix(gateway): reject model selections without an activatable harness …",
-      "link": "https://github.com/openclaw/openclaw/commit/2e3cae2ae3524eff681fa0064696a634b9279204",
-      "publishedAt": "2026-09-01T07:15:54Z",
-      "summary": "fix(gateway): reject model selections without an activatable harness (#134837) * fix(gateway): reject model selections without an activatable harness * test(gateway): provide harness owner in sticky model fixture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reject 模型 selections without an activatable harness …",
-      "summaryZh": "重點：修正(Gateway): reject 模型 selections without an activatable harness (#134837) * 修正(Gateway): reject 模型 selections without a..."
     }
   ]
 }
