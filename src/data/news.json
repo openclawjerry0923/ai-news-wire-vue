@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-02T08:29:07.871Z",
+  "generatedAt": "2026-09-02T13:19:31.909Z",
   "items": [
     {
       "id": 1,
+      "title": "test(ui): remove completed automations rename inventory (#136138)",
+      "link": "https://github.com/openclaw/openclaw/commit/abb565ea5f9feacd89a571247adb96a799a0e3ce",
+      "publishedAt": "2026-09-02T13:10:20Z",
+      "summary": "test(ui): remove completed automations rename inventory (#136138)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): remove completed automations rename inventory (#136138)",
+      "summaryZh": "重點：test(ui): remove completed automations rename inventory (#136138)..."
+    },
+    {
+      "id": 2,
+      "title": "perf: reduce allocation and sorting in agent event dispatch (#136296)",
+      "link": "https://github.com/openclaw/openclaw/commit/dfe9bcdf5fc58d82eb88d33b5740161f8a36474b",
+      "publishedAt": "2026-09-02T13:06:39Z",
+      "summary": "perf: reduce allocation and sorting in agent event dispatch (#136296)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf: reduce allocation and sorting in agent event dispatch (#136296)",
+      "summaryZh": "重點：perf: reduce allocation and sorting in agent event dispatch (#136296)..."
+    },
+    {
+      "id": 3,
+      "title": "fix: browser messages become interrupted during startup recovery (#13…",
+      "link": "https://github.com/openclaw/openclaw/commit/f2b77cb1ff7ece5e7fb9af475d07362ec66e4f55",
+      "publishedAt": "2026-09-02T13:02:49Z",
+      "summary": "fix: browser messages become interrupted during startup recovery (#135016) * fix: queue inputs behind startup recovery Co-authored-by: jesse-merhi Worked on by: - @jesse-merhi * fix: clean up queued recovery abort wait Co-authored-by: jesse-merhi Worked on by: - @jesse-merhi * fix: preserve recovery queue after heartbeat drain Co-authored-by: jesse-merhi Worked on by: - @jesse-merhi * fix: resample restart recovery queue ownership Co-authored-by: jesse-merhi Worked on by: - @jesse-merhi * refactor: simplify restart recovery queue ownership Co-authored-by: jesse-merhi Worked on by: - @jesse-merhi --------- Co-authored-by: Jesse Merhi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: browser messages become interrupted during startup recovery (#13…",
+      "summaryZh": "重點：修正: browser messages become interrupted during startup recovery (#135016) * 修正: queue inputs behind startup recovery Co-..."
+    },
+    {
+      "id": 4,
+      "title": "fix(plugins): channels..enabled=false no longer loads the channel…",
+      "link": "https://github.com/openclaw/openclaw/commit/a220e67a929ee202d1b4cae88b237c3aebd7f17a",
+      "publishedAt": "2026-09-02T12:59:48Z",
+      "summary": "fix(plugins): channels..enabled=false no longer loads the channel plugin when its plugin entry is enabled (#136211) * fix(plugins): honor channels..enabled=false over plugin entry enablement A channel plugin whose channel is switched off in config (`channels..enabled: false`) kept loading whenever `plugins.entries..enabled: true` was also present, which is exactly the state `openclaw plugins install @openclaw/` and `openclaw plugins enable` leave behind. Auto-enable, the Gateway startup plan, channel presence policy and the official-external repair targets all already treat that channel flag as an explicit disable; the shared activation decision was the one owner that did not, so every unscoped registry load (CLI plugin registry, agent runtime loads, outbound bootstrap) still imported the plugin. On git-built installs of source-external plugins (discord, slack: `build.bundledDist: false`) that import is what surfaced as startup ERROR lines: the build links `dist/extensions//node_modules` back to `extensions//node_modules`, and a moved or pruned checkout leaves that link dangling, so the import fails with `Cannot find module` for a channel the operator had turned off. - Teach the shared activation decision a closed `channel-disabled-in-config` cause and make the channel-config reader tri-state (`resolveChannelConfigEnablement`), so `channels..enabled: false` wins the same way `enabled: true` already opts a bundled channel in. - When an externally distributed plugin fails to import because a module is missing, name the enablement path in the loader error (`openclaw plugins install ` / `openclaw doctor --fix`) at both loader failure sites so `status`/`doctor` show what to do next. - Align the stale WhatsApp repair-hint test with the npm-first install ordering from #134490. Regression tests fail on pre-fix code at the activation decision and at the loader (bundled telegram fixture with the channel disabled and the plugin entry enabled). * fix(plugins): report missing dependencies for externally distributed bundled plugins Follow-up to the channel-disable activation fix, addressing review findings. - Plugin status skipped dependency health for every bundled-origin plugin, so a source-external plugin (`build.bundledDist: false`) compiled into `dist/extensions/` without its plugin-local `node_modules` never showed the typed \"required dependencies are missing\" state in `plugins list`, `status`, or `doctor`; the only signal was the raw import error at load time. Narrow the gate: bundled plugins that are distributed outside the root package now get dependency status like external installs. - The activation metadata hash only fingerprinted channels with `enabled: true`, so adding `enabled: false` produced the same registry cache key as an absent flag and could reuse a registry that had already loaded the plugin. Serialize the boolean tri-state instead. - Guard the missing-module cause walk in `recordPluginError`: a plugin-thrown error may expose a throwing `cause` accessor, and diagnostics inside a catch handler must not rethrow it out of the loader loop. All four regression tests fail on the previous commit. * test(plugins): split dependency-health snapshot cases out of the oversized status suite * fix(plugins): verify the official package before naming its install command The missing-dependency hint resolved the official install command from the plugin id alone, so a foreign `build.bundledDist: false` package reusing an official id (for example a Discord fork registered as `discord`) would be told to install `@openclaw/discord` over itself. Resolve the catalog entry by package name and require canonical-id equality; other externally distributed packages get a generic reinstall/update hint instead. The mismatched-package regression fails on the previous commit. * fix(plugins): resolve channel disables through manifest-owned channel ids Review follow-ups on the channel-disable activation fix: - The activation decision resolved `channels..enabled` from the plugin id alone, so a plugin whose id differs from its channel key (QQ Bot documents `openclaw-qqbot` owning `channels.qqbot`) never saw the operator's disable. Thread manifest-owned channel ids from both loaders into the shared decision and check them before the built-in catalog mapping. - Runtime status dropped package build metadata, so a generic source-external bundled plugin (`build.bundledDist: false` without an official catalog entry) was treated as an ordinary bundled plugin and its missing dependencies never surfaced in `status`/`doctor`. Carry the installed index's `packageBuild` into the runtime dependency-status decision. - Guard nested error-code reads in the missing-module classifier: a nested error with a throwing `code` getter must not escape the loader's catch. Every regression fails on the previous commit. * fix(plugins): pass manifest channel ids to every activation consumer The channel-disable decision only received manifest-owned channel ids from the two module loaders, so metadata consumers that publish a plugin's declared surfaces (skills, hooks, embedded settings, startup planning, presence policy, index writes, provider inventory, public-surface access) still activated a renamed-channel plugin such as `openclaw-qqbot` after `channels.qqbot.enabled: false`. Pass `channels` from the manifest or installed-index record at every call site that has one; id-only callers keep the built-in catalog mapping. The skills regression (bundled `openclaw-demo` owning `channels.demo`) fails on the previous commit. * fix(plugins): honor channel disables and source-external dependency health in index and managed diagnostics Two remaining consumers of the activation decision and dependency-status gate: - `isInstalledPluginEnabled` evaluated a renamed-channel plugin from its id alone, so contribution and command-default consumers still saw `openclaw-qqbot` as enabled after `channels.qqbot.enabled: false`. Pass the index record's channel ids. - Gateway `plugins.list` diagnostics excluded every bundled-origin plugin from dependency health, so an enabled `build.bundledDist: false` plugin with missing required dependencies was listed without its error. Use the shared `tracksPluginDependencyStatus` gate there too. Both regressions fail on the previous commit.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): channels..enabled=false no longer loads the channel…",
+      "summaryZh": "重點：修正(plugins): channels..enabled=false no longer loads the channel plugin when its plugin entry is enabled (#136211) * 修正(..."
+    },
+    {
+      "id": 5,
       "title": "Apple再促淘汰Intel Mac應用，macOS 27將成Rosetta通用支援最後一版",
       "link": "https://www.ithome.com.tw/news/178604",
       "publishedAt": "2026-09-02 12:09:56",
@@ -11,8 +55,8 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "近2.2萬臺Exchange Server暴露於因漏洞導致的外網接管風險，臺灣也有250臺",
+      "id": 6,
+      "title": "近2.2萬臺Exchange Server暴露於漏洞導致的接管風險，臺灣也有250臺",
       "link": "https://www.ithome.com.tw/news/178609",
       "publishedAt": "2026-09-02 12:09:13",
       "summary": "微軟在8月份例行更新修補的Exchange Server高風險漏洞CVE-2026-62911，近日引發關注，該漏洞的CVSS評分達8.0分，屬於權限提升問題，可能導致攻擊者接管受害主機上的所有使用者郵箱，包括收發信件與下載附件，影響Exchange Server 2016與2019版，以及Exchange Server訂閱版（SE）。",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "John Ternus正式接任蘋果執行長",
       "link": "https://www.ithome.com.tw/news/178608",
       "publishedAt": "2026-09-02 12:09:05",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "偉訓部分資訊系統遭網路安全事件，已隔離受影響系統並啟動調查",
       "link": "https://www.ithome.com.tw/news/178602",
       "publishedAt": "2026-09-02 11:09:36",
@@ -38,66 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "為因應零時差漏洞攻擊活動，PaperCut三度發布緊急修補程式",
       "link": "https://www.ithome.com.tw/news/178607",
       "publishedAt": "2026-09-02 11:09:26",
-      "summary": "上週列印管理系統供應商PaperCut警告，旗下的PaperCut NG與PaperCut MF系統存在零時差漏洞CVE-2026-82078、CVE-2026-81578，並在兩天內發布兩度緊急修補程式，隨後有多家資安公司揭露相關攻擊活動，美國網路安全與基礎設施安全局（CISA）也表示掌握漏洞遭積極利用",
+      "summary": "上週列印管理系統供應商PaperCut警告，旗下的PaperCut NG與PaperCut MF系統存在零時差漏洞CVE-2026-82078、CVE-2026-81578，並在兩天內兩度發布緊急修補程式，隨後有多家資安公司揭露相關攻擊活動，美國網路安全與基礎設施安全局（CISA）也表示掌握漏洞遭積極利用",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Meta推出即時音訊模型Muse Voice Transcribe，Mac按住Fn鍵即可系統級語音輸入",
       "link": "https://www.ithome.com.tw/news/178605",
       "publishedAt": "2026-09-02 11:09:25",
       "summary": "Meta周二（9/1）正式推出由超級智慧實驗室（Meta Superintelligence Labs，MSL）所開發的首個即時音訊感知模型Muse Voice Transcribe。該模型將串流式自動語音辨識、說話者分離（Diarization）與端點偵測（Endpointing）整合於單一模型之中，用戶說話時系統可同步輸出文字，無需等待完整錄音結束後再進行後製處理。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(routing): keep empty-id peers out of the peerless route cache slot",
-      "link": "https://github.com/openclaw/openclaw/commit/771ffac8619c563c4882310922f23d8952912ba5",
-      "publishedAt": "2026-09-02T08:29:02Z",
-      "summary": "fix(routing): keep empty-id peers out of the peerless route cache slot Preserve the peer kind in route-cache identity whenever a peer object exists. This keeps peerless, empty direct, empty group, and non-empty peer routes in distinct cache slots. It prevents route resolution order from changing the selected binding tier or agent. The regression test uses one configuration object and covers exact peer, wildcard peer, account, and channel tiers with repeated lookups. Proof: current main fails the route-resolution trace in both lookup orders. This head passes the trace and all 215 routing tests. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(routing): keep empty-id peers out of the peerless route cache slot",
-      "summaryZh": "重點：修正(routing): keep empty-id peers out of the peerless route cache slot Preserve the peer kind in route-cache identity whe..."
-    },
-    {
-      "id": 8,
-      "title": "fix: show requester titles on projected approval cards (#136091)",
-      "link": "https://github.com/openclaw/openclaw/commit/daffac35063ce045fbfabab90880691dc5c82676",
-      "publishedAt": "2026-09-02T08:28:00Z",
-      "summary": "fix: show requester titles on projected approval cards (#136091) Control UI projected approvals now use the requesting session metadata instead of showing New session for named dashboard sessions. Keep approval authority and decision routing unchanged. Fixes #136083.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show requester titles on projected approval cards (#136091)",
-      "summaryZh": "重點：修正: show requester titles on projected approval cards (#136091) Control UI projected approvals now use the requesting se..."
-    },
-    {
-      "id": 9,
-      "title": "perf(gateway): reuse verified startup plugin metadata (#136141)",
-      "link": "https://github.com/openclaw/openclaw/commit/91fdd6b8ea3e016775110c57b8f39fa3c42f63e2",
-      "publishedAt": "2026-09-02T08:27:10Z",
-      "summary": "perf(gateway): reuse verified startup plugin metadata (#136141) Return the final accepted preflight config/metadata generation and adopt its existing cache after successful foreground config preparation. Preserve fresh rereads, package checks, migration leases, and Gateway activation order. The final config-read phase improved in all 40 measured A/B pairs. Overall startup and CPU savings remain unproven; retain the mixed results in the PR.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): reuse verified startup plugin metadata (#136141)",
-      "summaryZh": "重點：perf(Gateway): reuse verified startup plugin metadata (#136141) Return the final accepted preflight config/metadata gene..."
-    },
-    {
-      "id": 10,
-      "title": "refactor(ui): consolidate shared session menu rendering (#136119)",
-      "link": "https://github.com/openclaw/openclaw/commit/c35350c92d8609d28dfcf190197ec22583e62ea3",
-      "publishedAt": "2026-09-02T08:25:44Z",
-      "summary": "refactor(ui): consolidate shared session menu rendering (#136119)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): consolidate shared session menu rendering (#136119)",
-      "summaryZh": "重點：refactor(ui): consolidate shared session menu rendering (#136119)..."
     }
   ]
 }
