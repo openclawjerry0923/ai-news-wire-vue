@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-09-02T20:37:52.541Z",
+  "generatedAt": "2026-09-02T23:02:17.620Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(infra): refresh dedupe entries without replacement records (#136…",
-      "link": "https://github.com/openclaw/openclaw/commit/1ce1254ae05a95dd1d9303f9dabb910b0ac2a2d6",
-      "publishedAt": "2026-09-02T20:37:46Z",
-      "summary": "perf(infra): refresh dedupe entries without replacement records (#136457)",
+      "title": "fix(plugins): refresh persisted registry when source mounts change (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/a394c3724e01e126fef9f6122648bac3b96424fe",
+      "publishedAt": "2026-09-02T23:01:22Z",
+      "summary": "fix(plugins): refresh persisted registry when source mounts change (#136517) * fix(plugins): retain mounted source ownership through loading and restart * ci: refresh checks against current main",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(infra): refresh dedupe entries without replacement records (#136…",
-      "summaryZh": "重點：perf(infra): refresh dedupe entries without replacement records (#136457)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): refresh persisted registry when source mounts change (#…",
+      "summaryZh": "重點：修正(plugins): refresh persisted registry when source mounts change (#136517) * 修正(plugins): retain mounted source ownersh..."
     },
     {
       "id": 2,
-      "title": "test(gateway): exercise usage dates in native timezones (#136501)",
-      "link": "https://github.com/openclaw/openclaw/commit/5cbfebd4a86526ec4bb851415ba10d5c004c0a3b",
-      "publishedAt": "2026-09-02T20:36:10Z",
-      "summary": "test(gateway): exercise usage dates in native timezones (#136501) Run native timezone usage tests in isolated forks so changing TZ reaches Node Date. Keep gateway handler and loader boundary assertions, use fixed UTC expectations, and replace redundant test helpers with existing owners.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): exercise usage dates in native timezones (#136501)",
-      "summaryZh": "重點：test(Gateway): exercise usage dates in native timezones (#136501) Run native timezone usage tests in isolated forks so c..."
+      "title": "TIER IV 跨足硬體戰略！雙軌布局開源自駕晶片與瑞薩量產方案",
+      "link": "https://technews.tw/2026/09/03/tier-iv-and-renesas-develop-mass-production-solution/",
+      "publishedAt": "Wed, 02 Sep 2026 23:00:34 +0000",
+      "summary": "自駕軟體開源廠商 TIER IV 宣布兩大硬體重要合作，除了加入日本 JST 計畫，開發並開源專為端到端（E2 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(agents): declare sessions_spawn expectsCompletionMessage in the t…",
-      "link": "https://github.com/openclaw/openclaw/commit/fcbe9938d8c6b71917d4b70bdc8d2049d6c18547",
-      "publishedAt": "2026-09-02T20:35:36Z",
-      "summary": "fix(agents): declare sessions_spawn expectsCompletionMessage in the tool schema (#136570) `sessions_spawn` honored `expectsCompletionMessage: false` from raw model arguments (hidden, ACP, and visible paths) but never declared the key in the tool schema or in docs/tools/subagents.md. The behavior is a shipped contract (2026.5.2 release notes, fixes #75848) with a real backend caller (worker-session-tool-executor spawns visible worktree children without a completion handoff), so the fix is to surface it rather than remove it. - Declare `expectsCompletionMessage` as an optional boolean with a short model-facing description in `createSessionsSpawnToolSchema`. - Thread the tool's single computed value into `maybeSpawnVisibleSession` instead of re-reading the key from raw args on the visible path. - Document the parameter and its announce-skip semantics in docs/tools/subagents.md. - Regression test: schema declares the key and `false` is forwarded on hidden, ACP, and visible spawns (fails pre-fix on the missing schema property). - Regenerate the Codex-runtime prompt snapshots that embed this schema. - Pass the explicit flag at the three direct `maybeSpawnVisibleSession` test callers now that the parameter is required. - Inline the single-use requester display-key constant in the retry-grace e2e test so the file stays under the max-lines lint cap. Release notes: sessions_spawn now advertises `expectsCompletionMessage` (default true); pass `false` for fire-and-forget children whose completion should not be handed back to the requester. Refs #75848.",
+      "title": "fix(ui): keep Inbox out of Settings (#135722)",
+      "link": "https://github.com/openclaw/openclaw/commit/cabe4bade07ab79303b76dead4b7deeba0ddacdb",
+      "publishedAt": "2026-09-02T23:00:14Z",
+      "summary": "fix(ui): keep Inbox out of Settings (#135722) * fix(ui): keep Inbox out of Settings * fix(ui): preserve Inbox state across Settings * fix(ui): bind retained Inbox state to owner * refactor(ui): share Inbox attention state * fix(ui): publish Inbox sources independently * test(ui): align lazy Inbox and reconnect proofs * test(ui): await refreshed project identity * test(agents): remove auth alias mock leak * fix(ui): rearm recurring access alerts * test(ui): use suite server for access recurrence * fix(ui): rearm access alerts without Inbox",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): declare sessions_spawn expectsCompletionMessage in the t…",
-      "summaryZh": "重點：修正(agents): declare sessions_spawn expectsCompletionMessage in the tool schema (#136570) `sessions_spawn` honored `expec..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep Inbox out of Settings (#135722)",
+      "summaryZh": "重點：修正(ui): keep Inbox out of Settings (#135722) * 修正(ui): keep Inbox out of Settings * 修正(ui): preserve Inbox state across ..."
     },
     {
       "id": 4,
-      "title": "fix(channels): keep capability timeout reports alive (#136539)",
-      "link": "https://github.com/openclaw/openclaw/commit/e721414aa8ea421e357e7a94e3016114864d2bfa",
-      "publishedAt": "2026-09-02T20:32:21Z",
-      "summary": "fix(channels): keep capability timeout reports alive (#136539) * fix(channels): keep capability timeout reports alive * test(cli): share Gateway process fixtures * test(cli): retain the canonical main process test split",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): keep capability timeout reports alive (#136539)",
-      "summaryZh": "重點：修正(channels): keep capability timeout reports alive (#136539) * 修正(channels): keep capability timeout reports alive * te..."
+      "title": "牧德 8 月營收 3.61 億元創高，高階產品訂單延伸至未來數季",
+      "link": "https://finance.technews.tw/2026/09/03/mutek-record-high-august-revenue-nt361-million-high-end-product-orders-extend-several-quarters/",
+      "publishedAt": "Wed, 02 Sep 2026 23:00:05 +0000",
+      "summary": "牧德科技 2 日公布 8 月合併營收約 3.61 億元，月增 0.42%、年增 35.68%，單月營收再創歷史 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "fix(android): keep refresh results and progress current (#136643)",
+      "link": "https://github.com/openclaw/openclaw/commit/b32276f3626ec90f3075852c5ad79e5d61c58ec5",
+      "publishedAt": "2026-09-02T22:59:33Z",
+      "summary": "fix(android): keep refresh results and progress current (#136643) * fix(android): keep refresh results and progress current Consolidate settings data, loading, and error state under one latest-request owner. Preserve each install's own readback without allowing stale refreshes to replace newer UI state. Keep Usage convergence retries bounded. Expose New-session creation separately from transcript loading and show progress within the existing header and sidebar controls. Remove retired camera/discovery status producers, unused ViewModel relays, obsolete send wrappers, and the share queue's unused head projection. Preserve Gateway scope fences, camera permission/audio cleanup, and share queue ownership. Add ordering regressions and document the visible behavior. Refs #136638 Related #136413 * chore(i18n): refresh native source inventory",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(android): keep refresh results and progress current (#136643)",
+      "summaryZh": "重點：修正(android): keep refresh results and progress current (#136643) * 修正(android): keep refresh results and progress curren..."
+    },
+    {
+      "id": 6,
+      "title": "refactor(scripts): share bounded output tail (#135802)",
+      "link": "https://github.com/openclaw/openclaw/commit/4bb80002a2b54b908973aa18efeb99f861eeba63",
+      "publishedAt": "2026-09-02T22:56:23Z",
+      "summary": "refactor(scripts): share bounded output tail (#135802)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): share bounded output tail (#135802)",
+      "summaryZh": "重點：refactor(scripts): share bounded output tail (#135802)..."
+    },
+    {
+      "id": 7,
+      "title": "信邦 8 月營收 32.81 億元創高，苗栗新廠 2027 年第二季投產",
+      "link": "https://finance.technews.tw/2026/09/03/sinbon-august-revenue-record-miaoli-plant-q2-2027-production/",
+      "publishedAt": "Wed, 02 Sep 2026 22:00:38 +0000",
+      "summary": "信邦 8 月自結合併營收達 32.81 億元，月增 3.58%、年增 32.47%，連續 5 個月改寫單月歷史 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "博大 8 月營收再創高、年增 56%，下半年營運續旺",
       "link": "https://finance.technews.tw/2026/09/02/boda-august-revenue-new-high-56-yoy-second-half-operations-robust/",
       "publishedAt": "Wed, 02 Sep 2026 13:33:56 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Apple再促淘汰Intel Mac應用，macOS 27將成Rosetta通用支援最後一版",
       "link": "https://www.ithome.com.tw/news/178604",
       "publishedAt": "2026-09-02 12:09:56",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "近2.2萬臺Exchange Server暴露於漏洞導致的接管風險，臺灣也有250臺",
       "link": "https://www.ithome.com.tw/news/178609",
       "publishedAt": "2026-09-02 12:09:13",
       "summary": "微軟在8月份例行更新修補的Exchange Server高風險漏洞CVE-2026-62911，近日引發關注，該漏洞的CVSS評分達8.0分，屬於權限提升問題，可能導致攻擊者接管受害主機上的所有使用者郵箱，包括收發信件與下載附件，影響Exchange Server 2016與2019版，以及Exchange Server訂閱版（SE）。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "John Ternus正式接任蘋果執行長",
-      "link": "https://www.ithome.com.tw/news/178608",
-      "publishedAt": "2026-09-02 12:09:05",
-      "summary": "蘋果本周二（9/1）正式完成備受矚目的執行長交接，由硬體工程資深副總裁John Ternus接替掌舵15年的Tim Cook，成為蘋果新任執行長，Cook則轉任董事會執行董事長。當天蘋果股價上漲了2.61%，以325.13美元作收。 現年51歲的Ternus自2001年加入蘋果產品設計團隊，2013年升任硬體工程副總裁，2021年進入執行團隊擔任硬體工程資深副總裁，在蘋果已服務25年。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "偉訓部分資訊系統遭網路安全事件，已隔離受影響系統並啟動調查",
-      "link": "https://www.ithome.com.tw/news/178602",
-      "publishedAt": "2026-09-02 11:09:36",
-      "summary": "上市電子零組件廠偉訓（3032）於8月30日晚間，在股市公開資訊觀測站發布資安重訊，表示已偵測到部分資訊系統遭受網路安全事件，在發現異常後立即啟動資安應變機制，隔離受影響的資訊系統並進行風險控管，同時委請外部專業資安廠商協助系統復原及事件調查。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "為因應零時差漏洞攻擊活動，PaperCut三度發布緊急修補程式",
-      "link": "https://www.ithome.com.tw/news/178607",
-      "publishedAt": "2026-09-02 11:09:26",
-      "summary": "上週列印管理系統供應商PaperCut警告，旗下的PaperCut NG與PaperCut MF系統存在零時差漏洞CVE-2026-82078、CVE-2026-81578，並在兩天內兩度發布緊急修補程式，隨後有多家資安公司揭露相關攻擊活動，美國網路安全與基礎設施安全局（CISA）也表示掌握漏洞遭積極利用",
       "source": "iThome",
       "tag": "繁中"
     }
