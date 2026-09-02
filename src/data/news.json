@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-02T17:39:48.467Z",
+  "generatedAt": "2026-09-02T20:37:52.541Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(catalog): reuse owned manifest planning collections (#136403)",
-      "link": "https://github.com/openclaw/openclaw/commit/4057bd49cee4d496d180b68ae10efe06241c3efc",
-      "publishedAt": "2026-09-02T17:38:00Z",
-      "summary": "perf(catalog): reuse owned manifest planning collections (#136403)",
+      "title": "perf(infra): refresh dedupe entries without replacement records (#136…",
+      "link": "https://github.com/openclaw/openclaw/commit/1ce1254ae05a95dd1d9303f9dabb910b0ac2a2d6",
+      "publishedAt": "2026-09-02T20:37:46Z",
+      "summary": "perf(infra): refresh dedupe entries without replacement records (#136457)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(catalog): reuse owned manifest planning collections (#136403)",
-      "summaryZh": "重點：perf(catalog): reuse owned manifest planning collections (#136403)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(infra): refresh dedupe entries without replacement records (#136…",
+      "summaryZh": "重點：perf(infra): refresh dedupe entries without replacement records (#136457)..."
     },
     {
       "id": 2,
-      "title": "fix(android): restore local release validation gates (#136319)",
-      "link": "https://github.com/openclaw/openclaw/commit/42c0e114cfd98cb55fc2b1c59ba5205d67972e21",
-      "publishedAt": "2026-09-02T17:37:35Z",
-      "summary": "fix(android): restore local release validation gates (#136319) * fix(android): handle physical devices in screenshot discovery Punchcard-Session: brisk-river-workshop-b1 * fix(android): execute release signing validation Punchcard-Session: brisk-river-workshop-b1 * test(android): cover release validation regressions Punchcard-Session: quiet-brook-meadow-cb * fix(android): route physical devices through emulator guard Punchcard-Session: quiet-brook-meadow-cb",
+      "title": "test(gateway): exercise usage dates in native timezones (#136501)",
+      "link": "https://github.com/openclaw/openclaw/commit/5cbfebd4a86526ec4bb851415ba10d5c004c0a3b",
+      "publishedAt": "2026-09-02T20:36:10Z",
+      "summary": "test(gateway): exercise usage dates in native timezones (#136501) Run native timezone usage tests in isolated forks so changing TZ reaches Node Date. Keep gateway handler and loader boundary assertions, use fixed UTC expectations, and replace redundant test helpers with existing owners.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): restore local 版本發布 validation gates (#136319)",
-      "summaryZh": "重點：修正(android): restore local 版本發布 validation gates (#136319) * 修正(android): handle physical devices in screenshot discover..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): exercise usage dates in native timezones (#136501)",
+      "summaryZh": "重點：test(Gateway): exercise usage dates in native timezones (#136501) Run native timezone usage tests in isolated forks so c..."
     },
     {
       "id": 3,
-      "title": "perf(logging): trim owned log-tail arrays in place (#136404)",
-      "link": "https://github.com/openclaw/openclaw/commit/764ba7a9854e0b2347382e4c104aff42fdb95cf4",
-      "publishedAt": "2026-09-02T17:33:35Z",
-      "summary": "perf(logging): trim owned log-tail arrays in place (#136404)",
+      "title": "fix(agents): declare sessions_spawn expectsCompletionMessage in the t…",
+      "link": "https://github.com/openclaw/openclaw/commit/fcbe9938d8c6b71917d4b70bdc8d2049d6c18547",
+      "publishedAt": "2026-09-02T20:35:36Z",
+      "summary": "fix(agents): declare sessions_spawn expectsCompletionMessage in the tool schema (#136570) `sessions_spawn` honored `expectsCompletionMessage: false` from raw model arguments (hidden, ACP, and visible paths) but never declared the key in the tool schema or in docs/tools/subagents.md. The behavior is a shipped contract (2026.5.2 release notes, fixes #75848) with a real backend caller (worker-session-tool-executor spawns visible worktree children without a completion handoff), so the fix is to surface it rather than remove it. - Declare `expectsCompletionMessage` as an optional boolean with a short model-facing description in `createSessionsSpawnToolSchema`. - Thread the tool's single computed value into `maybeSpawnVisibleSession` instead of re-reading the key from raw args on the visible path. - Document the parameter and its announce-skip semantics in docs/tools/subagents.md. - Regression test: schema declares the key and `false` is forwarded on hidden, ACP, and visible spawns (fails pre-fix on the missing schema property). - Regenerate the Codex-runtime prompt snapshots that embed this schema. - Pass the explicit flag at the three direct `maybeSpawnVisibleSession` test callers now that the parameter is required. - Inline the single-use requester display-key constant in the retry-grace e2e test so the file stays under the max-lines lint cap. Release notes: sessions_spawn now advertises `expectsCompletionMessage` (default true); pass `false` for fire-and-forget children whose completion should not be handed back to the requester. Refs #75848.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(logging): trim owned log-tail arrays in place (#136404)",
-      "summaryZh": "重點：perf(logging): trim owned log-tail arrays in place (#136404)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): declare sessions_spawn expectsCompletionMessage in the t…",
+      "summaryZh": "重點：修正(agents): declare sessions_spawn expectsCompletionMessage in the tool schema (#136570) `sessions_spawn` honored `expec..."
     },
     {
       "id": 4,
-      "title": "perf(plugins): project only selected provider entries (#136398)",
-      "link": "https://github.com/openclaw/openclaw/commit/8c60cc9d2ca94f044e99394dc1bfc5828e2ed6cd",
-      "publishedAt": "2026-09-02T17:28:51Z",
-      "summary": "perf(plugins): project only selected provider entries (#136398)",
+      "title": "fix(channels): keep capability timeout reports alive (#136539)",
+      "link": "https://github.com/openclaw/openclaw/commit/e721414aa8ea421e357e7a94e3016114864d2bfa",
+      "publishedAt": "2026-09-02T20:32:21Z",
+      "summary": "fix(channels): keep capability timeout reports alive (#136539) * fix(channels): keep capability timeout reports alive * test(cli): share Gateway process fixtures * test(cli): retain the canonical main process test split",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins): project only selected provider entries (#136398)",
-      "summaryZh": "重點：perf(plugins): project only selected provider entries (#136398)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): keep capability timeout reports alive (#136539)",
+      "summaryZh": "重點：修正(channels): keep capability timeout reports alive (#136539) * 修正(channels): keep capability timeout reports alive * te..."
     },
     {
       "id": 5,
