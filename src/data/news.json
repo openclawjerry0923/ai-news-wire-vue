@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-03T13:18:35.019Z",
+  "generatedAt": "2026-09-03T17:34:37.799Z",
   "items": [
     {
       "id": 1,
-      "title": "perf: reuse runtime-context delimiter patterns (#137256)",
-      "link": "https://github.com/openclaw/openclaw/commit/d439a47558c185239a7c79b76e0a2cdd6a483883",
-      "publishedAt": "2026-09-03T13:16:15Z",
-      "summary": "perf: reuse runtime-context delimiter patterns (#137256)",
+      "title": "fix(discord): preserve realtime speaker and playback ownership (#137433)",
+      "link": "https://github.com/openclaw/openclaw/commit/85d510c1352604727286976de4280f1a7c175992",
+      "publishedAt": "2026-09-03T17:30:05Z",
+      "summary": "fix(discord): preserve realtime speaker and playback ownership (#137433) * fix(discord): preserve realtime speaker and playback ownership Bind provider connections to one Discord principal so delayed transcripts and native consultations cannot inherit another speaker's authority. Keep the shared agent route and serialize response-owned audio on one room player, preserving continuations and recovery after playback gaps. Admit host-requested responses before dispatch and map Google Live turn completion to canonical terminal outcomes so queued speech can finish. Closes #137349 Related: #136982, #123243 Follow-up: #137417 * test(discord): preserve room capture across speaker recovery",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: reuse runtime-context delimiter patterns (#137256)",
-      "summaryZh": "重點：perf: reuse runtime-context delimiter patterns (#137256)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Discord): preserve realtime speaker and playback ownership (#137433)",
+      "summaryZh": "重點：修正(Discord): preserve realtime speaker and playback ownership (#137433) * 修正(Discord): preserve realtime speaker and pla..."
     },
     {
       "id": 2,
-      "title": "feat(multi-user): add provider-neutral connected accounts (#134970)",
-      "link": "https://github.com/openclaw/openclaw/commit/e4e230510c15e8d0ea4b2e08e1166589ee1d41fe",
-      "publishedAt": "2026-09-03T13:15:19Z",
-      "summary": "feat(multi-user): add provider-neutral connected accounts (#134970) Unify personal provider accounts across Connected accounts, the CLI and the chat/New session model picker. Provider plugins own supported sign-in methods; the Gateway owns the initiating human connection, private credentials/defaults and session selection. Custodian hands setup to the protected UI or CLI. Preserve existing session pins and capture defaults only at creation. Carry the original operation's live assertion into provider authentication and the shared final-dispatch hook, after DNS/proxy preparation and on every redirect. Keep cancellation and final synchronous credential-store fencing as separate guards. Reuse identity-secret storage without a new schema or configuration surface. Repair account pagination, clipped guidance, stale navigation and cancelled PTY construction. Preserve Dashboard iframe identity across pane transitions and close only the retired model-catalog request's worker pool. Adopt main's canonical node withheld-permission producer for hot policy-denial guidance. Exact-head proof includes a clean build,319 focused auth tests, real-Gateway held-token/poll revocation with zero forbidden requests/writes and successful fresh controls, and a real-Gateway browser policy replay. The PR preserves sanitized before/after screenshots and separately attributed historical proof. Account selection is not a billing receipt. Anthropic setup is API-key only; native subscription credentials are not imported. Fresh MFA-gated OAuth remains unverified. Inherited SOCKS transport issue #131354 has separate repair #131436. Co-authored-by: scoootscooob Co-authored-by: Claude Opus 4.8 Co-authored-by: Peter Steinberger",
+      "title": "chore(ui): refresh control ui locales (#137445)",
+      "link": "https://github.com/openclaw/openclaw/commit/1de701bbc19b5c3212eab94d5b023f92cd32dae1",
+      "publishedAt": "2026-09-03T17:29:20Z",
+      "summary": "chore(ui): refresh control ui locales (#137445) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(multi-user): add provider-neutral connected accounts (#134970)",
-      "summaryZh": "重點：新功能(multi-user): add provider-neutral connected accounts (#134970) Unify personal provider accounts across Connected acc..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#137445)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#137445) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 3,
-      "title": "fix(android): hide Jump to latest when chat already fits (#136742)",
-      "link": "https://github.com/openclaw/openclaw/commit/7e0dc956704896b37bba2779e136e1e06de2a8ca",
-      "publishedAt": "2026-09-03T13:14:25Z",
-      "summary": "fix(android): hide Jump to latest when chat already fits (#136742) * fix(android): keep reader navigation out of chat content Move Jump to latest into the chat header and gate it on the visible latest-content edge. Keep follow intent independent of viewport geometry and remove the transcript inset and overlay. Cover short, overflowing, near-fitting, resized and large-font histories while preserving header touch targets and composer geometry. Follow-up to #134939. * docs(android): correct composer line limit",
+      "title": "fix(subagents): bound restored requester-settle recovery (#133057)",
+      "link": "https://github.com/openclaw/openclaw/commit/09ae220ea89111b41038b66121a521b1ee8f3c0f",
+      "publishedAt": "2026-09-03T17:28:19Z",
+      "summary": "fix(subagents): bound restored requester-settle recovery (#133057) Bound requester-settle wake execution restored during Gateway activation to two concurrent callbacks. The lifecycle owner now distinguishes restored work from live work, keeps restored retries behind the same bound, reserves queued Gateway roots for restart drain accounting, and retires restore classification after durable settlement. Proof: current main started three restored wakes at once. The repaired head starts two, admits the third after one release, keeps live wakes unthrottled, and passes focused lifecycle, persistence, E2E, and changed-scope checks. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): hide Jump to latest when chat already fits (#136742)",
-      "summaryZh": "重點：修正(android): hide Jump to latest when chat already fits (#136742) * 修正(android): keep reader navigation out of chat cont..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): bound restored requester-settle recovery (#133057)",
+      "summaryZh": "重點：修正(subagents): bound restored requester-settle recovery (#133057) Bound requester-settle wake execution restored during ..."
     },
     {
       "id": 4,
-      "title": "perf: prepare default outbound target kind pattern once (#137305)",
-      "link": "https://github.com/openclaw/openclaw/commit/49f1bea621581d1914c13c6ad98b02f0a20b3626",
-      "publishedAt": "2026-09-03T13:11:10Z",
-      "summary": "perf: prepare default outbound target kind pattern once (#137305)",
+      "title": "ci: consolidate QA jobs and reuse CLI test setup (#137421)",
+      "link": "https://github.com/openclaw/openclaw/commit/781f9639ce414316a70a467de9d4dd73e8dcc4f4",
+      "publishedAt": "2026-09-03T17:23:42Z",
+      "summary": "ci: consolidate QA jobs and reuse CLI test setup (#137421) * ci: consolidate QA jobs and reuse CLI test setup * docs(ci): align hybrid QA matrix description",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: prepare default outbound target kind pattern once (#137305)",
-      "summaryZh": "重點：perf: prepare default outbound target kind pattern once (#137305)..."
+      "titleZh": "OpenClaw 程式碼更新：ci: consolidate QA jobs and reuse CLI test setup (#137421)",
+      "summaryZh": "重點：ci: consolidate QA jobs and reuse CLI test setup (#137421) * ci: consolidate QA jobs and reuse CLI test setup * 文件(ci): ..."
     },
     {
       "id": 5,
