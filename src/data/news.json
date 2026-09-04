@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-04T17:23:51.804Z",
+  "generatedAt": "2026-09-04T20:23:22.481Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(startup): avoid duplicate scans during migration checks (#138315)",
-      "link": "https://github.com/openclaw/openclaw/commit/8d060cd03dc4f6ae9ad842d4ba2f84cc39e9b98e",
-      "publishedAt": "2026-09-04T17:22:00Z",
-      "summary": "fix(startup): avoid duplicate scans during migration checks (#138315)",
+      "title": "refactor(storage): reject asynchronous inner transaction hooks (#138509)",
+      "link": "https://github.com/openclaw/openclaw/commit/b7f7e9c6756b5b06d390b93fcf37191e79f610a9",
+      "publishedAt": "2026-09-04T20:23:07Z",
+      "summary": "refactor(storage): reject asynchronous inner transaction hooks (#138509)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(startup): avoid duplicate scans during migration checks (#138315)",
-      "summaryZh": "重點：修正(startup): avoid duplicate scans during migration checks (#138315)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(storage): reject asynchronous inner transaction hooks (#138509)",
+      "summaryZh": "重點：refactor(storage): reject asynchronous inner transaction hooks (#138509)..."
     },
     {
       "id": 2,
-      "title": "fix: preserve trajectory events in shared session stores (#138240)",
-      "link": "https://github.com/openclaw/openclaw/commit/f45b2a45f9b764f05199e80c7b4ab17c65485e94",
-      "publishedAt": "2026-09-04T17:19:06Z",
-      "summary": "fix: preserve trajectory events in shared session stores (#138240) * fix(trajectory): reuse canonical shared-store ownership Route trajectory writes and reads through canonical SQLite scope resolution so logical agents can record, tail, and export events in a shared store without changing its physical owner. Remove the duplicate adapter while retaining non-shared owner rejection and existing retention behavior. Verified failing-before shared recorder/export regressions, 116 focused tests, and actual runtime recording plus CLI tail/export through an isolated admitted worker WebSocket flow with synthetic provider inference. * docs: correct task and trajectory database locations",
+      "title": "fix(agents): preserve Astra continuation history and effort caches (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/cd2909f176375d0b99999ecbef28d1035d869d47",
+      "publishedAt": "2026-09-04T20:22:41Z",
+      "summary": "fix(agents): preserve Astra continuation history and effort caches (#138434) * fix(agents): keep steering input and effort prompts stable * fix(agents): preserve encrypted reasoning across async continuations Move orphan reasoning cleanup to the Responses payload owner after route-bound ciphertext checks. Keep model-switch invalidation at history preparation and remove fragment-adjacency rewriting from active streams. Verified the failing Gateway trace, pre-fix regression, 411 owner/provider tests, and two clean independent P0-P2 reviews. Local aggregate typecheck encountered an outdated shared fs-safe install; final pinned-dependency checks run on Testbox. * test(openai): separate reasoning replay coverage",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve trajectory events in shared session stores (#138240)",
-      "summaryZh": "重點：修正: preserve trajectory events in shared session stores (#138240) * 修正(trajectory): reuse canonical shared-store ownersh..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve Astra continuation history and effort caches (#…",
+      "summaryZh": "重點：修正(agents): preserve Astra continuation history and effort caches (#138434) * 修正(agents): keep steering input and effort..."
     },
     {
       "id": 3,
-      "title": "fix(testbox): preserve complete source snapshots (#138404)",
-      "link": "https://github.com/openclaw/openclaw/commit/a86a1b505d335ce6b40cb4f9f1af4ece5103f0c5",
-      "publishedAt": "2026-09-04T17:13:36Z",
-      "summary": "fix(testbox): preserve complete source snapshots (#138404) Freeze policy-selected raw source into the existing Git-bundle path and verify filesystem bytes, symlink targets, executable flags, and producer-owned deletions before executing Testbox proof. Remove the unverified remote auto-commit and fingerprint the actual source-owner modules. Closes #138153. Verified native checksum-full recovery against the complete source hash; 284/284 Linux owner tests passed with an unchanged candidate manifest. Native openrsync deletion of ignored runtime directories remains a separate limitation.",
+      "title": "fix(talk): avoid full plugin imports during cold catalog discovery (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/52644b7af6fb5a43d76329c2c152b8e44fd32e6f",
+      "publishedAt": "2026-09-04T20:21:21Z",
+      "summary": "fix(talk): avoid full plugin imports during cold catalog discovery (#138483) * fix(talk): avoid full plugin imports during cold catalog discovery Use optional capability catalog entries backed by the same provider factories and native host operations as full registration. Preserve prepared generations, active descriptors, installed-plugin registration, and explicit empty-family semantics. Account for exactly three approved public catalog type exports. * fix(plugins): complete cold catalog boundary integration Keep catalog descriptors separate from native host-operation types, and move DeepInfra shared model types and constants to their leaf owner. Recognize manifest-loaded catalog entrypoints and remove the unused xAI transcription wrapper while retaining the production factory tests. Preserve real module exports under existing test overrides. Keep all assertions, deadlines, public SDK exports, and approved budgets unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(testbox): preserve complete source snapshots (#138404)",
-      "summaryZh": "重點：修正(testbox): preserve complete source snapshots (#138404) Freeze policy-selected raw source into the existing Git-bundle..."
+      "titleZh": "OpenClaw 程式碼更新：修正(talk): avoid full plugin imports during cold catalog discovery (#…",
+      "summaryZh": "重點：修正(talk): avoid full plugin imports during cold catalog discovery (#138483) * 修正(talk): avoid full plugin imports during..."
     },
     {
       "id": 4,
-      "title": "fix(ios): keep background gateway sessions stable (#138286)",
-      "link": "https://github.com/openclaw/openclaw/commit/d11f0324cf5d4e7856ad37687f77ffc05e8d588c",
-      "publishedAt": "2026-09-04T17:13:34Z",
-      "summary": "fix(ios): keep background gateway sessions stable (#138286) * fix(ios): retain background gateway transport identity * chore(ios): refresh native string source inventory",
+      "title": "refactor(state): keep lease row operations behind one store owner (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/4c314b3e83051d05e014dc008fba437de0473d91",
+      "publishedAt": "2026-09-04T20:20:19Z",
+      "summary": "refactor(state): keep lease row operations behind one store owner (#138507)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep background Gateway sessions stable (#138286)",
-      "summaryZh": "重點：修正(ios): keep background Gateway sessions stable (#138286) * 修正(ios): retain background Gateway transport identity * cho..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(state): keep lease row operations behind one store owner (#1…",
+      "summaryZh": "重點：refactor(state): keep lease row operations behind one store owner (#138507)..."
     },
     {
       "id": 5,
