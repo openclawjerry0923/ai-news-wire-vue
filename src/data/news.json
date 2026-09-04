@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-09-04T13:12:22.085Z",
+  "generatedAt": "2026-09-04T17:23:51.804Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(scripts): reuse strict boolean argument parser (#137260)",
-      "link": "https://github.com/openclaw/openclaw/commit/92daad5f59706de6b5eaf74fa01268cbc9304362",
-      "publishedAt": "2026-09-04T13:12:12Z",
-      "summary": "refactor(scripts): reuse strict boolean argument parser (#137260)",
+      "title": "fix(startup): avoid duplicate scans during migration checks (#138315)",
+      "link": "https://github.com/openclaw/openclaw/commit/8d060cd03dc4f6ae9ad842d4ba2f84cc39e9b98e",
+      "publishedAt": "2026-09-04T17:22:00Z",
+      "summary": "fix(startup): avoid duplicate scans during migration checks (#138315)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): reuse strict boolean argument parser (#137260)",
-      "summaryZh": "重點：refactor(scripts): reuse strict boolean argument parser (#137260)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(startup): avoid duplicate scans during migration checks (#138315)",
+      "summaryZh": "重點：修正(startup): avoid duplicate scans during migration checks (#138315)..."
     },
     {
       "id": 2,
-      "title": "refactor(cron): type transaction hooks on the internal store writer (…",
-      "link": "https://github.com/openclaw/openclaw/commit/8688d76204beba2c8c059aa5cd97a4f77c6831b4",
-      "publishedAt": "2026-09-04T13:08:51Z",
-      "summary": "refactor(cron): type transaction hooks on the internal store writer (#138164)",
+      "title": "fix: preserve trajectory events in shared session stores (#138240)",
+      "link": "https://github.com/openclaw/openclaw/commit/f45b2a45f9b764f05199e80c7b4ab17c65485e94",
+      "publishedAt": "2026-09-04T17:19:06Z",
+      "summary": "fix: preserve trajectory events in shared session stores (#138240) * fix(trajectory): reuse canonical shared-store ownership Route trajectory writes and reads through canonical SQLite scope resolution so logical agents can record, tail, and export events in a shared store without changing its physical owner. Remove the duplicate adapter while retaining non-shared owner rejection and existing retention behavior. Verified failing-before shared recorder/export regressions, 116 focused tests, and actual runtime recording plus CLI tail/export through an isolated admitted worker WebSocket flow with synthetic provider inference. * docs: correct task and trajectory database locations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(排程): type transaction hooks on the internal store writer (…",
-      "summaryZh": "重點：refactor(排程): type transaction hooks on the internal store writer (#138164)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve trajectory events in shared session stores (#138240)",
+      "summaryZh": "重點：修正: preserve trajectory events in shared session stores (#138240) * 修正(trajectory): reuse canonical shared-store ownersh..."
     },
     {
       "id": 3,
-      "title": "fix(cli): let the dev runner own child shutdown (#138239)",
-      "link": "https://github.com/openclaw/openclaw/commit/7a8dc4be230aadf04b088c8a6f09a1258fd1769f",
-      "publishedAt": "2026-09-04T13:08:03Z",
-      "summary": "fix(cli): let the dev runner own child shutdown (#138239) * fix(cli): let the dev runner own child shutdown The JavaScript shim and dev runner both escalated after five seconds. The shim could kill the runner first, leaving its separately detached child alive. Delegate termination to the runner and handle SIGHUP through its existing signal and build-lock lifecycle. Preserve Node execution under Bun and other shim callers' termination behavior. Real process regressions fail before the fix and pass for SIGTERM/SIGHUP. Runner and entrypoint tests, changed-file checks, and independent review pass. A fresh Linux Node 24.19.0 build passes the original Gateway worker restart scenario (Actions 33868737194). Release-note context: source-checkout Gateway shutdown no longer abandons a slow child when the development launcher's shutdown timers race. * test(agents): align attempt fixtures with session contracts Adopt the two relevant test-only corrections already landed in #138238 (e7fffcf7a093). Supply the session methods consumed by nested tool observation and classify structured tool failures as AgentSession does. Keep policy-denial and never-entered action/preparer assertions intact. The original file reproduces three failures. All 112 files and 1,666 tests pass after this correction, with complete changed-file gates and independent review. Launcher implementation and release candidate are unchanged.",
+      "title": "fix(testbox): preserve complete source snapshots (#138404)",
+      "link": "https://github.com/openclaw/openclaw/commit/a86a1b505d335ce6b40cb4f9f1af4ece5103f0c5",
+      "publishedAt": "2026-09-04T17:13:36Z",
+      "summary": "fix(testbox): preserve complete source snapshots (#138404) Freeze policy-selected raw source into the existing Git-bundle path and verify filesystem bytes, symlink targets, executable flags, and producer-owned deletions before executing Testbox proof. Remove the unverified remote auto-commit and fingerprint the actual source-owner modules. Closes #138153. Verified native checksum-full recovery against the complete source hash; 284/284 Linux owner tests passed with an unchanged candidate manifest. Native openrsync deletion of ignored runtime directories remains a separate limitation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): let the dev runner own child shutdown (#138239)",
-      "summaryZh": "重點：修正(cli): let the dev runner own child shutdown (#138239) * 修正(cli): let the dev runner own child shutdown The JavaScript..."
+      "titleZh": "OpenClaw 程式碼更新：修正(testbox): preserve complete source snapshots (#138404)",
+      "summaryZh": "重點：修正(testbox): preserve complete source snapshots (#138404) Freeze policy-selected raw source into the existing Git-bundle..."
     },
     {
       "id": 4,
-      "title": "perf(web): skip plain text in Readability nesting scan (#138243)",
-      "link": "https://github.com/openclaw/openclaw/commit/371f23b6a781a89fc47b0ed93b921af5103f5ce5",
-      "publishedAt": "2026-09-04T13:07:59Z",
-      "summary": "perf(web): skip plain text in Readability nesting scan (#138243)",
+      "title": "fix(ios): keep background gateway sessions stable (#138286)",
+      "link": "https://github.com/openclaw/openclaw/commit/d11f0324cf5d4e7856ad37687f77ffc05e8d588c",
+      "publishedAt": "2026-09-04T17:13:34Z",
+      "summary": "fix(ios): keep background gateway sessions stable (#138286) * fix(ios): retain background gateway transport identity * chore(ios): refresh native string source inventory",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(web): skip plain text in Readability nesting scan (#138243)",
-      "summaryZh": "重點：perf(web): skip plain text in Readability nesting scan (#138243)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep background Gateway sessions stable (#138286)",
+      "summaryZh": "重點：修正(ios): keep background Gateway sessions stable (#138286) * 修正(ios): retain background Gateway transport identity * cho..."
     },
     {
       "id": 5,
+      "title": "自掏腰包建天文台追星，日本「最強業餘天文家」再擒鹿豹座 II 型超新星",
+      "link": "https://technews.tw/2026/09/05/itagaki-koichi-discovers-type-ii-supernova-sn-2026yly/",
+      "publishedAt": "Fri, 04 Sep 2026 16:00:51 +0000",
+      "summary": "夜空看似寧靜，卻不時有恆星在漫長的生命終點綻放出最後、最耀眼的火光。日本知名業餘天文學家板垣公一於 8 月 9 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "遮蔽恆星光芒尋找第二個地球，NASA 與 MIT 聯手打造巨型「花朵遮星板」",
+      "link": "https://technews.tw/2026/09/05/nasa-mit-starshade/",
+      "publishedAt": "Fri, 04 Sep 2026 16:00:12 +0000",
+      "summary": "美國國家航空暨太空總署（NASA）與加州理工學院團隊提出一項全新觀測構想，打算利用太空中的巨型「遮星盾」（St [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "華邦電 8 月營收年增一口氣提升 289.43%，前八個月營收也增加逾 177%",
+      "link": "https://finance.technews.tw/2026/09/04/winbond-electronics-august-revenue-surged-289-43-year-on-year/",
+      "publishedAt": "Fri, 04 Sep 2026 13:50:56 +0000",
+      "summary": "記憶體大廠華邦電公布包含新唐科技等子公司在內的 2026 年 8 月合併營收，金額衝上新台幣 273.09 億 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "勞資雙方進行首次調解！美光：雖暫無共識但已為後續對話保留空間",
+      "link": "https://finance.technews.tw/2026/09/04/the-labor-and-management-parties-held-their-first-mediation/",
+      "publishedAt": "Fri, 04 Sep 2026 13:15:19 +0000",
+      "summary": "受惠於全球人工智慧（AI）浪潮與高頻寬記憶體（HBM）需求激增，美光（Micron）近期營收與獲利創下新高。然 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "研究人員Nightmare Eclipse揭露CrowdStrike Falcon權限提升漏洞",
       "link": "https://www.ithome.com.tw/news/178696",
       "publishedAt": "2026-09-04 12:09:55",
@@ -55,48 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "思科發布9月IOS XR安全強化更新，修補7個資安漏洞",
       "link": "https://www.ithome.com.tw/news/178699",
       "publishedAt": "2026-09-04 12:09:40",
       "summary": "9月2日思科針對網路設備平臺IOS XR發布9月份安全強化更新，總共修補7個漏洞，2個為重大等級，其餘為高風險等級，該公司強調，這些弱點影響所有版本的IOS XR，其中包含了IOS XR7（LNT），由於沒有替代緩解措施，呼籲用戶應套用軟體更新因應。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "OpenAI發表最危險也最聽話的GPT-6 Astra模型",
-      "link": "https://www.ithome.com.tw/news/178701",
-      "publishedAt": "2026-09-04 12:09:35",
-      "summary": "OpenAI周四（9/3）正式發表新一代模型GPT-6 Astra，宣稱這是該公司目前最聰明、與使用者意圖最一致的模型，同時也是首個被評定達到《準備框架》（Preparedness Framework）「重大」（Critical）網路安全能力門檻的模型。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Mozilla推出Firefox 155改版，緩解近30個弱點",
-      "link": "https://www.ithome.com.tw/news/178693",
-      "publishedAt": "2026-09-04 11:09:41",
-      "summary": "9月1日Mozilla基金會發布Firefox 155改版，開放部分國家試用AI聊天功能Smart Window，加入網址列顯示封鎖網站追蹤器數量的功能，以及導入多帳號分隔機制容器（Container）排序機制。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "WebAuthn Level 3成W3C正式標準，補齊Passkey跨關聯網域與憑證管理機制",
-      "link": "https://www.ithome.com.tw/news/178694",
-      "publishedAt": "2026-09-04 11:09:07",
-      "summary": "全球資訊網協會（W3C）將WebAuthn Level 3列為正式標準，接替2021年的Level 2。新版納入Passkey跨關聯網域使用、憑證資訊更新及條件式登入等機制，改善企業同時經營多個網域，以及網站與裝置端Passkey資訊不同步等問題。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "義隆8月營收7.41 億元",
-      "link": "https://finance.technews.tw/2026/09/04/elan-2458-202608-financial-report/",
-      "publishedAt": "Fri, 04 Sep 2026 10:50:01 +0000",
-      "summary": "義隆（2458）今（4）日公布 8 月營收，達 7.41 億元，較 7 月成長 -15.7%，較去年同期成長 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
