@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-04T08:36:49.782Z",
+  "generatedAt": "2026-09-04T13:12:22.085Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(scripts): reuse strict boolean argument parser (#137260)",
+      "link": "https://github.com/openclaw/openclaw/commit/92daad5f59706de6b5eaf74fa01268cbc9304362",
+      "publishedAt": "2026-09-04T13:12:12Z",
+      "summary": "refactor(scripts): reuse strict boolean argument parser (#137260)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): reuse strict boolean argument parser (#137260)",
+      "summaryZh": "重點：refactor(scripts): reuse strict boolean argument parser (#137260)..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(cron): type transaction hooks on the internal store writer (…",
+      "link": "https://github.com/openclaw/openclaw/commit/8688d76204beba2c8c059aa5cd97a4f77c6831b4",
+      "publishedAt": "2026-09-04T13:08:51Z",
+      "summary": "refactor(cron): type transaction hooks on the internal store writer (#138164)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(排程): type transaction hooks on the internal store writer (…",
+      "summaryZh": "重點：refactor(排程): type transaction hooks on the internal store writer (#138164)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(cli): let the dev runner own child shutdown (#138239)",
+      "link": "https://github.com/openclaw/openclaw/commit/7a8dc4be230aadf04b088c8a6f09a1258fd1769f",
+      "publishedAt": "2026-09-04T13:08:03Z",
+      "summary": "fix(cli): let the dev runner own child shutdown (#138239) * fix(cli): let the dev runner own child shutdown The JavaScript shim and dev runner both escalated after five seconds. The shim could kill the runner first, leaving its separately detached child alive. Delegate termination to the runner and handle SIGHUP through its existing signal and build-lock lifecycle. Preserve Node execution under Bun and other shim callers' termination behavior. Real process regressions fail before the fix and pass for SIGTERM/SIGHUP. Runner and entrypoint tests, changed-file checks, and independent review pass. A fresh Linux Node 24.19.0 build passes the original Gateway worker restart scenario (Actions 33868737194). Release-note context: source-checkout Gateway shutdown no longer abandons a slow child when the development launcher's shutdown timers race. * test(agents): align attempt fixtures with session contracts Adopt the two relevant test-only corrections already landed in #138238 (e7fffcf7a093). Supply the session methods consumed by nested tool observation and classify structured tool failures as AgentSession does. Keep policy-denial and never-entered action/preparer assertions intact. The original file reproduces three failures. All 112 files and 1,666 tests pass after this correction, with complete changed-file gates and independent review. Launcher implementation and release candidate are unchanged.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): let the dev runner own child shutdown (#138239)",
+      "summaryZh": "重點：修正(cli): let the dev runner own child shutdown (#138239) * 修正(cli): let the dev runner own child shutdown The JavaScript..."
+    },
+    {
+      "id": 4,
+      "title": "perf(web): skip plain text in Readability nesting scan (#138243)",
+      "link": "https://github.com/openclaw/openclaw/commit/371f23b6a781a89fc47b0ed93b921af5103f5ce5",
+      "publishedAt": "2026-09-04T13:07:59Z",
+      "summary": "perf(web): skip plain text in Readability nesting scan (#138243)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(web): skip plain text in Readability nesting scan (#138243)",
+      "summaryZh": "重點：perf(web): skip plain text in Readability nesting scan (#138243)..."
+    },
+    {
+      "id": 5,
       "title": "研究人員Nightmare Eclipse揭露CrowdStrike Falcon權限提升漏洞",
       "link": "https://www.ithome.com.tw/news/178696",
       "publishedAt": "2026-09-04 12:09:55",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "思科發布9月IOS XR安全強化更新，修補7個資安漏洞",
       "link": "https://www.ithome.com.tw/news/178699",
       "publishedAt": "2026-09-04 12:09:40",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "OpenAI發表最危險也最聽話的GPT-6 Astra模型",
       "link": "https://www.ithome.com.tw/news/178701",
       "publishedAt": "2026-09-04 12:09:35",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Mozilla推出Firefox 155改版，緩解近30個弱點",
       "link": "https://www.ithome.com.tw/news/178693",
       "publishedAt": "2026-09-04 11:09:41",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "WebAuthn Level 3成W3C正式標準，補齊Passkey跨關聯網域與憑證管理機制",
       "link": "https://www.ithome.com.tw/news/178694",
       "publishedAt": "2026-09-04 11:09:07",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "Google發布Chrome 152更新，修補已遭利用的V8漏洞",
-      "link": "https://www.ithome.com.tw/news/178687",
-      "publishedAt": "2026-09-04 10:09:28",
-      "summary": "9月3日Google發布電腦版與Android版Chrome 152更新，總共修補12個資安漏洞，其中10個為高風險等級、2個為中等風險弱點。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(ci): release synthetic gateway restart fence (#138054)",
-      "link": "https://github.com/openclaw/openclaw/commit/6e3d78c99a37ae1a241874ac7d77e5318d4d1765",
-      "publishedAt": "2026-09-04T08:36:34Z",
-      "summary": "fix(ci): release synthetic gateway restart fence (#138054)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): 版本發布 synthetic Gateway restart fence (#138054)",
-      "summaryZh": "重點：修正(ci): 版本發布 synthetic Gateway restart fence (#138054)..."
-    },
-    {
-      "id": 8,
-      "title": "perf(tui): bypass pricing imports for token formatting (#138052)",
-      "link": "https://github.com/openclaw/openclaw/commit/1930e52fcfb0ef1a69e0eee419a19c6c287b1953",
-      "publishedAt": "2026-09-04T08:36:12Z",
-      "summary": "perf(tui): bypass pricing imports for token formatting (#138052)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(tui): bypass pricing imports for token formatting (#138052)",
-      "summaryZh": "重點：perf(tui): bypass pricing imports for token formatting (#138052)..."
-    },
-    {
-      "id": 9,
-      "title": "fix(test): retain Gateway setup owners through authentication (#138037)",
-      "link": "https://github.com/openclaw/openclaw/commit/20279e25e2654ea0e6acef0df323c97e28744745",
-      "publishedAt": "2026-09-04T08:35:23Z",
-      "summary": "fix(test): retain Gateway setup owners through authentication (#138037) Keep the complete awaited authentication callback inside the shared WebSocket acquisition owner. Roll back newly acquired servers before restoring selectors, preserve setup and cleanup errors independently, and capture the E2E helper config-path mutation. Extend native failure-boundary coverage without changing production runtime or timeout budgets. Builds on #137982 and #137924; fixture lifetime accounting remains with #136146.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): retain Gateway setup owners through authentication (#138037)",
-      "summaryZh": "重點：修正(test): retain Gateway setup owners through authentication (#138037) Keep the complete awaited authentication callback..."
-    },
-    {
       "id": 10,
-      "title": "fix: keep unspaced Slack/Google Chat angle-link labels (#136306)",
-      "link": "https://github.com/openclaw/openclaw/commit/b22ebb1b509c1a5573c7e546e3450b19eee2ac2f",
-      "publishedAt": "2026-09-04T08:32:08Z",
-      "summary": "fix: keep unspaced Slack/Google Chat angle-link labels (#136306) Closes #136303 ## What Problem This Solves Slack and Google Chat can format a labeled link without a space as ``. Plain-text outbound delivery consumed that input as an autolink and sent the raw `url|Label` text instead of the visible label. ## Root cause `src/infra/outbound/sanitize-text.ts` applied the angle-bracket autolink replacement before its labeled-link projection. Its URL class included `|`, so the first replacement removed the brackets and hid the label delimiter from the second replacement. ## Fix Stop the autolink URL class at `|`. The existing shared labeled-link projection then returns the visible label. Ordinary autolinks, mail links, code spans, and HTML stripping keep their existing behavior. ## Evidence - Current-main red probe at `6190b505d59156ba234784300492b3bb4cefbe68`: HTTPS and `mailto:` `` inputs leaked `url|Label`; ordinary autolink, code-span, and HTML probes passed. - Current-main red delivery harness: Google Chat, default Telegram, IRC, and WhatsApp sent the raw URL-plus-label text through the shared outbound boundary. - Exact-head green delivery test: `test/outbound-sanitize-text-delivery.test.ts` covers Google Chat, default Telegram, IRC, WhatsApp, and direct text/media through the delivery core. - Exact-head green Telegram integration test: `extensions/telegram/src/send.telegram-http.test.ts` drives the public Telegram plain-text contract and production Telegram sender through a local HTTP boundary. - Exact-head live Telegram Test Server proof: the leased real-user recorder received one SUT message with exact text `Manual` after the exact production sanitizer sent through the Test Server Bot API. - Focused tests: 97 sanitizer tests, 41 Google Chat formatter tests, 8 shared outbound delivery tests, and 17 Telegram HTTP integration tests passed. - Focused oxlint, format, conflict-marker, max-lines, assertion-safety, coercion-helper, and diff checks passed. Production delta: +2/-2. Test delta: +124/-4. The test growth adds the missing sibling delivery and production Telegram HTTP proof while keeping the contributor's owner-boundary regression coverage. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep unspaced Slack/Google Chat angle-link labels (#136306)",
-      "summaryZh": "重點：修正: keep unspaced Slack/Google Chat angle-link labels (#136306) Closes #136303 ## What Problem This Solves Slack and Goo..."
+      "title": "義隆8月營收7.41 億元",
+      "link": "https://finance.technews.tw/2026/09/04/elan-2458-202608-financial-report/",
+      "publishedAt": "Fri, 04 Sep 2026 10:50:01 +0000",
+      "summary": "義隆（2458）今（4）日公布 8 月營收，達 7.41 億元，較 7 月成長 -15.7%，較去年同期成長 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
