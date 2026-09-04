@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-04T20:23:22.481Z",
+  "generatedAt": "2026-09-04T22:48:49.026Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(storage): reject asynchronous inner transaction hooks (#138509)",
-      "link": "https://github.com/openclaw/openclaw/commit/b7f7e9c6756b5b06d390b93fcf37191e79f610a9",
-      "publishedAt": "2026-09-04T20:23:07Z",
-      "summary": "refactor(storage): reject asynchronous inner transaction hooks (#138509)",
+      "title": "fix(ui): preserve cloud startup input and restore recovery (#138469)",
+      "link": "https://github.com/openclaw/openclaw/commit/d329e6144965561c88cad197380def7b12eb6beb",
+      "publishedAt": "2026-09-04T22:42:33Z",
+      "summary": "fix(ui): preserve cloud startup input and restore recovery (#138469) * fix(ui): recover restored cloud startup after chunk failure * fix(ui): retain cloud recovery across passive session updates Keep a failed lazy runtime load and its restored owner timestamp stable across session and profile notifications. Refresh recovery keys after Reset and again before a delayed reload so retired recovery cannot authorize it. Validated with 81 focused tests, the production browser regression, full changed-file checks, a clean independent review, and an actual Gateway/paired-node session-switch and Retry flow with one initial send. * test: tolerate descriptor reuse after failed spawn Reuse the existing descriptor identity check so unrelated fd-number reuse cannot produce a false leak failure. The assertion still rejects a live original pipe. * fix(ui): preserve unsaved cloud starts during recovery Track confirmed recovery persistence separately from persistence intent. Offer an explicit discard-and-reload action for unsaved starts, bound to the current startup attempt, connection owner, and pending records. Share reload custody across stale assets, responsive service-worker updates, verified updates, terminal-policy refreshes, and login recovery. Keep saved starts on the canonical document recovery path after cached module failures. Add regression coverage for failed saves, retained actions, reload owners, and the production service-worker listener; keep mobile warnings and actions fully visible. Release-note context: cloud startup errors and Retry remain visible across session changes; recovery preserves pending input until an explicit choice.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(storage): reject asynchronous inner transaction hooks (#138509)",
-      "summaryZh": "重點：refactor(storage): reject asynchronous inner transaction hooks (#138509)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve cloud startup input and restore recovery (#138469)",
+      "summaryZh": "重點：修正(ui): preserve cloud startup input and restore recovery (#138469) * 修正(ui): recover restored cloud startup after chunk..."
     },
     {
       "id": 2,
-      "title": "fix(agents): preserve Astra continuation history and effort caches (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/cd2909f176375d0b99999ecbef28d1035d869d47",
-      "publishedAt": "2026-09-04T20:22:41Z",
-      "summary": "fix(agents): preserve Astra continuation history and effort caches (#138434) * fix(agents): keep steering input and effort prompts stable * fix(agents): preserve encrypted reasoning across async continuations Move orphan reasoning cleanup to the Responses payload owner after route-bound ciphertext checks. Keep model-switch invalidation at history preparation and remove fragment-adjacency rewriting from active streams. Verified the failing Gateway trace, pre-fix regression, 411 owner/provider tests, and two clean independent P0-P2 reviews. Local aggregate typecheck encountered an outdated shared fs-safe install; final pinned-dependency checks run on Testbox. * test(openai): separate reasoning replay coverage",
+      "title": "fix(testbox): preserve hydrated runtime across native sync (#138612)",
+      "link": "https://github.com/openclaw/openclaw/commit/f0811ca62eb468ebf1bd972e2b0c77c663550d23",
+      "publishedAt": "2026-09-04T22:39:01Z",
+      "summary": "fix(testbox): preserve hydrated runtime across native sync (#138612) * fix(testbox): reject rsync that deletes ignored runtime Require GNU rsync before delegated Testbox sync so Apple openrsync cannot erase hydrated dependencies and ignored runtime data. Preserve caller-owned PATH, source verification, and administrative commands; document the explicit prerequisite and fresh-lease recovery. Follow-up to #138404 and #138153. * fix(testbox): resolve rsync before its compatibility probe * fix(testbox): isolate sync from the hydrated execution workspace Keep native Git cleanup and rsync in a disposable transport checkout, then apply the verified source bundle and run payloads in the original prepared workspace. Preserve runtime paths and raw source/privacy/deletion checks; invalidate leases when workspace preparation or the selected workflow changes. Discard the GNU-only prerequisite after live proof showed native cleanup removes newly ignored runtime before rsync. Require the advertised prepared-artifact-workspace capability for artifact requests so older Crabbox clients cannot collect stale transport files. Runtime-preservation follow-up to #138404 and #138153. No release or merge.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve Astra continuation history and effort caches (#…",
-      "summaryZh": "重點：修正(agents): preserve Astra continuation history and effort caches (#138434) * 修正(agents): keep steering input and effort..."
+      "titleZh": "OpenClaw 程式碼更新：修正(testbox): preserve hydrated runtime across native sync (#138612)",
+      "summaryZh": "重點：修正(testbox): preserve hydrated runtime across native sync (#138612) * 修正(testbox): reject rsync that deletes ignored run..."
     },
     {
       "id": 3,
-      "title": "fix(talk): avoid full plugin imports during cold catalog discovery (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/52644b7af6fb5a43d76329c2c152b8e44fd32e6f",
-      "publishedAt": "2026-09-04T20:21:21Z",
-      "summary": "fix(talk): avoid full plugin imports during cold catalog discovery (#138483) * fix(talk): avoid full plugin imports during cold catalog discovery Use optional capability catalog entries backed by the same provider factories and native host operations as full registration. Preserve prepared generations, active descriptors, installed-plugin registration, and explicit empty-family semantics. Account for exactly three approved public catalog type exports. * fix(plugins): complete cold catalog boundary integration Keep catalog descriptors separate from native host-operation types, and move DeepInfra shared model types and constants to their leaf owner. Recognize manifest-loaded catalog entrypoints and remove the unused xAI transcription wrapper while retaining the production factory tests. Preserve real module exports under existing test overrides. Keep all assertions, deadlines, public SDK exports, and approved budgets unchanged.",
+      "title": "feat(ui): render live dashboard gallery previews (#138640)",
+      "link": "https://github.com/openclaw/openclaw/commit/af54ce545a7174cb818e17b9d2d11281dbd6ac63",
+      "publishedAt": "2026-09-04T22:38:24Z",
+      "summary": "feat(ui): render live dashboard gallery previews (#138640) * feat(ui): render live dashboard gallery previews * fix(ui): bound dashboard gallery preview loading * test(ui): narrow dashboard request payloads * fix(ui): keep dashboard previews passive",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(talk): avoid full plugin imports during cold catalog discovery (#…",
-      "summaryZh": "重點：修正(talk): avoid full plugin imports during cold catalog discovery (#138483) * 修正(talk): avoid full plugin imports during..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): render live dashboard gallery previews (#138640)",
+      "summaryZh": "重點：新功能(ui): render live dashboard gallery previews (#138640) * 新功能(ui): render live dashboard gallery previews * 修正(ui): bo..."
     },
     {
       "id": 4,
-      "title": "refactor(state): keep lease row operations behind one store owner (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/4c314b3e83051d05e014dc008fba437de0473d91",
-      "publishedAt": "2026-09-04T20:20:19Z",
-      "summary": "refactor(state): keep lease row operations behind one store owner (#138507)",
+      "title": "perf(agents): bound streamed paragraph separator checks (#138607)",
+      "link": "https://github.com/openclaw/openclaw/commit/acb4c505d696a1f970c22241c9d4b2e8a087fa7b",
+      "publishedAt": "2026-09-04T22:37:39Z",
+      "summary": "perf(agents): bound streamed paragraph separator checks (#138607)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(state): keep lease row operations behind one store owner (#1…",
-      "summaryZh": "重點：refactor(state): keep lease row operations behind one store owner (#138507)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(agents): bound streamed paragraph separator checks (#138607)",
+      "summaryZh": "重點：perf(agents): bound streamed paragraph separator checks (#138607)..."
     },
     {
       "id": 5,
