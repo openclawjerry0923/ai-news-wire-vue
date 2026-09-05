@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-05T10:05:20.840Z",
+  "generatedAt": "2026-09-05T13:41:57.941Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(plugins): stop misattributing invalid-config errors to the curren…",
-      "link": "https://github.com/openclaw/openclaw/commit/a61fcf82f60476437284b1cb248fd2e8d16e81d2",
-      "publishedAt": "2026-09-05T10:00:09Z",
-      "summary": "fix(plugins): stop misattributing invalid-config errors to the current plugin tool (#137738) * fix(plugins): stop misattributing invalid-config errors to the current plugin tool When a plugin tool factory throws an InvalidConfigError caused by another plugin's schema (e.g. Codex config), the catch block prefixed it with the current plugin id (e.g. memory-wiki), producing a misleading secondary error in doctor output. Detect InvalidConfigError and log it without the plugin attribution prefix so the originating config path stays visible. Closes #137694 * fix(ci): resolve lint and ratchet CI failures - Add SAFETY comment above type assertion in throwInvalidConfig to satisfy assertion-safety ratchet baseline (io.invalid-config.ts). - Add explicit return before throwInvalidConfig in test IIFE to satisfy consistent-return lint rule (tools.optional.test.ts). * fix(config): preserve distinct invalid-config diagnostics Deduplicate by the complete diagnostic and record it only after logging succeeds. Keep plugin factory errors visible when no owner diagnostic was emitted. Cover changed diagnostics, identical repeats, and logger failures through the real config producer and plugin resolver. --------- Co-authored-by: Altay",
+      "title": "feat(skills)!: give each agent its own Skill Workshop (#135528)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4514a0aff9de7bd299f70d821398df606df1a4f",
+      "publishedAt": "2026-09-05T13:31:38Z",
+      "summary": "feat(skills)!: give each agent its own Skill Workshop (#135528) Give each agent one writable Workshop collection outside its session workspaces. Use one proposal and apply path for background learning, collection review, installation, and audit. Anchor asynchronous reviews to the completed turn, preserve interrupted learning, and skip review calls for provider refusals. Recover interrupted applies before Doctor relocates legacy skills. Reuse the existing recovery transition and retain blocked sources and destinations in one migration plan. Keep unresolved proposals inspectable without changing their files. Commit relocation metadata atomically and preserve skill-only workspace recovery. Remove workspace-derived ownership, duplicate autonomous writes, and the retired symlink-target-write setting. Retain schema and configuration upgrade handling. Use shared skill discovery for deep audit of grouped, hidden and shadowed Workshop skills. Report broken links, inaccessible roots and incomplete inventories, and document selection priority separately from file preservation. BREAKING CHANGE: Workshop skills are agent-owned. The approved state-v16 migration retires workspace/release ownership fields and skills.workshop.allowSymlinkTargetWrites; Doctor preserves and relocates proven legacy skills. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): stop misattributing invalid-config errors to the curren…",
-      "summaryZh": "重點：修正(plugins): stop misattributing invalid-config errors to the current plugin tool (#137738) * 修正(plugins): stop misattri..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(skills)!: give each agent its own Skill Workshop (#135528)",
+      "summaryZh": "重點：新功能(skills)!: give each agent its own Skill Workshop (#135528) Give each agent one writable Workshop collection outside ..."
     },
     {
       "id": 2,
-      "title": "test(agents): preserve native timers during transcript probes (#138980)",
-      "link": "https://github.com/openclaw/openclaw/commit/cd4504de2dae09abbd1786ccca3b193535a1a01d",
-      "publishedAt": "2026-09-05T09:55:30Z",
-      "summary": "test(agents): preserve native timers during transcript probes (#138980)",
+      "title": "perf(infra): avoid idle churn during worker handoffs (#139069)",
+      "link": "https://github.com/openclaw/openclaw/commit/44db57bbf2ba9e158fb26635c9c044b1fe24e63f",
+      "publishedAt": "2026-09-05T13:30:57Z",
+      "summary": "perf(infra): avoid idle churn during worker handoffs (#139069)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): preserve native timers during transcript probes (#138980)",
-      "summaryZh": "重點：test(agents): preserve native timers during transcript probes (#138980)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(infra): avoid idle churn during worker handoffs (#139069)",
+      "summaryZh": "重點：perf(infra): avoid idle churn during worker handoffs (#139069)..."
     },
     {
       "id": 3,
-      "title": "feat(gateway): hand off suspended gateways to external restart owners…",
-      "link": "https://github.com/openclaw/openclaw/commit/6a0423c3c97801836ce97a94a10e30094c7d3850",
-      "publishedAt": "2026-09-05T09:54:32Z",
-      "summary": "feat(gateway): hand off suspended gateways to external restart owners (#138885) * feat(gateway): hand off suspended gateways to external restart owners * fix: refresh handoff assets and isolate shell helper tests * test: keep native gateway fixture startup off MainActor",
+      "title": "perf(matrix): isolate storage metadata from client loading (#139093)",
+      "link": "https://github.com/openclaw/openclaw/commit/722a7b905b9f2f5f6a1788b2164034bb1fee0b52",
+      "publishedAt": "2026-09-05T13:29:11Z",
+      "summary": "perf(matrix): isolate storage metadata from client loading (#139093)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): hand off suspended Gateways to external restart owners…",
-      "summaryZh": "重點：新功能(Gateway): hand off suspended Gateways to external restart owners (#138885) * 新功能(Gateway): hand off suspended Gatewa..."
+      "titleZh": "OpenClaw 程式碼更新：perf(matrix): isolate storage metadata from client loading (#139093)",
+      "summaryZh": "重點：perf(matrix): isolate storage metadata from client loading (#139093)..."
     },
     {
       "id": 4,
-      "title": "perf(startup): avoid repeated checkpoint integrity scans (#138977)",
-      "link": "https://github.com/openclaw/openclaw/commit/199fd5109b076fba9cc5b11f0d7454bcef90e718",
-      "publishedAt": "2026-09-05T09:51:44Z",
-      "summary": "perf(startup): avoid repeated checkpoint integrity scans (#138977)",
+      "title": "fix(sqlite): release cached statement with its database owner (#139085)",
+      "link": "https://github.com/openclaw/openclaw/commit/bcf699c2b9b270845644d92df1831c03c398a1c0",
+      "publishedAt": "2026-09-05T13:28:07Z",
+      "summary": "fix(sqlite): release cached statement with its database owner (#139085)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(startup): avoid repeated checkpoint integrity scans (#138977)",
-      "summaryZh": "重點：perf(startup): avoid repeated checkpoint integrity scans (#138977)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): 版本發布 cached statement with its database owner (#139085)",
+      "summaryZh": "重點：修正(sqlite): 版本發布 cached statement with its database owner (#139085)..."
     },
     {
       "id": 5,
+      "title": "聯發科連兩天包場六福村舉行家庭日，韋禮安、戴愛玲陪 2.5 萬員工眷屬同樂",
+      "link": "https://finance.technews.tw/2026/09/05/mediatek-held-a-two-day-family-day-event-at-leofoo-village/",
+      "publishedAt": "Sat, 05 Sep 2026 11:40:20 +0000",
+      "summary": "Ic 設計龍頭聯發科於 9 月 5 日及 6 日包場六福村主題樂園及水樂園，盛大舉辦 2026 家庭日，成為台 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "生成式 AI 重寫影視成本結構：「協調成本」驟降，一人製片時代來臨",
       "link": "https://technews.tw/2026/09/05/ai-rewriting-video-production-economics/",
       "publishedAt": "Sat, 05 Sep 2026 09:00:20 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "解析黃仁勳七大領導魅力，獲得輝達全體員工近乎 99% 壓倒性支持",
       "link": "https://finance.technews.tw/2026/09/05/analyzing-the-seven-leadership-charisma-of-jensen-huang-of-nvidia/",
       "publishedAt": "Sat, 05 Sep 2026 08:45:57 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "從一億種組合淘金，AI 成功找出 NASA 航太材料的低成本 3D 列印祕訣",
       "link": "https://technews.tw/2026/09/05/ai-drives-3d-printing-breakthrough-nasa/",
       "publishedAt": "Sat, 05 Sep 2026 08:30:46 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "鴻海8月營收9,217.66 億元",
       "link": "https://finance.technews.tw/2026/09/05/hon-hai-2317-202608-financial-report/",
       "publishedAt": "Sat, 05 Sep 2026 08:10:04 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "再吹征服「南門二星系」號角，新創擬於 2029 年展開前往最近恆星之旅",
       "link": "https://technews.tw/2026/09/05/startup-sounds-new-call-conquer-alpha-centauri-system-plans-2029-journey-nearest-star/",
       "publishedAt": "Sat, 05 Sep 2026 08:00:03 +0000",
       "summary": "繼俄羅斯裔以色列億萬富豪米爾納（Yuri Milner）於 2025 年宣告原擬最多 30 年內飛抵離太陽系最 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AI 熱潮造就新富豪，財顧揭矽谷新貴套現避險的四大節稅招數",
-      "link": "https://finance.technews.tw/2026/09/05/new-wealth-financial-strategies/",
-      "publishedAt": "Sat, 05 Sep 2026 07:30:40 +0000",
-      "summary": "人工智慧（AI）熱潮持續推升矽谷科技員工身價，但也讓高估值與泡沫疑慮同步加劇。來自 OpenAI、Anthro [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
