@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-09-05T13:41:57.941Z",
+  "generatedAt": "2026-09-05T16:34:39.955Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(skills)!: give each agent its own Skill Workshop (#135528)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4514a0aff9de7bd299f70d821398df606df1a4f",
-      "publishedAt": "2026-09-05T13:31:38Z",
-      "summary": "feat(skills)!: give each agent its own Skill Workshop (#135528) Give each agent one writable Workshop collection outside its session workspaces. Use one proposal and apply path for background learning, collection review, installation, and audit. Anchor asynchronous reviews to the completed turn, preserve interrupted learning, and skip review calls for provider refusals. Recover interrupted applies before Doctor relocates legacy skills. Reuse the existing recovery transition and retain blocked sources and destinations in one migration plan. Keep unresolved proposals inspectable without changing their files. Commit relocation metadata atomically and preserve skill-only workspace recovery. Remove workspace-derived ownership, duplicate autonomous writes, and the retired symlink-target-write setting. Retain schema and configuration upgrade handling. Use shared skill discovery for deep audit of grouped, hidden and shadowed Workshop skills. Report broken links, inaccessible roots and incomplete inventories, and document selection priority separately from file preservation. BREAKING CHANGE: Workshop skills are agent-owned. The approved state-v16 migration retires workspace/release ownership fields and skills.workshop.allowSymlinkTargetWrites; Doctor preserves and relocates proven legacy skills. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(config): return the saved configuration after plugin install comm…",
+      "link": "https://github.com/openclaw/openclaw/commit/d0137988844d201423fbe1918e8c5acef8ddfa8e",
+      "publishedAt": "2026-09-05T16:27:21Z",
+      "summary": "fix(config): return the saved configuration after plugin install commits (#139203) Return the configuration reported by the actual writer after pending-plugin install commits, rather than the earlier draft. Preserve void writers, consent checks, lifecycle ordering, and rollback. Add real persisted-configuration coverage and align setup-test receipts with the writer contract. Related: #136257 Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(skills)!: give each agent its own Skill Workshop (#135528)",
-      "summaryZh": "重點：新功能(skills)!: give each agent its own Skill Workshop (#135528) Give each agent one writable Workshop collection outside ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): return the saved configuration after plugin install comm…",
+      "summaryZh": "重點：修正(config): return the saved configuration after plugin install 提交 (#139203) Return the configuration reported by the ac..."
     },
     {
       "id": 2,
-      "title": "perf(infra): avoid idle churn during worker handoffs (#139069)",
-      "link": "https://github.com/openclaw/openclaw/commit/44db57bbf2ba9e158fb26635c9c044b1fe24e63f",
-      "publishedAt": "2026-09-05T13:30:57Z",
-      "summary": "perf(infra): avoid idle churn during worker handoffs (#139069)",
+      "title": "fix(android): reduce repeated retries to unreachable gateways (#138732)",
+      "link": "https://github.com/openclaw/openclaw/commit/8ec47663bd78941d0a8137b4a4d62b325c5a7278",
+      "publishedAt": "2026-09-05T16:23:05Z",
+      "summary": "fix(android): reduce repeated retries to unreachable gateways (#138732) Keep transient retries fast, then use a finite 30–60s jittered retry timer. Wake the existing ladder on manual or independent LAN/VPN attachment events, without retiring healthy READY sockets or resuming auth-paused sessions. Include desired secondary sessions in the same recovery path. Related: #127872 Prior investigation: #127873 (closed; no prior proof reused). AI-assisted implementation and validation. Worked on by: - @IWhatsskill Co-authored-by: IWhatsskill",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(infra): avoid idle churn during worker handoffs (#139069)",
-      "summaryZh": "重點：perf(infra): avoid idle churn during worker handoffs (#139069)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): reduce repeated retries to unreachable Gateways (#138732)",
+      "summaryZh": "重點：修正(android): reduce repeated retries to unreachable Gateways (#138732) Keep transient retries fast, then use a finite 30..."
     },
     {
       "id": 3,
-      "title": "perf(matrix): isolate storage metadata from client loading (#139093)",
-      "link": "https://github.com/openclaw/openclaw/commit/722a7b905b9f2f5f6a1788b2164034bb1fee0b52",
-      "publishedAt": "2026-09-05T13:29:11Z",
-      "summary": "perf(matrix): isolate storage metadata from client loading (#139093)",
+      "title": "fix(gateway): keep chat metadata responsive across auth refresh (#139…",
+      "link": "https://github.com/openclaw/openclaw/commit/707edba619a6244fb6a465f9c4b01a856994a29c",
+      "publishedAt": "2026-09-05T16:12:30Z",
+      "summary": "fix(gateway): keep chat metadata responsive across auth refresh (#139192) * fix(gateway): keep metadata reads settled during auth refresh * test(gateway): normalize metadata lifecycle promise callbacks",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(matrix): isolate storage metadata from client loading (#139093)",
-      "summaryZh": "重點：perf(matrix): isolate storage metadata from client loading (#139093)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep chat metadata responsive across auth refresh (#139…",
+      "summaryZh": "重點：修正(Gateway): keep chat metadata responsive across auth refresh (#139192) * 修正(Gateway): keep metadata reads settled duri..."
     },
     {
       "id": 4,
-      "title": "fix(sqlite): release cached statement with its database owner (#139085)",
-      "link": "https://github.com/openclaw/openclaw/commit/bcf699c2b9b270845644d92df1831c03c398a1c0",
-      "publishedAt": "2026-09-05T13:28:07Z",
-      "summary": "fix(sqlite): release cached statement with its database owner (#139085)",
+      "title": "fix(doctor): keep Workshop relocation lint read-only (#139193)",
+      "link": "https://github.com/openclaw/openclaw/commit/b55a9cb494230b13f3e8650fcdbfb2cbfecb4614",
+      "publishedAt": "2026-09-05T16:11:12Z",
+      "summary": "fix(doctor): keep Workshop relocation lint read-only (#139193) Classify proposal ownership for diagnostics without entering the relocation verification path, which can initialize or migrate shared state. Keep the complete verification flow for explicit migration. Closes #139187",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): 版本發布 cached statement with its database owner (#139085)",
-      "summaryZh": "重點：修正(sqlite): 版本發布 cached statement with its database owner (#139085)..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): keep Workshop relocation lint read-only (#139193)",
+      "summaryZh": "重點：修正(文件tor): keep Workshop relocation lint read-only (#139193) Classify proposal ownership for diagnostics without enterin..."
     },
     {
       "id": 5,
+      "title": "韋伯望遠鏡再立功！宇宙早期捕捉四對「小紅點」，揭遠古黑洞合併前兆",
+      "link": "https://technews.tw/2026/09/06/four-pairs-red-dots/",
+      "publishedAt": "Sat, 05 Sep 2026 16:00:50 +0000",
+      "summary": "天文學家利用詹姆斯·韋伯太空望遠鏡的高解析度紅外線影像，在宇宙誕生後約 10 億至 13 億年的時期，發現了四 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "NASA 揭露新型「同步雙模核火箭」細節，火星航程減半、解鎖深空探測新局",
+      "link": "https://technews.tw/2026/09/06/nasa-synchronal-bimodal-nuclear-rocket/",
+      "publishedAt": "Sat, 05 Sep 2026 16:00:36 +0000",
+      "summary": "美國國家航空暨太空總署（NASA）專家近日提出一項突破性的「同步雙模核火箭」（S-BNR）構想，試圖以更簡化的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "聯發科連兩天包場六福村舉行家庭日，韋禮安、戴愛玲陪 2.5 萬員工眷屬同樂",
       "link": "https://finance.technews.tw/2026/09/05/mediatek-held-a-two-day-family-day-event-at-leofoo-village/",
       "publishedAt": "Sat, 05 Sep 2026 11:40:20 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "生成式 AI 重寫影視成本結構：「協調成本」驟降，一人製片時代來臨",
       "link": "https://technews.tw/2026/09/05/ai-rewriting-video-production-economics/",
       "publishedAt": "Sat, 05 Sep 2026 09:00:20 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "解析黃仁勳七大領導魅力，獲得輝達全體員工近乎 99% 壓倒性支持",
       "link": "https://finance.technews.tw/2026/09/05/analyzing-the-seven-leadership-charisma-of-jensen-huang-of-nvidia/",
       "publishedAt": "Sat, 05 Sep 2026 08:45:57 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "從一億種組合淘金，AI 成功找出 NASA 航太材料的低成本 3D 列印祕訣",
       "link": "https://technews.tw/2026/09/05/ai-drives-3d-printing-breakthrough-nasa/",
       "publishedAt": "Sat, 05 Sep 2026 08:30:46 +0000",
       "summary": "美國華盛頓州立大學研究團隊近期透過人工智慧（AI）技術取得重大突破，成功為 NASA 常用的高性能金屬合金「G [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "鴻海8月營收9,217.66 億元",
-      "link": "https://finance.technews.tw/2026/09/05/hon-hai-2317-202608-financial-report/",
-      "publishedAt": "Sat, 05 Sep 2026 08:10:04 +0000",
-      "summary": "鴻海（2317）今（5）日公布 8 月營收，達 9,217.66 億元，較 7 月成長 -2.6%，較去年同期 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "再吹征服「南門二星系」號角，新創擬於 2029 年展開前往最近恆星之旅",
-      "link": "https://technews.tw/2026/09/05/startup-sounds-new-call-conquer-alpha-centauri-system-plans-2029-journey-nearest-star/",
-      "publishedAt": "Sat, 05 Sep 2026 08:00:03 +0000",
-      "summary": "繼俄羅斯裔以色列億萬富豪米爾納（Yuri Milner）於 2025 年宣告原擬最多 30 年內飛抵離太陽系最 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
