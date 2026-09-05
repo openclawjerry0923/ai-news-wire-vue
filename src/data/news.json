@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-05T16:34:39.955Z",
+  "generatedAt": "2026-09-05T18:49:21.518Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(config): return the saved configuration after plugin install comm…",
-      "link": "https://github.com/openclaw/openclaw/commit/d0137988844d201423fbe1918e8c5acef8ddfa8e",
-      "publishedAt": "2026-09-05T16:27:21Z",
-      "summary": "fix(config): return the saved configuration after plugin install commits (#139203) Return the configuration reported by the actual writer after pending-plugin install commits, rather than the earlier draft. Preserve void writers, consent checks, lifecycle ordering, and rollback. Add real persisted-configuration coverage and align setup-test receipts with the writer contract. Related: #136257 Co-authored-by: Ayaan Zaidi",
+      "title": "refactor(proxy-capture): consolidate typed cleanup queries (#139057)",
+      "link": "https://github.com/openclaw/openclaw/commit/d4d766d39fb290e10ec80244a403a54c8f97266c",
+      "publishedAt": "2026-09-05T18:48:41Z",
+      "summary": "refactor(proxy-capture): consolidate typed cleanup queries (#139057) * refactor(proxy-capture): consolidate typed cleanup queries * chore(sqlite): classify capture as a Kysely-backed store",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): return the saved configuration after plugin install comm…",
-      "summaryZh": "重點：修正(config): return the saved configuration after plugin install 提交 (#139203) Return the configuration reported by the ac..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(proxy-capture): consolidate typed cleanup queries (#139057)",
+      "summaryZh": "重點：refactor(proxy-capture): consolidate typed cleanup queries (#139057) * refactor(proxy-capture): consolidate typed cleanu..."
     },
     {
       "id": 2,
-      "title": "fix(android): reduce repeated retries to unreachable gateways (#138732)",
-      "link": "https://github.com/openclaw/openclaw/commit/8ec47663bd78941d0a8137b4a4d62b325c5a7278",
-      "publishedAt": "2026-09-05T16:23:05Z",
-      "summary": "fix(android): reduce repeated retries to unreachable gateways (#138732) Keep transient retries fast, then use a finite 30–60s jittered retry timer. Wake the existing ladder on manual or independent LAN/VPN attachment events, without retiring healthy READY sockets or resuming auth-paused sessions. Include desired secondary sessions in the same recovery path. Related: #127872 Prior investigation: #127873 (closed; no prior proof reused). AI-assisted implementation and validation. Worked on by: - @IWhatsskill Co-authored-by: IWhatsskill",
+      "title": "fix(ui): recover failed Appearance saves (#139167)",
+      "link": "https://github.com/openclaw/openclaw/commit/676845210acb1d5eb8667ae6d0811a8e7b6f0f2b",
+      "publishedAt": "2026-09-05T18:40:51Z",
+      "summary": "fix(ui): recover failed Appearance saves (#139167) Retain rejected configuration patches for explicit Retry and report the current save result. Reload resolves stale snapshots, while paused drafts retain a distinct whole-form Save action and current-connection ownership. Verified real Appearance/Gateway rejection, Retry, Reload, delayed replies, paused drafts and subsequent autosave. Seven independent browser acceptance clauses and 194 focused UI tests pass; six spawn-authority tests pass after adopting the merged upstream CI correction. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): reduce repeated retries to unreachable Gateways (#138732)",
-      "summaryZh": "重點：修正(android): reduce repeated retries to unreachable Gateways (#138732) Keep transient retries fast, then use a finite 30..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): recover failed Appearance saves (#139167)",
+      "summaryZh": "重點：修正(ui): recover failed Appearance saves (#139167) Retain rejected configuration patches for explicit Retry and report th..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): keep chat metadata responsive across auth refresh (#139…",
-      "link": "https://github.com/openclaw/openclaw/commit/707edba619a6244fb6a465f9c4b01a856994a29c",
-      "publishedAt": "2026-09-05T16:12:30Z",
-      "summary": "fix(gateway): keep chat metadata responsive across auth refresh (#139192) * fix(gateway): keep metadata reads settled during auth refresh * test(gateway): normalize metadata lifecycle promise callbacks",
+      "title": "fix(skills): deliver pending Workshop approval controls (#139248)",
+      "link": "https://github.com/openclaw/openclaw/commit/911d7d5b0c107f7274f2415ca9655dcc6105f0e8",
+      "publishedAt": "2026-09-05T18:38:45Z",
+      "summary": "fix(skills): deliver pending Workshop approval controls (#139248) Carry the core Workshop policy owner through the existing signed approval transport, so pending lifecycle actions can reach authorized Telegram DMs. Consolidate lifecycle action metadata and verify the signed owner boundary. Fixes #135291. Based on #135406 by @gaoanze888; reported by @khaisis. Production LOC: +27/-43 (-16); tests: +38/-0. Co-authored-by: gaoanze",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep chat metadata responsive across auth refresh (#139…",
-      "summaryZh": "重點：修正(Gateway): keep chat metadata responsive across auth refresh (#139192) * 修正(Gateway): keep metadata reads settled duri..."
+      "titleZh": "OpenClaw 程式碼更新：修正(skills): deliver pending Workshop approval controls (#139248)",
+      "summaryZh": "重點：修正(skills): deliver pending Workshop approval controls (#139248) Carry the core Workshop policy owner through the existi..."
     },
     {
       "id": 4,
-      "title": "fix(doctor): keep Workshop relocation lint read-only (#139193)",
-      "link": "https://github.com/openclaw/openclaw/commit/b55a9cb494230b13f3e8650fcdbfb2cbfecb4614",
-      "publishedAt": "2026-09-05T16:11:12Z",
-      "summary": "fix(doctor): keep Workshop relocation lint read-only (#139193) Classify proposal ownership for diagnostics without entering the relocation verification path, which can initialize or migrate shared state. Keep the complete verification flow for explicit migration. Closes #139187",
+      "title": "fix(gateway): deliver loopback ask_user prompts to the originating ch…",
+      "link": "https://github.com/openclaw/openclaw/commit/9c6978eac9b588203c8de538a381adcfc1dccfdb",
+      "publishedAt": "2026-09-05T18:37:09Z",
+      "summary": "fix(gateway): deliver loopback ask_user prompts to the originating channel (#138831) Closes #138540 ## What Problem This Solves Fixes an issue where users starting a Claude CLI turn from Telegram would receive no interactive question when the turn called `ask_user` through loopback MCP. The question existed in Gateway state, but the originating chat received only a working indicator and eventually a timeout explanation. ## Why This Change Was Made Gateway tool construction now uses the existing portable question publisher for the originating channel, account, and conversation. One shared question lifetime ends unfinished publication before cancellation or post-answer metadata work. The durable delivery owner retires its exact, still-unsent claim when cancellation arrives during adapter preparation. Preparation remains attached so its eventual resource token and queued media receive normal cleanup. Dispatched, sent, ambiguous, expired-lease, and replacement-owned deliveries retain their existing settlement rules. ## User Impact Users receive the question and its choices in Telegram, answer with native controls or the existing text-answer path, and continue the original tool call. Ended questions cannot later publish or replay a proven-unsent prompt. Credential requests retain the existing Control UI link, native-only, and missing-public-link guidance. ## Evidence Reviewed head: `00338b642990bb5c65fa514f231606031dcf5bad`. Live product proof was run on `8034bbbe5bfca7274fcd9b8f6956cac33e8d6a67` and is retained under the unchanged-owner assessment below. - **Real baseline:** current main `d0137988844d201423fbe1918e8c5acef8ddfa8e`, Telegram Test Server user → Gateway → Claude CLI → `mcp__openclaw__ask_user`. Gateway listed the destination question as pending. Telegram received no question during the tool wait; the CLI eventually returned a timeout. The initial raw observer needed device identity; the canonical Gateway client captured the pending record during the same run. The observation-command failure and all earlier setup results are retained separately from product evidence. - **Real candidate:** the same entry path delivered one question with Staging and Production buttons. The user clicked Production. The same question changed to “Answered: Production,” and Claude confirmed Production after the tool returned the answer. Recording completed successfully, including the Gateway observer and native callback action. - **Supported-entrypoint cancellation / SDK hardening:** the same installed-plugin fixture ran through native Gateway `agent` → real Claude CLI → loopback `ask_user`. It held the public channel adapter's preparation callback, cancelled the actual question through `question.resolve`, invoked published SDK recovery while held and after release, then submitted a fresh authorized request in the same session. Intake `45e8624bbe03` replayed the cancelled question after preparation returned. Candidate `8034bbbe5bfc` produced no stale send or recovery candidate, released the late resource once, and delivered “Proceeding with destination Alpha.” The native transcript confirms cancellation returned to the original MCP tool-use ID. This uses published package exports and an installed synthetic transport, with no internal source imports; physical Telegram behavior remains covered by the two retained real Telegram runs. - **Regression proof:** the original contributor head failed both a held-metadata publication test and a held-adapter queue-retirement test. The repaired head passes both. Recovery while preparation remains held makes no send; late preparation releases its token once. Restored media, replacement claims, sent/ambiguous outcomes, and lease failure retain coverage. - **Pinned base refresh:** merged upstream `886aaa689076b7b7c2f7a4d8d0048e89f5855698`, which contains #139176's correction to the exact failing CI assertion. The question, cancellation, delivery queue, Telegram and Claude CLI owners remain byte-identical to the live-tested head; dependencies and build inputs are unchanged. Adjacent startup/session changes were inspected, and 192 focused tests passed on the refreshed source, including the corrected spawn case, loopback delivery, CLI parsing and session-cache behavior. No Telegram setup or unchanged acceptance was repeated; earlier failures and build identities remain preserved. - **Focused checks:** 194 tests passed across question tools, native harness questions, outbound queues/leases, Gateway tool resolution, loopback MCP authority, and Telegram question handling. Formatting with pinned oxfmt 0.65.0 and syntax lint pass. Type-aware lint exceeded the isolated proof resource limit; hosted exact-head CI remains required before landing. - **Independent acceptance:** all six prewritten contract clauses passed. The validator authored a different Amber/Cobalt decision, submitted it through a prepared Telegram lease, clicked Cobalt, and verified the exact tool result and matching confirmation. It also judged 20 lifetime/recovery cases from 640 raw observations; diagnostic transport and synthetic-secret limits are retained. Commands: ```sh node scripts/run-vitest.mjs src/agents/tools/secrets-tool.test.ts src/agents/tools/ask-user-tool.test.ts src/agents/tools/ask-user-tool-normalization.test.ts src/agents/harness/gateway-question.test.ts src/agents/tools/question-prompt-send.test.ts node scripts/run-vitest.mjs src/infra/outbound/deliver-queue.cancellation-integration.test.ts src/infra/outbound/deliver-queue.lease-integration.test.ts src/infra/outbound/deliver.queue-integration.test.ts node scripts/run-vitest.mjs src/gateway/tool-resolution.exclude.test.ts test/loopback-ask-user-telegram-channel.test.ts src/gateway/mcp-http.question-authority.test.ts test/telegram-question-gateway.test.ts ``` The lifetime observation interface uses production question/delivery/queue/recovery owners with an explicitly synthetic adapter. It includes the real question-manager expiry timer and actual harness answer/cancel paths. Some Gateway terminal inputs remain supplied by the fixture. It complements the real Telegram/Claude flow; it does not claim physical native-app clicks, real secret storage, or a second replacement ingress run. Production delta: +293/-84 (+209). The added behavior is the missing loopback publisher and immediate claim-fenced cancellation with delayed resource cleanup; neither existed at those owner boundaries. The schema moved unchanged beside input normalization, and duplicate publication-abort and durable-outcome branches were removed. Test delta: +1060/-63, including moved normalization coverage. The five retained ClawSweeper moves are addressed by canonical outbound abort checks, immediate credential publication closure, atomic unsent-custody retirement, preserved credential guidance, and owner/sibling regression proof. Separate observed follow-up: Claude CLI ended a 120-second Gateway question call after approximately 60 seconds. Aligning that client deadline with question lifetime is outside this repair's timeout scope. Original repair by @ericcaiwx-star; reported by @drsnett. Maintainer repair and validation are AI-assisted. The original [CI failure](https://github.com/openclaw/openclaw/actions/runs/33980427913) remains recorded. This refresh adopts the merged correction to that assertion and requires normal exact-head CI; no historical-causality claim or CI bypass is used. Additional observed follow-up: startup logs a duplicate `/dashboard` command registration. The question workflow completed; the warning is not attributed to this change. Co-authored-by: Cursor Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): keep Workshop relocation lint read-only (#139193)",
-      "summaryZh": "重點：修正(文件tor): keep Workshop relocation lint read-only (#139193) Classify proposal ownership for diagnostics without enterin..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): deliver loopback ask_user prompts to the originating ch…",
+      "summaryZh": "重點：修正(Gateway): deliver loopback ask_user prompts to the originating channel (#138831) Closes #138540 ## What Problem This ..."
     },
     {
       "id": 5,
