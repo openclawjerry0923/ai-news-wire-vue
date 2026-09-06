@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-06T05:35:07.421Z",
+  "generatedAt": "2026-09-06T10:26:04.958Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(channels): send pairing approvals from the approved account (#137…",
+      "link": "https://github.com/openclaw/openclaw/commit/b75423c2fcc30bda76fbe0480662bcaaea54a5b4",
+      "publishedAt": "2026-09-06T10:25:26Z",
+      "summary": "fix(channels): send pairing approvals from the approved account (#137268) * fix(channels): send pairing approvals from the approved account The pairing approval contract carries the account a request was selected on, but the LINE, Signal, IRC, and Synology Chat notifiers dropped it and resolved the default account instead. On a multi-account setup the approval went out from the wrong account with the wrong credentials while the gateway still reported the notification as sent. Each of the four notifiers now passes the approved account id to its account resolver. Omitting the account id still resolves the default account exactly as before. * fix(channels): extend account-scoped pairing approvals to Zalo, Zalo Personal, and iMessage The Zalo, Zalo Personal (zalouser), and iMessage pairing notifiers dropped the approved account id the same way the first four did, so on a multi-account setup the approval went out from the default account. Each notifier now passes the approved account id to its account resolver or sender, and the Zalo and iMessage runtime facades type their params with an optional accountId so the id survives the module boundary. Omitting the account id still resolves the default account exactly as before. * fix(channels): reuse account-aware pairing notification senders Preserve the approved account across all seven affected plugins. Reuse existing delivery owners for iMessage, Synology Chat, and Zalo so failed notifications remain visible and Zalo retains its account proxy. Keep the existing notification text and completed approval unchanged. Production decreases by five lines. Secretless hosted proof covers all seven original account mismatches, real notifier HTTP effects, 204 focused checks, and exact candidate file hashes. Co-authored-by: MarMar Labs * fix(imessage): preserve pairing approval welcome text Use the shared approval message already sent by the removed notifier. Assert the exact RPC text for both selected and default accounts. Hosted proof reproduced both generic-text regressions on a2014d63c19, then passed all 15 iMessage owner tests and verified all 16 candidate file hashes after this correction. Co-authored-by: MarMar Labs --------- Co-authored-by: Peter Steinberger Co-authored-by: MarMar Labs",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): send pairing approvals from the approved account (#137…",
+      "summaryZh": "重點：修正(channels): send pairing approvals from the approved account (#137268) * 修正(channels): send pairing approvals from the..."
+    },
+    {
+      "id": 2,
+      "title": "fix(exec): prevent stalled PTY prompts and wrong arrow keys after spl…",
+      "link": "https://github.com/openclaw/openclaw/commit/414733b6efe9caead19df0fb52fb6ae48b728489",
+      "publishedAt": "2026-09-06T10:24:57Z",
+      "summary": "fix(exec): prevent stalled PTY prompts and wrong arrow keys after split output (#139742) * fix(exec): preserve PTY controls across output chunks Answer split cursor-position queries and retain application cursor mode through the canonical streaming ANSI parser, preventing stalled prompts and incorrectly encoded arrow keys. Delete the duplicate callback-local DSR and cursor-mode scans. * test(exec): consolidate PTY control regression coverage Keep the native split-control regression in the existing PTY suite so agents-root remains within the 720-root limit. Reuse command quoting and preserve byte assertions and process cleanup.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(exec): prevent stalled PTY prompts and wrong arrow keys after spl…",
+      "summaryZh": "重點：修正(exec): prevent stalled PTY prompts and wrong arrow keys after split output (#139742) * 修正(exec): preserve PTY control..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(meetings): share browser audio device inspection (#139973)",
+      "link": "https://github.com/openclaw/openclaw/commit/00536c3794211ebb5ace45b06507c911ef361efb",
+      "publishedAt": "2026-09-06T10:24:14Z",
+      "summary": "refactor(meetings): share browser audio device inspection (#139973) Keep platform selectors and audio lifecycle decisions in each plugin while sharing DOM device inspection. Scope shared helpers so older published plugin fragments retain their declarations and behavior on newer hosts.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(meetings): share browser audio device inspection (#139973)",
+      "summaryZh": "重點：refactor(meetings): share browser audio device inspection (#139973) Keep platform selectors and audio lifecycle decision..."
+    },
+    {
+      "id": 4,
+      "title": "fix(test): preserve explicit Node tool contracts under Bun (#139841)",
+      "link": "https://github.com/openclaw/openclaw/commit/e024b63672f83b55336b2d154a232e5e33754a77",
+      "publishedAt": "2026-09-06T10:22:24Z",
+      "summary": "fix(test): preserve explicit Node tool contracts under Bun (#139841)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): preserve explicit Node tool contracts under Bun (#139841)",
+      "summaryZh": "重點：修正(test): preserve explicit Node tool contracts under Bun (#139841)..."
+    },
+    {
+      "id": 5,
       "title": "【AI轉型實例】玉山金打造AI智能徵信流程，7分鐘生成報告初稿，年省8.4萬人時",
       "link": "https://www.ithome.com.tw/news/178722",
       "publishedAt": "2026-09-06 10:09:01",
@@ -11,91 +55,47 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(gateway): keep assistant media policy consistent for Control UI (…",
-      "link": "https://github.com/openclaw/openclaw/commit/f7231b0d7855f2d2caab1cdd0906b8b0b0e6bb87",
-      "publishedAt": "2026-09-06T05:33:56Z",
-      "summary": "fix(gateway): keep assistant media policy consistent for Control UI (#139503)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep assistant media policy consistent for Control UI (…",
-      "summaryZh": "重點：修正(Gateway): keep assistant media policy consistent for Control UI (#139503)..."
-    },
-    {
-      "id": 3,
-      "title": "refactor(gateway): simplify placement and lifecycle owners (#139720)",
-      "link": "https://github.com/openclaw/openclaw/commit/8639615ab67a5de669244cf0e22edd1e73ad052e",
-      "publishedAt": "2026-09-06T05:32:59Z",
-      "summary": "refactor(gateway): simplify placement and lifecycle owners (#139720)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): simplify placement and lifecycle owners (#139720)",
-      "summaryZh": "重點：refactor(Gateway): simplify placement and lifecycle owners (#139720)..."
-    },
-    {
-      "id": 4,
-      "title": "perf(tooling): prepare source scan paths before sorting (#139763)",
-      "link": "https://github.com/openclaw/openclaw/commit/1caa2976788d9d46288051ec0e01c5d5fe3ecf24",
-      "publishedAt": "2026-09-06T05:31:50Z",
-      "summary": "perf(tooling): prepare source scan paths before sorting (#139763)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(tooling): prepare source scan paths before sorting (#139763)",
-      "summaryZh": "重點：perf(tooling): prepare source scan paths before sorting (#139763)..."
-    },
-    {
-      "id": 5,
-      "title": "AI 代寫程式碼時代來臨，但工程師的資安培訓跟上了嗎？",
-      "link": "https://infosecu.technews.tw/2026/09/06/ai-code-engineers-cybersecurity/",
-      "publishedAt": "Sun, 06 Sep 2026 05:30:42 +0000",
-      "summary": "AI 程式輔助工具正以前所未有的速度顛覆軟體開發流程。如今，從單一功能實作到複雜模組的生成，AI 都能在轉瞬之 [&#8230;]",
+      "id": 6,
+      "title": "Anthropic IPO 啟動時程調整，延至 10 月中旬推廣",
+      "link": "https://technews.tw/2026/09/06/anthropic-ipo-launch-shifts-toward-mid-october/",
+      "publishedAt": "Sun, 06 Sep 2026 09:39:44 +0000",
+      "summary": "Anthropic 預計最快 10 月中旬開始為首次公開發行進行推廣，並在 11 月美國期中選舉前幾天完成掛牌 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "perf(tui): release unused tool-card payloads (#139739)",
-      "link": "https://github.com/openclaw/openclaw/commit/f850d95eb6c3f8fb22c5c16e2913b0a37acbcdad",
-      "publishedAt": "2026-09-06T05:30:15Z",
-      "summary": "perf(tui): release unused tool-card payloads (#139739)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(tui): 版本發布 unused tool-card payloads (#139739)",
-      "summaryZh": "重點：perf(tui): 版本發布 unused tool-card payloads (#139739)..."
-    },
-    {
       "id": 7,
-      "title": "植物被蟲咬後，竟能把「求救訊號」藏在泥土裡留給下一代",
-      "link": "https://technews.tw/2026/09/06/plants-under-attack-leave-behind-a-surprising-call-for-backup/",
-      "publishedAt": "Sun, 06 Sep 2026 05:00:19 +0000",
-      "summary": "植物被昆蟲啃食後，會啟動一連串防禦反應，甚至釋放氣味吸引害蟲的天敵。最近，中國浙江大學的科學家發現，這些防禦訊 [&#8230;]",
+      "title": "為細胞穿上「隱形斗篷」，糖尿病治療迎來無副作用曙光",
+      "link": "https://technews.tw/2026/09/06/new-cell-protective-layer/",
+      "publishedAt": "Sun, 06 Sep 2026 09:00:55 +0000",
+      "summary": "賓夕法尼亞州立大學（Penn State）研究團隊近期開發出一項突破性的細胞治療新策略。他們為治療性細胞披上一 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "Agent 失控闖德國網站，OpenAI 研擬新機制揭露 AI 偏差行為",
-      "link": "https://infosecu.technews.tw/2026/09/06/openai-agents-hijacked-german-website-in-previously-undisclosed-ai-breakout/",
-      "publishedAt": "Sun, 06 Sep 2026 03:44:09 +0000",
-      "summary": "《路透社》揭露一群失控的 OpenAI Agent 劫持一個德語網站，將其轉變成供其他 AI Agent 使用 [&#8230;]",
+      "title": "YouTube 推薦影片越來越走鐘？四步驟教你重整演算法打造專屬首頁",
+      "link": "https://technews.tw/2026/09/06/remove-bad-youtube-recommendations/",
+      "publishedAt": "Sun, 06 Sep 2026 08:30:44 +0000",
+      "summary": "如果 YouTube 最近推播的影片越來越不符合胃口，使用者其實不必被動接受。只要善用平台內建的歷史紀錄管理工 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "Lean3 駕艙機車高雄初登場，中南部買氣超車北部跌破團隊眼鏡",
-      "link": "https://technews.tw/2026/09/06/lean3-debuts-kaohsiung-why-pre-order-demand-stronger-central-southern-taiwan/",
-      "publishedAt": "Sun, 06 Sep 2026 03:00:59 +0000",
-      "summary": "在高雄登場的 2026 亞灣新創大南方活動現場，「駕艙機車」Lean3 首度以實車現身，不少民眾排隊體驗靜態試 [&#8230;]",
+      "title": "「每根睫毛都能貼補家用」！北韓民眾點油燈通宵做假髮，出口冠軍背後的另一面",
+      "link": "https://technews.tw/2026/09/06/more-and-more-n-koreans-turn-to-wig-making-to-earn-cash/",
+      "publishedAt": "Sun, 06 Sep 2026 08:00:11 +0000",
+      "summary": "一般提到北韓，可能最先想到的會是核武、飛彈或軍事活動，但在這個一舉一動都備受矚目的國家，看似毫無關聯的商品，卻 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "保留「雜訊」成破局關鍵，NASA 靠 AI 提前揪出太陽爆發前兆",
-      "link": "https://technews.tw/2026/09/06/ai-early-detection-solar-storms/",
-      "publishedAt": "Sun, 06 Sep 2026 02:30:48 +0000",
-      "summary": "美國太空總署（NASA）研究團隊近日發表最新預測技術，透過人工智慧（AI）分析太陽內部的細微訊號，成功在太陽表 [&#8230;]",
+      "title": "DeepSeek 重金採購 16 萬顆華為晶片，內蒙古建大規模 AI 叢集",
+      "link": "https://technews.tw/2026/09/06/deepseek-prepares-major-huawei-ai-chip-order-for-new-data-center/",
+      "publishedAt": "Sun, 06 Sep 2026 07:49:14 +0000",
+      "summary": "今年 7 月，DeepSeek 執行長因大膽宣稱 NVIDIA 於中國自掘墳墓而掀起波瀾。數週之後，DeepS [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
