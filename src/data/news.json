@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-06T13:58:57.584Z",
+  "generatedAt": "2026-09-06T16:53:09.023Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(ui): refresh control ui locales (#140144)",
-      "link": "https://github.com/openclaw/openclaw/commit/07d5b2409af0bee1ceb30b785ad75711ee0cf63a",
-      "publishedAt": "2026-09-06T13:57:13Z",
-      "summary": "chore(ui): refresh control ui locales (#140144) Co-authored-by: github-actions[bot]",
+      "title": "test(openai): keep RTC offer smoke offline and plugin-scoped (#140276)",
+      "link": "https://github.com/openclaw/openclaw/commit/f34a70a4c65801d0d4aa95d4c128ebbd1b43e0a1",
+      "publishedAt": "2026-09-06T16:52:02Z",
+      "summary": "test(openai): keep RTC offer smoke offline and plugin-scoped (#140276)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#140144)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#140144) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：test(openai): keep RTC offer smoke offline and plugin-scoped (#140276)",
+      "summaryZh": "重點：test(openai): keep RTC offer smoke offline and plugin-scoped (#140276)..."
     },
     {
       "id": 2,
-      "title": "refactor(gateway): share workspace recovery and publication replay ch…",
-      "link": "https://github.com/openclaw/openclaw/commit/32bedf1f3a7f9a597e9a9b0b2dc5fc03130d4720",
-      "publishedAt": "2026-09-06T13:57:11Z",
-      "summary": "refactor(gateway): share workspace recovery and publication replay checks (#140133) * refactor(gateway): share workspace recovery and publication replay checks * test(gateway): share publication replay assertions",
+      "title": "perf(ui): reuse the sidebar session row map (#140270)",
+      "link": "https://github.com/openclaw/openclaw/commit/78d8fcf4e55705a0a3cd7241ea61ae24d12da1ee",
+      "publishedAt": "2026-09-06T16:48:40Z",
+      "summary": "perf(ui): reuse the sidebar session row map (#140270) Carry navigation's exact-key collection into tree projection instead of rebuilding the same cached-child and current-agent lookup. Preserve first insertion order, current-row precedence, filtering and promoted roots without adding a cross-render cache. Validation: 368 focused sidebar tests, changed checks, full built app before/after flows with matching rows and requests, asset-budget checks, independent review and managed autoreview. Two synthetic owner samples per arm showed lower allocation and derivation time; no retained-memory or whole-Gateway reduction is claimed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): share workspace recovery and publication replay ch…",
-      "summaryZh": "重點：refactor(Gateway): share workspace recovery and publication replay checks (#140133) * refactor(Gateway): share workspace..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): reuse the sidebar session row map (#140270)",
+      "summaryZh": "重點：perf(ui): reuse the sidebar session row map (#140270) Carry navigation's exact-key collection into tree projection inste..."
     },
     {
       "id": 3,
-      "title": "fix(update): avoid stale missing-plugin warnings after dev switches (…",
-      "link": "https://github.com/openclaw/openclaw/commit/ff930fa95e359b59960b7c911f549c1bb79f2a6f",
-      "publishedAt": "2026-09-06T13:55:45Z",
-      "summary": "fix(update): avoid stale missing-plugin warnings after dev switches (#121603) Validate plugin payloads using the install records returned by channel synchronization. A dev-channel switch can replace a retired npm path with a healthy bundled copy; the old input map could incorrectly report that retired path as missing. Remove the redundant record input while retaining normal repair and failure handling for genuinely missing plugins. Regression coverage exercises real bundled synchronization and an unavailable npm sibling through a loopback registry. The CLI fixtures preserve synchronized records and the current built-entrypoint readiness checks. Co-authored-by: Vincent Koc Co-authored-by: Peter Steinberger",
+      "title": "test(plugins): cover disabled metadata in enablement test (#140282)",
+      "link": "https://github.com/openclaw/openclaw/commit/3c6e8d4c82912a7afc9ee7635434bab7690b2e1b",
+      "publishedAt": "2026-09-06T16:46:31Z",
+      "summary": "test(plugins): cover disabled metadata in enablement test (#140282)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid stale missing-plugin warnings after dev switches (…",
-      "summaryZh": "重點：修正(update): avoid stale missing-plugin warnings after dev switches (#121603) Validate plugin payloads using the install ..."
+      "titleZh": "OpenClaw 程式碼更新：test(plugins): cover disabled metadata in enablement test (#140282)",
+      "summaryZh": "重點：test(plugins): cover disabled metadata in enablement test (#140282)..."
     },
     {
       "id": 4,
-      "title": "fix(doctor): avoid repeated plugin discovery in multi-agent startup (…",
-      "link": "https://github.com/openclaw/openclaw/commit/54315c3022c2e3ed5259684ba10635fbfebba018",
-      "publishedAt": "2026-09-06T13:55:06Z",
-      "summary": "fix(doctor): avoid repeated plugin discovery in multi-agent startup (#140135) Let unqualified Doctor work reuse its compatible prepared config-wide metadata instead of losing that context to the default workspace lookup. Keep explicit workspace requests, policy matching, narrower bases, invalidation, cache ownership, and persisted workspace leaves unchanged. The existing migration-lease freshness checks still run. Extend the real two-workspace persistence fixture with prepared-context, explicit-workspace, changed-policy, and return-to-base controls. Both workspace orders failed before the owner repair. The final owner/caller and real-process selection passes 93 tests; changed checks, normal build, and isolated P0 autoreview also pass. Related: https://github.com/openclaw/openclaw/pull/136639 This bounded follow-up does not claim to resolve that investigation's full-lifetime startup timing gate. No config or storage schema changes.",
+      "title": "fix(update): recover wrapper retirement failures (#140284)",
+      "link": "https://github.com/openclaw/openclaw/commit/46ee1ee22ae6789461f475e1319b27c5e3b4397d",
+      "publishedAt": "2026-09-06T16:45:24Z",
+      "summary": "fix(update): recover wrapper retirement failures (#140284)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): avoid repeated plugin discovery in multi-agent startup (…",
-      "summaryZh": "重點：修正(文件tor): avoid repeated plugin discovery in multi-agent startup (#140135) Let unqualified 文件tor work reuse its compati..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): recover wrapper retirement failures (#140284)",
+      "summaryZh": "重點：修正(update): recover wrapper retirement failures (#140284)..."
     },
     {
       "id": 5,
