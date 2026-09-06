@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-06T18:54:03.475Z",
+  "generatedAt": "2026-09-06T21:06:17.504Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(android): keep voice and connection controls readable (#140182)",
-      "link": "https://github.com/openclaw/openclaw/commit/d333ad2dd20b902d7c61a113315b5e4b4e3de833",
-      "publishedAt": "2026-09-06T18:48:17Z",
-      "summary": "fix(android): keep voice and connection controls readable (#140182)",
+      "title": "docs(web): split the Control UI page into task pages (#140437)",
+      "link": "https://github.com/openclaw/openclaw/commit/98adc95c79d448f3f30a4b62eb73f29404691809",
+      "publishedAt": "2026-09-06T21:06:07Z",
+      "summary": "docs(web): split the Control UI page into task pages (#140437) The Control UI page was 201,550 characters and 29,060 words across 55 headings, mixing how-to, reference, explanation, and contributor notes. It is now a short index with nine task pages beneath it. Child pages: - web/control-ui/connect-and-pair — device pairing, mobile pairing, runtime config endpoint, PWA install and web push, Tailnet access, insecure HTTP, blank page recovery - web/control-ui/sessions-and-sidebar — session names, new-session preferences, sidebar navigation, session colors, New session page - web/control-ui/chat — session rail and side chat, session links, composer capability menu, chat behavior, hosted embeds, transcript layout, message width - web/control-ui/panels — Ask OpenClaw, Home dock, operator terminal, browser panel - web/control-ui/settings — environment and personal identity, host status, language, appearance, plugins, updates, apps, settings shell, custom plugin UI, import assistant memory, MCP, activity, meetings - web/control-ui/feature-reference — the capability and RPC accordions - web/control-ui/offline-and-reconnect — connection loss and recovery - web/control-ui/security-model — content security policy, avatar and assistant media route auth, approval links - web/control-ui/development — build and asset caching, dev server against a remote Gateway Redirects added, one per moved anchor, so each section keeps a stable path (docs.json redirect sources cannot carry a fragment, so each anchor gets its own route that redirects to the anchor on its new page): - /web/control-ui/community-invitation -> /web/control-ui/settings#community-invitation - /web/control-ui/composer-capability-menu -> /web/control-ui/chat#composer-capability-menu - /web/control-ui/hosted-embeds -> /web/control-ui/chat#hosted-embeds - /web/control-ui/import-assistant-memory -> /web/control-ui/settings#import-assistant-memory - /web/control-ui/insecure-http -> /web/control-ui/connect-and-pair#insecure-http - /web/control-ui/markdown-tables -> /web/control-ui/chat#markdown-tables - /web/control-ui/meetings-page -> /web/control-ui/settings#meetings-page - /web/control-ui/mermaid-diagrams -> /web/control-ui/chat#mermaid-diagrams - /web/control-ui/new-session-names -> /web/control-ui/sessions-and-sidebar#new-session-names - /web/control-ui/operator-terminal -> /web/control-ui/panels#operator-terminal - /web/control-ui/pwa-install-and-web-push -> /web/control-ui/connect-and-pair#pwa-install-and-web-push - /web/control-ui/session-menu -> /web/control-ui/sessions-and-sidebar#session-menu - /web/control-ui/start-a-native-coding-cli -> /web/control-ui/sessions-and-sidebar#start-a-native-coding-cli - /web/control-ui/updates -> /web/control-ui/settings#updates Every inbound link that used one of those anchors is updated in this change, across 11 files. The nine children are nested under a Control UI group beside the parent in the Web interfaces nav group, and zh-CN glossary entries are added for the new titles and link labels. Content is moved, not rewritten. Words 29,060 -> 29,332, code fences 14 -> 14, markdown links 67 -> 76. The 272 added words are the nine index entries, the nine child lead sentences, three headings for prose that had none, and the \"What it can do (today)\" -> \"Feature and RPC reference\" rename. Closes audit findings: r3-0860, r3-0863, r3-2534",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): keep voice and connection controls readable (#140182)",
-      "summaryZh": "重點：修正(android): keep voice and connection controls readable (#140182)..."
+      "titleZh": "OpenClaw 文件更新：文件(web): split the Control UI page into task pages (#140437)",
+      "summaryZh": "重點：文件(web): split the Control UI page into task pages (#140437) The Control UI page was 201,550 characters and 29,060 words..."
     },
     {
       "id": 2,
-      "title": "refactor(ai): share native OpenAI client construction (#140361)",
-      "link": "https://github.com/openclaw/openclaw/commit/ecb30d1d22768390568cc769f65366c5a81d5b98",
-      "publishedAt": "2026-09-06T18:47:01Z",
-      "summary": "refactor(ai): share native OpenAI client construction (#140361)",
+      "title": "fix: tool_search rejects calls that send both query and queries (#140…",
+      "link": "https://github.com/openclaw/openclaw/commit/b494b1f987a811edcb18ebfc109d9ff21d9a8769",
+      "publishedAt": "2026-09-06T21:04:00Z",
+      "summary": "fix: tool_search rejects calls that send both query and queries (#140310) * fix(agents): serve mixed tool_search query shapes tool_search rejected any call that set both query and queries. Native Codex/OpenAI routes send both routinely, so every such call burned a model round trip on a validation error. Treat null as absent, ignore an empty query beside queries, and fold a real query into the batch as its first entry instead of failing the request. * fix(agents): let tool_search schema accept null and empty batch shapes Argument validation runs the declared TypeBox schema before execute, so the parser fallbacks for query: null and queries: [] were unreachable through the agent loop. Accept those shapes in the schema and cover validation followed by execution. --------- Co-authored-by: VACInc Co-authored-by: roboclaw-bot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ai): share native OpenAI client construction (#140361)",
-      "summaryZh": "重點：refactor(ai): share native OpenAI client construction (#140361)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: tool_search rejects calls that send both query and queries (#140…",
+      "summaryZh": "重點：修正: tool_search rejects calls that send both query and queries (#140310) * 修正(agents): serve mixed tool_search query sha..."
     },
     {
       "id": 3,
-      "title": "fix: avoid loading saved prompts for session sharing (#140368)",
-      "link": "https://github.com/openclaw/openclaw/commit/a5597cc69ed7f3cfbfa5f8ffdde1dab1353424d3",
-      "publishedAt": "2026-09-06T18:46:12Z",
-      "summary": "fix: avoid loading saved prompts for session sharing (#140368)",
+      "title": "fix(update): preserve rollback and truthful serving reports (#140419)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a9ef915e8cb209ad11d1b9552aafe094cb96e6f",
+      "publishedAt": "2026-09-06T21:02:33Z",
+      "summary": "fix(update): preserve rollback and truthful serving reports (#140419) Follow up #140274: distinguish first-use database creation from migrations, preserve previous-package schema compatibility before rollback, and report persisted response mismatches accurately. Accept the verification token within punctuation or prose while preserving mandatory served-turn proof. Derive recovery guidance from the latest observed service state.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid loading saved prompts for session sharing (#140368)",
-      "summaryZh": "重點：修正: avoid loading saved prompts for session sharing (#140368)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): preserve rollback and truthful serving reports (#140419)",
+      "summaryZh": "重點：修正(update): preserve rollback and truthful serving reports (#140419) Follow up #140274: distinguish first-use database c..."
     },
     {
       "id": 4,
-      "title": "fix(tui): show canonical provider after local model changes (#139990)",
-      "link": "https://github.com/openclaw/openclaw/commit/c9095375c00ac818b9367d9a79f9d3590a5bda33",
-      "publishedAt": "2026-09-06T18:45:20Z",
-      "summary": "fix(tui): show canonical provider after local model changes (#139990) * test(tui): cover canonical local patch responses * fix(tui): canonicalize local patch responses * fix(tui): adapt projected entries to protocol * test(tui): prove canonical local model identity * test(tui): route identity proof through CI canary * test(tui): exercise CLI provider alias directly * fix(tui): verify canonical local model confirmations Keep the shared Gateway patch-result projection and cover the actual local PTY confirmation, model restoration and subsequent chat. Preserve the loopback provider while preparing the separate CLI alias fixture. Co-authored-by: ben.li --------- Co-authored-by: Peter Steinberger Co-authored-by: ben.li",
+      "title": "fix: restore context when CLI recovery starts a fresh session (#140294)",
+      "link": "https://github.com/openclaw/openclaw/commit/e20b56c0b26eec6db2af373da4598c8f40bee626",
+      "publishedAt": "2026-09-06T21:01:46Z",
+      "summary": "fix: restore context when CLI recovery starts a fresh session (#140294) * fix: restore context when CLI recovery starts a fresh session * fix(cli): recover interrupted context without crossing accounts Keep transcript account ownership independent of native session bindings. Track contiguous history coverage under the admitted CLI writer, preserve append-owned metadata through turn settlement and SDK round trips, and revalidate recovery reads before execution. Fail closed for unknown, mixed, or unaccounted history without changing the SQLite schema or native binding shape. Detach background work from the parent history capability and retain bounded tool-result recovery. * test(cli): preserve history coverage within CI limits Move private history SDK checks into focused cases covering public reads, mutation round trips, and injected-ownership refusal without exceeding the existing test-file line limit. Match the earlier prepared-admission rejection in routing race fixtures while retaining the no-receipt and no-dispatch assertions. --------- Co-authored-by: VACInc Co-authored-by: roboclaw-bot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): show canonical provider after local 模型 changes (#139990)",
-      "summaryZh": "重點：修正(tui): show canonical provider after local 模型 changes (#139990) * test(tui): cover canonical local patch responses * 修..."
+      "titleZh": "OpenClaw 程式碼更新：修正: restore context when CLI recovery starts a fresh session (#140294)",
+      "summaryZh": "重點：修正: restore context when CLI recovery starts a fresh session (#140294) * 修正: restore context when CLI recovery starts a ..."
     },
     {
       "id": 5,
