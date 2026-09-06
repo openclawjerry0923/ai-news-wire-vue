@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-06T10:26:04.958Z",
+  "generatedAt": "2026-09-06T13:58:57.584Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(channels): send pairing approvals from the approved account (#137…",
-      "link": "https://github.com/openclaw/openclaw/commit/b75423c2fcc30bda76fbe0480662bcaaea54a5b4",
-      "publishedAt": "2026-09-06T10:25:26Z",
-      "summary": "fix(channels): send pairing approvals from the approved account (#137268) * fix(channels): send pairing approvals from the approved account The pairing approval contract carries the account a request was selected on, but the LINE, Signal, IRC, and Synology Chat notifiers dropped it and resolved the default account instead. On a multi-account setup the approval went out from the wrong account with the wrong credentials while the gateway still reported the notification as sent. Each of the four notifiers now passes the approved account id to its account resolver. Omitting the account id still resolves the default account exactly as before. * fix(channels): extend account-scoped pairing approvals to Zalo, Zalo Personal, and iMessage The Zalo, Zalo Personal (zalouser), and iMessage pairing notifiers dropped the approved account id the same way the first four did, so on a multi-account setup the approval went out from the default account. Each notifier now passes the approved account id to its account resolver or sender, and the Zalo and iMessage runtime facades type their params with an optional accountId so the id survives the module boundary. Omitting the account id still resolves the default account exactly as before. * fix(channels): reuse account-aware pairing notification senders Preserve the approved account across all seven affected plugins. Reuse existing delivery owners for iMessage, Synology Chat, and Zalo so failed notifications remain visible and Zalo retains its account proxy. Keep the existing notification text and completed approval unchanged. Production decreases by five lines. Secretless hosted proof covers all seven original account mismatches, real notifier HTTP effects, 204 focused checks, and exact candidate file hashes. Co-authored-by: MarMar Labs * fix(imessage): preserve pairing approval welcome text Use the shared approval message already sent by the removed notifier. Assert the exact RPC text for both selected and default accounts. Hosted proof reproduced both generic-text regressions on a2014d63c19, then passed all 15 iMessage owner tests and verified all 16 candidate file hashes after this correction. Co-authored-by: MarMar Labs --------- Co-authored-by: Peter Steinberger Co-authored-by: MarMar Labs",
+      "title": "chore(ui): refresh control ui locales (#140144)",
+      "link": "https://github.com/openclaw/openclaw/commit/07d5b2409af0bee1ceb30b785ad75711ee0cf63a",
+      "publishedAt": "2026-09-06T13:57:13Z",
+      "summary": "chore(ui): refresh control ui locales (#140144) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(channels): send pairing approvals from the approved account (#137…",
-      "summaryZh": "重點：修正(channels): send pairing approvals from the approved account (#137268) * 修正(channels): send pairing approvals from the..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#140144)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#140144) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 2,
-      "title": "fix(exec): prevent stalled PTY prompts and wrong arrow keys after spl…",
-      "link": "https://github.com/openclaw/openclaw/commit/414733b6efe9caead19df0fb52fb6ae48b728489",
-      "publishedAt": "2026-09-06T10:24:57Z",
-      "summary": "fix(exec): prevent stalled PTY prompts and wrong arrow keys after split output (#139742) * fix(exec): preserve PTY controls across output chunks Answer split cursor-position queries and retain application cursor mode through the canonical streaming ANSI parser, preventing stalled prompts and incorrectly encoded arrow keys. Delete the duplicate callback-local DSR and cursor-mode scans. * test(exec): consolidate PTY control regression coverage Keep the native split-control regression in the existing PTY suite so agents-root remains within the 720-root limit. Reuse command quoting and preserve byte assertions and process cleanup.",
+      "title": "refactor(gateway): share workspace recovery and publication replay ch…",
+      "link": "https://github.com/openclaw/openclaw/commit/32bedf1f3a7f9a597e9a9b0b2dc5fc03130d4720",
+      "publishedAt": "2026-09-06T13:57:11Z",
+      "summary": "refactor(gateway): share workspace recovery and publication replay checks (#140133) * refactor(gateway): share workspace recovery and publication replay checks * test(gateway): share publication replay assertions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): prevent stalled PTY prompts and wrong arrow keys after spl…",
-      "summaryZh": "重點：修正(exec): prevent stalled PTY prompts and wrong arrow keys after split output (#139742) * 修正(exec): preserve PTY control..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): share workspace recovery and publication replay ch…",
+      "summaryZh": "重點：refactor(Gateway): share workspace recovery and publication replay checks (#140133) * refactor(Gateway): share workspace..."
     },
     {
       "id": 3,
-      "title": "refactor(meetings): share browser audio device inspection (#139973)",
-      "link": "https://github.com/openclaw/openclaw/commit/00536c3794211ebb5ace45b06507c911ef361efb",
-      "publishedAt": "2026-09-06T10:24:14Z",
-      "summary": "refactor(meetings): share browser audio device inspection (#139973) Keep platform selectors and audio lifecycle decisions in each plugin while sharing DOM device inspection. Scope shared helpers so older published plugin fragments retain their declarations and behavior on newer hosts.",
+      "title": "fix(update): avoid stale missing-plugin warnings after dev switches (…",
+      "link": "https://github.com/openclaw/openclaw/commit/ff930fa95e359b59960b7c911f549c1bb79f2a6f",
+      "publishedAt": "2026-09-06T13:55:45Z",
+      "summary": "fix(update): avoid stale missing-plugin warnings after dev switches (#121603) Validate plugin payloads using the install records returned by channel synchronization. A dev-channel switch can replace a retired npm path with a healthy bundled copy; the old input map could incorrectly report that retired path as missing. Remove the redundant record input while retaining normal repair and failure handling for genuinely missing plugins. Regression coverage exercises real bundled synchronization and an unavailable npm sibling through a loopback registry. The CLI fixtures preserve synchronized records and the current built-entrypoint readiness checks. Co-authored-by: Vincent Koc Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(meetings): share browser audio device inspection (#139973)",
-      "summaryZh": "重點：refactor(meetings): share browser audio device inspection (#139973) Keep platform selectors and audio lifecycle decision..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid stale missing-plugin warnings after dev switches (…",
+      "summaryZh": "重點：修正(update): avoid stale missing-plugin warnings after dev switches (#121603) Validate plugin payloads using the install ..."
     },
     {
       "id": 4,
-      "title": "fix(test): preserve explicit Node tool contracts under Bun (#139841)",
-      "link": "https://github.com/openclaw/openclaw/commit/e024b63672f83b55336b2d154a232e5e33754a77",
-      "publishedAt": "2026-09-06T10:22:24Z",
-      "summary": "fix(test): preserve explicit Node tool contracts under Bun (#139841)",
+      "title": "fix(doctor): avoid repeated plugin discovery in multi-agent startup (…",
+      "link": "https://github.com/openclaw/openclaw/commit/54315c3022c2e3ed5259684ba10635fbfebba018",
+      "publishedAt": "2026-09-06T13:55:06Z",
+      "summary": "fix(doctor): avoid repeated plugin discovery in multi-agent startup (#140135) Let unqualified Doctor work reuse its compatible prepared config-wide metadata instead of losing that context to the default workspace lookup. Keep explicit workspace requests, policy matching, narrower bases, invalidation, cache ownership, and persisted workspace leaves unchanged. The existing migration-lease freshness checks still run. Extend the real two-workspace persistence fixture with prepared-context, explicit-workspace, changed-policy, and return-to-base controls. Both workspace orders failed before the owner repair. The final owner/caller and real-process selection passes 93 tests; changed checks, normal build, and isolated P0 autoreview also pass. Related: https://github.com/openclaw/openclaw/pull/136639 This bounded follow-up does not claim to resolve that investigation's full-lifetime startup timing gate. No config or storage schema changes.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): preserve explicit Node tool contracts under Bun (#139841)",
-      "summaryZh": "重點：修正(test): preserve explicit Node tool contracts under Bun (#139841)..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): avoid repeated plugin discovery in multi-agent startup (…",
+      "summaryZh": "重點：修正(文件tor): avoid repeated plugin discovery in multi-agent startup (#140135) Let unqualified 文件tor work reuse its compati..."
     },
     {
       "id": 5,
@@ -83,19 +83,19 @@
     },
     {
       "id": 9,
-      "title": "「每根睫毛都能貼補家用」！北韓民眾點油燈通宵做假髮，出口冠軍背後的另一面",
-      "link": "https://technews.tw/2026/09/06/more-and-more-n-koreans-turn-to-wig-making-to-earn-cash/",
-      "publishedAt": "Sun, 06 Sep 2026 08:00:11 +0000",
-      "summary": "一般提到北韓，可能最先想到的會是核武、飛彈或軍事活動，但在這個一舉一動都備受矚目的國家，看似毫無關聯的商品，卻 [&#8230;]",
-      "source": "TechNews",
+      "title": "JetBrains加強Kotlin工具鏈，可發布多平臺函式庫並建置Wasm應用",
+      "link": "https://www.ithome.com.tw/news/178720",
+      "publishedAt": "2026-09-06 08:09:13",
+      "summary": "JetBrains釋出建置工具Kotlin Toolchain 0.12，新增Kotlin多平臺函式庫發布能力，涵蓋JVM、Android、iOS與WebAssembly（Wasm），並預覽Wasm網頁應用建置功能。開發者可使用相同的工具設定函式庫支援的平臺，再產生各平臺需要的版本。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "DeepSeek 重金採購 16 萬顆華為晶片，內蒙古建大規模 AI 叢集",
-      "link": "https://technews.tw/2026/09/06/deepseek-prepares-major-huawei-ai-chip-order-for-new-data-center/",
-      "publishedAt": "Sun, 06 Sep 2026 07:49:14 +0000",
-      "summary": "今年 7 月，DeepSeek 執行長因大膽宣稱 NVIDIA 於中國自掘墳墓而掀起波瀾。數週之後，DeepS [&#8230;]",
+      "title": "「每根睫毛都能貼補家用」！北韓民眾點油燈通宵做假髮，出口冠軍背後的另一面",
+      "link": "https://technews.tw/2026/09/06/more-and-more-n-koreans-turn-to-wig-making-to-earn-cash/",
+      "publishedAt": "Sun, 06 Sep 2026 08:00:11 +0000",
+      "summary": "一般提到北韓，可能最先想到的會是核武、飛彈或軍事活動，但在這個一舉一動都備受矚目的國家，看似毫無關聯的商品，卻 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
