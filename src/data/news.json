@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-07T09:00:51.748Z",
+  "generatedAt": "2026-09-07T15:32:53.178Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(plugins): share active hook and skill root selection (#141298)",
+      "link": "https://github.com/openclaw/openclaw/commit/6b61530eee45ae680265566f8b97a651452d59a5",
+      "publishedAt": "2026-09-07T15:29:42Z",
+      "summary": "refactor(plugins): share active hook and skill root selection (#141298) Keep activation, availability and memory-slot ordering in one metadata owner while preserving caller filesystem and publication policies. Proof: 115 focused tests, final 36 skill tests, changed checks, zero Madge cycles and pnpm build pass. Autoreview is clean.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): share active hook and skill root selection (#141298)",
+      "summaryZh": "重點：refactor(plugins): share active hook and skill root selection (#141298) Keep activation, availability and 記憶-slot orderi..."
+    },
+    {
+      "id": 2,
+      "title": "fix: preserve recovered terminal upload expiry (#141251)",
+      "link": "https://github.com/openclaw/openclaw/commit/9d64ec1e5dc611cfa60cb67f843b2f641ab23c8b",
+      "publishedAt": "2026-09-07T15:20:05Z",
+      "summary": "fix: preserve recovered terminal upload expiry (#141251) Recovered uploads keep their first-observed expiry through child renames and partial cleanup. Full-width directory identity prevents an old deadline from applying to a replacement. Refs #137116.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve recovered terminal upload expiry (#141251)",
+      "summaryZh": "重點：修正: preserve recovered terminal upload expiry (#141251) Recovered uploads keep their first-observed expiry through child..."
+    },
+    {
+      "id": 3,
+      "title": "fix(docs): remove unsupported automation update command (#137229)",
+      "link": "https://github.com/openclaw/openclaw/commit/02c20211640369441d22fd7833b12a47a17d14fa",
+      "publishedAt": "2026-09-07T15:17:24Z",
+      "summary": "fix(docs): remove unsupported automation update command (#137229)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正(文件): remove unsupported automation update command (#137229)",
+      "summaryZh": "重點：修正(文件): remove unsupported automation update command (#137229)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(status): label diagnostic-only service state (#140547)",
+      "link": "https://github.com/openclaw/openclaw/commit/43bc88f6f78410b86548ac29ec3f13a762481ae9",
+      "publishedAt": "2026-09-07T15:03:20Z",
+      "summary": "fix(status): label diagnostic-only service state (#140547) * fix(cli): label diagnostic-only service state in gateway status gatherDaemonStatus already decides whether the inspected service is the one the connectivity probe targets, and emits service.targetRole for it. printDaemonStatus read that role into serviceTargetsProbe but printed an unqualified \"Service:\" heading and an unqualified \"Runtime:\" line, so a retained custom LaunchAgent selector could show \"Runtime: running\" directly above \"Connectivity probe: failed\" for a different Gateway, with nothing saying the two lines describe different services. Append the existing distinction to the two lines that report that service's state, and only when the role is diagnostic-only. Service selection, targeting, casing and override rules are untouched, and the JSON branch returns before any of this runs, so machine-readable output is byte-identical. Refs #47811 rather than Fixes: the original report also covers profile targeting and cross-profile restart on a host configuration that was never reproduced. This repairs only the status presentation defect that is independently established in source. Signed-off-by: Tymofii Pidlisnyi * fix(cli): clarify diagnostic service state without extra formatters Preserve the recorded service target role on both human status lines and inline the one-use probe and capability formatters without changing their fallback behavior. Exercise the real runtime formatter across service roles and states while retaining JSON, hints, and redaction coverage. Hosted proof captured four intended baseline failures, then 198 passing owner/sibling tests with two existing platform skips. A normal build and four isolated CLI calls verified the qualifiers for an absent, stopped service; changed-file gates and cleanup passed. Production net -4 lines. Refs #47811. This repairs status presentation only. Co-authored-by: Tymofii Pidlisnyi --------- Signed-off-by: Tymofii Pidlisnyi Co-authored-by: Peter Steinberger Co-authored-by: Tymofii Pidlisnyi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(status): label diagnostic-only service state (#140547)",
+      "summaryZh": "重點：修正(status): label diagnostic-only service state (#140547) * 修正(cli): label diagnostic-only service state in Gateway stat..."
+    },
+    {
+      "id": 5,
+      "title": "巨大撞擊可在 5 小時內形成完整月球，模擬揭示月球誕生新途徑",
+      "link": "https://technews.tw/2026/09/07/giant-impact-forms-complete-moon-5-hours-simulations-new-pathway/",
+      "publishedAt": "Mon, 07 Sep 2026 14:38:29 +0000",
+      "summary": "長久以來，月球起源的主流模型認為，約 45 億年前，一顆火星大小的天體「忒伊亞」（Theia）撞擊早期地球，撞 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "CISA將Chrome甫修補漏洞列入KEV清單",
       "link": "https://www.ithome.com.tw/news/178734",
       "publishedAt": "2026-09-07 12:09:55",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "微軟推出Project Zenith，打造開發者專用Windows裝置",
       "link": "https://www.ithome.com.tw/news/178732",
       "publishedAt": "2026-09-07 12:09:29",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "多倫多大學研究揭露新型攻擊手法GPUThor，可突破Nvidia GPU的ECC防護",
       "link": "https://www.ithome.com.tw/news/178735",
       "publishedAt": "2026-09-07 12:09:22",
@@ -29,8 +82,8 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "SEMI E187驗證標章亮相，最快10月將公布第一家驗證機構，首波標章產品有望於年底前問世",
+      "id": 9,
+      "title": "SEMI E187驗證標章亮相，最快10月將公布第一家驗證機構，首波獲標章產品有望於年底前問世",
       "link": "https://www.ithome.com.tw/news/178733",
       "publishedAt": "2026-09-07 12:09:04",
       "summary": "由臺灣主導制定的半導體設備資安標準SEMI E187，在SEMICON Taiwan 2026正式舉行驗證標章公告儀式。這不僅是該標章的首度公開亮相，更標誌著臺灣從國際標準的跟隨者，逐步成為規則制定者與驗證體系的建構者。",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "中科院傳出採購網大量派送過期資訊，起因是遭遇外部攻擊",
       "link": "https://www.ithome.com.tw/news/178727",
       "publishedAt": "2026-09-07 11:09:48",
       "summary": "系統開發商為維護方便而設下的管理介面，成為攻擊者入侵的破口！國家中山科學研究院採購資訊網日前突然送出大量過期採購資訊，相關廠商收到因而懷疑此系統可能遭到入侵，然而這起事故發生的時間，中科院剛好在測試AI代理，因此他們起初懷疑是AI出錯釀禍，但後來又改口是遭到外部入侵。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "美英聯手打擊東南亞詐騙園區，共享情資、分頭調查並協調起訴",
-      "link": "https://www.ithome.com.tw/news/178731",
-      "publishedAt": "2026-09-07 11:09:36",
-      "summary": "美國與英國建立跨國合作機制，聯手打擊東南亞詐騙園區及背後犯罪組織。美國Scam Center Strike Force與英格蘭及威爾斯皇家檢察署（CPS）、英國國家犯罪局（NCA）簽署合作備忘錄，雙方將共享犯罪情資，並針對共同目標各自展開調查，協調各案件的起訴司法管轄區。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(codex): avoid first-turn failures on cold cloud workers (#140990)",
-      "link": "https://github.com/openclaw/openclaw/commit/0d30dcbbf4d7a15936f3d71a0fda888d77df01ea",
-      "publishedAt": "2026-09-07T08:54:58Z",
-      "summary": "fix(codex): avoid first-turn failures on cold cloud workers (#140990) Publish node execution readiness only after the pinned native exec-server is listening. Observe early stderr and exit before process registration yields, preserve the one-shot initialize exchange, and revalidate authority after startup. The owned startup diagnostic filter is inherited under Codex default environment policy; document explicit command-level RUST_LOG overrides. No handshake timeout, schema, or public configuration change.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): avoid first-turn failures on cold cloud workers (#140990)",
-      "summaryZh": "重點：修正(codex): avoid first-turn failures on cold cloud workers (#140990) Publish node execution readiness only after the pin..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(line): share reply presentation preparation (#141030)",
-      "link": "https://github.com/openclaw/openclaw/commit/6d1b7a8c0967dd4371b8b18f444b5722e3f61b0f",
-      "publishedAt": "2026-09-07T08:53:38Z",
-      "summary": "refactor(line): share reply presentation preparation (#141030)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(line): share reply presentation preparation (#141030)",
-      "summaryZh": "重點：refactor(line): share reply presentation preparation (#141030)..."
-    },
-    {
-      "id": 9,
-      "title": "refactor(cli): reuse devices runtime option types (#141029)",
-      "link": "https://github.com/openclaw/openclaw/commit/94c5e5e039b39a0f0626af1460ed9b9dcf1e1c14",
-      "publishedAt": "2026-09-07T08:53:34Z",
-      "summary": "refactor(cli): reuse devices runtime option types (#141029)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(cli): reuse devices runtime option types (#141029)",
-      "summaryZh": "重點：refactor(cli): reuse devices runtime option types (#141029)..."
-    },
-    {
-      "id": 10,
-      "title": "refactor(sessions): share maintenance phase planning (#141026)",
-      "link": "https://github.com/openclaw/openclaw/commit/d3e41c02518bf91991f300bd47b3533bd2207ac7",
-      "publishedAt": "2026-09-07T08:51:20Z",
-      "summary": "refactor(sessions): share maintenance phase planning (#141026) Keep write and legacy-read phase order, pressure gates, candidate ordering, protected rows, and transaction ownership unchanged across four callers. Proof: focused run-vitest maintenance suites pass (42 tests); 1,488 original-versus-shared planner comparisons match. Independent review clean.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): share maintenance phase planning (#141026)",
-      "summaryZh": "重點：refactor(sessions): share maintenance phase planning (#141026) Keep write and legacy-read phase order, pressure gates, c..."
     }
   ]
 }
