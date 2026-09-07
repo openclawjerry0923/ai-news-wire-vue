@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-07T15:32:53.178Z",
+  "generatedAt": "2026-09-07T19:38:30.242Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(plugins): share active hook and skill root selection (#141298)",
-      "link": "https://github.com/openclaw/openclaw/commit/6b61530eee45ae680265566f8b97a651452d59a5",
-      "publishedAt": "2026-09-07T15:29:42Z",
-      "summary": "refactor(plugins): share active hook and skill root selection (#141298) Keep activation, availability and memory-slot ordering in one metadata owner while preserving caller filesystem and publication policies. Proof: 115 focused tests, final 36 skill tests, changed checks, zero Madge cycles and pnpm build pass. Autoreview is clean.",
+      "title": "refactor(tests): share complete CI scope expectations (#141487)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc79a198dc0de4b77f63c67c02cfc86400386e6e",
+      "publishedAt": "2026-09-07T19:38:24Z",
+      "summary": "refactor(tests): share complete CI scope expectations (#141487)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): share active hook and skill root selection (#141298)",
-      "summaryZh": "重點：refactor(plugins): share active hook and skill root selection (#141298) Keep activation, availability and 記憶-slot orderi..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(tests): share complete CI scope expectations (#141487)",
+      "summaryZh": "重點：refactor(tests): share complete CI scope expectations (#141487)..."
     },
     {
       "id": 2,
-      "title": "fix: preserve recovered terminal upload expiry (#141251)",
-      "link": "https://github.com/openclaw/openclaw/commit/9d64ec1e5dc611cfa60cb67f843b2f641ab23c8b",
-      "publishedAt": "2026-09-07T15:20:05Z",
-      "summary": "fix: preserve recovered terminal upload expiry (#141251) Recovered uploads keep their first-observed expiry through child renames and partial cleanup. Full-width directory identity prevents an old deadline from applying to a replacement. Refs #137116.",
+      "title": "test(ui): split streaming markdown tests out of markdown.test.ts (#14…",
+      "link": "https://github.com/openclaw/openclaw/commit/18eabd4cded980fc1e30225b989e668516d4558a",
+      "publishedAt": "2026-09-07T19:36:57Z",
+      "summary": "test(ui): split streaming markdown tests out of markdown.test.ts (#141485) markdown.test.ts exceeded the max-lines lint limit after #141369 and #141431, turning the core lint lane red for every PR rebased onto main. Move the toStreamingMarkdownParts and indented-source blocks verbatim into markdown-streaming-parts.test.ts and drop the imports the remaining file no longer uses.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve recovered terminal upload expiry (#141251)",
-      "summaryZh": "重點：修正: preserve recovered terminal upload expiry (#141251) Recovered uploads keep their first-observed expiry through child..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): split streaming markdown tests out of markdown.test.ts (#14…",
+      "summaryZh": "重點：test(ui): split streaming markdown tests out of markdown.test.ts (#141485) markdown.test.ts exceeded the max-lines lint ..."
     },
     {
       "id": 3,
-      "title": "fix(docs): remove unsupported automation update command (#137229)",
-      "link": "https://github.com/openclaw/openclaw/commit/02c20211640369441d22fd7833b12a47a17d14fa",
-      "publishedAt": "2026-09-07T15:17:24Z",
-      "summary": "fix(docs): remove unsupported automation update command (#137229)",
+      "title": "perf(plugins): reduce bundled activation imports (#141466)",
+      "link": "https://github.com/openclaw/openclaw/commit/7a1f677e3cb5d4882c0cff0d76dd4af196c27c58",
+      "publishedAt": "2026-09-07T19:31:02Z",
+      "summary": "perf(plugins): reduce bundled activation imports (#141466) * perf(plugins): keep bundled activation on metadata paths * test(ui): split streaming Markdown coverage",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件): remove unsupported automation update command (#137229)",
-      "summaryZh": "重點：修正(文件): remove unsupported automation update command (#137229)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): reduce bundled activation imports (#141466)",
+      "summaryZh": "重點：perf(plugins): reduce bundled activation imports (#141466) * perf(plugins): keep bundled activation on metadata paths * ..."
     },
     {
       "id": 4,
-      "title": "fix(status): label diagnostic-only service state (#140547)",
-      "link": "https://github.com/openclaw/openclaw/commit/43bc88f6f78410b86548ac29ec3f13a762481ae9",
-      "publishedAt": "2026-09-07T15:03:20Z",
-      "summary": "fix(status): label diagnostic-only service state (#140547) * fix(cli): label diagnostic-only service state in gateway status gatherDaemonStatus already decides whether the inspected service is the one the connectivity probe targets, and emits service.targetRole for it. printDaemonStatus read that role into serviceTargetsProbe but printed an unqualified \"Service:\" heading and an unqualified \"Runtime:\" line, so a retained custom LaunchAgent selector could show \"Runtime: running\" directly above \"Connectivity probe: failed\" for a different Gateway, with nothing saying the two lines describe different services. Append the existing distinction to the two lines that report that service's state, and only when the role is diagnostic-only. Service selection, targeting, casing and override rules are untouched, and the JSON branch returns before any of this runs, so machine-readable output is byte-identical. Refs #47811 rather than Fixes: the original report also covers profile targeting and cross-profile restart on a host configuration that was never reproduced. This repairs only the status presentation defect that is independently established in source. Signed-off-by: Tymofii Pidlisnyi * fix(cli): clarify diagnostic service state without extra formatters Preserve the recorded service target role on both human status lines and inline the one-use probe and capability formatters without changing their fallback behavior. Exercise the real runtime formatter across service roles and states while retaining JSON, hints, and redaction coverage. Hosted proof captured four intended baseline failures, then 198 passing owner/sibling tests with two existing platform skips. A normal build and four isolated CLI calls verified the qualifiers for an absent, stopped service; changed-file gates and cleanup passed. Production net -4 lines. Refs #47811. This repairs status presentation only. Co-authored-by: Tymofii Pidlisnyi --------- Signed-off-by: Tymofii Pidlisnyi Co-authored-by: Peter Steinberger Co-authored-by: Tymofii Pidlisnyi",
+      "title": "feat(cli): limit docs search results (#131014)",
+      "link": "https://github.com/openclaw/openclaw/commit/513ca32a8f2beef0824f7c9376355ac2c4c4af72",
+      "publishedAt": "2026-09-07T19:28:52Z",
+      "summary": "feat(cli): limit docs search results (#131014) Add an optional positive-integer limit to docs search output across terminal and JSON formats, with coverage for malformed search entries and documented default behavior. Reviewed-by: @shakkernerd Co-authored-by: Shakker",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(status): label diagnostic-only service state (#140547)",
-      "summaryZh": "重點：修正(status): label diagnostic-only service state (#140547) * 修正(cli): label diagnostic-only service state in Gateway stat..."
+      "titleZh": "OpenClaw 文件更新：新功能(cli): limit 文件 search results (#131014)",
+      "summaryZh": "重點：新功能(cli): limit 文件 search results (#131014) Add an optional positive-integer limit to 文件 search output across terminal a..."
     },
     {
       "id": 5,
