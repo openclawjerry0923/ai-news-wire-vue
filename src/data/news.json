@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-08T14:56:46.497Z",
+  "generatedAt": "2026-09-08T18:24:38.539Z",
   "items": [
     {
       "id": 1,
-      "title": "test: join native triage controllers before fixture cleanup (#142215)",
-      "link": "https://github.com/openclaw/openclaw/commit/76fb286ee76d399e3582e3a5c74c5a344ebb9834",
-      "publishedAt": "2026-09-08T14:53:12Z",
-      "summary": "test: join native triage controllers before fixture cleanup (#142215)",
+      "title": "fix(cli): inspect the agent model catalog without readding excluded r…",
+      "link": "https://github.com/openclaw/openclaw/commit/a92c15a5dc3710c0799320d07c35df862b074b0d",
+      "publishedAt": "2026-09-08T18:24:06Z",
+      "summary": "fix(cli): inspect the agent model catalog without readding excluded rows (#142367) Use the selected agent's prepared catalog for model listing, inspection, and provider counts. Remove the independent manifest merge that restored excluded models while preserving authored metadata, agent selection, sorting, and existing errors. Verified with compiled CLI baseline/candidate observations, focused regression tests, and exact-head CI. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: join native triage controllers before 修正ture cleanup (#142215)",
-      "summaryZh": "重點：test: join native triage controllers before 修正ture cleanup (#142215)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): inspect the agent 模型 catalog without readding excluded r…",
+      "summaryZh": "重點：修正(cli): inspect the agent 模型 catalog without readding excluded rows (#142367) Use the selected agent's prepared catalog..."
     },
     {
       "id": 2,
-      "title": "feat(providers): keep registered setup connection-only (#142202)",
-      "link": "https://github.com/openclaw/openclaw/commit/0f3db48abbf065d3d997ede4ff6600bef45cebf6",
-      "publishedAt": "2026-09-08T14:52:25Z",
-      "summary": "feat(providers): keep registered setup connection-only (#142202) Registered provider setup now saves a connection without pinning a copy of the built-in model catalog. Add shared connection-only presets and move the Cloudflare AI Gateway, Featherless, Hugging Face, LongCat, Meta, Mistral, NVIDIA, Synthetic, Together, regular Xiaomi, and Z.AI registrations to them. Ordinary setup preserves authored rows, defaults, fallbacks, and aliases. Explicit replace mode keeps the existing catalog-merge and required-default rules. Published helper APIs keep their catalog-seeding behavior. Shared descriptors remove duplicate provider decisions, and generated replace rows belong to the resulting config. The new SDK imports require a paired host/plugin release. The existing version-sync and package builder update the plugin API and peer ranges with that release. This change does not claim compatibility between the new plugin imports and an older released host. Validation: - 128 focused SDK and provider checks pass. Four connection-only checks fail when the mode condition is deliberately removed; the correct source is restored. - Real registered NVIDIA setup saves seven generated rows on the pinned baseline and zero on the candidate. Authored merge/replace settings and the available default remain intact. - The required CI artifact passes compiled Mistral setup for fresh, authored merge, and authored replace configurations. A real Gateway lists the configured default and returns one synthetic provider reply with matching requested, effective, and response models. Catalog and inference leave saved configuration unchanged. - Required CI passed on the exact candidate. Runtime proof uses its recorded CI merge build and matching compiled host/plugin, with existing dependencies and isolated synthetic state. No real vendor request or package publication occurred. - Independent acceptance passed all five clauses for the retained NVIDIA/Mistral observations. It did not replay runtime or claim coverage beyond those representative scenarios. The earlier fixture failure from comparing resolved configuration with raw saved JSON remains recorded. Its completed setup was preserved and was not repeated. The artifact's unrelated standalone GoogleChat dependency-link failure is also retained; the exercised Mistral dependency path completed successfully. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): avoid repeated model discovery when reopening Settings picke…",
+      "link": "https://github.com/openclaw/openclaw/commit/8128b418f050fcbde8d733104cc87dad7fb54213",
+      "publishedAt": "2026-09-08T18:20:48Z",
+      "summary": "fix(ui): avoid repeated model discovery when reopening Settings pickers (#142384) * fix(ui): avoid repeated model discovery on picker reopen * fix(ui): keep model discovery retry guidance in Settings",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(providers): keep registered setup connection-only (#142202)",
-      "summaryZh": "重點：新功能(providers): keep registered setup connection-only (#142202) Registered provider setup now saves a connection without..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): avoid repeated 模型 discovery when reopening Settings picke…",
+      "summaryZh": "重點：修正(ui): avoid repeated 模型 discovery when reopening Settings pickers (#142384) * 修正(ui): avoid repeated 模型 discovery on p..."
     },
     {
       "id": 3,
-      "title": "fix(tui): preserve published model availability (#142160)",
-      "link": "https://github.com/openclaw/openclaw/commit/37bddb2b44824097f521d0425eae71970cc3bf9f",
-      "publishedAt": "2026-09-08T14:50:54Z",
-      "summary": "fix(tui): preserve published model availability (#142160) Use canonical published model facts in the terminal picker and refuse known unavailable choices before session mutation. Preserve unknown and legacy choices, raw execution catalogs, selected-agent scope and prepared-owner lifetime. Remove the embedded discovery/filter path and static publication override. Verified with the baseline regression, 45 focused cases, four compiled terminal scenarios, retained owner/history evidence and exact-head CI. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): keep person mention suggestions stable while typing (#142332)",
+      "link": "https://github.com/openclaw/openclaw/commit/57f670e42db52420e6a036835c322e0cc3ce4be3",
+      "publishedAt": "2026-09-08T18:19:11Z",
+      "summary": "fix(ui): keep person mention suggestions stable while typing (#142332)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tui): preserve published 模型 availability (#142160)",
-      "summaryZh": "重點：修正(tui): preserve published 模型 availability (#142160) Use canonical published 模型 facts in the terminal picker and refuse..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep person mention suggestions stable while typing (#142332)",
+      "summaryZh": "重點：修正(ui): keep person mention suggestions stable while typing (#142332)..."
     },
     {
       "id": 4,
-      "title": "fix(cli): reject explicit blank directory limits (#141738)",
-      "link": "https://github.com/openclaw/openclaw/commit/0ef0880b8192891e55f612f0afc2425da8ed8559",
-      "publishedAt": "2026-09-08T14:49:08Z",
-      "summary": "fix(cli): reject explicit blank directory limits (#141738) Reject explicit empty directory limits with the existing strict positive-integer parser for peer, group, and group-member listings. Preserve omitted limits as the selected plugin's default and document that contract. Verified 31 focused tests, 119 real CLI observations, 29 fresh independent acceptance cases, formatting, scoped lint, source ratchets, and docs checks. Runtime proof covers actual empty argv, strict malformed inputs, omitted and positive controls, forwarding, and output contracts. CI attempt 1 lost its preflight runner before checkout; dependent suites did not run. The unrelated infrastructure failure uses the guarded exact-run approval path. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(cli): dispose plugin resources after invocation cleanup (#142388)",
+      "link": "https://github.com/openclaw/openclaw/commit/49888bf172851ab070203f8eaad5df4fe8f1ff22",
+      "publishedAt": "2026-09-08T18:17:13Z",
+      "summary": "fix(cli): dispose plugin resources after invocation cleanup (#142388)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): reject explicit blank directory limits (#141738)",
-      "summaryZh": "重點：修正(cli): reject explicit blank directory limits (#141738) Reject explicit empty directory limits with the existing stric..."
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): dispose plugin resources after invocation cleanup (#142388)",
+      "summaryZh": "重點：修正(cli): dispose plugin resources after invocation cleanup (#142388)..."
     },
     {
       "id": 5,
@@ -92,11 +92,11 @@
     },
     {
       "id": 10,
-      "title": "Keycloak存在重大密碼重設漏洞，恐導致攻擊者接管帳號",
-      "link": "https://www.ithome.com.tw/news/178764",
-      "publishedAt": "2026-09-08 11:09:36",
-      "summary": "開源身分與存取管理伺服器專案Keycloak近日發布資安公告，揭露涉及身分驗證程序的重大漏洞CVE-2026-18963，除了影響Keycloak自身的上游版本外，同時也影響Red Hat Build of Keycloak（RHBK），Keycloak用戶應升級至已修補完成的26.7.2版，RHBK用戶則應視使用的分支版本升級至26.4.15或26.6.6版",
-      "source": "iThome",
+      "title": "客戶現階段即可運用 High NA EUV，英特爾和 ASML 已製造超過一百萬片晶圓",
+      "link": "https://finance.technews.tw/2026/09/08/intel-and-asml-have-manufactured-more-than-one-million-wafers/",
+      "publishedAt": "Tue, 08 Sep 2026 12:00:35 +0000",
+      "summary": "英特爾晶圓代工（Intel Foundry）和ASML迄今已製造超過一百萬片晶圓，協助客戶現階段即可運用Hig [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     }
   ]
