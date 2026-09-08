@@ -1,8 +1,79 @@
 {
-  "generatedAt": "2026-09-08T10:45:39.134Z",
+  "generatedAt": "2026-09-08T14:56:46.497Z",
   "items": [
     {
       "id": 1,
+      "title": "test: join native triage controllers before fixture cleanup (#142215)",
+      "link": "https://github.com/openclaw/openclaw/commit/76fb286ee76d399e3582e3a5c74c5a344ebb9834",
+      "publishedAt": "2026-09-08T14:53:12Z",
+      "summary": "test: join native triage controllers before fixture cleanup (#142215)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: join native triage controllers before 修正ture cleanup (#142215)",
+      "summaryZh": "重點：test: join native triage controllers before 修正ture cleanup (#142215)..."
+    },
+    {
+      "id": 2,
+      "title": "feat(providers): keep registered setup connection-only (#142202)",
+      "link": "https://github.com/openclaw/openclaw/commit/0f3db48abbf065d3d997ede4ff6600bef45cebf6",
+      "publishedAt": "2026-09-08T14:52:25Z",
+      "summary": "feat(providers): keep registered setup connection-only (#142202) Registered provider setup now saves a connection without pinning a copy of the built-in model catalog. Add shared connection-only presets and move the Cloudflare AI Gateway, Featherless, Hugging Face, LongCat, Meta, Mistral, NVIDIA, Synthetic, Together, regular Xiaomi, and Z.AI registrations to them. Ordinary setup preserves authored rows, defaults, fallbacks, and aliases. Explicit replace mode keeps the existing catalog-merge and required-default rules. Published helper APIs keep their catalog-seeding behavior. Shared descriptors remove duplicate provider decisions, and generated replace rows belong to the resulting config. The new SDK imports require a paired host/plugin release. The existing version-sync and package builder update the plugin API and peer ranges with that release. This change does not claim compatibility between the new plugin imports and an older released host. Validation: - 128 focused SDK and provider checks pass. Four connection-only checks fail when the mode condition is deliberately removed; the correct source is restored. - Real registered NVIDIA setup saves seven generated rows on the pinned baseline and zero on the candidate. Authored merge/replace settings and the available default remain intact. - The required CI artifact passes compiled Mistral setup for fresh, authored merge, and authored replace configurations. A real Gateway lists the configured default and returns one synthetic provider reply with matching requested, effective, and response models. Catalog and inference leave saved configuration unchanged. - Required CI passed on the exact candidate. Runtime proof uses its recorded CI merge build and matching compiled host/plugin, with existing dependencies and isolated synthetic state. No real vendor request or package publication occurred. - Independent acceptance passed all five clauses for the retained NVIDIA/Mistral observations. It did not replay runtime or claim coverage beyond those representative scenarios. The earlier fixture failure from comparing resolved configuration with raw saved JSON remains recorded. Its completed setup was preserved and was not repeated. The artifact's unrelated standalone GoogleChat dependency-link failure is also retained; the exercised Mistral dependency path completed successfully. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(providers): keep registered setup connection-only (#142202)",
+      "summaryZh": "重點：新功能(providers): keep registered setup connection-only (#142202) Registered provider setup now saves a connection without..."
+    },
+    {
+      "id": 3,
+      "title": "fix(tui): preserve published model availability (#142160)",
+      "link": "https://github.com/openclaw/openclaw/commit/37bddb2b44824097f521d0425eae71970cc3bf9f",
+      "publishedAt": "2026-09-08T14:50:54Z",
+      "summary": "fix(tui): preserve published model availability (#142160) Use canonical published model facts in the terminal picker and refuse known unavailable choices before session mutation. Preserve unknown and legacy choices, raw execution catalogs, selected-agent scope and prepared-owner lifetime. Remove the embedded discovery/filter path and static publication override. Verified with the baseline regression, 45 focused cases, four compiled terminal scenarios, retained owner/history evidence and exact-head CI. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(tui): preserve published 模型 availability (#142160)",
+      "summaryZh": "重點：修正(tui): preserve published 模型 availability (#142160) Use canonical published 模型 facts in the terminal picker and refuse..."
+    },
+    {
+      "id": 4,
+      "title": "fix(cli): reject explicit blank directory limits (#141738)",
+      "link": "https://github.com/openclaw/openclaw/commit/0ef0880b8192891e55f612f0afc2425da8ed8559",
+      "publishedAt": "2026-09-08T14:49:08Z",
+      "summary": "fix(cli): reject explicit blank directory limits (#141738) Reject explicit empty directory limits with the existing strict positive-integer parser for peer, group, and group-member listings. Preserve omitted limits as the selected plugin's default and document that contract. Verified 31 focused tests, 119 real CLI observations, 29 fresh independent acceptance cases, formatting, scoped lint, source ratchets, and docs checks. Runtime proof covers actual empty argv, strict malformed inputs, omitted and positive controls, forwarding, and output contracts. CI attempt 1 lost its preflight runner before checkout; dependent suites did not run. The unrelated infrastructure failure uses the guarded exact-run approval path. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): reject explicit blank directory limits (#141738)",
+      "summaryZh": "重點：修正(cli): reject explicit blank directory limits (#141738) Reject explicit empty directory limits with the existing stric..."
+    },
+    {
+      "id": 5,
+      "title": "貝皮可倫坡號卸下「太空運輸車」，準備進入水星軌道",
+      "link": "https://technews.tw/2026/09/08/bepicolombo-mercury-transfer-module-separation/",
+      "publishedAt": "Tue, 08 Sep 2026 14:41:44 +0000",
+      "summary": "距離太陽最近的水星，極區隕石坑裡的冰從何而來？它的磁場又是如何產生與維持的？歐洲太空總署（ESA）與日本宇宙航 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "任正非與朱一鳴翻臉！華為因竊取長鑫存儲數據被逮，未來將難拿到折扣價記憶體",
+      "link": "https://finance.technews.tw/2026/09/08/huawei-and-changxin-memory-have-fallen-out/",
+      "publishedAt": "Tue, 08 Sep 2026 12:45:41 +0000",
+      "summary": "中國半導體業界近期傳出重大商業糾紛，據市場消息指出，中國科技大廠華為與記憶體龍頭長鑫存儲因「數據竊取」疑雲而關 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "ASML 第二座大型工業園區動土因應擴產需求，預計 2029 年落成啟用",
+      "link": "https://finance.technews.tw/2026/09/08/asml-breaks-ground-on-its-second-large-scale-industrial-park-to-meet-expansion-needs/",
+      "publishedAt": "Tue, 08 Sep 2026 12:15:44 +0000",
+      "summary": "全球半導體曝光機大廠艾司摩爾（ASML）於 2026 年 9 月 8 日，在荷蘭埃因霍溫的「北智慧港工業園區（ [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "甫修補的N-central資安漏洞疑似遭到利用",
       "link": "https://www.ithome.com.tw/news/178768",
       "publishedAt": "2026-09-08 12:09:27",
@@ -11,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 9,
       "title": "OpenVPN修補8個漏洞，包含可能導致服務阻斷、執行惡意程式碼的高風險漏洞",
       "link": "https://www.ithome.com.tw/news/178767",
       "publishedAt": "2026-09-08 12:09:16",
@@ -20,83 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 10,
       "title": "Keycloak存在重大密碼重設漏洞，恐導致攻擊者接管帳號",
       "link": "https://www.ithome.com.tw/news/178764",
       "publishedAt": "2026-09-08 11:09:36",
       "summary": "開源身分與存取管理伺服器專案Keycloak近日發布資安公告，揭露涉及身分驗證程序的重大漏洞CVE-2026-18963，除了影響Keycloak自身的上游版本外，同時也影響Red Hat Build of Keycloak（RHBK），Keycloak用戶應升級至已修補完成的26.7.2版，RHBK用戶則應視使用的分支版本升級至26.4.15或26.6.6版",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "解決企業AI導入兩難，中華資安推出自研產品AI Archway，內建市場少見的可逆式脫敏機制",
-      "link": "https://www.ithome.com.tw/news/178752",
-      "publishedAt": "2026-09-08 11:09:09",
-      "summary": "隨著生成式AI導入企業的速度加快，機敏資料外洩的防護與影子AI的治理已成為企業與資安業者共同的課題。除了國際科技與資安大廠積極布局AI Security，這幾年來，臺灣陸續有業者投入相關產品發展，中華資安國際也是其中之一，今年上半年正式進軍這塊市場，7月正式推出名為「AI安檢通道（AI Archway）」的產品。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "fix(release): plugin previews fail with missing tooling dependencies …",
-      "link": "https://github.com/openclaw/openclaw/commit/1a4d9a0340da6f2a79f6503b2ae488b043106bd7",
-      "publishedAt": "2026-09-08T10:45:09Z",
-      "summary": "fix(release): plugin previews fail with missing tooling dependencies (#142103) * fix(release): initialize isolated plugin publisher tooling * test(release): require complete trusted packaging checkout",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): plugin previews fail with missing tooling dependencies …",
-      "summaryZh": "重點：修正(版本發布): plugin previews fail with missing tooling dependencies (#142103) * 修正(版本發布): initialize isolated plugin publis..."
-    },
-    {
-      "id": 6,
-      "title": "feat(cloud): choose an operating system for cloud sessions next to ma…",
-      "link": "https://github.com/openclaw/openclaw/commit/8342d351b280e18936bfaacf85ab4b78f4e2476c",
-      "publishedAt": "2026-09-08T10:39:17Z",
-      "summary": "feat(cloud): choose an operating system for cloud sessions next to machine class (#142095) * feat(cloud): choose an operating system for cloud sessions next to machine class Cloud placements could choose a machine class but could not retain an operating-system choice. Carry provider-advertised OS options through the picker, moves, profile settings, RPC, and provisioning. Crabbox advertises Linux only until other targets prove enrollment. Persist move overrides in a lazily ensured nullable target_os column alongside target_machine_class, without changing the schema version. * fix(cloud): preserve the project preparation callback contract Keep machineClass in the second positional argument used by shipped worker-provider plugins, and pass the operating system as an optional third argument. Cover legacy callback behavior through project provisioning and restart replay. * fix(crabbox): satisfy catalog and warm-image lint checks Preserve operating-system catalog output without map spreads. Move warm-image timeout policy and fork response validation into the existing timeout and checkpoint modules to keep the manager within its line budget. * test(cloud): expect provider-default OS in settings patches Update the cloud-worker browser flow to assert the target-null merge-patch contract when adding and editing profiles without an OS override. * refactor(crabbox): keep checkpoint JSON parsing private",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(cloud): choose an operating system for cloud sessions next to ma…",
-      "summaryZh": "重點：新功能(cloud): choose an operating system for cloud sessions next to machine class (#142095) * 新功能(cloud): choose an operat..."
-    },
-    {
-      "id": 7,
-      "title": "test(ui): use a valid core session status in catalog fixture (#142097)",
-      "link": "https://github.com/openclaw/openclaw/commit/07b4973dbdea2019e9c3e7406437c0b2b480b4eb",
-      "publishedAt": "2026-09-08T10:33:29Z",
-      "summary": "test(ui): use a valid core session status in catalog fixture (#142097) Use done for the inactive core sessions.list row while retaining the separate native catalog statuses and all existing browser assertions. Validation: selected mock-Gateway case, 19 changed checks, independent P2 review.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): use a valid core session status in catalog 修正ture (#142097)",
-      "summaryZh": "重點：test(ui): use a valid core session status in catalog 修正ture (#142097) Use done for the inactive core sessions.list row w..."
-    },
-    {
-      "id": 8,
-      "title": "fix(cli): report JSON-mode command failures as command failures, not …",
-      "link": "https://github.com/openclaw/openclaw/commit/2f8ee468617d5633f69ba1937b2481cc64c7fdb7",
-      "publishedAt": "2026-09-08T10:30:07Z",
-      "summary": "fix(cli): report JSON-mode command failures as command failures, not startup failures (#142109) runCommandWithRuntime rethrows every error while --json is active so the entry can write the machine envelope, but entry.ts wrapped the run-main import and the command run in one handler titled \"Could not start the CLI.\" with a doctor hint. An ordinary usage error such as an ambiguous agent owner on `openclaw onboard recommendations --json` therefore printed the envelope and then claimed the CLI failed to start. Track whether runCli began and use the existing \"The CLI command failed.\" title for command-phase errors; failures before runCli keep the startup title.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): report JSON-mode command failures as command failures, not …",
-      "summaryZh": "重點：修正(cli): report JSON-mode command failures as command failures, not startup failures (#142109) runCommandWithRuntime ret..."
-    },
-    {
-      "id": 9,
-      "title": "勤誠8月營收24.57 億元",
-      "link": "https://finance.technews.tw/2026/09/08/chenbro-8210-202608-financial-report/",
-      "publishedAt": "Tue, 08 Sep 2026 10:30:03 +0000",
-      "summary": "勤誠（8210）今（8）日公布 8 月營收，達 24.57 億元，較 7 月成長 -0.2%，較去年同期成長 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "環球晶8月營收47.64 億元",
-      "link": "https://finance.technews.tw/2026/09/08/gwc-6488-202608-financial-report/",
-      "publishedAt": "Tue, 08 Sep 2026 10:20:11 +0000",
-      "summary": "環球晶（6488）今（8）日公布 8 月營收，達 47.64 億元，較 7 月成長 -4.3%，較去年同期成長 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
