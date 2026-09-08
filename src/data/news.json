@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-08T18:24:38.539Z",
+  "generatedAt": "2026-09-08T21:37:34.908Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(cli): inspect the agent model catalog without readding excluded r…",
-      "link": "https://github.com/openclaw/openclaw/commit/a92c15a5dc3710c0799320d07c35df862b074b0d",
-      "publishedAt": "2026-09-08T18:24:06Z",
-      "summary": "fix(cli): inspect the agent model catalog without readding excluded rows (#142367) Use the selected agent's prepared catalog for model listing, inspection, and provider counts. Remove the independent manifest merge that restored excluded models while preserving authored metadata, agent selection, sorting, and existing errors. Verified with compiled CLI baseline/candidate observations, focused regression tests, and exact-head CI. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): show catalog failures across model choices (#142372)",
+      "link": "https://github.com/openclaw/openclaw/commit/34bdf6d0321dffff0cc343ee48aa4c051547f70e",
+      "publishedAt": "2026-09-08T21:37:17Z",
+      "summary": "fix(ui): show catalog failures across model choices (#142372) ## What Problem This Solves Fixes an issue where users browsing Automations, model search, or Models pickers received no warning when a catalog refresh failed internally without an individual provider error. ## Why This Change Was Made These consumers now use the shared published-catalog reader and its failure result. This removes prepared-read hints, the command palette's mandatory-method advertisement gate, and duplicate per-provider error decisions. Models settings retain first-open and Retry discovery, with passive completed reopens, from #142384. Settings use their local Retry guidance instead of a second \"Open Models\" warning. Initial page reads stay passive; explicit Refresh waits for credential-state publication before provider discovery. Current request ownership, cancellation, saved selections, drafts, and unrelated errors remain intact. ## User Impact A failed refresh shows a warning with the returned choices. An empty returned catalog stays empty, and successful recovery clears the warning. Search retains its other categories and existing connection-scoped cache. No account, credential, persistence, or inference behavior changes. ## Evidence - Four rendered caller cases fail on pinned main and pass with this correction: empty/nonempty internal failure and successful empty recovery in Automations and model search. - 69 distinct selected consumer controls are covered across the retained runs. The current 14 Models integration controls preserve first-open/reopen/Retry discovery, saved choices, cancellation and late-response ownership. An integration case reproduced the duplicate Settings warning before correction; 22 Settings/load controls and six default-message controls now pass. Two added Agents controls preserve the existing failed-result/recovery contract. Eight affected search controls pass after simplifying the request fixture. Repeated runs are not counted as additional cases. - Two real-browser/mock-Gateway cases passed in [CI job 102174612039](https://github.com/openclaw/openclaw/actions/runs/34259727043/job/102174612039). [The verified artifact](https://github.com/openclaw/openclaw/actions/runs/34259727043/artifacts/10069793308) contains eight inspected before/failure/recovery images and complete product observations. Both Automations and search show the warning, returned rows replace obsolete rows, successful empty recovery clears it, and the automation draft stays intact. The captured catalog requests remain passive and agent-scoped. - Browser proof used checkout `3c340575bb60c4c0187102a36af23103537b8da4`, the CI merge of `865993acc9efb27070aee2d4398120c94a68ab84`. Later changes correct test typing, add retained Agents assertions, integrate Settings-local guidance, and retire the temporary artifact-upload step. Six current controls confirm unchanged default messages for Agents, Automations and search; the captured browser evidence retains its original source/fixture identity. This is UI boundary proof with a mock Gateway, not a new real backend internal-failure run. - Earlier CI caught six unbound-method references in the test fixture and one mock-call tuple assertion; this revision corrects both. The exact-head run now passes the catalog, real-Gateway, lint and type lanes. Its remaining chat-image continuity failure is independent of these catalog execution paths; the full causal disposition and historical failure remain retained. Independent acceptance passed the original six browser clauses. The earlier local review requested the connected internal-failure proof below; a fresh review judges that changed evidence. - Additional matched real-Gateway/browser proof now completes the internal-failure path: a registered synthetic provider reads malformed catalog data, the real explicit refresh returns a task error, and subsequent browser reads return `refreshFailed: true` without a provider error. The baseline UI omits the warning; the candidate shows it in Automations and global model search. Both retain the returned anchor and draft, and recovery clears the candidate warnings. Eight lifecycle images and complete CLI, wire and UI observations are retained for local review. No response, flag or publication event was injected. - This matched pair uses the same retained Gateway build `07493b36def6c891c0d54697b2da16b1ef0fc22b` for both UIs. Baseline UI uses that build; candidate UI comes from CI build `92dac1774651d326c606855b3a1609e18a568e49` for the reviewed head. It is a UI consumer proof against the real retained Gateway, not a claim that the entire current backend was executed locally. Both Gateways exited normally and all consumers stopped. Background metadata/read bursts remain in the complete evidence; no quiet-cadence or throughput claim is made. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): inspect the agent 模型 catalog without readding excluded r…",
-      "summaryZh": "重點：修正(cli): inspect the agent 模型 catalog without readding excluded rows (#142367) Use the selected agent's prepared catalog..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): show catalog failures across 模型 choices (#142372)",
+      "summaryZh": "重點：修正(ui): show catalog failures across 模型 choices (#142372) ## What Problem This Solves 修正 an issue where users browsing A..."
     },
     {
       "id": 2,
-      "title": "fix(ui): avoid repeated model discovery when reopening Settings picke…",
-      "link": "https://github.com/openclaw/openclaw/commit/8128b418f050fcbde8d733104cc87dad7fb54213",
-      "publishedAt": "2026-09-08T18:20:48Z",
-      "summary": "fix(ui): avoid repeated model discovery when reopening Settings pickers (#142384) * fix(ui): avoid repeated model discovery on picker reopen * fix(ui): keep model discovery retry guidance in Settings",
+      "title": "refactor(plugins): unify startup contract membership checks (#142587)",
+      "link": "https://github.com/openclaw/openclaw/commit/a141825c9c75f75944d85ebd70a5df3793d1a71c",
+      "publishedAt": "2026-09-08T21:35:41Z",
+      "summary": "refactor(plugins): unify startup contract membership checks (#142587)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): avoid repeated 模型 discovery when reopening Settings picke…",
-      "summaryZh": "重點：修正(ui): avoid repeated 模型 discovery when reopening Settings pickers (#142384) * 修正(ui): avoid repeated 模型 discovery on p..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): unify startup contract membership checks (#142587)",
+      "summaryZh": "重點：refactor(plugins): unify startup contract membership checks (#142587)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): keep person mention suggestions stable while typing (#142332)",
-      "link": "https://github.com/openclaw/openclaw/commit/57f670e42db52420e6a036835c322e0cc3ce4be3",
-      "publishedAt": "2026-09-08T18:19:11Z",
-      "summary": "fix(ui): keep person mention suggestions stable while typing (#142332)",
+      "title": "refactor(cli): finalize restart health snapshots once (#142513)",
+      "link": "https://github.com/openclaw/openclaw/commit/11fab6ba75819c1ce826de6a04074fd4b8342e76",
+      "publishedAt": "2026-09-08T21:34:24Z",
+      "summary": "refactor(cli): finalize restart health snapshots once (#142513)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep person mention suggestions stable while typing (#142332)",
-      "summaryZh": "重點：修正(ui): keep person mention suggestions stable while typing (#142332)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(cli): finalize restart health snapshots once (#142513)",
+      "summaryZh": "重點：refactor(cli): finalize restart health snapshots once (#142513)..."
     },
     {
       "id": 4,
-      "title": "fix(cli): dispose plugin resources after invocation cleanup (#142388)",
-      "link": "https://github.com/openclaw/openclaw/commit/49888bf172851ab070203f8eaad5df4fe8f1ff22",
-      "publishedAt": "2026-09-08T18:17:13Z",
-      "summary": "fix(cli): dispose plugin resources after invocation cleanup (#142388)",
+      "title": "fix(release): pin Node in Rocky installer smoke (#142562)",
+      "link": "https://github.com/openclaw/openclaw/commit/c7f67b0a5c70ca5f7c232d5915db698fcc79b87e",
+      "publishedAt": "2026-09-08T21:32:53Z",
+      "summary": "fix(release): pin Node in Rocky installer smoke (#142562)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): dispose plugin resources after invocation cleanup (#142388)",
-      "summaryZh": "重點：修正(cli): dispose plugin resources after invocation cleanup (#142388)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): pin Node in Rocky installer smoke (#142562)",
+      "summaryZh": "重點：修正(版本發布): pin Node in Rocky installer smoke (#142562)..."
     },
     {
       "id": 5,
