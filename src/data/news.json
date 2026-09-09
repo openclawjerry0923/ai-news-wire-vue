@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-09T20:35:02.001Z",
+  "generatedAt": "2026-09-09T22:59:34.762Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(runtime): gate node:sqlite on a NUL round-trip capability probe (…",
-      "link": "https://github.com/openclaw/openclaw/commit/bf6f74b28069e9a2c5398130a3ee6dc6112d3972",
-      "publishedAt": "2026-09-09T20:32:29Z",
-      "summary": "fix(runtime): gate node:sqlite on a NUL round-trip capability probe (#143312) * fix(runtime): gate node:sqlite on a NUL round-trip capability probe Validate the loaded SQLite library and TEXT, BLOB, and JSON round trips across startup, doctor, Gateway install, update preflight, and installers. Admit capable Node 24+ vendor builds with a support-policy note while retaining the package engines and Node 22 exclusion. Refs #140465 #140672. * fix(runtime): expose capability diagnostics through doctor Register the runtime check in the ordered Doctor contribution catalog. Keep shared audit types in a leaf module, include the bootstrap probe in duplicate scanning, and update native runtime and compiled-worker fixtures for the capability protocol. * fix(update): preserve target Node version requirements * fix(install): remove unused Node major probe state",
+      "title": "fix(channels): preserve labels for unloaded plugins (#143416)",
+      "link": "https://github.com/openclaw/openclaw/commit/3415f22f1022eda6d94f9d5bb9291ea0bebc4930",
+      "publishedAt": "2026-09-09T22:55:37Z",
+      "summary": "fix(channels): preserve labels for unloaded plugins (#143416)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(runtime): gate node:sqlite on a NUL round-trip capability probe (…",
-      "summaryZh": "重點：修正(runtime): gate node:sqlite on a NUL round-trip capability probe (#143312) * 修正(runtime): gate node:sqlite on a NUL ro..."
+      "titleZh": "OpenClaw 程式碼更新：修正(channels): preserve labels for unloaded plugins (#143416)",
+      "summaryZh": "重點：修正(channels): preserve labels for unloaded plugins (#143416)..."
     },
     {
       "id": 2,
-      "title": "fix(doctor): preserve conversations through legacy binding migration …",
-      "link": "https://github.com/openclaw/openclaw/commit/227e2f4fe1c279f429138bce53d5015a8a398f7d",
-      "publishedAt": "2026-09-09T20:28:45Z",
-      "summary": "fix(doctor): preserve conversations through legacy binding migration (#143347) Related: #136257 ## What Problem This Solves Fixes an issue where Doctor leaves old Claude conversation IDs outside the canonical binding, while runtime lookup and normal saves still depend on the retired field. The upgrade must preserve locked-session continuity and prevent deliberately cleared stale conversations from returning. ## Why This Change Was Made This follows the approved Doctor migration and reader-retirement scope from #136257. Doctor copies safe legacy IDs before removing the old field, and runtime lookup and normal saves change together. Existing canonical bindings, provider-keyed IDs, and resume metadata take precedence. Locked rows change only their binding representation; identity, ownership, route, and recency remain intact. Ambiguous records stay saved with reconciliation warnings. The existing stale-route repair also clears the old migration source when it clears a Claude binding. A later migration step therefore cannot restore an obsolete conversation. Historical-field cleanup and protected plugin-slot handling remain available for unresolved old records. ## User Impact Run `openclaw doctor --fix` after upgrading and before resuming sessions that only have the old field. Configured and locked conversations keep their IDs and resume metadata. Stale conversations stay cleared. Normal saves no longer recreate the retired field. ## Evidence The initial main regression failed because the canonical binding was missing after Doctor repair. The first candidate passed 74 focused tests. Public Doctor proof and the first source review then exposed two connected gaps: stale-state resurrection and locked-session continuity. Both are repaired in this revision, with the earlier failures retained. The compiled runtime built from this head passes public `doctor --fix --non-interactive`, `sessions --all-agents --json`, and repeated Doctor repair on 10 synthetic sessions across two agents. Saved state was checked after reopening both databases. Configured legacy IDs, canonical metadata, provider-keyed IDs, and locked ownership are preserved; ambiguous and empty records retain warnings; stale Claude state stays cleared. Every checked record is stable on repeat. The normal native pre-commit hook passed on the revised source. [Required CI](https://github.com/openclaw/openclaw/actions/runs/34397549548) covers type checks and the updated migration, save, fork, and Doctor-to-history cases. Runtime artifact build `41b019c889c4403b33993ee39d7eb04269b73316` is the CI test merge containing head `96e5877b0f15dffe7baa9fd934cbdea07ccb694e`; those identities are kept separate in the proof. No live provider conversation, credential operation, or schema change is claimed. Co-authored-by: Ayaan Zaidi",
+      "title": "refactor(tests): share image resource acquisition setup (#143443)",
+      "link": "https://github.com/openclaw/openclaw/commit/b30ff87b771b694e67ab7ba4c860386ac18db708",
+      "publishedAt": "2026-09-09T22:53:57Z",
+      "summary": "refactor(tests): share image resource acquisition setup (#143443)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): preserve conversations through legacy binding migration …",
-      "summaryZh": "重點：修正(文件tor): preserve conversations through legacy binding migration (#143347) Related: #136257 ## What Problem This Solve..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(tests): share image resource acquisition setup (#143443)",
+      "summaryZh": "重點：refactor(tests): share image resource acquisition setup (#143443)..."
     },
     {
       "id": 3,
-      "title": "fix(browser): prevent premature existing-session timeouts (#143365)",
-      "link": "https://github.com/openclaw/openclaw/commit/edfcd0ae70cb807e108eac8a4693f8e0864ce1ed",
-      "publishedAt": "2026-09-09T20:26:39Z",
-      "summary": "fix(browser): prevent premature existing-session timeouts (#143365)",
+      "title": "refactor(hooks): consolidate source precedence policy (#143439)",
+      "link": "https://github.com/openclaw/openclaw/commit/b88aee49666148fcca52c2f02483cba85b2eb1b8",
+      "publishedAt": "2026-09-09T22:53:05Z",
+      "summary": "refactor(hooks): consolidate source precedence policy (#143439)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): prevent premature existing-session timeouts (#143365)",
-      "summaryZh": "重點：修正(browser): prevent premature existing-session timeouts (#143365)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(hooks): consolidate source precedence policy (#143439)",
+      "summaryZh": "重點：refactor(hooks): consolidate source precedence policy (#143439)..."
     },
     {
       "id": 4,
-      "title": "fix(ci): preserve prepared iOS Fastlane path (#143301)",
-      "link": "https://github.com/openclaw/openclaw/commit/9b350d9e9330b74f31e0f6a060d2e433af7030ee",
-      "publishedAt": "2026-09-09T20:20:33Z",
-      "summary": "fix(ci): preserve prepared iOS Fastlane path (#143301)",
+      "title": "test: reuse prepared entry for CLI JSON failure coverage (#143427)",
+      "link": "https://github.com/openclaw/openclaw/commit/40ba595167bc5d43ac9819c68d7b39d88a248021",
+      "publishedAt": "2026-09-09T22:43:00Z",
+      "summary": "test: reuse prepared entry for CLI JSON failure coverage (#143427)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): preserve prepared iOS Fastlane path (#143301)",
-      "summaryZh": "重點：修正(ci): preserve prepared iOS Fastlane path (#143301)..."
+      "titleZh": "OpenClaw 程式碼更新：test: reuse prepared entry for CLI JSON failure coverage (#143427)",
+      "summaryZh": "重點：test: reuse prepared entry for CLI JSON failure coverage (#143427)..."
     },
     {
       "id": 5,
+      "title": "Apple Watch S12、Ultra 4 強化健康感測，AirPods 5 全系列加入 ANC",
+      "link": "https://ccc.technews.tw/2026/09/10/apple-watch-s12-ultra-4-airpods-5-anc/",
+      "publishedAt": "Wed, 09 Sep 2026 20:39:52 +0000",
+      "summary": "蘋果秋季新品發表會除了 iPhone 18 Pro 系列與首款摺疊 iPhone Duo，穿戴裝置也同步更新， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "iPhone 18 Pro、Pro Max 登場，台灣售價漲幅最低 5 千元",
       "link": "https://technews.tw/2026/09/10/iphone-18-pro-pro-max-price-increase/",
       "publishedAt": "Wed, 09 Sep 2026 20:03:42 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "首款摺疊 iPhone 終於亮相，iPhone Duo 頂規售價破 11 萬元",
       "link": "https://technews.tw/2026/09/10/iphone-duo-2/",
       "publishedAt": "Wed, 09 Sep 2026 19:31:22 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "蘋果 2026 秋季新品一次看：iPhone 18 Pro、AirPods 5、Apple Watch S12／Ultra 4、iPhone Duo",
       "link": "https://technews.tw/2026/09/10/2026-apple-event-iphone-18-pro-iphone-duo/",
       "publishedAt": "Wed, 09 Sep 2026 19:05:12 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "2 億光年外的重力拉扯，雙子座北望遠鏡捕捉 NGC 7253 雙星系邁向合併的絕美瞬間",
       "link": "https://technews.tw/2026/09/09/gemini-north-captures-ngc-7253/",
       "publishedAt": "Wed, 09 Sep 2026 13:54:44 +0000",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "久元8月營收3.45 億元",
       "link": "https://finance.technews.tw/2026/09/09/ytec-6261-202608-financial-report/",
       "publishedAt": "Wed, 09 Sep 2026 12:10:03 +0000",
       "summary": "久元（6261）今（9）日公布 8 月營收，達 3.45 億元，較 7 月成長 -7.8%，較去年同期成長 - [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Adobe修補Magento零時差漏洞StyleSmuggler",
-      "link": "https://www.ithome.com.tw/news/178807",
-      "publishedAt": "2026-09-09 12:09:50",
-      "summary": "本週Adobe發布9月例行更新，然而在此之前，該公司緊急修補已遭利用的電商平臺漏洞StyleSmuggler。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
