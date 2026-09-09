@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-09T13:29:20.695Z",
+  "generatedAt": "2026-09-09T17:37:53.139Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(mcp): finish session termination without waiting on body cancella…",
-      "link": "https://github.com/openclaw/openclaw/commit/71555bcbcb639a0d912f0133b0c14c438cab57f4",
-      "publishedAt": "2026-09-09T13:26:24Z",
-      "summary": "fix(mcp): finish session termination without waiting on body cancellation (#141289) ## What Problem This Solves Fixes an issue where operators probing an MCP server with `openclaw mcp doctor --probe --json` encounter delayed local cleanup and uncertain cleanup when the server accepts session termination but response-body cancellation never settles. ## Why This Change Was Made Start body cancellation as best-effort work and consume its rejection so the existing termination owner can validate the DELETE response and finish closing the transport and client. Preserve the five-second DELETE signal, configured fetch owner, negotiated session identity, successful-status/405 handling, duplicate-termination guard, and outer cleanup deadlines. The regression uses HTTP 200 both on the wire and in the injected response. It covers pending/rejecting cancellation, accepted 405, and rejected status accounting. Preserves @hugenshen's contribution and ancestry. ## User Impact MCP cleanup finishes promptly after accepted termination even if body cancellation stalls or rejects. Failed DELETE responses still report uncertain cleanup, and failed initialization remains a visible probe failure. ## Evidence Validated baseline `1066fad578df56c24f2c3a2e3e7106786f0eda66` and candidate `a592e8df67575da489d8c5265e0429f4d0a559ec`: - Built public doctor command with a real synthetic HTTP server, SDK initialization, configured fetch and actual DELETE. Only post-response body cancellation is fault-injected. - Baseline pending cancellation delayed local close by about five seconds and reported uncertain cleanup about ten seconds after cancellation started. Candidate pending cancellation completed cleanup in about seven milliseconds with one DELETE. - Rejecting cancellation, accepted 405, bodyless 204, rejected 500, and failed initialization controls preserved their expected cleanup and command outcomes. - The pending-cancellation regression failed on the original code for the intended stalled termination. All 61 focused transport, fetch, guarded-stream, and selected cleanup tests passed after the fix. Formatting, focused lint, and native commit hooks passed. - Independent source review found no actionable issues. A fresh source-blind validator independently ran all six public cases and passed their runtime clauses. Full raw evidence is retained privately because it includes runtime and session details. This is synthetic dependency-fault proof; it does not claim that every remote server can cause native cancellation to hang. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ci): reuse Android build timestamps across test and lint (#143207)",
+      "link": "https://github.com/openclaw/openclaw/commit/99fef046a4f77ae2d2733ee12b58d766f79182a0",
+      "publishedAt": "2026-09-09T17:36:55Z",
+      "summary": "fix(ci): reuse Android build timestamps across test and lint (#143207)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mcp): finish session termination without waiting on body cancella…",
-      "summaryZh": "重點：修正(mcp): finish session termination without waiting on body cancellation (#141289) ## What Problem This Solves 修正 an iss..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): reuse Android build timestamps across test and lint (#143207)",
+      "summaryZh": "重點：修正(ci): reuse Android build timestamps across test and lint (#143207)..."
     },
     {
       "id": 2,
-      "title": "fix(ui): measure attachment layout in one browser snapshot (#143103)",
-      "link": "https://github.com/openclaw/openclaw/commit/8642c68b6b9f6ee42fa91641dd8656fcf0a617a9",
-      "publishedAt": "2026-09-09T13:21:22Z",
-      "summary": "fix(ui): measure attachment layout in one browser snapshot (#143103)",
+      "title": "fix(anthropic): preserve cache reuse across transient runtime context…",
+      "link": "https://github.com/openclaw/openclaw/commit/faaf4b0fbd3b909e3400b686e854793b0b6c5112",
+      "publishedAt": "2026-09-09T17:35:56Z",
+      "summary": "fix(anthropic): preserve cache reuse across transient runtime context (#140621) Anthropic tool loops could repeatedly write growing conversation history to the prompt cache because a moving runtime-context carrier owned the checkpoint. Use the existing replay lifecycle contract to exclude transient carriers from both request builders while preserving retained anchors. Also omit empty beta headers that caused direct API requests with thinking disabled to fail. Add deterministic regression coverage and a packaged Docker test that verifies real cache reads and incremental writes across two tool continuations and a new user turn in both builders. Require that lane in stable/full release validation, with explicit API-key preflight, no request retries, and a declared runtime entry for dependency analysis. Validation includes focused package/model/session and workflow tests, build and package integrity checks, static checks, independent review, mock Docker, and eight successful live Anthropic Docker requests. Hosted CI run 34379052492 passed on the final PR head at attempt 2, after one unchanged browser-animation rerun. Closes #140607 Thanks to @LightningWareLLC for reporting the regression and contributing the lifecycle-aware cache repair. Co-authored-by: LightningWareLLC Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): measure attachment layout in one browser snapshot (#143103)",
-      "summaryZh": "重點：修正(ui): measure attachment layout in one browser snapshot (#143103)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): preserve cache reuse across transient runtime context…",
+      "summaryZh": "重點：修正(anthropic): preserve cache reuse across transient runtime context (#140621) Anthropic tool loops could repeatedly wri..."
     },
     {
       "id": 3,
-      "title": "refactor(cli): skip unused install details in plugin tables (#143105)",
-      "link": "https://github.com/openclaw/openclaw/commit/f2a629ea05ce3f46c3d89a6d45866c50ad2c04cf",
-      "publishedAt": "2026-09-09T13:10:53Z",
-      "summary": "refactor(cli): skip unused install details in plugin tables (#143105)",
+      "title": "refactor(tests): remove unused doctor catalog fixture (#143272)",
+      "link": "https://github.com/openclaw/openclaw/commit/0780fe56a8fc22869e43f9254bdb274f879c4ef3",
+      "publishedAt": "2026-09-09T17:35:28Z",
+      "summary": "refactor(tests): remove unused doctor catalog fixture (#143272)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(cli): skip unused install details in plugin tables (#143105)",
-      "summaryZh": "重點：refactor(cli): skip unused install details in plugin tables (#143105)..."
+      "titleZh": "OpenClaw 文件更新：refactor(tests): remove unused 文件tor catalog 修正ture (#143272)",
+      "summaryZh": "重點：refactor(tests): remove unused 文件tor catalog 修正ture (#143272)..."
     },
     {
       "id": 4,
-      "title": "improve(test): avoid full builds for session history HTTP checks (#14…",
-      "link": "https://github.com/openclaw/openclaw/commit/7839c0b966a179711e0dc661946fc8365822791b",
-      "publishedAt": "2026-09-09T13:04:58Z",
-      "summary": "improve(test): avoid full builds for session history HTTP checks (#143096) * improve(test): avoid full builds for session history HTTP checks * fix(test): align E2E inventory with history HTTP routing",
+      "title": "fix(gateway): preserve restored-version verification across update re…",
+      "link": "https://github.com/openclaw/openclaw/commit/b0dbfa39610d733f5c41561075449513129dcf4e",
+      "publishedAt": "2026-09-09T17:31:52Z",
+      "summary": "fix(gateway): preserve restored-version verification across update restart (#142817) A failed managed update's restored boot serves the previous version. The restore owner already verified that identity against the restored disk state and recorded it in the update-run ledger. The boot-time restart verification regraded the running version against the update target, turning a healthy restored boot into a false version mismatch and overwriting the verified ledger fact with a failed restart-unhealthy outcome. When the recorded verification matches the booting version, reuse it as the expected version instead of regrading against the update target. Related #139393",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(test): avoid full builds for session history HTTP checks (#14…",
-      "summaryZh": "重點：improve(test): avoid full builds for session history HTTP checks (#143096) * improve(test): avoid full builds for sessio..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve restored-version verification across update re…",
+      "summaryZh": "重點：修正(Gateway): preserve restored-version verification across update restart (#142817) A failed managed update's restored b..."
     },
     {
       "id": 5,
+      "title": "2 億光年外的重力拉扯，雙子座北望遠鏡捕捉 NGC 7253 雙星系邁向合併的絕美瞬間",
+      "link": "https://technews.tw/2026/09/09/gemini-north-captures-ngc-7253/",
+      "publishedAt": "Wed, 09 Sep 2026 13:54:44 +0000",
+      "summary": "位於飛馬座方向、距離地球超過 2 億光年的 NGC 7253，是一對正受到彼此重力牽引的螺旋星系，由北側的 N [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "久元8月營收3.45 億元",
       "link": "https://finance.technews.tw/2026/09/09/ytec-6261-202608-financial-report/",
       "publishedAt": "Wed, 09 Sep 2026 12:10:03 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Adobe修補Magento零時差漏洞StyleSmuggler",
       "link": "https://www.ithome.com.tw/news/178807",
       "publishedAt": "2026-09-09 12:09:50",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "OpenAI宣稱其AI系統解出了七大千禧年數學難題之一",
       "link": "https://www.ithome.com.tw/news/178803",
       "publishedAt": "2026-09-09 12:09:42",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "資安業者揭露逾9,300個外洩AWS金鑰仍可用，其中數百個具備企業帳號完整控制權限",
       "link": "https://www.ithome.com.tw/news/178805",
       "publishedAt": "2026-09-09 12:09:26",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "銀行迎戰虛擬資產新業務，資安業者共組「穩定幣暨虛擬資產安全聯盟」，協助打造自主可控數位金融安全",
       "link": "https://www.ithome.com.tw/news/178804",
       "publishedAt": "2026-09-09 12:09:15",
       "summary": "隨著全球穩定幣與虛擬資產監管浪潮興起，臺灣《虛擬資產服務法》今年6月三讀通過、7月正式公布，虛擬資產監管制度逐步成形，銀行等金融機構要如何安全接軌虛擬資產業務，也帶動新的資安需求。9月8日，台灣資訊安全協會宣布成立「穩定幣暨虛擬資產安全聯盟」，首波集結中華資安國際、博士旺創新、凱特納科技與普鴻資訊4家業者，從數位金融安全基礎建設所需的不同關鍵能力切入，希望整合臺灣產業能量，逐步打造具國際競爭力的數位金融產業合作模式。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "HPE修補ArubaOS-CX網路作業系統34個資安漏洞，包含可導致遠端程式碼執行的重大漏洞",
-      "link": "https://www.ithome.com.tw/news/178798",
-      "publishedAt": "2026-09-09 11:09:57",
-      "summary": "HPE於9月2日發布資安公告，修補ArubaOS-CX網路作業系統（AOS-CX）34個漏洞。",
       "source": "iThome",
       "tag": "繁中"
     }
