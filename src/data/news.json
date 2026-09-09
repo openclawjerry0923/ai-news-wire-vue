@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-09-09T17:37:53.139Z",
+  "generatedAt": "2026-09-09T20:35:02.001Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ci): reuse Android build timestamps across test and lint (#143207)",
-      "link": "https://github.com/openclaw/openclaw/commit/99fef046a4f77ae2d2733ee12b58d766f79182a0",
-      "publishedAt": "2026-09-09T17:36:55Z",
-      "summary": "fix(ci): reuse Android build timestamps across test and lint (#143207)",
+      "title": "fix(runtime): gate node:sqlite on a NUL round-trip capability probe (…",
+      "link": "https://github.com/openclaw/openclaw/commit/bf6f74b28069e9a2c5398130a3ee6dc6112d3972",
+      "publishedAt": "2026-09-09T20:32:29Z",
+      "summary": "fix(runtime): gate node:sqlite on a NUL round-trip capability probe (#143312) * fix(runtime): gate node:sqlite on a NUL round-trip capability probe Validate the loaded SQLite library and TEXT, BLOB, and JSON round trips across startup, doctor, Gateway install, update preflight, and installers. Admit capable Node 24+ vendor builds with a support-policy note while retaining the package engines and Node 22 exclusion. Refs #140465 #140672. * fix(runtime): expose capability diagnostics through doctor Register the runtime check in the ordered Doctor contribution catalog. Keep shared audit types in a leaf module, include the bootstrap probe in duplicate scanning, and update native runtime and compiled-worker fixtures for the capability protocol. * fix(update): preserve target Node version requirements * fix(install): remove unused Node major probe state",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): reuse Android build timestamps across test and lint (#143207)",
-      "summaryZh": "重點：修正(ci): reuse Android build timestamps across test and lint (#143207)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(runtime): gate node:sqlite on a NUL round-trip capability probe (…",
+      "summaryZh": "重點：修正(runtime): gate node:sqlite on a NUL round-trip capability probe (#143312) * 修正(runtime): gate node:sqlite on a NUL ro..."
     },
     {
       "id": 2,
-      "title": "fix(anthropic): preserve cache reuse across transient runtime context…",
-      "link": "https://github.com/openclaw/openclaw/commit/faaf4b0fbd3b909e3400b686e854793b0b6c5112",
-      "publishedAt": "2026-09-09T17:35:56Z",
-      "summary": "fix(anthropic): preserve cache reuse across transient runtime context (#140621) Anthropic tool loops could repeatedly write growing conversation history to the prompt cache because a moving runtime-context carrier owned the checkpoint. Use the existing replay lifecycle contract to exclude transient carriers from both request builders while preserving retained anchors. Also omit empty beta headers that caused direct API requests with thinking disabled to fail. Add deterministic regression coverage and a packaged Docker test that verifies real cache reads and incremental writes across two tool continuations and a new user turn in both builders. Require that lane in stable/full release validation, with explicit API-key preflight, no request retries, and a declared runtime entry for dependency analysis. Validation includes focused package/model/session and workflow tests, build and package integrity checks, static checks, independent review, mock Docker, and eight successful live Anthropic Docker requests. Hosted CI run 34379052492 passed on the final PR head at attempt 2, after one unchanged browser-animation rerun. Closes #140607 Thanks to @LightningWareLLC for reporting the regression and contributing the lifecycle-aware cache repair. Co-authored-by: LightningWareLLC Co-authored-by: Peter Steinberger",
+      "title": "fix(doctor): preserve conversations through legacy binding migration …",
+      "link": "https://github.com/openclaw/openclaw/commit/227e2f4fe1c279f429138bce53d5015a8a398f7d",
+      "publishedAt": "2026-09-09T20:28:45Z",
+      "summary": "fix(doctor): preserve conversations through legacy binding migration (#143347) Related: #136257 ## What Problem This Solves Fixes an issue where Doctor leaves old Claude conversation IDs outside the canonical binding, while runtime lookup and normal saves still depend on the retired field. The upgrade must preserve locked-session continuity and prevent deliberately cleared stale conversations from returning. ## Why This Change Was Made This follows the approved Doctor migration and reader-retirement scope from #136257. Doctor copies safe legacy IDs before removing the old field, and runtime lookup and normal saves change together. Existing canonical bindings, provider-keyed IDs, and resume metadata take precedence. Locked rows change only their binding representation; identity, ownership, route, and recency remain intact. Ambiguous records stay saved with reconciliation warnings. The existing stale-route repair also clears the old migration source when it clears a Claude binding. A later migration step therefore cannot restore an obsolete conversation. Historical-field cleanup and protected plugin-slot handling remain available for unresolved old records. ## User Impact Run `openclaw doctor --fix` after upgrading and before resuming sessions that only have the old field. Configured and locked conversations keep their IDs and resume metadata. Stale conversations stay cleared. Normal saves no longer recreate the retired field. ## Evidence The initial main regression failed because the canonical binding was missing after Doctor repair. The first candidate passed 74 focused tests. Public Doctor proof and the first source review then exposed two connected gaps: stale-state resurrection and locked-session continuity. Both are repaired in this revision, with the earlier failures retained. The compiled runtime built from this head passes public `doctor --fix --non-interactive`, `sessions --all-agents --json`, and repeated Doctor repair on 10 synthetic sessions across two agents. Saved state was checked after reopening both databases. Configured legacy IDs, canonical metadata, provider-keyed IDs, and locked ownership are preserved; ambiguous and empty records retain warnings; stale Claude state stays cleared. Every checked record is stable on repeat. The normal native pre-commit hook passed on the revised source. [Required CI](https://github.com/openclaw/openclaw/actions/runs/34397549548) covers type checks and the updated migration, save, fork, and Doctor-to-history cases. Runtime artifact build `41b019c889c4403b33993ee39d7eb04269b73316` is the CI test merge containing head `96e5877b0f15dffe7baa9fd934cbdea07ccb694e`; those identities are kept separate in the proof. No live provider conversation, credential operation, or schema change is claimed. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): preserve cache reuse across transient runtime context…",
-      "summaryZh": "重點：修正(anthropic): preserve cache reuse across transient runtime context (#140621) Anthropic tool loops could repeatedly wri..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): preserve conversations through legacy binding migration …",
+      "summaryZh": "重點：修正(文件tor): preserve conversations through legacy binding migration (#143347) Related: #136257 ## What Problem This Solve..."
     },
     {
       "id": 3,
-      "title": "refactor(tests): remove unused doctor catalog fixture (#143272)",
-      "link": "https://github.com/openclaw/openclaw/commit/0780fe56a8fc22869e43f9254bdb274f879c4ef3",
-      "publishedAt": "2026-09-09T17:35:28Z",
-      "summary": "refactor(tests): remove unused doctor catalog fixture (#143272)",
+      "title": "fix(browser): prevent premature existing-session timeouts (#143365)",
+      "link": "https://github.com/openclaw/openclaw/commit/edfcd0ae70cb807e108eac8a4693f8e0864ce1ed",
+      "publishedAt": "2026-09-09T20:26:39Z",
+      "summary": "fix(browser): prevent premature existing-session timeouts (#143365)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor(tests): remove unused 文件tor catalog 修正ture (#143272)",
-      "summaryZh": "重點：refactor(tests): remove unused 文件tor catalog 修正ture (#143272)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): prevent premature existing-session timeouts (#143365)",
+      "summaryZh": "重點：修正(browser): prevent premature existing-session timeouts (#143365)..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): preserve restored-version verification across update re…",
-      "link": "https://github.com/openclaw/openclaw/commit/b0dbfa39610d733f5c41561075449513129dcf4e",
-      "publishedAt": "2026-09-09T17:31:52Z",
-      "summary": "fix(gateway): preserve restored-version verification across update restart (#142817) A failed managed update's restored boot serves the previous version. The restore owner already verified that identity against the restored disk state and recorded it in the update-run ledger. The boot-time restart verification regraded the running version against the update target, turning a healthy restored boot into a false version mismatch and overwriting the verified ledger fact with a failed restart-unhealthy outcome. When the recorded verification matches the booting version, reuse it as the expected version instead of regrading against the update target. Related #139393",
+      "title": "fix(ci): preserve prepared iOS Fastlane path (#143301)",
+      "link": "https://github.com/openclaw/openclaw/commit/9b350d9e9330b74f31e0f6a060d2e433af7030ee",
+      "publishedAt": "2026-09-09T20:20:33Z",
+      "summary": "fix(ci): preserve prepared iOS Fastlane path (#143301)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): preserve restored-version verification across update re…",
-      "summaryZh": "重點：修正(Gateway): preserve restored-version verification across update restart (#142817) A failed managed update's restored b..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): preserve prepared iOS Fastlane path (#143301)",
+      "summaryZh": "重點：修正(ci): preserve prepared iOS Fastlane path (#143301)..."
     },
     {
       "id": 5,
+      "title": "iPhone 18 Pro、Pro Max 登場，台灣售價漲幅最低 5 千元",
+      "link": "https://technews.tw/2026/09/10/iphone-18-pro-pro-max-price-increase/",
+      "publishedAt": "Wed, 09 Sep 2026 20:03:42 +0000",
+      "summary": "蘋果稍早正式推出 iPhone 18 Pro、iPhone 18 Pro Max，新機雖然換上 2 奈米 A2 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "首款摺疊 iPhone 終於亮相，iPhone Duo 頂規售價破 11 萬元",
+      "link": "https://technews.tw/2026/09/10/iphone-duo-2/",
+      "publishedAt": "Wed, 09 Sep 2026 19:31:22 +0000",
+      "summary": "蘋果首款摺疊 iPhone 終於正式登場，一如早先市場傳言，此一摺疊機款被命名為 iPhone Duo，不僅替 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "蘋果 2026 秋季新品一次看：iPhone 18 Pro、AirPods 5、Apple Watch S12／Ultra 4、iPhone Duo",
+      "link": "https://technews.tw/2026/09/10/2026-apple-event-iphone-18-pro-iphone-duo/",
+      "publishedAt": "Wed, 09 Sep 2026 19:05:12 +0000",
+      "summary": "蘋果秋季新品發表會正式登場，今年除了推出 iPhone 18 Pro、iPhone 18 Pro Max，以及 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "2 億光年外的重力拉扯，雙子座北望遠鏡捕捉 NGC 7253 雙星系邁向合併的絕美瞬間",
       "link": "https://technews.tw/2026/09/09/gemini-north-captures-ngc-7253/",
       "publishedAt": "Wed, 09 Sep 2026 13:54:44 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "久元8月營收3.45 億元",
       "link": "https://finance.technews.tw/2026/09/09/ytec-6261-202608-financial-report/",
       "publishedAt": "Wed, 09 Sep 2026 12:10:03 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Adobe修補Magento零時差漏洞StyleSmuggler",
       "link": "https://www.ithome.com.tw/news/178807",
       "publishedAt": "2026-09-09 12:09:50",
       "summary": "本週Adobe發布9月例行更新，然而在此之前，該公司緊急修補已遭利用的電商平臺漏洞StyleSmuggler。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "OpenAI宣稱其AI系統解出了七大千禧年數學難題之一",
-      "link": "https://www.ithome.com.tw/news/178803",
-      "publishedAt": "2026-09-09 12:09:42",
-      "summary": "OpenAI周二（9/8）宣布，尚未公開的內部AI模型解出千禧年數學難題「Navier–Stokes Existence and Smoothness」（納維-斯托克斯存在性與光滑性問題），但旋即遭控涉及學術倫理爭議。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "資安業者揭露逾9,300個外洩AWS金鑰仍可用，其中數百個具備企業帳號完整控制權限",
-      "link": "https://www.ithome.com.tw/news/178805",
-      "publishedAt": "2026-09-09 12:09:26",
-      "summary": "資安公司Truffle Security近日發布報告，指出研究人員追蹤與驗證2022年8月至2026年8月間公開洩漏的AWS存取金鑰後，發現超過9,300個至今仍有效，其中還有數百個金鑰擁有企業AWS帳號完整管理權限。研究人員從Git儲存庫、Git歷史紀錄、Hugging Face資料集、Docker映像檔、套件註冊庫及CI日誌等公開來源，找到64,024個AWS金鑰，對應50,654個AWS帳號。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "銀行迎戰虛擬資產新業務，資安業者共組「穩定幣暨虛擬資產安全聯盟」，協助打造自主可控數位金融安全",
-      "link": "https://www.ithome.com.tw/news/178804",
-      "publishedAt": "2026-09-09 12:09:15",
-      "summary": "隨著全球穩定幣與虛擬資產監管浪潮興起，臺灣《虛擬資產服務法》今年6月三讀通過、7月正式公布，虛擬資產監管制度逐步成形，銀行等金融機構要如何安全接軌虛擬資產業務，也帶動新的資安需求。9月8日，台灣資訊安全協會宣布成立「穩定幣暨虛擬資產安全聯盟」，首波集結中華資安國際、博士旺創新、凱特納科技與普鴻資訊4家業者，從數位金融安全基礎建設所需的不同關鍵能力切入，希望整合臺灣產業能量，逐步打造具國際競爭力的數位金融產業合作模式。",
       "source": "iThome",
       "tag": "繁中"
     }
