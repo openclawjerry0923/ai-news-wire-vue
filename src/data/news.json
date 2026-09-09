@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-09T08:43:58.955Z",
+  "generatedAt": "2026-09-09T13:29:20.695Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(mcp): finish session termination without waiting on body cancella…",
+      "link": "https://github.com/openclaw/openclaw/commit/71555bcbcb639a0d912f0133b0c14c438cab57f4",
+      "publishedAt": "2026-09-09T13:26:24Z",
+      "summary": "fix(mcp): finish session termination without waiting on body cancellation (#141289) ## What Problem This Solves Fixes an issue where operators probing an MCP server with `openclaw mcp doctor --probe --json` encounter delayed local cleanup and uncertain cleanup when the server accepts session termination but response-body cancellation never settles. ## Why This Change Was Made Start body cancellation as best-effort work and consume its rejection so the existing termination owner can validate the DELETE response and finish closing the transport and client. Preserve the five-second DELETE signal, configured fetch owner, negotiated session identity, successful-status/405 handling, duplicate-termination guard, and outer cleanup deadlines. The regression uses HTTP 200 both on the wire and in the injected response. It covers pending/rejecting cancellation, accepted 405, and rejected status accounting. Preserves @hugenshen's contribution and ancestry. ## User Impact MCP cleanup finishes promptly after accepted termination even if body cancellation stalls or rejects. Failed DELETE responses still report uncertain cleanup, and failed initialization remains a visible probe failure. ## Evidence Validated baseline `1066fad578df56c24f2c3a2e3e7106786f0eda66` and candidate `a592e8df67575da489d8c5265e0429f4d0a559ec`: - Built public doctor command with a real synthetic HTTP server, SDK initialization, configured fetch and actual DELETE. Only post-response body cancellation is fault-injected. - Baseline pending cancellation delayed local close by about five seconds and reported uncertain cleanup about ten seconds after cancellation started. Candidate pending cancellation completed cleanup in about seven milliseconds with one DELETE. - Rejecting cancellation, accepted 405, bodyless 204, rejected 500, and failed initialization controls preserved their expected cleanup and command outcomes. - The pending-cancellation regression failed on the original code for the intended stalled termination. All 61 focused transport, fetch, guarded-stream, and selected cleanup tests passed after the fix. Formatting, focused lint, and native commit hooks passed. - Independent source review found no actionable issues. A fresh source-blind validator independently ran all six public cases and passed their runtime clauses. Full raw evidence is retained privately because it includes runtime and session details. This is synthetic dependency-fault proof; it does not claim that every remote server can cause native cancellation to hang. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): finish session termination without waiting on body cancella…",
+      "summaryZh": "重點：修正(mcp): finish session termination without waiting on body cancellation (#141289) ## What Problem This Solves 修正 an iss..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ui): measure attachment layout in one browser snapshot (#143103)",
+      "link": "https://github.com/openclaw/openclaw/commit/8642c68b6b9f6ee42fa91641dd8656fcf0a617a9",
+      "publishedAt": "2026-09-09T13:21:22Z",
+      "summary": "fix(ui): measure attachment layout in one browser snapshot (#143103)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): measure attachment layout in one browser snapshot (#143103)",
+      "summaryZh": "重點：修正(ui): measure attachment layout in one browser snapshot (#143103)..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(cli): skip unused install details in plugin tables (#143105)",
+      "link": "https://github.com/openclaw/openclaw/commit/f2a629ea05ce3f46c3d89a6d45866c50ad2c04cf",
+      "publishedAt": "2026-09-09T13:10:53Z",
+      "summary": "refactor(cli): skip unused install details in plugin tables (#143105)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(cli): skip unused install details in plugin tables (#143105)",
+      "summaryZh": "重點：refactor(cli): skip unused install details in plugin tables (#143105)..."
+    },
+    {
+      "id": 4,
+      "title": "improve(test): avoid full builds for session history HTTP checks (#14…",
+      "link": "https://github.com/openclaw/openclaw/commit/7839c0b966a179711e0dc661946fc8365822791b",
+      "publishedAt": "2026-09-09T13:04:58Z",
+      "summary": "improve(test): avoid full builds for session history HTTP checks (#143096) * improve(test): avoid full builds for session history HTTP checks * fix(test): align E2E inventory with history HTTP routing",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(test): avoid full builds for session history HTTP checks (#14…",
+      "summaryZh": "重點：improve(test): avoid full builds for session history HTTP checks (#143096) * improve(test): avoid full builds for sessio..."
+    },
+    {
+      "id": 5,
+      "title": "久元8月營收3.45 億元",
+      "link": "https://finance.technews.tw/2026/09/09/ytec-6261-202608-financial-report/",
+      "publishedAt": "Wed, 09 Sep 2026 12:10:03 +0000",
+      "summary": "久元（6261）今（9）日公布 8 月營收，達 3.45 億元，較 7 月成長 -7.8%，較去年同期成長 - [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Adobe修補Magento零時差漏洞StyleSmuggler",
       "link": "https://www.ithome.com.tw/news/178807",
       "publishedAt": "2026-09-09 12:09:50",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "OpenAI宣稱其AI系統解出了七大千禧年數學難題之一",
       "link": "https://www.ithome.com.tw/news/178803",
       "publishedAt": "2026-09-09 12:09:42",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "資安業者揭露逾9,300個外洩AWS金鑰仍可用，其中數百個具備企業帳號完整控制權限",
       "link": "https://www.ithome.com.tw/news/178805",
       "publishedAt": "2026-09-09 12:09:26",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "銀行迎戰虛擬資產新業務，資安業者共組「穩定幣暨虛擬資產安全聯盟」，協助打造自主可控數位金融安全",
       "link": "https://www.ithome.com.tw/news/178804",
       "publishedAt": "2026-09-09 12:09:15",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "HPE修補ArubaOS-CX網路作業系統34個資安漏洞，包含可導致遠端程式碼執行的重大漏洞",
       "link": "https://www.ithome.com.tw/news/178798",
       "publishedAt": "2026-09-09 11:09:57",
       "summary": "HPE於9月2日發布資安公告，修補ArubaOS-CX網路作業系統（AOS-CX）34個漏洞。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "SAP發布9月例行更新，修補4個重大漏洞",
-      "link": "https://www.ithome.com.tw/news/178801",
-      "publishedAt": "2026-09-09 11:09:25",
-      "summary": "9月8日SAP發布本月例行更新（Security Patch Day），修補19個資安弱點，並更新一則資安公告的內容。從危險程度來看，重大等級與高風險各有4個，中度風險有10個，低風險漏洞1個。根據CVSS嚴重程度評分，最危險的是記憶體中斷漏洞CVE-2026-44756，CVSS評分達到滿分10分，影響Extended Passport（EPP），未通過身分驗證的攻擊者可在特定情境下，利用含有惡意EPP標頭的特製請求觸發漏洞，有可能引起未定義的行為，或是造成程式異常終止。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(doctor): preserve source state during full lint (#142839)",
-      "link": "https://github.com/openclaw/openclaw/commit/31aa5548996860a0500b13bc61b25923a07d32c4",
-      "publishedAt": "2026-09-09T08:39:00Z",
-      "summary": "fix(doctor): preserve source state during full lint (#142839) Use the prepared source environment for Doctor state-integrity findings, repair previews, and session-store paths. Keep generated skill links and nested read-only SQLite access inside the existing private snapshot scope while preserving source-profile skill eligibility. The built full-lint CLI retains all 62 checks, reports real source-directory problems, and preserves source database and sidecar bytes. Default and separate-profile skill controls, focused regression tests, exact-head review, and hosted CI pass. Ordinary lint's existing shared-memory mutation remains a separate follow-up. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): preserve source state during full lint (#142839)",
-      "summaryZh": "重點：修正(文件tor): preserve source state during full lint (#142839) Use the prepared source environment for 文件tor state-integrit..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(tests): share agent-turn input fixtures (#142962)",
-      "link": "https://github.com/openclaw/openclaw/commit/2444adb94a597a5959fe27237d8cc20c93b891e7",
-      "publishedAt": "2026-09-09T08:37:49Z",
-      "summary": "refactor(tests): share agent-turn input fixtures (#142962)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): share agent-turn input 修正tures (#142962)",
-      "summaryZh": "重點：refactor(tests): share agent-turn input 修正tures (#142962)..."
-    },
-    {
-      "id": 9,
-      "title": "docs(gateway): split the tools configuration reference by domain (#14…",
-      "link": "https://github.com/openclaw/openclaw/commit/008cf5d9b0a4b1dcae5517706ea06d31ec1082ff",
-      "publishedAt": "2026-09-09T08:24:29Z",
-      "summary": "docs(gateway): split the tools configuration reference by domain (#142960) docs/gateway/config-tools.md was 59,564 characters across two H2 topics that mixed reference keys, a long explanation of the managed GitHub identity, and how-to provider recipes. Split by reader job into docs/gateway/config-tools/, keeping the parent as a short index. Children: - tool-policy — tool profiles, tool groups, the sandbox tool gate, tools.codeMode, and the allow/deny, byProvider, toolsBySender, and elevated layers (14,547 chars) - github-identity — tools.github: the shared managed gh identity, token refresh, and the execution boundaries that receive it (10,641 chars) - built-in-tools — tools.exec, tools.loopDetection, tools.web, tools.media, tools.updatePlan (6,254 chars) - sessions-and-subagents — tools.agentToAgent, tools.sessions, tools.sessions_spawn, agents.defaults.subagents (7,033 chars) - custom-providers — models.providers registration, base-URL trust, and the provider field reference (12,309 chars) - provider-examples — worked configurations for nine providers (8,980 chars) Anchor strategy: per-anchor routes are impossible here because redirectSource() rejects any source containing [?#], so every id the page published stays alive on the parent index as an authored stub next to a link to its new home. parseDocsDocument reports 58 ids before the split; 57 are stubbed and `related` is still published by the index itself, so no duplicate authored/canonical ID is raised. Backticked headings emit both a dotted and a dashed id (tools.github and tools-github) and both are preserved, as is the percent-encoded tools.allow-%2F-tools.deny, the pre-existing authored toolsupdateplan stub, and the ten Accordion-minted ids. All 58 resolve through resolveDocsFragment against the new index, and all 40 index-to-child fragment links resolve on their destination child. Losslessness (source body vs. the six children, measured mechanically against the base sha, not against a working copy): 54 fence markers before and after with identical info strings; 47 table rows before and after; all 12 original outbound links still present; each child's body byte-identical to its source line range after H3-to-H2 promotion. Two thematic breaks that separated the former H2 sections are dropped because those sections are now separate pages, and the empty container heading \"## Tools\" is not reproduced — its anchor is stubbed. One prose change, the declared orphaned-cross-reference exception: \"See the llama.cpp example below\" in the compat table pointed at a section that now lives on another page, so it became a real link. The other six directional references stayed within a single child and were re-verified there. taxonomy.yaml references this page without a fragment, so validateTaxonomyDocsReferences still resolves it; maturity:check passes. The eight qa/scenarios docsRefs and the two src/ docs URLs also target the surviving route. Closes audit findings: r3-0337, r3-1539",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(Gateway): split the tools configuration reference by domain (#14…",
-      "summaryZh": "重點：文件(Gateway): split the tools configuration reference by domain (#142960) 文件/Gateway/config-tools.md was 59,564 character..."
-    },
-    {
-      "id": 10,
-      "title": "fix: keep composer text readable while typing past its height limit (…",
-      "link": "https://github.com/openclaw/openclaw/commit/7115c4b6fccfcbeb9c121ea7523c22207272effc",
-      "publishedAt": "2026-09-09T08:16:48Z",
-      "summary": "fix: keep composer text readable while typing past its height limit (#142955)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep composer text readable while typing past its height limit (…",
-      "summaryZh": "重點：修正: keep composer text readable while typing past its height limit (#142955)..."
     }
   ]
 }
