@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-09-10T21:27:33.250Z",
+  "generatedAt": "2026-09-10T23:47:38.208Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): render CJK emphasis and table line breaks (#123084)",
-      "link": "https://github.com/openclaw/openclaw/commit/7cca3ff2120d8b3cbea1c17bf93f206243693e75",
-      "publishedAt": "2026-09-10T21:25:42Z",
-      "summary": "fix(ui): render CJK emphasis and table line breaks (#123084) * fix(ui): render CJK emphasis and safe line breaks * fix(ui): activate CJK-friendly markdown parsing * fix(ui): preserve standalone safe line breaks * test(ui): split CJK markdown coverage",
+      "title": "fix(models): share API-key editing and removal (#144420)",
+      "link": "https://github.com/openclaw/openclaw/commit/09e2b15466e1eddd581248bed0be867a0b248c7e",
+      "publishedAt": "2026-09-10T23:42:54Z",
+      "summary": "fix(models): share API-key editing and removal (#144420) Related: #136257 Supersedes #142851. Builds on #144181. ## What Problem This Solves Fixes an issue where API keys saved on the Models page followed a different persistence path from CLI keys, and CLI logout refused to remove profiles referenced by provider configuration. ## Why This Change Was Made Models and CLI key operations now share credential selection, persistence, and removal. Removal clears references for the same captured credential plan that the store deletes; concurrent replacements are preserved. Both paths use the Gateway auth-refresh owner and retain recovery guidance after a committed write. If another client changes the provider binding while the CLI key prompt is open, the saved key does not replace the newer binding. The CLI reports the committed key and tells the user to reopen Models. Internal write controls stay outside the public plugin interface. Reference-backed profiles cannot be converted to inline keys by replacement. If a concurrent credential generation rejects removal after config cleanup, the remover restores only cleanup-owned config values that no later writer changed. If removal throws or commits only some owner stores, the removal owner reads the targeted stores again. It restores references only for credentials that still exist and keeps successful deletions removed. Recovery replays only the captured config delta for targeted survivors. A retained token or external-secret profile keeps its provider binding. ## User Impact - Edit or remove saved API keys through Models or the CLI with the same stored result. - Keep model defaults, connection settings, account metadata, credential copy restrictions, tokens, and reference-backed keys intact. - Explicit CLI profile selection still supports named backups without changing the active connection. - Agent-local overrides remain intact; a conflicting shared-key replacement reports how to resolve the override. ## Evidence - Baseline CLI: removing a configured profile failed with the provider-reference refusal. - Baseline browser: Models reported “Secret saved,” while the key remained inline in provider configuration and the profile store stayed empty. - Real Gateway/browser and CLI proof: save and removal produce identical credential/configuration state; both refresh auth successfully and preserve the selected model. - Targeted owner, CLI, Gateway, UI, portability, and plugin-interface tests cover persistence, reference cleanup, concurrent credential replacement, retained credential kinds, explicit backups, administrator scope, and committed-write warnings. - Independent real-browser acceptance passed UI/CLI state parity, metadata and credential-kind preservation, administrator-scope enforcement, config-write failure recovery, and active-run preservation during targeted removal. Full-provider logout closed the matching real local-provider streams. - Final rebased candidate: 230 targeted owner, CLI, and Gateway tests passed. The rebuilt Gateway/UI passed the real-browser and CLI save/remove parity test. UI and portability checks passed on the integrated candidate, whose Auth B production files match the final candidate. - Corrective focused checks: 80 tests passed for the binding race, public plugin boundary, CLI test types, and UI end-to-end inventory. Protocol generation passed. - Real CLI race proof: a second CLI changed the provider from `fixture:manual` to `fixture:secondary` while key entry waited. The first CLI then preserved `fixture:secondary`, returned the saved-key recovery message, and exited 1. - Final review-fix checks: 151 owner and Gateway tests passed. They cover configured and default reference-backed profiles plus API-key-only and full-provider removal races that preserve credential, profile metadata, order, and provider binding. - Final public CLI proof: reference-backed replacement rejected without state change, then logout and save succeeded. A same-ID concurrent replacement completed while logout waited on the config lock; the rejected logout preserved credential and config, then retry and save succeeded. - Rebased-head checks: 291 focused owner, CLI, Gateway, SDK, and UI-inventory tests plus 50 Models-page tests passed. Protocol generation, full build, the public CLI campaign, and real Models-page UI/CLI parity passed again after the Models login work landed. - Incomplete-removal checks: 154 owner and Gateway tests passed. They cover thrown store errors, incomplete removal, partial multi-store deletion, surviving-reference restoration, and successful retry. - Untargeted-binding checks: 155 owner and Gateway tests passed. Failed API-key-only removal preserves the retained token binding, and retry removes only the targeted key. - Proof limit: the running Gateway's internal refresh exception was not live-injected. Gateway tests cover the failure branches and UI tests cover the resulting warning; remote-target and absent-local-Gateway CLI outcomes were observed separately. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): render CJK emphasis and table line breaks (#123084)",
-      "summaryZh": "重點：修正(ui): render CJK emphasis and table line breaks (#123084) * 修正(ui): render CJK emphasis and safe line breaks * 修正(ui):..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): share API-key editing and removal (#144420)",
+      "summaryZh": "重點：修正(模型): share API-key editing and removal (#144420) Related: #136257 Supersedes #142851. Builds on #144181. ## What Prob..."
     },
     {
       "id": 2,
-      "title": "perf(plugins): reuse warm source-cache records before path normalizat…",
-      "link": "https://github.com/openclaw/openclaw/commit/dc0d0b09be873ebdced3054d30bc29b5aa9324fa",
-      "publishedAt": "2026-09-10T21:22:58Z",
-      "summary": "perf(plugins): reuse warm source-cache records before path normalization (#144362)",
+      "title": "fix(tts): preserve selected summary models (#144354)",
+      "link": "https://github.com/openclaw/openclaw/commit/bdb61168c086a66ad7a8718adeb3dc715dd80360",
+      "publishedAt": "2026-09-10T23:39:35Z",
+      "summary": "fix(tts): preserve selected summary models (#144354) Capture provider metadata before selecting global TTS summary overrides and defaults, and share lightweight completion acquisition so selected aliases normalize once. Preserve the shipped injected callback and its caller-owned returned model. Reject malformed slash references before exact default-provider lookup, keeping invalid summary overrides on the global default. Cover bare defaults without configured aliases or model rows on the landed captured-default owner repair. Related: #130706 Prerequisite: #144429",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugins): reuse warm source-cache records before path normalizat…",
-      "summaryZh": "重點：perf(plugins): reuse warm source-cache records before path normalization (#144362)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(tts): preserve selected summary 模型 (#144354)",
+      "summaryZh": "重點：修正(tts): preserve selected summary 模型 (#144354) Capture provider metadata before selecting global TTS summary overrides ..."
     },
     {
       "id": 3,
-      "title": "fix(status): project settled fallback models consistently (#134496)",
-      "link": "https://github.com/openclaw/openclaw/commit/dc6018d2071d5bb9814d8bea677f7867109cc699",
-      "publishedAt": "2026-09-10T21:22:03Z",
-      "summary": "fix(status): project settled fallback models consistently (#134496) Share the bounded, run-verified terminal model projection between Gateway rows, /model and /status without changing stored selection or telemetry. Render the prepared selected and active model facts, preserving literal provider-local prefixes and the original entry's context provenance. Remove duplicate selection and prefix-stripping helpers. Keep unmatched fallback notices on the legacy usage projection path, and validate active context budgets against the original session and final model identity. Refs: #134496, #130706",
+      "title": "test(shared): clean up singleton fixtures after assertions (#144489)",
+      "link": "https://github.com/openclaw/openclaw/commit/5c99bfa6eaad58cda731fad562708c1ee2ac7518",
+      "publishedAt": "2026-09-10T23:36:05Z",
+      "summary": "test(shared): clean up singleton fixtures after assertions (#144489)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(status): project settled fallback 模型 consistently (#134496)",
-      "summaryZh": "重點：修正(status): project settled fallback 模型 consistently (#134496) Share the bounded, run-verified terminal 模型 projection be..."
+      "titleZh": "OpenClaw 程式碼更新：test(shared): clean up singleton 修正tures after assertions (#144489)",
+      "summaryZh": "重點：test(shared): clean up singleton 修正tures after assertions (#144489)..."
     },
     {
       "id": 4,
-      "title": "feat(ui): compact the Mentions footer and surface Inbox settings (#14…",
-      "link": "https://github.com/openclaw/openclaw/commit/a1f920995f2b1c5642602d79c90c9bd9817f944d",
-      "publishedAt": "2026-09-10T21:19:47Z",
-      "summary": "feat(ui): compact the Mentions footer and surface Inbox settings (#144412)",
+      "title": "refactor(tests): reuse Telegram settled receipt defaults (#144485)",
+      "link": "https://github.com/openclaw/openclaw/commit/d1d513716c64ed61a25d89da97d6d6b304dd0ddd",
+      "publishedAt": "2026-09-10T23:31:51Z",
+      "summary": "refactor(tests): reuse Telegram settled receipt defaults (#144485)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): compact the Mentions footer and surface Inbox settings (#14…",
-      "summaryZh": "重點：新功能(ui): compact the Mentions footer and surface Inbox settings (#144412)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(tests): reuse Telegram settled receipt defaults (#144485)",
+      "summaryZh": "重點：refactor(tests): reuse Telegram settled receipt defaults (#144485)..."
     },
     {
       "id": 5,
+      "title": "Gamers Nexus 再爆料：不論連線或斷線，LG TV 會悄悄擷取音訊並生成逐字稿",
+      "link": "https://infosecu.technews.tw/2026/09/11/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/",
+      "publishedAt": "Thu, 10 Sep 2026 23:30:20 +0000",
+      "summary": "硬體評測媒體 Gamers Nexus 在其 YouTube 頻道上指控，LV 旗下智慧電視在啟用語音辨識功能 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "AI 先驅庫茲維爾加入 Subsense，用吸入奈米粒子打造免開顱腦機介面",
+      "link": "https://technews.tw/2026/09/11/ai-visionary-ray-kurzweil-joins-neurotech-startup-subsense-as-product-and-vision-advisor/",
+      "publishedAt": "Thu, 10 Sep 2026 23:20:01 +0000",
+      "summary": "AI 先驅雷‧庫茲維爾（Ray Kurzweil）宣布加入矽谷新創 Subsense，擔任產品與願景顧問。這家 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "被 AI 暴增的工作量逼到極限，微軟 Edge 全面擴大自動化驗證機制突圍",
+      "link": "https://infosecu.technews.tw/2026/09/11/microsoft-edge-overwhelmed-ai-extensions-dev-team-complains-increased-workload-switches-automated-review/",
+      "publishedAt": "Thu, 10 Sep 2026 23:10:29 +0000",
+      "summary": "微軟（Microsoft）的 Edge 團隊在 9 月 8 日公開承認，AI 輔助開發讓瀏覽器擴充功能的提交量 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "2026 年能源管理趨勢：能源即服務興起，價值重心由設備轉向服務",
+      "link": "https://technews.tw/2026/09/11/2026-eaas-rise/",
+      "publishedAt": "Thu, 10 Sep 2026 23:00:35 +0000",
+      "summary": "EaaS（能源即服務）的本質並非新能源技術，而是重新定義廠商與服務提供商在能源管理的分工方式。過去廠商需自行完 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "恆星風吹出的宇宙氣泡，哈伯望遠鏡揭開大麥哲倫雲 N44 星雲的誕生祕密",
       "link": "https://technews.tw/2026/09/10/star-formation-region-in-the-large-magellanic-cloud/",
       "publishedAt": "Thu, 10 Sep 2026 13:56:15 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "研究人員揭露竊取加密貨幣的ClickFix攻擊活動，濫用Google試算表作為C2管道",
       "link": "https://www.ithome.com.tw/news/178842",
       "publishedAt": "2026-09-10 12:09:02",
       "summary": "為了降低遭到偵測與阻擋的機率，駭客在攻擊活動中藉助合法雲端平臺服務作為C2管道的案例，近來逐漸增加，Cisco資安威脅研究團隊Talos近日揭露的一起ClickFix攻擊事件便是其中的典型。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "燃料電池、資料中心需求帶動：康舒 8 月營收 37.09 億元單月次高",
-      "link": "https://finance.technews.tw/2026/09/10/acbel-august-revenue-3-709b-record-high-driven-by-fuel-cell-data-center-demand/",
-      "publishedAt": "Thu, 10 Sep 2026 11:15:43 +0000",
-      "summary": "電源廠康舒 8 月營運再創新高，單月合併營收 37.09 億元，月增 13.65%、年增 38.47%，改寫單 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Cisco修補Nexus 9000系列交換器重大遠端程式碼執行漏洞",
-      "link": "https://www.ithome.com.tw/news/178840",
-      "publishedAt": "2026-09-10 11:09:41",
-      "summary": "Cisco修補Nexus 9000系列交換器的重大漏洞CVE-2026-20212，影響搭載Silicon One ASIC的機型，以及這些機型對應的NX-OS 10.x版軟體，Cisco已發布修補版本，建議用戶使用Software Checker確認自身交換器所對應的NX-OS修補版本。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "OpenAI籲美國制定強制AI安全規範，要求頂尖AI業者接受獨立評估",
-      "link": "https://www.ithome.com.tw/news/178839",
-      "publishedAt": "2026-09-10 11:09:15",
-      "summary": "頂尖AI模型的自主操作能力持續提升，既有安全控管是否跟得上也成為產業焦點。OpenAI於9月9日呼籲美國建立聯邦層級的強制性AI安全規範，主要適用於開發頂尖AI系統、資源充足的少數業者，要求依模型能力與風險接受安全測試及獨立評估，並強化網路安全防護與重大事件通報。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "多個中國駭客組織利用漏洞利用工具包BlueMoon，串連Chrome與Windows零時差漏洞從事攻擊",
-      "link": "https://www.ithome.com.tw/news/178838",
-      "publishedAt": "2026-09-10 11:09:08",
-      "summary": "9月9日資安公司Proofpoint指出，他們從8月底發現使用漏洞利用工具包BlueMoon的活動，此工具包串連兩個Chrome零時差漏洞，以及一個Windows近日修補的零時差漏洞，而對於攻擊者的身分，最早使用的是被稱做TA412、APT31、Violet Typhoon，或JungleBamboo的中國駭客組織，後續該公司看到UNK_LateNight、UNK_Dou",
       "source": "iThome",
       "tag": "繁中"
     }
