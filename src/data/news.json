@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-10T10:49:07.861Z",
+  "generatedAt": "2026-09-10T14:53:57.569Z",
   "items": [
     {
       "id": 1,
+      "title": "test: isolate yielded reset fixture from ambient heartbeats (#144108)",
+      "link": "https://github.com/openclaw/openclaw/commit/0cdf5d02df08ffd53dadd4047bdad7553183b132",
+      "publishedAt": "2026-09-10T14:53:04Z",
+      "summary": "test: isolate yielded reset fixture from ambient heartbeats (#144108)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: isolate yielded reset 修正ture from ambient heartbeats (#144108)",
+      "summaryZh": "重點：test: isolate yielded reset 修正ture from ambient heartbeats (#144108)..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ci): validate frozen targets without executing candidate code (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/3c4981a51e8fca3fb9b2b9074ea7eef041e2f48f",
+      "publishedAt": "2026-09-10T14:51:05Z",
+      "summary": "fix(ci): validate frozen targets without executing candidate code (#144023) * fix(ci): run frozen bundle clients from their shipped layout Resolve only the selected bundle contract with local committed-object reads and trusted syntax parsing. Preserve each legacy client's manifest, helper, import depth and bytes before Docker staging, and reject unknown or unreadable contracts. * fix(ci): preserve frozen source read failures Distinguish committed absence from missing, corrupt, or wrong-kind Git objects before selecting frozen compatibility. Share bounded local-only source reads across the shell and bundle resolver, and preserve errors through conditional callers before gateway Docker work. This is the source-read stage only; aggregate frozen admission remains separate. * fix(ci): isolate frozen consumer contracts * fix(ci): add inert frozen target admission * fix(ci): validate Docker lane alias contracts",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): validate frozen targets without executing candidate code (#1…",
+      "summaryZh": "重點：修正(ci): validate frozen targets without executing candidate code (#144023) * 修正(ci): run frozen bundle clients from thei..."
+    },
+    {
+      "id": 3,
+      "title": "fix(ui): restore Send when Stop finds a finished run (#143437)",
+      "link": "https://github.com/openclaw/openclaw/commit/8d96c4fba4d5f412a8b7156773e92f7042552a42",
+      "publishedAt": "2026-09-10T14:42:49Z",
+      "summary": "fix(ui): restore Send when Stop finds a finished run (#143437) Closes #143356. ## What Problem This Solves Fixes an issue where clicking Stop leaves the Control UI stuck on a completed run when its terminal notifications did not reach the browser. The Gateway answers that nothing is active, but the composer keeps Stop until the page is refreshed. ## Why This Change Was Made The shared Stop handler now consumes explicit no-active-run answers from `chat.abort` and `sessions.abort` and invokes the existing authoritative chat refresh. The session owner decides whether the run is finished. Recovery checks the captured connection, client, session, run (including no local run), and selected agent before refreshing, so a delayed answer cannot refresh replacement work. This preserves @ylcn91's contribution and all nine original commits. The regression drives an authenticated Control UI and real Gateway, with a deterministic fixture provider and narrowly withheld terminal notifications. The test owns its server and runs in the serial browser lane. ## User Impact Stop can restore Send and the completed reply without a page reload. Finalizing work retains its activity and tool progress. Accepted live aborts still settle through lifecycle events. Drafts, queued exact-run stops, descendant activity, error recovery, and Gateway abort authority retain their existing behavior. ## Evidence - On pinned main `71b21c88574752cd9acc917970ec2850279cdfa2`, one real turn reaches an authoritative inactive/done state. Four exact-run terminal notifications are withheld on one connected WebSocket; ordinary replies and chat deltas continue. Stop receives `{ok:true, aborted:false, runIds:[]}`, yet the browser keeps the same run and Stop for ten seconds without refreshing history. - On candidate runtime `727574f45fca7a0cf0e15604d7e209cb987d844b`, the same real flow refreshes history after that answer, reads the matching terminal session and run, clears local ownership, shows the finished reply, and restores Send. The full private capture and the corrected committed regression pass. Later test-only corrections read session identity from the Gateway's existing history delta response and omit a redundant default type argument, and include the new private-server test in the existing CI ownership guard; runtime inputs are unchanged. - 53 focused lifecycle/abort tests, 43 test-routing checks, and both affected serial-ownership controls pass. The two added replacement-run/selected-agent tests first fail on contributor code for the intended ownership violations. Scoped formatting, lint, canonical commit hooks, and normal Gateway/UI builds pass. UI startup size remains within the existing limit. - All 17 mock-browser scenarios have applicable passing evidence across retained runs, including finalizing tools, accepted abort, session-only direct/descendant recovery, failed history followed by another Stop, and existing reconnect/queued-stop controls. Earlier fixture failures and skipped selections are retained; this is not one new whole-file 17/17 run. Ownership races also have focused tests and source review, rather than an exhaustive browser permutation claim. Terminal-event withholding is deliberate fault injection. The provider is a deterministic fixture, not live-model proof. This repairs recovery after a no-active-run answer; it does not establish or fix the reporter's natural notification-loss cause. The new real-test draft is entered after recovery; draft survival across Stop is covered separately by focused tests. The first committed regression expected full-history-only identity fields from a valid delta response and failed after the composer recovered. Its corrected assertion checks the exact identity in `sessionInfo`; the original failure and successful private capture remain in the evidence. Full raw traces and state remain private. Public images are inspected crops that remove session headers and the fixture prompt. | Before: Stop remains after the no-active-run answer | After: completed reply and Send restored | | --- | --- | | ![Stale Stop after the Gateway completed](https://github.com/user-attachments/assets/f7b2a33a-5708-4990-a9d4-a18a4b8e2bcd) | ![Send restored after authoritative refresh](https://github.com/user-attachments/assets/2f193de6-cab8-4076-9f88-34345ad5813c) | Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore Send when Stop finds a finished run (#143437)",
+      "summaryZh": "重點：修正(ui): restore Send when Stop finds a finished run (#143437) Closes #143356. ## What Problem This Solves 修正 an issue wh..."
+    },
+    {
+      "id": 4,
+      "title": "test: avoid duplicate update flows for package source forms (#144097)",
+      "link": "https://github.com/openclaw/openclaw/commit/d06088af40118d108da764d2cf9fa249ab09e26e",
+      "publishedAt": "2026-09-10T14:40:38Z",
+      "summary": "test: avoid duplicate update flows for package source forms (#144097)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: avoid duplicate update flows for package source forms (#144097)",
+      "summaryZh": "重點：test: avoid duplicate update flows for package source forms (#144097)..."
+    },
+    {
+      "id": 5,
+      "title": "恆星風吹出的宇宙氣泡，哈伯望遠鏡揭開大麥哲倫雲 N44 星雲的誕生祕密",
+      "link": "https://technews.tw/2026/09/10/star-formation-region-in-the-large-magellanic-cloud/",
+      "publishedAt": "Thu, 10 Sep 2026 13:56:15 +0000",
+      "summary": "美國太空總署哈伯太空望遠鏡近期釋出了大麥哲倫雲內部一片名為 LHA 120-N44（簡稱 N44）星雲的最新影 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "研究人員揭露竊取加密貨幣的ClickFix攻擊活動，濫用Google試算表作為C2管道",
       "link": "https://www.ithome.com.tw/news/178842",
       "publishedAt": "2026-09-10 12:09:02",
@@ -11,7 +64,16 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
+      "title": "燃料電池、資料中心需求帶動：康舒 8 月營收 37.09 億元單月次高",
+      "link": "https://finance.technews.tw/2026/09/10/acbel-august-revenue-3-709b-record-high-driven-by-fuel-cell-data-center-demand/",
+      "publishedAt": "Thu, 10 Sep 2026 11:15:43 +0000",
+      "summary": "電源廠康舒 8 月營運再創新高，單月合併營收 37.09 億元，月增 13.65%、年增 38.47%，改寫單 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "Cisco修補Nexus 9000系列交換器重大遠端程式碼執行漏洞",
       "link": "https://www.ithome.com.tw/news/178840",
       "publishedAt": "2026-09-10 11:09:41",
@@ -20,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 9,
       "title": "OpenAI籲美國制定強制AI安全規範，要求頂尖AI業者接受獨立評估",
       "link": "https://www.ithome.com.tw/news/178839",
       "publishedAt": "2026-09-10 11:09:15",
@@ -29,74 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 10,
       "title": "多個中國駭客組織利用漏洞利用工具包BlueMoon，串連Chrome與Windows零時差漏洞從事攻擊",
       "link": "https://www.ithome.com.tw/news/178838",
       "publishedAt": "2026-09-10 11:09:08",
       "summary": "9月9日資安公司Proofpoint指出，他們從8月底發現使用漏洞利用工具包BlueMoon的活動，此工具包串連兩個Chrome零時差漏洞，以及一個Windows近日修補的零時差漏洞，而對於攻擊者的身分，最早使用的是被稱做TA412、APT31、Violet Typhoon，或JungleBamboo的中國駭客組織，後續該公司看到UNK_LateNight、UNK_Dou",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "fix: keep moved capture directories out of exports (#143899)",
-      "link": "https://github.com/openclaw/openclaw/commit/0670cd25c2687b0272c519c4da7d06337849357b",
-      "publishedAt": "2026-09-10T10:48:13Z",
-      "summary": "fix: keep moved capture directories out of exports (#143899) * fix: keep moved capture directories out of exports * fix: preserve lexical privacy admission before archive deduplication * fix: guard original backup database selections before canonicalization * test: satisfy backup privacy fixture brace lint",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep moved capture directories out of exports (#143899)",
-      "summaryZh": "重點：修正: keep moved capture directories out of exports (#143899) * 修正: keep moved capture directories out of exports * 修正: pr..."
-    },
-    {
-      "id": 6,
-      "title": "feat(control-ui): show cloud session machine specs (#143864)",
-      "link": "https://github.com/openclaw/openclaw/commit/e89128c69e2b9d56055aca83db7b41766adb6f58",
-      "publishedAt": "2026-09-10T10:47:57Z",
-      "summary": "feat(control-ui): show cloud session machine specs (#143864) * feat(control-ui): show cloud session machine specs Expose optional OS, machine class, vCPU, and memory metadata on correlated worker placements. Resolve provider defaults through lifecycle-owned catalogs without changing persisted profile snapshots. Show known machine facts in sidebar hovercards and placement tooltips. Refresh session subscribers when discovery completes, and fence catalog warmups against profile changes. * test(gateway): account for machine catalog preflight discovery Model the read-only providers catalog query in Crabbox preflight fixtures. Assert exact command sequences so failed preflight still cannot allocate or clean up a worker. * refactor(gateway): centralize machine catalog lifecycle Keep machine metadata subscriptions, cleanup, and warmup warnings with the catalog owner. Delegate its async listing operations directly so the environment service stays within its line limit after concurrent preparation changes.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(control-ui): show cloud session machine specs (#143864)",
-      "summaryZh": "重點：新功能(control-ui): show cloud session machine specs (#143864) * 新功能(control-ui): show cloud session machine specs Expose o..."
-    },
-    {
-      "id": 7,
-      "title": "chore(i18n): refresh native locales (#143928)",
-      "link": "https://github.com/openclaw/openclaw/commit/89a1abd12ff92d78e0a5d2cf22641968dce828ea",
-      "publishedAt": "2026-09-10T10:46:41Z",
-      "summary": "chore(i18n): refresh native locales (#143928) Co-authored-by: github-actions[bot]",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#143928)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#143928) Co-authored-by: github-actions[bot]..."
-    },
-    {
-      "id": 8,
-      "title": "fix: keep inbound media fixtures on one filesystem (#143945)",
-      "link": "https://github.com/openclaw/openclaw/commit/fac7e2a90ad1ec6f27ea88105310068c9e51ae20",
-      "publishedAt": "2026-09-10T10:43:41Z",
-      "summary": "fix: keep inbound media fixtures on one filesystem (#143945)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep inbound media 修正tures on one filesystem (#143945)",
-      "summaryZh": "重點：修正: keep inbound media 修正tures on one filesystem (#143945)..."
-    },
-    {
-      "id": 9,
-      "title": "AI、車用雙引擎助攻：強茂 8 月營收 13.77 億元、年增近 3 成",
-      "link": "https://finance.technews.tw/2026/09/10/panjit-august-revenue-1-377-billion-up-30-yoy-ai-automotive-engines/",
-      "publishedAt": "Thu, 10 Sep 2026 10:22:43 +0000",
-      "summary": "強茂下半年營運動能看增，AI 資料中心需求升溫、車用電子電氣化趨勢延續，加上產品組合改善，成為營運三大支撐。強 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "宜特8月營收3.71 億元",
-      "link": "https://finance.technews.tw/2026/09/10/ist-3289-202608-financial-report/",
-      "publishedAt": "Thu, 10 Sep 2026 10:20:05 +0000",
-      "summary": "宜特（3289）今（10）日公布 8 月營收，達 3.71 億元，較 7 月成長 -7.3%，較去年同期成長 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
