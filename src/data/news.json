@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-10T14:53:57.569Z",
+  "generatedAt": "2026-09-10T18:10:36.438Z",
   "items": [
     {
       "id": 1,
-      "title": "test: isolate yielded reset fixture from ambient heartbeats (#144108)",
-      "link": "https://github.com/openclaw/openclaw/commit/0cdf5d02df08ffd53dadd4047bdad7553183b132",
-      "publishedAt": "2026-09-10T14:53:04Z",
-      "summary": "test: isolate yielded reset fixture from ambient heartbeats (#144108)",
+      "title": "fix(cron): complete ownerless manual runs without timing out (#143804)",
+      "link": "https://github.com/openclaw/openclaw/commit/6b5e5727a6d1295807e99fff2d57ec6e7e491fd3",
+      "publishedAt": "2026-09-10T18:09:34Z",
+      "summary": "fix(cron): complete ownerless manual runs without timing out (#143804) Record one correlated skipped completion for a manually requested automation whose owner cannot be resolved. Preserve its schedule and the existing reservation, caller-authority, and sibling-execution guards. Related: #141633 Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: isolate yielded reset 修正ture from ambient heartbeats (#144108)",
-      "summaryZh": "重點：test: isolate yielded reset 修正ture from ambient heartbeats (#144108)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): complete ownerless manual runs without timing out (#143804)",
+      "summaryZh": "重點：修正(排程): complete ownerless manual runs without timing out (#143804) Record one correlated skipped completion for a manua..."
     },
     {
       "id": 2,
-      "title": "fix(ci): validate frozen targets without executing candidate code (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/3c4981a51e8fca3fb9b2b9074ea7eef041e2f48f",
-      "publishedAt": "2026-09-10T14:51:05Z",
-      "summary": "fix(ci): validate frozen targets without executing candidate code (#144023) * fix(ci): run frozen bundle clients from their shipped layout Resolve only the selected bundle contract with local committed-object reads and trusted syntax parsing. Preserve each legacy client's manifest, helper, import depth and bytes before Docker staging, and reject unknown or unreadable contracts. * fix(ci): preserve frozen source read failures Distinguish committed absence from missing, corrupt, or wrong-kind Git objects before selecting frozen compatibility. Share bounded local-only source reads across the shell and bundle resolver, and preserve errors through conditional callers before gateway Docker work. This is the source-read stage only; aggregate frozen admission remains separate. * fix(ci): isolate frozen consumer contracts * fix(ci): add inert frozen target admission * fix(ci): validate Docker lane alias contracts",
+      "title": "perf(sqlite): reuse compiled plugin-state write queries (#144206)",
+      "link": "https://github.com/openclaw/openclaw/commit/d1e952f991722fab51ff35f2badde602136dbcdb",
+      "publishedAt": "2026-09-10T18:03:22Z",
+      "summary": "perf(sqlite): reuse compiled plugin-state write queries (#144206)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): validate frozen targets without executing candidate code (#1…",
-      "summaryZh": "重點：修正(ci): validate frozen targets without executing candidate code (#144023) * 修正(ci): run frozen bundle clients from thei..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): reuse compiled plugin-state write queries (#144206)",
+      "summaryZh": "重點：perf(sqlite): reuse compiled plugin-state write queries (#144206)..."
     },
     {
       "id": 3,
-      "title": "fix(ui): restore Send when Stop finds a finished run (#143437)",
-      "link": "https://github.com/openclaw/openclaw/commit/8d96c4fba4d5f412a8b7156773e92f7042552a42",
-      "publishedAt": "2026-09-10T14:42:49Z",
-      "summary": "fix(ui): restore Send when Stop finds a finished run (#143437) Closes #143356. ## What Problem This Solves Fixes an issue where clicking Stop leaves the Control UI stuck on a completed run when its terminal notifications did not reach the browser. The Gateway answers that nothing is active, but the composer keeps Stop until the page is refreshed. ## Why This Change Was Made The shared Stop handler now consumes explicit no-active-run answers from `chat.abort` and `sessions.abort` and invokes the existing authoritative chat refresh. The session owner decides whether the run is finished. Recovery checks the captured connection, client, session, run (including no local run), and selected agent before refreshing, so a delayed answer cannot refresh replacement work. This preserves @ylcn91's contribution and all nine original commits. The regression drives an authenticated Control UI and real Gateway, with a deterministic fixture provider and narrowly withheld terminal notifications. The test owns its server and runs in the serial browser lane. ## User Impact Stop can restore Send and the completed reply without a page reload. Finalizing work retains its activity and tool progress. Accepted live aborts still settle through lifecycle events. Drafts, queued exact-run stops, descendant activity, error recovery, and Gateway abort authority retain their existing behavior. ## Evidence - On pinned main `71b21c88574752cd9acc917970ec2850279cdfa2`, one real turn reaches an authoritative inactive/done state. Four exact-run terminal notifications are withheld on one connected WebSocket; ordinary replies and chat deltas continue. Stop receives `{ok:true, aborted:false, runIds:[]}`, yet the browser keeps the same run and Stop for ten seconds without refreshing history. - On candidate runtime `727574f45fca7a0cf0e15604d7e209cb987d844b`, the same real flow refreshes history after that answer, reads the matching terminal session and run, clears local ownership, shows the finished reply, and restores Send. The full private capture and the corrected committed regression pass. Later test-only corrections read session identity from the Gateway's existing history delta response and omit a redundant default type argument, and include the new private-server test in the existing CI ownership guard; runtime inputs are unchanged. - 53 focused lifecycle/abort tests, 43 test-routing checks, and both affected serial-ownership controls pass. The two added replacement-run/selected-agent tests first fail on contributor code for the intended ownership violations. Scoped formatting, lint, canonical commit hooks, and normal Gateway/UI builds pass. UI startup size remains within the existing limit. - All 17 mock-browser scenarios have applicable passing evidence across retained runs, including finalizing tools, accepted abort, session-only direct/descendant recovery, failed history followed by another Stop, and existing reconnect/queued-stop controls. Earlier fixture failures and skipped selections are retained; this is not one new whole-file 17/17 run. Ownership races also have focused tests and source review, rather than an exhaustive browser permutation claim. Terminal-event withholding is deliberate fault injection. The provider is a deterministic fixture, not live-model proof. This repairs recovery after a no-active-run answer; it does not establish or fix the reporter's natural notification-loss cause. The new real-test draft is entered after recovery; draft survival across Stop is covered separately by focused tests. The first committed regression expected full-history-only identity fields from a valid delta response and failed after the composer recovered. Its corrected assertion checks the exact identity in `sessionInfo`; the original failure and successful private capture remain in the evidence. Full raw traces and state remain private. Public images are inspected crops that remove session headers and the fixture prompt. | Before: Stop remains after the no-active-run answer | After: completed reply and Send restored | | --- | --- | | ![Stale Stop after the Gateway completed](https://github.com/user-attachments/assets/f7b2a33a-5708-4990-a9d4-a18a4b8e2bcd) | ![Send restored after authoritative refresh](https://github.com/user-attachments/assets/2f193de6-cab8-4076-9f88-34345ad5813c) | Co-authored-by: Ayaan Zaidi",
+      "title": "test(minimax): share HTTP assertion fixtures (#144249)",
+      "link": "https://github.com/openclaw/openclaw/commit/8d7c8caba1d1bbdc06dff641d4b71fcd7b318261",
+      "publishedAt": "2026-09-10T18:02:44Z",
+      "summary": "test(minimax): share HTTP assertion fixtures (#144249)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): restore Send when Stop finds a finished run (#143437)",
-      "summaryZh": "重點：修正(ui): restore Send when Stop finds a finished run (#143437) Closes #143356. ## What Problem This Solves 修正 an issue wh..."
+      "titleZh": "OpenClaw 程式碼更新：test(minimax): share HTTP assertion 修正tures (#144249)",
+      "summaryZh": "重點：test(minimax): share HTTP assertion 修正tures (#144249)..."
     },
     {
       "id": 4,
-      "title": "test: avoid duplicate update flows for package source forms (#144097)",
-      "link": "https://github.com/openclaw/openclaw/commit/d06088af40118d108da764d2cf9fa249ab09e26e",
-      "publishedAt": "2026-09-10T14:40:38Z",
-      "summary": "test: avoid duplicate update flows for package source forms (#144097)",
+      "title": "fix: Gateway restarts fail when child processes need forced cleanup (…",
+      "link": "https://github.com/openclaw/openclaw/commit/9db0482ff890f9110aec942c22b04447ac50ac61",
+      "publishedAt": "2026-09-10T18:00:04Z",
+      "summary": "fix: Gateway restarts fail when child processes need forced cleanup (#144069) * fix(process): preserve forced retirement receipts (oc-f5f.1) Join the bounded closing receipt acknowledgement before the POSIX anchor kills its owned group. Preserve the host receipt, relay-reaping and kernel-extinction gates. Prove direct forced cancellation, TERM-resistant descendants, and real Gateway restart-close with exhausted drain before replacement supervisor admission. Includes integration task oc-f5f.2 and validation task oc-f5f.3. * fix(process): retain lineage proof outside killed groups (oc-f5f.5) Keep the canonical lineage reader in the outside-group host and forward its writer through relay and anchor. Require actual EOF, relay reaping, and PGID disappearance before certifying extinction. Preserve fail-closed retained-host behavior and cover escaped lineage under TERM and KILL.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: avoid duplicate update flows for package source forms (#144097)",
-      "summaryZh": "重點：test: avoid duplicate update flows for package source forms (#144097)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: Gateway restarts fail when child processes need forced cleanup (…",
+      "summaryZh": "重點：修正: Gateway restarts fail when child processes need forced cleanup (#144069) * 修正(process): preserve forced retirement r..."
     },
     {
       "id": 5,
