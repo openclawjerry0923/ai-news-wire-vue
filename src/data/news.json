@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T05:49:51.794Z",
+  "generatedAt": "2026-09-10T10:49:07.861Z",
   "items": [
     {
       "id": 1,
@@ -39,65 +39,65 @@
     },
     {
       "id": 5,
-      "title": "蘋果發表iPhone 18 Pro系列與首款摺疊機iPhone Duo",
-      "link": "https://www.ithome.com.tw/news/178836",
-      "publishedAt": "2026-09-10 10:09:56",
-      "summary": "蘋果在周三（9/9）發表了首款iPhone摺疊機iPhone Duo，以及iPhone 18 Pro與iPhone 18 Pro Max，這3款高階版iPhone皆採用2奈米製程的A20 Pro晶片。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix: keep moved capture directories out of exports (#143899)",
+      "link": "https://github.com/openclaw/openclaw/commit/0670cd25c2687b0272c519c4da7d06337849357b",
+      "publishedAt": "2026-09-10T10:48:13Z",
+      "summary": "fix: keep moved capture directories out of exports (#143899) * fix: keep moved capture directories out of exports * fix: preserve lexical privacy admission before archive deduplication * fix: guard original backup database selections before canonicalization * test: satisfy backup privacy fixture brace lint",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: keep moved capture directories out of exports (#143899)",
+      "summaryZh": "重點：修正: keep moved capture directories out of exports (#143899) * 修正: keep moved capture directories out of exports * 修正: pr..."
     },
     {
       "id": 6,
-      "title": "研究人員Nightmare Eclipse揭露Microsoft Defender零時差漏洞ShieldCrash",
-      "link": "https://www.ithome.com.tw/news/178837",
-      "publishedAt": "2026-09-10 10:09:19",
-      "summary": "與微軟槓上的資安研究員Nightmare Eclipse（Chaotic Eclipse），從今年4月開始不斷揭露微軟產品的零時差漏洞，近期她將目標轉向其他廠牌的防毒軟體與EDR系統，以及Nvidia元件。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "feat(control-ui): show cloud session machine specs (#143864)",
+      "link": "https://github.com/openclaw/openclaw/commit/e89128c69e2b9d56055aca83db7b41766adb6f58",
+      "publishedAt": "2026-09-10T10:47:57Z",
+      "summary": "feat(control-ui): show cloud session machine specs (#143864) * feat(control-ui): show cloud session machine specs Expose optional OS, machine class, vCPU, and memory metadata on correlated worker placements. Resolve provider defaults through lifecycle-owned catalogs without changing persisted profile snapshots. Show known machine facts in sidebar hovercards and placement tooltips. Refresh session subscribers when discovery completes, and fence catalog warmups against profile changes. * test(gateway): account for machine catalog preflight discovery Model the read-only providers catalog query in Crabbox preflight fixtures. Assert exact command sequences so failed preflight still cannot allocate or clean up a worker. * refactor(gateway): centralize machine catalog lifecycle Keep machine metadata subscriptions, cleanup, and warmup warnings with the catalog owner. Delegate its async listing operations directly so the environment service stays within its line limit after concurrent preparation changes.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(control-ui): show cloud session machine specs (#143864)",
+      "summaryZh": "重點：新功能(control-ui): show cloud session machine specs (#143864) * 新功能(control-ui): show cloud session machine specs Expose o..."
     },
     {
       "id": 7,
-      "title": "fix(memory): preserve search budgets around managed embedding readine…",
-      "link": "https://github.com/openclaw/openclaw/commit/874b2ce292f45711639725dd5bab537b764c1f62",
-      "publishedAt": "2026-09-10T05:49:46Z",
-      "summary": "fix(memory): preserve search budgets around managed embedding readiness (#143590) Fixes #143169. Managed embedding cold starts could exceed the 15-second memory-search limit even while inside the configured readiness timeout. The search then aborted startup and lost semantic recall. This change pauses the corpus and query-embedding clocks only while the service owner waits for readiness. Each clock resumes with its remaining budget before router reconciliation or embedding HTTP work. Concurrent wiki searches keep a separate 15-second deadline. A wiki timeout preserves completed memory results and leaves memory retries available. Caller cancellation, shared service leases, readiness failure, and idle shutdown retain their existing owners. The repair also handles a query watchdog that subscribes during an existing pause and removes the corpus listener when work ends. No new configuration, database schema, persistence policy, or dependency is introduced. Validation uses an isolated built Gateway, the registered `memory_search` tool, real Memory Core SQLite storage, a synthetic loopback chat endpoint, and a managed child embedding service. The baseline aborts a 70-second cold start at the search deadline. The corrected candidate returns the known semantic hit after readiness; its warm retry works. Slow wiki results are excluded and fast wiki results are retained. Persistent public-client controls cover shared and solo cancellation, the configured readiness failure, and an embedding HTTP request that exceeds the remaining search budget. A separate registered-adapter control confirms that 100 ms reconciliation after a 70-second startup preserves recall, while 25-second reconciliation is aborted at about 15 seconds before any query embedding request. After the final CI correction, 120 focused memory tests passed, including the stalled-wiki result and retry regression. A rebuilt public flow preserved memory at the wiki timeout and completed the next memory search in 107 ms. Earlier provider, service, and deadline-control tests remain applicable to their unchanged owners. Original-code probes fail at the repaired boundaries. Formatting, ordinary lint, source ratchets, the native commit hook, and the runtime build passed. Full type checking and broader suites run in GitHub CI. The loopback fixtures use deterministic embeddings; they do not certify an external provider or arbitrary model quality. Co-authored-by: Ayaan Zaidi",
+      "title": "chore(i18n): refresh native locales (#143928)",
+      "link": "https://github.com/openclaw/openclaw/commit/89a1abd12ff92d78e0a5d2cf22641968dce828ea",
+      "publishedAt": "2026-09-10T10:46:41Z",
+      "summary": "chore(i18n): refresh native locales (#143928) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): preserve search budgets around managed embedding readine…",
-      "summaryZh": "重點：修正(記憶): preserve search budgets around managed embedding readiness (#143590) 修正 #143169. Managed embedding cold starts c..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#143928)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#143928) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 8,
-      "title": "fix(release): omit unpublished candidate upgrade baseline (#143567)",
-      "link": "https://github.com/openclaw/openclaw/commit/a4907586b8f68f3d0d057c7b495584cb03e91fff",
-      "publishedAt": "2026-09-10T05:47:38Z",
-      "summary": "fix(release): omit unpublished candidate upgrade baseline (#143567)",
+      "title": "fix: keep inbound media fixtures on one filesystem (#143945)",
+      "link": "https://github.com/openclaw/openclaw/commit/fac7e2a90ad1ec6f27ea88105310068c9e51ae20",
+      "publishedAt": "2026-09-10T10:43:41Z",
+      "summary": "fix: keep inbound media fixtures on one filesystem (#143945)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): omit unpublished candidate upgrade baseline (#143567)",
-      "summaryZh": "重點：修正(版本發布): omit unpublished candidate upgrade baseline (#143567)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep inbound media 修正tures on one filesystem (#143945)",
+      "summaryZh": "重點：修正: keep inbound media 修正tures on one filesystem (#143945)..."
     },
     {
       "id": 9,
-      "title": "fix(sqlite): name the repair path in schema drift failures (#143531)",
-      "link": "https://github.com/openclaw/openclaw/commit/d9d12d462590258ad55a3334985cc71f06e3ae18",
-      "publishedAt": "2026-09-10T05:45:51Z",
-      "summary": "fix(sqlite): name the repair path in schema drift failures (#143531) A drifted or missing canonical index aborts gateway startup, and the thrown text stated only the drift. Operators saw an unbootable gateway with no remediation, while the two sibling throws in the same agent-schema assertion already point at `openclaw doctor --fix`. Name that owner in the shared throw so both call sites inherit it. Claude-Session: https://claude.ai/code/session_014rTGeD4bUUEvA6vupgJt4d",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): name the repair path in schema drift failures (#143531)",
-      "summaryZh": "重點：修正(sqlite): name the repair path in schema drift failures (#143531) A drifted or missing canonical index aborts Gateway ..."
+      "title": "AI、車用雙引擎助攻：強茂 8 月營收 13.77 億元、年增近 3 成",
+      "link": "https://finance.technews.tw/2026/09/10/panjit-august-revenue-1-377-billion-up-30-yoy-ai-automotive-engines/",
+      "publishedAt": "Thu, 10 Sep 2026 10:22:43 +0000",
+      "summary": "強茂下半年營運動能看增，AI 資料中心需求升溫、車用電子電氣化趨勢延續，加上產品組合改善，成為營運三大支撐。強 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "fix(models): reuse prepared stores when discovery is skipped (#143695)",
-      "link": "https://github.com/openclaw/openclaw/commit/ce684602bc10f961b023fd6215fe29932a9ce164",
-      "publishedAt": "2026-09-10T05:44:24Z",
-      "summary": "fix(models): reuse prepared stores when discovery is skipped (#143695) Honor an explicitly supplied prepared runtime when filling missing auth or model stores. Skipping discovery must not discard captured model metadata and credentials. Explicit caller stores retain precedence, with caller auth forked into the prepared registry when needed. Cover literal model metadata and credentials for all four supplied-store combinations, and replace the reached empty-object test registry with the existing in-memory factory. Related: #130706, #142100",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): reuse prepared stores when discovery is skipped (#143695)",
-      "summaryZh": "重點：修正(模型): reuse prepared stores when discovery is skipped (#143695) Honor an explicitly supplied prepared runtime when fil..."
+      "title": "宜特8月營收3.71 億元",
+      "link": "https://finance.technews.tw/2026/09/10/ist-3289-202608-financial-report/",
+      "publishedAt": "Thu, 10 Sep 2026 10:20:05 +0000",
+      "summary": "宜特（3289）今（10）日公布 8 月營收，達 3.71 億元，較 7 月成長 -7.3%，較去年同期成長 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
