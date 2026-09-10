@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-10T18:10:36.438Z",
+  "generatedAt": "2026-09-10T21:27:33.250Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(cron): complete ownerless manual runs without timing out (#143804)",
-      "link": "https://github.com/openclaw/openclaw/commit/6b5e5727a6d1295807e99fff2d57ec6e7e491fd3",
-      "publishedAt": "2026-09-10T18:09:34Z",
-      "summary": "fix(cron): complete ownerless manual runs without timing out (#143804) Record one correlated skipped completion for a manually requested automation whose owner cannot be resolved. Preserve its schedule and the existing reservation, caller-authority, and sibling-execution guards. Related: #141633 Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): render CJK emphasis and table line breaks (#123084)",
+      "link": "https://github.com/openclaw/openclaw/commit/7cca3ff2120d8b3cbea1c17bf93f206243693e75",
+      "publishedAt": "2026-09-10T21:25:42Z",
+      "summary": "fix(ui): render CJK emphasis and table line breaks (#123084) * fix(ui): render CJK emphasis and safe line breaks * fix(ui): activate CJK-friendly markdown parsing * fix(ui): preserve standalone safe line breaks * test(ui): split CJK markdown coverage",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): complete ownerless manual runs without timing out (#143804)",
-      "summaryZh": "重點：修正(排程): complete ownerless manual runs without timing out (#143804) Record one correlated skipped completion for a manua..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): render CJK emphasis and table line breaks (#123084)",
+      "summaryZh": "重點：修正(ui): render CJK emphasis and table line breaks (#123084) * 修正(ui): render CJK emphasis and safe line breaks * 修正(ui):..."
     },
     {
       "id": 2,
-      "title": "perf(sqlite): reuse compiled plugin-state write queries (#144206)",
-      "link": "https://github.com/openclaw/openclaw/commit/d1e952f991722fab51ff35f2badde602136dbcdb",
-      "publishedAt": "2026-09-10T18:03:22Z",
-      "summary": "perf(sqlite): reuse compiled plugin-state write queries (#144206)",
+      "title": "perf(plugins): reuse warm source-cache records before path normalizat…",
+      "link": "https://github.com/openclaw/openclaw/commit/dc0d0b09be873ebdced3054d30bc29b5aa9324fa",
+      "publishedAt": "2026-09-10T21:22:58Z",
+      "summary": "perf(plugins): reuse warm source-cache records before path normalization (#144362)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): reuse compiled plugin-state write queries (#144206)",
-      "summaryZh": "重點：perf(sqlite): reuse compiled plugin-state write queries (#144206)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): reuse warm source-cache records before path normalizat…",
+      "summaryZh": "重點：perf(plugins): reuse warm source-cache records before path normalization (#144362)..."
     },
     {
       "id": 3,
-      "title": "test(minimax): share HTTP assertion fixtures (#144249)",
-      "link": "https://github.com/openclaw/openclaw/commit/8d7c8caba1d1bbdc06dff641d4b71fcd7b318261",
-      "publishedAt": "2026-09-10T18:02:44Z",
-      "summary": "test(minimax): share HTTP assertion fixtures (#144249)",
+      "title": "fix(status): project settled fallback models consistently (#134496)",
+      "link": "https://github.com/openclaw/openclaw/commit/dc6018d2071d5bb9814d8bea677f7867109cc699",
+      "publishedAt": "2026-09-10T21:22:03Z",
+      "summary": "fix(status): project settled fallback models consistently (#134496) Share the bounded, run-verified terminal model projection between Gateway rows, /model and /status without changing stored selection or telemetry. Render the prepared selected and active model facts, preserving literal provider-local prefixes and the original entry's context provenance. Remove duplicate selection and prefix-stripping helpers. Keep unmatched fallback notices on the legacy usage projection path, and validate active context budgets against the original session and final model identity. Refs: #134496, #130706",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(minimax): share HTTP assertion 修正tures (#144249)",
-      "summaryZh": "重點：test(minimax): share HTTP assertion 修正tures (#144249)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(status): project settled fallback 模型 consistently (#134496)",
+      "summaryZh": "重點：修正(status): project settled fallback 模型 consistently (#134496) Share the bounded, run-verified terminal 模型 projection be..."
     },
     {
       "id": 4,
-      "title": "fix: Gateway restarts fail when child processes need forced cleanup (…",
-      "link": "https://github.com/openclaw/openclaw/commit/9db0482ff890f9110aec942c22b04447ac50ac61",
-      "publishedAt": "2026-09-10T18:00:04Z",
-      "summary": "fix: Gateway restarts fail when child processes need forced cleanup (#144069) * fix(process): preserve forced retirement receipts (oc-f5f.1) Join the bounded closing receipt acknowledgement before the POSIX anchor kills its owned group. Preserve the host receipt, relay-reaping and kernel-extinction gates. Prove direct forced cancellation, TERM-resistant descendants, and real Gateway restart-close with exhausted drain before replacement supervisor admission. Includes integration task oc-f5f.2 and validation task oc-f5f.3. * fix(process): retain lineage proof outside killed groups (oc-f5f.5) Keep the canonical lineage reader in the outside-group host and forward its writer through relay and anchor. Require actual EOF, relay reaping, and PGID disappearance before certifying extinction. Preserve fail-closed retained-host behavior and cover escaped lineage under TERM and KILL.",
+      "title": "feat(ui): compact the Mentions footer and surface Inbox settings (#14…",
+      "link": "https://github.com/openclaw/openclaw/commit/a1f920995f2b1c5642602d79c90c9bd9817f944d",
+      "publishedAt": "2026-09-10T21:19:47Z",
+      "summary": "feat(ui): compact the Mentions footer and surface Inbox settings (#144412)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Gateway restarts fail when child processes need forced cleanup (…",
-      "summaryZh": "重點：修正: Gateway restarts fail when child processes need forced cleanup (#144069) * 修正(process): preserve forced retirement r..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): compact the Mentions footer and surface Inbox settings (#14…",
+      "summaryZh": "重點：新功能(ui): compact the Mentions footer and surface Inbox settings (#144412)..."
     },
     {
       "id": 5,
