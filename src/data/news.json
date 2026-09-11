@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-11T17:35:41.667Z",
+  "generatedAt": "2026-09-11T20:35:58.951Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(tests): type runtime mocks through vi.fn generics (#145097)",
-      "link": "https://github.com/openclaw/openclaw/commit/cb2a9822a8b6fa9defeeae8e33052ae3de7680e5",
-      "publishedAt": "2026-09-11T17:35:35Z",
-      "summary": "refactor(tests): type runtime mocks through vi.fn generics (#145097)",
+      "title": "refactor(node-host): remove unused argv preparation inputs (#145165)",
+      "link": "https://github.com/openclaw/openclaw/commit/0f0ddbc12ca036908b87339c8329a3980873fae5",
+      "publishedAt": "2026-09-11T20:33:06Z",
+      "summary": "refactor(node-host): remove unused argv preparation inputs (#145165)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): type runtime mocks through vi.fn generics (#145097)",
-      "summaryZh": "重點：refactor(tests): type runtime mocks through vi.fn generics (#145097)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(node-host): remove unused argv preparation inputs (#145165)",
+      "summaryZh": "重點：refactor(node-host): remove unused argv preparation inputs (#145165)..."
     },
     {
       "id": 2,
-      "title": "fix(update): prevent stale children from changing native services (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/c06f21ddfad2ee1e65252e13d1f7a92b439269b4",
-      "publishedAt": "2026-09-11T17:27:33Z",
-      "summary": "fix(update): prevent stale children from changing native services (#143905) * fix(update): prevent stale children from changing native services Keep original-root and immediate-spawner custody through native command and capability-probe lifetimes. Nest child keys for subtree exclusion, bind actual process identities before input, and fence native process, file, and configuration effects. Preserve ordinary commands and reject unsupported update-owned fallbacks. * test(update): separate lifecycle transport from executor custody * fix(update): admit native targets before activation * fix(update): preserve Doctor executor through native recovery * fix(cli): preserve upstream service install guidance * test: run native custody controls in process lane * fix(update): preserve native completion for legacy finalizers * fix(update): restore legacy finalizer lease domain * fix(update): accept settled cooperative capability probes",
+      "title": "fix(browser): warn when response bodies are truncated (#145210)",
+      "link": "https://github.com/openclaw/openclaw/commit/b80c3597b816eaacb27611e599b4e5624de5a631",
+      "publishedAt": "2026-09-11T20:31:55Z",
+      "summary": "fix(browser): warn when response bodies are truncated (#145210) Preserve the browser producer completeness flag in plain CLI output. Keep body-only stdout and JSON metadata unchanged, including empty Unicode-safe prefixes.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): prevent stale children from changing native services (#1…",
-      "summaryZh": "重點：修正(update): prevent stale children from changing native services (#143905) * 修正(update): prevent stale children from cha..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): warn when response bodies are truncated (#145210)",
+      "summaryZh": "重點：修正(browser): warn when response bodies are truncated (#145210) Preserve the browser producer completeness flag in plain ..."
     },
     {
       "id": 3,
-      "title": "fix: keep Node fixtures portable under Bun (#145064)",
-      "link": "https://github.com/openclaw/openclaw/commit/2f5822abb67e81ab00e443594ada86779eb78c4b",
-      "publishedAt": "2026-09-11T17:22:53Z",
-      "summary": "fix: keep Node fixtures portable under Bun (#145064) Fix Bun-hosted OpenClaw tests that accidentally launched Bun for Node-specific subprocesses. Resolve and verify an actual Node executable, including when `bun --bun` injects a `node` shim, and use it for runtime recovery, service repair, and Node heap-option fixtures. Normalize read-only filesystem inventories and agent-session cleanup ordering so Node and Bun observe the same stable sequence. No dependency is added. Verification: `pnpm check:changed`; exact custom Bun `13bd48ed77` with 213 focused passes; Node integration and resolver regressions; independent P0-P2 review clean.",
+      "title": "perf(config): index model seeds only for configured providers (#145204)",
+      "link": "https://github.com/openclaw/openclaw/commit/ef8b0e6b3c0397dd419d7df0b9f48c50e6f3e371",
+      "publishedAt": "2026-09-11T20:29:56Z",
+      "summary": "perf(config): index model seeds only for configured providers (#145204)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep Node 修正tures portable under Bun (#145064)",
-      "summaryZh": "重點：修正: keep Node 修正tures portable under Bun (#145064) 修正 Bun-hosted OpenClaw tests that accidentally launched Bun for Node-..."
+      "titleZh": "OpenClaw 程式碼更新：perf(config): index 模型 seeds only for configured providers (#145204)",
+      "summaryZh": "重點：perf(config): index 模型 seeds only for configured providers (#145204)..."
     },
     {
       "id": 4,
-      "title": "chore(i18n): refresh native locales (#145055)",
-      "link": "https://github.com/openclaw/openclaw/commit/0a15c57cb611f6a4b653a4c1bb8fb356c5e12bfc",
-      "publishedAt": "2026-09-11T17:20:20Z",
-      "summary": "chore(i18n): refresh native locales (#145055) Co-authored-by: github-actions[bot]",
+      "title": "fix(webchat): allow ACP binding in dashboard conversations (#145147)",
+      "link": "https://github.com/openclaw/openclaw/commit/a56463d58cbe70cef0be5c748f3e2f205a446b0c",
+      "publishedAt": "2026-09-11T20:20:39Z",
+      "summary": "fix(webchat): allow ACP binding in dashboard conversations (#145147) * fix(webchat): allow ACP binding in dashboard conversations * fix(gateway): preserve bound ACP source completion ownership * fix(acp): keep escaped commands on their source session * test(webchat): keep ACP lifecycle proof in the feature shard * test(acp): cover bound dashboard reply and media ownership",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#145055)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#145055) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正(webchat): allow ACP binding in dashboard conversations (#145147)",
+      "summaryZh": "重點：修正(webchat): allow ACP binding in dashboard conversations (#145147) * 修正(webchat): allow ACP binding in dashboard conver..."
     },
     {
       "id": 5,
