@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-09-11T13:19:41.620Z",
+  "generatedAt": "2026-09-11T17:35:41.667Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: simplify CLI child listener registration (#144929)",
-      "link": "https://github.com/openclaw/openclaw/commit/58b93f540222b250ad25f78995775e96821f81f9",
-      "publishedAt": "2026-09-11T13:19:35Z",
-      "summary": "refactor: simplify CLI child listener registration (#144929)",
+      "title": "refactor(tests): type runtime mocks through vi.fn generics (#145097)",
+      "link": "https://github.com/openclaw/openclaw/commit/cb2a9822a8b6fa9defeeae8e33052ae3de7680e5",
+      "publishedAt": "2026-09-11T17:35:35Z",
+      "summary": "refactor(tests): type runtime mocks through vi.fn generics (#145097)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: simplify CLI child listener registration (#144929)",
-      "summaryZh": "重點：refactor: simplify CLI child listener registration (#144929)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(tests): type runtime mocks through vi.fn generics (#145097)",
+      "summaryZh": "重點：refactor(tests): type runtime mocks through vi.fn generics (#145097)..."
     },
     {
       "id": 2,
-      "title": "refactor(ui): share setup and plugin icon lifecycle (#144673)",
-      "link": "https://github.com/openclaw/openclaw/commit/0faa44988d7e31a3d5b4afd04a54953fc79d567c",
-      "publishedAt": "2026-09-11T13:16:10Z",
-      "summary": "refactor(ui): share setup and plugin icon lifecycle (#144673)",
+      "title": "fix(update): prevent stale children from changing native services (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/c06f21ddfad2ee1e65252e13d1f7a92b439269b4",
+      "publishedAt": "2026-09-11T17:27:33Z",
+      "summary": "fix(update): prevent stale children from changing native services (#143905) * fix(update): prevent stale children from changing native services Keep original-root and immediate-spawner custody through native command and capability-probe lifetimes. Nest child keys for subtree exclusion, bind actual process identities before input, and fence native process, file, and configuration effects. Preserve ordinary commands and reject unsupported update-owned fallbacks. * test(update): separate lifecycle transport from executor custody * fix(update): admit native targets before activation * fix(update): preserve Doctor executor through native recovery * fix(cli): preserve upstream service install guidance * test: run native custody controls in process lane * fix(update): preserve native completion for legacy finalizers * fix(update): restore legacy finalizer lease domain * fix(update): accept settled cooperative capability probes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share setup and plugin icon lifecycle (#144673)",
-      "summaryZh": "重點：refactor(ui): share setup and plugin icon lifecycle (#144673)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): prevent stale children from changing native services (#1…",
+      "summaryZh": "重點：修正(update): prevent stale children from changing native services (#143905) * 修正(update): prevent stale children from cha..."
     },
     {
       "id": 3,
-      "title": "fix(perf): isolate external evaluator from candidate runtime (#144162)",
-      "link": "https://github.com/openclaw/openclaw/commit/5ff5dcefeb4738afad34b0a256e9cc04632cf74a",
-      "publishedAt": "2026-09-11T13:09:08Z",
-      "summary": "fix(perf): isolate external evaluator from candidate runtime (#144162) * fix(perf): isolate benchmark subprocess transport Run transported CLI samples and their temporary state through the explicit SUT transport while preserving native measurements. Reject unsupported transported runtime RSS and profiles before launching candidate code. Punchcard-Session: coral-orchard-orchard-d4 * fix(perf): isolate external evaluator from candidate runtime Add the standalone off-Actions harness with separate runner and candidate identities, bounded collection, and preserved workload receipts. Retain custom evaluator diagnostics without granting gate authority; leave workflow activation to the dependent change. Punchcard-Session: coral-orchard-orchard-d4 * fix(perf): reject mixed benchmark execution modes Record evaluator-owned execution identity per suite and enforce compatible modes in comparisons, budget checks, and source summaries while preserving independent RSS semantics. Punchcard-Session: coral-orchard-orchard-d4 * fix(perf): retain receipts after custom diagnostic failures Capture the complete custom collection, validation, and summary phase without disabling errexit. Preserve workload failure precedence and always reach the separate sealed-export and receipt finalizer. Punchcard-Session: coral-orchard-orchard-d4 * test(ci): preserve fixed IMDS probe argument tuples Punchcard-Session: coral-orchard-orchard-d4",
+      "title": "fix: keep Node fixtures portable under Bun (#145064)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f5822abb67e81ab00e443594ada86779eb78c4b",
+      "publishedAt": "2026-09-11T17:22:53Z",
+      "summary": "fix: keep Node fixtures portable under Bun (#145064) Fix Bun-hosted OpenClaw tests that accidentally launched Bun for Node-specific subprocesses. Resolve and verify an actual Node executable, including when `bun --bun` injects a `node` shim, and use it for runtime recovery, service repair, and Node heap-option fixtures. Normalize read-only filesystem inventories and agent-session cleanup ordering so Node and Bun observe the same stable sequence. No dependency is added. Verification: `pnpm check:changed`; exact custom Bun `13bd48ed77` with 213 focused passes; Node integration and resolver regressions; independent P0-P2 review clean.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(perf): isolate external evaluator from candidate runtime (#144162)",
-      "summaryZh": "重點：修正(perf): isolate external evaluator from candidate runtime (#144162) * 修正(perf): isolate benchmark subprocess transport..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep Node 修正tures portable under Bun (#145064)",
+      "summaryZh": "重點：修正: keep Node 修正tures portable under Bun (#145064) 修正 Bun-hosted OpenClaw tests that accidentally launched Bun for Node-..."
     },
     {
       "id": 4,
-      "title": "fix: resolve the documented Fireworks model alias (#144913)",
-      "link": "https://github.com/openclaw/openclaw/commit/4e32fcc1687725ffc9135d5de0fe3b2436d51218",
-      "publishedAt": "2026-09-11T13:03:36Z",
-      "summary": "fix: resolve the documented Fireworks model alias (#144913) Resolve the documented fireworks-ai provider alias before plugin runtime loading while preserving custom endpoints and model settings. Fixes #144857",
+      "title": "chore(i18n): refresh native locales (#145055)",
+      "link": "https://github.com/openclaw/openclaw/commit/0a15c57cb611f6a4b653a4c1bb8fb356c5e12bfc",
+      "publishedAt": "2026-09-11T17:20:20Z",
+      "summary": "chore(i18n): refresh native locales (#145055) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: resolve the 文件umented Fireworks 模型 alias (#144913)",
-      "summaryZh": "重點：修正: resolve the 文件umented Fireworks 模型 alias (#144913) Resolve the 文件umented fireworks-ai provider alias before plugin r..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#145055)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#145055) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 5,
+      "title": "尋找「黑洞毛髮」，日本學者提出利用重力波振鈴衰減探測暗物質新法",
+      "link": "https://technews.tw/2026/09/12/new-method-to-detect-black-hole-hair/",
+      "publishedAt": "Fri, 11 Sep 2026 16:00:52 +0000",
+      "summary": "當兩個黑洞合併後，理論上新形成的黑洞會產生振盪，並以重力波形式逐漸衰減，這段過程產生的重力波訊號特徵稱為「振鈴 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "AI 加衛星影像即時監測，北極永凍土融化再也藏不住",
+      "link": "https://technews.tw/2026/09/12/scientists-are-using-ai-to-track-permafrost-thaw-as-arctic-lakes-vanish-in-hours/",
+      "publishedAt": "Fri, 11 Sep 2026 16:00:45 +0000",
+      "summary": "科學家正利用人工智慧與衛星影像，近乎即時地監測北極永凍土融化的跡象，因為在部分地區，湖泊可能在短短數小時內突然 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "粒線體代謝會改寫 DNA 包裝，找到「殭屍細胞」推動慢性發炎機制",
+      "link": "https://technews.tw/2026/09/12/zombie-cells-rewire-their-metabolism-to-fuel-inflammation-as-we-age/",
+      "publishedAt": "Fri, 11 Sep 2026 16:00:31 +0000",
+      "summary": "美國 Sanford Burnham Prebys 醫學研究所與妙佑醫療國際（Mayo Clinic）等機構的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "Astra需求爆量，OpenAI暫停200美元Pro方案新訂閱",
       "link": "https://www.ithome.com.tw/news/178866",
       "publishedAt": "2026-09-11 12:09:59",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Check Point修補重大等級的VPN資安弱點",
       "link": "https://www.ithome.com.tw/news/178868",
       "publishedAt": "2026-09-11 12:09:16",
@@ -64,39 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Fortinet修補FortiMonitor OnSight、FortiPAM重大漏洞",
       "link": "https://www.ithome.com.tw/news/178867",
       "publishedAt": "2026-09-11 12:09:13",
       "summary": "9月8日資安公司Fortinet發布一系列資安更新，修補10個弱點，其中有兩個為重大等級而成為焦點。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "因應加密勒索攻擊，卓榮泰要求重大駭侵案件納入通報、數發部擔任跨機關資安情資統籌角色",
-      "link": "https://www.ithome.com.tw/news/178860",
-      "publishedAt": "2026-09-11 11:09:56",
-      "summary": "行政院長卓榮泰周四在行政院治安會報中表示，加密勒索事件已影響科技、製造、醫療、零售及旅遊等多元產業，不僅涉及企業營運安全，也攸關產業發展、社會安定，甚至是國家安全。 卓榮泰要求數位發展部擔任跨機關資安情資統籌單位，針對民間企業資安防護需求研訂參考指引，並將民間企業發生的重大駭侵或加密勒索案件納入通報義務，建立政府、企業與執法機關間的情資交流與預警機制，提升整體資安防護與應變能力。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Anthropic發布AI濫用威脅報告，宣稱7家中國業者蒸餾Claude以訓練自家模型",
-      "link": "https://www.ithome.com.tw/news/178864",
-      "publishedAt": "2026-09-11 11:09:17",
-      "summary": "Anthropic本周公布了AI濫用威脅報告，揭露各界濫用其模型Claude的各種型態，從網路攻擊、資訊操弄、AI輔助監控、開發傳統武器、生物濫用、詐騙與詐欺，以及非法蒸餾等，並直接點名7家中國AI實驗室的非法蒸餾行為，包括阿里巴巴的Qwen、月之暗面（Moonshot）、DeepSeek、智譜（Z.ai）、小米、商湯及MiniMax等。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Claude 用來開發監控系統、生物武器？Anthropic 揭模型濫用案例",
-      "link": "https://technews.tw/2026/09/11/anthropic-on-detecting-and-countering-misuse-of-ai/",
-      "publishedAt": "Fri, 11 Sep 2026 10:49:04 +0000",
-      "summary": "Anthropic 發出旗下模型遭濫用的威脅情資報告，詳盡說明人們如何試圖運用涉及 Claude Haiku [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
