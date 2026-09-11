@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-09-10T23:47:38.208Z",
+  "generatedAt": "2026-09-11T03:27:29.382Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(models): share API-key editing and removal (#144420)",
-      "link": "https://github.com/openclaw/openclaw/commit/09e2b15466e1eddd581248bed0be867a0b248c7e",
-      "publishedAt": "2026-09-10T23:42:54Z",
-      "summary": "fix(models): share API-key editing and removal (#144420) Related: #136257 Supersedes #142851. Builds on #144181. ## What Problem This Solves Fixes an issue where API keys saved on the Models page followed a different persistence path from CLI keys, and CLI logout refused to remove profiles referenced by provider configuration. ## Why This Change Was Made Models and CLI key operations now share credential selection, persistence, and removal. Removal clears references for the same captured credential plan that the store deletes; concurrent replacements are preserved. Both paths use the Gateway auth-refresh owner and retain recovery guidance after a committed write. If another client changes the provider binding while the CLI key prompt is open, the saved key does not replace the newer binding. The CLI reports the committed key and tells the user to reopen Models. Internal write controls stay outside the public plugin interface. Reference-backed profiles cannot be converted to inline keys by replacement. If a concurrent credential generation rejects removal after config cleanup, the remover restores only cleanup-owned config values that no later writer changed. If removal throws or commits only some owner stores, the removal owner reads the targeted stores again. It restores references only for credentials that still exist and keeps successful deletions removed. Recovery replays only the captured config delta for targeted survivors. A retained token or external-secret profile keeps its provider binding. ## User Impact - Edit or remove saved API keys through Models or the CLI with the same stored result. - Keep model defaults, connection settings, account metadata, credential copy restrictions, tokens, and reference-backed keys intact. - Explicit CLI profile selection still supports named backups without changing the active connection. - Agent-local overrides remain intact; a conflicting shared-key replacement reports how to resolve the override. ## Evidence - Baseline CLI: removing a configured profile failed with the provider-reference refusal. - Baseline browser: Models reported “Secret saved,” while the key remained inline in provider configuration and the profile store stayed empty. - Real Gateway/browser and CLI proof: save and removal produce identical credential/configuration state; both refresh auth successfully and preserve the selected model. - Targeted owner, CLI, Gateway, UI, portability, and plugin-interface tests cover persistence, reference cleanup, concurrent credential replacement, retained credential kinds, explicit backups, administrator scope, and committed-write warnings. - Independent real-browser acceptance passed UI/CLI state parity, metadata and credential-kind preservation, administrator-scope enforcement, config-write failure recovery, and active-run preservation during targeted removal. Full-provider logout closed the matching real local-provider streams. - Final rebased candidate: 230 targeted owner, CLI, and Gateway tests passed. The rebuilt Gateway/UI passed the real-browser and CLI save/remove parity test. UI and portability checks passed on the integrated candidate, whose Auth B production files match the final candidate. - Corrective focused checks: 80 tests passed for the binding race, public plugin boundary, CLI test types, and UI end-to-end inventory. Protocol generation passed. - Real CLI race proof: a second CLI changed the provider from `fixture:manual` to `fixture:secondary` while key entry waited. The first CLI then preserved `fixture:secondary`, returned the saved-key recovery message, and exited 1. - Final review-fix checks: 151 owner and Gateway tests passed. They cover configured and default reference-backed profiles plus API-key-only and full-provider removal races that preserve credential, profile metadata, order, and provider binding. - Final public CLI proof: reference-backed replacement rejected without state change, then logout and save succeeded. A same-ID concurrent replacement completed while logout waited on the config lock; the rejected logout preserved credential and config, then retry and save succeeded. - Rebased-head checks: 291 focused owner, CLI, Gateway, SDK, and UI-inventory tests plus 50 Models-page tests passed. Protocol generation, full build, the public CLI campaign, and real Models-page UI/CLI parity passed again after the Models login work landed. - Incomplete-removal checks: 154 owner and Gateway tests passed. They cover thrown store errors, incomplete removal, partial multi-store deletion, surviving-reference restoration, and successful retry. - Untargeted-binding checks: 155 owner and Gateway tests passed. Failed API-key-only removal preserves the retained token binding, and retry removes only the targeted key. - Proof limit: the running Gateway's internal refresh exception was not live-injected. Gateway tests cover the failure branches and UI tests cover the resulting warning; remote-target and absent-local-Gateway CLI outcomes were observed separately. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): share API-key editing and removal (#144420)",
-      "summaryZh": "重點：修正(模型): share API-key editing and removal (#144420) Related: #136257 Supersedes #142851. Builds on #144181. ## What Prob..."
+      "title": "因應加密勒索攻擊，卓榮泰要求重大駭侵案件納入通報、數發部擔任跨機關資安情資統籌角色",
+      "link": "https://www.ithome.com.tw/news/178860",
+      "publishedAt": "2026-09-11 11:09:56",
+      "summary": "行政院長卓榮泰周四在行政院治安會報中表示，加密勒索事件已影響科技、製造、醫療、零售及旅遊等多元產業，不僅涉及企業營運安全，也攸關產業發展、社會安定，甚至是國家安全。 卓榮泰要求數位發展部擔任跨機關資安情資統籌單位，針對民間企業資安防護需求研訂參考指引，並將民間企業發生的重大駭侵或加密勒索案件納入通報義務，建立政府、企業與執法機關間的情資交流與預警機制，提升整體資安防護與應變能力。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(tts): preserve selected summary models (#144354)",
-      "link": "https://github.com/openclaw/openclaw/commit/bdb61168c086a66ad7a8718adeb3dc715dd80360",
-      "publishedAt": "2026-09-10T23:39:35Z",
-      "summary": "fix(tts): preserve selected summary models (#144354) Capture provider metadata before selecting global TTS summary overrides and defaults, and share lightweight completion acquisition so selected aliases normalize once. Preserve the shipped injected callback and its caller-owned returned model. Reject malformed slash references before exact default-provider lookup, keeping invalid summary overrides on the global default. Cover bare defaults without configured aliases or model rows on the landed captured-default owner repair. Related: #130706 Prerequisite: #144429",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tts): preserve selected summary 模型 (#144354)",
-      "summaryZh": "重點：修正(tts): preserve selected summary 模型 (#144354) Capture provider metadata before selecting global TTS summary overrides ..."
+      "title": "臺灣網路攝影機廠商晶睿傳出遭勒索軟體Everest攻擊",
+      "link": "https://www.ithome.com.tw/news/178859",
+      "publishedAt": "2026-09-11 10:09:30",
+      "summary": "根據民視新聞網的報導，勒索軟體Everest於9月1日聲稱入侵台達電旗下的網路攝影機廠商晶睿通訊（Vivotek），從中竊取236 GB內部資料，總共近9.5萬個檔案，其中包括網路攝影機與網路錄影機相關韌體、原始程式碼，以及開發、測試與維修資料，這些駭客公開其中一份56頁的技術報告資料，要",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "test(shared): clean up singleton fixtures after assertions (#144489)",
-      "link": "https://github.com/openclaw/openclaw/commit/5c99bfa6eaad58cda731fad562708c1ee2ac7518",
-      "publishedAt": "2026-09-10T23:36:05Z",
-      "summary": "test(shared): clean up singleton fixtures after assertions (#144489)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(shared): clean up singleton 修正tures after assertions (#144489)",
-      "summaryZh": "重點：test(shared): clean up singleton 修正tures after assertions (#144489)..."
+      "title": "因應CRA該不該升級MCU？新唐以3類產品案例解析，須看終端產品分類、核心功能與晶片安全角色",
+      "link": "https://www.ithome.com.tw/news/178857",
+      "publishedAt": "2026-09-11 10:09:11",
+      "summary": "歐盟《網路韌性法案》（CRA）今（11）日起率先適用漏洞與重大資安事件通報義務，並將於2027年12月全面適用。隨著法規逐步上路，如何全面因應CRA，也成為電子與半導體供應鏈近期高度關注的議題。以TPU與MCU聞名的新唐科技，在9月9日舉行新品發表活動之際，特別以智慧家庭裝置及工業閘道器的產品架構為例，闡釋MCU、MPU在CRA合規中扮演的角色，並回應業界常見的疑問：為了符合CRA，產品中的MCU是否都必須升級？",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "refactor(tests): reuse Telegram settled receipt defaults (#144485)",
-      "link": "https://github.com/openclaw/openclaw/commit/d1d513716c64ed61a25d89da97d6d6b304dd0ddd",
-      "publishedAt": "2026-09-10T23:31:51Z",
-      "summary": "refactor(tests): reuse Telegram settled receipt defaults (#144485)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): reuse Telegram settled receipt defaults (#144485)",
-      "summaryZh": "重點：refactor(tests): reuse Telegram settled receipt defaults (#144485)..."
+      "title": "CSA提出零信任微分段指引，將AI代理納入微分段控管",
+      "link": "https://www.ithome.com.tw/news/178848",
+      "publishedAt": "2026-09-11 08:09:00",
+      "summary": "隨著企業IT環境跨足雲端、營運技術（OT）、IoT及AI代理，傳統依賴IP位址、VLAN及固定網路拓樸的分段方式，愈來愈難因應不同系統之間持續變動的通訊關係。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "Gamers Nexus 再爆料：不論連線或斷線，LG TV 會悄悄擷取音訊並生成逐字稿",
-      "link": "https://infosecu.technews.tw/2026/09/11/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/",
-      "publishedAt": "Thu, 10 Sep 2026 23:30:20 +0000",
-      "summary": "硬體評測媒體 Gamers Nexus 在其 YouTube 頻道上指控，LV 旗下智慧電視在啟用語音辨識功能 [&#8230;]",
-      "source": "TechNews",
+      "title": "Cylake募資2.45億美元，軟硬體整合AI資安平臺年底推出Beta版",
+      "link": "https://www.ithome.com.tw/news/178845",
+      "publishedAt": "2026-09-11 08:09:00",
+      "summary": "近期Cylake宣布完成2.45億美元募資，這家資安新創由Palo Alto Networks創辦人Nir Zuk、SentinelOne共同創辦人Udi Shamir及Wilson Xu共同成立，這次募得資金將用於資安平臺開發與團隊擴充，產品預計2026年底推出Beta版，並於2027年正式推出。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "AI 先驅庫茲維爾加入 Subsense，用吸入奈米粒子打造免開顱腦機介面",
-      "link": "https://technews.tw/2026/09/11/ai-visionary-ray-kurzweil-joins-neurotech-startup-subsense-as-product-and-vision-advisor/",
-      "publishedAt": "Thu, 10 Sep 2026 23:20:01 +0000",
-      "summary": "AI 先驅雷‧庫茲維爾（Ray Kurzweil）宣布加入矽谷新創 Subsense，擔任產品與願景顧問。這家 [&#8230;]",
-      "source": "TechNews",
+      "title": "ShinyHunters語音網釣鎖定醫療業，SaaS敏感資料恐遭竊",
+      "link": "https://www.ithome.com.tw/news/178841",
+      "publishedAt": "2026-09-11 08:09:00",
+      "summary": "資料勒索組織ShinyHunters近期對全球醫療產業發動語音網釣攻擊。醫療產業資安資訊分享與分析中心Health-ISAC發布資安警訊，攻擊者近期註冊帶有醫療產業意涵或結合受害企業名稱的仿冒網域，顯示攻擊範圍正擴大至醫療機構營運及特定業務單位。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "被 AI 暴增的工作量逼到極限，微軟 Edge 全面擴大自動化驗證機制突圍",
-      "link": "https://infosecu.technews.tw/2026/09/11/microsoft-edge-overwhelmed-ai-extensions-dev-team-complains-increased-workload-switches-automated-review/",
-      "publishedAt": "Thu, 10 Sep 2026 23:10:29 +0000",
-      "summary": "微軟（Microsoft）的 Edge 團隊在 9 月 8 日公開承認，AI 輔助開發讓瀏覽器擴充功能的提交量 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(gateway): start with providers without models after #143837 (#144…",
+      "link": "https://github.com/openclaw/openclaw/commit/872cb0a3613d3541d3bb7f4b263a7d49c99efc54",
+      "publishedAt": "2026-09-11T03:24:45Z",
+      "summary": "fix(gateway): start with providers without models after #143837 (#144599) ## What Problem This Solves Fixes an issue where Gateway startup fails after plugin auto-enable when a bundled provider has credentials or settings but no custom `models` array. This addresses an operator report of a regression introduced by #143837. The reported provider-level `enabled` keys are not accepted by the current schema. The valid credentials-only form reproduces the crash when startup automatically enables a configured channel. ## Why This Change Was Made The catalog composition owner now maps custom rows only when they exist. Existing merge logic keeps inherited catalog rows and routes, and the provider loop still applies current request credentials and headers. No schema or configuration keys change. ## User Impact Operators can start the Gateway with provider settings that omit custom models, including when a channel is automatically enabled. Bundled models remain available to catalog browsing. ## Evidence - Pinned main `a48c47a09c86`: real isolated Gateway startup exits 1 with `TypeError: Cannot read properties of undefined (reading 'map')` at `ModelRegistry.loadModels`, introduced in #143837. - Both new regression tests fail on the original code at that same call. The composition test verifies inherited rows, routes, token limits, and current credentials/headers. The Gateway test waits for full startup and then requests public readiness. - Fixed code passes 61 focused tests across catalog composition, the model-catalog sibling, the Gateway catalog-startup suite, and the neighboring WebSocket contract. - Real CLI proof: Gateway reaches readiness; explicit catalog refresh exposes 10 bundled OpenAI models; the following list without refresh retains those rows. Credential status reports the synthetic sources. Fake keys leave models unavailable and provider discovery incomplete; no successful upstream authentication is claimed. - The exact reported `enabled` shape remains rejected before startup on both revisions. The channel token is synthetic, and channel connections are disabled; this is startup proof, not message-delivery proof. - Changed-file formatter, lint, line-count and assertion checks pass. Typechecks and full suites run in GitHub CI. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): start with providers without 模型 after #143837 (#144…",
+      "summaryZh": "重點：修正(Gateway): start with providers without 模型 after #143837 (#144599) ## What Problem This Solves 修正 an issue where Gatew..."
     },
     {
       "id": 8,
-      "title": "2026 年能源管理趨勢：能源即服務興起，價值重心由設備轉向服務",
-      "link": "https://technews.tw/2026/09/11/2026-eaas-rise/",
-      "publishedAt": "Thu, 10 Sep 2026 23:00:35 +0000",
-      "summary": "EaaS（能源即服務）的本質並非新能源技術，而是重新定義廠商與服務提供商在能源管理的分工方式。過去廠商需自行完 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test(ui): await plugin status across reconnects (#144605)",
+      "link": "https://github.com/openclaw/openclaw/commit/ad6b2678445365bedb0c4704f1578bfaa77b612c",
+      "publishedAt": "2026-09-11T03:18:19Z",
+      "summary": "test(ui): await plugin status across reconnects (#144605) Observe the accessible status, visible plugin row, expected text, and exact count together so the post-mutation reconnect cannot invalidate a separate count assertion.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): await plugin status across reconnects (#144605)",
+      "summaryZh": "重點：test(ui): await plugin status across reconnects (#144605) Observe the accessible status, visible plugin row, expected te..."
     },
     {
       "id": 9,
-      "title": "恆星風吹出的宇宙氣泡，哈伯望遠鏡揭開大麥哲倫雲 N44 星雲的誕生祕密",
-      "link": "https://technews.tw/2026/09/10/star-formation-region-in-the-large-magellanic-cloud/",
-      "publishedAt": "Thu, 10 Sep 2026 13:56:15 +0000",
-      "summary": "美國太空總署哈伯太空望遠鏡近期釋出了大麥哲倫雲內部一片名為 LHA 120-N44（簡稱 N44）星雲的最新影 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): load plugin catalog home from one snapshot (#144569)",
+      "link": "https://github.com/openclaw/openclaw/commit/2e939d9d30cd448eee516ca91d52be3522abf16b",
+      "publishedAt": "2026-09-11T03:17:23Z",
+      "summary": "fix(ui): load plugin catalog home from one snapshot (#144569) * fix(ui): load plugin catalog home from one snapshot * fix(ui): preserve bounded plugin catalog browsing * fix(ui): reconcile plugin catalog continuation * fix(ui): align plugin overview lifecycle tests * test(ui): satisfy plugin overview lint rules",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): load plugin catalog home from one snapshot (#144569)",
+      "summaryZh": "重點：修正(ui): load plugin catalog home from one snapshot (#144569) * 修正(ui): load plugin catalog home from one snapshot * 修正(u..."
     },
     {
       "id": 10,
-      "title": "研究人員揭露竊取加密貨幣的ClickFix攻擊活動，濫用Google試算表作為C2管道",
-      "link": "https://www.ithome.com.tw/news/178842",
-      "publishedAt": "2026-09-10 12:09:02",
-      "summary": "為了降低遭到偵測與阻擋的機率，駭客在攻擊活動中藉助合法雲端平臺服務作為C2管道的案例，近來逐漸增加，Cisco資安威脅研究團隊Talos近日揭露的一起ClickFix攻擊事件便是其中的典型。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "refactor(docs-i18n): remove unused test translator (#144580)",
+      "link": "https://github.com/openclaw/openclaw/commit/e62272f04a3ed701ae1a2f13d5ae29beb85f9224",
+      "publishedAt": "2026-09-11T02:55:08Z",
+      "summary": "refactor(docs-i18n): remove unused test translator (#144580)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：refactor(文件-i18n): remove unused test translator (#144580)",
+      "summaryZh": "重點：refactor(文件-i18n): remove unused test translator (#144580)..."
     }
   ]
 }
