@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-11T08:40:23.056Z",
+  "generatedAt": "2026-09-11T13:19:41.620Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor: simplify CLI child listener registration (#144929)",
+      "link": "https://github.com/openclaw/openclaw/commit/58b93f540222b250ad25f78995775e96821f81f9",
+      "publishedAt": "2026-09-11T13:19:35Z",
+      "summary": "refactor: simplify CLI child listener registration (#144929)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: simplify CLI child listener registration (#144929)",
+      "summaryZh": "重點：refactor: simplify CLI child listener registration (#144929)..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(ui): share setup and plugin icon lifecycle (#144673)",
+      "link": "https://github.com/openclaw/openclaw/commit/0faa44988d7e31a3d5b4afd04a54953fc79d567c",
+      "publishedAt": "2026-09-11T13:16:10Z",
+      "summary": "refactor(ui): share setup and plugin icon lifecycle (#144673)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share setup and plugin icon lifecycle (#144673)",
+      "summaryZh": "重點：refactor(ui): share setup and plugin icon lifecycle (#144673)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(perf): isolate external evaluator from candidate runtime (#144162)",
+      "link": "https://github.com/openclaw/openclaw/commit/5ff5dcefeb4738afad34b0a256e9cc04632cf74a",
+      "publishedAt": "2026-09-11T13:09:08Z",
+      "summary": "fix(perf): isolate external evaluator from candidate runtime (#144162) * fix(perf): isolate benchmark subprocess transport Run transported CLI samples and their temporary state through the explicit SUT transport while preserving native measurements. Reject unsupported transported runtime RSS and profiles before launching candidate code. Punchcard-Session: coral-orchard-orchard-d4 * fix(perf): isolate external evaluator from candidate runtime Add the standalone off-Actions harness with separate runner and candidate identities, bounded collection, and preserved workload receipts. Retain custom evaluator diagnostics without granting gate authority; leave workflow activation to the dependent change. Punchcard-Session: coral-orchard-orchard-d4 * fix(perf): reject mixed benchmark execution modes Record evaluator-owned execution identity per suite and enforce compatible modes in comparisons, budget checks, and source summaries while preserving independent RSS semantics. Punchcard-Session: coral-orchard-orchard-d4 * fix(perf): retain receipts after custom diagnostic failures Capture the complete custom collection, validation, and summary phase without disabling errexit. Preserve workload failure precedence and always reach the separate sealed-export and receipt finalizer. Punchcard-Session: coral-orchard-orchard-d4 * test(ci): preserve fixed IMDS probe argument tuples Punchcard-Session: coral-orchard-orchard-d4",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(perf): isolate external evaluator from candidate runtime (#144162)",
+      "summaryZh": "重點：修正(perf): isolate external evaluator from candidate runtime (#144162) * 修正(perf): isolate benchmark subprocess transport..."
+    },
+    {
+      "id": 4,
+      "title": "fix: resolve the documented Fireworks model alias (#144913)",
+      "link": "https://github.com/openclaw/openclaw/commit/4e32fcc1687725ffc9135d5de0fe3b2436d51218",
+      "publishedAt": "2026-09-11T13:03:36Z",
+      "summary": "fix: resolve the documented Fireworks model alias (#144913) Resolve the documented fireworks-ai provider alias before plugin runtime loading while preserving custom endpoints and model settings. Fixes #144857",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正: resolve the 文件umented Fireworks 模型 alias (#144913)",
+      "summaryZh": "重點：修正: resolve the 文件umented Fireworks 模型 alias (#144913) Resolve the 文件umented fireworks-ai provider alias before plugin r..."
+    },
+    {
+      "id": 5,
       "title": "Astra需求爆量，OpenAI暫停200美元Pro方案新訂閱",
       "link": "https://www.ithome.com.tw/news/178866",
       "publishedAt": "2026-09-11 12:09:59",
@@ -11,25 +55,25 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Check Point修補重大等級的VPN資安弱點",
       "link": "https://www.ithome.com.tw/news/178868",
       "publishedAt": "2026-09-11 12:09:16",
-      "summary": "本週資安公司Check Point發布公告，該公司於9月9日修補兩個與VPN有關的重大漏洞，有可能導致未經授權的攻擊者在特定情況下遠端執行程式",
+      "summary": "資安公司Check Point於9月9日公告修補兩個與VPN有關的重大漏洞，若不修補或緩解，可能導致未經身分驗證的攻擊者在特定情況下遠端執行程式碼，用戶儘速採取行動，部署最新的J",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "Fortinet修補FortiMonitorOnSight、FortiPAM重大漏洞",
+      "id": 7,
+      "title": "Fortinet修補FortiMonitor OnSight、FortiPAM重大漏洞",
       "link": "https://www.ithome.com.tw/news/178867",
       "publishedAt": "2026-09-11 12:09:13",
-      "summary": "9月8日資安公司Fortinet發布一系列資安更新，修補10個弱點，其中有兩個為重大等級而成為焦點。根據CVSS嚴重程度評分，最嚴重的是FortiMonitorOnSight漏洞CVE-2026-84390，此為特定JWT權杖能用於網頁介面身分驗證的問題，未經身分驗證的攻擊者能利用偽造或已用過的JWT，繞過FortiMonitorOnSight入口網站的身分驗證流程，CVSS評分為9.6，影響FortiMonitorOnSight的7.2.0至7.2.2版，以及7.2.4至7.2.7版，用戶應升級至7.2.8版以緩解弱點。",
+      "summary": "9月8日資安公司Fortinet發布一系列資安更新，修補10個弱點，其中有兩個為重大等級而成為焦點。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "因應加密勒索攻擊，卓榮泰要求重大駭侵案件納入通報、數發部擔任跨機關資安情資統籌角色",
       "link": "https://www.ithome.com.tw/news/178860",
       "publishedAt": "2026-09-11 11:09:56",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "Anthropic發布AI濫用威脅報告，宣稱7家中國業者蒸餾Claude以訓練自家模型",
       "link": "https://www.ithome.com.tw/news/178864",
       "publishedAt": "2026-09-11 11:09:17",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "臺灣網路攝影機廠商晶睿傳出遭勒索軟體Everest攻擊",
-      "link": "https://www.ithome.com.tw/news/178859",
-      "publishedAt": "2026-09-11 10:09:30",
-      "summary": "根據民視新聞網的報導，勒索軟體Everest於9月1日聲稱入侵台達電旗下的網路攝影機廠商晶睿通訊（Vivotek），從中竊取236 GB內部資料，總共近9.5萬個檔案，其中包括網路攝影機與網路錄影機相關韌體、原始程式碼，以及開發、測試與維修資料，這些駭客公開其中一份56頁的技術報告資料，要",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "refactor(memory): derive resolved config from producer (#144464)",
-      "link": "https://github.com/openclaw/openclaw/commit/3be71b162a315d4a7ebad8a8be89ebfba5586854",
-      "publishedAt": "2026-09-11T08:38:49Z",
-      "summary": "refactor(memory): derive resolved config from producer (#144464)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(記憶): derive resolved config from producer (#144464)",
-      "summaryZh": "重點：refactor(記憶): derive resolved config from producer (#144464)..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(config): derive gateway IO types from schema (#144465)",
-      "link": "https://github.com/openclaw/openclaw/commit/e7ebacf626d5570b4de1821d1a0c07e8b3ec7076",
-      "publishedAt": "2026-09-11T08:37:32Z",
-      "summary": "refactor(config): derive gateway IO types from schema (#144465)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): derive Gateway IO types from schema (#144465)",
-      "summaryZh": "重點：refactor(config): derive Gateway IO types from schema (#144465)..."
-    },
-    {
-      "id": 9,
-      "title": "refactor(config): derive session types from schema (#144463)",
-      "link": "https://github.com/openclaw/openclaw/commit/4457353c86d5f113c5c8ace03e5fad4fd6ca45ef",
-      "publishedAt": "2026-09-11T08:37:27Z",
-      "summary": "refactor(config): derive session types from schema (#144463)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(config): derive session types from schema (#144463)",
-      "summaryZh": "重點：refactor(config): derive session types from schema (#144463)..."
-    },
-    {
       "id": 10,
-      "title": "refactor(tests): reuse Vydra speech response fixtures (#144741)",
-      "link": "https://github.com/openclaw/openclaw/commit/bb221a85658ce9d8798f1c2f9e8f6de4391f6512",
-      "publishedAt": "2026-09-11T08:33:51Z",
-      "summary": "refactor(tests): reuse Vydra speech response fixtures (#144741)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): reuse Vydra speech response 修正tures (#144741)",
-      "summaryZh": "重點：refactor(tests): reuse Vydra speech response 修正tures (#144741)..."
+      "title": "Claude 用來開發監控系統、生物武器？Anthropic 揭模型濫用案例",
+      "link": "https://technews.tw/2026/09/11/anthropic-on-detecting-and-countering-misuse-of-ai/",
+      "publishedAt": "Fri, 11 Sep 2026 10:49:04 +0000",
+      "summary": "Anthropic 發出旗下模型遭濫用的威脅情資報告，詳盡說明人們如何試圖運用涉及 Claude Haiku [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
