@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-09-12T16:02:13.357Z",
+  "generatedAt": "2026-09-12T18:59:19.597Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(backup): preserve cyclic symbolic links during archive creation (…",
+      "link": "https://github.com/openclaw/openclaw/commit/8e54ce49af69533fb7ceb5ac04c3430a739bb33a",
+      "publishedAt": "2026-09-12T18:58:18Z",
+      "summary": "fix(backup): preserve cyclic symbolic links during archive creation (#146161) ## What Problem This Solves A state directory containing `loop-a -> loop-b -> loop-a` makes `openclaw backup create --verify --json` fail with `Private update capture marker is unreadable; export refused.` No archive is created. ## Why This Change Was Made The decision `whether a selected path is a private update-capture location` is made by exactly one mechanism at `src/infra/update-capture-paths.ts:151`. It resolves links component by component with `lstat`, cycle detection, and a depth limit, retains each selected entry name for legacy capture ownership, and checks real selected and resolved directories for privacy markers. The separate canonical scan is removed. Resolved marked targets remain excluded. Linked directory owners and capture-root aliases still protect legacy capture contents. SQLite snapshots use the same assertion before copying selected contents. The separate update-time backup work in #144005 writes privacy markers and uses this classifier. ## User Impact Cyclic and dangling links no longer prevent backup creation. Their original link text is preserved. Marked targets and private capture contents stay out of archives, while ordinary unmarked links retain the behavior from #141925. ## Evidence - Pinned main `c1a39f89`: real CLI exits 1 with the reported error and no archive. Head `6c58557e`: cycle/dangling creation, verification, and restoration succeed with exact links and payload. - The marked-target archive omits the link and private bytes, then verifies and restores on v2026.9.4. A linked sibling owner also excludes legacy capture contents. Malformed and unreadable real markers refuse without publishing an archive. - Head `057dbc07`: config selected through a private capture-root alias refuses export with no archive. A containing-workspace archive omits the alias and private bytes, then verifies and restores on both current code and v2026.9.4 with healthy bytes intact. - All 199 targeted tests passed, including component ordering, repeated links, trailing separators, archive privacy, and support exports. Complete dispositions and compatibility details are retained in `consumers.md`. ## Compatibility The archive format is unchanged. Capture-root alias and marked-target archives restore on v2026.9.4 with zero links and exact healthy bytes. Plain and portable relative-link archives retain their passing compatibility checks. Only cyclic/dangling-link output receives the additional old-reader allowance. v2026.9.4 cannot restore preserved cycles and reports `Backup restore failed; the incomplete target was cleaned: `; the updated reader restores them. Existing restrictions on ordinary absolute links predate this fix. No shim is added. Focused CLI proof runs on macOS; Windows junction coverage depends on CI. ## Consumers - Backup inventory and archive creation preserve unresolved links while excluding resolved private targets and real private ancestors. - Legacy capture exclusion recognizes sibling owners and capture roots reached through directory links. - SQLite archive snapshots apply the same content admission before capture or reuse. ## Invalidation None. Each call inspects current filesystem metadata; no cached classification or persistent state changes. ## Contention No lock, queue, transaction, or asynchronous publication changes. ## Tests `backupCreateCommand` and `backupRestoreCommand` cover marked-target omission, linked-owner exclusion, capture-root alias refusal, loop/dangling preservation, and restored bytes. Real and resolved marker refusals remain covered. The canonical database alias test retains refusal of an incomplete hardlink inventory and the unmarked sanitation control. No tests were deleted. **Follow-ups:** Add command-level coverage for path-resolution edge cases and test path separators on native Windows. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(backup): preserve cyclic symbolic links during archive creation (…",
+      "summaryZh": "重點：修正(backup): preserve cyclic symbolic links during archive creation (#146161) ## What Problem This Solves A state directo..."
+    },
+    {
+      "id": 2,
+      "title": "improve(gateway): avoid scanning long replies for control prefixes (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/945f0a669811ab6ede1b4f66c5a7fd3b5358dde7",
+      "publishedAt": "2026-09-12T18:57:37Z",
+      "summary": "improve(gateway): avoid scanning long replies for control prefixes (#146304)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(Gateway): avoid scanning long replies for control pre修正 (#…",
+      "summaryZh": "重點：improve(Gateway): avoid scanning long replies for control pre修正 (#146304)..."
+    },
+    {
+      "id": 3,
+      "title": "perf(sessions): streamline model context JSON projection (#146302)",
+      "link": "https://github.com/openclaw/openclaw/commit/ad8a648308c4e2f179866a0d1d80917399f53db8",
+      "publishedAt": "2026-09-12T18:56:33Z",
+      "summary": "perf(sessions): streamline model context JSON projection (#146302)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): streamline 模型 context JSON projection (#146302)",
+      "summaryZh": "重點：perf(sessions): streamline 模型 context JSON projection (#146302)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(llama-cpp): count same-tick chunks in download speed (#146263)",
+      "link": "https://github.com/openclaw/openclaw/commit/21120bbb36abdc01026a1088365a545a3681a422",
+      "publishedAt": "2026-09-12T18:56:15Z",
+      "summary": "fix(llama-cpp): count same-tick chunks in download speed (#146263) Advance the byte and time baselines only when accepting a positive-duration rate sample, so persisted chunks sharing a clock tick contribute to the next estimate. Keep smoothing and file integrity behavior unchanged. Production net zero. Paired producer-to-setup proof, 61 owner tests, changed checks, and independent review passed.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(llama-cpp): count same-tick chunks in download speed (#146263)",
+      "summaryZh": "重點：修正(llama-cpp): count same-tick chunks in download speed (#146263) Advance the byte and time baselines only when acceptin..."
+    },
+    {
+      "id": 5,
       "title": "穿越 47 億光年的微弱訊號，MeerKAT 望遠鏡成功捕捉遙遠宇宙中性氫",
       "link": "https://technews.tw/2026/09/13/meerkat-detects-neutral-hydrogen-signal-from-the-ancient-universe/",
       "publishedAt": "Sat, 12 Sep 2026 16:00:55 +0000",
@@ -11,18 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "improve: avoid empty plugin expiry scans (#146114)",
-      "link": "https://github.com/openclaw/openclaw/commit/8469b5e4c7b326a5b466d37b7dbb15a7e6ebb072",
-      "publishedAt": "2026-09-12T16:00:40Z",
-      "summary": "improve: avoid empty plugin expiry scans (#146114)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: avoid empty plugin expiry scans (#146114)",
-      "summaryZh": "重點：improve: avoid empty plugin expiry scans (#146114)..."
-    },
-    {
-      "id": 3,
+      "id": 6,
       "title": "暗能量恆定假設遭雙重挑戰，宇宙加速膨脹說法面臨重新檢驗",
       "link": "https://technews.tw/2026/09/13/dark-energy-debunked-cosmic-acceleration-may-be-an-illusion/",
       "publishedAt": "Sat, 12 Sep 2026 16:00:28 +0000",
@@ -31,46 +64,13 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "癌症療法轉戰類風濕性關節炎！CAR T 細胞療法有望「重設」免疫系統",
       "link": "https://technews.tw/2026/09/13/a-cancer-therapy-put-severe-rheumatoid-arthritis-into-remission/",
       "publishedAt": "Sat, 12 Sep 2026 16:00:21 +0000",
       "summary": "德國柏林夏里特醫療大學（Charité &#8211; Universitätsmedizin Berlin） [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "test(ci): advance the sweeper reopen grace virtually (#146024)",
-      "link": "https://github.com/openclaw/openclaw/commit/9ebef910b792eaea853838beb95e6d9ceedf0557",
-      "publishedAt": "2026-09-12T15:57:33Z",
-      "summary": "test(ci): advance the sweeper reopen grace virtually (#146024) * test(ci): advance the sweeper reopen grace virtually * test(ci): include the sweeper timer plan in routing proof",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): advance the sweeper reopen grace virtually (#146024)",
-      "summaryZh": "重點：test(ci): advance the sweeper reopen grace virtually (#146024) * test(ci): advance the sweeper reopen grace virtually * ..."
-    },
-    {
-      "id": 6,
-      "title": "fix(ui): show a neutral placeholder while avatar images load (#146109)",
-      "link": "https://github.com/openclaw/openclaw/commit/c1a39f89b4a24566cab603a48122cdfcc1631414",
-      "publishedAt": "2026-09-12T15:53:56Z",
-      "summary": "fix(ui): show a neutral placeholder while avatar images load (#146109)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): show a neutral placeholder while avatar images load (#146109)",
-      "summaryZh": "重點：修正(ui): show a neutral placeholder while avatar images load (#146109)..."
-    },
-    {
-      "id": 7,
-      "title": "fix(plugins): reduce loaded facade lookup allocations (#146101)",
-      "link": "https://github.com/openclaw/openclaw/commit/e00b634ca7ee9b1827010273f1cc1c6c54356b21",
-      "publishedAt": "2026-09-12T15:52:54Z",
-      "summary": "fix(plugins): reduce loaded facade lookup allocations (#146101)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): reduce loaded facade lookup allocations (#146101)",
-      "summaryZh": "重點：修正(plugins): reduce loaded facade lookup allocations (#146101)..."
     },
     {
       "id": 8,
