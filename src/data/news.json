@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-12T18:59:19.597Z",
+  "generatedAt": "2026-09-12T21:22:20.954Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(backup): preserve cyclic symbolic links during archive creation (…",
-      "link": "https://github.com/openclaw/openclaw/commit/8e54ce49af69533fb7ceb5ac04c3430a739bb33a",
-      "publishedAt": "2026-09-12T18:58:18Z",
-      "summary": "fix(backup): preserve cyclic symbolic links during archive creation (#146161) ## What Problem This Solves A state directory containing `loop-a -> loop-b -> loop-a` makes `openclaw backup create --verify --json` fail with `Private update capture marker is unreadable; export refused.` No archive is created. ## Why This Change Was Made The decision `whether a selected path is a private update-capture location` is made by exactly one mechanism at `src/infra/update-capture-paths.ts:151`. It resolves links component by component with `lstat`, cycle detection, and a depth limit, retains each selected entry name for legacy capture ownership, and checks real selected and resolved directories for privacy markers. The separate canonical scan is removed. Resolved marked targets remain excluded. Linked directory owners and capture-root aliases still protect legacy capture contents. SQLite snapshots use the same assertion before copying selected contents. The separate update-time backup work in #144005 writes privacy markers and uses this classifier. ## User Impact Cyclic and dangling links no longer prevent backup creation. Their original link text is preserved. Marked targets and private capture contents stay out of archives, while ordinary unmarked links retain the behavior from #141925. ## Evidence - Pinned main `c1a39f89`: real CLI exits 1 with the reported error and no archive. Head `6c58557e`: cycle/dangling creation, verification, and restoration succeed with exact links and payload. - The marked-target archive omits the link and private bytes, then verifies and restores on v2026.9.4. A linked sibling owner also excludes legacy capture contents. Malformed and unreadable real markers refuse without publishing an archive. - Head `057dbc07`: config selected through a private capture-root alias refuses export with no archive. A containing-workspace archive omits the alias and private bytes, then verifies and restores on both current code and v2026.9.4 with healthy bytes intact. - All 199 targeted tests passed, including component ordering, repeated links, trailing separators, archive privacy, and support exports. Complete dispositions and compatibility details are retained in `consumers.md`. ## Compatibility The archive format is unchanged. Capture-root alias and marked-target archives restore on v2026.9.4 with zero links and exact healthy bytes. Plain and portable relative-link archives retain their passing compatibility checks. Only cyclic/dangling-link output receives the additional old-reader allowance. v2026.9.4 cannot restore preserved cycles and reports `Backup restore failed; the incomplete target was cleaned: `; the updated reader restores them. Existing restrictions on ordinary absolute links predate this fix. No shim is added. Focused CLI proof runs on macOS; Windows junction coverage depends on CI. ## Consumers - Backup inventory and archive creation preserve unresolved links while excluding resolved private targets and real private ancestors. - Legacy capture exclusion recognizes sibling owners and capture roots reached through directory links. - SQLite archive snapshots apply the same content admission before capture or reuse. ## Invalidation None. Each call inspects current filesystem metadata; no cached classification or persistent state changes. ## Contention No lock, queue, transaction, or asynchronous publication changes. ## Tests `backupCreateCommand` and `backupRestoreCommand` cover marked-target omission, linked-owner exclusion, capture-root alias refusal, loop/dangling preservation, and restored bytes. Real and resolved marker refusals remain covered. The canonical database alias test retains refusal of an incomplete hardlink inventory and the unmarked sanitation control. No tests were deleted. **Follow-ups:** Add command-level coverage for path-resolution edge cases and test path separators on native Windows. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(worktrees): avoid slow APFS worktree cloning (#146401)",
+      "link": "https://github.com/openclaw/openclaw/commit/9b59fe4ef7da6444059d4fe4651b14097f13ab59",
+      "publishedAt": "2026-09-12T21:21:35Z",
+      "summary": "fix(worktrees): avoid slow APFS worktree cloning (#146401) * fix(gateway): register TLS renewal with its sidecar owner Pass the renewal handle directly to the variadic gateway lifetime owner. This completes the integration between TLS renewal (#146267) and the sidecar ownership refactor (#146275), repairing TS2741 and retaining working TLS watcher cleanup. * perf(worktrees): accelerate APFS directory cloning",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(backup): preserve cyclic symbolic links during archive creation (…",
-      "summaryZh": "重點：修正(backup): preserve cyclic symbolic links during archive creation (#146161) ## What Problem This Solves A state directo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): avoid slow APFS worktree cloning (#146401)",
+      "summaryZh": "重點：修正(worktrees): avoid slow APFS worktree cloning (#146401) * 修正(Gateway): register TLS renewal with its sidecar owner Pas..."
     },
     {
       "id": 2,
-      "title": "improve(gateway): avoid scanning long replies for control prefixes (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/945f0a669811ab6ede1b4f66c5a7fd3b5358dde7",
-      "publishedAt": "2026-09-12T18:57:37Z",
-      "summary": "improve(gateway): avoid scanning long replies for control prefixes (#146304)",
+      "title": "fix(security): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from wo…",
+      "link": "https://github.com/openclaw/openclaw/commit/f2858f7e3c9133309647e1f7c84c2460cdb42017",
+      "publishedAt": "2026-09-12T21:19:53Z",
+      "summary": "fix(security): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from workspace .env (#146389) Untrusted workspace .env files could set HOMEBREW_CURL_PATH or HOMEBREW_GIT_PATH, which Homebrew honors on Linux to select the curl and git executables it runs during brew invocations, including relative paths inside the repository. A malicious repo could therefore execute attacker-controlled binaries when a user approved a skill dependency install. Adds both keys to BLOCKED_WORKSPACE_DOTENV_KEYS, mirroring the existing HOMEBREW_BREW_FILE/HOMEBREW_PREFIX blocks (CVE-2026-53819 pattern). Trusted launching-shell and global environment values remain supported. Tracking: https://github.com/NVIDIA-dev/openclaw-tracking/issues/1049 Advisory: https://github.com/openclaw/openclaw/security/advisories/GHSA-x22j-25fh-j655 Co-authored-by: eleqtrizit",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(Gateway): avoid scanning long replies for control pre修正 (#…",
-      "summaryZh": "重點：improve(Gateway): avoid scanning long replies for control pre修正 (#146304)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(安全): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from wo…",
+      "summaryZh": "重點：修正(安全): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from workspace .env (#146389) Untrusted workspace .env files coul..."
     },
     {
       "id": 3,
-      "title": "perf(sessions): streamline model context JSON projection (#146302)",
-      "link": "https://github.com/openclaw/openclaw/commit/ad8a648308c4e2f179866a0d1d80917399f53db8",
-      "publishedAt": "2026-09-12T18:56:33Z",
-      "summary": "perf(sessions): streamline model context JSON projection (#146302)",
+      "title": "refactor(slack): apply policy changes without reconnecting (#146202)",
+      "link": "https://github.com/openclaw/openclaw/commit/af0056bc4a7c83572fe2c4ddc1117a602597cf74",
+      "publishedAt": "2026-09-12T21:15:48Z",
+      "summary": "refactor(slack): apply policy changes without reconnecting (#146202) * refactor(slack): apply policy snapshots without reconnecting * test(slack): load policy metadata through the public artifact boundary * docs(slack): explain resolved channel-name policy * test(slack): retain concrete monitor fixture types * refactor(slack): separate monitor contracts from runtime policy * test(slack): consolidate missing mention field cases * fix(slack): settle and refresh pending policy admissions * test(slack): type policy admission rejection explicitly",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): streamline 模型 context JSON projection (#146302)",
-      "summaryZh": "重點：perf(sessions): streamline 模型 context JSON projection (#146302)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(slack): apply policy changes without reconnecting (#146202)",
+      "summaryZh": "重點：refactor(slack): apply policy changes without reconnecting (#146202) * refactor(slack): apply policy snapshots without r..."
     },
     {
       "id": 4,
-      "title": "fix(llama-cpp): count same-tick chunks in download speed (#146263)",
-      "link": "https://github.com/openclaw/openclaw/commit/21120bbb36abdc01026a1088365a545a3681a422",
-      "publishedAt": "2026-09-12T18:56:15Z",
-      "summary": "fix(llama-cpp): count same-tick chunks in download speed (#146263) Advance the byte and time baselines only when accepting a positive-duration rate sample, so persisted chunks sharing a clock tick contribute to the next estimate. Keep smoothing and file integrity behavior unchanged. Production net zero. Paired producer-to-setup proof, 61 owner tests, changed checks, and independent review passed.",
+      "title": "docs: clarify authorization for internal repair decisions (#146462)",
+      "link": "https://github.com/openclaw/openclaw/commit/5e33622ccad8510621915fdfeffc7d0e6f941d6b",
+      "publishedAt": "2026-09-12T21:14:56Z",
+      "summary": "docs: clarify authorization for internal repair decisions (#146462)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(llama-cpp): count same-tick chunks in download speed (#146263)",
-      "summaryZh": "重點：修正(llama-cpp): count same-tick chunks in download speed (#146263) Advance the byte and time baselines only when acceptin..."
+      "titleZh": "OpenClaw 文件更新：文件: clarify authorization for internal repair decisions (#146462)",
+      "summaryZh": "重點：文件: clarify authorization for internal repair decisions (#146462)..."
     },
     {
       "id": 5,
