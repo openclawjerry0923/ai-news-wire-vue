@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-12T21:22:20.954Z",
+  "generatedAt": "2026-09-12T23:48:47.319Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(worktrees): avoid slow APFS worktree cloning (#146401)",
-      "link": "https://github.com/openclaw/openclaw/commit/9b59fe4ef7da6444059d4fe4651b14097f13ab59",
-      "publishedAt": "2026-09-12T21:21:35Z",
-      "summary": "fix(worktrees): avoid slow APFS worktree cloning (#146401) * fix(gateway): register TLS renewal with its sidecar owner Pass the renewal handle directly to the variadic gateway lifetime owner. This completes the integration between TLS renewal (#146267) and the sidecar ownership refactor (#146275), repairing TS2741 and retaining working TLS watcher cleanup. * perf(worktrees): accelerate APFS directory cloning",
+      "title": "fix(ui): show reconnecting messages only once (#146466)",
+      "link": "https://github.com/openclaw/openclaw/commit/bf95f2b23c639247123e4c01cc5892b550b99187",
+      "publishedAt": "2026-09-12T23:48:16Z",
+      "summary": "fix(ui): show reconnecting messages only once (#146466) * fix(ui): show reconnecting messages only once Keep attempted reconnect sends in the transcript with delivery status and local discard. Preserve unattempted offline sends in the composer queue, and filter retained custody by submission identity without collapsing intentional identical sends. * fix(ui): preserve queue order around hidden reconnecting sends Use stable message IDs for reorder targets, retain hidden rows as delivery barriers, and keep attempted messages fixed in the outbox. Cover keyboard and drag controls against persisted order, with the reconnecting head preserved and no resend. * refactor(ui): reuse the movable queue segment during reorder Check only the crossed rows for edit conflicts and split the already identified movable segment. Preserve reorder behavior while keeping the startup bundle within its existing budget.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): avoid slow APFS worktree cloning (#146401)",
-      "summaryZh": "重點：修正(worktrees): avoid slow APFS worktree cloning (#146401) * 修正(Gateway): register TLS renewal with its sidecar owner Pas..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): show reconnecting messages only once (#146466)",
+      "summaryZh": "重點：修正(ui): show reconnecting messages only once (#146466) * 修正(ui): show reconnecting messages only once Keep attempted rec..."
     },
     {
       "id": 2,
-      "title": "fix(security): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from wo…",
-      "link": "https://github.com/openclaw/openclaw/commit/f2858f7e3c9133309647e1f7c84c2460cdb42017",
-      "publishedAt": "2026-09-12T21:19:53Z",
-      "summary": "fix(security): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from workspace .env (#146389) Untrusted workspace .env files could set HOMEBREW_CURL_PATH or HOMEBREW_GIT_PATH, which Homebrew honors on Linux to select the curl and git executables it runs during brew invocations, including relative paths inside the repository. A malicious repo could therefore execute attacker-controlled binaries when a user approved a skill dependency install. Adds both keys to BLOCKED_WORKSPACE_DOTENV_KEYS, mirroring the existing HOMEBREW_BREW_FILE/HOMEBREW_PREFIX blocks (CVE-2026-53819 pattern). Trusted launching-shell and global environment values remain supported. Tracking: https://github.com/NVIDIA-dev/openclaw-tracking/issues/1049 Advisory: https://github.com/openclaw/openclaw/security/advisories/GHSA-x22j-25fh-j655 Co-authored-by: eleqtrizit",
+      "title": "docs(plugins): remove obsolete Gateway restart guidance (#146516)",
+      "link": "https://github.com/openclaw/openclaw/commit/54a986072f41894903109058fa61c105a693218b",
+      "publishedAt": "2026-09-12T23:48:13Z",
+      "summary": "docs(plugins): remove obsolete Gateway restart guidance (#146516) * docs(plugins): remove obsolete Gateway restart guidance * docs(plugins): simplify apply hints and update Session Share guidance",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(安全): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from wo…",
-      "summaryZh": "重點：修正(安全): block HOMEBREW_CURL_PATH and HOMEBREW_GIT_PATH from workspace .env (#146389) Untrusted workspace .env files coul..."
+      "titleZh": "OpenClaw 文件更新：文件(plugins): remove obsolete Gateway restart guidance (#146516)",
+      "summaryZh": "重點：文件(plugins): remove obsolete Gateway restart guidance (#146516) * 文件(plugins): remove obsolete Gateway restart guidance ..."
     },
     {
       "id": 3,
-      "title": "refactor(slack): apply policy changes without reconnecting (#146202)",
-      "link": "https://github.com/openclaw/openclaw/commit/af0056bc4a7c83572fe2c4ddc1117a602597cf74",
-      "publishedAt": "2026-09-12T21:15:48Z",
-      "summary": "refactor(slack): apply policy changes without reconnecting (#146202) * refactor(slack): apply policy snapshots without reconnecting * test(slack): load policy metadata through the public artifact boundary * docs(slack): explain resolved channel-name policy * test(slack): retain concrete monitor fixture types * refactor(slack): separate monitor contracts from runtime policy * test(slack): consolidate missing mention field cases * fix(slack): settle and refresh pending policy admissions * test(slack): type policy admission rejection explicitly",
+      "title": "improve: load session history with fewer SQLite queries (#146390)",
+      "link": "https://github.com/openclaw/openclaw/commit/11c9589dc10b938efc76c299155e65504d1df562",
+      "publishedAt": "2026-09-12T23:46:43Z",
+      "summary": "improve: load session history with fewer SQLite queries (#146390) * perf(sessions): reduce history projection admission work * test(sessions): trace joined readiness checks in byte-size guard * test(gateway): isolate profiled dispatch fixture runtime",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(slack): apply policy changes without reconnecting (#146202)",
-      "summaryZh": "重點：refactor(slack): apply policy changes without reconnecting (#146202) * refactor(slack): apply policy snapshots without r..."
+      "titleZh": "OpenClaw 程式碼更新：improve: load session history with fewer SQLite queries (#146390)",
+      "summaryZh": "重點：improve: load session history with fewer SQLite queries (#146390) * perf(sessions): reduce history projection admission ..."
     },
     {
       "id": 4,
-      "title": "docs: clarify authorization for internal repair decisions (#146462)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e33622ccad8510621915fdfeffc7d0e6f941d6b",
-      "publishedAt": "2026-09-12T21:14:56Z",
-      "summary": "docs: clarify authorization for internal repair decisions (#146462)",
+      "title": "fix(ui): stop unrelated sidebar child refreshes (#146410)",
+      "link": "https://github.com/openclaw/openclaw/commit/1ccb3e114fe3365be5ceb2c23381d4b954a257ce",
+      "publishedAt": "2026-09-12T23:45:02Z",
+      "summary": "fix(ui): stop unrelated sidebar child refreshes (#146410) * fix(ui): stop unrelated sidebar child refreshes Keep child windows under their managed query owner and target history invalidation to affected membership without refreshing the supplying query. Preserve descriptor freshness, complete pagination, retry errors, ancestry, and connection/disposal lifecycles while avoiding repeated sidebar reads. Related: #146122 * fix(ui): preserve child query recovery and share refresh work Keep failed sidebar child observations dormant until explicit retry, including synchronous errors from queries retained by another view. Preserve incomplete pagination errors and retire their leases without reopening background reads. Align the mounted-sidebar regressions with managed child-event refresh and make scheduled event assertions deterministic. Share stale-row comparison, result projection, event parsing, and refresh lifecycle operations to keep the startup bundle within its existing budget. Validation: 1,598 session/sidebar/bootstrap tests, 10 Chromium scenarios, UI production and test types, UI lint, import-cycle checks, and controlled startup bundle check. Fresh review found no actionable P0-P2 findings. * perf(ui): load website hints with dashboard widgets Keep the shared Website label eager and register the three website-only hints synchronously with the widget. Compose the same canonical English catalog without mutating the runtime catalog; all 9,018 keys retain their text and order. Forward public session invalidation directly to its existing closure-owned scheduler without a redundant wrapper. The public zero-argument contract stays unchanged. Validation: 1,752 tests across 80 files, 12 Chromium scenarios, unchanged catalog bytes and key order, i18n verification, production/test types, lint, import-cycle checks, and the unchanged startup gzip gate. Fresh review found no actionable P0-P2 findings. * refactor(ui): share session result projections Use the existing result-identity owner for terminal updates, pending mutations, permission projection, confirmed archives, and Swarm presentation. Preserve mapper order, side effects, membership and metadata while removing repeated change tracking and result copies. Record model-catalog notice state, text and group in one E2E DOM snapshot while retaining the same empty-notice assertion and timing. The prior single CI failure remains unexplained; exact-source local checks pass and no race fix is claimed. Validation: 1,752 tests, 12 mocked Chromium scenarios, exact-source Node 24 real-Gateway diagnostic proof, UI types/lint, import-cycle checks, and unchanged startup bundle gate at 355052 bytes gzip. Fresh review has no actionable P0-P2 findings.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: clarify authorization for internal repair decisions (#146462)",
-      "summaryZh": "重點：文件: clarify authorization for internal repair decisions (#146462)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop unrelated sidebar child refreshes (#146410)",
+      "summaryZh": "重點：修正(ui): stop unrelated sidebar child refreshes (#146410) * 修正(ui): stop unrelated sidebar child refreshes Keep child win..."
     },
     {
       "id": 5,
