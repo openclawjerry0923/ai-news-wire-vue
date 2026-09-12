@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-12T08:26:09.041Z",
+  "generatedAt": "2026-09-12T12:40:34.210Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(gateway): skip ineligible voicewake routing reads (#145695)",
-      "link": "https://github.com/openclaw/openclaw/commit/0ffc3f0fb17f43563ea42fcd3a10fa1af31a98ab",
-      "publishedAt": "2026-09-12T08:23:49Z",
-      "summary": "refactor(gateway): skip ineligible voicewake routing reads (#145695)",
+      "title": "perf(plugins): pass readonly metadata through provider policy (#145921)",
+      "link": "https://github.com/openclaw/openclaw/commit/b654dcaa79642027fdc618e2493fd980d06e3a92",
+      "publishedAt": "2026-09-12T12:40:16Z",
+      "summary": "perf(plugins): pass readonly metadata through provider policy (#145921)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): skip ineligible voicewake routing reads (#145695)",
-      "summaryZh": "重點：refactor(Gateway): skip ineligible voicewake routing reads (#145695)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): pass readonly metadata through provider policy (#145921)",
+      "summaryZh": "重點：perf(plugins): pass readonly metadata through provider policy (#145921)..."
     },
     {
       "id": 2,
-      "title": "refactor(tests): reuse state database fixture opens (#145796)",
-      "link": "https://github.com/openclaw/openclaw/commit/c2881c94df52488e8aac64ded277d06fc08450ec",
-      "publishedAt": "2026-09-12T08:21:24Z",
-      "summary": "refactor(tests): reuse state database fixture opens (#145796)",
+      "title": "perf(plugins): reuse model matches before prefix fallback (#145914)",
+      "link": "https://github.com/openclaw/openclaw/commit/bcd05342c0c1831498648f3fee28f2c5a553b60a",
+      "publishedAt": "2026-09-12T12:36:10Z",
+      "summary": "perf(plugins): reuse model matches before prefix fallback (#145914)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): reuse state database 修正ture opens (#145796)",
-      "summaryZh": "重點：refactor(tests): reuse state database 修正ture opens (#145796)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): reuse 模型 matches before pre修正 fallback (#145914)",
+      "summaryZh": "重點：perf(plugins): reuse 模型 matches before pre修正 fallback (#145914)..."
     },
     {
       "id": 3,
-      "title": "chore(ui): refresh control ui locales (#145799)",
-      "link": "https://github.com/openclaw/openclaw/commit/045a9de3d2b8b6326a90c3e728622135d580da81",
-      "publishedAt": "2026-09-12T08:20:23Z",
-      "summary": "chore(ui): refresh control ui locales (#145799) Co-authored-by: github-actions[bot]",
+      "title": "perf(heartbeat): reuse active-hours timezone formatters (#145900)",
+      "link": "https://github.com/openclaw/openclaw/commit/1277e3daa14ff299fa6753797d3a01d9dd581541",
+      "publishedAt": "2026-09-12T12:32:33Z",
+      "summary": "perf(heartbeat): reuse active-hours timezone formatters (#145900)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#145799)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#145799) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：perf(heartbeat): reuse active-hours timezone formatters (#145900)",
+      "summaryZh": "重點：perf(heartbeat): reuse active-hours timezone formatters (#145900)..."
     },
     {
       "id": 4,
-      "title": "fix(test): prevent worker shard timeouts on loaded hosts (#145770)",
-      "link": "https://github.com/openclaw/openclaw/commit/ca28965b39be18168670ec6d9aa41dd11a68cb5a",
-      "publishedAt": "2026-09-12T08:04:06Z",
-      "summary": "fix(test): prevent worker shard timeouts on loaded hosts (#145770) Prevent healthy Gateway worker preparation from failing a test-only five-second observation deadline on loaded hosts. Await execution completion and credential readiness while preserving early-settlement errors and unjoined-owner cleanup guards. Extend the existing replay case to cross the former deadline without changing its base-leaf or history assertions. Use two concurrent worktrees for stale-retention reconciliation, preserving the upload barrier, real manifests and Git operations, binary result checks, journals, and released claims. Production code is unchanged. CI run 34679294250, job 103514926295 failed six detached-context cases and timed out the 50-turn reconciliation case; #145349 was blocked on this shard. https://github.com/openclaw/openclaw/actions/runs/34679294250/job/103514926295 Recorded proof: controlled regression failed before and passed after; the reduced reconciliation case failed the historical retention mutation; the contention suite passed all 13 tests; the full agentic-gateway-core-2 shard passed 255 files and 5,038 tests. Exact-head CI run 34680987053 is green for b3edad90c883960b6dd4b6b2108d6072ef7c851b and was reverified with the native watcher before preparation. https://github.com/openclaw/openclaw/actions/runs/34680987053 The lead's P1 autoreview is scoped-clean. ClawSweeper found no actionable findings on the approved head; no fixups or skips were needed. Refs #145349, #145379. Follow-up to #145657.",
+      "title": "perf(cli): stop overlay freshness scans at missing outputs (#145898)",
+      "link": "https://github.com/openclaw/openclaw/commit/bc6011ac244a8f565348910b678513da915f29dd",
+      "publishedAt": "2026-09-12T12:29:05Z",
+      "summary": "perf(cli): stop overlay freshness scans at missing outputs (#145898)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): prevent worker shard timeouts on loaded hosts (#145770)",
-      "summaryZh": "重點：修正(test): prevent worker shard timeouts on loaded hosts (#145770) Prevent healthy Gateway worker preparation from failin..."
+      "titleZh": "OpenClaw 程式碼更新：perf(cli): stop overlay freshness scans at missing outputs (#145898)",
+      "summaryZh": "重點：perf(cli): stop overlay freshness scans at missing outputs (#145898)..."
     },
     {
       "id": 5,
+      "title": "電腦到底多久該關機？專家解析「重新啟動」的最佳時機與關鍵好處",
+      "link": "https://ccc.technews.tw/2026/09/12/necessity-regularly-restarting-computer/",
+      "publishedAt": "Sat, 12 Sep 2026 08:30:28 +0000",
+      "summary": "許多現代人習慣讓電腦長時間待機或直接進入睡眠模式，久久才關機一次。然而，最新觀點提醒，定期將電腦「重新啟動」依 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "鐵路跨得過國界，預警卻跨不過？一場山洪突顯中尼「一帶一路」的防災困境",
       "link": "https://technews.tw/2026/09/12/why-china-nepal-climate-data-sharing-is-stalled/",
       "publishedAt": "Sat, 12 Sep 2026 08:00:52 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "從產線到舞台！2026 日月光好聲音各廠區員工同台獻唱",
       "link": "https://finance.technews.tw/2026/09/12/employees-from-all-factories-of-sunmoonlight-music-group-performed-together-on-stage-in-2026/",
       "publishedAt": "Sat, 12 Sep 2026 07:00:45 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "小時候多動長大真的比較不累，實驗證實幼年運動習慣決定一生的「耗能」",
       "link": "https://technews.tw/2026/09/12/childhood-exercise-habits-permanently-alter-body-energy-expenditure/",
       "publishedAt": "Sat, 12 Sep 2026 06:30:15 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "SEMICON Taiwan：薩克森邦定位為全球半導體產業的歐洲首要樞紐",
       "link": "https://finance.technews.tw/2026/09/12/semicon-taiwan-saxony-europe-premier-semiconductor-hub/",
       "publishedAt": "Sat, 12 Sep 2026 06:00:59 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "國際巨頭夾擊，HTC／宏碁／佐臻以品牌、PC 生態與白牌三路搶進 AI 眼鏡市場",
       "link": "https://technews.tw/2026/09/12/htc-acer-jorjin-ai-glasses/",
       "publishedAt": "Sat, 12 Sep 2026 06:00:04 +0000",
       "summary": "Meta、Google 與三星等國際大廠接連發力，智慧眼鏡正掀起全球穿戴市場的新熱潮。面對國際巨頭夾擊，台灣科 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "安永豪擲億元投資「人類大腦」，AI 技能防線成創投新寵",
-      "link": "https://finance.technews.tw/2026/09/12/ey-invests-human-brain-ai-skills/",
-      "publishedAt": "Sat, 12 Sep 2026 05:30:28 +0000",
-      "summary": "安永（EY）美國分公司近日宣布，將於本財政年度斥資 1 億美元推出全新的員工獎勵計畫。該計畫旨在表揚於 AI [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
