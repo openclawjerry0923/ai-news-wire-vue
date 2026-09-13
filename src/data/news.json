@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-13T17:57:07.318Z",
+  "generatedAt": "2026-09-13T20:36:16.044Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: keep catalog discovery scoped and execution lazy (#147159)",
-      "link": "https://github.com/openclaw/openclaw/commit/201f11afefdb19a9c75e9d3542bf7425c80df7a7",
-      "publishedAt": "2026-09-13T17:55:04Z",
-      "summary": "fix: keep catalog discovery scoped and execution lazy (#147159) * fix(agents): initialize transport hooks at execution boundaries Keep catalog compatibility on a narrow internal import and install the existing transport host before session dispatch or completion preparation. Direct SDK completions now apply provider stream wrappers before sending a request, with owner and cancellation checks after initialization. * build(ai): emit the model compatibility entrypoint * perf: isolate catalog workers from unused execution code Use explicit catalog plugin owners without automatic agent slots. Load Ollama payload helpers when their streams run and acquire the TypeScript compiler only when a typed module is actually compiled. * test(agents): exercise admitted compaction cancellation Cancel the manual compaction after its provider is admitted so its exact rejection remains observable. Assert that cancellation before dispatch never calls the provider again.",
+      "title": "improve: reduce session listing work for large model catalogs (#147350)",
+      "link": "https://github.com/openclaw/openclaw/commit/1c1affa936f63e04328630e88441d56f15b076d5",
+      "publishedAt": "2026-09-13T20:35:56Z",
+      "summary": "improve: reduce session listing work for large model catalogs (#147350)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep catalog discovery scoped and execution lazy (#147159)",
-      "summaryZh": "重點：修正: keep catalog discovery scoped and execution lazy (#147159) * 修正(agents): initialize transport hooks at execution bou..."
+      "titleZh": "OpenClaw 程式碼更新：improve: reduce session listing work for large 模型 catalogs (#147350)",
+      "summaryZh": "重點：improve: reduce session listing work for large 模型 catalogs (#147350)..."
     },
     {
       "id": 2,
-      "title": "fix: serialize reclamation worker shutdown with foreground writes (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/fe625db116fac2d7321035060bfa3e9c642ea59e",
-      "publishedAt": "2026-09-13T17:53:00Z",
-      "summary": "fix: serialize reclamation worker shutdown with foreground writes (#147178)",
+      "title": "feat(code-mode): infer results from the requested action (#147291)",
+      "link": "https://github.com/openclaw/openclaw/commit/2386efc05c948ea821c88900ac999563dafd9e6e",
+      "publishedAt": "2026-09-13T20:33:49Z",
+      "summary": "feat(code-mode): infer results from the requested action (#147291) * feat(code-mode): infer action-specific tool results * refactor(agents): simplify tool call id normalization",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: serialize reclamation worker shutdown with foreground writes (#1…",
-      "summaryZh": "重點：修正: serialize reclamation worker shutdown with foreground writes (#147178)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(code-mode): infer results from the requested action (#147291)",
+      "summaryZh": "重點：新功能(code-mode): infer results from the requested action (#147291) * 新功能(code-mode): infer action-specific tool results *..."
     },
     {
       "id": 3,
-      "title": "test(sessions): cover abrupt committed transcript recovery (#143984)",
-      "link": "https://github.com/openclaw/openclaw/commit/edde2c2d1a6f66fa16c356d7a7516fe1c4be08e9",
-      "publishedAt": "2026-09-13T17:52:34Z",
-      "summary": "test(sessions): cover abrupt committed transcript recovery (#143984) Punchcard-Session: ember-river-timber-wj",
+      "title": "improve: reduce expired Mentions Inbox cleanup work (#147334)",
+      "link": "https://github.com/openclaw/openclaw/commit/1078db7d903cb4cb2ab44281c91e68d0c3f2ff9f",
+      "publishedAt": "2026-09-13T20:33:02Z",
+      "summary": "improve: reduce expired Mentions Inbox cleanup work (#147334) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(sessions): cover abrupt 提交ted transcript recovery (#143984)",
-      "summaryZh": "重點：test(sessions): cover abrupt 提交ted transcript recovery (#143984) Punchcard-Session: ember-river-timber-wj..."
+      "titleZh": "OpenClaw 程式碼更新：improve: reduce expired Mentions Inbox cleanup work (#147334)",
+      "summaryZh": "重點：improve: reduce expired Mentions Inbox cleanup work (#147334) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 4,
-      "title": "fix: stop transcript storms during context overflow recovery (#147202)",
-      "link": "https://github.com/openclaw/openclaw/commit/06c345ffb7bb09cf1da52a58cb99ad25c1384f6d",
-      "publishedAt": "2026-09-13T17:51:21Z",
-      "summary": "fix: stop transcript storms during context overflow recovery (#147202) * fix: stop transcript storms during context overflow recovery * test: await Workboard cleanup after attachment race * fix: use resolved model budgets during overflow recovery --------- Co-authored-by: VACInc",
+      "title": "fix(runtime): close remaining Bun extension compatibility gaps (#147360)",
+      "link": "https://github.com/openclaw/openclaw/commit/6eccb68490009750f69955904b0504f314bab119",
+      "publishedAt": "2026-09-13T20:32:10Z",
+      "summary": "fix(runtime): close remaining Bun extension compatibility gaps (#147360) * fix(runtime): close Bun extension compatibility gaps * refactor(runtime): drop superseded Bun workarounds",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: stop transcript storms during context overflow recovery (#147202)",
-      "summaryZh": "重點：修正: stop transcript storms during context overflow recovery (#147202) * 修正: stop transcript storms during context overfl..."
+      "titleZh": "OpenClaw 程式碼更新：修正(runtime): close remaining Bun extension compatibility gaps (#147360)",
+      "summaryZh": "重點：修正(runtime): close remaining Bun extension compatibility gaps (#147360) * 修正(runtime): close Bun extension compatibility..."
     },
     {
       "id": 5,
