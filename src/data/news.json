@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-14T12:02:44.958Z",
+  "generatedAt": "2026-09-14T18:22:41.058Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(cron): move scheduled-job loading off the caller thread (#14…",
+      "link": "https://github.com/openclaw/openclaw/commit/a6e6a2643f243999765f24d12224288f6bb3a1de",
+      "publishedAt": "2026-09-14T18:21:23Z",
+      "summary": "refactor(cron): move scheduled-job loading off the caller thread (#148335) * refactor(cron): run mutable store loads in the SQLite worker * test(cron): await worker finalization and preserve test ownership * test(cron): settle worker-backed fixtures before assertions and cleanup * test(cron): drain Doctor fixture workers before cleanup",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(排程): move scheduled-job loading off the caller thread (#14…",
+      "summaryZh": "重點：refactor(排程): move scheduled-job loading off the caller thread (#148335) * refactor(排程): run mutable store loads in the ..."
+    },
+    {
+      "id": 2,
+      "title": "perf(plugin-sdk): pool API declaration sections incrementally (#148393)",
+      "link": "https://github.com/openclaw/openclaw/commit/6d586170048982bd6c5ebc3cdc08bbd003f47a1d",
+      "publishedAt": "2026-09-14T18:18:15Z",
+      "summary": "perf(plugin-sdk): pool API declaration sections incrementally (#148393) Avoid materializing duplicate section tuples before deduplication while preserving API report bytes. Synthetic renderer fixtures reduced peak RSS by 13% and 29% with the existing heap; this does not establish a fix for the CI renderer OOM.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(plugin-sdk): pool API declaration sections incrementally (#148393)",
+      "summaryZh": "重點：perf(plugin-sdk): pool API declaration sections incrementally (#148393) Avoid materializing duplicate section tuples bef..."
+    },
+    {
+      "id": 3,
+      "title": "fix: continue tasks after provider context overflows (#148383)",
+      "link": "https://github.com/openclaw/openclaw/commit/a6093ef81fa8e08e659982de0e32c3db750de24f",
+      "publishedAt": "2026-09-14T18:14:08Z",
+      "summary": "fix: continue tasks after provider context overflows (#148383)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: continue tasks after provider context overflows (#148383)",
+      "summaryZh": "重點：修正: continue tasks after provider context overflows (#148383)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(backup): accept canonical network-share archive metadata (#148386)",
+      "link": "https://github.com/openclaw/openclaw/commit/b49df002f2df73db1d5f256d293f2baab2d0b655",
+      "publishedAt": "2026-09-14T18:13:39Z",
+      "summary": "fix(backup): accept canonical network-share archive metadata (#148386) Use Windows normalization and case-insensitive ownership keys for canonical UNC source metadata. Verification and restore preserve existing archive layout and validation, including duplicate-owner rejection.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(backup): accept canonical network-share archive metadata (#148386)",
+      "summaryZh": "重點：修正(backup): accept canonical network-share archive metadata (#148386) Use Windows normalization and case-insensitive own..."
+    },
+    {
+      "id": 5,
+      "title": "最遙遠原始超星系團，重達銀河系 5,000 倍",
+      "link": "https://technews.tw/2026/09/14/most-distant-protocluster-weighs-5000-times-the-milky-way/",
+      "publishedAt": "Mon, 14 Sep 2026 14:39:43 +0000",
+      "summary": "天文學家發現了迄今年代最早、距離最遙遠的「原始超星系團」COSMOS-z3.1-A。它不只是單一星系團的雛形， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "網站主機管理平臺cPanel存在SQL注入漏洞，擁有郵件相關權限的攻擊者能以root執行任意程式碼",
       "link": "https://www.ithome.com.tw/news/178908",
       "publishedAt": "2026-09-14 12:09:48",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "ConnectWise公布的ScreenConnect重大漏洞，傳出已於8月下旬被用於攻擊活動",
       "link": "https://www.ithome.com.tw/news/178906",
       "publishedAt": "2026-09-14 12:09:48",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "Palo Alto Networks修補防火牆作業系統XML功能漏洞",
       "link": "https://www.ithome.com.tw/news/178909",
       "publishedAt": "2026-09-14 12:09:23",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "研究人員揭露新型遠端存取木馬E4del、PINHOLE，濫用FTP歡迎畫面文字傳遞惡意指令",
       "link": "https://www.ithome.com.tw/news/178910",
       "publishedAt": "2026-09-14 12:09:15",
@@ -38,64 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "test: reuse compiled plugin SQLite backends in fixtures (#148180)",
-      "link": "https://github.com/openclaw/openclaw/commit/7eb75ef60712c929e0925e4e77a9f777fb84bd2e",
-      "publishedAt": "2026-09-14T11:57:04Z",
-      "summary": "test: reuse compiled plugin SQLite backends in fixtures (#148180)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: reuse compiled plugin SQLite backends in 修正tures (#148180)",
-      "summaryZh": "重點：test: reuse compiled plugin SQLite backends in 修正tures (#148180)..."
-    },
-    {
-      "id": 6,
-      "title": "fix: restore Matrix context reads in official installs (#147665)",
-      "link": "https://github.com/openclaw/openclaw/commit/9a5af1b9537045fc2de707fddd34fb25b4054fd6",
-      "publishedAt": "2026-09-14T11:40:11Z",
-      "summary": "fix: restore Matrix context reads in official installs (#147665) Restore six scoped Matrix context reads in official npm and ClawHub installs while retaining account, room, caller and plugin lifetime checks.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore Matrix context reads in official installs (#147665)",
-      "summaryZh": "重點：修正: restore Matrix context reads in official installs (#147665) Restore six scoped Matrix context reads in official npm ..."
-    },
-    {
-      "id": 7,
-      "title": "perf(cli): batch channel-list repair hints (#147977)",
-      "link": "https://github.com/openclaw/openclaw/commit/f5c8b6e43f49b2b4d80fae51958fa1317eed603e",
-      "publishedAt": "2026-09-14T11:38:47Z",
-      "summary": "perf(cli): batch channel-list repair hints (#147977) Resolve missing-plugin hints once for the filtered catalog inventory through the existing plural owner. Keep the original entry order and duplicates for text and JSON output, preserve empty-input laziness, and retain the legitimate singleton outbound caller. Validation: 28 focused tests, formatting, the matching commands test-type graph, and fresh P2 review passed. Actual-command corpus retained 288 individual wall observations with full output parity and four-to-one policy reduction for multiple rows. Zero/single controls were mixed or slower; concurrent UI validation and native Git/I/O overlapped. No whole-CLI or per-variant RSS claim.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(cli): batch channel-list repair hints (#147977)",
-      "summaryZh": "重點：perf(cli): batch channel-list repair hints (#147977) Resolve missing-plugin hints once for the filtered catalog inventor..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(tests): reuse nonthrowing command runtime fixtures (#148113)",
-      "link": "https://github.com/openclaw/openclaw/commit/9706adeb487173335eb628548d3854a2242d1a2b",
-      "publishedAt": "2026-09-14T11:35:52Z",
-      "summary": "refactor(tests): reuse nonthrowing command runtime fixtures (#148113) Replace five local five-spy runtime factories with the existing nonthrowing test fixture. Preserve all 94 cases, assertions, output and exit behavior, and cleanup.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): reuse nonthrowing command runtime 修正tures (#148113)",
-      "summaryZh": "重點：refactor(tests): reuse nonthrowing command runtime 修正tures (#148113) Replace five local five-spy runtime factories with ..."
-    },
-    {
-      "id": 9,
+      "id": 10,
       "title": "ConnectWise修補ScreenConnect重大漏洞",
       "link": "https://www.ithome.com.tw/news/178905",
       "publishedAt": "2026-09-14 11:09:28",
       "summary": "9月3日軟體公司ConnectWise警告遠端監控與管理平臺ScreenConnect存在弱點，呼籲用戶應儘速依照指引緩解。上週該公司發布更新，並警告此問題相當危險，用戶需以最優先的層級採取行動。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Wiz警告3個JFrog Artifactory嚴重漏洞遭積極利用，部分漏洞被串連形成攻擊鏈",
-      "link": "https://www.ithome.com.tw/news/178902",
-      "publishedAt": "2026-09-14 11:09:23",
-      "summary": "JFrog旗下的軟體供應鏈儲存庫Artifactory近日成為攻擊者鎖定的目標，9月初威脅情報公司watchTowr發現CVE-2026-82329的利用活動，一週後有資安公司警告，他們發現多個資安漏洞遭利用的攻擊活動。",
       "source": "iThome",
       "tag": "繁中"
     }
