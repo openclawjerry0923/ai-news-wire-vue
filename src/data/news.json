@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-14T18:22:41.058Z",
+  "generatedAt": "2026-09-14T22:18:21.515Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(cron): move scheduled-job loading off the caller thread (#14…",
-      "link": "https://github.com/openclaw/openclaw/commit/a6e6a2643f243999765f24d12224288f6bb3a1de",
-      "publishedAt": "2026-09-14T18:21:23Z",
-      "summary": "refactor(cron): move scheduled-job loading off the caller thread (#148335) * refactor(cron): run mutable store loads in the SQLite worker * test(cron): await worker finalization and preserve test ownership * test(cron): settle worker-backed fixtures before assertions and cleanup * test(cron): drain Doctor fixture workers before cleanup",
+      "title": "perf: avoid duplicate PCM buffers in Discord recordings (#148302)",
+      "link": "https://github.com/openclaw/openclaw/commit/6708e942c4d13a42912bc8f7f94fc52ed82cdfe6",
+      "publishedAt": "2026-09-14T22:13:32Z",
+      "summary": "perf: avoid duplicate PCM buffers in Discord recordings (#148302)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(排程): move scheduled-job loading off the caller thread (#14…",
-      "summaryZh": "重點：refactor(排程): move scheduled-job loading off the caller thread (#148335) * refactor(排程): run mutable store loads in the ..."
+      "titleZh": "OpenClaw 程式碼更新：perf: avoid duplicate PCM buffers in Discord recordings (#148302)",
+      "summaryZh": "重點：perf: avoid duplicate PCM buffers in Discord recordings (#148302)..."
     },
     {
       "id": 2,
-      "title": "perf(plugin-sdk): pool API declaration sections incrementally (#148393)",
-      "link": "https://github.com/openclaw/openclaw/commit/6d586170048982bd6c5ebc3cdc08bbd003f47a1d",
-      "publishedAt": "2026-09-14T18:18:15Z",
-      "summary": "perf(plugin-sdk): pool API declaration sections incrementally (#148393) Avoid materializing duplicate section tuples before deduplication while preserving API report bytes. Synthetic renderer fixtures reduced peak RSS by 13% and 29% with the existing heap; this does not establish a fix for the CI renderer OOM.",
+      "title": "fix(agents): resume output-limited tool calls without repeating work …",
+      "link": "https://github.com/openclaw/openclaw/commit/b99ccac1be8564a3219057909bec217d3fc72bbc",
+      "publishedAt": "2026-09-14T22:10:26Z",
+      "summary": "fix(agents): resume output-limited tool calls without repeating work (#148440) * fix(agents): resume output-limited tool calls without repeating work Continue from settled tool results after output-limit truncation while preserving cancellation, intentional tool termination, and bounded retries. Retain the provider incomplete reason and reset retries only after a complete response. * fix(agents): preserve terminal accounting and cancellation during recovery Persist the original output-limit terminal once after admitted tools settle, and keep cancellation ahead of critical tool-loop termination. Preserve the existing usage assertions and cover both event and result completion. Isolate the memory queue rejection fixture from background startup catchup so its controlled sync mocks cannot be consumed by unrelated work.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(plugin-sdk): pool API declaration sections incrementally (#148393)",
-      "summaryZh": "重點：perf(plugin-sdk): pool API declaration sections incrementally (#148393) Avoid materializing duplicate section tuples bef..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): resume output-limited tool calls without repeating work …",
+      "summaryZh": "重點：修正(agents): resume output-limited tool calls without repeating work (#148440) * 修正(agents): resume output-limited tool c..."
     },
     {
       "id": 3,
-      "title": "fix: continue tasks after provider context overflows (#148383)",
-      "link": "https://github.com/openclaw/openclaw/commit/a6093ef81fa8e08e659982de0e32c3db750de24f",
-      "publishedAt": "2026-09-14T18:14:08Z",
-      "summary": "fix: continue tasks after provider context overflows (#148383)",
+      "title": "fix(media): reduce first chat history loading work (#148542)",
+      "link": "https://github.com/openclaw/openclaw/commit/e11c5d5f5e2e8e96a9d9d65ff89164764ede5660",
+      "publishedAt": "2026-09-14T22:09:49Z",
+      "summary": "fix(media): reduce first chat history loading work (#148542) Keep one media-output parser and let the public image-aware adapter supply Markdown scanning. Route display callers through the internal owner so history workers do not load an image scanner they never use. Preserve public options, allowlist precedence, display output, and media segments. Cover the import boundary and image-option combinations. The final worker comparison removes 162,038 first-read dependency bytes while preserving complete responses, protocol schemas, and database contents.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: continue tasks after provider context overflows (#148383)",
-      "summaryZh": "重點：修正: continue tasks after provider context overflows (#148383)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(media): reduce first chat history loading work (#148542)",
+      "summaryZh": "重點：修正(media): reduce first chat history loading work (#148542) Keep one media-output parser and let the public image-aware ..."
     },
     {
       "id": 4,
-      "title": "fix(backup): accept canonical network-share archive metadata (#148386)",
-      "link": "https://github.com/openclaw/openclaw/commit/b49df002f2df73db1d5f256d293f2baab2d0b655",
-      "publishedAt": "2026-09-14T18:13:39Z",
-      "summary": "fix(backup): accept canonical network-share archive metadata (#148386) Use Windows normalization and case-insensitive ownership keys for canonical UNC source metadata. Verification and restore preserve existing archive layout and validation, including duplicate-owner rejection.",
+      "title": "fix(android): stabilize sidebar opening animation (#147312)",
+      "link": "https://github.com/openclaw/openclaw/commit/fe5e23c7ba8aeadae386a3a41f5a5febba38db9c",
+      "publishedAt": "2026-09-14T22:08:38Z",
+      "summary": "fix(android): stabilize sidebar opening animation (#147312)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(backup): accept canonical network-share archive metadata (#148386)",
-      "summaryZh": "重點：修正(backup): accept canonical network-share archive metadata (#148386) Use Windows normalization and case-insensitive own..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): stabilize sidebar opening animation (#147312)",
+      "summaryZh": "重點：修正(android): stabilize sidebar opening animation (#147312)..."
     },
     {
       "id": 5,
