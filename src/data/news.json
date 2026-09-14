@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-09-13T22:56:27.601Z",
+  "generatedAt": "2026-09-14T00:50:30.543Z",
   "items": [
     {
       "id": 1,
-      "title": "improve(qa): show safe Tool Search failure evidence (#123145)",
-      "link": "https://github.com/openclaw/openclaw/commit/be0494ea666d2267c7814dc2e7f9b86e88144776",
-      "publishedAt": "2026-09-13T22:53:41Z",
-      "summary": "improve(qa): show safe Tool Search failure evidence (#123145) * test(qa): add Tool Search failure evidence * test(qa): trim Tool Search failure evidence * fix(qa): omit raw Tool Search failure cause * fix(qa): project allowlisted gateway failure facts * fix(qa): keep failure projection internal * fix(qa): distinguish tool search stage evidence * fix(qa): scope gateway failure facts to request * fix(qa): include describe stage in session evidence * fix(qa): omit ambiguous rolled gateway logs * fix(qa): reuse gateway log cursors for failure evidence * refactor(qa): make tool identifier matching explicit",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(qa): show safe Tool Search failure evidence (#123145)",
-      "summaryZh": "重點：improve(qa): show safe Tool Search failure evidence (#123145) * test(qa): add Tool Search failure evidence * test(qa): t..."
+      "title": "GitLab修補CVSS滿分重大漏洞，公開隔天即出現漏洞探測",
+      "link": "https://www.ithome.com.tw/news/178892",
+      "publishedAt": "2026-09-14 08:09:00",
+      "summary": "GitLab修補CVSS風險分數達10分的重大（Critical）路徑穿越漏洞CVE-2026-85706，未通過身分驗證的遠端攻擊者在特定條件下，可能讀取GitLab伺服器上的任意檔案。GitLab於9月10日發布GitLab Community Edition（CE）與Enterprise Edition（EE）19.1.8、19.2.6及19.3.2版，並呼籲使用自管GitLab環境的企業儘速更新。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(cli): honor agent selection for image descriptions (#147456)",
-      "link": "https://github.com/openclaw/openclaw/commit/911d14243e71e3b0fe6c9796783196ac1413f734",
-      "publishedAt": "2026-09-13T22:51:43Z",
-      "summary": "fix(cli): honor agent selection for image descriptions (#147456) ## What Problem This Solves Image inference accepts `--agent`, discards the selected identity, and fails in explicit multi-agent fleets—even when the named agent exists. Supersedes #145188 by @MertBasar0. Reported in #145119 by @jarvis-stephens-bot. ## User Impact Image description works with the selected agent. Audio and video commands carry the same selected identity and retain their existing successful output behavior. ## Why This Change Was Made The decision which agent owns the operation stays with `resolveCapabilityProviderAgentId` in `src/cli/capability-cli/shared.ts`. All four CLI call sites now forward that decision alongside its credential directory. Tests check both values at the runtime boundary. Current audio evaluation order and provider/model output are preserved. ## Evidence With three explicit-owner agents and a synthetic loopback provider, the following commands failed before any HTTP request on main `4394ad538cac`. They succeed on `068dc9c759d9`: ```sh pnpm openclaw infer image describe --file image.png --prompt describe --agent finance --json pnpm openclaw infer image describe --file image.png --prompt describe --model stubvision/stub-vision-1 --agent finance --json pnpm openclaw infer image describe-many --file image.png --file image.png --prompt describe --agent finance --json ``` Sanitized terminal captures: ```text Before: exit 1; ok=false; AgentSelectionRequiredError; HTTP requests=0 After describe: exit 0; ok=true; SYNTHETIC_IMAGE_DESCRIPTION; requests=1 After explicit model: exit 0; ok=true; SYNTHETIC_IMAGE_DESCRIPTION; requests=1 After describe-many: exit 0; ok=true; two descriptions; requests=2 ``` The real Gateway passed its health check. These media commands use local transport. Sole-agent image, configured audio transcription, and configured video description succeed before and after; audio/video are consistency controls, not reproduced failures. The new registered-command assertions fail nine cases on trusted main `21aaac7ad6e7` and pass after the repair. On merge `e0665878861f` (parents `068dc9c759d9` and main `1692f891b167`), all five selected test files pass: **332 tests**. Validation commands and limits ```sh node scripts/run-vitest.mjs run --config test/vitest/vitest.cli.config.ts src/cli/capability-cli.test.ts --testNamePattern 'owner selection' node --import tsx scripts/ci-run-node-test-shard.mts pnpm openclaw infer audio transcribe --file audio.wav --agent finance --json pnpm openclaw infer video describe --file video.mp4 --agent finance --json ``` The CI test runner selected the full capability CLI, local account-secret, media runtime, settings-storage, and proxy lifecycle test files. CLI/account tests: 259; media runtime: 33; settings: 15; proxy: 25. An inherited color setting first affected the settings numeric-output assertion; disabling forced color passed without source or test changes. The successful owner/runtime suites were not repeated. Formatting, syntax lint, assertion safety, line limits, and unused-export checks pass. [CI run 34784959798](https://github.com/openclaw/openclaw/actions/runs/34784959798) passed at `068dc9c759d99233ed17b668bef97b94ad10ab86`, including production and test typechecks. The original PR's settings failure was repaired upstream in #147029. Its old proxy child-exit failure remains unexplained; both exact tests passed in its matched main-parent CI. The current tests pass, but this does not waive fresh CI or declare the old proxy failure unrelated. **External SDK compatibility:** The same external consumer compiled and ran against the shipped 2026.9.4 package and the packaged candidate at `068dc9c759d9` in one isolated container. Directory-only and `agentId` calls passed for both audio and video: four successful calls per package, with the expected credential directory and loopback-only transport. ## Compatibility Audio/video SDK parameter types gain optional `agentId` fields. Existing directory-only callers remain valid. There is no new export, config key, schema, migration, protocol, or dependency. ## Consumers The selected agent identity and its credential directory now reach all four media CLI runtime calls. The existing runtime uses that identity for image model and workspace context. Audio and video retain their existing credential-directory behavior. The optional audio/video `agentId` fields extend the existing SDK parameter types. Existing directory-only callers remain valid. Browser screenshot description, sticker description, and voice transcription callers are unchanged; this PR does not claim to repair their separate identity-forwarding gaps. The three image command cases fail before any HTTP request on the recorded main baseline and succeed on the candidate. Configured audio/video and sole-agent image commands pass before and after. Automatic-selection cases were not executed. The media commands use local transport. The running Gateway is a health control. The 332 passing tests are the selected complete test files on the recorded fresh merge; full CI and typechecking passed in the exact-head run linked above. No cache or persisted state is added; existing account preparation and request cleanup keep their owners. Co-authored-by: MertBasar0 Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): honor agent selection for image descriptions (#147456)",
-      "summaryZh": "重點：修正(cli): honor agent selection for image descriptions (#147456) ## What Problem This Solves Image inference accepts `--a..."
+      "title": "電子郵件行銷服務商Brevo客戶帳號遭入侵，攻擊者利用合法郵件管道寄送網釣信",
+      "link": "https://www.ithome.com.tw/news/178888",
+      "publishedAt": "2026-09-14 08:09:00",
+      "summary": "電子郵件行銷與CRM服務商Brevo於9月9日發生資安事件，攻擊者取得部分客戶帳號的存取權限，並透過客戶的合法郵件發送管道寄送網釣信。Brevo事後確認，共有138個帳號遭入侵，其中6個被用來寄送網釣信。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(qa): ignore rejected Telegram lifecycle observations (#147484)",
-      "link": "https://github.com/openclaw/openclaw/commit/64eb2259dc1a2407115089dc3d25dd859efd56c2",
-      "publishedAt": "2026-09-13T22:51:11Z",
-      "summary": "fix(qa): ignore rejected Telegram lifecycle observations (#147484)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(qa): ignore rejected Telegram lifecycle observations (#147484)",
-      "summaryZh": "重點：修正(qa): ignore rejected Telegram lifecycle observations (#147484)..."
+      "title": "Cribl取得Radiant Security AI SOC技術，擴大資安營運布局",
+      "link": "https://www.ithome.com.tw/news/178869",
+      "publishedAt": "2026-09-14 08:09:00",
+      "summary": "企業遙測資料平臺業者Cribl於8月中旬宣布，取得AI資安新創Radiant Security旗下AI原生資安營運中心（Security Operations Center，SOC）產品的技術資產與智慧財產權，目前正調整相關技術，使其能以應用程式形式執行於Cribl既有遙測資料平臺，並用於自動進行資安警示分類、調查及處置。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix: resume interrupted work before new messages (#147486)",
-      "link": "https://github.com/openclaw/openclaw/commit/5dc800ba19e563cfe5a5af6ea61d5480c85024e4",
-      "publishedAt": "2026-09-13T22:48:58Z",
-      "summary": "fix: resume interrupted work before new messages (#147486) Keep durable restart state with its recovery owner instead of consuming it during prompt preparation. Resume the interrupted turn through the existing Gateway recovery path before admitting new work, and direct the agent to reconcile current state and continue the original task.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: resume interrupted work before new messages (#147486)",
-      "summaryZh": "重點：修正: resume interrupted work before new messages (#147486) Keep durable restart state with its recovery owner instead of ..."
+      "title": "駭客鎖定AI程式開發工具，提示詞注入成供應鏈攻擊手法",
+      "link": "https://www.ithome.com.tw/news/178861",
+      "publishedAt": "2026-09-14 08:09:00",
+      "summary": "AI程式開發工具已成為軟體供應鏈攻擊目標。駭客不只鎖定開發環境中的身分驗證憑證，也開始利用提示詞注入（Prompt Injection）操控AI程式開發助理，甚至干擾AI安全掃描。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "無人艇擊沉無人艇，烏克蘭稱黑海首度出現無人載具海戰",
-      "link": "https://technews.tw/2026/09/13/ukrainian-usv-sinked-russian-usv-in-combat-for-the-first-time-in-history/",
-      "publishedAt": "Sun, 13 Sep 2026 08:55:50 +0000",
-      "summary": "烏克蘭海軍近日宣稱，旗下 Sargan 3000 無人水面載具在黑海以重機槍擊沉一艘俄軍無人艇，創下全球首次無 [&#8230;]",
-      "source": "TechNews",
+      "title": "CISA更新內部威脅指引，將AI風險納入企業防護",
+      "link": "https://www.ithome.com.tw/news/178858",
+      "publishedAt": "2026-09-14 08:09:00",
+      "summary": "美國網路安全暨基礎設施安全局（CISA）更新《內部威脅緩解指引》（Insider Threat Mitigation Guide），新增AI、混合與遠距工作等議題，並提出企業建立內部威脅管理機制時，應整合人員通報、資安監控與實體安全資訊。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "Kalanick 旗下 Atoms 獲 17 億美元，Waymo 前創辦人加盟進軍 Robotaxi",
-      "link": "https://finance.technews.tw/2026/09/13/atoms-reportedly-eyes-robotaxi-market/",
-      "publishedAt": "Sun, 13 Sep 2026 08:00:44 +0000",
-      "summary": "Uber 創辦人特拉維斯‧卡拉尼克（Travis Kalanick）旗下機器人新創公司 Atoms，正被外媒揭 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test: advance realtime connection retry timers (#147523)",
+      "link": "https://github.com/openclaw/openclaw/commit/440be3353b3719ee30434c698e3dd0de86b0372c",
+      "publishedAt": "2026-09-14T00:49:12Z",
+      "summary": "test: advance realtime connection retry timers (#147523)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: advance realtime connection retry timers (#147523)",
+      "summaryZh": "重點：test: advance realtime connection retry timers (#147523)..."
     },
     {
       "id": 7,
-      "title": "AI 越聰明 EQ 越值錢，專家：父母必學的「情緒教養」將決定孩子未來高度",
-      "link": "https://technews.tw/2026/09/13/ai-era-emotions/",
-      "publishedAt": "Sun, 13 Sep 2026 07:30:06 +0000",
-      "summary": "一位擁有豐富企業高階主管輔導經驗的工業與組織心理學家指出，在人工智慧（AI）快速發展的時代，具備辨識、理解與表 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "perf(agents): pace redundant exec activity broadcasts (#147550)",
+      "link": "https://github.com/openclaw/openclaw/commit/b0638604941dda7eb80095481576898f875caf08",
+      "publishedAt": "2026-09-14T00:45:10Z",
+      "summary": "perf(agents): pace redundant exec activity broadcasts (#147550)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(agents): pace redundant exec activity broadcasts (#147550)",
+      "summaryZh": "重點：perf(agents): pace redundant exec activity broadcasts (#147550)..."
     },
     {
       "id": 8,
-      "title": "手機相簿越滿腦袋卻越空，心理學家揭「數位失憶症」的駭人真相",
-      "link": "https://technews.tw/2026/09/13/digital-amnesia/",
-      "publishedAt": "Sun, 13 Sep 2026 07:00:11 +0000",
-      "summary": "現代人習慣用智慧型手機截圖保存重要資訊，從網購清單、旅遊攻略到實用食譜，總以為「截圖等於記住」。然而，一項最新 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(update): distinguish unavailable identity and qualify saved advic…",
+      "link": "https://github.com/openclaw/openclaw/commit/14bb3c088231bd1c7c8b23eee828eb14973e1972",
+      "publishedAt": "2026-09-14T00:43:11Z",
+      "summary": "fix(update): distinguish unavailable identity and qualify saved advice (#147553) * fix(update): distinguish unavailable identity and qualify saved advice Keep failed update history while distinguishing missing identity evidence from observed version/build disagreement. Qualify saved recovery guidance with a current health observation without dropping migration constraints. Refs #145087. Reported by @freshxiaoyao (#145087). * test(update): include current health in boot notice expectations * ci: refresh update report checks on current main",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): distinguish unavailable identity and qualify saved advic…",
+      "summaryZh": "重點：修正(update): distinguish unavailable identity and qualify saved advice (#147553) * 修正(update): distinguish unavailable id..."
     },
     {
       "id": 9,
-      "title": "食品製造業 AI 轉型大解密，選對平台不如打好「數據與信任」的基礎",
-      "link": "https://finance.technews.tw/2026/09/13/ai-reshaping-food-manufacturing/",
-      "publishedAt": "Sun, 13 Sep 2026 06:30:13 +0000",
-      "summary": "食品製造業正掀起一波 AI 導入熱潮。然而，業界實務觀察指出，決定 AI 專案成敗的關鍵，往往不在於企業砸重金 [&#8230;]",
+      "title": "超級央行週來了，一次看懂台美央行利率決策考量",
+      "link": "https://finance.technews.tw/2026/09/14/super-central-bank-week-taiwan-us-interest-rate-decisions/",
+      "publishedAt": "Mon, 14 Sep 2026 00:40:09 +0000",
+      "summary": "美國與台灣本週迎來超級央行週，美國 8 月通膨水準仍高，市場對聯準會升息預期隨之增強，全球關注其利率會議結果； [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "AI 升級不裁員！歐德砸 33 億打造系統家具「鋼鐵森林」，年年送 iPhone 寵員工",
-      "link": "https://finance.technews.tw/2026/09/13/furniture-magnate-no-layoffs-iphones-3-3-billion-ai-factory-employee-care/",
-      "publishedAt": "Sun, 13 Sep 2026 06:00:55 +0000",
-      "summary": "桃園大園，一座能看到飛機起降的智慧工廠裡，一位做了 20 年的老師傅站在機台的螢幕前，手指還留著早年操作裁板機 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: prevent cloud-session archives from stalling and reappearing (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/7081986dbd79c6689801fc194290c1c28757a347",
+      "publishedAt": "2026-09-14T00:39:54Z",
+      "summary": "fix: prevent cloud-session archives from stalling and reappearing (#147552) * fix: prevent cloud-session archives from stalling Allow prepared reclaim ahead of maintenance waiting for unrelated dispatches while preserving admitted work, provider settlement, and later-operation ordering. Keep archive rows visible until confirmation and retain exact pending ownership across retries and reconnects. * style: name the pending archive ownership token * test: align archive fixtures with confirmed completion",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: prevent cloud-session archives from stalling and reappearing (#1…",
+      "summaryZh": "重點：修正: prevent cloud-session archives from stalling and reappearing (#147552) * 修正: prevent cloud-session archives from sta..."
     }
   ]
 }
