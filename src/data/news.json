@@ -1,17 +1,61 @@
 {
-  "generatedAt": "2026-09-15T07:18:37.119Z",
+  "generatedAt": "2026-09-15T13:12:40.223Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(workers): cleanup failures lose their cause after a reply (#137828)",
+      "link": "https://github.com/openclaw/openclaw/commit/83c1767446cb101f239cbed430524e2934556ebe",
+      "publishedAt": "2026-09-15T13:08:11Z",
+      "summary": "fix(workers): cleanup failures lose their cause after a reply (#137828) * fix(agents): preserve results when finalization fails Keep captured output, usage, and delivery evidence when native CLI session continuity cannot be saved or remote computer cleanup fails. Record the failure at its owner, classify replacement results independently, and prevent another model attempt from repeating effects. Preserve typed frozen errors through cleanup, rejecting credential cleanup, and the canonical terminal outcome rather than reporting a false winning model. This is the result-finalization prerequisite split from #136049 (paired Mac cleanup and error preservation), related to #135944 (cleanup hides its cause). It does not include native input lifecycle changes or complete that issue. Validation: 565 selected tests passed; the final test-only cleanup was covered by 77 rerun cases. Completed changed-check component plan, production build, and fresh isolated Codex autoreview (P0 scoped-clean). Live proof follows on this exact source before landing. Production +104; tests +621; docs +2. The added production surface owns retained results and frozen-error no-replay evidence; terminal projection is simplified. * fix(workers): retain acknowledged cleanup failures Drain computer and browser disposal before the worker's finishing ACK. Preserve primary and secondary cleanup causes rather than replacing them with terminal assistant text or a generic launcher error. Capture the applied finishing outcome under its exact operational owner, claim, credential identity, sequence and ACK predicate. Revalidate after publication listeners, consume once before reconciliation releases the owner, and discard retained state on closure or replacement. Keep credential cleanup rejecting and skill-artifact deletion advisory. This is the worker-outcome slice of #136049 (paired-computer cleanup and error preservation), related to #135944 (cleanup hides its native cause). Depends on #137821 (completed CLI actions replay when session saving fails). Native input/tool-lifetime changes remain separate. Validation: 347 tests across 14 integrated suites; actual worker-scoped changed gate; production build; fresh isolated Codex autoreview, P0 scoped-clean. The 35-file tested integration matches this publication tree exactly. Real worker/native failure-path proof is still required before landing. Worker-only delta: production +124, tests +592, docs +2. Tool disposal is net-neutral; new lines own exact acknowledged, one-use finishing evidence. * fix(workers): stop fallback after acknowledged cleanup failures Record replay prohibition at the failing tool-cleanup owner and carry that fact through the existing finishing replayInvalid field. Retain it with the exact acknowledged turn outcome, then mark the launcher's error before workspace reconciliation releases the owner. Provider-only failures keep their existing fallback behavior. A boundary regression through run entry, placement admission, finishing acknowledgement and outer model fallback reproduced a second synthetic effect after cleanup failure. The repaired path executes once and retains the original cause, including when workspace reconciliation succeeds. Proof: 125 owner and 285 sibling cases passed, with eight targeted legitimate-fallback controls and final fixture reruns. Changed checks, full build and fresh whole-worker-PR P0 autoreview passed. Synthetic boundary proof is not live native-input proof. No protocol/schema change. Follow-up to the acknowledged worker-outcome repair in https://github.com/openclaw/openclaw/pull/137828. Incremental LOC: production +20, tests +195, docs net zero. * test(agents): use runtime auth reader in thinking fixture --------- Co-authored-by: Jason (Json)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(workers): cleanup failures lose their cause after a reply (#137828)",
+      "summaryZh": "重點：修正(workers): cleanup failures lose their cause after a reply (#137828) * 修正(agents): preserve results when finalization ..."
+    },
+    {
+      "id": 2,
+      "title": "fix(release): surface child startup failures (#149059)",
+      "link": "https://github.com/openclaw/openclaw/commit/128ebb5509513d3c4858417b8619ce94208191c2",
+      "publishedAt": "2026-09-15T13:06:54Z",
+      "summary": "fix(release): surface child startup failures (#149059)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): surface child startup failures (#149059)",
+      "summaryZh": "重點：修正(版本發布): surface child startup failures (#149059)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(release): review Codex process test helpers (#149058)",
+      "link": "https://github.com/openclaw/openclaw/commit/d59ca6fbd3f8b2a8fa0e9b60acc00dfd868de3fa",
+      "publishedAt": "2026-09-15T13:05:06Z",
+      "summary": "fix(release): review Codex process test helpers (#149058)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): review Codex process test helpers (#149058)",
+      "summaryZh": "重點：修正(版本發布): review Codex process test helpers (#149058)..."
+    },
+    {
+      "id": 4,
+      "title": "fix(codex): show elapsed phases for slow catalog control calls (#148984)",
+      "link": "https://github.com/openclaw/openclaw/commit/e00500a654295dac85d6a461f9e46c67e6bf5197",
+      "publishedAt": "2026-09-15T12:51:20Z",
+      "summary": "fix(codex): show elapsed phases for slow catalog control calls (#148984)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): show elapsed phases for slow catalog control calls (#148984)",
+      "summaryZh": "重點：修正(codex): show elapsed phases for slow catalog control calls (#148984)..."
+    },
+    {
+      "id": 5,
       "title": "Apple同步更新macOS三大分支版本，修補逾200個資安漏洞",
       "link": "https://www.ithome.com.tw/news/178934",
       "publishedAt": "2026-09-15 12:09:37",
-      "summary": "Apple於9月14日同步發布macOS Golden Gate 27、Tahoe 26.7與Sequoia 15.8等三個更新版本，包含共通漏洞在內，三份公告合計涉及逾500個修補項目，其中Golden Gate 27涵蓋216個漏洞，Tahoe 26.7與Sequoia 15.8也各自包含157個與15",
+      "summary": "Apple於9月14日同步發布macOS Golden Gate 27、Tahoe 26.7與Sequoia 15.8等三個更新版本，三份公告合計列出逾500個修補項目，扣除共通漏洞後，涉及的獨立漏洞超過200個，其中Golden Gate 27涵蓋216個漏洞，Tahoe 26.7與Sequoia 15.",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "中國駭客Red Heron利用Gitea重大漏洞攻擊臺灣等多個國家",
       "link": "https://www.ithome.com.tw/news/178932",
       "publishedAt": "2026-09-15 12:09:25",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "Acronis修補cPanel與WHM備份外掛高風險漏洞，警示已遭攻擊者利用",
       "link": "https://www.ithome.com.tw/news/178937",
       "publishedAt": "2026-09-15 12:09:04",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "蘋果六大OS同步升級，新一代Apple Intelligence與Siri AI正式登場",
       "link": "https://www.ithome.com.tw/news/178933",
       "publishedAt": "2026-09-15 12:09:04",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "美AI業界憂中國追上，中國批惡性競爭",
       "link": "https://www.ithome.com.tw/news/178929",
       "publishedAt": "2026-09-15 11:09:36",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "RouterOS漏洞風險升高！Shadowserver發現全球260萬臺MikroTik路由器暴露於網路，臺灣有近1.9萬臺",
       "link": "https://www.ithome.com.tw/news/178928",
       "publishedAt": "2026-09-15 11:09:12",
       "summary": "波蘭電腦緊急事件應變團隊CERT Polska於9月5日警告，MikroTik路由器作業系統RouterOS存在多項漏洞，部分已遭攻擊者利用；美國網路安全與基礎設施安全局（CISA）也於9月10日將其中的CVE-2026-67277與CVE-2026-86060列入已遭利用漏洞（KEV）清單。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test: reuse prepared runtime for pristine preflight (#148858)",
-      "link": "https://github.com/openclaw/openclaw/commit/a2e0e51c8b4f1b1d13ce4e4d297d30bb7acbc5e0",
-      "publishedAt": "2026-09-15T07:18:22Z",
-      "summary": "test: reuse prepared runtime for pristine preflight (#148858)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: reuse prepared runtime for pristine preflight (#148858)",
-      "summaryZh": "重點：test: reuse prepared runtime for pristine preflight (#148858)..."
-    },
-    {
-      "id": 8,
-      "title": "fix(ui): settle global model drafts across agent switches (#148843)",
-      "link": "https://github.com/openclaw/openclaw/commit/d02f206fb1d1cabf12939d6de158420c617c9092",
-      "publishedAt": "2026-09-15T07:12:23Z",
-      "summary": "fix(ui): settle global model drafts across agent switches (#148843) * fix(ui): settle global model defaults across agent switches Keep global default save completion scoped to its draft rather than the Settings agent. Connection resets still retire drafts, newer edits keep their object identity, and rejected operations retain the existing Retry owner. Completed recovery now follows later authoritative config updates. Protect the flow with paired Chromium Settings regressions for agent switching, rejected saves, retries, and external changes, plus a genuine replacement-draft case. * ci: rebalance update tests into services type graph Preserve exact-once test coverage and the existing root limits by grouping the complete update lifecycle family with service tests. Reproduced the infra 702-root failure on clean main; all three compiler graphs, owner tests, changed checks, and independent review pass.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): settle global 模型 drafts across agent switches (#148843)",
-      "summaryZh": "重點：修正(ui): settle global 模型 drafts across agent switches (#148843) * 修正(ui): settle global 模型 defaults across agent switche..."
-    },
-    {
-      "id": 9,
-      "title": "fix(queue): avoid repeated scans when cancelling backlogs (#148754)",
-      "link": "https://github.com/openclaw/openclaw/commit/d24dbdb331d287a269fe7716075963b6c51869a6",
-      "publishedAt": "2026-09-15T07:11:09Z",
-      "summary": "fix(queue): avoid repeated scans when cancelling backlogs (#148754)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(queue): avoid repeated scans when cancelling backlogs (#148754)",
-      "summaryZh": "重點：修正(queue): avoid repeated scans when cancelling backlogs (#148754)..."
-    },
-    {
-      "id": 10,
-      "title": "fix(logging): orphaned \\\\\\\\?\\\\ path markers corrupt redacted Windows …",
-      "link": "https://github.com/openclaw/openclaw/commit/2995f0f2c1d98effb0f9f22c6f95ae61caaf9eba",
-      "publishedAt": "2026-09-15T07:09:31Z",
-      "summary": "fix(logging): orphaned \\\\\\\\?\\\\ path markers corrupt redacted Windows diagnostics (#147542) Closes #147502 ## What Problem This Solves Windows support diagnostics can leave `\\\\?\\` before a directory label or expose a whole namespaced local path. ## User Impact Known paths use readable labels. Unmatched network/device paths remain useful diagnostic evidence, and repeated redaction stays stable. ## Why This Change Was Made The shared support redactor owns path replacement for exports, logs, and repair diagnostics. It recognizes absolute namespace spellings and consumes attached markers in embedded errors. Prefixes are prepared once per call; this state has one writer and no persistent cache. `diagnostic-support-redaction.ts`: +40/-3 lines for namespace matching and prefix reuse. Growth accepted under the owner's standing acceptance (2026-09-15). ## Evidence `pnpm openclaw gateway diagnostics export --output support-export.zip --json` with isolated state and real JSON logs: - Main `3dbc8e2`: an embedded error retains `\\\\?\\` before `~`; a whole namespaced home path remains exposed. - Retained production proof at `24640dde`: both records use clean `~` labels; unmatched network/device paths and already redacted text are unchanged. Production remains byte-identical in the tests-only correction. - The committed regression now runs the registered export action with real log/config input, reads the ZIP, and re-exports its sanitized logs. It fails at contributor base `0c4a83f3` on orphaned markers and an exposed home path, then passes at the repaired head. - Both changed test modules pass: 64 tests. Unknown UNC/device paths, case-insensitive matching, and repeated redaction remain covered. - Preparing prefixes once removes repeated allocation: 15,000 strings take about 221 ms, matching main; sampled allocation falls about 14% versus the original patch. Retained contributor Windows 11 evidence at `2cd0bb3` uses a real 9 MB config rejected at the 8 MiB bound. Before: production export module with snapshot readers skipped. After: built CLI export. It was not reproduced on Windows during this review. The later network/device correction preserves that drive-path repair. | Export field | Before | After | | --- | --- | --- | | `config.error` | `File exceeds 8388608 bytes: \\\\?\\$OPENCLAW_STATE_DIR\\openclaw.json` | `File exceeds 8388608 bytes: $OPENCLAW_STATE_DIR\\openclaw.json` | | `config.path` | `\\\\?\\C:\\Users\\\\AppData\\Local\\openclaw-winproof\\openclaw.json` | `$OPENCLAW_STATE_DIR\\openclaw.json` | ## Compatibility No config, filesystem, update, or service behavior changes. The ordinary macOS config path was already redacted on main; its log proof supplements the retained Windows filesystem evidence. ## Consumers Support exports, sanitized logs, trajectory metadata, and repair diagnostics use the same helpers. ## Invalidation No persistent state; prefixes are recomputed per call. ## Tests `FORCE_COLOR=0 NO_COLOR=1 TERM=dumb node scripts/run-vitest.mjs run src/cli/gateway-cli.coverage.test.ts src/logging/diagnostic-support-redaction.test.ts` Earlier cron and Gateway memory failures remain causally unclassified. Both affected groups passed on contributor merge `21f4b618` ([cron](https://github.com/openclaw/openclaw/actions/runs/34930255490/job/104256993755), [Gateway](https://github.com/openclaw/openclaw/actions/runs/34930255490/job/104256993892)); final-commit CI remains for review. AI-assisted: yes ## Retained review addendum The following records the review at `24640dde`, before the tests-only correction. Known Windows paths in diagnostics exports now use readable state-directory or home labels. The shared support redactor consumes an attached namespace marker and preserves unmatched network and device paths. `diagnostic-support-redaction.ts`: +40/-3 lines for absolute namespace candidates, embedded marker handling, and prefix reuse. Growth accepted under the owner's standing acceptance (2026-09-15). The real `openclaw gateway diagnostics export` command produced the malformed log output on main and clean labels on the candidate. The 26 owner, export, and log-tail tests passed on a tree containing the main merge. The Windows oversized-config result is retained contributor evidence; it was not reproduced during this review. Its before capture used the production export module, and its after capture used the built CLI. Preparing prefixes once per call removes repeated allocation. Five warmed samples of 15,000 strings returned to baseline latency; sampled allocation fell about 14% compared with the earlier patch. No filesystem, config, service, or update behavior changes. The earlier cron completion timeout and Gateway heap exhaustion remain causally unclassified. Both affected groups passed on the later contributor merge. Those passes predate the final allocation correction and are not final-head CI evidence. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(logging): orphaned \\\\\\\\?\\\\ path markers corrupt redacted Windows …",
-      "summaryZh": "重點：修正(logging): orphaned \\\\\\\\?\\\\ path markers corrupt redacted Windows diagnostics (#147542) Closes #147502 ## What Problem..."
     }
   ]
 }
