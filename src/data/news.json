@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-09-15T13:12:40.223Z",
+  "generatedAt": "2026-09-15T17:58:27.512Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(workers): cleanup failures lose their cause after a reply (#137828)",
-      "link": "https://github.com/openclaw/openclaw/commit/83c1767446cb101f239cbed430524e2934556ebe",
-      "publishedAt": "2026-09-15T13:08:11Z",
-      "summary": "fix(workers): cleanup failures lose their cause after a reply (#137828) * fix(agents): preserve results when finalization fails Keep captured output, usage, and delivery evidence when native CLI session continuity cannot be saved or remote computer cleanup fails. Record the failure at its owner, classify replacement results independently, and prevent another model attempt from repeating effects. Preserve typed frozen errors through cleanup, rejecting credential cleanup, and the canonical terminal outcome rather than reporting a false winning model. This is the result-finalization prerequisite split from #136049 (paired Mac cleanup and error preservation), related to #135944 (cleanup hides its cause). It does not include native input lifecycle changes or complete that issue. Validation: 565 selected tests passed; the final test-only cleanup was covered by 77 rerun cases. Completed changed-check component plan, production build, and fresh isolated Codex autoreview (P0 scoped-clean). Live proof follows on this exact source before landing. Production +104; tests +621; docs +2. The added production surface owns retained results and frozen-error no-replay evidence; terminal projection is simplified. * fix(workers): retain acknowledged cleanup failures Drain computer and browser disposal before the worker's finishing ACK. Preserve primary and secondary cleanup causes rather than replacing them with terminal assistant text or a generic launcher error. Capture the applied finishing outcome under its exact operational owner, claim, credential identity, sequence and ACK predicate. Revalidate after publication listeners, consume once before reconciliation releases the owner, and discard retained state on closure or replacement. Keep credential cleanup rejecting and skill-artifact deletion advisory. This is the worker-outcome slice of #136049 (paired-computer cleanup and error preservation), related to #135944 (cleanup hides its native cause). Depends on #137821 (completed CLI actions replay when session saving fails). Native input/tool-lifetime changes remain separate. Validation: 347 tests across 14 integrated suites; actual worker-scoped changed gate; production build; fresh isolated Codex autoreview, P0 scoped-clean. The 35-file tested integration matches this publication tree exactly. Real worker/native failure-path proof is still required before landing. Worker-only delta: production +124, tests +592, docs +2. Tool disposal is net-neutral; new lines own exact acknowledged, one-use finishing evidence. * fix(workers): stop fallback after acknowledged cleanup failures Record replay prohibition at the failing tool-cleanup owner and carry that fact through the existing finishing replayInvalid field. Retain it with the exact acknowledged turn outcome, then mark the launcher's error before workspace reconciliation releases the owner. Provider-only failures keep their existing fallback behavior. A boundary regression through run entry, placement admission, finishing acknowledgement and outer model fallback reproduced a second synthetic effect after cleanup failure. The repaired path executes once and retains the original cause, including when workspace reconciliation succeeds. Proof: 125 owner and 285 sibling cases passed, with eight targeted legitimate-fallback controls and final fixture reruns. Changed checks, full build and fresh whole-worker-PR P0 autoreview passed. Synthetic boundary proof is not live native-input proof. No protocol/schema change. Follow-up to the acknowledged worker-outcome repair in https://github.com/openclaw/openclaw/pull/137828. Incremental LOC: production +20, tests +195, docs net zero. * test(agents): use runtime auth reader in thinking fixture --------- Co-authored-by: Jason (Json)",
+      "title": "chore(i18n): refresh native locales (#148897)",
+      "link": "https://github.com/openclaw/openclaw/commit/0ae2130d4603bc8fe2ec890be359d3af3e8b9a89",
+      "publishedAt": "2026-09-15T17:56:33Z",
+      "summary": "chore(i18n): refresh native locales (#148897) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(workers): cleanup failures lose their cause after a reply (#137828)",
-      "summaryZh": "重點：修正(workers): cleanup failures lose their cause after a reply (#137828) * 修正(agents): preserve results when finalization ..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#148897)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#148897) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 2,
-      "title": "fix(release): surface child startup failures (#149059)",
-      "link": "https://github.com/openclaw/openclaw/commit/128ebb5509513d3c4858417b8619ce94208191c2",
-      "publishedAt": "2026-09-15T13:06:54Z",
-      "summary": "fix(release): surface child startup failures (#149059)",
+      "title": "improve: pause collection reviews with no eligible rooted runtime (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/05c501ab7ebead40dc13b6758c80a5583d9b71c1",
+      "publishedAt": "2026-09-15T17:47:56Z",
+      "summary": "improve: pause collection reviews with no eligible rooted runtime (#141626) * improve: pause collection reviews with no eligible rooted runtime * fix(cron): preserve uncertain collection review execution preferences --------- Co-authored-by: anyech",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): surface child startup failures (#149059)",
-      "summaryZh": "重點：修正(版本發布): surface child startup failures (#149059)..."
+      "titleZh": "OpenClaw 程式碼更新：improve: pause collection reviews with no eligible rooted runtime (#1…",
+      "summaryZh": "重點：improve: pause collection reviews with no eligible rooted runtime (#141626) * improve: pause collection reviews with no ..."
     },
     {
       "id": 3,
-      "title": "fix(release): review Codex process test helpers (#149058)",
-      "link": "https://github.com/openclaw/openclaw/commit/d59ca6fbd3f8b2a8fa0e9b60acc00dfd868de3fa",
-      "publishedAt": "2026-09-15T13:05:06Z",
-      "summary": "fix(release): review Codex process test helpers (#149058)",
+      "title": "fix(ci): require fresh checks after relevant main changes (#149143)",
+      "link": "https://github.com/openclaw/openclaw/commit/1537a4bc070482f0f2fd8f02102f7095f61df2c5",
+      "publishedAt": "2026-09-15T17:47:53Z",
+      "summary": "fix(ci): require fresh checks after relevant main changes (#149143) * fix(ci): validate base context before reusing hosted proof * test(ci): provide closeout verifier evidence",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): review Codex process test helpers (#149058)",
-      "summaryZh": "重點：修正(版本發布): review Codex process test helpers (#149058)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): require fresh checks after relevant main changes (#149143)",
+      "summaryZh": "重點：修正(ci): require fresh checks after relevant main changes (#149143) * 修正(ci): validate base context before reusing hosted..."
     },
     {
       "id": 4,
-      "title": "fix(codex): show elapsed phases for slow catalog control calls (#148984)",
-      "link": "https://github.com/openclaw/openclaw/commit/e00500a654295dac85d6a461f9e46c67e6bf5197",
-      "publishedAt": "2026-09-15T12:51:20Z",
-      "summary": "fix(codex): show elapsed phases for slow catalog control calls (#148984)",
+      "title": "fix(browser): tolerate delayed startup readiness responses (#149284)",
+      "link": "https://github.com/openclaw/openclaw/commit/13ce3686f3bcc2ecd1d60cc8861c93ee87bdfb84",
+      "publishedAt": "2026-09-15T17:47:16Z",
+      "summary": "fix(browser): tolerate delayed startup readiness responses (#149284) * fix(browser): tolerate delayed startup readiness responses * docs(browser): remove retired readiness setting reference",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): show elapsed phases for slow catalog control calls (#148984)",
-      "summaryZh": "重點：修正(codex): show elapsed phases for slow catalog control calls (#148984)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): tolerate delayed startup readiness responses (#149284)",
+      "summaryZh": "重點：修正(browser): tolerate delayed startup readiness responses (#149284) * 修正(browser): tolerate delayed startup readiness re..."
     },
     {
       "id": 5,
+      "title": "解鎖更多 AI 用量和進階創作工具，Meta One 訂閱方案在台上線",
+      "link": "https://technews.tw/2026/09/15/meta-one-subscription-now-available-in-taiwan/",
+      "publishedAt": "Tue, 15 Sep 2026 15:00:38 +0000",
+      "summary": "Meta 今年已推出 Meta One 單一產品方案，包括 Instagram Plus、Facebook P [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "230 萬個大氣壓下的奇蹟！科學家成功打造「超離子冰」，助揭開冰巨行星磁場之謎",
+      "link": "https://technews.tw/2026/09/15/scientists-create-a-new-form-of-ice-at-more-than-2000-c/",
+      "publishedAt": "Tue, 15 Sep 2026 14:11:54 +0000",
+      "summary": "水是人類文明中最常見也最不可或缺的物質，但如果單純以理化的視角來看，它其實是太陽系中最怪異的液體之一。結冰時體 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "Apple同步更新macOS三大分支版本，修補逾200個資安漏洞",
       "link": "https://www.ithome.com.tw/news/178934",
       "publishedAt": "2026-09-15 12:09:37",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "中國駭客Red Heron利用Gitea重大漏洞攻擊臺灣等多個國家",
       "link": "https://www.ithome.com.tw/news/178932",
       "publishedAt": "2026-09-15 12:09:25",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "Acronis修補cPanel與WHM備份外掛高風險漏洞，警示已遭攻擊者利用",
       "link": "https://www.ithome.com.tw/news/178937",
       "publishedAt": "2026-09-15 12:09:04",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "蘋果六大OS同步升級，新一代Apple Intelligence與Siri AI正式登場",
       "link": "https://www.ithome.com.tw/news/178933",
       "publishedAt": "2026-09-15 12:09:04",
       "summary": "蘋果周一（9/14）正式釋出iOS 27、iPadOS 27、macOS 27、watchOS 27、visionOS 27及tvOS 27等新一代作業系統，除了效能、連線及Liquid Glass介面等系統升級，也同步推出新一代Apple Intelligence，",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "美AI業界憂中國追上，中國批惡性競爭",
-      "link": "https://www.ithome.com.tw/news/178929",
-      "publishedAt": "2026-09-15 11:09:36",
-      "summary": "中國外交部周一（9/14）回應Anthropic執行長Dario Amodei日前提出的放慢前沿AI發展及防止中國追上等主張，批評散播威脅敘事、搞對抗及惡性競爭，只會干擾全球AI治理進程。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "RouterOS漏洞風險升高！Shadowserver發現全球260萬臺MikroTik路由器暴露於網路，臺灣有近1.9萬臺",
-      "link": "https://www.ithome.com.tw/news/178928",
-      "publishedAt": "2026-09-15 11:09:12",
-      "summary": "波蘭電腦緊急事件應變團隊CERT Polska於9月5日警告，MikroTik路由器作業系統RouterOS存在多項漏洞，部分已遭攻擊者利用；美國網路安全與基礎設施安全局（CISA）也於9月10日將其中的CVE-2026-67277與CVE-2026-86060列入已遭利用漏洞（KEV）清單。",
       "source": "iThome",
       "tag": "繁中"
     }
