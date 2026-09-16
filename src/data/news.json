@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-16T09:43:37.142Z",
+  "generatedAt": "2026-09-16T14:40:09.663Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(plugins): validate source reloads under Bun (#150088)",
+      "link": "https://github.com/openclaw/openclaw/commit/1224b7c44bd9d67d774bb71378ff4fa9fa13359d",
+      "publishedAt": "2026-09-16T14:34:57Z",
+      "summary": "fix(plugins): validate source reloads under Bun (#150088)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): validate source reloads under Bun (#150088)",
+      "summaryZh": "重點：修正(plugins): validate source reloads under Bun (#150088)..."
+    },
+    {
+      "id": 2,
+      "title": "test(infra): remove aggregate tests that duplicate owner coverage (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/ddeb8f7dac647aa3e8bcaf1e36b04e94eefb3bb5",
+      "publishedAt": "2026-09-16T14:33:53Z",
+      "summary": "test(infra): remove aggregate tests that duplicate owner coverage (#150100)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(infra): remove aggregate tests that duplicate owner coverage (#1…",
+      "summaryZh": "重點：test(infra): remove aggregate tests that duplicate owner coverage (#150100)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(codex): stop service refresh from repeatedly aborting startup (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/62334b06ce97118f028c05204b9e1c5d5ccf1923",
+      "publishedAt": "2026-09-16T14:32:33Z",
+      "summary": "fix(codex): stop service refresh from repeatedly aborting startup (#149365) Related: #127778 ## What Problem This Solves A desktop-control refresh can repeatedly abort startup when copying a signed bundle emits notifications without changing its settled fingerprint. ## Why This Change Was Made Both copy paths wait for the existing generation owner, then retain the original startup guard. The service rechecks its staging directory. Generation state has one writer; artifact reconciliation serializes work per isolated home. ## User Impact A valid refresh completes so the agent can start. A changed generation still rejects startup and preserves prior artifacts. ## Evidence Two base startups each failed after 167 native-copy notifications, retaining a synthetic prior target. The signed source, native copy, reconciliation and app-server were real. The candidate initialized build 1001067 once with the same notification count and unchanged epoch/fingerprint. The current-service control initialized with zero notifications. Two real Gateway turns completed. The first recovered one selection retry; the second had none. The first retry is unattributed; this does not prove every first startup is retry-free. ## Compatibility Service: +8 lines for the wait and staging check. Cache: +4 for its wait. Signed identity, cancellation, ownership, rollback and competing-installer guards remain. No configuration or migration change. Growth accepted under the owner's standing acceptance (2026-09-15). ## Consumers Agent startup and explicit Computer Use install share reconciliation. Current artifacts keep their fast path. ## Invalidation No new timer or retry. The owner's existing quiet interval has no total deadline; continued source activity can extend settlement. ## Tests Four cases enter `createIsolatedCodexAppServerClient` with real reconciliation and copies. They retain initialization, rejection, artifact-preservation and cleanup checks. Removing the waits fails both unchanged-generation cases with the production error; changed-generation controls pass. `node scripts/run-vitest.mjs run extensions/codex/src/app-server/{computer-use-startup,computer-use-service,computer-use-cache,shared-client}.test.ts`: 157 passed. Hosted selection is exactly once; full test inventory has no gaps or duplicates. Earlier merged-source proof passed 296 tests and a full build. Production bytes are unchanged by this test correction. Preflight and structural checks passed. ## Follow-ups - Attribute the first Gateway selection retry if it recurs. - Add cancellation and ownership-rebind coverage with the new wait held. Co-authored-by: Benjamin Badejo Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): stop service refresh from repeatedly aborting startup (#1…",
+      "summaryZh": "重點：修正(codex): stop service refresh from repeatedly aborting startup (#149365) Related: #127778 ## What Problem This Solves ..."
+    },
+    {
+      "id": 4,
+      "title": "test(memory): measure search and timer responsiveness separately (#15…",
+      "link": "https://github.com/openclaw/openclaw/commit/1482bf19a763acc59470faf3425b3cf559018b2c",
+      "publishedAt": "2026-09-16T14:25:53Z",
+      "summary": "test(memory): measure search and timer responsiveness separately (#150098) Keep the existing 1000 ms search and writer-release timer guard independent of asynchronous maintenance completion. Await the original sync before all eventual state assertions and preserve error propagation and cleanup.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(記憶): measure search and timer responsiveness separately (#15…",
+      "summaryZh": "重點：test(記憶): measure search and timer responsiveness separately (#150098) Keep the existing 1000 ms search and writer-版本發布 ..."
+    },
+    {
+      "id": 5,
+      "title": "華邦電砸 11.2 億美元併英飛凌 NOR Flash、F-RAM 事業，明下半年完成交易",
+      "link": "https://technews.tw/2026/09/16/winbond-information/",
+      "publishedAt": "Wed, 16 Sep 2026 13:17:01 +0000",
+      "summary": "華邦電今（16 日）發布重訊，宣布將與英飛凌旗下之 Infineon Technologies LLC 簽署股 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "HBO Max的社群網站Reddit帳號遭挾持，用於ClickFix攻擊推送惡意軟體",
       "link": "https://www.ithome.com.tw/news/178977",
       "publishedAt": "2026-09-16 12:09:44",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "VPN服務商Surfshark內部測試伺服器遭駭，未波及用戶資料",
       "link": "https://www.ithome.com.tw/news/178978",
       "publishedAt": "2026-09-16 12:09:41",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "祖克柏談AI安全，各家業者應自行確保模型安全",
       "link": "https://www.ithome.com.tw/news/178976",
       "publishedAt": "2026-09-16 12:09:26",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "Mozilla發布Firefox 156，修補73個資安漏洞",
       "link": "https://www.ithome.com.tw/news/178975",
       "publishedAt": "2026-09-16 11:09:37",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "美國加密貨幣監管法案CLARITY Act參議院闖關失敗",
       "link": "https://www.ithome.com.tw/news/178974",
       "publishedAt": "2026-09-16 11:09:04",
       "summary": "美國參議院周二（9/15）表決加密貨幣監管法案《CLARITY Act》，最終僅獲49票支持、50票反對，未達推進法案所需的60票門檻。法案闖關失敗後，比特幣一度跌破7.5萬美元，以太幣跌逾5%，XRP更重挫逾10%。 CLARITY Act主要是用來建立美國加密貨幣市場監管架構，包括釐清證券交易委員會（SEC）與商品期貨交易委員會（CFTC）的監管權責，以及加密貨幣業者應遵循的規範，眾議院已於去年7月通過該法案，兩黨經過數月協商仍未取得共識，在參議院被擋了下來。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "電商平臺WooCommerce外掛重大漏洞被鎖定，攻擊者藉此在WordPress網站上傳後門",
-      "link": "https://www.ithome.com.tw/news/178972",
-      "publishedAt": "2026-09-16 11:09:01",
-      "summary": "9月14日資安廠商Wordfence警告，專供電商平臺WooCommerce的付費外掛程式Wholesale Lead Capture，於今年2月公布及修補的重大漏洞CVE-2026-27540，近期出現遭到積極利用的現象，自漏洞公開後Wordfence已擋下超過10萬次嘗試利用攻擊，自6月初開始出現數次大規模活動，並在8月底達到高峰，當時攻擊者一天內嘗",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(ui): find recovered full replies in transcript search (#149915)",
-      "link": "https://github.com/openclaw/openclaw/commit/c5ee365716d094e0ad087634ef89fc75e8dcbd23",
-      "publishedAt": "2026-09-16T09:42:30Z",
-      "summary": "fix(ui): find recovered full replies in transcript search (#149915) * fix(ui): search recovered full-message text * fix(ui): keep expansion deletion helper private",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): find recovered full replies in transcript search (#149915)",
-      "summaryZh": "重點：修正(ui): find recovered full replies in transcript search (#149915) * 修正(ui): search recovered full-message text * 修正(ui)..."
-    },
-    {
-      "id": 8,
-      "title": "fix(agents): fence context engine bootstrap at the admitted user turn…",
-      "link": "https://github.com/openclaw/openclaw/commit/f12690920c65f66692e004852f21fd3b03873584",
-      "publishedAt": "2026-09-16T09:39:23Z",
-      "summary": "fix(agents): fence context engine bootstrap at the admitted user turn (#149690) The embedded runner persists the current user turn before bootstrapping the context engine, but only the assemble call ran under the transcript read fence. An engine that reconciles from the transcript imported the pending turn, the host appended it again after assembly, and the next run kept one copy, so every later provider byte shifted and the prompt cache missed. Co-authored-by: Peter Lindsey",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): fence context engine bootstrap at the admitted user turn…",
-      "summaryZh": "重點：修正(agents): fence context engine bootstrap at the admitted user turn (#149690) The embedded runner persists the current ..."
-    },
-    {
-      "id": 9,
-      "title": "fix(worktrees): preserve work during creation and cleanup races (#149…",
-      "link": "https://github.com/openclaw/openclaw/commit/23fb1c04eaf6ccf995edc4c99008bc3229cf3272",
-      "publishedAt": "2026-09-16T09:35:14Z",
-      "summary": "fix(worktrees): preserve work during creation and cleanup races (#149914) Pin checkout sizing and materialization to the commit Git actually registers, while retaining native upstream tracking and submodule behavior. Keep rollback under allocation ownership after caller cancellation and fence it after lease loss or a changed Git registration. Serialize orphan cleanup and snapshot expiry with creation and restore, recheck activity before cleanup, and use the actual allocation outcome for session rollback. Recover Git locks after registry errors, handle stale origin/HEAD and nested working directories, and remove unused branch and lease machinery.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): preserve work during creation and cleanup races (#149…",
-      "summaryZh": "重點：修正(worktrees): preserve work during creation and cleanup races (#149914) Pin checkout sizing and materialization to the ..."
-    },
-    {
-      "id": 10,
-      "title": "fix(ui): stabilize browser interaction coverage (#149929)",
-      "link": "https://github.com/openclaw/openclaw/commit/4eb58ddf477fc58144de4d6d922212a0feb3044e",
-      "publishedAt": "2026-09-16T09:34:40Z",
-      "summary": "fix(ui): stabilize browser interaction coverage (#149929) A cold single-worker browser run exposed platform and stylesheet-order failures in Control UI coverage. Use the host's undo modifier, deterministic selection and pointer interactions, and complete theme-state ownership while keeping annotation button shadows scoped to the chat owner. Validation: Node passed all 56 affected browser tests; the signed Bun build passed the complete 936-test browser lane; exact-head CI, the changed-file gate, visual proof, ClawSweeper review, and P0-P2 autoreview passed.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stabilize browser interaction coverage (#149929)",
-      "summaryZh": "重點：修正(ui): stabilize browser interaction coverage (#149929) A cold single-worker browser run exposed platform and styleshee..."
     }
   ]
 }
