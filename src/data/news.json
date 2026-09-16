@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T04:40:18.545Z",
+  "generatedAt": "2026-09-16T09:43:37.142Z",
   "items": [
     {
       "id": 1,
@@ -57,47 +57,47 @@
     },
     {
       "id": 7,
-      "title": "improve: avoid copying plugin blob reads twice (#149420)",
-      "link": "https://github.com/openclaw/openclaw/commit/e97bd2e3879e81879b4cd15849e871e46a78a544",
-      "publishedAt": "2026-09-16T04:39:34Z",
-      "summary": "improve: avoid copying plugin blob reads twice (#149420)",
+      "title": "fix(ui): find recovered full replies in transcript search (#149915)",
+      "link": "https://github.com/openclaw/openclaw/commit/c5ee365716d094e0ad087634ef89fc75e8dcbd23",
+      "publishedAt": "2026-09-16T09:42:30Z",
+      "summary": "fix(ui): find recovered full replies in transcript search (#149915) * fix(ui): search recovered full-message text * fix(ui): keep expansion deletion helper private",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: avoid copying plugin blob reads twice (#149420)",
-      "summaryZh": "重點：improve: avoid copying plugin blob reads twice (#149420)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): find recovered full replies in transcript search (#149915)",
+      "summaryZh": "重點：修正(ui): find recovered full replies in transcript search (#149915) * 修正(ui): search recovered full-message text * 修正(ui)..."
     },
     {
       "id": 8,
-      "title": "test(gateway): join abandoned placement fixture lifetimes (#149668)",
-      "link": "https://github.com/openclaw/openclaw/commit/a0ebadf549dd2ce0ee9b150f95ef0eae04473b52",
-      "publishedAt": "2026-09-16T04:38:00Z",
-      "summary": "test(gateway): join abandoned placement fixture lifetimes (#149668) Keep teardown inside the original 90-second body deadline and join it before the next case acquires shared state. Preserve the fixture scenarios and assertions introduced by obviyus in #147390. Add a source-bound cancellation regression, forward context-local expect, and use the existing typed deferred owner.",
+      "title": "fix(agents): fence context engine bootstrap at the admitted user turn…",
+      "link": "https://github.com/openclaw/openclaw/commit/f12690920c65f66692e004852f21fd3b03873584",
+      "publishedAt": "2026-09-16T09:39:23Z",
+      "summary": "fix(agents): fence context engine bootstrap at the admitted user turn (#149690) The embedded runner persists the current user turn before bootstrapping the context engine, but only the assemble call ran under the transcript read fence. An engine that reconciles from the transcript imported the pending turn, the host appended it again after assembly, and the next run kept one copy, so every later provider byte shifted and the prompt cache missed. Co-authored-by: Peter Lindsey",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): join abandoned placement 修正ture lifetimes (#149668)",
-      "summaryZh": "重點：test(Gateway): join abandoned placement 修正ture lifetimes (#149668) Keep teardown inside the original 90-second body dead..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): fence context engine bootstrap at the admitted user turn…",
+      "summaryZh": "重點：修正(agents): fence context engine bootstrap at the admitted user turn (#149690) The embedded runner persists the current ..."
     },
     {
       "id": 9,
-      "title": "fix(plugins): release retired callers retained by cached errors (#149…",
-      "link": "https://github.com/openclaw/openclaw/commit/ff7f96f6c132e9eb7be9d71888287ab2396574cf",
-      "publishedAt": "2026-09-16T04:36:10Z",
-      "summary": "fix(plugins): release retired callers retained by cached errors (#149643) * fix(plugins): release callers retained by cached diagnostic stacks * fix(plugins): detach cached stacks from custom formatters * test(gateway): distinguish retained task data from source maps",
+      "title": "fix(worktrees): preserve work during creation and cleanup races (#149…",
+      "link": "https://github.com/openclaw/openclaw/commit/23fb1c04eaf6ccf995edc4c99008bc3229cf3272",
+      "publishedAt": "2026-09-16T09:35:14Z",
+      "summary": "fix(worktrees): preserve work during creation and cleanup races (#149914) Pin checkout sizing and materialization to the commit Git actually registers, while retaining native upstream tracking and submodule behavior. Keep rollback under allocation ownership after caller cancellation and fence it after lease loss or a changed Git registration. Serialize orphan cleanup and snapshot expiry with creation and restore, recheck activity before cleanup, and use the actual allocation outcome for session rollback. Recover Git locks after registry errors, handle stale origin/HEAD and nested working directories, and remove unused branch and lease machinery.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): 版本發布 retired callers retained by cached errors (#149…",
-      "summaryZh": "重點：修正(plugins): 版本發布 retired callers retained by cached errors (#149643) * 修正(plugins): 版本發布 callers retained by cached dia..."
+      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): preserve work during creation and cleanup races (#149…",
+      "summaryZh": "重點：修正(worktrees): preserve work during creation and cleanup races (#149914) Pin checkout sizing and materialization to the ..."
     },
     {
       "id": 10,
-      "title": "improve: reduce repeated delivery queue query compilation (#149421)",
-      "link": "https://github.com/openclaw/openclaw/commit/b4d4c2069d82fe7d894657ba94bb6a97dbe4d756",
-      "publishedAt": "2026-09-16T04:35:27Z",
-      "summary": "improve: reduce repeated delivery queue query compilation (#149421)",
+      "title": "fix(ui): stabilize browser interaction coverage (#149929)",
+      "link": "https://github.com/openclaw/openclaw/commit/4eb58ddf477fc58144de4d6d922212a0feb3044e",
+      "publishedAt": "2026-09-16T09:34:40Z",
+      "summary": "fix(ui): stabilize browser interaction coverage (#149929) A cold single-worker browser run exposed platform and stylesheet-order failures in Control UI coverage. Use the host's undo modifier, deterministic selection and pointer interactions, and complete theme-state ownership while keeping annotation button shadows scoped to the chat owner. Validation: Node passed all 56 affected browser tests; the signed Bun build passed the complete 936-test browser lane; exact-head CI, the changed-file gate, visual proof, ClawSweeper review, and P0-P2 autoreview passed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: reduce repeated delivery queue query compilation (#149421)",
-      "summaryZh": "重點：improve: reduce repeated delivery queue query compilation (#149421)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stabilize browser interaction coverage (#149929)",
+      "summaryZh": "重點：修正(ui): stabilize browser interaction coverage (#149929) A cold single-worker browser run exposed platform and styleshee..."
     }
   ]
 }
