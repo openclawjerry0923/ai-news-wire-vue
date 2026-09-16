@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-16T14:40:09.663Z",
+  "generatedAt": "2026-09-16T18:43:28.483Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(plugins): validate source reloads under Bun (#150088)",
-      "link": "https://github.com/openclaw/openclaw/commit/1224b7c44bd9d67d774bb71378ff4fa9fa13359d",
-      "publishedAt": "2026-09-16T14:34:57Z",
-      "summary": "fix(plugins): validate source reloads under Bun (#150088)",
+      "title": "fix: keep unavailable configured plugins from rolling back updates (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/eb8bca1326c485c8c8bf75a2c242b06415a1b6af",
+      "publishedAt": "2026-09-16T18:38:41Z",
+      "summary": "fix: keep unavailable configured plugins from rolling back updates (#150016) * fix(gateway): start degraded when a configured plugin cannot be verified * fix(doctor): warn when configured plugins are unavailable * fix(doctor): satisfy line caps and clarify discovery limits",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): validate source reloads under Bun (#150088)",
-      "summaryZh": "重點：修正(plugins): validate source reloads under Bun (#150088)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep unavailable configured plugins from rolling back updates (#…",
+      "summaryZh": "重點：修正: keep unavailable configured plugins from rolling back updates (#150016) * 修正(Gateway): start degraded when a configu..."
     },
     {
       "id": 2,
-      "title": "test(infra): remove aggregate tests that duplicate owner coverage (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/ddeb8f7dac647aa3e8bcaf1e36b04e94eefb3bb5",
-      "publishedAt": "2026-09-16T14:33:53Z",
-      "summary": "test(infra): remove aggregate tests that duplicate owner coverage (#150100)",
+      "title": "improve(process): identify unfinished service cleanup joins (#150195)",
+      "link": "https://github.com/openclaw/openclaw/commit/1e19298f996eeeb781e09f17fa6eceeb9b8d9338",
+      "publishedAt": "2026-09-16T18:32:42Z",
+      "summary": "improve(process): identify unfinished service cleanup joins (#150195)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(infra): remove aggregate tests that duplicate owner coverage (#1…",
-      "summaryZh": "重點：test(infra): remove aggregate tests that duplicate owner coverage (#150100)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(process): identify unfinished service cleanup joins (#150195)",
+      "summaryZh": "重點：improve(process): identify unfinished service cleanup joins (#150195)..."
     },
     {
       "id": 3,
-      "title": "fix(codex): stop service refresh from repeatedly aborting startup (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/62334b06ce97118f028c05204b9e1c5d5ccf1923",
-      "publishedAt": "2026-09-16T14:32:33Z",
-      "summary": "fix(codex): stop service refresh from repeatedly aborting startup (#149365) Related: #127778 ## What Problem This Solves A desktop-control refresh can repeatedly abort startup when copying a signed bundle emits notifications without changing its settled fingerprint. ## Why This Change Was Made Both copy paths wait for the existing generation owner, then retain the original startup guard. The service rechecks its staging directory. Generation state has one writer; artifact reconciliation serializes work per isolated home. ## User Impact A valid refresh completes so the agent can start. A changed generation still rejects startup and preserves prior artifacts. ## Evidence Two base startups each failed after 167 native-copy notifications, retaining a synthetic prior target. The signed source, native copy, reconciliation and app-server were real. The candidate initialized build 1001067 once with the same notification count and unchanged epoch/fingerprint. The current-service control initialized with zero notifications. Two real Gateway turns completed. The first recovered one selection retry; the second had none. The first retry is unattributed; this does not prove every first startup is retry-free. ## Compatibility Service: +8 lines for the wait and staging check. Cache: +4 for its wait. Signed identity, cancellation, ownership, rollback and competing-installer guards remain. No configuration or migration change. Growth accepted under the owner's standing acceptance (2026-09-15). ## Consumers Agent startup and explicit Computer Use install share reconciliation. Current artifacts keep their fast path. ## Invalidation No new timer or retry. The owner's existing quiet interval has no total deadline; continued source activity can extend settlement. ## Tests Four cases enter `createIsolatedCodexAppServerClient` with real reconciliation and copies. They retain initialization, rejection, artifact-preservation and cleanup checks. Removing the waits fails both unchanged-generation cases with the production error; changed-generation controls pass. `node scripts/run-vitest.mjs run extensions/codex/src/app-server/{computer-use-startup,computer-use-service,computer-use-cache,shared-client}.test.ts`: 157 passed. Hosted selection is exactly once; full test inventory has no gaps or duplicates. Earlier merged-source proof passed 296 tests and a full build. Production bytes are unchanged by this test correction. Preflight and structural checks passed. ## Follow-ups - Attribute the first Gateway selection retry if it recurs. - Add cancellation and ownership-rebind coverage with the new wait held. Co-authored-by: Benjamin Badejo Co-authored-by: Ayaan Zaidi",
+      "title": "feat(rust): add authenticated node sidecar bridge (#116863)",
+      "link": "https://github.com/openclaw/openclaw/commit/ce4f1d711bbcd1303040ccdd0fe2ed2b217ebc0d",
+      "publishedAt": "2026-09-16T18:30:47Z",
+      "summary": "feat(rust): add authenticated node sidecar bridge (#116863) Adds the bounded authenticated sidecar bridge on the merged Rust node runtime. The unique sidecar delta passed focused Rust and process proof, and exact-head ClawSweeper review found no actionable code or security issue.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): stop service refresh from repeatedly aborting startup (#1…",
-      "summaryZh": "重點：修正(codex): stop service refresh from repeatedly aborting startup (#149365) Related: #127778 ## What Problem This Solves ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(rust): add authenticated node sidecar bridge (#116863)",
+      "summaryZh": "重點：新功能(rust): add authenticated node sidecar bridge (#116863) Adds the bounded authenticated sidecar bridge on the merged R..."
     },
     {
       "id": 4,
-      "title": "test(memory): measure search and timer responsiveness separately (#15…",
-      "link": "https://github.com/openclaw/openclaw/commit/1482bf19a763acc59470faf3425b3cf559018b2c",
-      "publishedAt": "2026-09-16T14:25:53Z",
-      "summary": "test(memory): measure search and timer responsiveness separately (#150098) Keep the existing 1000 ms search and writer-release timer guard independent of asynchronous maintenance completion. Await the original sync before all eventual state assertions and preserve error propagation and cleanup.",
+      "title": "test(setup): remove eager assertion diagnostics (#150208)",
+      "link": "https://github.com/openclaw/openclaw/commit/b2883dfac69a3252e871034af1e5bc129e23f5dc",
+      "publishedAt": "2026-09-16T18:26:57Z",
+      "summary": "test(setup): remove eager assertion diagnostics (#150208)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(記憶): measure search and timer responsiveness separately (#15…",
-      "summaryZh": "重點：test(記憶): measure search and timer responsiveness separately (#150098) Keep the existing 1000 ms search and writer-版本發布 ..."
+      "titleZh": "OpenClaw 程式碼更新：test(setup): remove eager assertion diagnostics (#150208)",
+      "summaryZh": "重點：test(setup): remove eager assertion diagnostics (#150208)..."
     },
     {
       "id": 5,
