@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T05:50:19.553Z",
+  "generatedAt": "2026-09-17T11:09:18.765Z",
   "items": [
     {
       "id": 1,
@@ -48,56 +48,56 @@
     },
     {
       "id": 6,
-      "title": "Google修補已遭利用的Pixel漏洞",
-      "link": "https://www.ithome.com.tw/news/179011",
-      "publishedAt": "2026-09-17 10:09:49",
-      "summary": "9月15日Google為旗下Pixel手機系統發布資安更新，為這些設備套用最新的Android作業系統修補（資安修補層級為2026-09-05）之餘，也修補110個屬於Pixel的資安漏洞，其中有63個為重大等級，46個為高風險等級，值得留意的是，該公司特別提及其中一個漏洞CVE-2026-58704，疑似被用於針對性的目標攻擊。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(models): retain native model choices during full refresh (#150806)",
+      "link": "https://github.com/openclaw/openclaw/commit/448b7740ddf9eb77368a9ba52d2bd42130edfc43",
+      "publishedAt": "2026-09-17T11:05:09Z",
+      "summary": "fix(models): retain native model choices during full refresh (#150806) Full catalog refreshes could expose provider results before native discovery and its paired auth facts settled, temporarily dropping native model choices. Keep the previous complete catalog, runtime models, and inventory published until the new generation is complete, and restore the previous publication on acquisition failure. Preserve the five-second foreground bound, scoped provider refreshes, and recorded discovery failures. The worker-boundary regression holds native acquisition to exercise concurrent readers and verifies the final merged catalog. Related: #150427 Validation: forced-ordering regressions reproduced the defect on macOS and Linux, then passed 20/20 serial runs per platform with the fix. Catalog/model-selection suites passed 641 tests across 41 files; build and changed checks passed. Exact-head CI: https://github.com/openclaw/openclaw/actions/runs/35209693054.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): retain native 模型 choices during full refresh (#150806)",
+      "summaryZh": "重點：修正(模型): retain native 模型 choices during full refresh (#150806) Full catalog refreshes could expose provider results befo..."
     },
     {
       "id": 7,
-      "title": "refactor(sessions): consolidate extension type export ownership (#148…",
-      "link": "https://github.com/openclaw/openclaw/commit/3421c79364b44384a11ef441f1f5434c7429cd0e",
-      "publishedAt": "2026-09-17T05:48:43Z",
-      "summary": "refactor(sessions): consolidate extension type export ownership (#148746) Route extension interfaces through their canonical declaration owner while preserving the session barrel, virtual SDK, and public runtime-only facade. Remove redundant private type forwards without changing runtime behavior.",
+      "title": "fix(doctor): preserve channel ownership across updates (#150555)",
+      "link": "https://github.com/openclaw/openclaw/commit/3cf6c95828dd9069ad76dd15d293335365e07f1d",
+      "publishedAt": "2026-09-17T11:03:27Z",
+      "summary": "fix(doctor): preserve channel ownership across updates (#150555) Preserve historical channel-account ownership when updates migrate a legacy multi-agent roster to explicit bindings. Carry the original roster through the shared Doctor migration and its update, manual repair, startup, and recovery callers; retain narrower conversation routes. Missing provenance produces actionable warnings without a warning-only config write. Use the Gateway's existing terminal account status for unresolved ownership so correctly bound siblings stay online without repeated retries. Load binding repair lazily during full migration to preserve synchronous recovery and the native wrapper's eager import boundary. Update the migration and Telegram multi-agent documentation. Thanks to @arrobapontocom-ui for the upgrade report. Related: #150452 (item 5), #138014. Validation: the authoring lane reports 734 focused tests and 10 migration E2E tests passing; exact-head CI run 35208329464 is green. The r3 Codex review is scoped-clean. Published-updater ownership/restart proof for the legacy roster fixture and live Telegram transport remain explicit evidence gaps.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): consolidate extension type export ownership (#148…",
-      "summaryZh": "重點：refactor(sessions): consolidate extension type export ownership (#148746) Route extension interfaces through their canon..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): preserve channel ownership across updates (#150555)",
+      "summaryZh": "重點：修正(文件tor): preserve channel ownership across updates (#150555) Preserve historical channel-account ownership when update..."
     },
     {
       "id": 8,
-      "title": "feat(maturity): derive channel cohorts from catalog (#148120)",
-      "link": "https://github.com/openclaw/openclaw/commit/ba853de3369af457e5f7cb877174721968aabcbd",
-      "publishedAt": "2026-09-17T05:44:11Z",
-      "summary": "feat(maturity): derive channel cohorts from catalog (#148120)",
+      "title": "refactor(qa): keep Crabline thread identity structured (#124467)",
+      "link": "https://github.com/openclaw/openclaw/commit/35bfbb537752b20d831e8b5d212fbdcc6f4820aa",
+      "publishedAt": "2026-09-17T10:56:09Z",
+      "summary": "refactor(qa): keep Crabline thread identity structured (#124467) * refactor(qa): preserve structured Crabline thread identity * test(qa): use canonical Discord group thread target * test(qa): preserve native Discord thread delivery * fix(qa): preserve native Mattermost thread delivery",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(maturity): derive channel cohorts from catalog (#148120)",
-      "summaryZh": "重點：新功能(maturity): derive channel cohorts from catalog (#148120)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(qa): keep Crabline thread identity structured (#124467)",
+      "summaryZh": "重點：refactor(qa): keep Crabline thread identity structured (#124467) * refactor(qa): preserve structured Crabline thread ide..."
     },
     {
       "id": 9,
-      "title": "refactor(promos): move provenance writes off the CLI thread (#150607)",
-      "link": "https://github.com/openclaw/openclaw/commit/2a100416a1ced52d08dd1adb07288bef76dd56ab",
-      "publishedAt": "2026-09-17T05:39:17Z",
-      "summary": "refactor(promos): move provenance writes off the CLI thread (#150607)",
+      "title": "fix(process): release exec child groups when their tool call settles …",
+      "link": "https://github.com/openclaw/openclaw/commit/ce9a07f765abe2898cc1f0a38b21ac48b06bf3e2",
+      "publishedAt": "2026-09-17T10:52:20Z",
+      "summary": "fix(process): release exec child groups when their tool call settles (#150750) Completed host exec commands could retain shell-backgrounded children and their relay/anchor processes until Gateway restart, exhausting process limits during repeated turns and heartbeats. Release and join the existing supervisor group before reporting completion. Preserve supervised background commands until their root finishes and leave sandbox lifetimes with their backend. Treat EPERM from the process-group disappearance probe as continued presence within the existing cleanup deadline; only ESRCH confirms absence. Persistent groups and unexpected probe failures remain observable. This intentionally stops shell-backgrounded descendants when their root exits; long-running workloads should use the existing supervised background mode. No configuration or migration is required. Validation: the original real exec regression left 15 live PIDs after five completed commands. The repaired implementation passed macOS/Linux stress proof with 100 exec calls per platform and zero survivors, plus isolated Gateway heartbeat/reset proof. The 63 owner/Doctor settlement tests and 12 focused background/sandbox/one-shot tests passed. The reviewed patch is unchanged and exact-head CI run 35208095745 is green. Thanks to @php737, @terrencehinds99, @flowzito, and @michaeljgood71 for the reports and investigation. Related: #142965, #146620, #145092",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(promos): move provenance writes off the CLI thread (#150607)",
-      "summaryZh": "重點：refactor(promos): move provenance writes off the CLI thread (#150607)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(process): 版本發布 exec child groups when their tool call settles …",
+      "summaryZh": "重點：修正(process): 版本發布 exec child groups when their tool call settles (#150750) Completed host exec commands could retain she..."
     },
     {
       "id": 10,
-      "title": "refactor(routing): simplify channel route selection (#148848)",
-      "link": "https://github.com/openclaw/openclaw/commit/769f4fd4c2ce12620434f11be917248b0034f610",
-      "publishedAt": "2026-09-17T05:38:22Z",
-      "summary": "refactor(routing): simplify channel route selection (#148848) * refactor(routing): select bindings directly from route indexes * test(routing): preserve binding selection contracts Cover parent binding selection with child session identity and first-match missing-agent errors, while consolidating the existing wildcard fixtures. Update binding guidance to match the current ownership and reload behavior. * test(qwen): stabilize default video request timeout assertion Hold the wall clock steady within the existing success-path contract test and restore it on every outcome. Preserve the exact default-budget and request/result assertions while production deadlines continue to account for elapsed time.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(routing): simplify channel route selection (#148848)",
-      "summaryZh": "重點：refactor(routing): simplify channel route selection (#148848) * refactor(routing): select bindings directly from route i..."
+      "title": "Salesforce 攜手 NVIDIA 推 CRM 推理模型，執行長駁 SaaS 末日論",
+      "link": "https://technews.tw/2026/09/17/salesforce-announces-crm-reasoning-model-koa/",
+      "publishedAt": "Thu, 17 Sep 2026 10:49:25 +0000",
+      "summary": "Salesforce 年度大會 Dreamforce 2026 於美國舊金山舉行，會中宣布攜手 NVIDIA [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
