@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T20:02:59.474Z",
+  "generatedAt": "2026-09-17T23:25:21.314Z",
   "items": [
     {
       "id": 1,
@@ -12,91 +12,91 @@
     },
     {
       "id": 2,
-      "title": "feat(browser): expose native extension tab IDs (#138338)",
-      "link": "https://github.com/openclaw/openclaw/commit/f2acb5e732e67955a775690360789a274fe4024a",
-      "publishedAt": "2026-09-17T19:59:20Z",
-      "summary": "feat(browser): expose native extension tab IDs (#138338) * feat(browser): expose native extension tab IDs * docs(browser): document extension tab IDs * test(browser): protect native tab identity and cancellation * test(browser): split tab output cases below line ratchet * style(browser): format extracted tab tests --------- Co-authored-by: jalehman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(browser): expose native extension tab IDs (#138338)",
-      "summaryZh": "重點：新功能(browser): expose native extension tab IDs (#138338) * 新功能(browser): expose native extension tab IDs * 文件(browser): 文..."
+      "title": "吃塑膠也能救地球，NASA 贊助新技術將 PET 變身 3D 列印餅乾",
+      "link": "https://technews.tw/2026/09/18/nasa-backed-scientists-turn-plastic-waste-into-edible-cookies/",
+      "publishedAt": "Thu, 17 Sep 2026 23:20:22 +0000",
+      "summary": "在 NASA 的支持下，美國研究團隊開發出一套技術，能將 PET 塑膠與農業廢棄物轉化為可食用原料，並進一步製 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: published Linux upgrades leave unchanged gateways stopped (#151049)",
-      "link": "https://github.com/openclaw/openclaw/commit/4475640f26c5c708e95e5449f10b6e7b6e18c6e4",
-      "publishedAt": "2026-09-17T19:54:37Z",
-      "summary": "fix: published Linux upgrades leave unchanged gateways stopped (#151049) * fix(update): preserve service fingerprints across published upgrades Keep known-empty systemd override metadata out of the fingerprint retained by published updaters through 2026.9.4. Preserve full command metadata for runtime pinning and reject actual protected service changes. * test: group silence failures with error payload coverage Keep the required sealed-answer fixture field while moving its related failure-policy cases into the existing error payload test module. Preserve every case and assertion without growing the over-cap payload test file.",
+      "title": "fix(code-mode): preserve tool lookup, wait lifetime, and returned val…",
+      "link": "https://github.com/openclaw/openclaw/commit/0f8398d60fbb756e28d686e5bdc2931c19999055",
+      "publishedAt": "2026-09-17T23:19:04Z",
+      "summary": "fix(code-mode): preserve tool lookup, wait lifetime, and returned values (#151210) * fix(code-mode): preserve exact catalog and declaration contracts * fix(code-mode): keep active waits alive through idle expiry * fix(code-mode): preserve JSON keys and typed-array values * refactor(code-mode): finish lifecycle and fixture cleanup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: published Linux upgrades leave unchanged Gateways stopped (#151049)",
-      "summaryZh": "重點：修正: published Linux upgrades leave unchanged Gateways stopped (#151049) * 修正(update): preserve service fingerprints acro..."
+      "titleZh": "OpenClaw 程式碼更新：修正(code-mode): preserve tool lookup, wait lifetime, and returned val…",
+      "summaryZh": "重點：修正(code-mode): preserve tool lookup, wait lifetime, and returned values (#151210) * 修正(code-mode): preserve exact catalo..."
     },
     {
       "id": 4,
-      "title": "fix(slack): keep channel tests inside the plugin boundary (#151090)",
-      "link": "https://github.com/openclaw/openclaw/commit/4520c88d8c9e0146f05a9ab5ae0431f57f884e65",
-      "publishedAt": "2026-09-17T19:50:49Z",
-      "summary": "fix(slack): keep channel tests inside the plugin boundary (#151090) Move the reply-thread regression from #151069 into the core outbound test owner. Load the registered Slack plugin through the existing public-facade test loader and preserve reply, thread, and transport assertions without expanding the SDK.",
+      "title": "fix(update): restart published upgrades after package replacement (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/8e88c315e203464237d92e93cf4c2c7a1e21b9fd",
+      "publishedAt": "2026-09-17T23:18:20Z",
+      "summary": "fix(update): restart published upgrades after package replacement (#151179) Give the published post-swap Node runner a dependency-free build entry. Preserve recorded source reexports so compatibility bridges avoid modules cached from the previous installation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(slack): keep channel tests inside the plugin boundary (#151090)",
-      "summaryZh": "重點：修正(slack): keep channel tests inside the plugin boundary (#151090) Move the reply-thread regression from #151069 into th..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): restart published upgrades after package replacement (#1…",
+      "summaryZh": "重點：修正(update): restart published upgrades after package replacement (#151179) Give the published post-swap Node runner a de..."
     },
     {
       "id": 5,
-      "title": "test(ci): run preflight import guard with Node (#151077)",
-      "link": "https://github.com/openclaw/openclaw/commit/012b1be44e4107e8d3c31deaa8f5f84509d9c489",
-      "publishedAt": "2026-09-17T19:46:21Z",
-      "summary": "test(ci): run preflight import guard with Node (#151077)",
+      "title": "fix(irc): reject sanitized-empty sends before reply metadata (#129660)",
+      "link": "https://github.com/openclaw/openclaw/commit/15e2869fff04d3ece8ca5dd82d9ee6d25f211b8d",
+      "publishedAt": "2026-09-17T23:17:29Z",
+      "summary": "fix(irc): reject sanitized-empty sends before reply metadata (#129660) Validate message content at the IRC transport owner, then encode its separate reply reference. Preserve original wire rendering and route empty-content failures through existing send and automatic-reply error paths without false receipts or activity. Four baseline regressions fail on the original code; the original one-line proposal still fails the threaded case. The full repair passes all 184 IRC tests, full selected checks, and independent P0-P2 review. Refs #129660.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): run preflight import guard with Node (#151077)",
-      "summaryZh": "重點：test(ci): run preflight import guard with Node (#151077)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(irc): reject sanitized-empty sends before reply metadata (#129660)",
+      "summaryZh": "重點：修正(irc): reject sanitized-empty sends before reply metadata (#129660) Validate message content at the IRC transport owne..."
     },
     {
       "id": 6,
+      "title": "perf(history): reduce repeated work during live updates (#151194)",
+      "link": "https://github.com/openclaw/openclaw/commit/bd2a57f29dc91b30408f96192b5adca51ac6b461",
+      "publishedAt": "2026-09-17T23:15:47Z",
+      "summary": "perf(history): reduce repeated work during live updates (#151194)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(history): reduce repeated work during live updates (#151194)",
+      "summaryZh": "重點：perf(history): reduce repeated work during live updates (#151194)..."
+    },
+    {
+      "id": 7,
+      "title": "OpenAI 重奪 OpenRouter 支出優勢，GPT-6 Astra 能否撼動 Anthropic 企業版圖？",
+      "link": "https://technews.tw/2026/09/18/can-gpt-6-astra-disrupt-anthropics-enterprise-business/",
+      "publishedAt": "Thu, 17 Sep 2026 23:10:21 +0000",
+      "summary": "OpenAI 最新模型 GPT-6 Astra 在企業級人工智慧市場掀起新一輪競爭。OpenRouter 單週 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "推理時代下的中國 AI 基礎設施：系統化整合與 Token 商業化趨勢",
+      "link": "https://technews.tw/2026/09/18/china-ai-infrastructure-inference-era-systematic-integration-token-commercialization-trends/",
+      "publishedAt": "Thu, 17 Sep 2026 23:00:51 +0000",
+      "summary": "中國 AI 基礎設施已從單純的算力規模軍備賽，轉向「算力、算法、數據、能源」的系統化整合，並將其定位為國家層級 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
+      "title": "搶攻美軍無人艦隊市場，韓華和美國 Magnet Defense 合作打造 H38 模組化無人艇",
+      "link": "https://technews.tw/2026/09/18/hanhwa-and-magnet-defense-collaborate-on-h38-military-usv/",
+      "publishedAt": "Thu, 17 Sep 2026 23:00:35 +0000",
+      "summary": "韓華國防美國子公司（Hanwha Defense USA, HDUSA）與海事自主技術公司 Magnet De [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 10,
       "title": "銀河系中心黑洞周圍的年輕恆星為何少有伴星？潮汐作用揭開缺失之謎",
       "link": "https://technews.tw/2026/09/17/why-young-stars-milky-way-center-black-hole-few-companions-tidal-forces-uncover-mystery/",
       "publishedAt": "Thu, 17 Sep 2026 13:32:16 +0000",
       "summary": "銀河系中心的超大質量黑洞人馬座 A*（Sgr A*）周圍，存在一群被稱為「S 星團」的年輕恆星。這些恆星大多屬 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "Anthropic整合Claude Chat與Cowork，AI自行決定如何完成任務",
-      "link": "https://www.ithome.com.tw/news/179021",
-      "publishedAt": "2026-09-17 12:09:58",
-      "summary": "Anthropic周三（9/16）宣布整合Claude Chat與Cowork，未來使用者不必再選擇一般聊天或Cowork工作模式，只要向Claude提出需求，系統就會自行判斷如何完成任務。新功能將於未來幾周率先開放Pro與Max方案使用。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Acronis揭露cPanel和Plesk備份外掛漏洞",
-      "link": "https://www.ithome.com.tw/news/179016",
-      "publishedAt": "2026-09-17 11:09:37",
-      "summary": "上週Acronis發布資安公告，指出Acronis Backup plugin for cPanel &amp; WHM一個高風險漏洞遭到積極利用，用戶應儘速更新至1.9.3 HF3與1.9.4版因應，除此之外該公司並未進一步說明細節。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "因中東戰事受創的AWS巴林與阿聯資料中心，部分資料確認無法復原",
-      "link": "https://www.ithome.com.tw/news/179018",
-      "publishedAt": "2026-09-17 11:09:35",
-      "summary": "9月15日AWS在Health Dashboard更新中公告，今年3月間因中東戰事受創的巴林與阿拉伯聯合大公國AWS基礎設施，其中部分資料與資源已確認無法復原。在巴林方面，巴林me-south-1服務區域（Region）的mes1-az2可用區（Availability Zone，AZ）於3月受損後，便已建議客戶遷移，但稍後另一個AZ於4月受損，導致整個服務區域無法使用。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google強化Gemini Enterprise成本管控，新增隨用隨付計費與專案支出上限",
-      "link": "https://www.ithome.com.tw/news/179015",
-      "publishedAt": "2026-09-17 11:09:28",
-      "summary": "Google Cloud近期為企業AI平臺Gemini Enterprise新增計費與成本控制方式，除了既有依使用者席次訂閱的方案，也新增隨用隨付（Pay-as-you-go）計費、彈性節省方案，以及專案層級每月支出上限功能，協助企業管理AI代理及相關AI工具的使用成本。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
