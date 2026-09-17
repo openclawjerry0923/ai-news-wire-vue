@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-17T16:25:44.542Z",
+  "generatedAt": "2026-09-17T20:02:59.474Z",
   "items": [
     {
       "id": 1,
-      "title": "ci: distinguish Android emulator SDK caches (#150794)",
-      "link": "https://github.com/openclaw/openclaw/commit/1a44e41ddfc0d4bcbc037cf9b598e8f2eef8d512",
-      "publishedAt": "2026-09-17T16:22:56Z",
-      "summary": "ci: distinguish Android emulator SDK caches (#150794)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: distinguish Android emulator SDK caches (#150794)",
-      "summaryZh": "重點：ci: distinguish Android emulator SDK caches (#150794)..."
+      "title": "Issabel PBX重大漏洞遭積極利用，攻擊者可未經驗證執行任意指令",
+      "link": "https://www.ithome.com.tw/news/179036",
+      "publishedAt": "2026-09-18 01:09:42",
+      "summary": "開源通訊平臺Issabel的Web框架Issabel Framework被揭露存在重大漏洞CVE-2026-89026，可能導致未經身分驗證的遠端攻擊者執行作業系統指令。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "ci: remove orphan pnpm warmup job (#150784)",
-      "link": "https://github.com/openclaw/openclaw/commit/1b7062d3558e16032cd728366166dacbe928180d",
-      "publishedAt": "2026-09-17T16:22:13Z",
-      "summary": "ci: remove orphan pnpm warmup job (#150784)",
+      "title": "feat(browser): expose native extension tab IDs (#138338)",
+      "link": "https://github.com/openclaw/openclaw/commit/f2acb5e732e67955a775690360789a274fe4024a",
+      "publishedAt": "2026-09-17T19:59:20Z",
+      "summary": "feat(browser): expose native extension tab IDs (#138338) * feat(browser): expose native extension tab IDs * docs(browser): document extension tab IDs * test(browser): protect native tab identity and cancellation * test(browser): split tab output cases below line ratchet * style(browser): format extracted tab tests --------- Co-authored-by: jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: remove orphan pnpm warmup job (#150784)",
-      "summaryZh": "重點：ci: remove orphan pnpm warmup job (#150784)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(browser): expose native extension tab IDs (#138338)",
+      "summaryZh": "重點：新功能(browser): expose native extension tab IDs (#138338) * 新功能(browser): expose native extension tab IDs * 文件(browser): 文..."
     },
     {
       "id": 3,
-      "title": "fix(process): keep the broker alive after descriptor exhaustion (#150…",
-      "link": "https://github.com/openclaw/openclaw/commit/c5d92cc5c5a1ca64cf366d8e8bcdd3be912b1ded",
-      "publishedAt": "2026-09-17T16:21:34Z",
-      "summary": "fix(process): keep the broker alive after descriptor exhaustion (#150975) Preserve Node's original raw-spawn error when EMFILE or ENFILE occurs before stdio initialization. Observe close before awaiting the queued error and safely dispose a child without streams. Add a real Linux descriptor-limit regression for error propagation, broker continuity, recovery, and descriptor cleanup; retain missing-executable/cwd coverage with IPC descriptors.",
+      "title": "fix: published Linux upgrades leave unchanged gateways stopped (#151049)",
+      "link": "https://github.com/openclaw/openclaw/commit/4475640f26c5c708e95e5449f10b6e7b6e18c6e4",
+      "publishedAt": "2026-09-17T19:54:37Z",
+      "summary": "fix: published Linux upgrades leave unchanged gateways stopped (#151049) * fix(update): preserve service fingerprints across published upgrades Keep known-empty systemd override metadata out of the fingerprint retained by published updaters through 2026.9.4. Preserve full command metadata for runtime pinning and reject actual protected service changes. * test: group silence failures with error payload coverage Keep the required sealed-answer fixture field while moving its related failure-policy cases into the existing error payload test module. Preserve every case and assertion without growing the over-cap payload test file.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(process): keep the broker alive after descriptor exhaustion (#150…",
-      "summaryZh": "重點：修正(process): keep the broker alive after descriptor exhaustion (#150975) Preserve Node's original raw-spawn error when E..."
+      "titleZh": "OpenClaw 程式碼更新：修正: published Linux upgrades leave unchanged Gateways stopped (#151049)",
+      "summaryZh": "重點：修正: published Linux upgrades leave unchanged Gateways stopped (#151049) * 修正(update): preserve service fingerprints acro..."
     },
     {
       "id": 4,
-      "title": "ci: narrow Apple Mermaid dependency installs (#150785)",
-      "link": "https://github.com/openclaw/openclaw/commit/56767f030156017624d6f1116697b2b88a478345",
-      "publishedAt": "2026-09-17T16:21:14Z",
-      "summary": "ci: narrow Apple Mermaid dependency installs (#150785)",
+      "title": "fix(slack): keep channel tests inside the plugin boundary (#151090)",
+      "link": "https://github.com/openclaw/openclaw/commit/4520c88d8c9e0146f05a9ab5ae0431f57f884e65",
+      "publishedAt": "2026-09-17T19:50:49Z",
+      "summary": "fix(slack): keep channel tests inside the plugin boundary (#151090) Move the reply-thread regression from #151069 into the core outbound test owner. Load the registered Slack plugin through the existing public-facade test loader and preserve reply, thread, and transport assertions without expanding the SDK.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: narrow Apple Mermaid dependency installs (#150785)",
-      "summaryZh": "重點：ci: narrow Apple Mermaid dependency installs (#150785)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(slack): keep channel tests inside the plugin boundary (#151090)",
+      "summaryZh": "重點：修正(slack): keep channel tests inside the plugin boundary (#151090) Move the reply-thread regression from #151069 into th..."
     },
     {
       "id": 5,
+      "title": "test(ci): run preflight import guard with Node (#151077)",
+      "link": "https://github.com/openclaw/openclaw/commit/012b1be44e4107e8d3c31deaa8f5f84509d9c489",
+      "publishedAt": "2026-09-17T19:46:21Z",
+      "summary": "test(ci): run preflight import guard with Node (#151077)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ci): run preflight import guard with Node (#151077)",
+      "summaryZh": "重點：test(ci): run preflight import guard with Node (#151077)..."
+    },
+    {
+      "id": 6,
       "title": "銀河系中心黑洞周圍的年輕恆星為何少有伴星？潮汐作用揭開缺失之謎",
       "link": "https://technews.tw/2026/09/17/why-young-stars-milky-way-center-black-hole-few-companions-tidal-forces-uncover-mystery/",
       "publishedAt": "Thu, 17 Sep 2026 13:32:16 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Anthropic整合Claude Chat與Cowork，AI自行決定如何完成任務",
       "link": "https://www.ithome.com.tw/news/179021",
       "publishedAt": "2026-09-17 12:09:58",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Acronis揭露cPanel和Plesk備份外掛漏洞",
       "link": "https://www.ithome.com.tw/news/179016",
       "publishedAt": "2026-09-17 11:09:37",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "因中東戰事受創的AWS巴林與阿聯資料中心，部分資料確認無法復原",
       "link": "https://www.ithome.com.tw/news/179018",
       "publishedAt": "2026-09-17 11:09:35",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Google強化Gemini Enterprise成本管控，新增隨用隨付計費與專案支出上限",
       "link": "https://www.ithome.com.tw/news/179015",
       "publishedAt": "2026-09-17 11:09:28",
       "summary": "Google Cloud近期為企業AI平臺Gemini Enterprise新增計費與成本控制方式，除了既有依使用者席次訂閱的方案，也新增隨用隨付（Pay-as-you-go）計費、彈性節省方案，以及專案層級每月支出上限功能，協助企業管理AI代理及相關AI工具的使用成本。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "思科ISE、Acronis網頁主機管理平臺備份工具漏洞遭積極利用",
-      "link": "https://www.ithome.com.tw/news/179017",
-      "publishedAt": "2026-09-17 11:09:04",
-      "summary": "9月16日美國網路安全與基礎設施安全局（CISA）發布公告，表示他們已掌握兩個漏洞遭到積極利用的證據，這些弱點是：思科身分識別服務引擎（ISE）特權API使用不正確漏洞CVE-2026-76460",
       "source": "iThome",
       "tag": "繁中"
     }
