@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-18T13:27:52.805Z",
+  "generatedAt": "2026-09-18T17:33:07.566Z",
   "items": [
     {
       "id": 1,
+      "title": "fix: avoid session-list rebuilds when authentication availability cha…",
+      "link": "https://github.com/openclaw/openclaw/commit/90c182212f0253cbac8596ba0818252e8532e52d",
+      "publishedAt": "2026-09-18T17:32:16Z",
+      "summary": "fix: avoid session-list rebuilds when authentication availability changes (#151920) * perf: preserve session rows across auth availability changes Keep authentication availability publications for metadata consumers while telling the session projection when model facts are unchanged. Incomplete catalogs and real owner or model changes retain their invalidation paths. * test(codex): check output in process poll delivery proof",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: avoid session-list rebuilds when authentication availability cha…",
+      "summaryZh": "重點：修正: avoid session-list rebuilds when authentication availability changes (#151920) * perf: preserve session rows across ..."
+    },
+    {
+      "id": 2,
+      "title": "fix(updates): explain externally managed update refusals (#151942)",
+      "link": "https://github.com/openclaw/openclaw/commit/2638d41338ab3b000fc609eb5ee9794b9a150d85",
+      "publishedAt": "2026-09-18T17:31:59Z",
+      "summary": "fix(updates): explain externally managed update refusals (#151942) * fix(updates): explain externally managed update refusals * fix(ui): preserve read-only update recovery after refusal * refactor(updates): use the canonical Settings snapshot * test(ui): expect expiry warning for refreshed quota credentials --------- Co-authored-by: Jason (Json)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(updates): explain externally managed update refusals (#151942)",
+      "summaryZh": "重點：修正(updates): explain externally managed update refusals (#151942) * 修正(updates): explain externally managed update refus..."
+    },
+    {
+      "id": 3,
+      "title": "improve(heartbeat): avoid unused config work in membership checks (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/861e65d8c9fb28406c33dcf49c74532228f8d165",
+      "publishedAt": "2026-09-18T17:24:13Z",
+      "summary": "improve(heartbeat): avoid unused config work in membership checks (#151867) * improve(heartbeat): avoid unused config work in membership checks Punchcard-Session: ember-river-harbor-t4 * test: trace the stalled tooling lifecycle Punchcard-Session: ember-river-harbor-t4 * test: trace Telegram skill child settlement Punchcard-Session: ember-river-harbor-t4 * test: synchronize launcher shutdown readiness Punchcard-Session: ember-river-harbor-t4",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(heartbeat): avoid unused config work in membership checks (#1…",
+      "summaryZh": "重點：improve(heartbeat): avoid unused config work in membership checks (#151867) * improve(heartbeat): avoid unused config wo..."
+    },
+    {
+      "id": 4,
+      "title": "fix(android): keep status text readable and label accessibility actio…",
+      "link": "https://github.com/openclaw/openclaw/commit/01970b5679af5cd78427656ccff37e461b3e2089",
+      "publishedAt": "2026-09-18T17:22:48Z",
+      "summary": "fix(android): keep status text readable and label accessibility actions (#151342) Keep localized Android health status labels and values readable at large font sizes. Reuse adaptive shared layouts and add localized accessibility descriptions to existing sidebar and audio actions, preserving independent controls and touch targets. Co-authored-by: IWhatsskill",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(android): keep status text readable and label accessibility actio…",
+      "summaryZh": "重點：修正(android): keep status text readable and label accessibility actions (#151342) Keep localized Android health status la..."
+    },
+    {
+      "id": 5,
+      "title": "59% 患者癌細胞完全消失！大腸癌術前免疫療法創奇蹟，患者近三年零復發",
+      "link": "https://technews.tw/2026/09/19/preoperative-immunotherapy-colorectal-cancer-zero-recurrence-nearly-three-years/",
+      "publishedAt": "Fri, 18 Sep 2026 16:00:43 +0000",
+      "summary": "一項最新研究為大腸癌治療帶來振奮人心的好消息。由英國倫敦大學學院（UCL）與附屬醫院（UCLH）主導的「NEO [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "星系也會暴風成長，M74 與鄰居交會後「擦出」一片年輕恆星",
       "link": "https://technews.tw/2026/09/18/the-explosive-growth-of-the-messier-74-galaxy-a-galaxy-doubling-its-size-in-less-than-a-gigayear/",
       "publishedAt": "Fri, 18 Sep 2026 13:25:18 +0000",
@@ -11,51 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "feat: automatically update idle headless nodes (#151545)",
-      "link": "https://github.com/openclaw/openclaw/commit/3c4c111b0f71d00f7f94a9f31d5030436370aa4f",
-      "publishedAt": "2026-09-18T13:20:27Z",
-      "summary": "feat: automatically update idle headless nodes (#151545) * feat(node): update headless runtimes automatically when idle Stage private packaged node runtimes and activate only after all owned work and cleanup settle. Preserve pairing and launch options, keep automatic activations at least 12 hours apart, and leave shared-state migration and Gateway installation ownership with the normal updater. Document defaults, opt-outs, runtime version discovery, and recovery. Support recoverable Windows selector replacement across service restarts. Refs #151462 * fix(node): complete auto-update integration and settings defaults Capture the launcher in compiled test runtimes and trusted wrapper inventories, register the package update proof, and use the canonical Kysely read path. Preserve the inherited enabled state in the config UI and align caller tests with the node shutdown lifecycle. * fix(node): preserve retained plugin work during automatic updates Require an explicit idle result from plugin commands, preserve older-plugin work, and connect bundled lifetime owners to automatic node updates. Join canceled inference and failed terminal cleanup before command settlement; keep historical state repair with Doctor. Document compatibility and extend installed-package proof for retained legacy plugin work. * test(browser): align idle-work fixtures with runtime exports * test(browser): extract proxy request fixtures * test(node): retain idle assertions across native cleanup",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: automatically update idle headless nodes (#151545)",
-      "summaryZh": "重點：新功能: automatically update idle headless nodes (#151545) * 新功能(node): update headless runtimes automatically when idle St..."
-    },
-    {
-      "id": 3,
-      "title": "refactor(projects): move session project resolution to shared worker …",
-      "link": "https://github.com/openclaw/openclaw/commit/cfec08480c263b5e194205d1c0577ef8e8ca0b48",
-      "publishedAt": "2026-09-18T13:19:05Z",
-      "summary": "refactor(projects): move session project resolution to shared worker (#150249) Move stored project resolution onto the shared SQLite worker and retain captured project authority through worktree setup, session publication, and rollback. Keep title generation and ACP reset preparation with their existing lifecycle owners. After a session reset commits, join deferred post-commit actions even if source-scope cleanup fails. Preserve both errors when cleanup and post-commit work fail, without rolling back the committed session. Validation: 31 selected checks, normal build, title and worktree lifecycle controls, registered Doctor proof, and 10 reset regression cases passed. Exact-head CI passed after one targeted rerun on the same merge tree; the original Anthropic timeout remains unexplained, with its deadline and assertions unchanged. Native checkout lease and remaining session migration/cleanup SQL remain separate follow-up work.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(projects): move session project resolution to shared worker …",
-      "summaryZh": "重點：refactor(projects): move session project resolution to shared worker (#150249) Move stored project resolution onto the s..."
-    },
-    {
-      "id": 4,
-      "title": "fix(zalo): bound photo captions at the shared API adapter (#125402)",
-      "link": "https://github.com/openclaw/openclaw/commit/7f996e81f28499ffa093480e2d86e57dd22b75ff",
-      "publishedAt": "2026-09-18T13:15:41Z",
-      "summary": "fix(zalo): bound photo captions at the shared API adapter (#125402) Apply the existing UTF-16 caption limit to polling, hosted media, and ordinary photo sends through one adapter. Preserve send authority and accepted delivery receipts while removing duplicate caller truncation. Related: #101818",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(zalo): bound photo captions at the shared API adapter (#125402)",
-      "summaryZh": "重點：修正(zalo): bound photo captions at the shared API adapter (#125402) Apply the existing UTF-16 caption limit to polling, h..."
-    },
-    {
-      "id": 5,
-      "title": "refactor: group tool paths without splitting each segment (#151780)",
-      "link": "https://github.com/openclaw/openclaw/commit/e14de8fe613e38567cd5df07795ef64e730972d8",
-      "publishedAt": "2026-09-18T13:12:47Z",
-      "summary": "refactor: group tool paths without splitting each segment (#151780)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: group tool paths without splitting each segment (#151780)",
-      "summaryZh": "重點：refactor: group tool paths without splitting each segment (#151780)..."
-    },
-    {
-      "id": 6,
+      "id": 7,
       "title": "美SEC開放股票上鏈交易，推出5年創新豁免",
       "link": "https://www.ithome.com.tw/news/179049",
       "publishedAt": "2026-09-18 12:09:59",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Claude已主導Anthropic 26%的AI研發工作",
       "link": "https://www.ithome.com.tw/news/179048",
       "publishedAt": "2026-09-18 12:09:57",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Docker沙箱環境存在重大漏洞，攻擊者有機會讀取及竄改macOS主機檔案",
       "link": "https://www.ithome.com.tw/news/179050",
       "publishedAt": "2026-09-18 12:09:09",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
-      "title": "Parallels Desktop存在漏洞ParaShells，取得本機帳號的攻擊者能以root執行程式碼",
-      "link": "https://www.ithome.com.tw/news/179045",
-      "publishedAt": "2026-09-18 11:09:06",
-      "summary": "資安公司JFrog指出，Mac虛擬化軟體Parallels Desktop存在本機權限提升漏洞ParaShells，攻擊者只需取得沒有特殊權限的本機使用者帳號，並搭配處理程序prl_disp_service，就有機會以root權限執行程式碼，該弱點被登記為CVE-2026-90894列管，CVSS嚴重程度評分為7.8，Parallels於8月底發布的27.0.",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 10,
-      "title": "Agent 失控再敲警鐘，OpenAI 公布六起新案例與通報機制",
-      "link": "https://infosecu.technews.tw/2026/09/18/openai-unveils-new-framework-for-reporting-ai-model-misalignment/",
-      "publishedAt": "Fri, 18 Sep 2026 10:29:08 +0000",
-      "summary": "除近期 Hugging Face 遭 Agent 入侵的事件外，OpenAI 發現過去 6 個月內另有六起「非 [&#8230;]",
-      "source": "TechNews",
+      "title": "TWNIC籲企業將網域納入資安治理，臺灣DNSSEC部署率僅2.47%",
+      "link": "https://www.ithome.com.tw/news/179047",
+      "publishedAt": "2026-09-18 11:09:07",
+      "summary": "隨著釣魚、假冒網站與網域挾持等威脅增加，台灣網路資訊中心（TWNIC）近日呼籲企業重新檢視網域與網站的基礎安全，並鼓勵企業利用TWNIC提供的網站健檢服務check.twnic.tw，進一步掌握自身網站與網域的防護狀況，特別是DNSSEC、RPKI及域名安全鎖（Registry Lock）等數位信任機制的部署情形。 TWNIC指出，企業過去談資安，多聚焦於防火牆、系統弱點與帳號安全，但隨著官方網站、電子郵件成為重要對外窗口，加上生成式AI降低假冒網站製作門檻，網域、DNS與路由等基礎設施也需要納入企業資安治理。",
+      "source": "iThome",
       "tag": "繁中"
     }
   ]
