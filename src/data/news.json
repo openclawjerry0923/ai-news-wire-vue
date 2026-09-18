@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-18T20:32:10.831Z",
+  "generatedAt": "2026-09-18T23:04:31.497Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: explain cloud worker startup failures (#152043)",
-      "link": "https://github.com/openclaw/openclaw/commit/2b7a24cfd4a78f4ccd7e85c77eedd0593103e4dd",
-      "publishedAt": "2026-09-18T20:30:41Z",
-      "summary": "fix: explain cloud worker startup failures (#152043) * fix: explain cloud worker startup failures Preserve checkpoint provider failures before recovery instructions and distinguish pending setup from unconfirmed completion. Keep the saved first message and existing cleanup fences intact. * test(ui): keep browser fixtures out of server runtime Use the existing pure record helper in jsdom suites so fixture imports do not load server configuration and SQLite. Preserve all assertions and Node-only callers.",
+      "title": "fix(models): prepare configless catalogs asynchronously (#152142)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa6d12cc10412e7059bd0df7910bea18036fe5f2",
+      "publishedAt": "2026-09-18T23:02:27Z",
+      "summary": "fix(models): prepare configless catalogs asynchronously (#152142)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: explain cloud worker startup failures (#152043)",
-      "summaryZh": "重點：修正: explain cloud worker startup failures (#152043) * 修正: explain cloud worker startup failures Preserve checkpoint prov..."
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): prepare configless catalogs asynchronously (#152142)",
+      "summaryZh": "重點：修正(模型): prepare configless catalogs asynchronously (#152142)..."
     },
     {
       "id": 2,
-      "title": "refactor(discord): share Markdown edit projection (#149214)",
-      "link": "https://github.com/openclaw/openclaw/commit/47c4fbcb20d2b2a280d6d6aa55cd9e559206212a",
-      "publishedAt": "2026-09-18T20:13:41Z",
-      "summary": "refactor(discord): share Markdown edit projection (#149214)",
+      "title": "refactor(logging): reuse canonical file log serialization (#152082)",
+      "link": "https://github.com/openclaw/openclaw/commit/26c2f997d81b0745d0819ba803c185fde247b72d",
+      "publishedAt": "2026-09-18T23:01:49Z",
+      "summary": "refactor(logging): reuse canonical file log serialization (#152082) * refactor(logging): reuse canonical file log serialization Keep one redaction owner and skip the final parse/stringify when redaction leaves canonical file JSON unchanged. Preserve normalization for changed keys and UTF-16, object transport behavior, and single native-value conversion. Validated 318 focused tests, selected changed checks, byte-equivalence edge cases, registered logger branch activation, and independent review. Synthetic CPU comparison was inconclusive; no runtime speedup claim. * fix(logging): normalize native records without messages Reuse unchanged file bytes only when they come from serialization of the materialized tree. Metadata-only native output retains normalization after redaction, preserving key order and configured rules that inspect its original serialized context. Native values are still converted once. Add registered logger regressions for reversed integer-key output and a contextual masking rule. The byte-order case passes on historical production and fails on the original optimization. All 320 focused tests, complete selected checks, and fresh managed review passed. Six-case branch observation confirms ordinary byte reuse and historical normalization for the edge cases. The earlier CPU comparison remains inconclusive; no runtime speedup is claimed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Discord): share Markdown edit projection (#149214)",
-      "summaryZh": "重點：refactor(Discord): share Markdown edit projection (#149214)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(logging): reuse canonical file log serialization (#152082)",
+      "summaryZh": "重點：refactor(logging): reuse canonical file log serialization (#152082) * refactor(logging): reuse canonical file log serial..."
     },
     {
       "id": 3,
-      "title": "refactor(media): remove unreachable geometry metadata backfills (#149…",
-      "link": "https://github.com/openclaw/openclaw/commit/1e65cfd2c2892ae24a78c42ed23b418cd6e80871",
-      "publishedAt": "2026-09-18T20:08:27Z",
-      "summary": "refactor(media): remove unreachable geometry metadata backfills (#149272)",
+      "title": "fix: keep gateway responsive during sqlite recovery load (#151581)",
+      "link": "https://github.com/openclaw/openclaw/commit/4269cd4e1afb58c14aa4a91904825b78ca0017ac",
+      "publishedAt": "2026-09-18T23:00:26Z",
+      "summary": "fix: keep gateway responsive during sqlite recovery load (#151581) * fix(sqlite): recover pinned WAL readers Track active SQLite readers, retire unsettled or idle shared-state workers, and back off requester settlement after persistence failures. Copilot-Session: 0bc14f4b-69ca-44ef-8873-2c4e64b9534f * fix(sqlite): bound live snapshot and recovery load Copilot-Session: 0bc14f4b-69ca-44ef-8873-2c4e64b9534f * fix(sqlite): avoid raw copies for live fallback Copilot-Session: 0bc14f4b-69ca-44ef-8873-2c4e64b9534f * fix(sqlite): preserve snapshot and recovery settlement Copilot-Session: 0bc14f4b-69ca-44ef-8873-2c4e64b9534f * fix(sqlite): preserve diagnostic source artifacts Copilot-Session: 0bc14f4b-69ca-44ef-8873-2c4e64b9534f * fix(sqlite): finish cancellation and legacy cleanup ownership Join cleanup before the last standalone snapshot caller returns, and avoid terminal observation without a recovery capacity lease. Preserve the full legacy grace period for nested snapshots. Restore the extracted wrapper runtime closure and migrate scheduling, recovery, and timer fixtures to the integrated owners without weakening cleanup, admission, or resource assertions. Co-authored-by: jalehman Co-authored-by: galiniliev --------- Co-authored-by: jalehman Co-authored-by: galiniliev Copilot-Session: 0bc14f4b-69ca-44ef-8873-2c4e64b9534f",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(media): remove unreachable geometry metadata backfills (#149…",
-      "summaryZh": "重點：refactor(media): remove unreachable geometry metadata backfills (#149272)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep Gateway responsive during sqlite recovery load (#151581)",
+      "summaryZh": "重點：修正: keep Gateway responsive during sqlite recovery load (#151581) * 修正(sqlite): recover pinned WAL readers Track active ..."
     },
     {
       "id": 4,
-      "title": "chore(autoreview): sync mirror to agent-skills a7e91e1 (#152039)",
-      "link": "https://github.com/openclaw/openclaw/commit/24caac494ee4858989e58300925c5775a4dd45b2",
-      "publishedAt": "2026-09-18T20:04:27Z",
-      "summary": "chore(autoreview): sync mirror to agent-skills a7e91e1 (#152039) Canonical commit: a7e91e188fa0c3d692ac69b3137f24c6c3a2d2c9 Canonical PR: https://github.com/openclaw/agent-skills/pull/262",
+      "title": "refactor(slack): share Markdown preparation (#149129)",
+      "link": "https://github.com/openclaw/openclaw/commit/795e460278d4f8f41545dc8b4a66da1d12defd90",
+      "publishedAt": "2026-09-18T22:56:05Z",
+      "summary": "refactor(slack): share Markdown preparation (#149129)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(autoreview): sync mirror to agent-skills a7e91e1 (#152039)",
-      "summaryZh": "重點：chore(autoreview): sync mirror to agent-skills a7e91e1 (#152039) Canonical 提交: a7e91e188fa0c3d692ac69b3137f24c6c3a2d2c9 ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(slack): share Markdown preparation (#149129)",
+      "summaryZh": "重點：refactor(slack): share Markdown preparation (#149129)..."
     },
     {
       "id": 5,
