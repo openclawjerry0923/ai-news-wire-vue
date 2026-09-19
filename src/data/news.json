@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-09-19T12:56:03.517Z",
+  "generatedAt": "2026-09-19T16:18:31.502Z",
   "items": [
     {
       "id": 1,
-      "title": "perf: defer shared-state feature loading until first use (#152071)",
-      "link": "https://github.com/openclaw/openclaw/commit/43e41b26ec7b2a04a63fbb52e5d62b8093eb8954",
-      "publishedAt": "2026-09-19T12:44:23Z",
-      "summary": "perf: defer shared-state feature loading until first use (#152071)",
+      "title": "feat(android): choose a device-local text size (#152878)",
+      "link": "https://github.com/openclaw/openclaw/commit/2b341cd3cef75ce4b728d0587d95c9b98fd75c6a",
+      "publishedAt": "2026-09-19T16:08:48Z",
+      "summary": "feat(android): choose a device-local text size (#152878) Add device-local Android text-size choices with an unchanged 100% default, persisted through the existing appearance preference owner. Carry the selected Compose density through native dialogs, menus and sheets while preserving consent, navigation and credential behavior. Co-authored-by: IWhatsskill",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: defer shared-state 新功能 loading until first use (#152071)",
-      "summaryZh": "重點：perf: defer shared-state 新功能 loading until first use (#152071)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(android): choose a device-local text size (#152878)",
+      "summaryZh": "重點：新功能(android): choose a device-local text size (#152878) Add device-local Android text-size choices with an unchanged 100..."
     },
     {
       "id": 2,
-      "title": "fix: completed tasks stay marked as running after late activity (#152…",
-      "link": "https://github.com/openclaw/openclaw/commit/7545e125644b2da65853e83b94bf0bbae5bec8fe",
-      "publishedAt": "2026-09-19T12:41:01Z",
-      "summary": "fix: completed tasks stay marked as running after late activity (#152367) * fix(control-ui): settle tasks after late activity Use durable lifecycle timestamps for task snapshot freshness so a delayed activity update cannot keep a completed or cancelled task marked running. Preserve active-task recency and activity tie-breaking independently. * test(ui): sample current menu typography atomically",
+      "title": "feat(ui): preview ordinary external links on hover (#152758)",
+      "link": "https://github.com/openclaw/openclaw/commit/8c7f96b00b459e421661f11c212f60adde906acb",
+      "publishedAt": "2026-09-19T16:06:52Z",
+      "summary": "feat(ui): preview ordinary external links on hover (#152758) * feat(ui): preview ordinary external links on hover Extend the existing link-reader hover owner with anonymous public-page presentation while preserving plugin priority, prefetch and identity scopes. Share page metadata with browser cards and retain the existing opt-out. Co-authored-by: steipete * fix(ui): scope the preview pointer cursor to its external link Keep the shared cursor policy intact without adding a test exception. Co-authored-by: steipete * fix(ui): exclude wizard sign-in actions from link previews Co-authored-by: steipete --------- Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: completed tasks stay marked as running after late activity (#152…",
-      "summaryZh": "重點：修正: completed tasks stay marked as running after late activity (#152367) * 修正(control-ui): settle tasks after late activ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): preview ordinary external links on hover (#152758)",
+      "summaryZh": "重點：新功能(ui): preview ordinary external links on hover (#152758) * 新功能(ui): preview ordinary external links on hover Extend t..."
     },
     {
       "id": 3,
-      "title": "fix(cron): offload read-only inspection outside native exclusions (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/49b331576760ade2a31c08a1353d9a61ad96b177",
-      "publishedAt": "2026-09-19T12:40:46Z",
-      "summary": "fix(cron): offload read-only inspection outside native exclusions (#152500) * perf(fleet): run registry operations in SQLite workers * fix(state): preserve readonly admission error context * test(gateway): retain catalog root failure diagnostics * fix: preserve uncertain lease outcomes before caller recovery * fix(state): reject retired read scopes and retain wrapper imports Reject new admissions to closing or closed selected read scopes while keeping already-admitted readers owned through cleanup. Preserve typed invalidation at plugin discovery boundaries. Include the retained-read eager dependencies in the canonical PR wrapper inventory. * test(state): require rejection of retired read scopes Update the three existing disposable-scope variants to expect the canonical admission error while preserving active and unrelated source assertions. * fix(state): keep ordinary reads in the SQLite worker Use the existing independent readonly worker for ordinary fixed reads while retaining cached writer custody. Validate captured file identity around opens and acceptance, and bind previously missing paths when their first file appears. Keep selected snapshots and native preparation scopes with their existing owners. * fix: catalog refresh fails when previous discovery finishes Retain selected plugin registries through awaited preparation and hand construction claims to the completed generation. Preserve stale-publication cleanup and borrowed Gateway-root ownership. Related: #151588, #148290. * fix(test): retain Telegram suite output on subprocess errors * fix(ci): require full compact proof for worker policy guards (#151427) Fix compact CI policy guards that confused a two-worker budget with a parallel-to-serial transition. Preserve inherited job ceilings on already-serial recipients and reject redundant group-policy rewrites. Select the complete compact plan on Blacksmith and hybrid runs when the owning planner-policy test changes; keep GitHub targeting precise. Production admission-before-placement, worker limits, and measurements remain unchanged. Validation: focused host-profile and policy cases, serial-policy negative controls, and exact-head CI run 35343663468 passed. ClawSweeper and the retained scoped review found no actionable defects. No user-visible runtime change. * refactor(state): move fixed-read snapshot tokens off the main thread * perf(gateway): materialize archived session rows on demand (#151574) * fix: avoid host-speed failures in catalog performance checks (#151732) Replace the catalog benchmark's host-dependent 20 ms median limit with 20 times an independent in-process CPU reference. Check every composed list for exactly 20 SQLite reads, including three binding-authority reads, and zero plugin-state worker operations, while preserving the existing native-RPC, file-I/O, and session-payload guards. This is a test reliability repair with no runtime or update behavior change. Production changes: 0 lines; tests and test support: +61/-7 across two files. Validation: exact-head CI is green; the reviewed proof includes five passing local runs, two-CPU Testbox and hosted calibration, an extra-SELECT negative control, and a uniform CPU slowdown that fails the independent timing guard. Round-2 Codex autoreview and exact-head ClawSweeper review found no actionable defects. * test(gateway): match catalog read budget to binding owner * test(codex): synchronize agent-end context scenarios Own the fixture clock and wait for turn start and ten response progress events before selecting completion, cancellation, or refusal. Keep the five-second budget and require the expected terminal outcome. Restore real timers before cancelling and joining the run so a failed assertion cannot discard cleanup deadlines. Validation: 62 agent-end, deadline, and lifecycle tests; extension test types; scoped lint and format; independent P2 review. A temporary assertion failure also verified cancellation, unsubscribe, and joined cleanup. * test(state): intercept asynchronous snapshot preparation in lifecycle controls * fix(sqlite): name scoped worker declaration return type * fix(cron): offload read-only inspection outside native exclusions",
+      "title": "fix(update): avoid imposing a Doctor deadline during normal updates (…",
+      "link": "https://github.com/openclaw/openclaw/commit/52bf22b509d74e6596137d1aaac560637d1d3584",
+      "publishedAt": "2026-09-19T16:02:09Z",
+      "summary": "fix(update): avoid imposing a Doctor deadline during normal updates (#152973) * fix(update): preserve explicit finalization deadline policy * fix(update): retain legacy allowance with private deadline provenance * docs(update): wrap finalization timeout policy * test(update): assert deadline provenance in lease fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): offload read-only inspection outside native exclusions (#1…",
-      "summaryZh": "重點：修正(排程): offload read-only inspection outside native exclusions (#152500) * perf(fleet): run registry operations in SQLit..."
+      "titleZh": "OpenClaw 文件更新：修正(update): avoid imposing a 文件tor deadline during normal updates (…",
+      "summaryZh": "重點：修正(update): avoid imposing a 文件tor deadline during normal updates (#152973) * 修正(update): preserve explicit finalization..."
     },
     {
       "id": 4,
-      "title": "test(daemon): make drop-in inventory fixture independent of umask (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/ffdb5d8d4519af96ffa3b48dffc391e1cbcb8511",
-      "publishedAt": "2026-09-19T12:38:38Z",
-      "summary": "test(daemon): make drop-in inventory fixture independent of umask (#152807)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(daemon): make drop-in inventory 修正ture independent of umask (#1…",
-      "summaryZh": "重點：test(daemon): make drop-in inventory 修正ture independent of umask (#152807)..."
+      "title": "桑葚對腸道菌叢與新陳代謝有驚人功效？研究揭示關鍵在於「加工方式」",
+      "link": "https://technews.tw/2026/09/20/mulberry-gut-health/",
+      "publishedAt": "Sat, 19 Sep 2026 16:00:31 +0000",
+      "summary": "桑葚向來是備受喜愛的傳統食材，但波蘭研究團隊的最新綜述指出，其背後其實蘊藏著影響人體代謝的強大「腸道機制」。研 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "refactor(update): separate repair turns from validation (#147547)",
+      "link": "https://github.com/openclaw/openclaw/commit/fbea7971ff4a401cf1304155ab805619ac1b8a58",
+      "publishedAt": "2026-09-19T15:59:17Z",
+      "summary": "refactor(update): separate repair turns from validation (#147547)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(update): separate repair turns from validation (#147547)",
+      "summaryZh": "重點：refactor(update): separate repair turns from validation (#147547)..."
+    },
+    {
+      "id": 6,
+      "title": "錢卓望遠鏡發現神祕 X 射線天體，或能解答天體物理學兩大難題",
+      "link": "https://technews.tw/2026/09/19/nasas-chandra-unveils-mysterious-x-ray-objects/",
+      "publishedAt": "Sat, 19 Sep 2026 14:04:44 +0000",
+      "summary": "利用美國太空總署（NASA）的錢卓 X 射線天文台（Chandra X-ray Observatory），科學 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "科研不再只待在實驗室！2026 未來科技館促成 150 場技術「變現」商談",
       "link": "https://technews.tw/2026/09/19/laboratory/",
       "publishedAt": "Sat, 19 Sep 2026 09:51:56 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "台股 9 月六檔 ETF 逆勢狂吸金！00962 受益人單月大增 41.32%",
       "link": "https://finance.technews.tw/2026/09/19/00962/",
       "publishedAt": "Sat, 19 Sep 2026 09:17:27 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "智利為受傷企鵝量身訂製「銅鋅紅背心」，加速癒合重返野外",
       "link": "https://technews.tw/2026/09/19/humboldt-penguin-wears-recovery-suit-to-aid-wound-healing/",
       "publishedAt": "Sat, 19 Sep 2026 08:00:28 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "股市大戶獲利轉進！漢皇新北最大公辦都更「單元七」打造高資產聚落",
       "link": "https://finance.technews.tw/2026/09/19/unit-7/",
       "publishedAt": "Sat, 19 Sep 2026 07:15:28 +0000",
       "summary": "新北最大公辦都更「永和大陳單元七」今日舉辦拆除典禮，這個彷彿被按下 70 年暫停鍵、以擁擠和迷宮巷弄聞名的老社 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "你越低潮它越推，首份腦波研究證實短影音演算法恐加劇負面情緒迴圈",
-      "link": "https://technews.tw/2026/09/19/social-media-algorithms-depression/",
-      "publishedAt": "Sat, 19 Sep 2026 07:00:25 +0000",
-      "summary": "社群平台的短影音演算法不僅能精準推播內容，還可能無形中影響心理健康。美國德州大學達拉斯分校（UT Dallas [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "肉眼幾乎看不出差異，科學家靠獨特叫聲與 DNA 發現亞馬遜新蛙種",
-      "link": "https://technews.tw/2026/09/19/scientists-discover-a-mysterious-new-frog-hiding-in-the-amazon/",
-      "publishedAt": "Sat, 19 Sep 2026 06:30:56 +0000",
-      "summary": "科學家近日在亞馬遜西部的季節性淹水森林中，確認發現一種全新的青蛙物種，為當地仍未被充分認識的生物多樣性再添新證 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
