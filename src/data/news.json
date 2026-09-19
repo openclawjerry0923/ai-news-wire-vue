@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-09-19T08:37:07.236Z",
+  "generatedAt": "2026-09-19T12:56:03.517Z",
   "items": [
     {
       "id": 1,
-      "title": "improve(sessions): skip redundant warm maintenance planning (#152621)",
-      "link": "https://github.com/openclaw/openclaw/commit/201b64c840cb80054a87b19cfef42cfea4cac34c",
-      "publishedAt": "2026-09-19T08:37:01Z",
-      "summary": "improve(sessions): skip redundant warm maintenance planning (#152621)",
+      "title": "perf: defer shared-state feature loading until first use (#152071)",
+      "link": "https://github.com/openclaw/openclaw/commit/43e41b26ec7b2a04a63fbb52e5d62b8093eb8954",
+      "publishedAt": "2026-09-19T12:44:23Z",
+      "summary": "perf: defer shared-state feature loading until first use (#152071)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(sessions): skip redundant warm maintenance planning (#152621)",
-      "summaryZh": "重點：improve(sessions): skip redundant warm maintenance planning (#152621)..."
+      "titleZh": "OpenClaw 程式碼更新：perf: defer shared-state 新功能 loading until first use (#152071)",
+      "summaryZh": "重點：perf: defer shared-state 新功能 loading until first use (#152071)..."
     },
     {
       "id": 2,
-      "title": "perf(media): combine attachment selection passes (#152436)",
-      "link": "https://github.com/openclaw/openclaw/commit/dfe2bde5944e61a0c2ef6af5891ad88433264f1d",
-      "publishedAt": "2026-09-19T08:35:47Z",
-      "summary": "perf(media): combine attachment selection passes (#152436)",
+      "title": "fix: completed tasks stay marked as running after late activity (#152…",
+      "link": "https://github.com/openclaw/openclaw/commit/7545e125644b2da65853e83b94bf0bbae5bec8fe",
+      "publishedAt": "2026-09-19T12:41:01Z",
+      "summary": "fix: completed tasks stay marked as running after late activity (#152367) * fix(control-ui): settle tasks after late activity Use durable lifecycle timestamps for task snapshot freshness so a delayed activity update cannot keep a completed or cancelled task marked running. Preserve active-task recency and activity tie-breaking independently. * test(ui): sample current menu typography atomically",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(media): combine attachment selection passes (#152436)",
-      "summaryZh": "重點：perf(media): combine attachment selection passes (#152436)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: completed tasks stay marked as running after late activity (#152…",
+      "summaryZh": "重點：修正: completed tasks stay marked as running after late activity (#152367) * 修正(control-ui): settle tasks after late activ..."
     },
     {
       "id": 3,
-      "title": "fix(macos): show live status for connected saved gateways (#152638)",
-      "link": "https://github.com/openclaw/openclaw/commit/823e07afaac180526e62132f4eae68f69010e12c",
-      "publishedAt": "2026-09-19T08:29:52Z",
-      "summary": "fix(macos): show live status for connected saved gateways (#152638) * fix(macos): show live status for connected saved gateways Report dashboard connection health through the current native document and project it across gateway menus and windows. Retire stale health on replacement, close, sign-out, and content-process termination. Co-authored-by: steipete * fix(macos): preserve terminal gateway errors and defer native startup Keep stopped-with-error status red, retain native lifecycle ownership, and split existing Swift extensions to satisfy lint limits. Native-only startup stays lazy without increasing the browser bundle budget. Co-authored-by: steipete * fix(macos): align native health formatting and source inventory Regenerate the existing native localization inventory after script extraction and align the conditional continuation with SwiftFormat. Co-authored-by: steipete * test(macos): preserve native bridge proof across async startup Return supported boolean values from WebKit fixture message sends. Observe notification startup with non-activating CDP reads before composer interactions while preserving all lifecycle and permission assertions. Co-authored-by: steipete --------- Co-authored-by: steipete",
+      "title": "fix(cron): offload read-only inspection outside native exclusions (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/49b331576760ade2a31c08a1353d9a61ad96b177",
+      "publishedAt": "2026-09-19T12:40:46Z",
+      "summary": "fix(cron): offload read-only inspection outside native exclusions (#152500) * perf(fleet): run registry operations in SQLite workers * fix(state): preserve readonly admission error context * test(gateway): retain catalog root failure diagnostics * fix: preserve uncertain lease outcomes before caller recovery * fix(state): reject retired read scopes and retain wrapper imports Reject new admissions to closing or closed selected read scopes while keeping already-admitted readers owned through cleanup. Preserve typed invalidation at plugin discovery boundaries. Include the retained-read eager dependencies in the canonical PR wrapper inventory. * test(state): require rejection of retired read scopes Update the three existing disposable-scope variants to expect the canonical admission error while preserving active and unrelated source assertions. * fix(state): keep ordinary reads in the SQLite worker Use the existing independent readonly worker for ordinary fixed reads while retaining cached writer custody. Validate captured file identity around opens and acceptance, and bind previously missing paths when their first file appears. Keep selected snapshots and native preparation scopes with their existing owners. * fix: catalog refresh fails when previous discovery finishes Retain selected plugin registries through awaited preparation and hand construction claims to the completed generation. Preserve stale-publication cleanup and borrowed Gateway-root ownership. Related: #151588, #148290. * fix(test): retain Telegram suite output on subprocess errors * fix(ci): require full compact proof for worker policy guards (#151427) Fix compact CI policy guards that confused a two-worker budget with a parallel-to-serial transition. Preserve inherited job ceilings on already-serial recipients and reject redundant group-policy rewrites. Select the complete compact plan on Blacksmith and hybrid runs when the owning planner-policy test changes; keep GitHub targeting precise. Production admission-before-placement, worker limits, and measurements remain unchanged. Validation: focused host-profile and policy cases, serial-policy negative controls, and exact-head CI run 35343663468 passed. ClawSweeper and the retained scoped review found no actionable defects. No user-visible runtime change. * refactor(state): move fixed-read snapshot tokens off the main thread * perf(gateway): materialize archived session rows on demand (#151574) * fix: avoid host-speed failures in catalog performance checks (#151732) Replace the catalog benchmark's host-dependent 20 ms median limit with 20 times an independent in-process CPU reference. Check every composed list for exactly 20 SQLite reads, including three binding-authority reads, and zero plugin-state worker operations, while preserving the existing native-RPC, file-I/O, and session-payload guards. This is a test reliability repair with no runtime or update behavior change. Production changes: 0 lines; tests and test support: +61/-7 across two files. Validation: exact-head CI is green; the reviewed proof includes five passing local runs, two-CPU Testbox and hosted calibration, an extra-SELECT negative control, and a uniform CPU slowdown that fails the independent timing guard. Round-2 Codex autoreview and exact-head ClawSweeper review found no actionable defects. * test(gateway): match catalog read budget to binding owner * test(codex): synchronize agent-end context scenarios Own the fixture clock and wait for turn start and ten response progress events before selecting completion, cancellation, or refusal. Keep the five-second budget and require the expected terminal outcome. Restore real timers before cancelling and joining the run so a failed assertion cannot discard cleanup deadlines. Validation: 62 agent-end, deadline, and lifecycle tests; extension test types; scoped lint and format; independent P2 review. A temporary assertion failure also verified cancellation, unsubscribe, and joined cleanup. * test(state): intercept asynchronous snapshot preparation in lifecycle controls * fix(sqlite): name scoped worker declaration return type * fix(cron): offload read-only inspection outside native exclusions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): show live status for connected saved Gateways (#152638)",
-      "summaryZh": "重點：修正(macos): show live status for connected saved Gateways (#152638) * 修正(macos): show live status for connected saved Gat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): offload read-only inspection outside native exclusions (#1…",
+      "summaryZh": "重點：修正(排程): offload read-only inspection outside native exclusions (#152500) * perf(fleet): run registry operations in SQLit..."
     },
     {
       "id": 4,
-      "title": "fix(release): keep OpenCode Go smoke on a current model (#152703)",
-      "link": "https://github.com/openclaw/openclaw/commit/f5e5f53ba3c4887764e88f2bb94cd1928dbe0c2b",
-      "publishedAt": "2026-09-19T08:28:47Z",
-      "summary": "fix(release): keep OpenCode Go smoke on a current model (#152703) * fix(release): pin OpenCode Go smoke model * fix(release): keep OpenCode Go smoke on a current model",
+      "title": "test(daemon): make drop-in inventory fixture independent of umask (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/ffdb5d8d4519af96ffa3b48dffc391e1cbcb8511",
+      "publishedAt": "2026-09-19T12:38:38Z",
+      "summary": "test(daemon): make drop-in inventory fixture independent of umask (#152807)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): keep OpenCode Go smoke on a current 模型 (#152703)",
-      "summaryZh": "重點：修正(版本發布): keep OpenCode Go smoke on a current 模型 (#152703) * 修正(版本發布): pin OpenCode Go smoke 模型 * 修正(版本發布): keep OpenCod..."
+      "titleZh": "OpenClaw 程式碼更新：test(daemon): make drop-in inventory 修正ture independent of umask (#1…",
+      "summaryZh": "重點：test(daemon): make drop-in inventory 修正ture independent of umask (#152807)..."
     },
     {
       "id": 5,
+      "title": "科研不再只待在實驗室！2026 未來科技館促成 150 場技術「變現」商談",
+      "link": "https://technews.tw/2026/09/19/laboratory/",
+      "publishedAt": "Sat, 19 Sep 2026 09:51:56 +0000",
+      "summary": "2026 台灣創新技術博覽會未來科技館今日落幕，三天展期共吸引逾 5 萬人次進場，完成 150 場技術洽談及 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "台股 9 月六檔 ETF 逆勢狂吸金！00962 受益人單月大增 41.32%",
+      "link": "https://finance.technews.tw/2026/09/19/00962/",
+      "publishedAt": "Sat, 19 Sep 2026 09:17:27 +0000",
+      "summary": "時序進入 9 月，全球變數增多，包括美伊衝突持續升溫、阿曼宣布伊朗和波斯灣國家原定針對荷姆茲海峽舉行的會談將延 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "智利為受傷企鵝量身訂製「銅鋅紅背心」，加速癒合重返野外",
       "link": "https://technews.tw/2026/09/19/humboldt-penguin-wears-recovery-suit-to-aid-wound-healing/",
       "publishedAt": "Sat, 19 Sep 2026 08:00:28 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "股市大戶獲利轉進！漢皇新北最大公辦都更「單元七」打造高資產聚落",
       "link": "https://finance.technews.tw/2026/09/19/unit-7/",
       "publishedAt": "Sat, 19 Sep 2026 07:15:28 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "你越低潮它越推，首份腦波研究證實短影音演算法恐加劇負面情緒迴圈",
       "link": "https://technews.tw/2026/09/19/social-media-algorithms-depression/",
       "publishedAt": "Sat, 19 Sep 2026 07:00:25 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "肉眼幾乎看不出差異，科學家靠獨特叫聲與 DNA 發現亞馬遜新蛙種",
       "link": "https://technews.tw/2026/09/19/scientists-discover-a-mysterious-new-frog-hiding-in-the-amazon/",
       "publishedAt": "Sat, 19 Sep 2026 06:30:56 +0000",
       "summary": "科學家近日在亞馬遜西部的季節性淹水森林中，確認發現一種全新的青蛙物種，為當地仍未被充分認識的生物多樣性再添新證 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "矽光子走出資料中心跨界發威，搶攻自駕、生醫與國防高利基商機",
-      "link": "https://technews.tw/2026/09/19/silicon-photonics-next-stop-autonomous-vehicle-eyes-biomedical-sensor-chips-drone-compasses/",
-      "publishedAt": "Sat, 19 Sep 2026 06:00:59 +0000",
-      "summary": "在生成式 AI 帶動下，半導體產業焦點多集中於資料中心伺服器的「光進銅退」。然而，受限於雲端大廠的高度集中與嚴 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AIC 攜手 AMD 深化 AI 基礎設施合作，於 AMD 台北嵌入式高峰會展現多元運算平台實力",
-      "link": "https://technews.tw/2026/09/19/aic-deepens-ai-infrastructure-partnership-with-amd/",
-      "publishedAt": "Sat, 19 Sep 2026 06:00:19 +0000",
-      "summary": "全球 AI 基礎設施需求持續快速成長，AIC 營邦企業將於 9 月 16 日參與 AMD 台北嵌入式高峰會（A [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
