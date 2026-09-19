@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-19T19:12:28.793Z",
+  "generatedAt": "2026-09-19T22:11:09.505Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(doctor): resolve ClawHub plugin drift targets from ClawHub (#145103)",
-      "link": "https://github.com/openclaw/openclaw/commit/5ad3c49d8918df20e6069ddf42833e0780eb9bd0",
-      "publishedAt": "2026-09-19T19:07:03Z",
-      "summary": "fix(doctor): resolve ClawHub plugin drift targets from ClawHub (#145103) * fix(doctor): resolve ClawHub plugin drift targets from ClawHub Plugin restart readiness compared every active official external plugin against the running OpenClaw version, including installs whose upgrade target lives in ClawHub. ClawHub publishes on its own release train, so its latest version can sit below the host version. Doctor then named an expected version that no update can reach and suggested a command that cannot clear the warning. Resolve the upgrade target for ClawHub installs from ClawHub itself. An install that already holds the newest version ClawHub offers is not drift and is dropped from the report. When ClawHub cannot answer, the drift stays reported with an unresolved target so a real gap is never hidden. The status line now names the registry-confirmed target instead of the host version. * fix(doctor): preserve ClawHub compatibility and update intent * fix(doctor): preserve ClawHub diagnostic targets * style(plugins): format ClawHub drift diagnostics * test(plugins): cover resolved ClawHub status targets * fix(doctor): repair stale ClawHub pins and explain registry lag Two maintainer P1 findings on the ClawHub drift diagnostic: 1. A stale recorded ClawHub pin got no executable repair. The diagnostic read the recorded selector literally, so an exact pin never reached the registry and the unresolved-target guard then suppressed the update command. Resolution now goes through the update owner (resolveClawHubUpdateSpecs) with the catalog spec carried from admission, so a pin at or below the target Gateway resumes the catalog's release policy here exactly as it does during an update. The prescribed repair is the plugin id, which the ClawHub update-selection owner accepts. A pin above the target Gateway stays unresolved. 2. Registry lag was dropped instead of explained. When the installed and registry-latest versions matched but the expected Gateway version was newer, the entry was removed from every downstream diagnostic. It now carries a registry-current outcome with the observed registry version and the expected Gateway version; only the no-op update command is suppressed. Doctor reports it as an informational finding without a fix hint, deep Gateway status explains it outside the repair-failure surface, and post-upgrade states that no release reaches the expected version yet. * test(cli): split plugin version drift cases into their own file status.print.test.ts exceeded the line-cap ratchet. The five plugin version drift renderer cases move into a sibling file unchanged, except for the explicit loaded: true that the old wrapper supplied. No assertion was removed or weakened. Line-cap ratchet against origin/main passes with no new violation. status.print and the new sibling run green: 59 tests, 1 existing skip. * fix(doctor): preserve exact ClawHub correction targets Keep distinct correction releases and build metadata actionable while suppressing only exact installed package versions. Preserve the current plugin update selector and rejection contracts. * fix(plugins): reject registry rollback repair targets --------- Co-authored-by: Peik S. Co-authored-by: Vincent Koc Co-authored-by: Jason (Json) Co-authored-by: Ayaan Zaidi Co-authored-by: steipete Co-authored-by: vincentkoc Co-authored-by: Richard355168 Co-authored-by: ggbond Co-authored-by: IWhatsskill Co-authored-by: VACInc Co-authored-by: njuboy11 Co-authored-by: Alix-007 Co-authored-by: Altay Co-authored-by: xydt-juyaohui Co-authored-by: Peter Steinberger Co-authored-by: Jason Sy",
+      "title": "fix(signal): retain case-sensitive link destinations (#151754)",
+      "link": "https://github.com/openclaw/openclaw/commit/ff38246e67102f088411590c1710dd6d2b32e6b1",
+      "publishedAt": "2026-09-19T21:58:22Z",
+      "summary": "fix(signal): retain case-sensitive link destinations (#151754) ## What Problem This Solves Fixes missing destination URLs in Signal replies when a displayed URL differs from its HTTP(S) target only by path, query, or fragment case, such as `[example.com/Report](https://example.com/report)`. ## User Impact Signal messages, chunked replies, and media captions retain the authored destination instead of displaying only the differently cased label. Existing scheme/domain, `www.`, trailing-slash, and mailto deduplication remains intact; no configuration change is needed. Preserving the suffix also makes percent-escape spelling differences visible: `%2f` versus `%2F` can now produce a redundant destination suffix even though the escapes represent the same byte. This change does not introduce URL canonicalization. ## Why This Change Was Made Signal's duplicate-link comparison lowercased the entire URL before the shared Markdown renderer could preserve the destination. The comparison now preserves HTTP suffix case while continuing to normalize the host. Existing shared rendering still owns destination expansion, chunk sizing, and style offsets. The original contributor commit is preserved. Focused regressions now live in the existing formatter suites instead of a second HTTP recorder suite; existing media-access tests retain transport and attachment coverage. ## Evidence An isolated Linux/arm64 run exercised the registered `pnpm openclaw message send` CLI and the public Signal send API through the actual native HTTP client. Only the external signal-cli daemon was replaced by a loopback JSON-RPC recorder; no internal formatter or transport was mocked. - All 15 CLI/API scenarios passed on the candidate. The baseline lost path-, query-, and fragment-case destinations; the candidate retained them. - Chunked messages respected the configured limit and preserved UTF-16 style offsets after supplementary characters. A PDF caption preserved five style kinds and the exact 607-byte attachment. Account and recipient routing were asserted on actual `POST /api/v1/rpc` requests. - Plain-mode passthrough and existing normalization controls passed; the percent-escape spelling difference above was explicitly observed. - Focused candidate tests: **75 passed across 3 files**. The same formatter regressions against the baseline produced **5 failures / 43 passes**. Scoped lint reported **0 warnings / 0 errors**, and formatting passed. For example, the recorded wire text changed from `example.com#Install` to `example.com#Install (https://example.com#install)`. **Source scope:** these results cover baseline `bef4c20d45bdd23c3557eb71962f908c691a7ed6` plus this PR's formatter repair and focused regressions. The proof retains a pre-existing main-only golden test that is intentionally not added by this PR. These results are not a full historical-branch or hosted-CI result. The formatter SHA-256 is `c950ee86d4d814dfbe7f6ed7e81126db874dbf4db480104b3057e4a5b143b58b`. **Live-proof limit:** this proves the OpenClaw-to-signal-cli payload boundary, not real Signal recipient delivery, client rendering, link tapping, or PDF display. The previous review and author follow-up requested real Signal setup evidence. That requirement is not claimed complete or waived: fresh review must judge the explicitly bounded evidence under the repository's channel-boundary proof policy. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): resolve ClawHub plugin drift targets from ClawHub (#145103)",
-      "summaryZh": "重點：修正(文件tor): resolve ClawHub plugin drift targets from ClawHub (#145103) * 修正(文件tor): resolve ClawHub plugin drift targets..."
+      "titleZh": "OpenClaw 程式碼更新：修正(signal): retain case-sensitive link destinations (#151754)",
+      "summaryZh": "重點：修正(signal): retain case-sensitive link destinations (#151754) ## What Problem This Solves 修正 missing destination URLs in..."
     },
     {
       "id": 2,
-      "title": "fix: prevent stale session history after rollback or database replace…",
-      "link": "https://github.com/openclaw/openclaw/commit/1919beb03d47cabdb85daeb3e07bc4d964b55c04",
-      "publishedAt": "2026-09-19T19:03:51Z",
-      "summary": "fix: prevent stale session history after rollback or database replacement (#153010) * fix: prevent stale session history after rollback or database replacement * perf: preserve per-session history cache capacity under mixed limits",
+      "title": "test(transcripts): await persisted Discord capture retirement (#153117)",
+      "link": "https://github.com/openclaw/openclaw/commit/a5fa4fee550363a7a3ef2f8494a4c27a1428d31f",
+      "publishedAt": "2026-09-19T21:51:21Z",
+      "summary": "test(transcripts): await persisted Discord capture retirement (#153117)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent stale session history after rollback or database replace…",
-      "summaryZh": "重點：修正: prevent stale session history after rollback or database replacement (#153010) * 修正: prevent stale session history a..."
+      "titleZh": "OpenClaw 程式碼更新：test(transcripts): await persisted Discord capture retirement (#153117)",
+      "summaryZh": "重點：test(transcripts): await persisted Discord capture retirement (#153117)..."
     },
     {
       "id": 3,
-      "title": "fix(ci): prevent security checkout failures after fork merges (#153102)",
-      "link": "https://github.com/openclaw/openclaw/commit/2fba9064875533c316179bbafe596cdca3576d6c",
-      "publishedAt": "2026-09-19T18:55:23Z",
-      "summary": "fix(ci): prevent security checkout failures after fork merges (#153102)",
+      "title": "fix(install): fall back to portable Node after package manager failur…",
+      "link": "https://github.com/openclaw/openclaw/commit/216998cac9977f5e293ebb330015c831572816d8",
+      "publishedAt": "2026-09-19T21:51:05Z",
+      "summary": "fix(install): fall back to portable Node after package manager failure (#134386) Windows installations can now recover automatically when winget, Chocolatey, or Scoop fails or leaves an unsupported Node.js runtime. Guarded package-manager attempts warn and continue through the remaining methods to the existing elevation-free portable Node installer. Runtime validation still gates OpenClaw installation. The installer remains the sole owner of runtime provisioning. Updated Windows documentation and regression coverage describe and protect failure fallthrough, successful recovery, and final refusal when no usable runtime can be provisioned. Validation: all 99 exact-head checks completed without failures, including Windows installer CI and openclaw/ci-gate. The isolated Windows recovery trace exercised real portable download, extraction, PATH recovery, and runtime/SQLite validation after an injected Chocolatey failure. Codex review was scoped-clean; ClawSweeper reported no actionable findings or Rank-up moves. Related: #133869",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): prevent 安全 checkout failures after fork merges (#153102)",
-      "summaryZh": "重點：修正(ci): prevent 安全 checkout failures after fork merges (#153102)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(install): fall back to portable Node after package manager failur…",
+      "summaryZh": "重點：修正(install): fall back to portable Node after package manager failure (#134386) Windows installations can now recover au..."
     },
     {
       "id": 4,
-      "title": "fix(talk): hold realtime voice transcripts during relay agent consult…",
-      "link": "https://github.com/openclaw/openclaw/commit/5ef36706caa77944bf2ffe54a2bb971c210d100c",
-      "publishedAt": "2026-09-19T18:52:35Z",
-      "summary": "fix(talk): hold realtime voice transcripts during relay agent consults (#150204) (#150283) Preserve exact Talk consult input adoption while finalized realtime speech continues entering shared history. Keep completed and superseded requests closed. Refs #150204. Reviewed-by: @shakkernerd Co-authored-by: Shakker",
+      "title": "fix: deliver subagent replies despite stale completed tasks (#153157)",
+      "link": "https://github.com/openclaw/openclaw/commit/a84e557282988ddb8fd55b4ab66ca15211c35fb7",
+      "publishedAt": "2026-09-19T21:50:27Z",
+      "summary": "fix: deliver subagent replies despite stale completed tasks (#153157) * fix: deliver child results despite stale completed descendants Scope requester settlement to executions overlapping the current completion batch, while preserving live descendant guards and historical failure records. Covers the missing final response through the spawn/yield/completion lifecycle. * test: verify batch boundary in requester wake assertion",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(talk): hold realtime voice transcripts during relay agent consult…",
-      "summaryZh": "重點：修正(talk): hold realtime voice transcripts during relay agent consults (#150204) (#150283) Preserve exact Talk consult in..."
+      "titleZh": "OpenClaw 程式碼更新：修正: deliver subagent replies despite stale completed tasks (#153157)",
+      "summaryZh": "重點：修正: deliver subagent replies despite stale completed tasks (#153157) * 修正: deliver child results despite stale completed..."
     },
     {
       "id": 5,
