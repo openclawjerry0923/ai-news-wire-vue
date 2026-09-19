@@ -1,58 +1,58 @@
 {
-  "generatedAt": "2026-09-19T16:18:31.502Z",
+  "generatedAt": "2026-09-19T19:12:28.793Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(android): choose a device-local text size (#152878)",
-      "link": "https://github.com/openclaw/openclaw/commit/2b341cd3cef75ce4b728d0587d95c9b98fd75c6a",
-      "publishedAt": "2026-09-19T16:08:48Z",
-      "summary": "feat(android): choose a device-local text size (#152878) Add device-local Android text-size choices with an unchanged 100% default, persisted through the existing appearance preference owner. Carry the selected Compose density through native dialogs, menus and sheets while preserving consent, navigation and credential behavior. Co-authored-by: IWhatsskill",
+      "title": "fix(doctor): resolve ClawHub plugin drift targets from ClawHub (#145103)",
+      "link": "https://github.com/openclaw/openclaw/commit/5ad3c49d8918df20e6069ddf42833e0780eb9bd0",
+      "publishedAt": "2026-09-19T19:07:03Z",
+      "summary": "fix(doctor): resolve ClawHub plugin drift targets from ClawHub (#145103) * fix(doctor): resolve ClawHub plugin drift targets from ClawHub Plugin restart readiness compared every active official external plugin against the running OpenClaw version, including installs whose upgrade target lives in ClawHub. ClawHub publishes on its own release train, so its latest version can sit below the host version. Doctor then named an expected version that no update can reach and suggested a command that cannot clear the warning. Resolve the upgrade target for ClawHub installs from ClawHub itself. An install that already holds the newest version ClawHub offers is not drift and is dropped from the report. When ClawHub cannot answer, the drift stays reported with an unresolved target so a real gap is never hidden. The status line now names the registry-confirmed target instead of the host version. * fix(doctor): preserve ClawHub compatibility and update intent * fix(doctor): preserve ClawHub diagnostic targets * style(plugins): format ClawHub drift diagnostics * test(plugins): cover resolved ClawHub status targets * fix(doctor): repair stale ClawHub pins and explain registry lag Two maintainer P1 findings on the ClawHub drift diagnostic: 1. A stale recorded ClawHub pin got no executable repair. The diagnostic read the recorded selector literally, so an exact pin never reached the registry and the unresolved-target guard then suppressed the update command. Resolution now goes through the update owner (resolveClawHubUpdateSpecs) with the catalog spec carried from admission, so a pin at or below the target Gateway resumes the catalog's release policy here exactly as it does during an update. The prescribed repair is the plugin id, which the ClawHub update-selection owner accepts. A pin above the target Gateway stays unresolved. 2. Registry lag was dropped instead of explained. When the installed and registry-latest versions matched but the expected Gateway version was newer, the entry was removed from every downstream diagnostic. It now carries a registry-current outcome with the observed registry version and the expected Gateway version; only the no-op update command is suppressed. Doctor reports it as an informational finding without a fix hint, deep Gateway status explains it outside the repair-failure surface, and post-upgrade states that no release reaches the expected version yet. * test(cli): split plugin version drift cases into their own file status.print.test.ts exceeded the line-cap ratchet. The five plugin version drift renderer cases move into a sibling file unchanged, except for the explicit loaded: true that the old wrapper supplied. No assertion was removed or weakened. Line-cap ratchet against origin/main passes with no new violation. status.print and the new sibling run green: 59 tests, 1 existing skip. * fix(doctor): preserve exact ClawHub correction targets Keep distinct correction releases and build metadata actionable while suppressing only exact installed package versions. Preserve the current plugin update selector and rejection contracts. * fix(plugins): reject registry rollback repair targets --------- Co-authored-by: Peik S. Co-authored-by: Vincent Koc Co-authored-by: Jason (Json) Co-authored-by: Ayaan Zaidi Co-authored-by: steipete Co-authored-by: vincentkoc Co-authored-by: Richard355168 Co-authored-by: ggbond Co-authored-by: IWhatsskill Co-authored-by: VACInc Co-authored-by: njuboy11 Co-authored-by: Alix-007 Co-authored-by: Altay Co-authored-by: xydt-juyaohui Co-authored-by: Peter Steinberger Co-authored-by: Jason Sy",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(android): choose a device-local text size (#152878)",
-      "summaryZh": "重點：新功能(android): choose a device-local text size (#152878) Add device-local Android text-size choices with an unchanged 100..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): resolve ClawHub plugin drift targets from ClawHub (#145103)",
+      "summaryZh": "重點：修正(文件tor): resolve ClawHub plugin drift targets from ClawHub (#145103) * 修正(文件tor): resolve ClawHub plugin drift targets..."
     },
     {
       "id": 2,
-      "title": "feat(ui): preview ordinary external links on hover (#152758)",
-      "link": "https://github.com/openclaw/openclaw/commit/8c7f96b00b459e421661f11c212f60adde906acb",
-      "publishedAt": "2026-09-19T16:06:52Z",
-      "summary": "feat(ui): preview ordinary external links on hover (#152758) * feat(ui): preview ordinary external links on hover Extend the existing link-reader hover owner with anonymous public-page presentation while preserving plugin priority, prefetch and identity scopes. Share page metadata with browser cards and retain the existing opt-out. Co-authored-by: steipete * fix(ui): scope the preview pointer cursor to its external link Keep the shared cursor policy intact without adding a test exception. Co-authored-by: steipete * fix(ui): exclude wizard sign-in actions from link previews Co-authored-by: steipete --------- Co-authored-by: steipete",
+      "title": "fix: prevent stale session history after rollback or database replace…",
+      "link": "https://github.com/openclaw/openclaw/commit/1919beb03d47cabdb85daeb3e07bc4d964b55c04",
+      "publishedAt": "2026-09-19T19:03:51Z",
+      "summary": "fix: prevent stale session history after rollback or database replacement (#153010) * fix: prevent stale session history after rollback or database replacement * perf: preserve per-session history cache capacity under mixed limits",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(ui): preview ordinary external links on hover (#152758)",
-      "summaryZh": "重點：新功能(ui): preview ordinary external links on hover (#152758) * 新功能(ui): preview ordinary external links on hover Extend t..."
+      "titleZh": "OpenClaw 程式碼更新：修正: prevent stale session history after rollback or database replace…",
+      "summaryZh": "重點：修正: prevent stale session history after rollback or database replacement (#153010) * 修正: prevent stale session history a..."
     },
     {
       "id": 3,
-      "title": "fix(update): avoid imposing a Doctor deadline during normal updates (…",
-      "link": "https://github.com/openclaw/openclaw/commit/52bf22b509d74e6596137d1aaac560637d1d3584",
-      "publishedAt": "2026-09-19T16:02:09Z",
-      "summary": "fix(update): avoid imposing a Doctor deadline during normal updates (#152973) * fix(update): preserve explicit finalization deadline policy * fix(update): retain legacy allowance with private deadline provenance * docs(update): wrap finalization timeout policy * test(update): assert deadline provenance in lease fixture",
+      "title": "fix(ci): prevent security checkout failures after fork merges (#153102)",
+      "link": "https://github.com/openclaw/openclaw/commit/2fba9064875533c316179bbafe596cdca3576d6c",
+      "publishedAt": "2026-09-19T18:55:23Z",
+      "summary": "fix(ci): prevent security checkout failures after fork merges (#153102)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(update): avoid imposing a 文件tor deadline during normal updates (…",
-      "summaryZh": "重點：修正(update): avoid imposing a 文件tor deadline during normal updates (#152973) * 修正(update): preserve explicit finalization..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): prevent 安全 checkout failures after fork merges (#153102)",
+      "summaryZh": "重點：修正(ci): prevent 安全 checkout failures after fork merges (#153102)..."
     },
     {
       "id": 4,
+      "title": "fix(talk): hold realtime voice transcripts during relay agent consult…",
+      "link": "https://github.com/openclaw/openclaw/commit/5ef36706caa77944bf2ffe54a2bb971c210d100c",
+      "publishedAt": "2026-09-19T18:52:35Z",
+      "summary": "fix(talk): hold realtime voice transcripts during relay agent consults (#150204) (#150283) Preserve exact Talk consult input adoption while finalized realtime speech continues entering shared history. Keep completed and superseded requests closed. Refs #150204. Reviewed-by: @shakkernerd Co-authored-by: Shakker",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(talk): hold realtime voice transcripts during relay agent consult…",
+      "summaryZh": "重點：修正(talk): hold realtime voice transcripts during relay agent consults (#150204) (#150283) Preserve exact Talk consult in..."
+    },
+    {
+      "id": 5,
       "title": "桑葚對腸道菌叢與新陳代謝有驚人功效？研究揭示關鍵在於「加工方式」",
       "link": "https://technews.tw/2026/09/20/mulberry-gut-health/",
       "publishedAt": "Sat, 19 Sep 2026 16:00:31 +0000",
       "summary": "桑葚向來是備受喜愛的傳統食材，但波蘭研究團隊的最新綜述指出，其背後其實蘊藏著影響人體代謝的強大「腸道機制」。研 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "refactor(update): separate repair turns from validation (#147547)",
-      "link": "https://github.com/openclaw/openclaw/commit/fbea7971ff4a401cf1304155ab805619ac1b8a58",
-      "publishedAt": "2026-09-19T15:59:17Z",
-      "summary": "refactor(update): separate repair turns from validation (#147547)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(update): separate repair turns from validation (#147547)",
-      "summaryZh": "重點：refactor(update): separate repair turns from validation (#147547)..."
     },
     {
       "id": 6,
