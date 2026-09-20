@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-20T18:02:00.755Z",
+  "generatedAt": "2026-09-20T21:12:20.365Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): preserve completed Swarm state on history refresh (#153840)",
-      "link": "https://github.com/openclaw/openclaw/commit/f543d0755d3bab0d242e9c47d8f7f662b704266a",
-      "publishedAt": "2026-09-20T18:01:32Z",
-      "summary": "fix(ui): preserve completed Swarm state on history refresh (#153840)",
+      "title": "fix(ui): match skill file icons to the composer skill picker (#153908)",
+      "link": "https://github.com/openclaw/openclaw/commit/6b1495903b2105050844c4ed36ad99763b84c911",
+      "publishedAt": "2026-09-20T21:10:34Z",
+      "summary": "fix(ui): match skill file icons to the composer skill picker (#153908) * fix(ui): match skill file icons to the composer skill picker Co-authored-by: vyctorbrzezowski * fix(ui): keep shared skill icons importable in Node Co-authored-by: vyctorbrzezowski * fix: use standard skill icon rendering and repair CI callback Co-authored-by: vyctorbrzezowski * test: wait for chat readiness before media delivery Co-authored-by: vyctorbrzezowski * test: use direct boolean readiness check Co-authored-by: vyctorbrzezowski * test: include TypeScript in expected style lint targets Co-authored-by: vyctorbrzezowski * test: import subagent record binding from codec owner Co-authored-by: vyctorbrzezowski --------- Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve completed Swarm state on history refresh (#153840)",
-      "summaryZh": "重點：修正(ui): preserve completed Swarm state on history refresh (#153840)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): match skill file icons to the composer skill picker (#153908)",
+      "summaryZh": "重點：修正(ui): match skill file icons to the composer skill picker (#153908) * 修正(ui): match skill file icons to the composer s..."
     },
     {
       "id": 2,
-      "title": "fix(config): clarify bootstrap creation and prompt injection (#118755)",
-      "link": "https://github.com/openclaw/openclaw/commit/59bec7f7179e2bd313d2c376cbdbedf85438fd8c",
-      "publishedAt": "2026-09-20T17:58:40Z",
-      "summary": "fix(config): clarify bootstrap creation and prompt injection (#118755) Co-authored-by: steipete",
+      "title": "fix(update): avoid size failures and memory spikes in Git updates (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/81d1c56098942326e0ff93e92f9cd2a6b7e64505",
+      "publishedAt": "2026-09-20T21:09:15Z",
+      "summary": "fix(update): avoid size failures and memory spikes in Git updates (#154042) * fix(update): allow Git updates with packs larger than 256 MiB Remove the fixed candidate pack read cap while retaining safe file opening, pre-admission staging, pack retention, and recovery. Replace the removed size-refusal regression with a missing-pack failure case. Co-authored-by: steipete * fix(update): allow Git updates with packs larger than 256 MiB Worked on by: - @steipete Co-authored-by: steipete OpenClaw-Publication: f454e568-0c25-4240-9b70-4f7f24e78b66 * perf(update): pass staged Git packs directly to the importer Pin the safely opened pack and inherit its descriptor as Git stdin instead of retaining a whole-pack Buffer or piping its bytes. Dispose the descriptor on success, admission refusal, and failure before inspection cleanup; preserve Git-owned pack retention and rollback. Co-authored-by: steipete * test: import task identifier serialization from its owner Repair the existing TS2459 baseline failure after the codec extraction in #153838. Same bounded import repair is tracked in #154048; required to validate the updater change without bypassing the core-test gate. Co-authored-by: steipete * fix(update): avoid size failures and memory spikes in Git updates Worked on by: - @steipete - @fuller-stack-dev Co-authored-by: steipete Co-authored-by: fuller-stack-dev OpenClaw-Publication: 98c11030-6751-4eb1-b910-cb8cba79fe98 * test(update): preserve native inputs in regression fixtures Forward the complete process command contract, including inherited stdin descriptors. Isolate fixture Git identities from managed command-scoped configuration and environment overrides while preserving exact committer assertions. Verified the original bad-pack-header control and all 260 updater/recovery tests. Co-authored-by: steipete Co-authored-by: fuller-stack-dev * fix(update): avoid size failures and memory spikes in Git updates Worked on by: - @steipete - @fuller-stack-dev Co-authored-by: steipete Co-authored-by: fuller-stack-dev OpenClaw-Publication: 6f76a7bc-27ba-44cc-9a0f-82fe3ca6c303 * chore(process): document native stdin descriptor assertion Place the existing Execa descriptor invariant directly above the assertion with the required SAFETY marker. Reproduced the exact CI assertion-ratchet failure, then verified the unchanged guard passes; runtime behavior is unchanged. Co-authored-by: steipete Co-authored-by: fuller-stack-dev --------- Co-authored-by: steipete Co-authored-by: fuller-stack-dev",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): clarify bootstrap creation and prompt injection (#118755)",
-      "summaryZh": "重點：修正(config): clarify bootstrap creation and prompt injection (#118755) Co-authored-by: steipete..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid size failures and 記憶 spikes in Git updates (#1…",
+      "summaryZh": "重點：修正(update): avoid size failures and 記憶 spikes in Git updates (#154042) * 修正(update): allow Git updates with packs larger..."
     },
     {
       "id": 3,
-      "title": "fix: background continuations lose session access and GitHub tools (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/9d150631709a922d8625c333959bd9e8c948e8d0",
-      "publishedAt": "2026-09-20T17:54:02Z",
-      "summary": "fix: background continuations lose session access and GitHub tools (#141865) * fix: background continuations lose session access and GitHub tools Worked on by: - @Takhoffman Co-authored-by: Takhoffman OpenClaw-Publication: 867311a3-8ac4-4412-9b5d-e45028eed55e * fix: preserve Windows launcher line endings during publication Remove the unrelated line-ending normalization introduced by the publication snapshot. The launcher is byte-identical to the PR base. Worked on by: - @Takhoffman Co-authored-by: Takhoffman * refactor: isolate background GitHub availability preparation Keep the shared attempt dispatcher within its existing line limit by extracting the bounded availability stage. Preserve adopted session identity, explicit capability values, lazy loading, and the canonical live-attempt guard. Worked on by: - @Takhoffman Co-authored-by: Takhoffman --------- Co-authored-by: roboclaw-bot Co-authored-by: Takhoffman Co-authored-by: brokemac79 Co-authored-by: VACInc",
+      "title": "refactor: simplify filesystem operations with fs-safe 0.17 (#153973)",
+      "link": "https://github.com/openclaw/openclaw/commit/5e3b91ce6deae9642fd823e2100e64de688dd12f",
+      "publishedAt": "2026-09-20T21:05:04Z",
+      "summary": "refactor: simplify filesystem operations with fs-safe 0.17 (#153973) * refactor: simplify filesystem operations with fs-safe 0.17 * test: retire obsolete fs-safe suppression inventory entries * test: include existing UI fixture in stylelint targets * test: use codec owner for task identifier fixtures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: background continuations lose session access and GitHub tools (#…",
-      "summaryZh": "重點：修正: background continuations lose session access and GitHub tools (#141865) * 修正: background continuations lose session ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: simplify filesystem operations with fs-safe 0.17 (#153973)",
+      "summaryZh": "重點：refactor: simplify filesystem operations with fs-safe 0.17 (#153973) * refactor: simplify filesystem operations with fs-..."
     },
     {
       "id": 4,
-      "title": "refactor(ui): derive agents view state contracts (#151384)",
-      "link": "https://github.com/openclaw/openclaw/commit/8fa37cb788835d72dbe168f5d41652f216788daf",
-      "publishedAt": "2026-09-20T17:49:50Z",
-      "summary": "refactor(ui): derive agents view state contracts (#151384)",
+      "title": "fix(github): avoid anonymous quota in authenticated link readers (#15…",
+      "link": "https://github.com/openclaw/openclaw/commit/d5b6e687ca30931c5b6a5e82b1ffbcb1d7162ba3",
+      "publishedAt": "2026-09-20T21:00:36Z",
+      "summary": "fix(github): avoid anonymous quota in authenticated link readers (#153981)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): derive agents view state contracts (#151384)",
-      "summaryZh": "重點：refactor(ui): derive agents view state contracts (#151384)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(github): avoid anonymous quota in authenticated link readers (#15…",
+      "summaryZh": "重點：修正(github): avoid anonymous quota in authenticated link readers (#153981)..."
     },
     {
       "id": 5,
