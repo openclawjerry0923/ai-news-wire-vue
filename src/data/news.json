@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-20T14:33:21.660Z",
+  "generatedAt": "2026-09-20T18:02:00.755Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: hide internal prompts when Talk steers an active run (#153698)",
-      "link": "https://github.com/openclaw/openclaw/commit/5035eb46ed5a328cf840b28c91cd19fa95b7957a",
-      "publishedAt": "2026-09-20T14:30:31Z",
-      "summary": "fix: hide internal prompts when Talk steers an active run (#153698) Keep generated native Talk steering prompts out of Chat while preserving the full agent input and ordinary user messages. Fixes #153688.",
+      "title": "fix(ui): preserve completed Swarm state on history refresh (#153840)",
+      "link": "https://github.com/openclaw/openclaw/commit/f543d0755d3bab0d242e9c47d8f7f662b704266a",
+      "publishedAt": "2026-09-20T18:01:32Z",
+      "summary": "fix(ui): preserve completed Swarm state on history refresh (#153840)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: hide internal prompts when Talk steers an active run (#153698)",
-      "summaryZh": "重點：修正: hide internal prompts when Talk steers an active run (#153698) Keep generated native Talk steering prompts out of Ch..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): preserve completed Swarm state on history refresh (#153840)",
+      "summaryZh": "重點：修正(ui): preserve completed Swarm state on history refresh (#153840)..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): keep history readable during registry metadata refreshe…",
-      "link": "https://github.com/openclaw/openclaw/commit/ab5db5027365fb6936f219af931445a92d844e47",
-      "publishedAt": "2026-09-20T14:20:39Z",
-      "summary": "fix(gateway): keep history readable during registry metadata refreshes (#153736)",
+      "title": "fix(config): clarify bootstrap creation and prompt injection (#118755)",
+      "link": "https://github.com/openclaw/openclaw/commit/59bec7f7179e2bd313d2c376cbdbedf85438fd8c",
+      "publishedAt": "2026-09-20T17:58:40Z",
+      "summary": "fix(config): clarify bootstrap creation and prompt injection (#118755) Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep history readable during registry metadata refreshe…",
-      "summaryZh": "重點：修正(Gateway): keep history readable during registry metadata refreshes (#153736)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(config): clarify bootstrap creation and prompt injection (#118755)",
+      "summaryZh": "重點：修正(config): clarify bootstrap creation and prompt injection (#118755) Co-authored-by: steipete..."
     },
     {
       "id": 3,
-      "title": "fix: avoid duplicate attachment choices in iOS Safari (#152271)",
-      "link": "https://github.com/openclaw/openclaw/commit/ec5d5daec7ba7db94a9eaf1a36d4e316f138d223",
-      "publishedAt": "2026-09-20T14:17:58Z",
-      "summary": "fix: avoid duplicate attachment choices in iOS Safari (#152271) Use one Attach… action for conservatively identified iOS Safari-style web browsers, independently of viewport size. Preserve the existing camera, photo and file paths on Android, desktop, alternative iOS browsers, unknown identities and declared native/embed hosts. Share the existing iOS platform hint without changing Web Push behavior. Verified with exact-head CI, 56 focused bundled-browser tests including both formerly failing CI scenarios, fresh independent review, and inspected before/after UI evidence. Native phone picker dialogs were not device-tested. Co-authored-by: vyctorbrzezowski Co-authored-by: hannesrudolph",
+      "title": "fix: background continuations lose session access and GitHub tools (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/9d150631709a922d8625c333959bd9e8c948e8d0",
+      "publishedAt": "2026-09-20T17:54:02Z",
+      "summary": "fix: background continuations lose session access and GitHub tools (#141865) * fix: background continuations lose session access and GitHub tools Worked on by: - @Takhoffman Co-authored-by: Takhoffman OpenClaw-Publication: 867311a3-8ac4-4412-9b5d-e45028eed55e * fix: preserve Windows launcher line endings during publication Remove the unrelated line-ending normalization introduced by the publication snapshot. The launcher is byte-identical to the PR base. Worked on by: - @Takhoffman Co-authored-by: Takhoffman * refactor: isolate background GitHub availability preparation Keep the shared attempt dispatcher within its existing line limit by extracting the bounded availability stage. Preserve adopted session identity, explicit capability values, lazy loading, and the canonical live-attempt guard. Worked on by: - @Takhoffman Co-authored-by: Takhoffman --------- Co-authored-by: roboclaw-bot Co-authored-by: Takhoffman Co-authored-by: brokemac79 Co-authored-by: VACInc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid duplicate attachment choices in iOS Safari (#152271)",
-      "summaryZh": "重點：修正: avoid duplicate attachment choices in iOS Safari (#152271) Use one Attach… action for conservatively identified iOS ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: background continuations lose session access and GitHub tools (#…",
+      "summaryZh": "重點：修正: background continuations lose session access and GitHub tools (#141865) * 修正: background continuations lose session ..."
     },
     {
       "id": 4,
-      "title": "perf(test): reuse PR and release tooling fixtures (#153710)",
-      "link": "https://github.com/openclaw/openclaw/commit/4059e336f2033a4f8f7d23aead7ffa73c53efa2b",
-      "publishedAt": "2026-09-20T14:16:58Z",
-      "summary": "perf(test): reuse PR and release tooling fixtures (#153710) Keep independent Git state and real wrapper and worker execution while sharing prepared fixture repositories. Advance the Android observation fixture clock and retain its real timeout and cleanup probes. On one isolated Linux Testbox with one Vitest worker, the five files pass the same 1,116 cases and reduce aggregate wall time from 647.51s to 580.89s.",
+      "title": "refactor(ui): derive agents view state contracts (#151384)",
+      "link": "https://github.com/openclaw/openclaw/commit/8fa37cb788835d72dbe168f5d41652f216788daf",
+      "publishedAt": "2026-09-20T17:49:50Z",
+      "summary": "refactor(ui): derive agents view state contracts (#151384)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse PR and 版本發布 tooling 修正tures (#153710)",
-      "summaryZh": "重點：perf(test): reuse PR and 版本發布 tooling 修正tures (#153710) Keep independent Git state and real wrapper and worker execution..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): derive agents view state contracts (#151384)",
+      "summaryZh": "重點：refactor(ui): derive agents view state contracts (#151384)..."
     },
     {
       "id": 5,
