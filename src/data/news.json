@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-09-20T10:48:12.264Z",
+  "generatedAt": "2026-09-20T14:33:21.660Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(codex): reuse paired node snapshots for progressive catalogs (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/3c6c393f513688cedaef4c4db8195b3f36df3ee7",
-      "publishedAt": "2026-09-20T10:46:15Z",
-      "summary": "perf(codex): reuse paired node snapshots for progressive catalogs (#153614) Serve retained paired-node pages immediately and bound cold foreground waits to 250 ms. Refresh through owned incremental publications with query, configuration, and connection fences. Preserve pending sidebar rows and complete one-shot lookup behavior.",
+      "title": "fix: hide internal prompts when Talk steers an active run (#153698)",
+      "link": "https://github.com/openclaw/openclaw/commit/5035eb46ed5a328cf840b28c91cd19fa95b7957a",
+      "publishedAt": "2026-09-20T14:30:31Z",
+      "summary": "fix: hide internal prompts when Talk steers an active run (#153698) Keep generated native Talk steering prompts out of Chat while preserving the full agent input and ordinary user messages. Fixes #153688.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(codex): reuse paired node snapshots for progressive catalogs (#1…",
-      "summaryZh": "重點：perf(codex): reuse paired node snapshots for progressive catalogs (#153614) Serve retained paired-node pages immediately..."
+      "titleZh": "OpenClaw 程式碼更新：修正: hide internal prompts when Talk steers an active run (#153698)",
+      "summaryZh": "重點：修正: hide internal prompts when Talk steers an active run (#153698) Keep generated native Talk steering prompts out of Ch..."
     },
     {
       "id": 2,
-      "title": "chore(i18n): refresh native locales (#153626)",
-      "link": "https://github.com/openclaw/openclaw/commit/7a143dc77c771fea711e6fb7995886c850a9dc95",
-      "publishedAt": "2026-09-20T10:45:54Z",
-      "summary": "chore(i18n): refresh native locales (#153626) Co-authored-by: github-actions[bot]",
+      "title": "fix(gateway): keep history readable during registry metadata refreshe…",
+      "link": "https://github.com/openclaw/openclaw/commit/ab5db5027365fb6936f219af931445a92d844e47",
+      "publishedAt": "2026-09-20T14:20:39Z",
+      "summary": "fix(gateway): keep history readable during registry metadata refreshes (#153736)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#153626)",
-      "summaryZh": "重點：chore(i18n): refresh native locales (#153626) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep history readable during registry metadata refreshe…",
+      "summaryZh": "重點：修正(Gateway): keep history readable during registry metadata refreshes (#153736)..."
     },
     {
       "id": 3,
-      "title": "refactor: speed up Doctor metadata checks (#153347)",
-      "link": "https://github.com/openclaw/openclaw/commit/b4c8c86c7936d364ff8f319c2db2aaa3c26d7161",
-      "publishedAt": "2026-09-20T10:44:39Z",
-      "summary": "refactor: speed up Doctor metadata checks (#153347) * refactor: speed up Doctor metadata checks * fix: include manifest builder in PR wrapper extraction",
+      "title": "fix: avoid duplicate attachment choices in iOS Safari (#152271)",
+      "link": "https://github.com/openclaw/openclaw/commit/ec5d5daec7ba7db94a9eaf1a36d4e316f138d223",
+      "publishedAt": "2026-09-20T14:17:58Z",
+      "summary": "fix: avoid duplicate attachment choices in iOS Safari (#152271) Use one Attach… action for conservatively identified iOS Safari-style web browsers, independently of viewport size. Preserve the existing camera, photo and file paths on Android, desktop, alternative iOS browsers, unknown identities and declared native/embed hosts. Share the existing iOS platform hint without changing Web Push behavior. Verified with exact-head CI, 56 focused bundled-browser tests including both formerly failing CI scenarios, fresh independent review, and inspected before/after UI evidence. Native phone picker dialogs were not device-tested. Co-authored-by: vyctorbrzezowski Co-authored-by: hannesrudolph",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor: speed up 文件tor metadata checks (#153347)",
-      "summaryZh": "重點：refactor: speed up 文件tor metadata checks (#153347) * refactor: speed up 文件tor metadata checks * 修正: include manifest bui..."
+      "titleZh": "OpenClaw 程式碼更新：修正: avoid duplicate attachment choices in iOS Safari (#152271)",
+      "summaryZh": "重點：修正: avoid duplicate attachment choices in iOS Safari (#152271) Use one Attach… action for conservatively identified iOS ..."
     },
     {
       "id": 4,
-      "title": "fix: keep Workshop event reads off the Gateway request thread (#152583)",
-      "link": "https://github.com/openclaw/openclaw/commit/06ba5109fea42e70d0ba16cad64758cdd96feb9a",
-      "publishedAt": "2026-09-20T10:43:24Z",
-      "summary": "fix: keep Workshop event reads off the Gateway request thread (#152583)",
+      "title": "perf(test): reuse PR and release tooling fixtures (#153710)",
+      "link": "https://github.com/openclaw/openclaw/commit/4059e336f2033a4f8f7d23aead7ffa73c53efa2b",
+      "publishedAt": "2026-09-20T14:16:58Z",
+      "summary": "perf(test): reuse PR and release tooling fixtures (#153710) Keep independent Git state and real wrapper and worker execution while sharing prepared fixture repositories. Advance the Android observation fixture clock and retain its real timeout and cleanup probes. On one isolated Linux Testbox with one Vitest worker, the five files pass the same 1,116 cases and reduce aggregate wall time from 647.51s to 580.89s.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep Workshop event reads off the Gateway request thread (#152583)",
-      "summaryZh": "重點：修正: keep Workshop event reads off the Gateway request thread (#152583)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): reuse PR and 版本發布 tooling 修正tures (#153710)",
+      "summaryZh": "重點：perf(test): reuse PR and 版本發布 tooling 修正tures (#153710) Keep independent Git state and real wrapper and worker execution..."
     },
     {
       "id": 5,
+      "title": "氮含量異常高，天文學家證實星際彗星 3I/ATLAS 來自零下 243 度的恆星邊陲",
+      "link": "https://technews.tw/2026/09/20/3iatlas-may-have-formed-in-the-frigid-outer-regions-of-a-planetary-system/",
+      "publishedAt": "Sun, 20 Sep 2026 13:17:57 +0000",
+      "summary": "曾經闖入太陽系的星際彗星 3I/ATLAS，正為天文學家提供一扇窺探其他行星系統形成環境的窗口。最新研究發現， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "支援身分聯合服務與Passkey，兆勤網管雲大幅強化登入安全",
+      "link": "https://www.ithome.com.tw/review/179044",
+      "publishedAt": "2026-09-20 10:09:49",
+      "summary": "在2016年11月，臺灣網通與資安廠商兆勤科技（Zyxel Networks）推出雲端網路管理平臺Nebula Control Center，即將屆滿10周年，可協助家庭、中小企業、代管服務供應商（MSP）等不同類型的用戶，集中管理Zyxel Networks的無線基地臺、網路交換器、資安",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "大腦其實是兩個器官？震撼發現：人腦由 2 個獨立神經系統拼裝而成",
       "link": "https://technews.tw/2026/09/20/brain-organ-progenitor-cell-brainstem-otx2-gbx2/",
       "publishedAt": "Sun, 20 Sep 2026 09:24:33 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "腸道細菌會影響情緒嗎？研究發現它們可能牽動大腦化學訊號",
       "link": "https://technews.tw/2026/09/20/gut-bacteria-linked-to-key-brain-chemicals-in-first-of-its-kind-human-study/",
       "publishedAt": "Sun, 20 Sep 2026 08:00:17 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "每天一杯手搖飲代價有多大？哈佛最新研究：胃癌風險狂飆 2.5 倍",
       "link": "https://technews.tw/2026/09/20/sugary-drinks-gastric-cancer-risk/",
       "publishedAt": "Sun, 20 Sep 2026 07:00:50 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "不需電力、沒有邏輯電路，科學家開發史上算術最快的 DNA 分子電腦",
       "link": "https://technews.tw/2026/09/20/scaffolded-dna-molecular-computer-basic-operation/",
       "publishedAt": "Sun, 20 Sep 2026 06:59:42 +0000",
       "summary": "愛爾蘭國立梅努斯大學團隊開發出迄今最複雜、速度最快的分子電腦，只需要一滴水和一點熱量，就能驅動水中數十億條 D [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "牙齒化石證實霸王龍為溫血動物，體溫約 36°C 與人類差不多",
-      "link": "https://technews.tw/2026/09/20/tooth-analysis-confirms-t-rex-was-warm-blooded/",
-      "publishedAt": "Sun, 20 Sep 2026 06:30:57 +0000",
-      "summary": "美國加州大學洛杉磯分校（UCLA）領導團隊 16 日在《Science Advances》期刊發表論文，首度測 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "「AI 對學習來說很糟糕！」吳恩達談育兒與職場：用 AI「出題」比直接要答案更重要",
-      "link": "https://technews.tw/2026/09/20/andrew-ng-says-ai-is-bad-for-learning/",
-      "publishedAt": "Sun, 20 Sep 2026 06:00:23 +0000",
-      "summary": "美國知名科技 Podcast「Silicon Valley Girl」主持人茉奇可（Marina Mogilk [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
