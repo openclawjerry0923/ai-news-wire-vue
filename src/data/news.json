@@ -1,17 +1,79 @@
 {
-  "generatedAt": "2026-09-21T09:41:58.409Z",
+  "generatedAt": "2026-09-21T16:16:39.648Z",
   "items": [
     {
       "id": 1,
+      "title": "test(release): remove duplicate child flag assertion (#154665)",
+      "link": "https://github.com/openclaw/openclaw/commit/f78752fd99f875bb2f0977c07bb2a5f870ffba67",
+      "publishedAt": "2026-09-21T16:09:53Z",
+      "summary": "test(release): remove duplicate child flag assertion (#154665) Drop the redundant concurrentSparkplugDisabled fixture field and expectation left by #154345. Keep the existing real-child execArgv assertion, launch policy, and diagnostics. Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(版本發布): remove duplicate child flag assertion (#154665)",
+      "summaryZh": "重點：test(版本發布): remove duplicate child flag assertion (#154665) Drop the redundant concurrentSparkplugDisabled 修正ture field ..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ui): keep Secrets row actions inside narrow tables (#154586)",
+      "link": "https://github.com/openclaw/openclaw/commit/1884d7537d48fd7477bcb9c400bd00a2a8b23d7f",
+      "publishedAt": "2026-09-21T16:09:20Z",
+      "summary": "fix(ui): keep Secrets row actions inside narrow tables (#154586) Closes #154446 ## What Problem This Solves Fixes clipped Secrets row actions in narrow Settings tables, including tablet-sized touch layouts. ## User Impact Operators can see and activate the complete actions button without resizing the window. The existing phone layout and 44px touch target remain intact; secret storage, values, access policy, and Gateway methods are unchanged. ## Why This Change Was Made The fixed-layout actions column reserved 44px but its cell also carried horizontal padding. Size that existing column for the button plus both padding tokens. The regression keeps only the two failing narrow mouse/touch cases; existing desktop/phone tests and direct browser controls cover the unaffected layouts. ## Evidence Current source base `502d4be3af70d92ffdcbe6dc10e4ad0b7c190483` and candidate `72b902d9e7f00bcc5796ec9889f97ba9bec3a854` were exercised through the actual Control UI and the existing mocked Gateway with synthetic secret metadata, not a live secret store. | Viewport/input | Before | After | | --- | --- | --- | | 1000px mouse | Button ends 10px beyond the table | Button ends 16px inside the table | | 1000px touch | Button ends 16px beyond the table | Button ends 16px inside; target remains 44×44px | | 1440px desktop / 390px phone | Contained controls | Contained controls; phone layout unchanged | Enter opened the actions menu in every candidate browser case. [Inspected current before/after screenshots](https://github.com/openclaw/openclaw/pull/154586#issuecomment-5761946653) are embedded in that comment and were verified rendering in the actual PR page. The same exact image pair was also delivered in the originating chat. - Negative control: temporarily restoring the original 44px width made both focused regression cases fail (`943 > 933` and `949 > 933`). The fix was restored immediately afterward. - Focused Secrets E2E suite: **9/9 passed**, including the real production UI bundle build. File test time: **12.777s**; new cases: **491ms + 711ms = 1.202s**. Vitest reported **21.40s**, **23.19s** command wall time, including a **6.94s** UI build. - Scoped type-aware lint, stylesheet lint, and formatting checks passed. No project-wide suite was run. The earlier contributor CI run on `a2f9253a3b44af0e727b75ef73c9077afc23e7b2` reported startup-corpus timeouts outside the UI files. That run is not claimed green or replayed here; applicable hosted CI for the new head remains the landing gate. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep Secrets row actions inside narrow tables (#154586)",
+      "summaryZh": "重點：修正(ui): keep Secrets row actions inside narrow tables (#154586) Closes #154446 ## What Problem This Solves 修正 clipped Se..."
+    },
+    {
+      "id": 3,
+      "title": "chore(test): model ongoing Discord recording speech (#154913)",
+      "link": "https://github.com/openclaw/openclaw/commit/ebfe25f8df23c81e82e7612b6bbfd8964bbb6cc6",
+      "publishedAt": "2026-09-21T15:54:30Z",
+      "summary": "chore(test): model ongoing Discord recording speech (#154913) Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(test): 模型 ongoing Discord recording speech (#154913)",
+      "summaryZh": "重點：chore(test): 模型 ongoing Discord recording speech (#154913) Co-authored-by: Vincent Koc..."
+    },
+    {
+      "id": 4,
+      "title": "fix(test): release seeded stores before Gateway startup",
+      "link": "https://github.com/openclaw/openclaw/commit/dbdb5f9bfb483fc5e5c3afe8d4880c451024d768",
+      "publishedAt": "2026-09-21T15:48:07Z",
+      "summary": "fix(test): release seeded stores before Gateway startup Startup began taking Doctor maintenance ownership in 3a46c0fee22, but real-Gateway fixtures still held parent-side agent database leases after seeding. Close the test instance's scoped session stores before launch, and close QA stores after stopped-state mutation before replacement. Keep production maintenance enforcement and test assertions unchanged. Linux bisect: c5cddb2da34 and 4078c72af83 pass; 0883394977d and 3a46c0fee22 fail with the parent lease refusal. The existing E2E tests cover both missing handoffs. Validation: 20 standalone command-palette passes; three complete 32-file, 62-test CI E2E passes; 236 owner/sibling tests; changed-file checks; formatting and whitespace checks; independent P2-clean review.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): 版本發布 seeded stores before Gateway startup",
+      "summaryZh": "重點：修正(test): 版本發布 seeded stores before Gateway startup Startup began taking 文件tor maintenance ownership in 3a46c0fee22, but..."
+    },
+    {
+      "id": 5,
+      "title": "Googlebook 正式發表，五款新機開放預購、台灣未列首波名單",
+      "link": "https://ccc.technews.tw/2026/09/21/googlebook-is-now-available-for-pre-order/",
+      "publishedAt": "Mon, 21 Sep 2026 14:54:52 +0000",
+      "summary": "Google 攜手宏碁、華碩、戴爾、惠普、聯想 5 家品牌夥伴合作開發的全新高階筆電 Googlebook，2 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "vivo X500 系列登場，四大升級瞄準電影級創作",
+      "link": "https://technews.tw/2026/09/21/vivo-x500-series/",
+      "publishedAt": "Mon, 21 Sep 2026 14:01:19 +0000",
+      "summary": "vivo 稍早於中國市場發表新一代旗艦 X500 系列，今年產品主軸從傳統手機攝影進一步轉向電影級創作，從錄影 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "北韓駭客組織WaterPlum利用假冒求職感染全球至少3萬臺裝置，竊取千萬美元加密貨幣",
       "link": "https://www.ithome.com.tw/news/179080",
       "publishedAt": "2026-09-21 12:09:55",
-      "summary": "美國、日本、澳洲及德國政府9月18日發布聯合公告，揭露北韓駭客組織WaterPlum（又稱Contagious Interview）的攻擊活動。該組織的活動是由日本警方與FBI等單位調查發現，自2025年12月至2026年7月間，至少感染全球100多國3萬臺裝置，主要鎖定網頁設計師、工程師及加密貨幣、區塊鏈與Web3專業人士，並從超過7,000個加密貨幣錢包竊取資金或憑證，至少已將1,071萬美元加密貨幣轉移至北韓。FBI與日本警方評估認為，WaterPlum及相關北韓IT人員，隸屬於北韓軍需工業部中央委員會第313總局。",
+      "summary": "美國、日本、澳洲及德國政府9月18日發布聯合公告，揭露北韓駭客組織WaterPlum（又稱Contagious Interview）的攻擊活動。該組織的活動是由日本警方與FBI等單位調查後發現，自2025年12月至2026年7月間，至少感染全球100多國3萬臺裝置，主要鎖定網頁設計師、工程師及加密貨幣、區塊鏈與Web3專業人士，並從超過7,000個加密貨幣錢包竊取資金或憑證，至少已將1,071萬美元加密貨幣轉移至北韓。FBI與日本警方評估認為，WaterPlum及相關北韓IT人員，隸屬於北韓軍需工業部中央委員會第313總局。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "Check Point修補安全管理與日誌伺服器重大漏洞，若未更新可能導致攻擊者取得root權限",
       "link": "https://www.ithome.com.tw/news/179079",
       "publishedAt": "2026-09-21 12:09:04",
@@ -20,84 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "前OpenAI研究員新創TypeSafe推Jev模型，讓AI從生成文字轉向直接判斷",
-      "link": "https://www.ithome.com.tw/news/179075",
-      "publishedAt": "2026-09-21 11:09:57",
-      "summary": "前OpenAI研究員Diogo Almeida創辦的AI新創TypeSafe，公開決策型AI模型Jev，現已開放所有使用者使用。Jev捨棄大型語言模型逐字生成文字的做法，直接回傳事先限定的選項、分數或是非機率，讓軟體把模型判斷用於分類、路由、評分與流程分支。Jev不是用來產生文章、程式碼或對話，而是把AI作為軟體流程中的判斷元件。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "群暉修補DSM作業系統8個漏洞，含兩個可能導致服務阻斷攻擊的重大漏洞",
-      "link": "https://www.ithome.com.tw/news/179077",
-      "publishedAt": "2026-09-21 11:09:03",
-      "summary": "國產儲存設備廠商群暉（Synology）於9月18日發布旗下NAS產品的DSM作業系統更新，修補8個漏洞，包括兩個重大漏洞，影響DSM 7.2.1、7.2.2、7.3與7.4等版本，用戶應依使用版本分別升級至已完成修補的7.2.1-69057-12、7.2.2-72806-9、7.3.2-86009-4，以及7.4-90075等版本。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "因應企業資安事故與個資外洩頻傳，韓國改革ISMS-P個資保護認證制度、強化現場審查",
-      "link": "https://www.ithome.com.tw/news/179076",
-      "publishedAt": "2026-09-21 11:09:02",
-      "summary": "隨著各國持續強化個資保護政策及企業資料外洩責任，韓國近期也接連調整相關制度，繼本月正式施行新版《個人資料保護法》，針對因故意或重大過失造成1,000萬人以上個資外洩的企業，最高可處年營收10%的罰款後，韓國個人資料保護委員會（PIPC）9月16日再宣布推動資訊安全及個人資料保護管理體系認證（ISMS-P）制度改革，以提升認證實效性。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "CISA將3個Linux核心漏洞列入KEV清單",
-      "link": "https://www.ithome.com.tw/news/179074",
-      "publishedAt": "2026-09-21 10:09:56",
-      "summary": "美國網路安全與基礎設施安全局（CISA）9月18日接連發布兩份公告，將3個Linux核心漏洞列入已知遭利用漏洞清單（KEV），表示已有證據顯示這些漏洞遭到",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix: report the actual gateway PID in upgrade survival tests (#154560)",
-      "link": "https://github.com/openclaw/openclaw/commit/99e7d3e7a5b3b4efe3733edeb1763ac99c89926f",
-      "publishedAt": "2026-09-21T09:38:59Z",
-      "summary": "fix: report the actual gateway PID in upgrade survival tests (#154560) * fix: report the actual gateway PID in upgrade survival tests * test(e2e): exercise shim stop custody with unreadable proc state",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: report the actual Gateway PID in upgrade survival tests (#154560)",
-      "summaryZh": "重點：修正: report the actual Gateway PID in upgrade survival tests (#154560) * 修正: report the actual Gateway PID in upgrade sur..."
-    },
-    {
-      "id": 8,
-      "title": "feat: validate visitor permissions before granting access (#153987)",
-      "link": "https://github.com/openclaw/openclaw/commit/5a679dd4af72042159d1be05e47264006bbaa1e6",
-      "publishedAt": "2026-09-21T09:37:49Z",
-      "summary": "feat: validate visitor permissions before granting access (#153987) Validate configured visitor permissions and retain current administrator authority through invitation, renewal, and revocation effects.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: validate visitor permissions before granting access (#153987)",
-      "summaryZh": "重點：新功能: validate visitor permissions before granting access (#153987) Validate configured visitor permissions and retain cu..."
-    },
-    {
       "id": 9,
-      "title": "test(proxy): build authenticated fixture URLs at runtime (#154442)",
-      "link": "https://github.com/openclaw/openclaw/commit/d2580ac064bca516aa4a738bfe160d6af0b389a3",
-      "publishedAt": "2026-09-21T09:33:50Z",
-      "summary": "test(proxy): build authenticated fixture URLs at runtime (#154442) * test(proxy): build authenticated redaction URLs at runtime * test(proxy): keep redaction fixture within line cap",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(proxy): build authenticated 修正ture URLs at runtime (#154442)",
-      "summaryZh": "重點：test(proxy): build authenticated 修正ture URLs at runtime (#154442) * test(proxy): build authenticated redaction URLs at r..."
+      "title": "軟銀砸 100 億美元加碼 OpenAI！發行 110 億美元債券籌資",
+      "link": "https://technews.tw/2026/09/21/softbank-launches-11-billion-bonds-openai-investment/",
+      "publishedAt": "Mon, 21 Sep 2026 12:06:29 +0000",
+      "summary": "軟銀集團週一（21 日）公布發行條款，計畫發行總額 100 億美元及 10 億歐元（約 11.5 億美元）的優 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "improve: keep CI dependency caches warm for unrelated manifest edits …",
-      "link": "https://github.com/openclaw/openclaw/commit/93be68b967506f7e7c157fa671e09b62e2d41a6b",
-      "publishedAt": "2026-09-21T09:33:25Z",
-      "summary": "improve: keep CI dependency caches warm for unrelated manifest edits (#154122) * ci: scope dependency fingerprints to frozen install manifests * fix(ci): include fingerprint reader in trusted harness * test(ci): share the trusted harness sparse inventory * fix(ci): select relocated dependency fingerprint coverage Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: keep CI dependency caches warm for unrelated manifest edits …",
-      "summaryZh": "重點：improve: keep CI dependency caches warm for unrelated manifest edits (#154122) * ci: scope dependency fingerprints to fr..."
+      "title": "中國智慧眼鏡銷量前 8 月翻倍！心電圖監測設備、運動相機同步成長",
+      "link": "https://technews.tw/2026/09/21/china-smart-glasses-sales/",
+      "publishedAt": "Mon, 21 Sep 2026 12:02:39 +0000",
+      "summary": "中國商務部週日（20 日）表示，今年前 8 個月，中國主要平台的智慧眼鏡銷量較去年同期增加逾一倍；心電圖監測設 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
