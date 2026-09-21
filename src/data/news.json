@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-21T16:16:39.648Z",
+  "generatedAt": "2026-09-21T20:49:38.448Z",
   "items": [
     {
       "id": 1,
-      "title": "test(release): remove duplicate child flag assertion (#154665)",
-      "link": "https://github.com/openclaw/openclaw/commit/f78752fd99f875bb2f0977c07bb2a5f870ffba67",
-      "publishedAt": "2026-09-21T16:09:53Z",
-      "summary": "test(release): remove duplicate child flag assertion (#154665) Drop the redundant concurrentSparkplugDisabled fixture field and expectation left by #154345. Keep the existing real-child execArgv assertion, launch policy, and diagnostics. Co-authored-by: Peter Steinberger",
+      "title": "fix(plugins): retire model-catalog scratch captures with their run (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/07435fa8ee2259f91b55964761058b4f22fba640",
+      "publishedAt": "2026-09-21T20:46:31Z",
+      "summary": "fix(plugins): retire model-catalog scratch captures with their run (#155159)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(版本發布): remove duplicate child flag assertion (#154665)",
-      "summaryZh": "重點：test(版本發布): remove duplicate child flag assertion (#154665) Drop the redundant concurrentSparkplugDisabled 修正ture field ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): retire 模型-catalog scratch captures with their run (#…",
+      "summaryZh": "重點：修正(plugins): retire 模型-catalog scratch captures with their run (#155159)..."
     },
     {
       "id": 2,
-      "title": "fix(ui): keep Secrets row actions inside narrow tables (#154586)",
-      "link": "https://github.com/openclaw/openclaw/commit/1884d7537d48fd7477bcb9c400bd00a2a8b23d7f",
-      "publishedAt": "2026-09-21T16:09:20Z",
-      "summary": "fix(ui): keep Secrets row actions inside narrow tables (#154586) Closes #154446 ## What Problem This Solves Fixes clipped Secrets row actions in narrow Settings tables, including tablet-sized touch layouts. ## User Impact Operators can see and activate the complete actions button without resizing the window. The existing phone layout and 44px touch target remain intact; secret storage, values, access policy, and Gateway methods are unchanged. ## Why This Change Was Made The fixed-layout actions column reserved 44px but its cell also carried horizontal padding. Size that existing column for the button plus both padding tokens. The regression keeps only the two failing narrow mouse/touch cases; existing desktop/phone tests and direct browser controls cover the unaffected layouts. ## Evidence Current source base `502d4be3af70d92ffdcbe6dc10e4ad0b7c190483` and candidate `72b902d9e7f00bcc5796ec9889f97ba9bec3a854` were exercised through the actual Control UI and the existing mocked Gateway with synthetic secret metadata, not a live secret store. | Viewport/input | Before | After | | --- | --- | --- | | 1000px mouse | Button ends 10px beyond the table | Button ends 16px inside the table | | 1000px touch | Button ends 16px beyond the table | Button ends 16px inside; target remains 44×44px | | 1440px desktop / 390px phone | Contained controls | Contained controls; phone layout unchanged | Enter opened the actions menu in every candidate browser case. [Inspected current before/after screenshots](https://github.com/openclaw/openclaw/pull/154586#issuecomment-5761946653) are embedded in that comment and were verified rendering in the actual PR page. The same exact image pair was also delivered in the originating chat. - Negative control: temporarily restoring the original 44px width made both focused regression cases fail (`943 > 933` and `949 > 933`). The fix was restored immediately afterward. - Focused Secrets E2E suite: **9/9 passed**, including the real production UI bundle build. File test time: **12.777s**; new cases: **491ms + 711ms = 1.202s**. Vitest reported **21.40s**, **23.19s** command wall time, including a **6.94s** UI build. - Scoped type-aware lint, stylesheet lint, and formatting checks passed. No project-wide suite was run. The earlier contributor CI run on `a2f9253a3b44af0e727b75ef73c9077afc23e7b2` reported startup-corpus timeouts outside the UI files. That run is not claimed green or replayed here; applicable hosted CI for the new head remains the landing gate. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(agents): emit plan events for CLI progress_card tool results (#15…",
+      "link": "https://github.com/openclaw/openclaw/commit/4baa5361f64b3936b99878f5b92f3a001a7fe6c7",
+      "publishedAt": "2026-09-21T20:46:25Z",
+      "summary": "fix(agents): emit plan events for CLI progress_card tool results (#150903) * fix(agents): emit plan events for CLI progress_card tool results Claude CLI runs never projected progress_card into a plan event, so Telegram (and other channel) progress drafts showed generic tool rows instead of the checklist that Codex runs display. The CLI tool name also arrives MCP-prefixed (mcp__openclaw__progress_card), which the exact-name checks in the embedded handler would not have matched. Reuse the same shared projectProgressCardChannelUpdate contract the embedded runner uses, keyed off the prefix-stripped tool name via isAgentPlanProgressToolName, and emit the same \"plan\" stream event on a successful progress_card/update_plan result. Fixes #150805. * fix(agents): preserve CLI checklists through channel delivery Complete the current-source progress-card repair and exercise the real JSONL parser, correlated result handler, lifecycle bridge, and channel compositor. Preserve failure summaries, duplicate cleanup, delivery suppression, and the final answer. Original fix by chelsealong in #150903; retain the contributor commit as parent. Fixes #150805. Validation: 86 distinct local tests, scoped types/lint/format, independent P0/P1 review. Live Telegram acceptance remains unrun. * chore(agents): align CLI result owner for branch integration Temporarily align the two conflicted CLI owner files with current main so GitHub can preserve signed contributor ancestry during integration. The reviewed progress-card candidate will be reapplied after the merge. This is an intermediate integration head, not final validation. * fix(agents): restore reviewed CLI progress checklists Reapply the independently reviewed progress-card candidate after integrating current main while preserving the original contributor ancestry. Preserve normalized checklists, failure summaries, duplicate cleanup, delivery suppression, and final-answer lifecycle. Original fix by chelsealong; fixes #150805. Validation: 86 distinct local tests plus scoped types, lint, formatting and independent review. Live Telegram proof remains pending. * fix(agents): preserve empty progress-card clears Retain explicit empty CLI tool arguments so successful progress-card clears retract the channel checklist. Consume correlated arguments once so duplicate clears cannot erase a newer card. Extend the real parser-to-compositor fixture for canonical and OpenClaw-prefixed names, replacement, suppression, and final delivery. Preserve original contributor ancestry and credit to chelsealong. Validation: 71 affected tests, repository changed-file checks, and independent P0-P2 review pass. Live Telegram acceptance and screenshot delivery remain pending. * chore(agents): align CLI event owner for main integration Temporarily align the conflicted CLI event owner with main so GitHub can preserve signed contributor ancestry. The reviewed progress-card candidate will be reapplied after integration. This intermediate head is not final validation. * fix(agents): keep CLI plans tied to tracked execution Project successful tracked progress-card results with authoritative prepared arguments, preserve explicit clears, and keep display-only or ambiguous calls outside plan state. Preserve tool summaries and final delivery. Includes regressions for both completion orderings, prepared clears and replacements, and ambiguous capture. Contributor ancestry is retained. --------- Co-authored-by: Jason (Json)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep Secrets row actions inside narrow tables (#154586)",
-      "summaryZh": "重點：修正(ui): keep Secrets row actions inside narrow tables (#154586) Closes #154446 ## What Problem This Solves 修正 clipped Se..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): emit plan events for CLI progress_card tool results (#15…",
+      "summaryZh": "重點：修正(agents): emit plan events for CLI progress_card tool results (#150903) * 修正(agents): emit plan events for CLI progres..."
     },
     {
       "id": 3,
-      "title": "chore(test): model ongoing Discord recording speech (#154913)",
-      "link": "https://github.com/openclaw/openclaw/commit/ebfe25f8df23c81e82e7612b6bbfd8964bbb6cc6",
-      "publishedAt": "2026-09-21T15:54:30Z",
-      "summary": "chore(test): model ongoing Discord recording speech (#154913) Co-authored-by: Vincent Koc",
+      "title": "fix(backup): avoid false owner conflicts for duplicate registry paths…",
+      "link": "https://github.com/openclaw/openclaw/commit/ced7dcf24a5070e53f9bda10704df3fa483c2dab",
+      "publishedAt": "2026-09-21T20:45:04Z",
+      "summary": "fix(backup): avoid false owner conflicts for duplicate registry paths (#154006) * fix(backup): accept duplicate paths for one database owner Deduplicate captured core registrations by physical ownership while preserving archive aliases and rejecting distinct owners sharing a database. Keep identity validation for every original registration. Reproduces the enclosing-workspace failure when the registry contains multiple spellings of the same agent database path; enclosure alone succeeds. Thanks @RJAILLC for reporting #153970. * fix(backup): preserve WAL ownership across database aliases Route core and plugin snapshots through the shared WAL-aware source groups, retain the captured global registry image, and validate cached alias copies. Reject transient alias checkpoints through the existing main-file mutation fingerprint. Prove restored WAL-only rows in both pathname orders and recorded refusals for ambiguous journals. Preserve canonical ownership validation and sanitization. Follow-up for #153970; thanks @RJAILLC.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(test): 模型 ongoing Discord recording speech (#154913)",
-      "summaryZh": "重點：chore(test): 模型 ongoing Discord recording speech (#154913) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(backup): avoid false owner conflicts for duplicate registry paths…",
+      "summaryZh": "重點：修正(backup): avoid false owner conflicts for duplicate registry paths (#154006) * 修正(backup): accept duplicate paths for ..."
     },
     {
       "id": 4,
-      "title": "fix(test): release seeded stores before Gateway startup",
-      "link": "https://github.com/openclaw/openclaw/commit/dbdb5f9bfb483fc5e5c3afe8d4880c451024d768",
-      "publishedAt": "2026-09-21T15:48:07Z",
-      "summary": "fix(test): release seeded stores before Gateway startup Startup began taking Doctor maintenance ownership in 3a46c0fee22, but real-Gateway fixtures still held parent-side agent database leases after seeding. Close the test instance's scoped session stores before launch, and close QA stores after stopped-state mutation before replacement. Keep production maintenance enforcement and test assertions unchanged. Linux bisect: c5cddb2da34 and 4078c72af83 pass; 0883394977d and 3a46c0fee22 fail with the parent lease refusal. The existing E2E tests cover both missing handoffs. Validation: 20 standalone command-palette passes; three complete 32-file, 62-test CI E2E passes; 236 owner/sibling tests; changed-file checks; formatting and whitespace checks; independent P2-clean review.",
+      "title": "fix: personal USER context changes when another participant joins (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/b147282a25d1d9e28f973fb5c984063d5e144710",
+      "publishedAt": "2026-09-21T20:44:30Z",
+      "summary": "fix: personal USER context changes when another participant joins (#154980) * fix: keep shared USER context independent of workspace paths Co-authored-by: VACInc Co-authored-by: steipete * fix: keep shared USER context independent of workspace paths Worked on by: - @VACInc - @steipete Co-authored-by: VACInc Co-authored-by: steipete OpenClaw-Publication: 43d9500e-dd1c-4c0a-a8f4-1d7e81e62044 * fix: bind personal USER context to the session owner Select the assigned human owner or authenticated creator rather than the current sender. Preserve shared-first layering, refresh queued turns from session metadata, and keep personal preferences out of steering authority checks. Co-authored-by: VACInc Co-authored-by: steipete * fix: bind personal USER context to the session owner Worked on by: - @VACInc - @steipete Co-authored-by: VACInc Co-authored-by: steipete OpenClaw-Publication: afd2c067-a47d-47ef-8a5e-d7df14f12ca4 * fix: retain session preferences when queued messages overflow Preserve personal bootstrap eligibility through overflow summaries and compacted retry sources. Cover ordinary summaries, elision, and deferred retries through queued execution without weakening mixed/internal exclusions. Co-authored-by: VACInc Co-authored-by: steipete * fix: personal USER context changes when another participant joins Worked on by: - @VACInc - @steipete Co-authored-by: VACInc Co-authored-by: steipete OpenClaw-Publication: 3895670f-085b-47a7-977d-00f7386388ac --------- Co-authored-by: VACInc Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): 版本發布 seeded stores before Gateway startup",
-      "summaryZh": "重點：修正(test): 版本發布 seeded stores before Gateway startup Startup began taking 文件tor maintenance ownership in 3a46c0fee22, but..."
+      "titleZh": "OpenClaw 程式碼更新：修正: personal USER context changes when another participant joins (#1…",
+      "summaryZh": "重點：修正: personal USER context changes when another participant joins (#154980) * 修正: keep shared USER context independent of..."
     },
     {
       "id": 5,
