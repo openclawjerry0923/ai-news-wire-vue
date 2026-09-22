@@ -1,19 +1,52 @@
 {
-  "generatedAt": "2026-09-22T14:24:44.529Z",
+  "generatedAt": "2026-09-22T18:33:25.612Z",
   "items": [
     {
       "id": 1,
-      "title": "chore(ui): refresh control ui locales (#155700)",
-      "link": "https://github.com/openclaw/openclaw/commit/0a5b5381a26b8480021005dc0145524ba6181cdb",
-      "publishedAt": "2026-09-22T14:08:48Z",
-      "summary": "chore(ui): refresh control ui locales (#155700) Co-authored-by: github-actions[bot]",
+      "title": "fix(meetings): wait for pending audio setup on leave (#155787)",
+      "link": "https://github.com/openclaw/openclaw/commit/c5dd2a1c00e6399ccccc946fbdaab0702cf83800",
+      "publishedAt": "2026-09-22T18:32:27Z",
+      "summary": "fix(meetings): wait for pending audio setup on leave (#155787) * fix(meetings): retain pending audio setup through leave * fix(meetings): preserve browser-only cleanup retry policy",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#155700)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#155700) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正(meetings): wait for pending audio setup on leave (#155787)",
+      "summaryZh": "重點：修正(meetings): wait for pending audio setup on leave (#155787) * 修正(meetings): retain pending audio setup through leave *..."
     },
     {
       "id": 2,
+      "title": "fix(gateway): avoid rereading session facts after preview backfill (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/4df14ffdaf4d83ca132d68f137a2cb3762efda54",
+      "publishedAt": "2026-09-22T18:30:35Z",
+      "summary": "fix(gateway): avoid rereading session facts after preview backfill (#155874) * fix(gateway): avoid rereading session facts after preview backfill * test(gateway): type fallback fixture with internal session entry * fix(test): await Talk session fixture cleanup",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): avoid rereading session facts after preview backfill (#…",
+      "summaryZh": "重點：修正(Gateway): avoid rereading session facts after preview backfill (#155874) * 修正(Gateway): avoid rereading session facts..."
+    },
+    {
+      "id": 3,
+      "title": "fix(test): prevent Gateway server suite heap exhaustion (#155871)",
+      "link": "https://github.com/openclaw/openclaw/commit/533d301e21889c85954324b0a959c3a8738675c2",
+      "publishedAt": "2026-09-22T18:26:37Z",
+      "summary": "fix(test): prevent Gateway server suite heap exhaustion (#155871) * fix(test): bound Gateway server process lifetimes * fix(pr): include workspace Git helper in wrapper sources * chore: incorporate upstream wrapper inventory repair * fix(pr): include config write finalization in wrapper sources Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): prevent Gateway server suite heap exhaustion (#155871)",
+      "summaryZh": "重點：修正(test): prevent Gateway server suite heap exhaustion (#155871) * 修正(test): bound Gateway server process lifetimes * 修正..."
+    },
+    {
+      "id": 4,
+      "title": "fix(release): allow the sqlite-store worker bundle its self-contained…",
+      "link": "https://github.com/openclaw/openclaw/commit/f6e970fc545c3d225819e0118fe028fc1d6efa7e",
+      "publishedAt": "2026-09-22T18:16:19Z",
+      "summary": "fix(release): allow the sqlite-store worker bundle its self-contained size (#155877) * fix(release): allow the sqlite-store worker bundle its self-contained size The portable cloud SQLite worker added in #154711 is a self-contained worker deploy bundle (~46 MiB) like worker.mjs, but the installed-package verifier still applied the 6 MiB root dist cap to it, failing Full Release Validation's npm package contents check for 2026.9.6. * fix(scripts): list the write-finalization module in the wrapper closure #155344 made src/config/io.runtime.ts import ./io.runtime-write-finalization.js but scripts/pr-lib/wrapper-components.txt was not updated, so test/scripts/eager-import-closure.test.ts fails on main with \"src/config/io.runtime.ts: unresolved ./io.runtime-write-finalization.js\".",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): allow the sqlite-store worker bundle its self-contained…",
+      "summaryZh": "重點：修正(版本發布): allow the sqlite-store worker bundle its self-contained size (#155877) * 修正(版本發布): allow the sqlite-store work..."
+    },
+    {
+      "id": 5,
       "title": "告別殘影，vivo 攜手蔡司、攻運動抓拍與 HDR 人像",
       "link": "https://technews.tw/2026/09/22/vivo-x500-camera/",
       "publishedAt": "Tue, 22 Sep 2026 14:04:52 +0000",
@@ -22,46 +55,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 6,
       "title": "Android、Gemini 交織成形，一窺 Googlebook 軟體全貌",
       "link": "https://technews.tw/2026/09/22/googlebook-os-builds-on-the-android-tech-stack-and-pairs-with-desktop-foundations-from-chromeos/",
       "publishedAt": "Tue, 22 Sep 2026 13:59:21 +0000",
       "summary": "Googlebook 為現代人的實際使用方式而設計，仿效蘋果 iPhone 與 MacBook 之間的整合體驗 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "fix(ci): join archive placement fixtures before teardown (#155751)",
-      "link": "https://github.com/openclaw/openclaw/commit/05804bcfdad6daa29fba9cf21b100637824fb489",
-      "publishedAt": "2026-09-22T13:57:01Z",
-      "summary": "fix(ci): join archive placement fixtures before teardown (#155751)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): join archive placement 修正tures before teardown (#155751)",
-      "summaryZh": "重點：修正(ci): join archive placement 修正tures before teardown (#155751)..."
-    },
-    {
-      "id": 5,
-      "title": "fix(matrix): keep bot discovery off the Gateway thread (#152122)",
-      "link": "https://github.com/openclaw/openclaw/commit/49d7f6c40d4bd96e7f49fa24fa85678cdce6d23c",
-      "publishedAt": "2026-09-22T13:56:58Z",
-      "summary": "fix(matrix): keep bot discovery off the Gateway thread (#152122) * fix(matrix): keep bot discovery off the Gateway thread * fix(matrix): preserve bot discovery environment selectors Prepare account authentication against native environment lookups before asynchronous reads. Capture the resolved credential state directory and supervisor setting once through existing host APIs, preserving Windows lookup behavior and the supported host floor without expanding the SDK. * test(matrix): follow the runtime store options contract",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(matrix): keep bot discovery off the Gateway thread (#152122)",
-      "summaryZh": "重點：修正(matrix): keep bot discovery off the Gateway thread (#152122) * 修正(matrix): keep bot discovery off the Gateway thread ..."
-    },
-    {
-      "id": 6,
-      "title": "fix(agents): reconcile late requester recovery receipts (#155357)",
-      "link": "https://github.com/openclaw/openclaw/commit/976c5bfa46df46e86434d0e618df31251b68b743",
-      "publishedAt": "2026-09-22T13:56:21Z",
-      "summary": "fix(agents): reconcile late requester recovery receipts (#155357) Observe exact late requester recovery receipts before returning an eligible retryable handoff outcome. Reuse the existing short-lived worker reader and response classifier without dispatching the input again. Preserve ownership/cancellation boundaries, committed and ambiguous results, explicit stops, permanent outcomes, and private/incognito exclusions. Keep the repair scoped to the three reviewed announce files. No registry, transaction, schema, dependency or worker-framework changes. Validation: exact-head CI 35726842329 passed both required gates and all 23 authored regressions. Current-context native run 35729961457 passed the existing final-response/same-session-follow-up case on the explicitly bound production-plus-fixture composite, with fulfilled cleanup and verified native/host closure. Other E2E branches retain their historical proof; no authenticated external-provider or release acceptance is claimed. Co-authored-by: RomneyDa Co-authored-by: steipete Co-authored-by: vincentkoc Co-authored-by: jalehman",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): reconcile late requester recovery receipts (#155357)",
-      "summaryZh": "重點：修正(agents): reconcile late requester recovery receipts (#155357) Observe exact late requester recovery receipts before r..."
     },
     {
       "id": 7,
