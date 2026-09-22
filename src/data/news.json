@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-22T18:33:25.612Z",
+  "generatedAt": "2026-09-22T21:49:36.668Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(meetings): wait for pending audio setup on leave (#155787)",
-      "link": "https://github.com/openclaw/openclaw/commit/c5dd2a1c00e6399ccccc946fbdaab0702cf83800",
-      "publishedAt": "2026-09-22T18:32:27Z",
-      "summary": "fix(meetings): wait for pending audio setup on leave (#155787) * fix(meetings): retain pending audio setup through leave * fix(meetings): preserve browser-only cleanup retry policy",
+      "title": "fix(ui): keep chat search compact and centered (#155963)",
+      "link": "https://github.com/openclaw/openclaw/commit/f292d532422239d577f350da356eeadfad100cb7",
+      "publishedAt": "2026-09-22T21:49:05Z",
+      "summary": "fix(ui): keep chat search compact and centered (#155963) * fix(ui): keep chat search compact and centered Co-authored-by: vyctorbrzezowski * fix(ui): keep chat search compact and centered Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: f8663bb1-8c37-4f5d-a04a-2f29bb5418d3 * fix(ui): show only one chat search focus outline Co-authored-by: vyctorbrzezowski * test(ui): isolate chat search layout regressions Co-authored-by: vyctorbrzezowski --------- Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(meetings): wait for pending audio setup on leave (#155787)",
-      "summaryZh": "重點：修正(meetings): wait for pending audio setup on leave (#155787) * 修正(meetings): retain pending audio setup through leave *..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep chat search compact and centered (#155963)",
+      "summaryZh": "重點：修正(ui): keep chat search compact and centered (#155963) * 修正(ui): keep chat search compact and centered Co-authored-by: ..."
     },
     {
       "id": 2,
-      "title": "fix(gateway): avoid rereading session facts after preview backfill (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/4df14ffdaf4d83ca132d68f137a2cb3762efda54",
-      "publishedAt": "2026-09-22T18:30:35Z",
-      "summary": "fix(gateway): avoid rereading session facts after preview backfill (#155874) * fix(gateway): avoid rereading session facts after preview backfill * test(gateway): type fallback fixture with internal session entry * fix(test): await Talk session fixture cleanup",
+      "title": "feat(ui): group decision models by provider (#155301)",
+      "link": "https://github.com/openclaw/openclaw/commit/469c2c75ea639a04d6fc8450df340a834afeb39a",
+      "publishedAt": "2026-09-22T21:47:58Z",
+      "summary": "feat(ui): group decision models by provider (#155301) * feat(ui): group decision models by provider Co-authored-by: jalehman * fix(tests): open grouped picker menus in E2E helpers Co-authored-by: jalehman --------- Co-authored-by: roboclaw-bot Co-authored-by: jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): avoid rereading session facts after preview backfill (#…",
-      "summaryZh": "重點：修正(Gateway): avoid rereading session facts after preview backfill (#155874) * 修正(Gateway): avoid rereading session facts..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): group decision 模型 by provider (#155301)",
+      "summaryZh": "重點：新功能(ui): group decision 模型 by provider (#155301) * 新功能(ui): group decision 模型 by provider Co-authored-by: jalehman * 修正(..."
     },
     {
       "id": 3,
-      "title": "fix(test): prevent Gateway server suite heap exhaustion (#155871)",
-      "link": "https://github.com/openclaw/openclaw/commit/533d301e21889c85954324b0a959c3a8738675c2",
-      "publishedAt": "2026-09-22T18:26:37Z",
-      "summary": "fix(test): prevent Gateway server suite heap exhaustion (#155871) * fix(test): bound Gateway server process lifetimes * fix(pr): include workspace Git helper in wrapper sources * chore: incorporate upstream wrapper inventory repair * fix(pr): include config write finalization in wrapper sources Co-authored-by: Peter Steinberger",
+      "title": "fix(ui): queued inputs sort above the existing conversation when acce…",
+      "link": "https://github.com/openclaw/openclaw/commit/d30f66fc26f9203c9ea4debf81f64b1757d18a9a",
+      "publishedAt": "2026-09-22T21:34:36Z",
+      "summary": "fix(ui): queued inputs sort above the existing conversation when accepted before later turns (#155897) * fix(ui): queued inputs sort above the existing conversation when accepted before later turns * fix(ui): anchor queued inputs after visible history Choose the pending-input floor after canvas placement and hidden-row filtering so an empty trailing assistant row cannot move queued inputs above saved conversation. Extend the regression to assert complete visible order and document the presentation contract.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): prevent Gateway server suite heap exhaustion (#155871)",
-      "summaryZh": "重點：修正(test): prevent Gateway server suite heap exhaustion (#155871) * 修正(test): bound Gateway server process lifetimes * 修正..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): queued inputs sort above the existing conversation when acce…",
+      "summaryZh": "重點：修正(ui): queued inputs sort above the existing conversation when accepted before later turns (#155897) * 修正(ui): queued i..."
     },
     {
       "id": 4,
-      "title": "fix(release): allow the sqlite-store worker bundle its self-contained…",
-      "link": "https://github.com/openclaw/openclaw/commit/f6e970fc545c3d225819e0118fe028fc1d6efa7e",
-      "publishedAt": "2026-09-22T18:16:19Z",
-      "summary": "fix(release): allow the sqlite-store worker bundle its self-contained size (#155877) * fix(release): allow the sqlite-store worker bundle its self-contained size The portable cloud SQLite worker added in #154711 is a self-contained worker deploy bundle (~46 MiB) like worker.mjs, but the installed-package verifier still applied the 6 MiB root dist cap to it, failing Full Release Validation's npm package contents check for 2026.9.6. * fix(scripts): list the write-finalization module in the wrapper closure #155344 made src/config/io.runtime.ts import ./io.runtime-write-finalization.js but scripts/pr-lib/wrapper-components.txt was not updated, so test/scripts/eager-import-closure.test.ts fails on main with \"src/config/io.runtime.ts: unresolved ./io.runtime-write-finalization.js\".",
+      "title": "test: finish UI fixture work before cleanup (#155936)",
+      "link": "https://github.com/openclaw/openclaw/commit/33af68aa52e73f6cc93d15a7c42630fe885122fa",
+      "publishedAt": "2026-09-22T21:32:11Z",
+      "summary": "test: finish UI fixture work before cleanup (#155936) * test: retire the mounted Devices scope fixture * test: finish transcript settings tasks before cleanup Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): allow the sqlite-store worker bundle its self-contained…",
-      "summaryZh": "重點：修正(版本發布): allow the sqlite-store worker bundle its self-contained size (#155877) * 修正(版本發布): allow the sqlite-store work..."
+      "titleZh": "OpenClaw 程式碼更新：test: finish UI 修正ture work before cleanup (#155936)",
+      "summaryZh": "重點：test: finish UI 修正ture work before cleanup (#155936) * test: retire the mounted Devices scope 修正ture * test: finish tran..."
     },
     {
       "id": 5,
