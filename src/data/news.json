@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-23T15:21:49.372Z",
+  "generatedAt": "2026-09-23T19:30:17.606Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: show unread marker when a visible session completes (#155690)",
-      "link": "https://github.com/openclaw/openclaw/commit/359a8a35b55208a6091def35d75e8836940693e9",
-      "publishedAt": "2026-09-23T15:21:44Z",
-      "summary": "fix: show unread marker when a visible session completes (#155690) * fix(sessions): show unread marker after completion Co-authored-by: hxy91819 * fix: show unread marker when a visible session completes Worked on by: - @hxy91819 Co-authored-by: hxy91819 OpenClaw-Publication: e5256717-72f2-4407-a461-f446a7d19ff2 --------- Co-authored-by: hxy91819",
-      "source": "OpenClaw Commits",
+      "title": "release-publish/165de4c3bc94-1790191759",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F165de4c3bc94-1790191759",
+      "publishedAt": "2026-09-23T19:28:57Z",
+      "summary": "fix(release): treat an already-superseded plugin version as published…",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: show unread marker when a visible session completes (#155690)",
-      "summaryZh": "重點：修正: show unread marker when a visible session completes (#155690) * 修正(sessions): show unread marker after completion Co..."
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/165de4c3bc94-1790191759",
+      "summaryZh": "重點：修正(版本發布): treat an already-superseded plugin version as published…..."
     },
     {
       "id": 2,
-      "title": "perf(ui): defer Profile identity editor copy",
-      "link": "https://github.com/openclaw/openclaw/commit/46b698a66d7aec2812e8b0e851f13dff2ad3a4d3",
-      "publishedAt": "2026-09-23T15:20:32Z",
-      "summary": "perf(ui): defer Profile identity editor copy Load Profile-only identity copy through the existing lazy Profile registrar. Keep shared sidebar and Settings search labels eager, preserve their single text owner, and compose the complete English catalog in its original order. Repair the current-main startup asset budget without changing its baseline or limit: clean main measured 371450 bytes against 371332; the full candidate build measured 370947 bytes. Visible text and permissions are unchanged. Validation: exact ordered catalog digest unchanged; keyless i18n verification; 61 existing Profile/access/identity/search tests (5.337s wrapper); UI types; scoped formatting and lint; full build (250.487s); enforced final asset budget; fresh independent review with no actionable findings.",
+      "title": "fix(release): treat an already-superseded plugin version as published…",
+      "link": "https://github.com/openclaw/openclaw/commit/165de4c3bc942e0061bd0a1edb37dda9f89b008e",
+      "publishedAt": "2026-09-23T19:28:57Z",
+      "summary": "fix(release): treat an already-superseded plugin version as published and skip its dist-tag move (#156724)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ui): defer Profile identity editor copy",
-      "summaryZh": "重點：perf(ui): defer Profile identity editor copy Load Profile-only identity copy through the existing lazy Profile registrar..."
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): treat an already-superseded plugin version as published…",
+      "summaryZh": "重點：修正(版本發布): treat an already-superseded plugin version as published and skip its dist-tag move (#156724)..."
     },
     {
       "id": 3,
-      "title": "fix(ci): give hosted Control UI checks the 35-minute budget on full-r…",
-      "link": "https://github.com/openclaw/openclaw/commit/b02f2c22d4880d90b104fe98120c0e316674f45b",
-      "publishedAt": "2026-09-23T15:19:49Z",
-      "summary": "fix(ci): give hosted Control UI checks the 35-minute budget on full-release dispatches (#156570)",
+      "title": "feat(config): support ${VAR:-default} in config env substitution (#15…",
+      "link": "https://github.com/openclaw/openclaw/commit/fcfa4bf0c121c30a33d4aa57bc41c1fffa84ba85",
+      "publishedAt": "2026-09-23T19:28:17Z",
+      "summary": "feat(config): support ${VAR:-default} in config env substitution (#155164) Support inline environment defaults when a variable is unset or empty, using the same token grammar for substitution and authored config write-back. Preserve escapes, unsupported forms, and escaped-reference activation guards. Include regression coverage and user documentation. This intentionally changes previously literal fallback-shaped values on upgrade. Operators preserving such an existing Gateway credential can supply its exact bytes through OPENCLAW_GATEWAY_TOKEN, remove the inline token, and retain token mode; isolated production loader/writeback/auth-boundary proof verifies that transition. Closes #149551 Co-authored-by: Mitchell Etzel Co-authored-by: jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): give hosted Control UI checks the 35-minute budget on full-r…",
-      "summaryZh": "重點：修正(ci): give hosted Control UI checks the 35-minute budget on full-版本發布 dispatches (#156570)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(config): support ${VAR:-default} in config env substitution (#15…",
+      "summaryZh": "重點：新功能(config): support ${VAR:-default} in config env substitution (#155164) Support inline environment defaults when a var..."
     },
     {
       "id": 4,
-      "title": "fix(gateway): session lists stall after identity-scope changes (#156339)",
-      "link": "https://github.com/openclaw/openclaw/commit/11867abe45c8efc9cf37e8bd998a922f68647f0c",
-      "publishedAt": "2026-09-23T15:17:25Z",
-      "summary": "fix(gateway): session lists stall after identity-scope changes (#156339) * fix(gateway): retain session facts across identity-scope reloads * test(gateway): preserve operator scope types in reload fixtures",
+      "title": "fix(ci): keep large test inventories on Git",
+      "link": "https://github.com/openclaw/openclaw/commit/31587f12b69e3a6bf4ade37a1fb8b254c609acfe",
+      "publishedAt": "2026-09-23T19:25:26Z",
+      "summary": "fix(ci): keep large test inventories on Git The repository's Git file list exceeds Node's default 1 MiB subprocess buffer. ENOBUFS sent test discovery into its filesystem fallback, which traversed generated Vitest caches and raced their replacement with ENOENT. Move the existing 16 MiB inventory limit to the listing owner, share it with the other selectors, and retain it in the wrapper's source closure. A real 6,000-entry Git index regression fails before the fix and preserves the complete tracked inventory afterward without admitting generated files. It costs 244 ms of test time and 2.51 s wall time with one worker. Linux proof passed the original owner file 20 times and its complete CI shard three times, plus 1,604 owner and sibling tests.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): session lists stall after identity-scope changes (#156339)",
-      "summaryZh": "重點：修正(Gateway): session lists stall after identity-scope changes (#156339) * 修正(Gateway): retain session facts across ident..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): keep large test inventories on Git",
+      "summaryZh": "重點：修正(ci): keep large test inventories on Git The repository's Git file list exceeds Node's default 1 MiB subprocess buffer..."
     },
     {
       "id": 5,
+      "title": "推進實體 AI 與機器人布局！高通宣布收購機器人軟體公司 PickNik",
+      "link": "https://technews.tw/2026/09/24/qualcomm-to-acquire-picknik-to-advance-the-future-of-open-robotics-and-physical-ai/",
+      "publishedAt": "Wed, 23 Sep 2026 17:25:13 +0000",
+      "summary": "高通已同意收購機器人軟體公司 PickNik，進一步推動在實體 AI（Physical AI）與機器人領域的布 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "擴大在台布局！牛津儀器啟用新竹全新辦公室，強化在地客戶服務",
       "link": "https://technews.tw/2026/09/23/oxford-instruments-taiwan-hsinchu/",
       "publishedAt": "Wed, 23 Sep 2026 14:51:36 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "搶攻次世代寬頻！中磊發表 50G PON 超高速光纖解決方案",
       "link": "https://technews.tw/2026/09/23/sercomm-new-50g-pon-product/",
       "publishedAt": "Wed, 23 Sep 2026 14:39:51 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "IBM MQ修補兩個重大漏洞，包含可能導致遠端執行任意程式碼的CVSS滿分漏洞",
       "link": "https://www.ithome.com.tw/news/179163",
       "publishedAt": "2026-09-23 12:09:58",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "OpenAI公布GPT-6 Sol、Luna，價格較前代降低一半",
       "link": "https://www.ithome.com.tw/news/179160",
       "publishedAt": "2026-09-23 11:09:59",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "針對CRA開源責任，OpenSSF以三類角色協助開源社群判斷義務",
       "link": "https://www.ithome.com.tw/news/179158",
       "publishedAt": "2026-09-23 11:09:54",
       "summary": "歐盟《網路韌性法案》（CRA）陸續進入實施階段，不同開源軟體參與者究竟需要承擔哪些責任，也成為開源社群關注的問題。開源安全基金會（OpenSSF）9月15日推出「Grow CRA Readiness」CRA準備指南，協助開源社群判斷自身義務，依三種角色提供相應的準備路徑與資源。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Anthropic推出Claude Opus 5.5，AI越界行為減少85%",
-      "link": "https://www.ithome.com.tw/news/179162",
-      "publishedAt": "2026-09-23 11:09:44",
-      "summary": "Anthropic周二（9/22）推出新一代旗艦AI模型Claude Opus 5.5，為Claude 5.5系列首款模型，不只效能與成本有所改善，在一項新的安全評估中，試圖突破限制邊界的行為也較Opus 5及Claude Mythos 5.1減少約85%。",
       "source": "iThome",
       "tag": "繁中"
     }
