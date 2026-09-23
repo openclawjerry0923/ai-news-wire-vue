@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-09-23T19:30:17.606Z",
+  "generatedAt": "2026-09-23T22:45:16.236Z",
   "items": [
     {
       "id": 1,
-      "title": "release-publish/165de4c3bc94-1790191759",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F165de4c3bc94-1790191759",
-      "publishedAt": "2026-09-23T19:28:57Z",
-      "summary": "fix(release): treat an already-superseded plugin version as published…",
-      "source": "OpenClaw Releases",
+      "title": "fix(workers): derive live event acknowledgments from durable placemen…",
+      "link": "https://github.com/openclaw/openclaw/commit/2798d9f96217965733920dadd338536f892099c5",
+      "publishedAt": "2026-09-23T22:44:51Z",
+      "summary": "fix(workers): derive live event acknowledgments from durable placement (#156612) Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：版本發布-publish/165de4c3bc94-1790191759",
-      "summaryZh": "重點：修正(版本發布): treat an already-superseded plugin version as published…..."
+      "titleZh": "OpenClaw 程式碼更新：修正(workers): derive live event acknowledgments from durable placemen…",
+      "summaryZh": "重點：修正(workers): derive live event acknowledgments from durable placement (#156612) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 2,
-      "title": "fix(release): treat an already-superseded plugin version as published…",
-      "link": "https://github.com/openclaw/openclaw/commit/165de4c3bc942e0061bd0a1edb37dda9f89b008e",
-      "publishedAt": "2026-09-23T19:28:57Z",
-      "summary": "fix(release): treat an already-superseded plugin version as published and skip its dist-tag move (#156724)",
+      "title": "fix: distinguish session groups from the create action (#156822)",
+      "link": "https://github.com/openclaw/openclaw/commit/bdd1b41161cbf23c70e8949b29b45529a2cd5b5b",
+      "publishedAt": "2026-09-23T22:40:31Z",
+      "summary": "fix: distinguish session groups from the create action (#156822) Related: #142863 Replaces #153883; the original stays open until this fix lands. ## What Problem This Solves Selecting an existing session group named `__new-group__` opens New Group instead of assigning the session to that group. ## User Impact All group names behave as data. New Group, ordinary assignment, drag-and-drop and denied-write behavior stay intact. No appearance, permission, schema or RPC changes. ## Why This Change Was Made Mark the create option explicitly and inspect the selected option rather than reserving a group-name string. Keep the current `category-cell.ts` owner and its existing DOM guard; do not restore the earlier extraction. The two category tests move out of the oversized view test file without losing assertions, adding a colliding-name case and a positive create-action control. Production shrinks by two lines; three files total, +120/−104. ## Evidence - On main `764c9331a31`, the real Sessions renderer regression failed for `__new-group__` while two controls passed. With the fix, all three category cases and all 51 remaining view cases pass. - Per-file `pnpm test --maxWorkers=1`: category suite 2.25s wall (collision 17ms); remaining view suite 2.64s wall. [Hosted CI](https://github.com/openclaw/openclaw/actions/runs/35928486234): category test execution 0.128s (collision 48ms); remaining view tests 1.087s. - Fresh canonical changed checks passed (format, lint, typegraphs, line/assertion guards and dead exports). Independent P0–P2 review: scoped-clean, no findings. Current-head ClawSweeper review completed with no findings. Exact-head hosted CI remains enforced for landing. - Behavior-only DOM boundary proof; no live Gateway or screenshot evidence is claimed. Replacement provenance and earlier CI limitation The original PR could not be safely rebased through the native ancestry-preserving publisher. Its accepted auto-merge was cancelled through native retained-outcome recovery before this authorized replacement was started from current main. No old receipt or guard was removed. The old head’s [Node small-18 failure](https://github.com/openclaw/openclaw/actions/runs/35830173387/job/107080979527) reported forced rather than cooperative SIGINT cleanup. Matching-runtime investigation did not reproduce it; that is not a verified fix or proof of flakiness. The older extraction also had a separate Node dispatch failure and 2-byte startup diagnostic. This replacement includes no process-code or budget changes, and neither old passing checks nor nonreproduction qualify its new head. Earlier diagnostics remain in the original PR. Continues the work requested by @vyctorbrzezowski, preserving credit to @vyctorbrzezowski, @steipete, @fuller-stack-dev, @vincentkoc and @shakkernerd. ## Work sessions - [Original discussion](https://team.openclaw.ai/chat/roboclaw/dashboard/28feaf46-a23c-468e-bfad-ab44a1d5ac7b) - [Implementation and verification](https://team.openclaw.ai/chat/roboclaw/~key/subagent/949fe0ab-0f88-4056-a482-913b7f4974f4) Co-authored-by: vyctorbrzezowski Co-authored-by: steipete Co-authored-by: fuller-stack-dev Co-authored-by: vincentkoc Co-authored-by: shakkernerd",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): treat an already-superseded plugin version as published…",
-      "summaryZh": "重點：修正(版本發布): treat an already-superseded plugin version as published and skip its dist-tag move (#156724)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: distinguish session groups from the create action (#156822)",
+      "summaryZh": "重點：修正: distinguish session groups from the create action (#156822) Related: #142863 Replaces #153883; the original stays op..."
     },
     {
       "id": 3,
-      "title": "feat(config): support ${VAR:-default} in config env substitution (#15…",
-      "link": "https://github.com/openclaw/openclaw/commit/fcfa4bf0c121c30a33d4aa57bc41c1fffa84ba85",
-      "publishedAt": "2026-09-23T19:28:17Z",
-      "summary": "feat(config): support ${VAR:-default} in config env substitution (#155164) Support inline environment defaults when a variable is unset or empty, using the same token grammar for substitution and authored config write-back. Preserve escapes, unsupported forms, and escaped-reference activation guards. Include regression coverage and user documentation. This intentionally changes previously literal fallback-shaped values on upgrade. Operators preserving such an existing Gateway credential can supply its exact bytes through OPENCLAW_GATEWAY_TOKEN, remove the inline token, and retain token mode; isolated production loader/writeback/auth-boundary proof verifies that transition. Closes #149551 Co-authored-by: Mitchell Etzel Co-authored-by: jalehman",
+      "title": "test(gateway): avoid cold model rebuild in reload context regression …",
+      "link": "https://github.com/openclaw/openclaw/commit/e9f7ff6814207fe06d342a214382731b51067903",
+      "publishedAt": "2026-09-23T22:39:04Z",
+      "summary": "test(gateway): avoid cold model rebuild in reload context regression (#156823)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(config): support ${VAR:-default} in config env substitution (#15…",
-      "summaryZh": "重點：新功能(config): support ${VAR:-default} in config env substitution (#155164) Support inline environment defaults when a var..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): avoid cold 模型 rebuild in reload context regression …",
+      "summaryZh": "重點：test(Gateway): avoid cold 模型 rebuild in reload context regression (#156823)..."
     },
     {
       "id": 4,
-      "title": "fix(ci): keep large test inventories on Git",
-      "link": "https://github.com/openclaw/openclaw/commit/31587f12b69e3a6bf4ade37a1fb8b254c609acfe",
-      "publishedAt": "2026-09-23T19:25:26Z",
-      "summary": "fix(ci): keep large test inventories on Git The repository's Git file list exceeds Node's default 1 MiB subprocess buffer. ENOBUFS sent test discovery into its filesystem fallback, which traversed generated Vitest caches and raced their replacement with ENOENT. Move the existing 16 MiB inventory limit to the listing owner, share it with the other selectors, and retain it in the wrapper's source closure. A real 6,000-entry Git index regression fails before the fix and preserves the complete tracked inventory afterward without admitting generated files. It costs 244 ms of test time and 2.51 s wall time with one worker. Linux proof passed the original owner file 20 times and its complete CI shard three times, plus 1,604 owner and sibling tests.",
-      "source": "OpenClaw Commits",
+      "title": "release-publish/a6e3d5d3c30d-1790202893",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2Fa6e3d5d3c30d-1790202893",
+      "publishedAt": "2026-09-23T22:34:28Z",
+      "summary": "fix(release): forward the operator lane waiver to publish children (#…",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): keep large test inventories on Git",
-      "summaryZh": "重點：修正(ci): keep large test inventories on Git The repository's Git file list exceeds Node's default 1 MiB subprocess buffer..."
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/a6e3d5d3c30d-1790202893",
+      "summaryZh": "重點：修正(版本發布): forward the operator lane waiver to publish children (#…..."
     },
     {
       "id": 5,
+      "title": "imec IC-Link 成台積電開放創新平台雲端聯盟成員，推廣先進晶片設計基礎設施與技術支援",
+      "link": "https://finance.technews.tw/2026/09/24/imec-ic-link-becomes-a-member-of-tsmcs-open-innovation-platform-cloud-alliance/",
+      "publishedAt": "Wed, 23 Sep 2026 22:30:52 +0000",
+      "summary": "比利時微電子研究中心（imec）的imec IC-Link為特定應用積體電路（ASIC）與矽光子晶片製造與設計 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "耳機化身 AI 代理平台！高通 Snapdragon Sound Elite Gen 2 顛覆音訊穿戴想像",
+      "link": "https://technews.tw/2026/09/24/qualcomm-snapdragon-sound-elite-gen-2/",
+      "publishedAt": "Wed, 23 Sep 2026 20:46:41 +0000",
+      "summary": "高通今（23 日）宣布推出新一代 Snapdragon Sound Elite Gen 2 平台，進一步將 A [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "智慧手機仍是 AI Agent 核心嗎？高通揭「Puck」新概念：口袋版個人運算中樞",
+      "link": "https://technews.tw/2026/09/24/qualcomm-ziad-asghar-talk-personal-ai-agent/",
+      "publishedAt": "Wed, 23 Sep 2026 19:44:02 +0000",
+      "summary": "隨著 AI Agent 進入智慧手機、智慧眼鏡、耳機、手錶與其他穿戴式裝置，個人運算的核心也正在發生變化。高通 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "推進實體 AI 與機器人布局！高通宣布收購機器人軟體公司 PickNik",
       "link": "https://technews.tw/2026/09/24/qualcomm-to-acquire-picknik-to-advance-the-future-of-open-robotics-and-physical-ai/",
       "publishedAt": "Wed, 23 Sep 2026 17:25:13 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "擴大在台布局！牛津儀器啟用新竹全新辦公室，強化在地客戶服務",
       "link": "https://technews.tw/2026/09/23/oxford-instruments-taiwan-hsinchu/",
       "publishedAt": "Wed, 23 Sep 2026 14:51:36 +0000",
@@ -64,39 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "搶攻次世代寬頻！中磊發表 50G PON 超高速光纖解決方案",
       "link": "https://technews.tw/2026/09/23/sercomm-new-50g-pon-product/",
       "publishedAt": "Wed, 23 Sep 2026 14:39:51 +0000",
       "summary": "隨著 8K 影音串流、雲端遊戲、AR/VR、企業連線及行動回傳需求激增的推動下，電信寬頻設備大廠中磊電子推出 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "IBM MQ修補兩個重大漏洞，包含可能導致遠端執行任意程式碼的CVSS滿分漏洞",
-      "link": "https://www.ithome.com.tw/news/179163",
-      "publishedAt": "2026-09-23 12:09:58",
-      "summary": "IBM於9月10日與17日先後發布兩份資安公告，修補訊息中介軟體IBM MQ的兩個重大漏洞CVE-2026-10747與CVE-2026-10858，分別影響IBM MQ Appliance 9.4及10.0部分版本，以及IBM MQ for HPE NonStop的8.1.0到8.1.0.40等版本，其中MQ Appliance應升級至已修補的9.4.0.26、9.4.5.3或",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "OpenAI公布GPT-6 Sol、Luna，價格較前代降低一半",
-      "link": "https://www.ithome.com.tw/news/179160",
-      "publishedAt": "2026-09-23 11:09:59",
-      "summary": "繼頂級的Astra後，OpenAI周二（9/22）宣布GPT-6 Sol及輕量模型GPT-6 Luna，成為GPT-6家族最新成員。 OpenAI隨著快取和推論能力的提升，使其得以更低成本提供強大模型功能，Sol和Luna的API價格皆較GPT-5.6版降一半。其中Sol每百萬token輸入/輸出價格由4/20美元降為2/10美元，Luna則從0.2/1.2降為0.1和0.5美元。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "針對CRA開源責任，OpenSSF以三類角色協助開源社群判斷義務",
-      "link": "https://www.ithome.com.tw/news/179158",
-      "publishedAt": "2026-09-23 11:09:54",
-      "summary": "歐盟《網路韌性法案》（CRA）陸續進入實施階段，不同開源軟體參與者究竟需要承擔哪些責任，也成為開源社群關注的問題。開源安全基金會（OpenSSF）9月15日推出「Grow CRA Readiness」CRA準備指南，協助開源社群判斷自身義務，依三種角色提供相應的準備路徑與資源。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
