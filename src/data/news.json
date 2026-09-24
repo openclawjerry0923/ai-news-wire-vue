@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-24T18:16:19.592Z",
+  "generatedAt": "2026-09-24T22:02:10.253Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agents): avoid repeated history scans during spawn admission (#15…",
-      "link": "https://github.com/openclaw/openclaw/commit/5050eb796c4ec58f301cf20fd5269e506a257c8d",
-      "publishedAt": "2026-09-24T18:16:03Z",
-      "summary": "fix(agents): avoid repeated history scans during spawn admission (#155695)",
+      "title": "test: skip durable resets for fresh custody fixtures (#157561)",
+      "link": "https://github.com/openclaw/openclaw/commit/9698f3467649107d28d69b9137ad7cf2c9bf33e1",
+      "publishedAt": "2026-09-24T22:00:35Z",
+      "summary": "test: skip durable resets for fresh custody fixtures (#157561)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): avoid repeated history scans during spawn admission (#15…",
-      "summaryZh": "重點：修正(agents): avoid repeated history scans during spawn admission (#155695)..."
+      "titleZh": "OpenClaw 程式碼更新：test: skip durable resets for fresh custody 修正tures (#157561)",
+      "summaryZh": "重點：test: skip durable resets for fresh custody 修正tures (#157561)..."
     },
     {
       "id": 2,
-      "title": "test(runner): isolate lifecycle fixtures from services",
-      "link": "https://github.com/openclaw/openclaw/commit/3e9e4cdde3dbffc34366b17dd3a1714173e30c79",
-      "publishedAt": "2026-09-24T18:12:27Z",
-      "summary": "test(runner): isolate lifecycle fixtures from services Use the existing no-service fixture in the three generated runners that previously entered native Gateway publication custody. Include the joined command result in first-case failures while preserving unjoined-work markers, all signal assertions, and both existing deadlines.",
+      "title": "fix(codex): restore installed skills with catalog-backed models (#140…",
+      "link": "https://github.com/openclaw/openclaw/commit/b875c537be3b1a3816a1566a683ab91c6de7abb7",
+      "publishedAt": "2026-09-24T21:59:15Z",
+      "summary": "fix(codex): restore installed skills with catalog-backed models (#140422) * fix(codex): restore installed skills with catalog-backed models * fix(codex): keep skill catalog refreshable on live incognito threads Moving the installed-skill catalog into thread developer instructions made every catalog refresh look like a generic policy change. On a live incognito thread the warm-reuse guard compared the whole creation string, so editing a skill description and sending another message threw CodexIncognitoPolicyChangeError before turn/start. The catalog is now a separate lifecycle input (`skillsInstructions`). The request builder joins it onto the wire developer carrier after the generic policy, so catalog-backed models still receive it and persistent threads keep cold-resuming through the existing policy handoff. The retained ephemeral record splits the immutable generic policy from the catalog last delivered; incognito warm reuse compares only the generic policy (unchanged guard, still fail-closed) and delivers a changed catalog with a `thread/inject_items` developer message, tracked so an unchanged catalog is not re-sent. Docs: the runtime guide, system-prompt concept, and token-use reference still said the catalog rode turn-scoped collaboration instructions; they now match the thread carrier and the incognito refresh. Codex protocol behavior checked in sibling ../codex (main 459a79e): core/src/context/world_state/collaboration_mode.rs:30-42 (catalog messages replace caller collaboration instructions), app-server-protocol v2 thread.rs (thread/settings/update has no developerInstructions), turn_processor.rs thread_inject_items, context-fragments/src/additional_context.rs (1,000-token cap rules out additionalContext as the catalog carrier). * test(codex): cover catalog refresh on reused persistent threads Adds the missing half of the reused-thread coverage. The incognito case already proved an edited catalog reaches a live ephemeral thread through thread/inject_items. This covers the persistent case: the catalog rides the thread developer carrier, so it participates in the thread-config fingerprint (thread-fingerprints.ts:121). An edited skill therefore invalidates warm reuse and cold-resumes the SAME thread with the new catalog, instead of either losing the conversation or answering from the stale catalog. Mutation-checked: dropping options.skillsInstructions from the join in buildCodexThreadConfiguration fails both this test and the incognito two-turn test, so neither assertion is vacuous. Also adapts the native skills test to upstream's changed shutdown contract. closeAndWait() returns CodexAppServerCloseResult rather than boolean since bcef3b3526d (#139657); the assertion now uses the same toMatchObject({ exited: true }) form as the other native tests (thread-lifecycle.native.test.ts:142, settled-turn-finalizer.native.test.ts:57). * fix(codex): break app-server import cycle and register skills test lanes Extract joinPresentSections into a zero-import leaf module so thread-requests.ts no longer imports run-attempt-state.ts, which closed a 10-file strongly connected component in extensions/codex/src/app-server. The merge base is clean, so the cycle was introduced by this branch. Register the two new skills test files in the vitest project that already owns the comparable run-attempt.native-hook-relay test, so full-suite file ownership is exactly one project per file. * fix(codex): keep refreshed incognito skill catalogs across compaction An incognito thread carries its skill catalog in creation-time native developer instructions. A mid-session catalog change is delivered as a client-authored developer message, but Codex remote compaction drops those messages unless retain_client_developer_messages is enabled (off by default) and rebuilds initial context from the unchanged native instructions. The host had already recorded the refreshed catalog as delivered, so later turns skipped reinjection and the conversation silently reverted to the catalog it started with: edited skills kept stale descriptions and removed skills stayed visible. Track the creation-time catalog separately from the current one and re-deliver the current catalog after every compaction, including compaction inside a turn, via the existing onContextCompacted hook. An unchanged catalog still sends nothing, because compaction rebuilds it natively. * test(codex): cover catalog restoration across native compaction Drive the packaged Codex app-server binary through a real compaction on a live incognito thread: turn two refreshes the catalog, turn three exceeds the resolved auto-compact limit, and turn four must still show the model the current catalog. The continuation request after summarization is asserted to carry the creation-time catalog and not the refresh, which reproduces the reversion natively. The creation-time catalog stays in the ephemeral thread's immutable developer instructions and is re-emitted on every request, so restoration is pinned by catalog ordering rather than absence. Pin nativeSkillsInstructions in the ephemeral policy binding assertions so a refresh is shown never to rewrite what compaction will restore. * fix(codex): re-deliver the catalog after a failed post-compaction restore A failed or aborted restore was logged and dropped while the retained record still named the refreshed catalog as delivered. Warm reuse compares that record, so every later turn skipped the refresh and the conversation stayed stranded on the creation-time catalog for the rest of its life. Record what compaction actually restored when the injection fails, so the next turn delivers the current catalog again. * docs(codex): state catalog restore timing precisely The restore is issued as soon as a compaction completes, but that turn's own continuation request may already have been built, so the guaranteed floor is the following request rather than the remainder of the compacting turn. * fix(codex): keep incognito creation policy across standalone compaction Standalone compaction re-retained the live thread without its ephemeral policy, so the record lost the creation-time generic policy and the catalog it had delivered. The next turn then read the live incognito thread as policy drift, and the discarded catalog refresh was never re-sent. Carry the ephemeral policy back through the re-retain and record the catalog compaction actually restored, so an edited or withdrawn skill is delivered again on the next turn instead of reverting for the rest of the conversation. * fix(codex): revert the catalog on the incognito compaction path Standalone compaction only claims and re-retains a thread for non-incognito session keys, so the previous reversion never ran for the conversations it was written for. An incognito thread keeps its own live subscription, leaving the retained record still naming the discarded refresh as delivered. Correct the retained record in place after a completed compaction, and cover both session kinds so an incognito key can no longer be masked by an ordinary one in the regression. * fix(codex): preserve trajectory helper import after rebase * test(codex): budget the compaction history read in skill catalog tests The three post-compaction catalog re-delivery tests never observed `thread/inject_items`, which read as the repair being broken. It was not. Compaction runs the real `before_compaction` hook, which performs an actual mirrored-session history read; its first worker start costs several seconds. `createParams` defaults `timeoutMs` to 5s, so the attempt execution budget expired inside that read, aborted projection, and the `onContextCompacted` restore never ran -- reproducing precisely the symptom these tests assert against. Give these turns the same budget the sibling compaction tests already use in `run-attempt.skills.native.test.ts` and `run-attempt.hooks.test.ts`. Every assertion is unchanged. * fix(codex): preserve parent-only skills on managed connections * test(codex): validate managed instructions before collection --------- Co-authored-by: Rook Co-authored-by: Colton Harris Co-authored-by: jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(runner): isolate lifecycle 修正tures from services",
-      "summaryZh": "重點：test(runner): isolate lifecycle 修正tures from services Use the existing no-service 修正ture in the three generated runners ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): restore installed skills with catalog-backed 模型 (#140…",
+      "summaryZh": "重點：修正(codex): restore installed skills with catalog-backed 模型 (#140422) * 修正(codex): restore installed skills with catalog-..."
     },
     {
       "id": 3,
-      "title": "fix(android): sidebar label matches Overview screen (#157434)",
-      "link": "https://github.com/openclaw/openclaw/commit/3e58afe691234f887d7928110c969e87fe3dad25",
-      "publishedAt": "2026-09-24T18:10:31Z",
-      "summary": "fix(android): sidebar label matches Overview screen (#157434) * fix(android): sidebar label matches Overview screen Keep the persisted work page ID and route unchanged. Update existing sidebar interaction expectations, the generated native source inventory, and the Android navigation documentation. Fixes #157320 Co-authored-by: IWhatsskill * test(android): scope Overview return assertion to page content Reuse the existing Overview content matcher because the sidebar and screen now share the Overview label. Co-authored-by: IWhatsskill --------- Co-authored-by: IWhatsskill",
+      "title": "fix: use publicOrigin as the default browser origin (#157170)",
+      "link": "https://github.com/openclaw/openclaw/commit/8feac27a59f84479085ea9fa3714bcee75bcd3d9",
+      "publishedAt": "2026-09-24T21:55:25Z",
+      "summary": "fix: use publicOrigin as the default browser origin (#157170) * fix(gateway): default browser origins to publicOrigin * fix(gateway): preserve inherited origins during Tailnet setup * fix(tooling): include public origin in wrapper archive * test: run stubbed Docker setup checks as tooling * test(ci): preserve Node executor diagnostics semantics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): sidebar label matches Overview screen (#157434)",
-      "summaryZh": "重點：修正(android): sidebar label matches Overview screen (#157434) * 修正(android): sidebar label matches Overview screen Keep t..."
+      "titleZh": "OpenClaw 程式碼更新：修正: use publicOrigin as the default browser origin (#157170)",
+      "summaryZh": "重點：修正: use publicOrigin as the default browser origin (#157170) * 修正(Gateway): default browser origins to publicOrigin * 修正..."
     },
     {
       "id": 4,
-      "title": "perf(cli): skip migration preflight for Gateway message actions (#157…",
-      "link": "https://github.com/openclaw/openclaw/commit/a4904f895993aa5186f88226bddfc5f8840360bd",
-      "publishedAt": "2026-09-24T18:10:08Z",
-      "summary": "perf(cli): skip migration preflight for Gateway message actions (#157448) Defer message config preparation to the existing action execution-mode selection. Keep early proxy config reads core-only and preserve full Doctor preparation for local actions, broadcasts, and dry-runs. Related: #157351",
+      "title": "test: make exec background promotion deterministic (#157581)",
+      "link": "https://github.com/openclaw/openclaw/commit/1ab1bb09789aa46ad872178d341cf36164bdc407",
+      "publishedAt": "2026-09-24T21:49:10Z",
+      "summary": "test: make exec background promotion deterministic (#157581) Hold the mocked supervisor exit through the yield boundary so the lifecycle case must return a running session and poll its real completion. Release and join the owned scope on exceptional paths while always restoring real timers.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(cli): skip migration preflight for Gateway message actions (#157…",
-      "summaryZh": "重點：perf(cli): skip migration preflight for Gateway message actions (#157448) Defer message config preparation to the existi..."
+      "titleZh": "OpenClaw 程式碼更新：test: make exec background promotion deterministic (#157581)",
+      "summaryZh": "重點：test: make exec background promotion deterministic (#157581) Hold the mocked supervisor exit through the yield boundary ..."
     },
     {
       "id": 5,
