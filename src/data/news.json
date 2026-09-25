@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-25T07:13:56.679Z",
+  "generatedAt": "2026-09-25T13:19:10.719Z",
   "items": [
     {
       "id": 1,
+      "title": "test(windows): isolate lifecycle deadlines from fixture bootstrap",
+      "link": "https://github.com/openclaw/openclaw/commit/a4f6aa281d3caadf3c0b9618e681faa49c8edd32",
+      "publishedAt": "2026-09-25T13:17:26Z",
+      "summary": "test(windows): isolate lifecycle deadlines from fixture bootstrap Full validation 36134179527, job 108068299614, consumed the one-second readiness budget before the native fixture reported its launch. Ordering and replacement assertions therefore tested machine startup speed instead of the lifecycle they described. Hold the policy clock during bootstrap in the ordering case. In the deadline case, start the unchanged real one-second clock after an actual HTTP response reports ready:false. Preserve process cleanup and replacement checks, and require the completed unready response in the timeout receipt.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(windows): isolate lifecycle deadlines from 修正ture bootstrap",
+      "summaryZh": "重點：test(windows): isolate lifecycle deadlines from 修正ture bootstrap Full validation 36134179527, job 108068299614, consumed..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ui): show failed goal outcome checks (#158021)",
+      "link": "https://github.com/openclaw/openclaw/commit/55541bb410f71b070f2010f11c8b36029413769a",
+      "publishedAt": "2026-09-25T13:16:20Z",
+      "summary": "fix(ui): show failed goal outcome checks (#158021) ## What Problem This Solves Refs #157961. A saved Goal mutation can reach the Control UI's **Check outcome** recovery control after an unconfirmed ACK. If the idempotent replay fails without a definitive Gateway rejection (for example, `UNAVAILABLE`), `runGoalOperation` retained the saved receipt but explicitly cleared `chatError`. The user saw the same recovery banner with no explanation after clicking. This change shows the unknown-outcome guidance together with the concrete Gateway error. The original operation identity remains saved; the UI does not infer success from the current goal, invent a new mutation, or replay a chat turn. A definitive rejection still follows its existing retirement behavior. The reported already-settled server operation lacks a captured failing RPC response, so this PR addresses the source-proven *silent failure* path; it does not assert a cause or automatic dismissal for that separate observation. ## Evidence - **Isolated real-Gateway rendered proof (2026-09-25, head `aa7e2fd`):** A temporary browser harness launched a real Gateway on isolated state/port with a synthetic owner, active Goal, and unused fixture model provider. The rendered **Pause goal** control sent the real `sessions.goal.update`; Gateway responded `{ok:true,replayed:false}`. The browser WebSocket route withheld only that ACK. After the browser timeout, the rendered **Check outcome** control replayed **identical params and operation ID**; Gateway responded `{ok:true,replayed:true}`. The route then substituted synthetic `UNAVAILABLE` only on the return path. The patched UI displayed `Goal update not confirmed. Check its outcome before making another change. Synthetic receipt transport interrupted` and kept **Check outcome** enabled. `pnpm test:ui:e2e ui/src/e2e/goal-157961-real-proof.e2e.test.ts` — **1/1 passed**, 191.23 s command duration (8.179 s case). [Inspected after screenshot](https://raw.githubusercontent.com/Olli0103/openclaw/evidence/goal-157961-20260925/after.png), [sanitized observations](https://github.com/Olli0103/openclaw/blob/evidence/goal-157961-20260925/after.json), and [reproduction harness/limitations](https://github.com/Olli0103/openclaw/tree/evidence/goal-157961-20260925). The harness was removed from the PR worktree after capture. This proves real Gateway replay plus controlled browser receipt failure, **not** a real network outage or the cause of the separate already-settled-operation observation. - **Rendered before comparison (old source branch, mock Gateway):** Temporarily restored the exact old catch (`setChatError(host, rejected ? formatUiError(error) : null)`) and ran the same committed browser regression scenario through the rendered **Check outcome** button with `UNAVAILABLE`. The selected case asserted `.chat-error` was absent and captured an [inspected before screenshot](https://raw.githubusercontent.com/Olli0103/openclaw/evidence/goal-157961-20260925/before-mock.png): `pnpm test:ui:e2e ui/src/e2e/chat-goal-recovery.e2e.test.ts -t 'shows a failed Check outcome'` — **1/1 selected case passed**, 17.86 s command duration (1.241 s case). Source and test were restored clean after capture. This comparison uses a **mock Gateway**, not an identical real-Gateway before fixture: real-Gateway counterfactual attempts lost the banner after Gateway session-change refresh before the follow-up click and are not presented as successful proof. - **Source before/after assertion:** At the named non-definitive `runGoalOperation` catch, the old source called `setChatError(host, null)`; the new source emits the unknown-outcome guidance plus `formatUiError(error)`. The committed rendered regression asserts the new visible error after the same **Check outcome** action and would fail against the old catch. - **Rendered Control UI regression:** `node scripts/run-vitest.mjs run --config test/vitest/vitest.ui-e2e.config.ts --configLoader runner ui/src/e2e/chat-goal-recovery.e2e.test.ts` — **6/6 passed**, 29.21 s command wall time; new browser case 1.246 s test time. The new case starts Resume through the rendered button, withholds its ACK, reloads, clicks the rendered **Check outcome** button, verifies the replay uses identical request params/operation ID, rejects it with `UNAVAILABLE`, and observes the Gateway error text on screen. The control remains available, no `chat.send` occurs, and another reload restores the saved recovery without sending a request automatically. Before the fix, the non-definitive catch set `chatError` to `null`, so the visible-error assertion would fail. - **Goal owner unit suite:** `pnpm test ui/src/pages/chat/chat-goals.test.ts --maxWorkers=1` — **31/31 passed**, 17.57 s command wall time, including successful receipt replay, scope isolation, definitive rejection, and expired recovery fences. - `./node_modules/.bin/oxfmt --check ui/src/pages/chat/chat-goals.ts ui/src/e2e/chat-goal-recovery.e2e.test.ts` — passed. - `./node_modules/.bin/oxlint ui/src/pages/chat/chat-goals.ts ui/src/e2e/chat-goal-recovery.e2e.test.ts` — passed. - `node --import ./scripts/tsx.mjs scripts/check-assertion-safety-ratchet.mts --base origin/main` — passed. - `git diff --check` — passed. - Independent autoreview (`--mode local --base origin/main --max-priority P1 --engine claude`) — scoped clean, no actionable P0/P1 findings. The preferred Codex CLI was unavailable on this host; Claude was the supported fallback. Reviewer uncertainty about the translation key/import was checked against `ui/src/i18n/locales/en-chat-goals.ts` and `ui/src/pages/chat/chat-goals.ts`. - `pnpm build` — **passed**, 23m28.7s locally, including the production Control UI build. - `pnpm check` — production, UI, extension, scripts, and root test typechecks passed; broad lint then reported `eslint(max-lines)` in **unchanged** `src/gateway/server-chat-metadata-lifecycle.integration.test.ts` (1002 > 1000) and `src/gateway/session-companion-ask.ts` (770 > 700). Remaining long-running lint stripes were stopped after that independent baseline failure, so **the overall local command did not pass**. The two changed files separately passed `oxfmt --check` and `oxlint` above. This PR did not alter either lint-failing file. - Upstream PR CI on head `aa7e2fd` — **all 3/3 `checks-ui` shards, all 9/9 `checks-ui-e2e` shards, `control-ui-i18n`, `PR context and evidence`, and `openclaw/ci-gate` passed**. The repository-wide local `pnpm test` was not run; the focused suites and the listed upstream matrix are the test evidence, not a claim of a full local test pass. ## Maintainer real-Gateway comparison Both captures below use the rebuilt Control UI served by an isolated real Gateway and synthetic operator/session. Pause committed successfully; its ACK was withheld. Check outcome replayed the identical operation and the Gateway returned success with `replayed: true`; the browser return path substituted a synthetic `UNAVAILABLE` for that check. With current main’s exact `chat-goals.ts` owner, the banner remained without an error. With this PR, the concrete failure was visible and the saved request remained available. A subsequent unmodified real replay cleared the banner and it stayed absent after reload on **both** versions. A normal confirmed Edit updated the objective with no recovery banner. Therefore this PR repairs failed-check visibility; no additional successful-replay reconciliation change is warranted by this reproduction. The original incident’s replay response is unavailable, so this remains Refs #157961 rather than an unsupported full-incident closure. No model invocation is needed for Pause/Edit or their receipt replay; no external provider was called. The temporary real-Gateway scenario passed for main-owner comparison (8.296 s case, 52.21 s command) and candidate (9.066 s case, 54.68 s command). Goal owner unit suite: 31/31, 6.11 s command. Focused rendered recovery suite: 6/6, 22.66 s command (new failed-check case 1.408 s). The temporary harness is not part of the PR. Simplification retained the existing owner-level +5 production lines and one +66-line browser regression; no new state or abstraction. ### Before: failed check silently retains recovery ![Before: silent failed check](https://github.com/user-attachments/assets/5893c7af-a46d-404f-8f85-3f819d85cd08) ### After: failed check explains the error ![After: visible failed check](https://github.com/user-attachments/assets/5d23955d-9136-4a59-a9df-2739ba5c09bc) ### Successful receipt replay clears recovery ![Successful receipt replay](https://github.com/user-attachments/assets/0435d495-cdb6-4419-ae12-82d6bf030200) ### Normal confirmed edit ![Normal confirmed edit](https://github.com/user-attachments/assets/1f1c1c63-e811-44a4-b5c9-62b6b77aa715) Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): show failed goal outcome checks (#158021)",
+      "summaryZh": "重點：修正(ui): show failed goal outcome checks (#158021) ## What Problem This Solves Refs #157961. A saved Goal mutation can re..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(tests): share CLI no-output timeout fixtures (#158117)",
+      "link": "https://github.com/openclaw/openclaw/commit/2ae0e9141cc19655e7fac445b796dc3cf508fcc0",
+      "publishedAt": "2026-09-25T13:13:38Z",
+      "summary": "refactor(tests): share CLI no-output timeout fixtures (#158117)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(tests): share CLI no-output timeout 修正tures (#158117)",
+      "summaryZh": "重點：refactor(tests): share CLI no-output timeout 修正tures (#158117)..."
+    },
+    {
+      "id": 4,
+      "title": "perf(models): correct discovery outcomes in lifecycle fixtures (#158115)",
+      "link": "https://github.com/openclaw/openclaw/commit/d5d4952c5bcabcf1470846c02d88bf04c66051d2",
+      "publishedAt": "2026-09-25T12:56:10Z",
+      "summary": "perf(models): correct discovery outcomes in lifecycle fixtures (#158115) Report successful HTTP discovery and selected account provenance in the catalog lifecycle fixtures. Account retention requires an observed ready outcome; returned rows alone may be advisory static fallback. The learned-row failure reproduced in 20/20 contended Testbox runs. The repaired file passes 20/20 standalone runs, the contended replay, and three complete original-shard replays. Repair the identical missing outcome found by sibling freshness validation. All assertions are retained. No production behavior changes.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(模型): correct discovery outcomes in lifecycle 修正tures (#158115)",
+      "summaryZh": "重點：perf(模型): correct discovery outcomes in lifecycle 修正tures (#158115) Report successful HTTP discovery and selected accoun..."
+    },
+    {
+      "id": 5,
+      "title": "微軟強化 Copilot，三大功能接軌企業需求",
+      "link": "https://technews.tw/2026/09/25/microsoft-introduces-a-new-copilot-with-home-code-and-autopilot/",
+      "publishedAt": "Fri, 25 Sep 2026 12:00:28 +0000",
+      "summary": "微軟 Copilot 迎來重大升級，區分成作為 AI 協作起點的「Home」、讓非開發者也能建構 AI 應用的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "AWS CloudWatch Omni納入AI代理品質測試，可比較模型與提示詞表現",
       "link": "https://www.ithome.com.tw/news/179226",
       "publishedAt": "2026-09-25 11:09:59",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "Docker Cloud Sandboxes上線，AI代理環境可在本機與雲端雙向搬移",
       "link": "https://www.ithome.com.tw/news/179227",
       "publishedAt": "2026-09-25 11:09:24",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "Anthropic動用近千Claude代理搜尋DNA，21小時找出新型ART酵素系統",
       "link": "https://www.ithome.com.tw/news/179222",
       "publishedAt": "2026-09-25 11:09:12",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "Google AI代理PageBreak找出自家Web應用程式逾500個XSS漏洞",
       "link": "https://www.ithome.com.tw/news/179224",
       "publishedAt": "2026-09-25 09:09:00",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "Anthropic 砸百億美元擴算力，Akamai 拿下雲端大單",
-      "link": "https://finance.technews.tw/2026/09/25/akamai-announces-11-6-billion-multi-year-agreement-with-anthropic-to-support-growing-demand/",
-      "publishedAt": "Fri, 25 Sep 2026 07:10:21 +0000",
-      "summary": "Anthropic 承諾向阿卡邁科技（Akamai Technologies）支付 116 億美元購買雲端服務 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "refactor(ui): centralize draft restore currentness checks (#157983)",
-      "link": "https://github.com/openclaw/openclaw/commit/04fb3c8e35b3e1cb88630c797ac3ce4e50f38735",
-      "publishedAt": "2026-09-25T07:02:55Z",
-      "summary": "refactor(ui): centralize draft restore currentness checks (#157983) Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): centralize draft restore currentness checks (#157983)",
-      "summaryZh": "重點：refactor(ui): centralize draft restore currentness checks (#157983) Co-authored-by: Vincent Koc..."
-    },
-    {
-      "id": 7,
-      "title": "fix(android): start Talk after granting microphone access (#157971)",
-      "link": "https://github.com/openclaw/openclaw/commit/74af342fc1713f69295b7c08c7463023e6b33857",
-      "publishedAt": "2026-09-25T07:02:49Z",
-      "summary": "fix(android): start Talk after granting microphone access (#157971)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): start Talk after granting microphone access (#157971)",
-      "summaryZh": "重點：修正(android): start Talk after granting microphone access (#157971)..."
-    },
-    {
-      "id": 8,
-      "title": "AI 破解人體老化時鐘：揭開三大「爆發性」衰老軌跡，兩個年齡是斷崖關鍵",
-      "link": "https://technews.tw/2026/09/25/human-organ-aging-watershed/",
-      "publishedAt": "Fri, 25 Sep 2026 07:00:54 +0000",
-      "summary": "傳統觀念認為人體會勻速老化，但近期刊登於《Nature Aging》的研究打破了這項迷思。科學家透過人工智慧（ [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "fix(release): let one publish parent dispatch finish (#157937)",
-      "link": "https://github.com/openclaw/openclaw/commit/608db3b1c959ac15de013670d60de305512a79d9",
-      "publishedAt": "2026-09-25T07:00:53Z",
-      "summary": "fix(release): let one publish parent dispatch finish (#157937) * fix(release): let one publish parent dispatch finish Sweep a failed earlier parent's waiting children before every child dispatch (reject gate, cancel, bounded wait), retry transient gh reads, wait for the core package to be visible on the registry and run the beta-to-stable dist-tag sync through a release-ledger app token before verification, treat a run with a waiting gate as live in the tooling identity check, and verify an already-public GitHub release instead of failing to rewrite it. * test(release): stub sleep in the Linux request dispatch fixture so gh read retries stay within its timeout * fix(release): reclaim waiting plugin npm children only while no other publish parent is live",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): let one publish parent dispatch finish (#157937)",
-      "summaryZh": "重點：修正(版本發布): let one publish parent dispatch finish (#157937) * 修正(版本發布): let one publish parent dispatch finish Sweep a fa..."
-    },
-    {
       "id": 10,
-      "title": "fix: Side chat cannot answer on claude-cli installs without an API ke…",
-      "link": "https://github.com/openclaw/openclaw/commit/5ec800d57b6222d4e1795205016d6388c3787f0e",
-      "publishedAt": "2026-09-25T06:58:25Z",
-      "summary": "fix: Side chat cannot answer on claude-cli installs without an API key (#157474) Closes #141483 ## What Problem This Solves Control UI Side chat fails with `missing-provider-auth` on subscription-backed `claude-cli` installs without a direct provider API key. ## User Impact Side chat can answer through a tool-free, one-shot CLI process when direct provider authentication is missing. Working direct-provider installations retain read-only tools and image support. CLI image questions return the existing `image-input-unsupported` error. No configuration, public API, or schema changes. ## Why This Change Was Made The automatic utility model normally uses the embedded runner. Reuse the existing CLI side-question owner only when provider credential resolution reports `missing-provider-auth`; other credential failures are not hidden. Carry the selected logical provider/model into CLI admission so permitted restricted operators can use Side chat. This follows the [recorded maintainer decision](https://github.com/openclaw/openclaw/pull/157474#issuecomment-5827253713). ## Evidence Real built Gateway and Control UI, isolated state, synthetic session, and non-default loopback ports; no real Claude login or paid API key was used. **The external Claude executable and OpenAI-compatible provider are scripted boundaries.** Gateway routing, process launch, session snapshot construction, RPC transport, tool execution, image delivery, and UI rendering are real. - Main `1976a166443`: asking Side chat with a CLI primary and no API key fails; Gateway reports `No API key found for provider \"anthropic\"` and the UI displays its error. - Candidate: the same question answers through the stub `claude`. Captured argv includes `--tools \"\"`, `--disallowedTools mcp__*`, `--strict-mcp-config`, `--no-session-persistence`, and `--max-turns 1`. Its stdin contains the selected-session text and `ROUTE_PROOF_141483` snapshot marker. No resumed session is used. - CLI image request: RPC rejects with `image-input-unsupported`, without crashing. - Direct API-key route, before and after: the scripted provider requests the real `read` tool, reads `proof.txt`, and the answer contains `SIDE_CHAT_READ_PROOF`. A separate image question reaches the provider with the image and answers successfully. The same three read-only tools remain available. - Focused ask + RPC suites: **30 passed**, 42s wall including worker preparation; CLI/auth upgrade regression about 131ms. Removing the logical requester model makes the restricted-operator regression fail; restoring it passes. - Runtime-only Gateway + Control UI builds completed. Full declaration build was stopped at its 20-minute timeout; not claimed as passing. Main and candidate both report the same existing 62-byte startup CSS budget overage; no UI assets changed here. ### CLI-only install before ![Main: Side chat error without a provider API key](https://github.com/user-attachments/assets/3d7da51f-fde0-46dc-b3a7-c9f90f1d6746) ### CLI-only install after ![Candidate: Side chat answers through the scripted CLI](https://github.com/user-attachments/assets/3305887b-064f-4ef6-93ba-d8f589259160) Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Side chat cannot answer on claude-cli installs without an API ke…",
-      "summaryZh": "重點：修正: Side chat cannot answer on claude-cli installs without an API key (#157474) Closes #141483 ## What Problem This Solv..."
+      "title": "Airbnb 執行長靠 AI 打造「企業大腦」，會議砍半更帶動 17% 營收成長",
+      "link": "https://finance.technews.tw/2026/09/25/airbnb-ceo-halves-meeting-time-ai/",
+      "publishedAt": "Fri, 25 Sep 2026 08:30:39 +0000",
+      "summary": "Airbnb 執行長布萊恩·切斯基（Brian Chesky）近期點出許多大型企業高層的共同痛點：「不清楚公司 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
