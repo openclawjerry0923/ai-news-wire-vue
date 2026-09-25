@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-25T18:16:02.065Z",
+  "generatedAt": "2026-09-25T22:00:46.642Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(release): isolate npm baseline resolution (#157683)",
-      "link": "https://github.com/openclaw/openclaw/commit/cac0c021273af695cb257492b3c2b4b20075b665",
-      "publishedAt": "2026-09-25T18:14:50Z",
-      "summary": "fix(release): isolate npm baseline resolution (#157683)",
+      "title": "fix: long-running tasks fail to resume after a restart (#158363)",
+      "link": "https://github.com/openclaw/openclaw/commit/e95e7c1d7eccb634bd12b847e47e4525c9932cc3",
+      "publishedAt": "2026-09-25T22:00:26Z",
+      "summary": "fix: long-running tasks fail to resume after a restart (#158363) Verify interrupted-turn ancestry beyond the bounded raw transcript window, and initialize model history through the existing bounded context reader. Preserve deliberate branch selections, asynchronous view checks, and the original keyed-user safety fence. No SQLite schema changes. Related: #142224 Co-authored-by: roboclaw-bot Co-authored-by: jalehman",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): isolate npm baseline resolution (#157683)",
-      "summaryZh": "重點：修正(版本發布): isolate npm baseline resolution (#157683)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: long-running tasks fail to resume after a restart (#158363)",
+      "summaryZh": "重點：修正: long-running tasks fail to resume after a restart (#158363) Verify interrupted-turn ancestry beyond the bounded raw ..."
     },
     {
       "id": 2,
-      "title": "fix: preserve owed final replies when restart retires the sender (#15…",
-      "link": "https://github.com/openclaw/openclaw/commit/39183aef1d3eab85b8b46753270853ba16867ba6",
-      "publishedAt": "2026-09-25T18:14:20Z",
-      "summary": "fix: preserve owed final replies when restart retires the sender (#157127) * fix: preserve owed final replies when restart retires the sender * fix: retain live owner checks during restart delivery * refactor: consolidate final delivery rejection handling * fix: distinguish source read failures from owner revocation * fix: recover queued finals with original owner authority * fix(agents): reject finals after source read failures Keep custody retryable only for recognized restart retirement. Unknown source assertion failures cannot transfer continuity checks to recovery after the live closure disappears. Prove source-read failure followed by intervening input cannot replay at either adapter handoff, with bound and unbound owners. Preserve genuine restart retention and revocation coverage; retain suppression reason literals in the batch recovery table. * fix(ci): register channel owner policy scenario with Knip The upgrade-survivor shell invokes this CLI by path. Model it in the shared executable-root list alongside sibling scenarios so the full-tree unused-file audit recognizes the real consumer. The canonical unused-file check reproduced one unused file before registration and passes with zero entries afterward. pnpm deadcode:full and formatting also pass. * test(gateway): await watcher-owned notice completion",
+      "title": "fix(webchat): preserve quoted replies when restoring drafts (#158335)",
+      "link": "https://github.com/openclaw/openclaw/commit/868d2be0bbb203472698b54b03b1f6c92a2223e1",
+      "publishedAt": "2026-09-25T21:59:05Z",
+      "summary": "fix(webchat): preserve quoted replies when restoring drafts (#158335) * fix(webchat): preserve quoted replies when restoring drafts * fix(webchat): preserve quote-only drafts during recovery * test(webchat): scope async answer checks to the transcript",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve owed final replies when restart retires the sender (#15…",
-      "summaryZh": "重點：修正: preserve owed final replies when restart retires the sender (#157127) * 修正: preserve owed final replies when restart..."
+      "titleZh": "OpenClaw 程式碼更新：修正(webchat): preserve quoted replies when restoring drafts (#158335)",
+      "summaryZh": "重點：修正(webchat): preserve quoted replies when restoring drafts (#158335) * 修正(webchat): preserve quoted replies when restori..."
     },
     {
       "id": 3,
-      "title": "fix(anthropic): raise OAuth Claude Code version floor to 2.1.280 (#15…",
-      "link": "https://github.com/openclaw/openclaw/commit/2f10ac3c1342396e0ec82d8a8fd5a9d2ebaed704",
-      "publishedAt": "2026-09-25T18:13:06Z",
-      "summary": "fix(anthropic): raise OAuth Claude Code version floor to 2.1.280 (#156062) Anthropic rejects subscription (setup-token/OAuth) requests to claude-opus-5-5, claude-fable-5-1, and claude-mythos-5 with \"version 2.1.280 or newer is required\" when OpenClaw advertises the 2.1.278 floor, which happens whenever no newer Claude CLI is installed. 2.1.280 is the current published Claude Code release.",
+      "title": "improve(sessions): reduce temporary memory used by projection reads (…",
+      "link": "https://github.com/openclaw/openclaw/commit/95b32eec53e6b73beef0280605e0ae3c6d7a0b98",
+      "publishedAt": "2026-09-25T21:58:46Z",
+      "summary": "improve(sessions): reduce temporary memory used by projection reads (#158326) * improve(sessions): avoid copying sorted row selections * improve(sessions): reuse owned arrays while filtering projection rows * docs(sessions): explain the compacted row type invariant Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): raise OAuth Claude Code version floor to 2.1.280 (#15…",
-      "summaryZh": "重點：修正(anthropic): raise OAuth Claude Code version floor to 2.1.280 (#156062) Anthropic rejects subscription (setup-token/OA..."
+      "titleZh": "OpenClaw 程式碼更新：improve(sessions): reduce temporary 記憶 used by projection reads (…",
+      "summaryZh": "重點：improve(sessions): reduce temporary 記憶 used by projection reads (#158326) * improve(sessions): avoid copying sorted row ..."
     },
     {
       "id": 4,
-      "title": "chore(deps): update Tauri updater with Windows launch recovery (#158230)",
-      "link": "https://github.com/openclaw/openclaw/commit/bcf6462bb2337d538f32d657b038c8a891581e37",
-      "publishedAt": "2026-09-25T18:11:46Z",
-      "summary": "chore(deps): update Tauri updater with Windows launch recovery (#158230) * chore(deps): update Tauri updater with Windows launch recovery * fix(deps): preserve updater network features",
+      "title": "improve: reuse session placement facts after transcript writes (#154929)",
+      "link": "https://github.com/openclaw/openclaw/commit/08e5e350d35e88f091040357d5ac6367fdefcecb",
+      "publishedAt": "2026-09-25T21:56:03Z",
+      "summary": "improve: reuse session placement facts after transcript writes (#154929) * improve: reuse session placement after transcript updates * test: trigger real placement refreshes in concurrency fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(deps): update Tauri updater with Windows launch recovery (#158230)",
-      "summaryZh": "重點：chore(deps): update Tauri updater with Windows launch recovery (#158230) * chore(deps): update Tauri updater with Window..."
+      "titleZh": "OpenClaw 程式碼更新：improve: reuse session placement facts after transcript writes (#154929)",
+      "summaryZh": "重點：improve: reuse session placement facts after transcript writes (#154929) * improve: reuse session placement after transc..."
     },
     {
       "id": 5,
