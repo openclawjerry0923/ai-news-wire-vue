@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-26T12:42:58.676Z",
+  "generatedAt": "2026-09-26T16:53:43.905Z",
   "items": [
     {
       "id": 1,
-      "title": "test(crabbox): reuse prepared toolchain cache (#158850)",
-      "link": "https://github.com/openclaw/openclaw/commit/ce19b0b484768994d8189536df717a21dc726412",
-      "publishedAt": "2026-09-26T12:40:37Z",
-      "summary": "test(crabbox): reuse prepared toolchain cache (#158850) Keep the existing ten-second receive bound and exercise real pnpm with Corepack networking disabled after preparation.",
+      "title": "fix(updater): keep Gateway safe when saved Node path disappears (#158…",
+      "link": "https://github.com/openclaw/openclaw/commit/88816f79b42c0a85f9ecd1d99593d50554807092",
+      "publishedAt": "2026-09-26T16:48:46Z",
+      "summary": "fix(updater): keep Gateway safe when saved Node path disappears (#158016) Closes #157747 ## What Problem This Solves Fixes: a Gateway update handoff fails with `ENOENT` when a Node upgrade removes the running Gateway's saved executable, although its directly launched Node service still has a runnable command. ## User Impact Direct-Node services can launch the update helper through a supported replacement runtime. Wrapper-based services whose saved Node disappeared still stop the update before helper launch or any Gateway stop, now with an error naming the missing Node and directing the installation owner to repair the wrapper runtime and run `openclaw gateway install --force`. Wrappers with an existing Node executable are unchanged. ## Why This Change Was Made Ayaan chose **direct-Node-only recovery** for this PR. Wrapper recovery is deferred pending successful restart proof; this does not accept the newly reachable wrapper stop/restart path from the earlier revision. The handoff prefers the supported Node executable already named by the direct service, including versioned names such as `node24.20.0`. If that executable is unavailable, it searches supported system/PATH replacements; if nothing usable exists, it refuses with the missing path and repair command. One selected runtime drives helper launch, the update CLI, recovery, and triage. No configuration, service-definition format, protocol, or stored-data contract is introduced. **The affected published Control UI first hop cannot be repaired by a candidate it has not installed.** The running Gateway calls its installed handoff owner (`src/gateway/server-methods/update.ts:489,530–541`); published 2026.9.6 uses `process.execPath` to launch the helper [before any candidate code runs](https://github.com/openclaw/openclaw/blob/eb377ac59e6c9fd6c7705028034812becf00271b/src/infra/update-managed-service-handoff.ts#L1540). If that executable is gone, a published-Gateway → candidate removed-Node Control UI handoff fails by construction. The relevant fixed first-hop cell starts with a Gateway/handoff owner containing this fix, then updates to a later candidate. **Recovery for an already affected published installation:** use an external shell with a supported Node on PATH and the same installation owner, prefix, profile, and state. Stop the Gateway through its actual owner before an offline package update. The verified package-install command was `openclaw update --tag file: --yes --json --no-restart`; after this fix is released, use its release version as the tag instead. Refresh a stale managed definition with `openclaw gateway install --force` and start through the same owner. A custom wrapper's internal runtime must be repaired first; forced installation preserves custom wrappers. ## Evidence - **Real process-level before/after:** isolated macOS subprocesses loaded the sealed production handoff bundles and unlinked their own copied Node executable. Main `90869ccd9cf` failed at `startManagedServiceUpdateHandoff` with `spawn ENOENT`. The candidate selected a supported replacement, started the real helper, transferred ownership, and completed code 0. No service-inspection or helper-spawn functions were mocked, and no host LaunchAgent was registered or modified. - **Versioned-service-only regression:** the strengthened lifecycle case has no separate `node` symlink and no system candidate. It failed before the repair with “no compatible replacement was found” despite its runnable versioned service Node, and passes after the selector returns that verified executable. Additional cases cover a missing direct-service executable with a supported versioned replacement and no usable replacement with the repair message. The real removed-Node direct helper case was rerun once after this repair and again completed code 0. - **Wrapper controls:** the sealed candidate with missing saved Node returned the path-specific repair error with `parkCalled=false` and its parent alive. With the saved Node present, the same wrapper definition started the helper, transferred ownership, and completed code 0 on that original Node. - **Published CLI → candidate recovery:** an isolated npm installation of published `2026.9.6` ran the external-shell command above using an available Node. It installed the packed `b5251e96b76` candidate successfully. This verifies external package recovery, not the impossible already-broken published Control UI first hop. - **Candidate → later-candidate real activation (b5251e96b76):** the repository's `candidate-same-schema-first-hop-fixture` transformed the packed candidate from `2026.9.6` to local-only `2026.9.99-first-hop.0`, changing only version metadata and its integrity inventory. The installed candidate's actual `createUpdateRun` and sealed handoff owners launched from a copied Node that was then deleted. The helper selected an available runtime, executed the **real update CLI**, staged and swapped the later package, completed finalization with `status: ok`, and exited code 0. The installed version changed to `2026.9.99-first-hop.0`. A separately started isolated Gateway then passed health and RPC checks and reported that later version and the expected candidate build identity. - **Real systemd `update.run` comparison (b5251e96b76):** a privileged, isolated Docker container booted real systemd as PID 1 with a lingering normal-user manager. The candidate ran as a direct-Node user service. With its saved Node removed, the candidate's helper launched in a real transient scope on a working Node (main fails earlier with `ENOENT`), then hit `managed-service-preflight / inside-gateway-process-tree` and exited 1 before mutation. A single Node-present control on the unchanged fast path used by main reached the identical refusal and exit code. The Gateway stayed up in both; the control remained systemd-active and healthy on `2026.9.6`. This ancestry guard is unchanged and out of scope. Whether it is a container-scope artifact or a real systemd update bug is **not determined**; no successful native restart is claimed. - **Lane distinction and remaining boundary:** the real-systemd experiment is ad hoc, using the canonical package builder, later-candidate fixture, and registry helper. No existing registered Docker lane expresses saved-Node removal followed by `update.run` and real native restart; existing upgrade/restart lanes use the systemctl shim. The successful package-activation cell above uses the real handoff and CLI but starts the later Gateway manually. The earlier shim-based Docker attempt remains rollback evidence only. - **Focused verification:** after the final main merge, runtime selection, handoff lifecycle, and Gateway error reporting passed **80/80 tests across three files**, **149.05 s** including runtime build preparation. The strengthened versioned-service-only case demonstrably failed before the repair. Core production types and touched-file lint passed; targeted formatting was applied. The unchanged registered forced-install wrapper integration previously passed all three cases. ### Per-file test cost Measured on macOS arm64, Node 24.21.0, at `9b3a51898a1`, with one worker and the supported repository test wrapper: `/usr/bin/time -p node scripts/run-vitest.mjs --maxWorkers=1` | Changed test file | Single-worker command wall time | Result | | --- | ---: | --- | | `src/infra/update-managed-service-handoff-node.test.ts` | 20.45 s | Passed | | `src/infra/update-managed-service-handoff-lifecycle.test.ts` | 108.42 s | Passed | | `src/gateway/server-methods/update-handoff-failure.test.ts` | 25.64 s | Passed | These are complete command wall times, including runner/import overhead and the pre-existing tests in each file, not claims about the incremental cost of the added cases. CI uses compact shared shards; [run 36242288268](https://github.com/openclaw/openclaw/actions/runs/36242288268) published no timing artifacts, so no per-file CI wall-time figure is claimed. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(crabbox): reuse prepared toolchain cache (#158850)",
-      "summaryZh": "重點：test(crabbox): reuse prepared toolchain cache (#158850) Keep the existing ten-second receive bound and exercise real pnp..."
+      "titleZh": "OpenClaw 程式碼更新：修正(updater): keep Gateway safe when saved Node path disappears (#158…",
+      "summaryZh": "重點：修正(updater): keep Gateway safe when saved Node path disappears (#158016) Closes #157747 ## What Problem This Solves 修正: ..."
     },
     {
       "id": 2,
-      "title": "perf(gateway): bound conversation environment cleanup retries (#158867)",
-      "link": "https://github.com/openclaw/openclaw/commit/5790b128b7d609c2a6859066b905941c6f0c14c7",
-      "publishedAt": "2026-09-26T12:36:25Z",
-      "summary": "perf(gateway): bound conversation environment cleanup retries (#158867) * perf(gateway): bound conversation environment cleanup retries * fix(gateway): preserve parked cleanup and healthy status boundaries",
+      "title": "fix(update): carry the run id into managed-helper candidate inspectio…",
+      "link": "https://github.com/openclaw/openclaw/commit/a026d5423313cdb58fa496e222aeaee0ce7a1789",
+      "publishedAt": "2026-09-26T16:48:33Z",
+      "summary": "fix(update): carry the run id into managed-helper candidate inspection (#159010) Use the inherited update run ID when candidate inspection has no explicit run context, then retain the existing live handoff lease verification. Preserve refusal for missing run IDs, stale leases, and genuine Gateway children. Correct the documented service boundary for systemd scopes. Real systemd update.run now replaces the package and restarts the Gateway successfully; focused regression coverage passes three times.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): bound conversation environment cleanup retries (#158867)",
-      "summaryZh": "重點：perf(Gateway): bound conversation environment cleanup retries (#158867) * perf(Gateway): bound conversation environment ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): carry the run id into managed-helper candidate inspectio…",
+      "summaryZh": "重點：修正(update): carry the run id into managed-helper candidate inspection (#159010) Use the inherited update run ID when can..."
     },
     {
       "id": 3,
-      "title": "perf(agents): reuse current session capability facts (#158872)",
-      "link": "https://github.com/openclaw/openclaw/commit/d4e7850dd56abcfb66ba8cda511378ff2f98c0da",
-      "publishedAt": "2026-09-26T12:32:18Z",
-      "summary": "perf(agents): reuse current session capability facts (#158872) * perf(agents): reuse current session capability facts * fix(agents): use prepared default store locator mapping",
+      "title": "perf(worktrees): keep cold cleanup out of Gateway boot (#158989)",
+      "link": "https://github.com/openclaw/openclaw/commit/f0a5a1cc9657512d39f01e124e9c1f18956c47c8",
+      "publishedAt": "2026-09-26T16:48:10Z",
+      "summary": "perf(worktrees): keep cold cleanup out of Gateway boot (#158989) * perf(worktrees): keep cold cleanup out of Gateway boot Use the shared lock inventory to protect moved branches before content inspection and avoid Git setup for known provisioning ledgers. Preserve legacy missing-ledger recovery, revision-bound deferrals, and serial removal safeguards. Start automatic GC at the first hourly tick and join slow sweeps. Real 40-checkout fixture: cold Git executions fall from 129 to 35; registry reopen needs zero. Validated focused behavior, all core test type graphs, and changed-file lint on Blacksmith Testbox. Remove an obsolete baseline entry exposed by the changed gate. * test(gateway): align cleanup drain fixtures with hourly admission Advance the first and next worktree sweeps before asserting shutdown joins, and require no GC admission when drain starts before the first hour. Drain actual admitted work during fixture cleanup instead of waiting indefinitely for an unstarted callback. The original CI job plan passes on Testbox: 2685 tests across 167 files. Changed-test checks and the isolated 12-test file pass; independent review is clean.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(agents): reuse current session capability facts (#158872)",
-      "summaryZh": "重點：perf(agents): reuse current session capability facts (#158872) * perf(agents): reuse current session capability facts * ..."
+      "titleZh": "OpenClaw 程式碼更新：perf(worktrees): keep cold cleanup out of Gateway boot (#158989)",
+      "summaryZh": "重點：perf(worktrees): keep cold cleanup out of Gateway boot (#158989) * perf(worktrees): keep cold cleanup out of Gateway boo..."
     },
     {
       "id": 4,
-      "title": "perf(gateway): reuse resident facts for activity recaps (#158803)",
-      "link": "https://github.com/openclaw/openclaw/commit/412eecccd29d0a2613696944cea4a22525466b15",
-      "publishedAt": "2026-09-26T12:25:40Z",
-      "summary": "perf(gateway): reuse resident facts for activity recaps (#158803)",
+      "title": "test(ui): assert session identity in thinking metadata e2e",
+      "link": "https://github.com/openclaw/openclaw/commit/fbaafc381f79e28035d6e6feb0dafd9d214ec8e8",
+      "publishedAt": "2026-09-26T16:46:11Z",
+      "summary": "test(ui): assert session identity in thinking metadata e2e The model-settings cutover in 0805a9d7f594 correctly added expectedSessionId to model patches. The real-Gateway thinking test still expected only key and model, so its final strict wire assertion failed while every catalog, thinking-choice, and saved-Off assertion passed. Require the Gateway-reported physical session ID before browser interaction and compare it exactly in the sole sessions.patch request. Preserve both cases and all existing assertions. The static synthetic catalog and catalogRefresh:false already make this fixture independent of provider refresh timing; no product or shared-fixture change is warranted. Scheduled shard 2/2 passed at 468039ab18c4 (10:29Z). The identical failure starts at cd2724e43297 (run 36238931852), then 5790b128b7d6 (36242554016), 5269bc433481 (36245313671), 4930e5527030 (36248686523), and 7fbe426cda38 (36252117384). Earlier red workflows failed other jobs. Proof on Linux Blacksmith Testbox tbx_01m3f7eznsktwqahefy471debx: https://github.com/openclaw/openclaw/actions/runs/36254251486 - a94ad9483d35 baseline, original 13-file shard: 25 passed/1 failed, exact expectedSessionId mismatch, 180.90s. - Candidate: 20/20 independent complete-file runs on two CPUs, 40/40 cases, --maxWorkers=1 wall median 38s (37-46s). The existing two cases require real Gateway/browser lifecycles; no case or process was added. - Original CI prebuilt config and 13-file shard: 3/3 clean replays, 26/26 cases each; wall 157s, 149s, 153s. Wrapper exit 0. - Codex P2 autoreview: scoped-clean. Focused lint, boundary guards, formatting, and diff sanity pass. The broad changed gate encountered an unrelated pre-existing OpenRouter max-lines inconsistency: a4498e942519 removed its baseline entry while the file-ending suppression remained. No suppression or baseline changed in this repair. No retries, timeout increases, skips, or weaker assertions.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): reuse resident facts for activity recaps (#158803)",
-      "summaryZh": "重點：perf(Gateway): reuse resident facts for activity recaps (#158803)..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): assert session identity in thinking metadata e2e",
+      "summaryZh": "重點：test(ui): assert session identity in thinking metadata e2e The 模型-settings cutover in 0805a9d7f594 correctly added expec..."
     },
     {
       "id": 5,
+      "title": "從預估兩千年縮短至幾十年，澳洲穀物基因庫大規模實測推翻種子保鮮期",
+      "link": "https://technews.tw/2026/09/27/scientists-identify-the-doomsday-seeds-that-could-last-the-longest/",
+      "publishedAt": "Sat, 26 Sep 2026 16:00:08 +0000",
+      "summary": "提及基因保存，或許有人曾聽過位於挪威冷冽地底的「斯瓦爾巴全球種子庫」，但坐落於南半球的「澳洲穀物基因庫」（AG [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Google 廣告淪為詐騙新溫床，假「全螢幕警告」偽裝電腦遭勒索攻擊",
       "link": "https://infosecu.technews.tw/2026/09/26/google-ads-deliver-browser-locking-fake-security-scams/",
       "publishedAt": "Sat, 26 Sep 2026 10:30:46 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "OpenAI 揭露更多 AI 代理失控行為：曾接觸政府網站並外傳使用者圖片",
       "link": "https://infosecu.technews.tw/2026/09/26/openai-said-its-rogue-ai-agents-accessed-public-data-from-the-sec/",
       "publishedAt": "Sat, 26 Sep 2026 10:00:07 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "涉危害兒少健康，TikTok 與阿拉巴馬州達成和解",
       "link": "https://infosecu.technews.tw/2026/09/26/tiktok-alabama-settlement-harm-children-health/",
       "publishedAt": "Sat, 26 Sep 2026 09:00:43 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "Dell 點名 HDD 缺貨，硬碟供應持續吃緊",
       "link": "https://technews.tw/2026/09/26/dell-highlights-hdd-shortage-hard-drive-supply-remains-tight/",
       "publishedAt": "Sat, 26 Sep 2026 08:55:25 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "傳 SK 海力士美國子公司考慮 IPO，估值上看 1,500 億美元",
       "link": "https://finance.technews.tw/2026/09/26/solidigm-ipo/",
       "publishedAt": "Sat, 26 Sep 2026 08:30:13 +0000",
       "summary": "路透社引述三名知情人士說法報導，韓國晶片製造商 SK 海力士（SK Hynix）美國子公司 Solidigm [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "氣喘、慢性肺部發炎有新解方？吸入式 RNAi 有望從源頭控制發炎",
-      "link": "https://technews.tw/2026/09/26/new-solution-asthma-chronic-lung-inflammation-inhaled-rnai-source-control/",
-      "publishedAt": "Sat, 26 Sep 2026 08:00:57 +0000",
-      "summary": "氣喘與慢性阻塞性肺病（COPD）等呼吸道疾病，都與呼吸道及肺部的發炎反應密切相關。當患者肺部上皮細胞受到外界刺 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
