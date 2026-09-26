@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-09-25T22:00:46.642Z",
+  "generatedAt": "2026-09-26T01:13:38.507Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: long-running tasks fail to resume after a restart (#158363)",
-      "link": "https://github.com/openclaw/openclaw/commit/e95e7c1d7eccb634bd12b847e47e4525c9932cc3",
-      "publishedAt": "2026-09-25T22:00:26Z",
-      "summary": "fix: long-running tasks fail to resume after a restart (#158363) Verify interrupted-turn ancestry beyond the bounded raw transcript window, and initialize model history through the existing bounded context reader. Preserve deliberate branch selections, asynchronous view checks, and the original keyed-user safety fence. No SQLite schema changes. Related: #142224 Co-authored-by: roboclaw-bot Co-authored-by: jalehman",
+      "title": "fix: keep native sessions responsive during database contention (#158…",
+      "link": "https://github.com/openclaw/openclaw/commit/cfef1747516d7e348cb5e5daa4189948f8128a74",
+      "publishedAt": "2026-09-26T01:05:45Z",
+      "summary": "fix: keep native sessions responsive during database contention (#158396) * fix: keep native sessions responsive during database contention * fix(codex): omit inherited projection on overflow restart",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: long-running tasks fail to resume after a restart (#158363)",
-      "summaryZh": "重點：修正: long-running tasks fail to resume after a restart (#158363) Verify interrupted-turn ancestry beyond the bounded raw ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep native sessions responsive during database contention (#158…",
+      "summaryZh": "重點：修正: keep native sessions responsive during database contention (#158396) * 修正: keep native sessions responsive during da..."
     },
     {
       "id": 2,
-      "title": "fix(webchat): preserve quoted replies when restoring drafts (#158335)",
-      "link": "https://github.com/openclaw/openclaw/commit/868d2be0bbb203472698b54b03b1f6c92a2223e1",
-      "publishedAt": "2026-09-25T21:59:05Z",
-      "summary": "fix(webchat): preserve quoted replies when restoring drafts (#158335) * fix(webchat): preserve quoted replies when restoring drafts * fix(webchat): preserve quote-only drafts during recovery * test(webchat): scope async answer checks to the transcript",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(webchat): preserve quoted replies when restoring drafts (#158335)",
-      "summaryZh": "重點：修正(webchat): preserve quoted replies when restoring drafts (#158335) * 修正(webchat): preserve quoted replies when restori..."
+      "title": "美國 SMR 再跨一步！BWRX-300 建設許可進入最後階段",
+      "link": "https://technews.tw/2026/09/26/us-small-modular-reactors-accelerate-again-tennessee-bwrx-300-reportedly-could-receive-construction-permit-early-next-week/",
+      "publishedAt": "Sat, 26 Sep 2026 01:05:09 +0000",
+      "summary": "美國小型模組化反應爐（SMR）發展再往前一步。據彭博引述知情人士透露，美國核能管理委員會（NRC）最快可能於下 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "improve(sessions): reduce temporary memory used by projection reads (…",
-      "link": "https://github.com/openclaw/openclaw/commit/95b32eec53e6b73beef0280605e0ae3c6d7a0b98",
-      "publishedAt": "2026-09-25T21:58:46Z",
-      "summary": "improve(sessions): reduce temporary memory used by projection reads (#158326) * improve(sessions): avoid copying sorted row selections * improve(sessions): reuse owned arrays while filtering projection rows * docs(sessions): explain the compacted row type invariant Co-authored-by: Peter Steinberger",
+      "title": "improve(chat): skip unchanged streaming snapshot preparation (#158492)",
+      "link": "https://github.com/openclaw/openclaw/commit/d8f726c5e1dfc2b59fdf33549da92d9c26ea4a45",
+      "publishedAt": "2026-09-26T01:04:27Z",
+      "summary": "improve(chat): skip unchanged streaming snapshot preparation (#158492) Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(sessions): reduce temporary 記憶 used by projection reads (…",
-      "summaryZh": "重點：improve(sessions): reduce temporary 記憶 used by projection reads (#158326) * improve(sessions): avoid copying sorted row ..."
+      "titleZh": "OpenClaw 程式碼更新：improve(chat): skip unchanged streaming snapshot preparation (#158492)",
+      "summaryZh": "重點：improve(chat): skip unchanged streaming snapshot preparation (#158492) Co-authored-by: Vincent Koc..."
     },
     {
       "id": 4,
-      "title": "improve: reuse session placement facts after transcript writes (#154929)",
-      "link": "https://github.com/openclaw/openclaw/commit/08e5e350d35e88f091040357d5ac6367fdefcecb",
-      "publishedAt": "2026-09-25T21:56:03Z",
-      "summary": "improve: reuse session placement facts after transcript writes (#154929) * improve: reuse session placement after transcript updates * test: trigger real placement refreshes in concurrency fixture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: reuse session placement facts after transcript writes (#154929)",
-      "summaryZh": "重點：improve: reuse session placement facts after transcript writes (#154929) * improve: reuse session placement after transc..."
+      "title": "川習會，中國學者：經貿成果積極但無決定性意義",
+      "link": "https://technews.tw/2026/09/26/copilot-home-code-autopilot/",
+      "publishedAt": "Sat, 26 Sep 2026 01:00:19 +0000",
+      "summary": "美國總統川普 24 日與中國國家主席習近平會談，中國學者認為，經貿領域方面儘管雙方會談成果是積極的，但並不具決 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "fix(codex): refresh OAuth after the original turn ends (#158458)",
+      "link": "https://github.com/openclaw/openclaw/commit/0e926158bee25d12953777ab09c16c27beae7998",
+      "publishedAt": "2026-09-26T00:58:09Z",
+      "summary": "fix(codex): refresh OAuth after the original turn ends (#158458) * fix(codex): refresh OAuth after the original turn ends * fix(codex): remove initialization type import cycle * test(codex): satisfy refresh response contract in retirement fixture * test(codex): settle shared fake client close work",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): refresh OAuth after the original turn ends (#158458)",
+      "summaryZh": "重點：修正(codex): refresh OAuth after the original turn ends (#158458) * 修正(codex): refresh OAuth after the original turn ends ..."
+    },
+    {
+      "id": 6,
+      "title": "fix(update): keep config-reader handoffs safe on Node and Bun (#158451)",
+      "link": "https://github.com/openclaw/openclaw/commit/5836021e126c7a0f03750afa5bce5850f045d8e6",
+      "publishedAt": "2026-09-26T00:56:49Z",
+      "summary": "fix(update): keep config-reader handoffs safe on Node and Bun (#158451) Replace the URL-query child guard with a child-scoped environment marker and reject nested reader launches with candidate-config-read-recursion. Use one byte-length-framed stdout result transport for synchronous and asynchronous reads. Route ordinary stdout diagnostics to stderr and remove fd 3, which Bun 1.4.2 omits from spawnSync output. Preserve fresh candidate dependencies, rollback reads, and existing fail-soft service-definition behavior. Fixes #158339; thanks @hannesrudolph for the report.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): keep config-reader handoffs safe on Node and Bun (#158451)",
+      "summaryZh": "重點：修正(update): keep config-reader handoffs safe on Node and Bun (#158451) Replace the URL-query child guard with a child-sc..."
+    },
+    {
+      "id": 7,
+      "title": "別再盲目蓋資料中心，AI 算力競賽轉向智慧控電與架構最佳化雙軌戰場",
+      "link": "https://finance.technews.tw/2026/09/26/ai-compute-competition-pivots-intelligent-power-management-architectural-optimization-dual-track-battlefield/",
+      "publishedAt": "Sat, 26 Sep 2026 00:30:12 +0000",
+      "summary": "最新產業觀察指出，生成式 AI 發展的瓶頸已從早期的「晶片供應」演變為電力、場址、電網接入與運算效率的綜合考驗 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "不只搬產線，更要拚 AI！台商南向泰馬越星，四路並進迎接黃金爆發期",
+      "link": "https://finance.technews.tw/2026/09/26/delta-profit-57-teco-revives-20-year-factory-asean-taiwanese-ai-southbound-now-building-real-plants/",
+      "publishedAt": "Sat, 26 Sep 2026 00:00:54 +0000",
+      "summary": "「AI 與資料中心，已經成為公司的主要成長引擎」，今年 8 月 14 日，泰達電執行長鄭安在曼谷一場產業高峰會 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "123 億年前的宇宙考古，哈伯望遠鏡揭銀河系第二次巨型碰撞",
       "link": "https://technews.tw/2026/09/26/what-happened-to-the-milky-way-12-3-billion-years-ago/",
       "publishedAt": "Fri, 25 Sep 2026 16:00:18 +0000",
@@ -55,48 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "微軟強化 Copilot，三大功能接軌企業需求",
       "link": "https://technews.tw/2026/09/25/microsoft-introduces-a-new-copilot-with-home-code-and-autopilot/",
       "publishedAt": "Fri, 25 Sep 2026 12:00:28 +0000",
       "summary": "微軟 Copilot 迎來重大升級，區分成作為 AI 協作起點的「Home」、讓非開發者也能建構 AI 應用的 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "AWS CloudWatch Omni納入AI代理品質測試，可比較模型與提示詞表現",
-      "link": "https://www.ithome.com.tw/news/179226",
-      "publishedAt": "2026-09-25 11:09:59",
-      "summary": "AWS擴充Amazon CloudWatch可觀測性服務，推出CloudWatch Omni，將AI代理與應用程式監控整合到同一環境。除了記錄延遲、詞元（Token）用量與工具呼叫等執行情況，CloudWatch Omni還能評估代理回答品質，並比較不同提示詞、模型與代理設定的結果，協助開發團隊找出版本變更後的品質退化問題。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Docker Cloud Sandboxes上線，AI代理環境可在本機與雲端雙向搬移",
-      "link": "https://www.ithome.com.tw/news/179227",
-      "publishedAt": "2026-09-25 11:09:24",
-      "summary": "Docker推出Cloud Sandboxes雲端沙箱服務，將原本在開發者電腦執行的Docker Sandboxes隔離環境延伸到Docker管理的雲端運算資源。開發者可讓AI程式開發代理在雲端執行大型程式修改、測試等工作，並使用sbx move指令，在本機與雲端之間搬移沙箱環境。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Anthropic動用近千Claude代理搜尋DNA，21小時找出新型ART酵素系統",
-      "link": "https://www.ithome.com.tw/news/179222",
-      "publishedAt": "2026-09-25 11:09:12",
-      "summary": "Anthropic公開生命科學研究團隊首批成果，近950個Claude AI代理搜尋大量DNA資料，找出過去未被描述的酵素系統ART（array-associated reverse transcriptases）。ART包含反轉錄酶、相鄰蛋白質與規律排列的DNA重複序列，DNA重複序列具有類似基因編輯工具CRISPR的排列特徵。ART的生物功能尚未確認，Anthropic已展開實驗研究。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Google AI代理PageBreak找出自家Web應用程式逾500個XSS漏洞",
-      "link": "https://www.ithome.com.tw/news/179224",
-      "publishedAt": "2026-09-25 09:09:00",
-      "summary": "Google近日公布內部AI代理PageBreak的漏洞研究成果，這套AI代理由Google產品安全團隊開發，用於尋找Google第一方Web應用程式的安全漏洞。目前PageBreak已在這些Web應用程式找出超過500個跨站指令碼（XSS）漏洞，部分漏洞出現在敏感網域。PageBreak找出疑似漏洞後，會交由專門的驗證工具執行實際酬載，確認漏洞能否成功利用。Google表示，這項驗證機制讓PageBreak的誤判率接近零。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
