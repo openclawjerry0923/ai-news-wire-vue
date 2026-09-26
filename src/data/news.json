@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-26T19:33:07.384Z",
+  "generatedAt": "2026-09-26T22:25:54.050Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(ui): deslop pages third pass (#158846)",
-      "link": "https://github.com/openclaw/openclaw/commit/8bfe139a13b020fde6d24dc33775b55664bc05f9",
-      "publishedAt": "2026-09-26T19:32:59Z",
-      "summary": "refactor(ui): deslop pages third pass (#158846) * refactor(ui): deslop pages third pass * refactor(ui): type plugin tabs with their shared contract",
+      "title": "fix(telegram): await polling worker acknowledgement callbacks",
+      "link": "https://github.com/openclaw/openclaw/commit/547bb312f4098cd0f28f71cc45a7e351e944b1ff",
+      "publishedAt": "2026-09-26T22:19:31Z",
+      "summary": "fix(telegram): await polling worker acknowledgement callbacks Observe the fixture worker's first acknowledgement directly instead of polling it against a one-second deadline while SQLite admission runs in another thread. Preserve acknowledgement payload, offset ordering, catch-up, replay, rejection, and delivery assertions; no product behavior changes. Adapts #159156. The original failure was observed in #159152's isolated intake catch-up test. Main also reproduced two sibling acknowledgement failures standalone, while its original native-pipeline/polling shard passed. The fixed file passed 40 tests (64.79s wall including cold compiler setup). Independent Codex review was clean through P2. Co-authored-by: chopin-op60",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): deslop pages third pass (#158846)",
-      "summaryZh": "重點：refactor(ui): deslop pages third pass (#158846) * refactor(ui): deslop pages third pass * refactor(ui): type plugin tabs..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): await polling worker acknowledgement callbacks",
+      "summaryZh": "重點：修正(Telegram): await polling worker acknowledgement callbacks Observe the 修正ture worker's first acknowledgement directly ..."
     },
     {
       "id": 2,
-      "title": "perf(team-reports): keep collection off the Gateway event loop (#159101)",
-      "link": "https://github.com/openclaw/openclaw/commit/9dc89550610b038c07c4cc3ff58063bc39a3e99c",
-      "publishedAt": "2026-09-26T19:32:24Z",
-      "summary": "perf(team-reports): keep collection off the Gateway event loop (#159101) * perf(team-reports): move report collection off the gateway thread Stream source activity through bounded SQLite batches, preserve report outputs, and reuse accepted closed days during boot retries. * chore(team-reports): register the fixture benchmark entrypoint",
+      "title": "perf(crabbox): shrink source-mirror allocation critical section and w…",
+      "link": "https://github.com/openclaw/openclaw/commit/c5b5d5ac952f03e3e95e4e4940d428de1066771f",
+      "publishedAt": "2026-09-26T22:19:21Z",
+      "summary": "perf(crabbox): shrink source-mirror allocation critical section and wait briefly instead of cold fallback (#159195)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(team-reports): keep collection off the Gateway event loop (#159101)",
-      "summaryZh": "重點：perf(team-reports): keep collection off the Gateway event loop (#159101) * perf(team-reports): move report collection of..."
+      "titleZh": "OpenClaw 程式碼更新：perf(crabbox): shrink source-mirror allocation critical section and w…",
+      "summaryZh": "重點：perf(crabbox): shrink source-mirror allocation critical section and wait briefly instead of cold fallback (#159195)..."
     },
     {
       "id": 3,
-      "title": "perf(agents): avoid repeated retained subagent recovery reads (#159082)",
-      "link": "https://github.com/openclaw/openclaw/commit/5899667bf77e350a0a7d82cebaa8acadff8ccfbe",
-      "publishedAt": "2026-09-26T19:30:45Z",
-      "summary": "perf(agents): avoid repeated retained subagent recovery reads (#159082) * perf(agents): avoid repeated retained subagent recovery reads Recheck live session ownership before rereading retained child metadata, keep unresolved retries on per-row bounded backoff, and wake recovery on owner publications or admission release. Move initial metadata reads to the session worker and fence pause, steer, kill, and queue changes across awaited reads. * fix(agents): preserve superseded subagent orphan cleanup * test(agents): align registry fixtures with worker session reads Serve the worker reader from the same mutable in-memory session fixture as the synchronous accessor. Preserve read failures and caller authority checks without changing registry assertions.",
+      "title": "fix(google): recover interrupted Interactions streams (#159198)",
+      "link": "https://github.com/openclaw/openclaw/commit/727e4ed263303af05f5f8e558fafb1ea3f8af3db",
+      "publishedAt": "2026-09-26T22:18:11Z",
+      "summary": "fix(google): recover interrupted Interactions streams (#159198) Emit the existing incomplete-stream contract so partial Interactions replies remain eligible for transient recovery. Centralize reader cancellation, lock release, and pending-work tracking in finally while preserving the original failure. Regression proof on Blacksmith: six expected failures before the repair; all 101 focused and owner tests pass afterward. The full changed gate passes, and independent Codex review found no actionable P0-P2 findings. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(agents): avoid repeated retained subagent recovery reads (#159082)",
-      "summaryZh": "重點：perf(agents): avoid repeated retained subagent recovery reads (#159082) * perf(agents): avoid repeated retained subagent..."
+      "titleZh": "OpenClaw 程式碼更新：修正(google): recover interrupted Interactions streams (#159198)",
+      "summaryZh": "重點：修正(google): recover interrupted Interactions streams (#159198) Emit the existing incomplete-stream contract so partial I..."
     },
     {
       "id": 4,
-      "title": "test(core,plugins,ui): remove low-value tests (batch d041) (#159097)",
-      "link": "https://github.com/openclaw/openclaw/commit/b6b36ca1990f17e91c4f100b295dbfd56c021a56",
-      "publishedAt": "2026-09-26T19:29:22Z",
-      "summary": "test(core,plugins,ui): remove low-value tests (batch d041) (#159097) * test(utils): deslop s241 tests * test(ui): deslop s246 tests * test(diagnostics-prometheus): deslop s244 tests * test(markdown): deslop s247 tests * test(boards): deslop s243 tests * test(scripts): deslop s248 tests * test(image-generation): deslop s254 tests * test(clawrouter): deslop s245 tests * test(qwen): deslop s242 tests * test(qa): deslop s252 tests * test(diagnostics-prometheus): preserve imports for runtime metrics * test(qwen): preserve budget regression polling mock",
+      "title": "test(macos): keep fat64 fixture with signing tests (#131682)",
+      "link": "https://github.com/openclaw/openclaw/commit/1a2cda64d1a0ced8870ac73bef022ebf15298d37",
+      "publishedAt": "2026-09-26T22:17:43Z",
+      "summary": "test(macos): keep fat64 fixture with signing tests (#131682)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(core,plugins,ui): remove low-value tests (batch d041) (#159097)",
-      "summaryZh": "重點：test(core,plugins,ui): remove low-value tests (batch d041) (#159097) * test(utils): deslop s241 tests * test(ui): deslop..."
+      "titleZh": "OpenClaw 程式碼更新：test(macos): keep fat64 修正ture with signing tests (#131682)",
+      "summaryZh": "重點：test(macos): keep fat64 修正ture with signing tests (#131682)..."
     },
     {
       "id": 5,
