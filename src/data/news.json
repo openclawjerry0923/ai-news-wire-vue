@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-27T18:04:11.765Z",
+  "generatedAt": "2026-09-27T21:51:41.352Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(android): request optional setup permissions together (#159727)",
-      "link": "https://github.com/openclaw/openclaw/commit/4288881dedc61f9bc644532e8ecd6f4f36dba49c",
-      "publishedAt": "2026-09-27T18:01:23Z",
-      "summary": "feat(android): request optional setup permissions together (#159727) * feat(android): request optional setup permissions together Co-authored-by: IWhatsskill * feat(android): request optional setup permissions together Worked on by: - @IWhatsskill Co-authored-by: IWhatsskill OpenClaw-Publication: 313d62e0-66e7-47b2-a7df-f6641b75db7d * fix(android): complete setup after denied SMS access Co-authored-by: IWhatsskill --------- Co-authored-by: IWhatsskill",
+      "title": "fix(ui): keep long hostnames inside the sign-in card (#159899)",
+      "link": "https://github.com/openclaw/openclaw/commit/90f63c1855cb0d7c21b7bcd646ea9160b86eb8c2",
+      "publishedAt": "2026-09-27T21:49:52Z",
+      "summary": "fix(ui): keep long hostnames inside the sign-in card (#159899) Co-authored-by: IWhatsskill",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(android): request optional setup permissions together (#159727)",
-      "summaryZh": "重點：新功能(android): request optional setup permissions together (#159727) * 新功能(android): request optional setup permissions t..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep long hostnames inside the sign-in card (#159899)",
+      "summaryZh": "重點：修正(ui): keep long hostnames inside the sign-in card (#159899) Co-authored-by: IWhatsskill..."
     },
     {
       "id": 2,
-      "title": "docs(cloud-workers): profile setup still tells operators to restart t…",
-      "link": "https://github.com/openclaw/openclaw/commit/2e1cb01746e74c6b6da9cbe10c7f09de8c6e6f91",
-      "publishedAt": "2026-09-27T18:00:14Z",
-      "summary": "docs(cloud-workers): profile setup still tells operators to restart the Gateway (#159640) * docs(cloud-workers): profile changes apply without a Gateway restart * docs(cloud-workers): validate saved profiles and qualify reload mode off Run config validation after saving, since it reads the saved file. Note that gateway.reload.mode off defers passive profile changes to a manual restart, and drop the guide's remaining restart instruction. * docs(cloud-workers): name reload mode off in profile troubleshooting Reload mode off keeps watching config but defers passive profile changes to a manual restart; the troubleshooting entry now says so instead of implying watching is disabled. * docs(cloud-workers): distinguish UI saves from file edits in reload mode off In reload mode off, Gateway config writes such as Control UI saves schedule a restart themselves; only direct file edits wait for a manual restart (config-write-flow resolveConfigRestartRequirement).",
+      "title": "fix(code-mode): stop bookkeeping changes hiding repeated tool loops (…",
+      "link": "https://github.com/openclaw/openclaw/commit/aea667c764a8592d58a0efa4e85d741a70b4862b",
+      "publishedAt": "2026-09-27T21:49:19Z",
+      "summary": "fix(code-mode): stop bookkeeping changes hiding repeated tool loops (#159864) * fix(code-mode): stop bookkeeping changes hiding repeated tool loops Co-authored-by: VACInc * style: satisfy Code Mode regression fixture brace rule Co-authored-by: VACInc * test(codex): isolate retry-clock fixtures from real storage setup Scope real run-attempt setup and its database worker teardown to the durable-receipt test. Keep all retry delivery, pin-release, and zero-timer assertions unchanged. Co-authored-by: VACInc --------- Co-authored-by: roboclaw-bot Co-authored-by: VACInc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(cloud-workers): profile setup still tells operators to restart t…",
-      "summaryZh": "重點：文件(cloud-workers): profile setup still tells operators to restart the Gateway (#159640) * 文件(cloud-workers): profile cha..."
+      "titleZh": "OpenClaw 程式碼更新：修正(code-mode): stop bookkeeping changes hiding repeated tool loops (…",
+      "summaryZh": "重點：修正(code-mode): stop bookkeeping changes hiding repeated tool loops (#159864) * 修正(code-mode): stop bookkeeping changes h..."
     },
     {
       "id": 3,
-      "title": "chore(ui): refresh control ui locales (#159808)",
-      "link": "https://github.com/openclaw/openclaw/commit/b17f71b1fbb4eedb5352f64257046d731221066c",
-      "publishedAt": "2026-09-27T17:58:16Z",
-      "summary": "chore(ui): refresh control ui locales (#159808) Co-authored-by: github-actions[bot]",
+      "title": "fix: PDF analysis uses the active vision model (#159593)",
+      "link": "https://github.com/openclaw/openclaw/commit/1c5b8c4134a932a08db2d8ce5a1f9ac48544f911",
+      "publishedAt": "2026-09-27T21:47:57Z",
+      "summary": "fix: PDF analysis uses the active vision model (#159593) Closes #159542 ## What Problem This Solves Fixes: the PDF tool fails with `No PDF model configured.` when an authenticated, vision-capable active model is available through OpenRouter but no PDF or image model is configured. ## User Impact User impact: an agent can analyze text-layer and scanned PDFs with its active vision model without duplicating that model in `pdfModel`. Explicit PDF/image preferences, existing native-provider precedence, authentication, and provider PDF image restrictions remain intact. ## Why This Change Was Made Pass the admitted active model to deferred PDF resolution and use it only after existing candidates are exhausted. The fallback requires image support, provider authentication, and no `documentModels.pdf.image: false` restriction. The PDF guide now describes this final fallback and deferred resolution accurately. No overlap with Pash/Sarah changes. ## Evidence Real isolated Gateway runs used a scripted, authenticated OpenAI-compatible endpoint standing in for OpenRouter; no paid provider was contacted. The agent searched for and called the actual `pdf` tool on two real PDF files. Neither `pdfModel` nor `imageModel` was set for the before/after runs. | Case | Fix removed | This change | | --- | --- | --- | | Text-layer PDF | `No PDF model configured.` | `Extracted PDF marker ORCHID-159542.` | | Image-only PDF | `No PDF model configured.` | `Received 1 rendered PDF page image(s).` | Provider request captures confirm that the text marker came from extracted PDF text and that the scanned document produced an `image_url` PNG part. These are deterministic transport/extraction checks, not a claim about a paid model's reasoning quality. The before run used the same candidate tree with only the three changed production files restored to main `f0b149f44df9a47ea6822bec2b7b438a938ec54a`. Both trees were rebuilt and launched through `pnpm openclaw`. Plain main builds, including a newer green-CI main revision with identical PDF owners, were blocked by the unrelated `transcript-visible-record.ts` `INEFFECTIVE_DYNAMIC_IMPORT` build guard; the fix-removed comparison isolates this PDF change without modifying that guard. Controls: - Gateway: explicit `pdfModel: openrouter/openai/gpt-4o` wins over the active `openrouter/anthropic/claude-sonnet-4.5` model. - Gateway: a text-only active `openrouter/openai/gpt-3.5-turbo` is rejected with `No PDF model configured.` for the image-only PDF. - Gateway: explicit Anthropic native PDF selection returns `native: true`; the local endpoint receives the original base64 PDF document bytes, not extracted images. - Manifest-backed resolver regression: an authenticated vision provider declaring `documentModels.pdf.image: false` is not selected. The same regression fails against the original contributor resolver (`restricted/vision` selected instead of `null`) and passes with the guard. - Existing tests retain missing-auth and native-candidate precedence controls. Focused checks: 79 tests passed across the PDF model, PDF tool, and production assembly suites (37.92 seconds wall time, one worker). `pnpm tsgo:core`, `pnpm tsgo:core:test`, scoped Oxlint, formatting, and `git diff --check` passed. Removed redundant forwarding assertions while retaining the observable assembly regression. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#159808)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#159808) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正: PDF analysis uses the active vision 模型 (#159593)",
+      "summaryZh": "重點：修正: PDF analysis uses the active vision 模型 (#159593) Closes #159542 ## What Problem This Solves 修正: the PDF tool fails w..."
     },
     {
       "id": 4,
-      "title": "fix(ui): stop images reloading while scrolling (#159486)",
-      "link": "https://github.com/openclaw/openclaw/commit/6a723ed4a41ee0215a21ae55de257fe32fa51825",
-      "publishedAt": "2026-09-27T17:55:16Z",
-      "summary": "fix(ui): stop images reloading while scrolling (#159486) * fix(ui): stop images reloading while scrolling Reuse loaded native images within the scoped metadata cache and bypass viewport admission for warm managed previews. Preserve ticket expiry, invalidation, and exclusive node ownership across remounts. Co-authored-by: steipete * fix(ui): stop images reloading while scrolling Worked on by: - @steipete Co-authored-by: steipete OpenClaw-Publication: 60dabc7e-feb1-44b5-84da-0f0d3137e62f * fix(ui): retire cached images when sharing access changes Invalidate the existing media policy epoch on redacted sharing notifications before the roster refresh. Prove normal scroll reuse and final denial after visibility, role assignment, and role definition withdrawal in Chromium. Co-authored-by: steipete Co-authored-by: vyctorbrzezowski * fix(ui): stop images reloading while scrolling Worked on by: - @steipete - @vyctorbrzezowski Co-authored-by: steipete Co-authored-by: vyctorbrzezowski OpenClaw-Publication: 0f6560b1-3b05-40a0-9d04-8e6965c6ea7d --------- Co-authored-by: steipete Co-authored-by: vyctorbrzezowski",
+      "title": "perf(sessions): reuse catalog planning across polls (#159900)",
+      "link": "https://github.com/openclaw/openclaw/commit/15e32694c7dd6cfc183b9671ea4358a2427b8a09",
+      "publishedAt": "2026-09-27T21:47:45Z",
+      "summary": "perf(sessions): reuse catalog planning across polls (#159900)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop images reloading while scrolling (#159486)",
-      "summaryZh": "重點：修正(ui): stop images reloading while scrolling (#159486) * 修正(ui): stop images reloading while scrolling Reuse loaded nat..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): reuse catalog planning across polls (#159900)",
+      "summaryZh": "重點：perf(sessions): reuse catalog planning across polls (#159900)..."
     },
     {
       "id": 5,
