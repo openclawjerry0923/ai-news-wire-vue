@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-09-27T13:34:36.293Z",
+  "generatedAt": "2026-09-27T18:04:11.765Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(agents): share assistant failover test inputs (#159655)",
-      "link": "https://github.com/openclaw/openclaw/commit/0edae198d278686e16426f7ad254d0341bd6e3d3",
-      "publishedAt": "2026-09-27T13:25:13Z",
-      "summary": "refactor(agents): share assistant failover test inputs (#159655) Co-authored-by: Vincent Koc",
+      "title": "feat(android): request optional setup permissions together (#159727)",
+      "link": "https://github.com/openclaw/openclaw/commit/4288881dedc61f9bc644532e8ecd6f4f36dba49c",
+      "publishedAt": "2026-09-27T18:01:23Z",
+      "summary": "feat(android): request optional setup permissions together (#159727) * feat(android): request optional setup permissions together Co-authored-by: IWhatsskill * feat(android): request optional setup permissions together Worked on by: - @IWhatsskill Co-authored-by: IWhatsskill OpenClaw-Publication: 313d62e0-66e7-47b2-a7df-f6641b75db7d * fix(android): complete setup after denied SMS access Co-authored-by: IWhatsskill --------- Co-authored-by: IWhatsskill",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): share assistant failover test inputs (#159655)",
-      "summaryZh": "重點：refactor(agents): share assistant failover test inputs (#159655) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(android): request optional setup permissions together (#159727)",
+      "summaryZh": "重點：新功能(android): request optional setup permissions together (#159727) * 新功能(android): request optional setup permissions t..."
     },
     {
       "id": 2,
-      "title": "test(infra): sample warm worker heap after idle collection",
-      "link": "https://github.com/openclaw/openclaw/commit/32ba81a40d9d57065280aef6a25fed0b39223f21",
-      "publishedAt": "2026-09-27T13:16:32Z",
-      "summary": "test(infra): sample warm worker heap after idle collection Wait for the existing post-idle fixture receipt before allocating the measured payload, so collection of startup garbage cannot shrink the allocation delta. Preserve all heap thresholds, worker resource limits, and reuse assertions.",
+      "title": "docs(cloud-workers): profile setup still tells operators to restart t…",
+      "link": "https://github.com/openclaw/openclaw/commit/2e1cb01746e74c6b6da9cbe10c7f09de8c6e6f91",
+      "publishedAt": "2026-09-27T18:00:14Z",
+      "summary": "docs(cloud-workers): profile setup still tells operators to restart the Gateway (#159640) * docs(cloud-workers): profile changes apply without a Gateway restart * docs(cloud-workers): validate saved profiles and qualify reload mode off Run config validation after saving, since it reads the saved file. Note that gateway.reload.mode off defers passive profile changes to a manual restart, and drop the guide's remaining restart instruction. * docs(cloud-workers): name reload mode off in profile troubleshooting Reload mode off keeps watching config but defers passive profile changes to a manual restart; the troubleshooting entry now says so instead of implying watching is disabled. * docs(cloud-workers): distinguish UI saves from file edits in reload mode off In reload mode off, Gateway config writes such as Control UI saves schedule a restart themselves; only direct file edits wait for a manual restart (config-write-flow resolveConfigRestartRequirement).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(infra): sample warm worker heap after idle collection",
-      "summaryZh": "重點：test(infra): sample warm worker heap after idle collection Wait for the existing post-idle 修正ture receipt before allocat..."
+      "titleZh": "OpenClaw 文件更新：文件(cloud-workers): profile setup still tells operators to restart t…",
+      "summaryZh": "重點：文件(cloud-workers): profile setup still tells operators to restart the Gateway (#159640) * 文件(cloud-workers): profile cha..."
     },
     {
       "id": 3,
-      "title": "improve: reuse session placement after participant activity (#158395)",
-      "link": "https://github.com/openclaw/openclaw/commit/e374c800cd88a05c78aa0b53b0d448a3792f2505",
-      "publishedAt": "2026-09-27T12:54:54Z",
-      "summary": "improve: reuse session placement after participant activity (#158395) * perf(sessions): retain placement after participant activity * test(sessions): drain conversation fixture before removal",
+      "title": "chore(ui): refresh control ui locales (#159808)",
+      "link": "https://github.com/openclaw/openclaw/commit/b17f71b1fbb4eedb5352f64257046d731221066c",
+      "publishedAt": "2026-09-27T17:58:16Z",
+      "summary": "chore(ui): refresh control ui locales (#159808) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: reuse session placement after participant activity (#158395)",
-      "summaryZh": "重點：improve: reuse session placement after participant activity (#158395) * perf(sessions): retain placement after participa..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#159808)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#159808) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 4,
-      "title": "test(acp): call host SQL observer without an env argument",
-      "link": "https://github.com/openclaw/openclaw/commit/e9af8ebcde6b25813d2fdb45662fe40dd4452089",
-      "publishedAt": "2026-09-27T12:52:44Z",
-      "summary": "test(acp): call host SQL observer without an env argument",
+      "title": "fix(ui): stop images reloading while scrolling (#159486)",
+      "link": "https://github.com/openclaw/openclaw/commit/6a723ed4a41ee0215a21ae55de257fe32fa51825",
+      "publishedAt": "2026-09-27T17:55:16Z",
+      "summary": "fix(ui): stop images reloading while scrolling (#159486) * fix(ui): stop images reloading while scrolling Reuse loaded native images within the scoped metadata cache and bypass viewport admission for warm managed previews. Preserve ticket expiry, invalidation, and exclusive node ownership across remounts. Co-authored-by: steipete * fix(ui): stop images reloading while scrolling Worked on by: - @steipete Co-authored-by: steipete OpenClaw-Publication: 60dabc7e-feb1-44b5-84da-0f0d3137e62f * fix(ui): retire cached images when sharing access changes Invalidate the existing media policy epoch on redacted sharing notifications before the roster refresh. Prove normal scroll reuse and final denial after visibility, role assignment, and role definition withdrawal in Chromium. Co-authored-by: steipete Co-authored-by: vyctorbrzezowski * fix(ui): stop images reloading while scrolling Worked on by: - @steipete - @vyctorbrzezowski Co-authored-by: steipete Co-authored-by: vyctorbrzezowski OpenClaw-Publication: 0f6560b1-3b05-40a0-9d04-8e6965c6ea7d --------- Co-authored-by: steipete Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(acp): call host SQL observer without an env argument",
-      "summaryZh": "重點：test(acp): call host SQL observer without an env argument..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop images reloading while scrolling (#159486)",
+      "summaryZh": "重點：修正(ui): stop images reloading while scrolling (#159486) * 修正(ui): stop images reloading while scrolling Reuse loaded nat..."
     },
     {
       "id": 5,
+      "title": "XRISM 首度直擊恆星風墜入中子星，天文學家看清脈衝星進食全程",
+      "link": "https://technews.tw/2026/09/28/nasa-jaxa-xrism-mission-sees-pulsar-gathering-companions-wind/",
+      "publishedAt": "Sun, 27 Sep 2026 16:00:07 +0000",
+      "summary": "利用日本主導的 X 射線成像與光譜衛星（XRISM）資料，天文學家直接觀測到一顆巨大恆星的恆星風被伴星捕獲，為 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "乳癌治療新方向：運用磁脈衝，重啟抗癌免疫力",
       "link": "https://technews.tw/2026/09/27/singapore-harnesses-magnetic-pulses-to-reprogramme-immune-cells-to-fight-breast-cancer/",
       "publishedAt": "Sun, 27 Sep 2026 08:00:00 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "才兩年就退燒了？微軟 Surface 正淡化 Copilot Plus PC 標籤",
       "link": "https://technews.tw/2026/09/27/microsoft-surface-copilot-plus-pc/",
       "publishedAt": "Sun, 27 Sep 2026 07:47:13 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "露營意外揭開 3.9 億年前祕密，業餘天文迷發現魁北克 25 公里巨大隕石坑",
       "link": "https://technews.tw/2026/09/27/giant-meteorite-crater-quebec/",
       "publishedAt": "Sun, 27 Sep 2026 07:30:05 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "中國首座「AI 眼科門診」實測，直擊醫療 AI 落地的三大痛點",
       "link": "https://technews.tw/2026/09/27/china-test-ai-eye-clinic/",
       "publishedAt": "Sun, 27 Sep 2026 07:00:52 +0000",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "a16z 創辦矽谷 AI 學院：免學費、無考試，以「實作成果」取代成績單",
       "link": "https://technews.tw/2026/09/27/andreessen-horowitz-academy/",
       "publishedAt": "Sun, 27 Sep 2026 06:30:03 +0000",
       "summary": "創投公司 Andreessen Horowitz（a16z）9 月 22 日宣布，在舊金山推出 Andrees [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "簡化M365組態與資安防護，網達先進推微軟雲端服務代管方案",
-      "link": "https://www.ithome.com.tw/review/179236",
-      "publishedAt": "2026-09-27 06:09:02",
-      "summary": "成立至今已將近30年的Logicalis（網達先進科技），今年下半在臺灣開始主推代管微軟雲端服務Microsoft 365的解決方案，這項產品稱為Managed Microsoft Services for Microsoft 365 Powered by CoreView（MMS for M365治理服務 Powered by CoreView），顧名思義，當中搭配專攻Microsoft 365多租戶環境需求的管理與治理平臺CoreView，可涵蓋IT維運自動化、資安韌性、完整治理這三大需求。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
