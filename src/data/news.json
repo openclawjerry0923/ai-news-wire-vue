@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-09-26T22:25:54.050Z",
+  "generatedAt": "2026-09-27T01:07:16.790Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(telegram): await polling worker acknowledgement callbacks",
-      "link": "https://github.com/openclaw/openclaw/commit/547bb312f4098cd0f28f71cc45a7e351e944b1ff",
-      "publishedAt": "2026-09-26T22:19:31Z",
-      "summary": "fix(telegram): await polling worker acknowledgement callbacks Observe the fixture worker's first acknowledgement directly instead of polling it against a one-second deadline while SQLite admission runs in another thread. Preserve acknowledgement payload, offset ordering, catch-up, replay, rejection, and delivery assertions; no product behavior changes. Adapts #159156. The original failure was observed in #159152's isolated intake catch-up test. Main also reproduced two sibling acknowledgement failures standalone, while its original native-pipeline/polling shard passed. The fixed file passed 40 tests (64.79s wall including cold compiler setup). Independent Codex review was clean through P2. Co-authored-by: chopin-op60",
+      "title": "refactor(gateway): share update watcher scheduling (#159291)",
+      "link": "https://github.com/openclaw/openclaw/commit/d2d35727af798db45b3888446a16e339942be1d5",
+      "publishedAt": "2026-09-27T01:06:33Z",
+      "summary": "refactor(gateway): share update watcher scheduling (#159291)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): await polling worker acknowledgement callbacks",
-      "summaryZh": "重點：修正(Telegram): await polling worker acknowledgement callbacks Observe the 修正ture worker's first acknowledgement directly ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): share update watcher scheduling (#159291)",
+      "summaryZh": "重點：refactor(Gateway): share update watcher scheduling (#159291)..."
     },
     {
       "id": 2,
-      "title": "perf(crabbox): shrink source-mirror allocation critical section and w…",
-      "link": "https://github.com/openclaw/openclaw/commit/c5b5d5ac952f03e3e95e4e4940d428de1066771f",
-      "publishedAt": "2026-09-26T22:19:21Z",
-      "summary": "perf(crabbox): shrink source-mirror allocation critical section and wait briefly instead of cold fallback (#159195)",
+      "title": "fix(ui): keep short table values intact on mobile (#159283)",
+      "link": "https://github.com/openclaw/openclaw/commit/1b4453324a75fe795c13677cb47775b8a511bc27",
+      "publishedAt": "2026-09-27T01:06:23Z",
+      "summary": "fix(ui): keep short table values intact on mobile (#159283) Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(crabbox): shrink source-mirror allocation critical section and w…",
-      "summaryZh": "重點：perf(crabbox): shrink source-mirror allocation critical section and wait briefly instead of cold fallback (#159195)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep short table values intact on mobile (#159283)",
+      "summaryZh": "重點：修正(ui): keep short table values intact on mobile (#159283) Co-authored-by: Peter Steinberger..."
     },
     {
       "id": 3,
-      "title": "fix(google): recover interrupted Interactions streams (#159198)",
-      "link": "https://github.com/openclaw/openclaw/commit/727e4ed263303af05f5f8e558fafb1ea3f8af3db",
-      "publishedAt": "2026-09-26T22:18:11Z",
-      "summary": "fix(google): recover interrupted Interactions streams (#159198) Emit the existing incomplete-stream contract so partial Interactions replies remain eligible for transient recovery. Centralize reader cancellation, lock release, and pending-work tracking in finally while preserving the original failure. Regression proof on Blacksmith: six expected failures before the repair; all 101 focused and owner tests pass afterward. The full changed gate passes, and independent Codex review found no actionable P0-P2 findings. Co-authored-by: Peter Steinberger",
+      "title": "test(providers,media,i18n): remove low-value tests (batch d049) (#159…",
+      "link": "https://github.com/openclaw/openclaw/commit/43bae893b6081597f760999f5db13c89a01b880e",
+      "publishedAt": "2026-09-27T01:06:05Z",
+      "summary": "test(providers,media,i18n): remove low-value tests (batch d049) (#159292) * test(vercel-ai-gateway): deslop s343 tests * test(mistral): deslop s312 tests * test(groq): deslop s323 tests * test(together): deslop s327 tests * test(azure-speech): deslop s324 tests * test(media-generation): deslop s319 tests * test(qianfan): deslop s340 tests * test(cerebras): deslop s325 tests * test(admin-http-rpc): deslop s326 tests * test(i18n): deslop s316 tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google): recover interrupted Interactions streams (#159198)",
-      "summaryZh": "重點：修正(google): recover interrupted Interactions streams (#159198) Emit the existing incomplete-stream contract so partial I..."
+      "titleZh": "OpenClaw 程式碼更新：test(providers,media,i18n): remove low-value tests (batch d049) (#159…",
+      "summaryZh": "重點：test(providers,media,i18n): remove low-value tests (batch d049) (#159292) * test(vercel-ai-Gateway): deslop s343 tests *..."
     },
     {
       "id": 4,
-      "title": "test(macos): keep fat64 fixture with signing tests (#131682)",
-      "link": "https://github.com/openclaw/openclaw/commit/1a2cda64d1a0ced8870ac73bef022ebf15298d37",
-      "publishedAt": "2026-09-26T22:17:43Z",
-      "summary": "test(macos): keep fat64 fixture with signing tests (#131682)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(macos): keep fat64 修正ture with signing tests (#131682)",
-      "summaryZh": "重點：test(macos): keep fat64 修正ture with signing tests (#131682)..."
+      "title": "iPhone 18 Pro Max 體驗，是蘋果更接近專業攝影的一年",
+      "link": "https://technews.tw/2026/09/27/iphone-18-pro-max-hands-on/",
+      "publishedAt": "Sun, 27 Sep 2026 01:00:42 +0000",
+      "summary": "蘋果在本月稍早已開賣了 iPhone 18 Pro、iPhone 18 Pro Max 機款，這次新機除了換上 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "improve(plugins): avoid blocking index reads during Claw cleanup (#15…",
+      "link": "https://github.com/openclaw/openclaw/commit/038b10b48de03f67c191ec6db15b484aebae8a9c",
+      "publishedAt": "2026-09-27T00:52:05Z",
+      "summary": "improve(plugins): avoid blocking index reads during Claw cleanup (#159254) * perf(plugins): prepare batch cleanup index off thread * refactor(plugins): keep synchronous index row observation private",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(plugins): avoid blocking index reads during Claw cleanup (#15…",
+      "summaryZh": "重點：improve(plugins): avoid blocking index reads during Claw cleanup (#159254) * perf(plugins): prepare batch cleanup index ..."
+    },
+    {
+      "id": 6,
+      "title": "AI 研發生化武器消滅人類？專家：比起末日幻想，現有病原體威脅性更高",
+      "link": "https://technews.tw/2026/09/27/why-ai-isnt-likely-to-wipe-out-humanity-with-bioweapons/",
+      "publishedAt": "Sun, 27 Sep 2026 00:30:01 +0000",
+      "summary": "人工智慧持續提升，外界也開始關注 AI 能否協助設計生物武器。但近期研究與專家討論，多數科學家認為，AI 雖然 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "罰單狂開背後的道安困局！近五年全國交通罰鍰收入飆漲 22％，為何事故率仍高於日韓？",
+      "link": "https://technews.tw/2026/09/27/taiwan-traffic/",
+      "publishedAt": "Sun, 27 Sep 2026 00:00:10 +0000",
+      "summary": "台灣被外媒批評為行人地獄，政府近年強化執法，但從罰單收來的錢，是否地方政府真的有拿去改善交通安全，外界難以監督 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "從預估兩千年縮短至幾十年，澳洲穀物基因庫大規模實測推翻種子保鮮期",
       "link": "https://technews.tw/2026/09/27/scientists-identify-the-doomsday-seeds-that-could-last-the-longest/",
       "publishedAt": "Sat, 26 Sep 2026 16:00:08 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Google 廣告淪為詐騙新溫床，假「全螢幕警告」偽裝電腦遭勒索攻擊",
       "link": "https://infosecu.technews.tw/2026/09/26/google-ads-deliver-browser-locking-fake-security-scams/",
       "publishedAt": "Sat, 26 Sep 2026 10:30:46 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "OpenAI 揭露更多 AI 代理失控行為：曾接觸政府網站並外傳使用者圖片",
       "link": "https://infosecu.technews.tw/2026/09/26/openai-said-its-rogue-ai-agents-accessed-public-data-from-the-sec/",
       "publishedAt": "Sat, 26 Sep 2026 10:00:07 +0000",
       "summary": "OpenAI 今日表示，正在擴大檢視旗下 AI 代理訓練與測試期間的網路活動，並已通知數十家機構，稱這些代理可 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "涉危害兒少健康，TikTok 與阿拉巴馬州達成和解",
-      "link": "https://infosecu.technews.tw/2026/09/26/tiktok-alabama-settlement-harm-children-health/",
-      "publishedAt": "Sat, 26 Sep 2026 09:00:43 +0000",
-      "summary": "美國阿拉巴馬州 25 日宣布與短影音平台 TikTok 及中國母公司字節跳動（ByteDance）達成和解，要 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Dell 點名 HDD 缺貨，硬碟供應持續吃緊",
-      "link": "https://technews.tw/2026/09/26/dell-highlights-hdd-shortage-hard-drive-supply-remains-tight/",
-      "publishedAt": "Sat, 26 Sep 2026 08:55:25 +0000",
-      "summary": "AI 基礎設施需求持續擴大，帶動 HBM、DRAM 及 HDD 等關鍵零組件需求升溫。市場消息傳出，Dell [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "傳 SK 海力士美國子公司考慮 IPO，估值上看 1,500 億美元",
-      "link": "https://finance.technews.tw/2026/09/26/solidigm-ipo/",
-      "publishedAt": "Sat, 26 Sep 2026 08:30:13 +0000",
-      "summary": "路透社引述三名知情人士說法報導，韓國晶片製造商 SK 海力士（SK Hynix）美國子公司 Solidigm [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
