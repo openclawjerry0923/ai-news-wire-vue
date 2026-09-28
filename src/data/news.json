@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-09-27T21:51:41.352Z",
+  "generatedAt": "2026-09-28T00:19:53.332Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): keep long hostnames inside the sign-in card (#159899)",
-      "link": "https://github.com/openclaw/openclaw/commit/90f63c1855cb0d7c21b7bcd646ea9160b86eb8c2",
-      "publishedAt": "2026-09-27T21:49:52Z",
-      "summary": "fix(ui): keep long hostnames inside the sign-in card (#159899) Co-authored-by: IWhatsskill",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep long hostnames inside the sign-in card (#159899)",
-      "summaryZh": "重點：修正(ui): keep long hostnames inside the sign-in card (#159899) Co-authored-by: IWhatsskill..."
+      "title": "亞太地區勒索軟體事件月增近27%，臺灣事件數排名第三",
+      "link": "https://www.ithome.com.tw/news/179235",
+      "publishedAt": "2026-09-28 08:09:00",
+      "summary": "網路安全業者Group-IB近期回顧2026年8月亞太地區資安威脅，共記錄190起勒索軟體事件，較7月增加26.7%。臺灣當月有20起，在報告列出的國家與地區中排名第三，僅次於印度32起及澳洲24起。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(code-mode): stop bookkeeping changes hiding repeated tool loops (…",
-      "link": "https://github.com/openclaw/openclaw/commit/aea667c764a8592d58a0efa4e85d741a70b4862b",
-      "publishedAt": "2026-09-27T21:49:19Z",
-      "summary": "fix(code-mode): stop bookkeeping changes hiding repeated tool loops (#159864) * fix(code-mode): stop bookkeeping changes hiding repeated tool loops Co-authored-by: VACInc * style: satisfy Code Mode regression fixture brace rule Co-authored-by: VACInc * test(codex): isolate retry-clock fixtures from real storage setup Scope real run-attempt setup and its database worker teardown to the durable-receipt test. Keep all retry delivery, pin-release, and zero-timer assertions unchanged. Co-authored-by: VACInc --------- Co-authored-by: roboclaw-bot Co-authored-by: VACInc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(code-mode): stop bookkeeping changes hiding repeated tool loops (…",
-      "summaryZh": "重點：修正(code-mode): stop bookkeeping changes hiding repeated tool loops (#159864) * 修正(code-mode): stop bookkeeping changes h..."
+      "title": "MIND募資7,200萬美元，以AI代理強化企業資料外洩防護",
+      "link": "https://www.ithome.com.tw/news/179209",
+      "publishedAt": "2026-09-28 08:09:00",
+      "summary": "資料外洩防護（DLP）新創公司MIND宣布完成7,200萬美元B輪募資，累計募資達1.12億美元。MIND表示，新資金將用於加速DLP平臺開發及拓展企業市場，並深化技術與通路合作，同時擴大團隊規模；過去一年該公司營收成長超過17倍，客戶數成長超過8倍。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: PDF analysis uses the active vision model (#159593)",
-      "link": "https://github.com/openclaw/openclaw/commit/1c5b8c4134a932a08db2d8ce5a1f9ac48544f911",
-      "publishedAt": "2026-09-27T21:47:57Z",
-      "summary": "fix: PDF analysis uses the active vision model (#159593) Closes #159542 ## What Problem This Solves Fixes: the PDF tool fails with `No PDF model configured.` when an authenticated, vision-capable active model is available through OpenRouter but no PDF or image model is configured. ## User Impact User impact: an agent can analyze text-layer and scanned PDFs with its active vision model without duplicating that model in `pdfModel`. Explicit PDF/image preferences, existing native-provider precedence, authentication, and provider PDF image restrictions remain intact. ## Why This Change Was Made Pass the admitted active model to deferred PDF resolution and use it only after existing candidates are exhausted. The fallback requires image support, provider authentication, and no `documentModels.pdf.image: false` restriction. The PDF guide now describes this final fallback and deferred resolution accurately. No overlap with Pash/Sarah changes. ## Evidence Real isolated Gateway runs used a scripted, authenticated OpenAI-compatible endpoint standing in for OpenRouter; no paid provider was contacted. The agent searched for and called the actual `pdf` tool on two real PDF files. Neither `pdfModel` nor `imageModel` was set for the before/after runs. | Case | Fix removed | This change | | --- | --- | --- | | Text-layer PDF | `No PDF model configured.` | `Extracted PDF marker ORCHID-159542.` | | Image-only PDF | `No PDF model configured.` | `Received 1 rendered PDF page image(s).` | Provider request captures confirm that the text marker came from extracted PDF text and that the scanned document produced an `image_url` PNG part. These are deterministic transport/extraction checks, not a claim about a paid model's reasoning quality. The before run used the same candidate tree with only the three changed production files restored to main `f0b149f44df9a47ea6822bec2b7b438a938ec54a`. Both trees were rebuilt and launched through `pnpm openclaw`. Plain main builds, including a newer green-CI main revision with identical PDF owners, were blocked by the unrelated `transcript-visible-record.ts` `INEFFECTIVE_DYNAMIC_IMPORT` build guard; the fix-removed comparison isolates this PDF change without modifying that guard. Controls: - Gateway: explicit `pdfModel: openrouter/openai/gpt-4o` wins over the active `openrouter/anthropic/claude-sonnet-4.5` model. - Gateway: a text-only active `openrouter/openai/gpt-3.5-turbo` is rejected with `No PDF model configured.` for the image-only PDF. - Gateway: explicit Anthropic native PDF selection returns `native: true`; the local endpoint receives the original base64 PDF document bytes, not extracted images. - Manifest-backed resolver regression: an authenticated vision provider declaring `documentModels.pdf.image: false` is not selected. The same regression fails against the original contributor resolver (`restricted/vision` selected instead of `null`) and passes with the guard. - Existing tests retain missing-auth and native-candidate precedence controls. Focused checks: 79 tests passed across the PDF model, PDF tool, and production assembly suites (37.92 seconds wall time, one worker). `pnpm tsgo:core`, `pnpm tsgo:core:test`, scoped Oxlint, formatting, and `git diff --check` passed. Removed redundant forwarding assertions while retaining the observable assembly regression. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(test): include manifest-only plugins in extension test plans (#15…",
+      "link": "https://github.com/openclaw/openclaw/commit/e205c9d6fced8f9201e5aa500a355ec93dbcff0b",
+      "publishedAt": "2026-09-28T00:17:34Z",
+      "summary": "fix(test): include manifest-only plugins in extension test plans (#159981)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: PDF analysis uses the active vision 模型 (#159593)",
-      "summaryZh": "重點：修正: PDF analysis uses the active vision 模型 (#159593) Closes #159542 ## What Problem This Solves 修正: the PDF tool fails w..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): include manifest-only plugins in extension test plans (#15…",
+      "summaryZh": "重點：修正(test): include manifest-only plugins in extension test plans (#159981)..."
     },
     {
       "id": 4,
-      "title": "perf(sessions): reuse catalog planning across polls (#159900)",
-      "link": "https://github.com/openclaw/openclaw/commit/15e32694c7dd6cfc183b9671ea4358a2427b8a09",
-      "publishedAt": "2026-09-27T21:47:45Z",
-      "summary": "perf(sessions): reuse catalog planning across polls (#159900)",
+      "title": "fix(ui): allow oversized PNG attachments (#159960)",
+      "link": "https://github.com/openclaw/openclaw/commit/5a5a0e7e8a64f288d98cfe9a1515fae34645126a",
+      "publishedAt": "2026-09-28T00:14:16Z",
+      "summary": "fix(ui): allow oversized PNG attachments (#159960) * fix(ui): allow oversized PNG attachments Resize static PNGs in a cancellable browser worker before upload, preserving composer ownership and typing responsiveness. Co-authored-by: steipete Co-authored-by: vyctorbrzezowski * fix(ui): allow oversized PNG attachments Worked on by: - @steipete - @vyctorbrzezowski Co-authored-by: steipete Co-authored-by: vyctorbrzezowski OpenClaw-Publication: 20d823a1-fbfe-4b78-adca-58a5abf2f1a4 * test(ui): retain command palette oversized image rejection coverage Use non-resizable GIF fixtures for synchronous admission rejection now that PNGs enter asynchronous preparation. Preserve the cold-submit and partial-batch custody assertions. Co-authored-by: steipete Co-authored-by: vyctorbrzezowski --------- Co-authored-by: steipete Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): reuse catalog planning across polls (#159900)",
-      "summaryZh": "重點：perf(sessions): reuse catalog planning across polls (#159900)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): allow oversized PNG attachments (#159960)",
+      "summaryZh": "重點：修正(ui): allow oversized PNG attachments (#159960) * 修正(ui): allow oversized PNG attachments Resize static PNGs in a canc..."
     },
     {
       "id": 5,
+      "title": "refactor(scripts): deslop scripts/lib (#159362)",
+      "link": "https://github.com/openclaw/openclaw/commit/9491d5a5a3372a04416e0317f3040c41bad670d5",
+      "publishedAt": "2026-09-28T00:13:58Z",
+      "summary": "refactor(scripts): deslop scripts/lib (#159362) * refactor(scripts): deslop scripts/lib Consolidate script lifecycle, scenario, planner, report, release and packaging helpers while retaining CLI and publication contracts. Keep config-boundary source caches within one scan so repeated in-process checks observe edits. Carry extracted helpers through selective fixtures and iOS scope routing. Leave PR tooling and its library import closure intact. * fix(scripts): retain sanitizer fast path after helper cleanup * fix(scripts): model watchdog shell consumer in dead-code checks",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): deslop scripts/lib (#159362)",
+      "summaryZh": "重點：refactor(scripts): deslop scripts/lib (#159362) * refactor(scripts): deslop scripts/lib Consolidate script lifecycle, sc..."
+    },
+    {
+      "id": 6,
+      "title": "fix(whatsapp): restore media uploads through proxies (#159851)",
+      "link": "https://github.com/openclaw/openclaw/commit/dd628a54504f8b72125ca92a7b158015e2ea4f07",
+      "publishedAt": "2026-09-28T00:11:47Z",
+      "summary": "fix(whatsapp): restore media uploads through proxies (#159851) * fix(whatsapp): restore media uploads through proxies * chore: refresh CI after main test type repairs * fix(net): isolate proxy route initialization failures * fix(whatsapp): propagate media proxy setup errors * fix(net): defer unusable proxy errors to requests * fix(net): honor bypasses when proxy routes are invalid",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): restore media uploads through proxies (#159851)",
+      "summaryZh": "重點：修正(whatsapp): restore media uploads through proxies (#159851) * 修正(whatsapp): restore media uploads through proxies * ch..."
+    },
+    {
+      "id": 7,
+      "title": "電池材料大廠康普收服特斯拉與豐田，跨足半導體化學品三箭齊發大啖非紅商機",
+      "link": "https://finance.technews.tw/2026/09/28/coremax-corporation/",
+      "publishedAt": "Mon, 28 Sep 2026 00:00:28 +0000",
+      "summary": "非紅供應鏈浪潮下，動力電池材料大廠康普成為日歐系車廠爭相合作的夥伴，今年迎來獲利大爆發之餘，也鎖定半導體、被動 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "從供需失衡到高壓規格戰，解析全球 PMIC 市場新格局",
+      "link": "https://technews.tw/2026/09/28/global-pmic-market-new-landscape-from-supply-demand-imbalance-to-high-pressure-spec-war/",
+      "publishedAt": "Sun, 27 Sep 2026 23:00:53 +0000",
+      "summary": "AI 晶片功耗逼近甚至超越 1kW，傳統 PCB 走線帶來的寄生電阻與 IR 壓降已成為算力發揮的瓶頸。PMI [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "XRISM 首度直擊恆星風墜入中子星，天文學家看清脈衝星進食全程",
       "link": "https://technews.tw/2026/09/28/nasa-jaxa-xrism-mission-sees-pulsar-gathering-companions-wind/",
       "publishedAt": "Sun, 27 Sep 2026 16:00:07 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "乳癌治療新方向：運用磁脈衝，重啟抗癌免疫力",
       "link": "https://technews.tw/2026/09/27/singapore-harnesses-magnetic-pulses-to-reprogramme-immune-cells-to-fight-breast-cancer/",
       "publishedAt": "Sun, 27 Sep 2026 08:00:00 +0000",
       "summary": "癌症治療除了直接攻擊癌細胞，近年也愈來愈重視重啟人體的抗癌免疫力。最近，新加坡國立大學（National Un [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "才兩年就退燒了？微軟 Surface 正淡化 Copilot Plus PC 標籤",
-      "link": "https://technews.tw/2026/09/27/microsoft-surface-copilot-plus-pc/",
-      "publishedAt": "Sun, 27 Sep 2026 07:47:13 +0000",
-      "summary": "微軟在 2024 年推出 Copilot Plus PC，試圖以 NPU 與一系列 AI 功能，替新一代 Wi [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "露營意外揭開 3.9 億年前祕密，業餘天文迷發現魁北克 25 公里巨大隕石坑",
-      "link": "https://technews.tw/2026/09/27/giant-meteorite-crater-quebec/",
-      "publishedAt": "Sun, 27 Sep 2026 07:30:05 +0000",
-      "summary": "加拿大魁北克一名業餘天文愛好者在尋找露營地時，意外透過衛星地圖發現一處近乎完美的圓形地貌，進而促成一項重大的地 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "中國首座「AI 眼科門診」實測，直擊醫療 AI 落地的三大痛點",
-      "link": "https://technews.tw/2026/09/27/china-test-ai-eye-clinic/",
-      "publishedAt": "Sun, 27 Sep 2026 07:00:52 +0000",
-      "summary": "當人工智慧走出實驗室的完美環境，直接面對醫院裡真實的病患與病歷，會發生什麼事？近期，中國北京視覺科學與轉化醫學 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "a16z 創辦矽谷 AI 學院：免學費、無考試，以「實作成果」取代成績單",
-      "link": "https://technews.tw/2026/09/27/andreessen-horowitz-academy/",
-      "publishedAt": "Sun, 27 Sep 2026 06:30:03 +0000",
-      "summary": "創投公司 Andreessen Horowitz（a16z）9 月 22 日宣布，在舊金山推出 Andrees [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
