@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-09-29T14:47:36.795Z",
+  "generatedAt": "2026-09-29T19:49:01.421Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(test): share cloud worker build fixtures (#161231)",
-      "link": "https://github.com/openclaw/openclaw/commit/2e966a111e42d7ae7858f2ebb0d11f3722bd08e2",
-      "publishedAt": "2026-09-29T14:46:57Z",
-      "summary": "refactor(test): share cloud worker build fixtures (#161231) Co-authored-by: Vincent Koc",
+      "title": "test: repair cron retry and store retirement fixtures",
+      "link": "https://github.com/openclaw/openclaw/commit/d2268d37a24d39b91a864489aee465f7eeb1d2cc",
+      "publishedAt": "2026-09-29T19:48:07Z",
+      "summary": "test: repair cron retry and store retirement fixtures Provide the zero-descendant registry read used during cron adapter setup. Assert the registered store-retirement operation rejects its injected write failure, then drain cleanup without changing the shared observer contract. Validation: original CI groups reproduce all three failures before the repair and pass 713 tests afterward. Both affected files pass 86 tests with one worker. Scoped static checks and independent review pass. No production or schema changes.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(test): share cloud worker build 修正tures (#161231)",
-      "summaryZh": "重點：refactor(test): share cloud worker build 修正tures (#161231) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：test: repair 排程 retry and store retirement 修正tures",
+      "summaryZh": "重點：test: repair 排程 retry and store retirement 修正tures Provide the zero-descendant registry read used during 排程 adapter setu..."
     },
     {
       "id": 2,
-      "title": "fix(agents): preserve timeout budgets on continuation turns (#161078)",
-      "link": "https://github.com/openclaw/openclaw/commit/8998b488941bff9e1079eb104d4afbfcd211a254",
-      "publishedAt": "2026-09-29T14:46:37Z",
-      "summary": "fix(agents): preserve timeout budgets on continuation turns (#161078) * fix(subagents): preserve run timeouts on continuation turns * fix(heartbeat): preserve timeouts for recovered task wakes * fix(agents): fence continuation timeouts after admission * fix(subagents): bind continuation timeouts to child identity * test(agents): prove released continuation timeout fallback",
+      "title": "fix(subagents): retain committed kill counts after cleanup refusal",
+      "link": "https://github.com/openclaw/openclaw/commit/6123d17b9f281f07f0074c564f6ffa20deec50ae",
+      "publishedAt": "2026-09-29T19:45:38Z",
+      "summary": "fix(subagents): retain committed kill counts after cleanup refusal A descendant kill can commit before parent reactivation invalidates its remaining cleanup. Carry the run manager's publication count through that awaited tail so cancellation reports the completed kill and the cleanup error together. Keep current-authority checks and unknown-outcome refusal. Make the existing publication case hold real post-commit timing instead of polling status. The original production path deterministically reports killed:false and cascadeKilled:0; the repaired path preserves the prior child kill while leaving the successor running. Document partial counts. Validation on Node 24.21/macOS (original CI used Node 24.19/Linux): - Publication and concurrency: 23 passed; accounting: 6 passed. - Original 25-file group: 279 passed, 2 existing platform skips. - Publication file with one worker: 10 passed, 54.526s wall, 51.53s Vitest. Its real registry, lifecycle, and cleanup boundary is needed for this race; worker preparation/imports dominate, and no new test case was added. - Scoped code/docs checks and independent P2 review passed. The unchanged original-group baseline also passed locally; the controlled post-commit regression supplies the RED-to-GREEN proof.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve timeout budgets on continuation turns (#161078)",
-      "summaryZh": "重點：修正(agents): preserve timeout budgets on continuation turns (#161078) * 修正(subagents): preserve run timeouts on continuat..."
+      "titleZh": "OpenClaw 程式碼更新：修正(subagents): retain 提交ted kill counts after cleanup refusal",
+      "summaryZh": "重點：修正(subagents): retain 提交ted kill counts after cleanup refusal A descendant kill can 提交 before parent reactivation invali..."
     },
     {
       "id": 3,
-      "title": "fix: keep foreground session updates responsive during cold maintenan…",
-      "link": "https://github.com/openclaw/openclaw/commit/f0cd14c67ee598f31d2fb5c02b81d782e57e2e88",
-      "publishedAt": "2026-09-29T14:44:37Z",
-      "summary": "fix: keep foreground session updates responsive during cold maintenance (#161181) * fix(sessions): keep foreground updates responsive during cold maintenance Prepare the original existing database in the reclamation actor instead of opening the foreground executor first. Require canonical native validation, actual identity and lease acceptance before mutation, preserving incoming and outgoing revocable proof and current-authority checks. Keep caller refusal separate from source health, join native cleanup on source retirement, and retain exact cold versus warm lease accounting. Reuse the original concurrency tests and native admission fixture boundaries. Node proof covers the original 39-case pair, cold concurrency, validation reuse, archive/reclamation and Gateway siblings, with affected lease fixtures verified after accounting for the removed foreground actor. Two preparation lifetime cases also pass on Bun. Changed gates, all 27 test type graphs and independent review through P2 pass. The Linux-only managed SIGTERM case was not run locally. Schemas, retention, permissions and update behavior unchanged. Related: #160858 * fix(sessions): preserve cold preparation diagnostics Carry the logical reclamation context through native preparation and observe its real admission releases in the lifetime regression. Keep the foreground proof on the exact-replacement API using the established scoped fixture environment.",
+      "title": "test(ui): await owner chip typeface stylesheet loading",
+      "link": "https://github.com/openclaw/openclaw/commit/99a2b25e73cccc85f2284cb697b3f4751a857173",
+      "publishedAt": "2026-09-29T19:42:08Z",
+      "summary": "test(ui): await owner chip typeface stylesheet loading The first beacon case could exhaust expect.poll's short deadline while its font stylesheet was still loading, before rendering a chip. Wait for the stylesheet's load or error event, retaining the loaded-sheet check, font readiness, and every rendering assertion. Keep existing timeouts. Linux Testbox proof: twenty complete file runs pass all 2,340 cases; three original UI shard replays pass 8,181 cases each; the whole UI config passes 24,309 cases across 1,577 files. Codex P2 review is clean. Final Linux check-changed and boundary guards passed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep foreground session updates responsive during cold maintenan…",
-      "summaryZh": "重點：修正: keep foreground session updates responsive during cold maintenance (#161181) * 修正(sessions): keep foreground updates..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): await owner chip typeface stylesheet loading",
+      "summaryZh": "重點：test(ui): await owner chip typeface stylesheet loading The first beacon case could exhaust expect.poll's short deadline ..."
     },
     {
       "id": 4,
-      "title": "fix(test): serve normalized playback image requests",
-      "link": "https://github.com/openclaw/openclaw/commit/95d4489f6fb7d34fce5e08f36d04cb09db83a1dc",
-      "publishedAt": "2026-09-29T14:41:17Z",
-      "summary": "fix(test): serve normalized playback image requests Chromium normalizes the escaped dot before requesting the fixture image. Match the normalized URI so native image error handling does not remove an image that the fixture itself rejected. Keep the original source URL assertion and require successful image decoding. Return the cached app-page promise directly, preserving the line-count ratchet without removing assertions. The focused playback check and three original UI shard replays passed, along with the full UI config on Linux.",
+      "title": "test(agents): retire local command MCP fixture managers",
+      "link": "https://github.com/openclaw/openclaw/commit/9ddbab38e3263790aba263a8fb9d8da12c213fb1",
+      "publishedAt": "2026-09-29T19:42:08Z",
+      "summary": "test(agents): retire local command MCP fixture managers A drained process singleton retained an earlier test file's lazy runtime loader, so the local-command fixture bypassed its transport mock and waited for the real transport's 30-second deadline. Drain and retire that manager in fixture setup and teardown, following the existing sibling fixtures. Keep every case and settlement assertion. The ordered real-bundle then local-command pair reproduced an empty catalog after 30,038ms before repair. Twenty complete ordered file-pair runs now pass (420 cases), followed by three full agents-core runs (8,075 passing cases each). The first broad replay fell from 372.37s with four failures to 256.60s with none. Codex P2 review is clean. Final Linux check-changed and boundary guards passed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): serve normalized playback image requests",
-      "summaryZh": "重點：修正(test): serve normalized playback image requests Chromium normalizes the escaped dot before requesting the 修正ture imag..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): retire local command MCP 修正ture managers",
+      "summaryZh": "重點：test(agents): retire local command MCP 修正ture managers A drained process singleton retained an earlier test file's lazy ..."
     },
     {
       "id": 5,
