@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-09-29T07:58:13.518Z",
+  "generatedAt": "2026-09-29T14:47:36.795Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(test): share cloud worker build fixtures (#161231)",
+      "link": "https://github.com/openclaw/openclaw/commit/2e966a111e42d7ae7858f2ebb0d11f3722bd08e2",
+      "publishedAt": "2026-09-29T14:46:57Z",
+      "summary": "refactor(test): share cloud worker build fixtures (#161231) Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(test): share cloud worker build 修正tures (#161231)",
+      "summaryZh": "重點：refactor(test): share cloud worker build 修正tures (#161231) Co-authored-by: Vincent Koc..."
+    },
+    {
+      "id": 2,
+      "title": "fix(agents): preserve timeout budgets on continuation turns (#161078)",
+      "link": "https://github.com/openclaw/openclaw/commit/8998b488941bff9e1079eb104d4afbfcd211a254",
+      "publishedAt": "2026-09-29T14:46:37Z",
+      "summary": "fix(agents): preserve timeout budgets on continuation turns (#161078) * fix(subagents): preserve run timeouts on continuation turns * fix(heartbeat): preserve timeouts for recovered task wakes * fix(agents): fence continuation timeouts after admission * fix(subagents): bind continuation timeouts to child identity * test(agents): prove released continuation timeout fallback",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): preserve timeout budgets on continuation turns (#161078)",
+      "summaryZh": "重點：修正(agents): preserve timeout budgets on continuation turns (#161078) * 修正(subagents): preserve run timeouts on continuat..."
+    },
+    {
+      "id": 3,
+      "title": "fix: keep foreground session updates responsive during cold maintenan…",
+      "link": "https://github.com/openclaw/openclaw/commit/f0cd14c67ee598f31d2fb5c02b81d782e57e2e88",
+      "publishedAt": "2026-09-29T14:44:37Z",
+      "summary": "fix: keep foreground session updates responsive during cold maintenance (#161181) * fix(sessions): keep foreground updates responsive during cold maintenance Prepare the original existing database in the reclamation actor instead of opening the foreground executor first. Require canonical native validation, actual identity and lease acceptance before mutation, preserving incoming and outgoing revocable proof and current-authority checks. Keep caller refusal separate from source health, join native cleanup on source retirement, and retain exact cold versus warm lease accounting. Reuse the original concurrency tests and native admission fixture boundaries. Node proof covers the original 39-case pair, cold concurrency, validation reuse, archive/reclamation and Gateway siblings, with affected lease fixtures verified after accounting for the removed foreground actor. Two preparation lifetime cases also pass on Bun. Changed gates, all 27 test type graphs and independent review through P2 pass. The Linux-only managed SIGTERM case was not run locally. Schemas, retention, permissions and update behavior unchanged. Related: #160858 * fix(sessions): preserve cold preparation diagnostics Carry the logical reclamation context through native preparation and observe its real admission releases in the lifetime regression. Keep the foreground proof on the exact-replacement API using the established scoped fixture environment.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: keep foreground session updates responsive during cold maintenan…",
+      "summaryZh": "重點：修正: keep foreground session updates responsive during cold maintenance (#161181) * 修正(sessions): keep foreground updates..."
+    },
+    {
+      "id": 4,
+      "title": "fix(test): serve normalized playback image requests",
+      "link": "https://github.com/openclaw/openclaw/commit/95d4489f6fb7d34fce5e08f36d04cb09db83a1dc",
+      "publishedAt": "2026-09-29T14:41:17Z",
+      "summary": "fix(test): serve normalized playback image requests Chromium normalizes the escaped dot before requesting the fixture image. Match the normalized URI so native image error handling does not remove an image that the fixture itself rejected. Keep the original source URL assertion and require successful image decoding. Return the cached app-page promise directly, preserving the line-count ratchet without removing assertions. The focused playback check and three original UI shard replays passed, along with the full UI config on Linux.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): serve normalized playback image requests",
+      "summaryZh": "重點：修正(test): serve normalized playback image requests Chromium normalizes the escaped dot before requesting the 修正ture imag..."
+    },
+    {
+      "id": 5,
+      "title": "毅力號火星重大發現，耶澤羅撞擊坑岩石揭密「三階段」水活動歷史",
+      "link": "https://technews.tw/2026/09/29/early-martian-rocks-reveal-at-least-three-independent-water-events/",
+      "publishedAt": "Tue, 29 Sep 2026 13:41:49 +0000",
+      "summary": "NASA「毅力號」（Perseverance）火星探測車在耶澤羅撞擊坑（Jezero Crater）內緣的「M [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "ShinyHunters聲稱竊得FBI資料中，包含敏感的探員個資與醫療紀錄",
       "link": "https://www.ithome.com.tw/news/179253",
       "publishedAt": "2026-09-29 12:09:59",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "GitHub讓AI代理接手模糊測試，可依覆蓋率自動補測未觸及程式碼",
       "link": "https://www.ithome.com.tw/news/179245",
       "publishedAt": "2026-09-29 12:09:47",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "CISA警告甫修補的WordPress重大路徑遍歷漏洞遭到利用",
       "link": "https://www.ithome.com.tw/news/179254",
       "publishedAt": "2026-09-29 12:09:46",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "新加坡電信商Simba遭駭，逾2.3萬名用戶個資外洩",
       "link": "https://www.ithome.com.tw/news/179257",
       "publishedAt": "2026-09-29 12:09:40",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "Fortinet新款高階防火牆Q3登場，支援企業SASE多據點部署",
-      "link": "https://www.ithome.com.tw/review/179246",
-      "publishedAt": "2026-09-29 12:09:33",
-      "summary": "在今年的7月底，Fortinet發表G系列網路防火牆最新機型——1200G系列，這款預計於2026年第三季上市、屬於高階與資料中心等級的產品，採用Fortinet最新的FortiASIC架構（NP7與",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
+      "id": 10,
       "title": "佛州要求法院限制OpenAI開發新模型，禁止向未成年人提供ChatGPT",
       "link": "https://www.ithome.com.tw/news/179255",
       "publishedAt": "2026-09-29 12:09:31",
       "summary": "美國佛羅里達州檢察長James Uthmeier周一（9/28）向法院聲請暫時禁制令，要求OpenAI開發新AI模型時，必須先取得獨立第三方對其安全防護措施的核准，並停止向佛州未成年人提供ChatGPT。法院尚未裁定此事。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "refactor(android): deslop Android app fifth pass (#161031)",
-      "link": "https://github.com/openclaw/openclaw/commit/98e3f67d93b8348f0c166ae9975703e5ad0fd287",
-      "publishedAt": "2026-09-29T07:52:12Z",
-      "summary": "refactor(android): deslop Android app fifth pass (#161031) Consolidate remaining settings, speech, approval, permission, and Wear projection code while preserving Android behavior. Remove unused forwarding and unreachable motion states. Keep auth, protocol, persisted settings, licenses, dependencies, and versioning unchanged.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(android): deslop Android app fifth pass (#161031)",
-      "summaryZh": "重點：refactor(android): deslop Android app fifth pass (#161031) Consolidate remaining settings, speech, approval, permission,..."
-    },
-    {
-      "id": 8,
-      "title": "fix(sessions): resume history cleanup after checkpoint progress (#161…",
-      "link": "https://github.com/openclaw/openclaw/commit/6be68ffe0cd082ae87007690d40359cee5f4dfd7",
-      "publishedAt": "2026-09-29T07:51:37Z",
-      "summary": "fix(sessions): resume history cleanup after checkpoint progress (#161061) Retain monotonic checkpoint completion through newer blocked observations and worker handoff. Keep the pending disk-budget requirement across retries, advance it after cleanup mutations, and preserve it when recovery arrives while a deferred result is returning. Native vacuum and pinned-reader protection remain unchanged. Cover concurrent writes, post-delete deferral, delayed completion receipts, and recovery during result handoff with real SQLite regressions. Document the checkpoint-progress rule for session maintenance.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): resume history cleanup after checkpoint progress (#161…",
-      "summaryZh": "重點：修正(sessions): resume history cleanup after checkpoint progress (#161061) Retain monotonic checkpoint completion through ..."
-    },
-    {
-      "id": 9,
-      "title": "refactor(infra): deslop package publication policy",
-      "link": "https://github.com/openclaw/openclaw/commit/7055029ceccc967a2d770b86151a79476587cb64",
-      "publishedAt": "2026-09-29T07:50:54Z",
-      "summary": "refactor(infra): deslop package publication policy ## What Problem This Solves Package publication preflight and mutation paths duplicated phase admission and retirement-generation selection. This is a maintainer-requested infrastructure deslop slice. ## User Impact No publication, durability, retention, schema, rollback, or update behavior changes. Existing installed-driver behavior is preserved; the released-driver activation fixture remains part of proof. ## Why This Change Was Made The existing publication owner now evaluates each policy in one private helper. Preflight still checks phase before closure inspection; mutations still inspect closure before phase admission. Both pre-acquisition and fresh-fence checks remain. Production: +27/-40/net -13. Tests: +0/-0/net 0. Docs: +0/-0/net 0. ## Evidence Blacksmith Testbox `tbx_01m3ny2aw02btzaz276n6v3pjm` ([allocation run](https://github.com/openclaw/openclaw/actions/runs/36531963230)), frozen-lockfile install and pinned base `743c2ceb72e7d1372845ea6f834bb82993fc9e0e`. The publication boundary/durability and activation lifetime/released-driver suites passed all 60 cases in the shared 463-case run (171.78s wall). Independent Codex autoreview through P2 was scoped-clean on the final combined follow-up diff, with dependency source supplied. Formatting, cross-tree retired-symbol checks, and `git diff --check` passed. `node scripts/check-changed.mjs --base 743c2ceb72e7d1372845ea6f834bb82993fc9e0e` passed on the final shared follow-up snapshot, including core tsgo, all 27 selected test type graphs, formatting, type-aware lint, dead exports, and architecture guards. The final policy-boundary replay plus changed gate completed in 24m43.680s on the same Testbox lease. Exact shared owner-test command ```sh pnpm test src/infra/device-auth-store.test.ts src/infra/device-auth-store.worker.test.ts src/infra/device-auth-store.client.test.ts src/infra/http-body.response.test.ts src/agents/tools/pdf-native-providers.test.ts src/agents/minimax-vlm.normalizes-api-key.test.ts src/hooks/gmail-watcher.test.ts src/hooks/gmail-watcher.integration.test.ts src/hooks/gmail-ops.test.ts src/infra/diagnostic-events.test.ts src/infra/package-update-publication-boundary.test.ts src/infra/package-update-publication-durability.test.ts src/infra/package-update-activation-lifetime.test.ts src/infra/package-update-activation-released.test.ts src/infra/exec-approvals-config.test.ts src/infra/exec-approvals-policy.test.ts src/infra/state-migrations.test.ts --maxWorkers=1 ``` The source changes were validated together on one lease and are being published separately by owner. This PR includes only its named owner change. The original lease expired during local preparation; the replacement above used a 90-minute idle allowance. No hosted CI was dispatched or rerun for proof.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(infra): deslop package publication policy",
-      "summaryZh": "重點：refactor(infra): deslop package publication policy ## What Problem This Solves Package publication preflight and mutatio..."
-    },
-    {
-      "id": 10,
-      "title": "fix: protect live Gateways sharing an update installation (#160663)",
-      "link": "https://github.com/openclaw/openclaw/commit/e694fa756e3d57777e15e81c80012ac078205540",
-      "publishedAt": "2026-09-29T07:50:21Z",
-      "summary": "fix: protect live Gateways sharing an update installation (#160663) * fix(update): refuse publication over live managed consumers * fix(launchd): distinguish native logging metadata from authored environment * fix: preserve staged update failures and uncertain child inputs * fix(update): retire untouched preparation after publication refusal Use the retained publication owner to disarm and retire a known pre-effect refusal, allowing the next update to enter. Preserve recovery evidence on unknown cleanup or a foreign replacement, including both failure causes. Receive the real fence dependency into declaration fixtures without invalidating relocation cache identities, and keep legacy refusal assertions aligned with the all-artifact diagnostic. * fix(update): keep activation journals out of retained runtimes * fix(update): preserve service availability through publication Check known shared consumers before stopping the selected Gateway and retain the publication recheck. Adopt delegated Doctor stops in common finalization, preserve partial-stop failures, and keep uncertain recovery fenced. Update the native-reader fixture and document maintenance restoration. * fix(update): retain live launchd observations across plist moves Keep the native loaded command and PID available for shared-install publication refusal when the discovered plist differs. Selected-service correspondence still requires the exact current definition and grants no control over the other job. Four causal regressions, 252 sibling cases, receiving 24 cases, scoped types/lint and independent review passed. Native synthetic GUI jobs preserved loaded identity across mismatched queries, refused selected correspondence, and retired cleanly. * test(update): load adoption owners in restart outcome fixture Common finalization now calls predecessor adoption. Add that production owner and its legacy-stop predicate to the explicit VM module graph so the existing backup-retirement checks reach their intended paths. Original 9 failures/10 passes become19/19 passes; the exact Vitest wrapper, scoped lint/format and independent review also pass. Existing assertions and deadlines are unchanged.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: protect live Gateways sharing an update installation (#160663)",
-      "summaryZh": "重點：修正: protect live Gateways sharing an update installation (#160663) * 修正(update): refuse publication over live managed co..."
     }
   ]
 }
