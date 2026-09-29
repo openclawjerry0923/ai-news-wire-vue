@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T21:37:09.424Z",
+  "generatedAt": "2026-09-29T01:31:23.514Z",
   "items": [
     {
       "id": 1,
@@ -12,92 +12,92 @@
     },
     {
       "id": 2,
-      "title": "refactor(packages): deslop shared packages second pass (#159279)",
-      "link": "https://github.com/openclaw/openclaw/commit/926c896c9d480457a47e1a296c12dfd1e4fc43a0",
-      "publishedAt": "2026-09-28T21:37:02Z",
-      "summary": "refactor(packages): deslop shared packages second pass (#159279) * refactor(packages): deslop shared packages second pass Consolidate remaining stream, parser, schema projection and normalization paths while preserving public exports, wire shapes and runtime semantics. Retain the prior package cleanup owners and shrink assertion ratchets for removed casts. * refactor(packages): preserve schema declarations and finish type cleanup * refactor(packages): preserve explicit guards and import ordering * refactor(packages): retain distinct plugin result declarations * fix(sdk): bundle private session URL dependency The private session URL contract exports TypeScript source and has no standalone package build. Keep it as a build-time dependency so the existing package builder bundles it into the SDK. The unchanged external-consumer E2E reproduced the missing build-script failure before this repair. * ci: refresh packages proof after inherited fixture repairs Refresh the PR merge ref after #160024 repaired the trusted harness inventory and ordinary child-process jsdom preload. Package source and the reviewed tree are unchanged. * ci: refresh packages proof after placement fixture repair Refresh the PR merge ref after #160124 repaired the inherited placement fence synchronization and cleanup race. The reviewed and Testbox-proven package tree remains unchanged. * ci: refresh packages after compiler scheduling repair Refresh the PR merge ref after #160290 separated per-group scheduling from shared compiler inputs. The package tree and active Testbox source hashes are unchanged. * ci: refresh packages after lazy import guard repair",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(packages): deslop shared packages second pass (#159279)",
-      "summaryZh": "重點：refactor(packages): deslop shared packages second pass (#159279) * refactor(packages): deslop shared packages second pas..."
-    },
-    {
-      "id": 3,
-      "title": "fix(google): finalize Gemini 3.8 Live user transcripts without a fini…",
-      "link": "https://github.com/openclaw/openclaw/commit/cf982200a2a33624022251e49a2f44bb93118b1b",
-      "publishedAt": "2026-09-28T21:36:28Z",
-      "summary": "fix(google): finalize Gemini 3.8 Live user transcripts without a finished flag (#152680) Finalize flagless Gemini 3.8 Live input transcripts as separate user turns in the Google gateway-relay bridge, restoring spoken user history and configured forced agent consults during the call. Preserve older-model transcript ordering and the existing Extended Thinking response-completion contract. Closes #152646 Co-authored-by: IWhatsskill",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(google): finalize Gemini 3.8 Live user transcripts without a fini…",
-      "summaryZh": "重點：修正(google): finalize Gemini 3.8 Live user transcripts without a finished flag (#152680) Finalize flagless Gemini 3.8 Liv..."
-    },
-    {
-      "id": 4,
-      "title": "fix(release): admit 2026.9.7 recovery helper and plugin scan inventor…",
-      "link": "https://github.com/openclaw/openclaw/commit/b7797752492f2e9816c33e17cd3d746764176f3f",
-      "publishedAt": "2026-09-28T21:36:10Z",
-      "summary": "fix(release): admit 2026.9.7 recovery helper and plugin scan inventory (#160717) fix(release): admit 2026.9.7 recovery helper and plugin scan inventory Full Release Validation for 2026.9.7 (parent 36466521174) failed two release-tooling checks that main never exercises: - The installed-package verifier applied the 6 MiB root-dist cap to dist/package-update-activation-recovery.mjs, the ~66 MB sealed self-contained recovery helper added by #158491. Treat it like the other self-contained bundles (80 MiB cap, no reparse), as #155877 did for the sqlite-store worker. Every main-based FRV since #158491 failed here. - plugin-npm-security-scan had no reviewed inventory for release/2026.9.7. Freeze the 9.6 counts, record four post-9.6 test-file-only findings (codex auth-refresh harness spawn, feishu proxy env test, imessage client test #156334, signal socket probe count after #159648) in the current inventory, and map release/2026.9.7 to it, as #153372 did for 9.6.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): admit 2026.9.7 recovery helper and plugin scan inventor…",
-      "summaryZh": "重點：修正(版本發布): admit 2026.9.7 recovery helper and plugin scan inventory (#160717) 修正(版本發布): admit 2026.9.7 recovery helper an..."
-    },
-    {
-      "id": 5,
-      "title": "fix(test): include all runners for package directories (#160653)",
-      "link": "https://github.com/openclaw/openclaw/commit/885719211559da1a00e8e320eb2daec1de0867c2",
-      "publishedAt": "2026-09-28T21:36:06Z",
-      "summary": "fix(test): include all runners for package directories (#160653) * fix(test): run package directory tests in their owning projects * ci: refresh package directory checks after planner repair",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): include all runners for package directories (#160653)",
-      "summaryZh": "重點：修正(test): include all runners for package directories (#160653) * 修正(test): run package directory tests in their owning ..."
-    },
-    {
-      "id": 6,
-      "title": "四大作業系統檔案通知存在側通道風險，Windows、Android可暴露更多使用資訊",
-      "link": "https://www.ithome.com.tw/news/179240",
-      "publishedAt": "2026-09-28 12:09:42",
-      "summary": "奧地利格拉茲科技大學研究團隊公開檔案通知攻擊（File Notification Attacks）研究，指出Linux、Android、Windows與macOS的檔案通知機制可能形成側通道。攻擊程式不必讀取檔案內容，只要觀察檔案何時開啟、修改或刪除，就可能推測按鍵時間、瀏覽網站、通訊軟體媒體活動與應用程式使用情形。目前沒有已知實際攻擊案例。",
+      "title": "NIST公布OT安全指南草案，CISA與FBI示警第三方ICS整合商風險",
+      "link": "https://www.ithome.com.tw/news/179234",
+      "publishedAt": "2026-09-29 08:09:00",
+      "summary": "美國多州水務與廢水處理設施近來接連遭到網路攻擊，科羅拉多州兩家供水企業更遭攻擊者直接修改設備設定。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "OpenAI代理人再涉及美國政府、公開資料網站存取事件",
-      "link": "https://www.ithome.com.tw/news/179241",
-      "publishedAt": "2026-09-28 12:09:39",
-      "summary": "OpenAI及研究代理人今年夏天在內部測試中發生未經授權存取美國數個政府部門及公開資料網站的事件。OpenAI並透露受影響組織多達數十家。",
+      "id": 3,
+      "title": "企業OT資安仍有缺口，僅2成擁有完整資產清冊、3成完整整合SOC",
+      "link": "https://www.ithome.com.tw/news/179223",
+      "publishedAt": "2026-09-29 08:09:00",
+      "summary": "自動化技術業者Honeywell針對全球關鍵基礎設施產業603名資安及營運相關主管與專業人員進行調查，了解營運技術（OT）資安現況，發現",
       "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "歐盟網路安全局盤點2025年資安威脅，逾半事件涉及DDoS，勒索軟體衝擊最大",
+      "link": "https://www.ithome.com.tw/news/179211",
+      "publishedAt": "2026-09-29 08:09:00",
+      "summary": "歐盟網路安全局（ENISA）發布最新威脅分析，2025年影響歐盟的資安事件以DDoS最為常見，占比逾半；其次為未授權存取事件，占比接近4成。不過，從事件造成的影響來看，勒索軟體仍是短期衝擊最大的威脅。具有財務動機的攻擊活動占ENISA記錄事件近3成，其中勒索軟體及資料外洩分別占47%及36%。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 5,
+      "title": "Cyera今年募資達14億美元，擴展AI代理與非人類身分安全",
+      "link": "https://www.ithome.com.tw/news/179203",
+      "publishedAt": "2026-09-29 08:09:00",
+      "summary": "資料安全業者Cyera宣布獲得高盛另類投資（Goldman Sachs Alternatives）投資4億美元，這筆資金是該公司今年6月Series G募資的延伸，目前估值超過120億美元。新資金將用於開發AI安全產品，以及拓展美國聯邦政府與海外市場。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "feat(ui): remove large pasted text from composer preview (#160834)",
+      "link": "https://github.com/openclaw/openclaw/commit/da0b58125d33cf70ac6f6db283def27d2ccf0b9b",
+      "publishedAt": "2026-09-29T01:30:39Z",
+      "summary": "feat(ui): remove large pasted text from composer preview (#160834) * feat(ui): remove pasted text from composer cards Co-authored-by: Patrick-Erichsen * feat(ui): remove large pasted text from composer preview Worked on by: - @Patrick-Erichsen Co-authored-by: Patrick-Erichsen OpenClaw-Publication: 180a43c0-18a2-4ec5-b51e-625badd4e62e * test(ui): scope pasted-text tooltip assertion to excerpt Co-authored-by: Patrick-Erichsen * Publish openclaw/add-x-button-to-text-previews Worked on by: - @Patrick-Erichsen Co-authored-by: Patrick-Erichsen OpenClaw-Publication: 26af704c-f7bf-43e2-9b9e-e6607fa49123 * test(ui): avoid shadowing pasted card locator Co-authored-by: Patrick-Erichsen * Publish openclaw/add-x-button-to-text-previews Worked on by: - @Patrick-Erichsen Co-authored-by: Patrick-Erichsen OpenClaw-Publication: 97be29d5-f980-4d1b-8f80-c3036c236770 * test(ui): scope pasted-text CSP tooltip check to excerpt Co-authored-by: Patrick-Erichsen * Publish openclaw/add-x-button-to-text-previews Worked on by: - @Patrick-Erichsen Co-authored-by: Patrick-Erichsen OpenClaw-Publication: 14ece792-f189-4fd3-a522-3fc9abc416c0 --------- Co-authored-by: Patrick-Erichsen",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): remove large pasted text from composer preview (#160834)",
+      "summaryZh": "重點：新功能(ui): remove large pasted text from composer preview (#160834) * 新功能(ui): remove pasted text from composer cards Co-a..."
+    },
+    {
+      "id": 7,
+      "title": "反駁美政府「竊盜」指控，輝達黃仁勳定調 AI 模型蒸餾為合法競爭",
+      "link": "https://technews.tw/2026/09/29/jensen-huang-champions-ai-model-distillation-as-legitimate-competition/",
+      "publishedAt": "Tue, 29 Sep 2026 01:30:10 +0000",
+      "summary": "輝達（Nvidia）執行長黃仁勳 28 日直言，AI「模型蒸餾」（model distillation）本質上 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "Google AI付費方案新增Colab進階權益",
-      "link": "https://www.ithome.com.tw/news/179239",
-      "publishedAt": "2026-09-28 10:09:47",
-      "summary": "Google上週宣布Google AI付費訂閱方案新增Colab進階權益，符合資格的訂戶可取得Colab運算單元，以及效能更高的GPU、TPU等運算資源。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(release): extend npm readback timeout (#160796)",
+      "link": "https://github.com/openclaw/openclaw/commit/0edcf447a55ec34126ee99b38a8bbb227025e4ae",
+      "publishedAt": "2026-09-29T01:29:38Z",
+      "summary": "fix(release): extend npm readback timeout (#160796)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): extend npm readback timeout (#160796)",
+      "summaryZh": "重點：修正(版本發布): extend npm readback timeout (#160796)..."
     },
     {
       "id": 9,
-      "title": "微軟新Copilot整合Cowork、Office，Scout改名Autopilot",
-      "link": "https://www.ithome.com.tw/news/179238",
-      "publishedAt": "2026-09-28 10:09:10",
-      "summary": "微軟上周五宣布AI聊天助理Copilot將整合代理人工具Cowork、Office及程式開發功能，朝超級App更進一步，也允許企業在自管環境運行代理人runtime。長時在線（always-on）的代理人則改名Autopilot再出發。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(update): restart the previous Gateway when Git rollback cannot re…",
+      "link": "https://github.com/openclaw/openclaw/commit/f0a1292e9f18bc9517e0662d124a3fcbe2f6e423",
+      "publishedAt": "2026-09-29T01:27:14Z",
+      "summary": "fix(update): restart the previous Gateway when Git rollback cannot rewrite a reflog-less branch (#160828) * fix(update): restart previous Git runtime when branch reflog is missing * fix(update): surface retained Git rollback diagnostics to the operator * fix(update): keep the detached rollback advisory within report limits * fix(update): suggest a compare-and-swap branch restore after detached rollback Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): restart the previous Gateway when Git rollback cannot re…",
+      "summaryZh": "重點：修正(update): restart the previous Gateway when Git rollback cannot rewrite a reflog-less branch (#160828) * 修正(update): r..."
     },
     {
       "id": 10,
-      "title": "Android Studio開放BYOA，Codex等代理可透過ACP串接IDE",
-      "link": "https://www.ithome.com.tw/news/179232",
-      "publishedAt": "2026-09-28 10:09:09",
-      "summary": "Google替Android Studio加入自帶代理（Bring Your Own Agent，BYOA）功能，開發者可將Anthropic Claude Agent、OpenAI Codex與Google Antigravity等程式開發代理串接Android Studio。BYOA採用代理用戶端協定（ACP），符合ACP規格的其他代理同樣可以串接，並使用Android Studio提供的專案資訊與開發工具。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "refactor(daemon): remove unused Windows control fixtures (#160854)",
+      "link": "https://github.com/openclaw/openclaw/commit/def078e77df59d2f3119f40691587804e1351a6d",
+      "publishedAt": "2026-09-29T01:26:44Z",
+      "summary": "refactor(daemon): remove unused Windows control fixtures (#160854) Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(daemon): remove unused Windows control 修正tures (#160854)",
+      "summaryZh": "重點：refactor(daemon): remove unused Windows control 修正tures (#160854) Co-authored-by: Vincent Koc..."
     }
   ]
 }
