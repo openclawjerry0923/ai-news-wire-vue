@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-01T16:03:33.646Z",
+  "generatedAt": "2026-10-01T21:35:44.043Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(macos): add Gateway hosting controls and Node migration (#161779)",
-      "link": "https://github.com/openclaw/openclaw/commit/01e328528a48eb8c18abeed66d12992500feacef",
-      "publishedAt": "2026-10-01T16:02:40Z",
-      "summary": "feat(macos): add Gateway hosting controls and Node migration (#161779)",
+      "title": "fix(cron): spawn-only jobs fail when the subagent is spawned with cle…",
+      "link": "https://github.com/openclaw/openclaw/commit/63a514d927e8087bb6dc2f81c9bc3ff92a393239",
+      "publishedAt": "2026-10-01T21:31:37Z",
+      "summary": "fix(cron): spawn-only jobs fail when the subagent is spawned with cleanup delete (#162962) ## What Problem This Solves Fixes: a scheduled job whose agent hands the work to one subagent fails with \"cron child-session handoff completed without a final assistant payload\" when the agent spawns that subagent with `cleanup: \"delete\"`. ## User Impact User impact: spawn-only cron jobs deliver the subagent's report, whatever `cleanup` value the model picks. Before this change, most `cleanup: \"delete\"` runs failed even though the subagent had finished its work. ## Why This Change Was Made A cron run reads its subagent's result from the subagent registry row after the subagent settles (#117308; #162474 added the `delivery: none` path). The registry retires a `cleanup: \"delete\"` row as soon as the requester settle wake finishes. For a cron requester, that wake completes immediately because nothing wakes a cron run (#99396, #135318). The row was gone about 1 s after the child ended, and the cron run reads about 5 s later, so it found nothing. The fix is in the subagent registry, which owns the row lifetime: - A child whose requester is a cron run is not retired on settle for `cleanup: \"delete\"`. The child session is still deleted right after the announce, as before; only the registry row stays until the normal archive sweep (`archiveAfterMinutes`, default 60). - That child's handoff delivery is recorded as terminal (`not_required` with disposition `intentional_non_delivery`) instead of `pending`. A pending handoff would block the archive sweep, so this keeps the row from leaking. Nothing ever delivered to a cron run requester here anyway. Owner decision (retention): the maintainer accepted bounded retention for this case. A cron run's child row is not retired on settle; it stays until the normal archive sweep and is not held for the cron run's lifetime. A row whose result was already captured lasts at most `archiveAfterMinutes` (or the 5-minute run TTL when archiving is off). That is the archive deadline the registry already sets on `cleanup: \"delete\"` rows (`archiveAtMs`); this change only stops the earlier retirement on settle. No new storage, schema or field is added. Invariants kept: non-cron `delete` rows still retire on settle (#99396). Killed children still retire on settle. Collector rows are unchanged. The cron settle-wake shortcut still runs. No new messages or warnings. Alternatives rejected: making the settle wake wait for the cron run to end inverts ownership and holds gateway drain. Polling faster in cron is still a race. Treating cron children as swarm collectors (`collect`) would also change concurrency slots, structured output and kill handling. Hermes comparison: Hermes joins delegated children synchronously when the session has no consumer for later results (cron included), so this race cannot happen there. OpenClaw's cron spawn-only handoff is asynchronous by design (#117308), so the fix keeps the result where the cron run reads it. ## Evidence - Regression test (`subagent-registry.requester-wake.e2e.test.ts`) drives the real registry and the real cron reader (`readDescendantSubagentFallbackReply`). A `cleanup: \"delete\"` child of a cron run settles, its settle wake completes, and the cron read returns the child's answer. The sweeper then removes the row, and no announce or agent turn starts at any point. The test runs two cases: - Archiving enabled (`archiveAfterMinutes: 1`), no restart. The row is retired at the archive deadline. - Archiving disabled (`archiveAfterMinutes: 0`), with a registry restart between the settle and the read. The row is restored from SQLite, it is still readable, and it is retired after the 5-minute run TTL. Nothing is replayed. - Without the retirement change, the cron read returns `undefined` (the live failure). - Without the delivery change, the row is never swept (`expected { runId, … } to be undefined`). - With both changes, the test passes. - CI on `cd5c3796304`: every type, lint, guard and node lane passes, including `check-test-types-core-1..5` and `check-prod-types`. The only red lane is `checks-ui-e2e-real-gateway (1/2)`, in `ui/src/e2e/model-catalog-partial-refresh.real-gateway.e2e.test.ts`. The same test fails on unrelated PRs in the same window (runs 36924844797, 36924235817, 36926791756, 36927139856, 36927939720). It passes locally on this head, and this PR touches no UI or model-catalog code. - The full `subagent-registry.requester-wake.e2e.test.ts` file passes (27 tests). It took 60.9 s wall time, with Vitest reporting 58.4 s; each new case takes about 0.8 s. - Neighboring suites pass: lifecycle, registry, persistence, sweeper lifecycle, cron subagent follow-up (unit and worker), and announce timeout (417 tests). - Live, real `gpt-6-astra` (Telegram Test Server userbot harness with a pass-through proxy to the real OpenAI API). There were 10 spawn-only announce cron runs per side, and the parent was told to spawn with `cleanup: \"delete\"`. All 10 spawns per side used `cleanup: \"delete\"`. - Before, on origin/main `4f0541eb469`: 9 of 10 runs failed with \"cron child-session handoff completed without a final assistant payload\". Only 1 of 10 child reports reached the Telegram chat. - After, on this head (fix commit `d15345587a1`; later commits only change the test): 0 of 10 handoff failures, and all 10 child reports reached the Telegram chat. - The child has no shell tool in this harness, so its report is an `AUTOMATION_FAILED` message and the job status is `error` on purpose. The run shows the cron run receiving and delivering the child's own answer instead of the handoff error. ## Bounded cost - Per cron run child with `cleanup: \"delete\"`: one registry row (already persisted) lives until the archive sweep instead of ~1 s after settle. That is bounded by `agents.defaults.subagents.archiveAfterMinutes` (default 60), or by the 5-minute run TTL when archiving is disabled. - No new timers, waits, polling, model calls or messages. The child session is still deleted at announce time. ## LOC (vs origin/main) Production +11 / -2, tests +67 (net).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(macos): add Gateway hosting controls and Node migration (#161779)",
-      "summaryZh": "重點：新功能(macos): add Gateway hosting controls and Node migration (#161779)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): spawn-only jobs fail when the subagent is spawned with cle…",
+      "summaryZh": "重點：修正(排程): spawn-only jobs fail when the subagent is spawned with cleanup delete (#162962) ## What Problem This Solves 修正: ..."
     },
     {
       "id": 2,
-      "title": "test(skills): pin sync fixture directory permissions",
-      "link": "https://github.com/openclaw/openclaw/commit/c1600bbf16614de4f72e3f59d158fedff3ea8959",
-      "publishedAt": "2026-10-01T15:55:50Z",
-      "summary": "test(skills): pin sync fixture directory permissions The permission regression inherited group-write access from the runner's umask, then expected a copied directory without that bit. Give this case's source directory explicit 0755 permissions while retaining every assertion and the product's existing permission-preservation behavior. Before: 26 passed and the permission case failed under umask 0002. After: all 27 tests pass in five complete-file runs under the same umask; the full unit-src config passes 7,632 tests. Independent P2 review is clean.",
+      "title": "refactor(scripts): deslop shared tooling flows (#162824)",
+      "link": "https://github.com/openclaw/openclaw/commit/7cbaa6b36f15641fcc6b8db62c4224b063605a14",
+      "publishedAt": "2026-10-01T21:30:19Z",
+      "summary": "refactor(scripts): deslop shared tooling flows (#162824) Consolidate script lifecycle and helper ownership while preserving CLI, generated-output, cleanup, and guard contracts. Reject inherited object keys in model-matrix option admission with the existing unknown-argument diagnostic. Validation: 90 full sibling suites; original-fails parser regression; byte-identical native outputs; changed checks; SDK surface and API comparison; both zero-cycle checks; independent isolated review.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(skills): pin sync 修正ture directory permissions",
-      "summaryZh": "重點：test(skills): pin sync 修正ture directory permissions The permission regression inherited group-write access from the runn..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): deslop shared tooling flows (#162824)",
+      "summaryZh": "重點：refactor(scripts): deslop shared tooling flows (#162824) Consolidate script lifecycle and helper ownership while preserv..."
     },
     {
       "id": 3,
-      "title": "fix(sessions): allow concurrent first transcript writes",
-      "link": "https://github.com/openclaw/openclaw/commit/922d98926bb27143c812be35f9a918c1e48b045a",
-      "publishedAt": "2026-10-01T15:54:17Z",
-      "summary": "fix(sessions): allow concurrent first transcript writes A worker cold preflight could record a missing database path, then mistake another writer creating that database for source replacement. Return from cold restoration when the store is confirmed absent and leave creation to the canonical writer. Use synchronous filesystem metadata inspection to avoid adding another completion-order race before writer admission. Existing stores retain worker metadata reads, physical source checks, and caller/owner authority; transaction checks still protect cold data and writer claims. Restore the SDK locking regression removed in #162634 with an event gate and joined writers, preserving its exact ordering and single-message assertions. Give existing-store preflight fixtures the file they describe. No storage format, schema, retention, or update migration changes. The restored case fails against the original #162521 owner and passes 20 pressured whole-file runs (240 test cases). The final SDK file took 11.70 s in Vitest / 26.322 s wrapper on Linux; the new case took 390 ms.",
+      "title": "fix(git-hooks): use qualified tooling for missing formatter (#162866)",
+      "link": "https://github.com/openclaw/openclaw/commit/6f56df6b5a80411ba75fb2e158dc4b7565698f1c",
+      "publishedAt": "2026-10-01T21:28:51Z",
+      "summary": "fix(git-hooks): use qualified tooling for missing formatter (#162866) * fix(git-hooks): use qualified tooling for missing formatter * test(git-hooks): isolate missing formatter shell from Git wrappers * fix(git-hooks): accept inactive formatter WASI flags * test(git-hooks): brace formatter rejection fixtures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): allow concurrent first transcript writes",
-      "summaryZh": "重點：修正(sessions): allow concurrent first transcript writes A worker cold preflight could record a missing database path, the..."
+      "titleZh": "OpenClaw 程式碼更新：修正(git-hooks): use qualified tooling for missing formatter (#162866)",
+      "summaryZh": "重點：修正(git-hooks): use qualified tooling for missing formatter (#162866) * 修正(git-hooks): use qualified tooling for missing ..."
     },
     {
       "id": 4,
-      "title": "fix(webchat): keep saved replies visible during history refresh (#162…",
-      "link": "https://github.com/openclaw/openclaw/commit/e42c52b7d83ede656c778337b46c0a25cb279625",
-      "publishedAt": "2026-10-01T15:52:56Z",
-      "summary": "fix(webchat): keep saved replies visible during history refresh (#162763) * fix(webchat): keep saved replies visible during history refresh Fence pre-commit history snapshots at transcript publication before run settlement. Reuse the existing queued refresh so both active and late background replies survive history races. Co-authored-by: VACInc * fix(webchat): keep saved replies visible during history refresh Worked on by: - @VACInc Co-authored-by: VACInc OpenClaw-Publication: 18964aa1-fac1-42b9-8777-682b1d10ef09 --------- Co-authored-by: roboclaw-bot Co-authored-by: VACInc",
+      "title": "ci: reduce published-driver PR validation cost (#162965)",
+      "link": "https://github.com/openclaw/openclaw/commit/7eebb1f8c5068c1ecab6f383b374f779f11d4a90",
+      "publishedAt": "2026-10-01T21:27:07Z",
+      "summary": "ci: reduce published-driver PR validation cost (#162965) The published-driver update cell ran serially after build-artifacts on every PR it was selected for, adding about 13.5 minutes of critical path. PR selection is now limited to the updater, activation, managed-service handoff, and canary-emitter owners (scheduled main and release validation still run the cell unconditionally); published-install caches have main-only writers with explicit cache-mode gating and read-only PR consumers; PR runs skip initial Doctor seeding and use shorter readiness waits. PR-mode cell measured at 3m32s with a cold image-builder cache. The cleanup tests no longer touch host Docker.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(webchat): keep saved replies visible during history refresh (#162…",
-      "summaryZh": "重點：修正(webchat): keep saved replies visible during history refresh (#162763) * 修正(webchat): keep saved replies visible durin..."
+      "titleZh": "OpenClaw 程式碼更新：ci: reduce published-driver PR validation cost (#162965)",
+      "summaryZh": "重點：ci: reduce published-driver PR validation cost (#162965) The published-driver update cell ran serially after build-artif..."
     },
     {
       "id": 5,
