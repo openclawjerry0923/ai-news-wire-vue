@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-10-02T08:01:49.921Z",
+  "generatedAt": "2026-10-02T15:27:06.050Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(test): track relocated session canonicalization exception",
+      "link": "https://github.com/openclaw/openclaw/commit/a94fa6c9f7dd55176151626e2c89c64e435bd430",
+      "publishedAt": "2026-10-02T15:24:04Z",
+      "summary": "fix(test): track relocated session canonicalization exception The awaited session-persistence extraction moved canonicalizeSessionEntry and its existing lint directive to session-manager-persistence-entry.ts. Update the suppression guard's exact path without adding an allowance. JSON serialization intentionally honors custom toJSON values and omits non-JSON data to match persisted entries; structuredClone changes that contract and rejects valid extension payloads. Validation: suppression guard 3x (9 tests), claim-recovery peer repair 3x (54 tests), core-test-gateway-other tsgo, lint and boundary lint, Linux Testbox check-changed (387s), and P2 review. All 39 audited openSessionManager calls are awaited; peer 90897637d32e already fixed the claim-recovery consumer. Scoped single-file proof follows the coordinator's instruction; the whole tooling suite was not rerun.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): track relocated session canonicalization exception",
+      "summaryZh": "重點：修正(test): track relocated session canonicalization exception The awaited session-persistence extraction moved canonicali..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(gateway): sharing member authority from prepared facts (S33 …",
+      "link": "https://github.com/openclaw/openclaw/commit/8ecd9255400eec3bc1faf783bc4d3ce75e5d967f",
+      "publishedAt": "2026-10-02T15:22:10Z",
+      "summary": "refactor(gateway): sharing member authority from prepared facts (S33 cohort 2) (#163572) * refactor(gateway): prepare sharing management authority Use current prepared session and profile facts for management grants, retain logical lifecycle fences alongside physical store identity, and validate fresh stored rows before disclosure or visibility decisions. Preserve existing worker and incognito owners. Prove zero caller-thread SQL for member add/list/remove and refusal of revoked or dirty authority. * test(gateway): initialize and drain steering custody projection",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): sharing member authority from prepared facts (S33 …",
+      "summaryZh": "重點：refactor(Gateway): sharing member authority from prepared facts (S33 cohort 2) (#163572) * refactor(Gateway): prepare sh..."
+    },
+    {
+      "id": 3,
+      "title": "fix(sessions): keep MCP catalogs current during pending writes (#163548)",
+      "link": "https://github.com/openclaw/openclaw/commit/8fc9129184fd718ea3018181d994cb0bed8b61e7",
+      "publishedAt": "2026-10-02T15:20:41Z",
+      "summary": "fix(sessions): keep MCP catalogs current during pending writes (#163548) * fix(sessions): retain current facts through native write settlement * fix(mcp): return unauthorized for grants revoked during preparation",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): keep MCP catalogs current during pending writes (#163548)",
+      "summaryZh": "重點：修正(sessions): keep MCP catalogs current during pending writes (#163548) * 修正(sessions): retain current facts through nat..."
+    },
+    {
+      "id": 4,
+      "title": "test(protocol): cover tokenless catalog inspection responses",
+      "link": "https://github.com/openclaw/openclaw/commit/0845ecda906f2465f7cb6422e7cec8c7223f2ce9",
+      "publishedAt": "2026-10-02T15:17:41Z",
+      "summary": "test(protocol): cover tokenless catalog inspection responses 259033fe973c (#163460) made advisory ClawHub inspections tokenless: partial registry metadata cannot authorize capability consent. The test still required an artifact-review token for every inspection response. Cover partial and unavailable catalog surfaces while retaining rejection of empty supplied tokens, malformed components, and incomplete declared contracts. Production schemas and mutation consent checks are unchanged. Validation: file 3x locally (75/75 cases); the complete gateway-protocol package on Linux Testbox (86 files, 997 tests); scoped type-aware lint, boundary lint, formatting, and P2 review passed. The authorized single-file test exception replaces check-changed and the broader owning-config gate.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(protocol): cover tokenless catalog inspection responses",
+      "summaryZh": "重點：test(protocol): cover tokenless catalog inspection responses 259033fe973c (#163460) made advisory ClawHub inspections to..."
+    },
+    {
+      "id": 5,
+      "title": "欲藉 2 奈米盼重返高通供應鏈，台積電一單不漏全數拿下讓三星盼了個寂寞",
+      "link": "https://finance.technews.tw/2026/10/02/samsung-hopes-to-rejoin-qualcomms-supply-chain-by-leveraging-its-2nm-technology/",
+      "publishedAt": "Fri, 02 Oct 2026 12:40:23 +0000",
+      "summary": "近期以來，因為台積電受到 AI 晶片需求大增，使得產能進一步吃緊，加上外傳三星的 2 奈米的良率提升，還進一步 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "OpenAI調查失控AI代理人活動，已通知逾100個組織",
       "link": "https://www.ithome.com.tw/news/179368",
       "publishedAt": "2026-10-02 12:10:47",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "研究人員揭露惡意軟體BambooToken，透過MQTT通訊協定控制Windows與Linux電腦",
       "link": "https://www.ithome.com.tw/news/179370",
       "publishedAt": "2026-10-02 12:10:28",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "開源AI代理框架Pi邁入1.0，另推出長時間代理框架Pi Durable",
       "link": "https://www.ithome.com.tw/news/179369",
       "publishedAt": "2026-10-02 12:10:12",
@@ -29,75 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "Gartner預測2030年部署面向公眾的AI服務的企業，有80%將經歷成本耗盡攻擊，致營運成本超額",
-      "link": "https://www.ithome.com.tw/news/179365",
-      "publishedAt": "2026-10-02 11:10:54",
-      "summary": "9月15日在澳洲黃金海岸舉行的Gartner IT Symposium/Xpo大會期間，產業研究與顧問機構Gartner發布2027年暨未來核心策略預測，區分為三大類別：無所不在的機器人（robots everywhere）、由投入成本轉向創造價值（cost to value）、以及未知的未知（unknown unknowns）",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "加州禁止AI自行決定解僱員工，成全美首例",
-      "link": "https://www.ithome.com.tw/news/179367",
-      "publishedAt": "2026-10-02 11:10:25",
-      "summary": "美國加州州長Gavin Newsom周三（9/30）簽署SB 947，禁止雇主完全依賴AI或自動化決策系統，決定對員工採取懲戒或解僱措施，要求這類重大人事決策必須有人類參與審查，成為全美首個禁止雇主完全依賴AI做出懲戒或解僱決定的州別。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "FBI聯手歐洲警方打擊勒索軟體組織KillSec，逮捕疑似主嫌的16歲少年",
-      "link": "https://www.ithome.com.tw/news/179366",
-      "publishedAt": "2026-10-02 11:10:07",
-      "summary": "FBI與歐洲多國執法機關於9月30日展開KillSwitch行動，打擊勒索軟體組織Kill Security（簡稱KillSec）。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(test): hold WAL scheduler timeouts in SQL fixtures",
-      "link": "https://github.com/openclaw/openclaw/commit/dbb580aed3e79548f98f361e460fb76f1d38c279",
-      "publishedAt": "2026-10-02T07:52:05Z",
-      "summary": "fix(test): hold WAL scheduler timeouts in SQL fixtures WAL maintenance moved from intervals to GatewayScheduler timeouts, so the interval-only fixtures let checkpoint ticks enter strict host-SQL observation windows. Hold setTimeout/clearTimeout in the category and health fixtures and in the asynchronous prepared-read and worker-read siblings. Keep every SQL observer and assertion unchanged. A controlled native scheduler wake reproduces the exact two checkpoint sequences from CI run 36963211906 before the fix and passes afterward. Validated 20 standalone category runs, three original four-file shard runs (46 tests each), and three affected sibling runs (35 tests each) on Linux with Node 24.19.0. The category file took 23.36-23.66 seconds wall time with one worker; no tests were added and the temporary timing probe was removed.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): hold WAL scheduler timeouts in SQL 修正tures",
-      "summaryZh": "重點：修正(test): hold WAL scheduler timeouts in SQL 修正tures WAL maintenance moved from intervals to GatewayScheduler timeouts, ..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(ui): deslop protocol consumers (#163319)",
-      "link": "https://github.com/openclaw/openclaw/commit/c1429a103c993c5954c960597d53193b3e360d80",
-      "publishedAt": "2026-10-02T07:50:29Z",
-      "summary": "refactor(ui): deslop protocol consumers (#163319) ## What Problem This Solves The Control UI carries an obsolete skill-install fallback and parses a formatted model label to recover data it already has. ## User Impact No intended change for the current paired UI and Gateway. Publisher-qualified skill installation and model inheritance keep their existing behavior; no layout or style changes. ## Why This Change Was Made - Use the required `SkillsSearchResult.installRef` directly and remove the older-Gateway slug fallback. The Gateway owns source/publisher identity, and the UI ships with that Gateway version. - Read the inherited model primary directly and remove the unused label parser, preserving configured-primary precedence and the existing dash sentinel. This removes 19 net production lines. Existing test fixtures now supply the current required install reference; their action assertions remain intact. No new tests or test-only production seams were added. ## Evidence Independent Codex autoreview passed with no actionable findings. Both import-cycle checks reported zero. On Linux AWS Crabbox, the seven focused UI files passed all 153 tests (Vitest 4.21 seconds; wrapper 5.77 seconds), UI typechecking passed, and the affected Plugins workspace navigation E2E passed all seven scenarios (62.42 seconds including the bundled UI build). The changed fixtures add no test cases. The remote run verified the changed source bytes before execution. Recent file history and open sibling cleanup PRs were checked before edits; no overlap was found. The first hosted run identified one newly unused export: `resolveModelLabel` after its external caller was removed. It is now private and retains its in-module call. The focused repair passed a fresh independent review. All other executed checks on the first hosted head passed; the follow-up head runs CI again. Repair validation: production Knip for the UI reports zero unused exports with the repository's normal duplicate-alias exclusion; both cycle checks remain zero; all 153 focused UI tests passed again (2.77 seconds Vitest, 4.09 seconds wrapper). This repair changes only an export modifier, so the prior typecheck and navigation E2E remain covering proof for unchanged behavior. The repaired head's [CI run](https://github.com/openclaw/openclaw/actions/runs/36977800807) failed `check-lint-core-1`: `src/gateway/server-worker-placement-session-target.test.ts:119,144`, `eslint(curly): Expected { after if condition`. The unrelated, current [CI run for PR #163357](https://github.com/openclaw/openclaw/actions/runs/36977986198) failed identically. Both tested merge trees (`ca5cbf5424861c487900883876e365d9f9ec45bd` and `8438db37bcabd5efbe8b56e9979806ae733505e5`) contain the identical failing-file blob `2c517d877c28f481b6cde347a38ee64da286c2a1`. This UI-only diff is outside that file's import and test path. Main already contains the owning brace fix, `95a67da528c71ddbf01a579a62f28e73b3e9b64a`. Landing uses the pre-existing-failure exception, pinned to `4606b8048c6da4aadf45a1d30e38ca6eaffeaff8`. Security-fast, exact-head Security Review, dependency review, and security-sensitive review passed. Other jobs cancelled by fail-fast remain unrun; the full hosted CI run is not reported as green.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): deslop protocol consumers (#163319)",
-      "summaryZh": "重點：refactor(ui): deslop protocol consumers (#163319) ## What Problem This Solves The Control UI carries an obsolete skill-i..."
-    },
-    {
       "id": 9,
-      "title": "fix(test): process-wait helpers race their own wall-clock deadlines; …",
-      "link": "https://github.com/openclaw/openclaw/commit/430eeb82969b3c0833f62e34d076015152c093ff",
-      "publishedAt": "2026-10-02T07:48:49Z",
-      "summary": "fix(test): process-wait helpers race their own wall-clock deadlines; bind them to the test's abort signal (#163321) test/helpers/process-wait.ts still owned wall-clock deadlines: waitForFile, waitForPidFile, waitForDead, and waitForChildClose each raced the awaited condition against their own timeoutMs, so every caller inherited a hidden race that healthy work could lose on a loaded host. This is the final step of the polling audit from #162274; earlier batches converted the call sites that had an owned signal. The helpers now take the AbortSignal that bounds them. waitForFile, waitForPidFile, and waitForDead share one private observation loop (the existing 5 ms re-check, one final observation before rejecting on abort, path/PID diagnostics with signal.reason as the cause, timer/listener cleanup on settle; fake-clock callers keep an injectable real delay). waitForChildClose resolves from the child's own close event and rejects only on abort, and documents registering at spawn because exitCode/signalCode cannot recover a missed close. All 35 calls in 17 files moved: test bodies pass the Vitest test signal; cleanup paths that may run after the test signal has aborted use an explicit named AbortSignal.timeout() cleanup guard at the call site, keeping each old bound exactly; five readiness waits that cannot reach a test signal keep a named guard as a recorded escape hatch. process-wait.test.ts replaces its deadline-specific cases with signal and real-child contracts. No product source, Vitest timeout, TERM-to-KILL timing, or caller assertion changed. Proof: process-wait.test.ts 20/20 locally; on Blacksmith Testbox 20/20 standalone runs for six changed files and the Gateway E2E agent-exec plugin test, 10/10 for the other six (Testbox saturation blocked the second ten), the Windows-native file collect-only on Linux and green in CI's Windows shards, five owning-shard replays (failures only in main reds since fixed by #163310); tsgo:test:root, tsgo:core:test, tsgo core boundary, CI lint wrapper, deadcode, base-aware timeout-race ratchet; Codex autoreview and ClawSweeper clean.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): process-wait helpers race their own wall-clock deadlines; …",
-      "summaryZh": "重點：修正(test): process-wait helpers race their own wall-clock deadlines; bind them to the test's abort signal (#163321) test/..."
+      "title": "牧德9月營收3.73 億元",
+      "link": "https://finance.technews.tw/2026/10/02/machvision-3563-202609-financial-report/",
+      "publishedAt": "Fri, 02 Oct 2026 12:10:06 +0000",
+      "summary": "牧德（3563）今（2）日公布 9 月營收，達 3.73 億元，較 8 月成長 3.2%，較去年同期成長 63 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "refactor(usage): move cache writes off the Gateway thread (#163287)",
-      "link": "https://github.com/openclaw/openclaw/commit/4a66195396d49419e4f4ec155f4219a0b1d1c94e",
-      "publishedAt": "2026-10-02T07:47:31Z",
-      "summary": "refactor(usage): move cache writes off the Gateway thread (#163287) * refactor(usage): move cache writes to agent database workers * test(usage): await Doctor cache worker cleanup",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(usage): move cache writes off the Gateway thread (#163287)",
-      "summaryZh": "重點：refactor(usage): move cache writes off the Gateway thread (#163287) * refactor(usage): move cache writes to agent databa..."
+      "title": "光寶擴大 AI 電源產能，砸 88.5 億元擴產高雄",
+      "link": "https://finance.technews.tw/2026/10/02/lite-on-expands-ai-power-supply-capacity-investing-nt8-85-billion-kaohsiung/",
+      "publishedAt": "Fri, 02 Oct 2026 12:08:33 +0000",
+      "summary": "因應 AI 資料中心高功率電源需求持續成長，光寶科技加快擴充相關產能。光寶今（2）日公告，為因應營收成長及後續 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
