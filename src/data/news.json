@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-02T15:27:06.050Z",
+  "generatedAt": "2026-10-02T20:24:04.343Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(test): track relocated session canonicalization exception",
-      "link": "https://github.com/openclaw/openclaw/commit/a94fa6c9f7dd55176151626e2c89c64e435bd430",
-      "publishedAt": "2026-10-02T15:24:04Z",
-      "summary": "fix(test): track relocated session canonicalization exception The awaited session-persistence extraction moved canonicalizeSessionEntry and its existing lint directive to session-manager-persistence-entry.ts. Update the suppression guard's exact path without adding an allowance. JSON serialization intentionally honors custom toJSON values and omits non-JSON data to match persisted entries; structuredClone changes that contract and rejects valid extension payloads. Validation: suppression guard 3x (9 tests), claim-recovery peer repair 3x (54 tests), core-test-gateway-other tsgo, lint and boundary lint, Linux Testbox check-changed (387s), and P2 review. All 39 audited openSessionManager calls are awaited; peer 90897637d32e already fixed the claim-recovery consumer. Scoped single-file proof follows the coordinator's instruction; the whole tooling suite was not rerun.",
+      "title": "fix(ui): gate portal discovery and startup reads by scope (#160984)",
+      "link": "https://github.com/openclaw/openclaw/commit/51a2de3a8b271c55949a275f29d2b92d5c456e86",
+      "publishedAt": "2026-10-02T20:23:37Z",
+      "summary": "fix(ui): gate portal discovery and startup reads by scope (#160984) Co-authored-by: roboclaw-bot Co-authored-by: Patrick-Erichsen",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): track relocated session canonicalization exception",
-      "summaryZh": "重點：修正(test): track relocated session canonicalization exception The awaited session-persistence extraction moved canonicali..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): gate portal discovery and startup reads by scope (#160984)",
+      "summaryZh": "重點：修正(ui): gate portal discovery and startup reads by scope (#160984) Co-authored-by: roboclaw-bot Co-authored-by: Patrick-..."
     },
     {
       "id": 2,
-      "title": "refactor(gateway): sharing member authority from prepared facts (S33 …",
-      "link": "https://github.com/openclaw/openclaw/commit/8ecd9255400eec3bc1faf783bc4d3ce75e5d967f",
-      "publishedAt": "2026-10-02T15:22:10Z",
-      "summary": "refactor(gateway): sharing member authority from prepared facts (S33 cohort 2) (#163572) * refactor(gateway): prepare sharing management authority Use current prepared session and profile facts for management grants, retain logical lifecycle fences alongside physical store identity, and validate fresh stored rows before disclosure or visibility decisions. Preserve existing worker and incognito owners. Prove zero caller-thread SQL for member add/list/remove and refusal of revoked or dirty authority. * test(gateway): initialize and drain steering custody projection",
+      "title": "fix(test): avoid unnecessary node launcher worker builds (#163752)",
+      "link": "https://github.com/openclaw/openclaw/commit/e3df0defba4462fcb32eb5b69b76d01b5c8d9d55",
+      "publishedAt": "2026-10-02T20:22:24Z",
+      "summary": "fix(test): avoid unnecessary node launcher worker builds (#163752)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): sharing member authority from prepared facts (S33 …",
-      "summaryZh": "重點：refactor(Gateway): sharing member authority from prepared facts (S33 cohort 2) (#163572) * refactor(Gateway): prepare sh..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): avoid unnecessary node launcher worker builds (#163752)",
+      "summaryZh": "重點：修正(test): avoid unnecessary node launcher worker builds (#163752)..."
     },
     {
       "id": 3,
-      "title": "fix(sessions): keep MCP catalogs current during pending writes (#163548)",
-      "link": "https://github.com/openclaw/openclaw/commit/8fc9129184fd718ea3018181d994cb0bed8b61e7",
-      "publishedAt": "2026-10-02T15:20:41Z",
-      "summary": "fix(sessions): keep MCP catalogs current during pending writes (#163548) * fix(sessions): retain current facts through native write settlement * fix(mcp): return unauthorized for grants revoked during preparation",
+      "title": "improve(control-ui): flag builds too large to keep the previous build…",
+      "link": "https://github.com/openclaw/openclaw/commit/aad3deb6d88ed3cff93cf37b3d0c72ba29504cb0",
+      "publishedAt": "2026-10-02T20:21:11Z",
+      "summary": "improve(control-ui): flag builds too large to keep the previous build for open tabs (#163362) The Gateway retains Control UI generations within one 96 MiB budget, current first, so already-open tabs can load lazy chunks after an update. Once one build's retained identity bytes exceed half of that budget, the previous generation no longer fits and stale tabs 404 again. Nothing reported that before users hit it. The Control UI performance check now reads the build's asset manifest, counts the entries retention keeps (everything except .br/.gz sidecars), and limits them to half the retention budget. The line is always in the build report, base comparisons show the delta, and a violation follows the existing size-limit policy: an error locally, a GitHub warning annotation on the retention budget in Actions. The budget and the sidecar rule move to the build-owned manifest module so retention, the static server, and the script share one owner without the script loading Gateway runtime code. Retention behavior is unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): keep MCP catalogs current during pending writes (#163548)",
-      "summaryZh": "重點：修正(sessions): keep MCP catalogs current during pending writes (#163548) * 修正(sessions): retain current facts through nat..."
+      "titleZh": "OpenClaw 程式碼更新：improve(control-ui): flag builds too large to keep the previous build…",
+      "summaryZh": "重點：improve(control-ui): flag builds too large to keep the previous build for open tabs (#163362) The Gateway retains Contro..."
     },
     {
       "id": 4,
-      "title": "test(protocol): cover tokenless catalog inspection responses",
-      "link": "https://github.com/openclaw/openclaw/commit/0845ecda906f2465f7cb6422e7cec8c7223f2ce9",
-      "publishedAt": "2026-10-02T15:17:41Z",
-      "summary": "test(protocol): cover tokenless catalog inspection responses 259033fe973c (#163460) made advisory ClawHub inspections tokenless: partial registry metadata cannot authorize capability consent. The test still required an artifact-review token for every inspection response. Cover partial and unavailable catalog surfaces while retaining rejection of empty supplied tokens, malformed components, and incomplete declared contracts. Production schemas and mutation consent checks are unchanged. Validation: file 3x locally (75/75 cases); the complete gateway-protocol package on Linux Testbox (86 files, 997 tests); scoped type-aware lint, boundary lint, formatting, and P2 review passed. The authorized single-file test exception replaces check-changed and the broader owning-config gate.",
+      "title": "refactor(telegram): deslop telegram (#163759)",
+      "link": "https://github.com/openclaw/openclaw/commit/b4d1a0efc8a9f6797e7cd03f8f92814a8ca96782",
+      "publishedAt": "2026-10-02T20:17:53Z",
+      "summary": "refactor(telegram): deslop telegram (#163759) Consolidate Telegram dispatch, inbound buffering, media acquisition, preview delivery, callbacks, and binding mutation plumbing while retaining current configuration, persistence, protocol and SDK contracts. Remove obsolete pre-Bot-API-7 forwarding aliases under the July 2026 compatibility floor. Stabilize three durable-adoption fixtures with explicit dispatch readiness instead of wall-clock polling, retaining all commit, timeout, abort and settlement assertions. Production reduction: 794 net lines. Full coverage and validation evidence are recorded in the pull request.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(protocol): cover tokenless catalog inspection responses",
-      "summaryZh": "重點：test(protocol): cover tokenless catalog inspection responses 259033fe973c (#163460) made advisory ClawHub inspections to..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Telegram): deslop Telegram (#163759)",
+      "summaryZh": "重點：refactor(Telegram): deslop Telegram (#163759) Consolidate Telegram dispatch, inbound buffering, media acquisition, previ..."
     },
     {
       "id": 5,
+      "title": "尋找超新星爆發前的「母星」，NASA 錢卓拉最新發現 84 個神祕天體帶來破案曙光",
+      "link": "https://technews.tw/2026/10/03/nasa-chandra-latest-galaxy-images/",
+      "publishedAt": "Fri, 02 Oct 2026 16:00:42 +0000",
+      "summary": "美國太空總署（NASA）的錢卓拉 X 射線天文台（Chandra X-ray Observatory）9 月 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "NASA 採樣揭露貝努小行星身世，實為內外太陽系物質「混血兒」",
+      "link": "https://technews.tw/2026/10/03/origin-of-asteroid-bennu-revealed/",
+      "publishedAt": "Fri, 02 Oct 2026 16:00:15 +0000",
+      "summary": "蘇黎世聯邦理工學院（ETH Zurich）研究人員對貝努小行星（101955 Bennu）樣本的最新分析顯示， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "欲藉 2 奈米盼重返高通供應鏈，台積電一單不漏全數拿下讓三星盼了個寂寞",
       "link": "https://finance.technews.tw/2026/10/02/samsung-hopes-to-rejoin-qualcomms-supply-chain-by-leveraging-its-2nm-technology/",
       "publishedAt": "Fri, 02 Oct 2026 12:40:23 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "OpenAI調查失控AI代理人活動，已通知逾100個組織",
       "link": "https://www.ithome.com.tw/news/179368",
       "publishedAt": "2026-10-02 12:10:47",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "研究人員揭露惡意軟體BambooToken，透過MQTT通訊協定控制Windows與Linux電腦",
       "link": "https://www.ithome.com.tw/news/179370",
       "publishedAt": "2026-10-02 12:10:28",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "開源AI代理框架Pi邁入1.0，另推出長時間代理框架Pi Durable",
       "link": "https://www.ithome.com.tw/news/179369",
       "publishedAt": "2026-10-02 12:10:12",
       "summary": "Earendil發布開源AI代理框架Pi 1.0，同時推出實驗性代理執行框架Pi Durable，讓開發者建立可長時間執行的AI代理應用。當執行中的服務重新啟動或意外中斷，Pi Durable可以讀取先前保存的進度，接著處理尚未完成的工作，也支援多條對話同時執行及多人介入同一代理任務。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "牧德9月營收3.73 億元",
-      "link": "https://finance.technews.tw/2026/10/02/machvision-3563-202609-financial-report/",
-      "publishedAt": "Fri, 02 Oct 2026 12:10:06 +0000",
-      "summary": "牧德（3563）今（2）日公布 9 月營收，達 3.73 億元，較 8 月成長 3.2%，較去年同期成長 63 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "光寶擴大 AI 電源產能，砸 88.5 億元擴產高雄",
-      "link": "https://finance.technews.tw/2026/10/02/lite-on-expands-ai-power-supply-capacity-investing-nt8-85-billion-kaohsiung/",
-      "publishedAt": "Fri, 02 Oct 2026 12:08:33 +0000",
-      "summary": "因應 AI 資料中心高功率電源需求持續成長，光寶科技加快擴充相關產能。光寶今（2）日公告，為因應營收成長及後續 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
