@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-10-01T21:35:44.043Z",
+  "generatedAt": "2026-10-02T01:20:11.723Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(cron): spawn-only jobs fail when the subagent is spawned with cle…",
-      "link": "https://github.com/openclaw/openclaw/commit/63a514d927e8087bb6dc2f81c9bc3ff92a393239",
-      "publishedAt": "2026-10-01T21:31:37Z",
-      "summary": "fix(cron): spawn-only jobs fail when the subagent is spawned with cleanup delete (#162962) ## What Problem This Solves Fixes: a scheduled job whose agent hands the work to one subagent fails with \"cron child-session handoff completed without a final assistant payload\" when the agent spawns that subagent with `cleanup: \"delete\"`. ## User Impact User impact: spawn-only cron jobs deliver the subagent's report, whatever `cleanup` value the model picks. Before this change, most `cleanup: \"delete\"` runs failed even though the subagent had finished its work. ## Why This Change Was Made A cron run reads its subagent's result from the subagent registry row after the subagent settles (#117308; #162474 added the `delivery: none` path). The registry retires a `cleanup: \"delete\"` row as soon as the requester settle wake finishes. For a cron requester, that wake completes immediately because nothing wakes a cron run (#99396, #135318). The row was gone about 1 s after the child ended, and the cron run reads about 5 s later, so it found nothing. The fix is in the subagent registry, which owns the row lifetime: - A child whose requester is a cron run is not retired on settle for `cleanup: \"delete\"`. The child session is still deleted right after the announce, as before; only the registry row stays until the normal archive sweep (`archiveAfterMinutes`, default 60). - That child's handoff delivery is recorded as terminal (`not_required` with disposition `intentional_non_delivery`) instead of `pending`. A pending handoff would block the archive sweep, so this keeps the row from leaking. Nothing ever delivered to a cron run requester here anyway. Owner decision (retention): the maintainer accepted bounded retention for this case. A cron run's child row is not retired on settle; it stays until the normal archive sweep and is not held for the cron run's lifetime. A row whose result was already captured lasts at most `archiveAfterMinutes` (or the 5-minute run TTL when archiving is off). That is the archive deadline the registry already sets on `cleanup: \"delete\"` rows (`archiveAtMs`); this change only stops the earlier retirement on settle. No new storage, schema or field is added. Invariants kept: non-cron `delete` rows still retire on settle (#99396). Killed children still retire on settle. Collector rows are unchanged. The cron settle-wake shortcut still runs. No new messages or warnings. Alternatives rejected: making the settle wake wait for the cron run to end inverts ownership and holds gateway drain. Polling faster in cron is still a race. Treating cron children as swarm collectors (`collect`) would also change concurrency slots, structured output and kill handling. Hermes comparison: Hermes joins delegated children synchronously when the session has no consumer for later results (cron included), so this race cannot happen there. OpenClaw's cron spawn-only handoff is asynchronous by design (#117308), so the fix keeps the result where the cron run reads it. ## Evidence - Regression test (`subagent-registry.requester-wake.e2e.test.ts`) drives the real registry and the real cron reader (`readDescendantSubagentFallbackReply`). A `cleanup: \"delete\"` child of a cron run settles, its settle wake completes, and the cron read returns the child's answer. The sweeper then removes the row, and no announce or agent turn starts at any point. The test runs two cases: - Archiving enabled (`archiveAfterMinutes: 1`), no restart. The row is retired at the archive deadline. - Archiving disabled (`archiveAfterMinutes: 0`), with a registry restart between the settle and the read. The row is restored from SQLite, it is still readable, and it is retired after the 5-minute run TTL. Nothing is replayed. - Without the retirement change, the cron read returns `undefined` (the live failure). - Without the delivery change, the row is never swept (`expected { runId, … } to be undefined`). - With both changes, the test passes. - CI on `cd5c3796304`: every type, lint, guard and node lane passes, including `check-test-types-core-1..5` and `check-prod-types`. The only red lane is `checks-ui-e2e-real-gateway (1/2)`, in `ui/src/e2e/model-catalog-partial-refresh.real-gateway.e2e.test.ts`. The same test fails on unrelated PRs in the same window (runs 36924844797, 36924235817, 36926791756, 36927139856, 36927939720). It passes locally on this head, and this PR touches no UI or model-catalog code. - The full `subagent-registry.requester-wake.e2e.test.ts` file passes (27 tests). It took 60.9 s wall time, with Vitest reporting 58.4 s; each new case takes about 0.8 s. - Neighboring suites pass: lifecycle, registry, persistence, sweeper lifecycle, cron subagent follow-up (unit and worker), and announce timeout (417 tests). - Live, real `gpt-6-astra` (Telegram Test Server userbot harness with a pass-through proxy to the real OpenAI API). There were 10 spawn-only announce cron runs per side, and the parent was told to spawn with `cleanup: \"delete\"`. All 10 spawns per side used `cleanup: \"delete\"`. - Before, on origin/main `4f0541eb469`: 9 of 10 runs failed with \"cron child-session handoff completed without a final assistant payload\". Only 1 of 10 child reports reached the Telegram chat. - After, on this head (fix commit `d15345587a1`; later commits only change the test): 0 of 10 handoff failures, and all 10 child reports reached the Telegram chat. - The child has no shell tool in this harness, so its report is an `AUTOMATION_FAILED` message and the job status is `error` on purpose. The run shows the cron run receiving and delivering the child's own answer instead of the handoff error. ## Bounded cost - Per cron run child with `cleanup: \"delete\"`: one registry row (already persisted) lives until the archive sweep instead of ~1 s after settle. That is bounded by `agents.defaults.subagents.archiveAfterMinutes` (default 60), or by the 5-minute run TTL when archiving is disabled. - No new timers, waits, polling, model calls or messages. The child session is still deleted at announce time. ## LOC (vs origin/main) Production +11 / -2, tests +67 (net).",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): spawn-only jobs fail when the subagent is spawned with cle…",
-      "summaryZh": "重點：修正(排程): spawn-only jobs fail when the subagent is spawned with cleanup delete (#162962) ## What Problem This Solves 修正: ..."
+      "title": "Aurora PostgreSQL現可查詢S3資料湖，由DuckDB引擎負責Iceberg與Parquet分析",
+      "link": "https://www.ithome.com.tw/news/179362",
+      "publishedAt": "2026-10-02 08:10:31",
+      "summary": "AWS將DuckDB分析引擎嵌入Aurora PostgreSQL，使其具備直接查詢資料湖的功能。開發者可從Aurora查詢Amazon S3中的Apache Iceberg與Parquet資料，再與資料庫內的交易資料一起處理，不必先把資料湖中的歷史資料複製進Aurora。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "refactor(scripts): deslop shared tooling flows (#162824)",
-      "link": "https://github.com/openclaw/openclaw/commit/7cbaa6b36f15641fcc6b8db62c4224b063605a14",
-      "publishedAt": "2026-10-01T21:30:19Z",
-      "summary": "refactor(scripts): deslop shared tooling flows (#162824) Consolidate script lifecycle and helper ownership while preserving CLI, generated-output, cleanup, and guard contracts. Reject inherited object keys in model-matrix option admission with the existing unknown-argument diagnostic. Validation: 90 full sibling suites; original-fails parser regression; byte-identical native outputs; changed checks; SDK surface and API comparison; both zero-cycle checks; independent isolated review.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(scripts): deslop shared tooling flows (#162824)",
-      "summaryZh": "重點：refactor(scripts): deslop shared tooling flows (#162824) Consolidate script lifecycle and helper ownership while preserv..."
+      "title": "GitHub HydraFusion進入VS Code，AI可依任務自動安排多模型分工",
+      "link": "https://www.ithome.com.tw/news/179345",
+      "publishedAt": "2026-10-02 08:10:28",
+      "summary": "GitHub擴大HydraFusion研究預覽範圍，除了原本的Copilot命令列工具，現在也於VS Code與GitHub Copilot應用程式提供。使用者可從Copilot模型選單選擇HydraFusion，不過，HydraFusion並非單一AI模型，而是一套協調模型工作的機制，會依照任務決定由一個模型直接處理，或讓多個模型接力完成並檢查結果。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(git-hooks): use qualified tooling for missing formatter (#162866)",
-      "link": "https://github.com/openclaw/openclaw/commit/6f56df6b5a80411ba75fb2e158dc4b7565698f1c",
-      "publishedAt": "2026-10-01T21:28:51Z",
-      "summary": "fix(git-hooks): use qualified tooling for missing formatter (#162866) * fix(git-hooks): use qualified tooling for missing formatter * test(git-hooks): isolate missing formatter shell from Git wrappers * fix(git-hooks): accept inactive formatter WASI flags * test(git-hooks): brace formatter rejection fixtures",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(git-hooks): use qualified tooling for missing formatter (#162866)",
-      "summaryZh": "重點：修正(git-hooks): use qualified tooling for missing formatter (#162866) * 修正(git-hooks): use qualified tooling for missing ..."
+      "title": "英國示警中國情報機構藉資助AI、資安等研究，提升間諜技術能力",
+      "link": "https://www.ithome.com.tw/news/179340",
+      "publishedAt": "2026-10-02 08:10:00",
+      "summary": "英國情報機構向大學及研究人員發布間諜活動警告。軍情五處（MI5）調查發現，超過100名與英國有關的學者曾參與中國國安部（MSS）透過中國通用技術研究院（China General Technology Research Institute，CGTRI）資助的研究，其中部分研究人員可能不知道自己參與的研究由該研究院資助。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "ci: reduce published-driver PR validation cost (#162965)",
-      "link": "https://github.com/openclaw/openclaw/commit/7eebb1f8c5068c1ecab6f383b374f779f11d4a90",
-      "publishedAt": "2026-10-01T21:27:07Z",
-      "summary": "ci: reduce published-driver PR validation cost (#162965) The published-driver update cell ran serially after build-artifacts on every PR it was selected for, adding about 13.5 minutes of critical path. PR selection is now limited to the updater, activation, managed-service handoff, and canary-emitter owners (scheduled main and release validation still run the cell unconditionally); published-install caches have main-only writers with explicit cache-mode gating and read-only PR consumers; PR runs skip initial Doctor seeding and use shorter readiness waits. PR-mode cell measured at 3m32s with a cold image-builder cache. The cleanup tests no longer touch host Docker.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci: reduce published-driver PR validation cost (#162965)",
-      "summaryZh": "重點：ci: reduce published-driver PR validation cost (#162965) The published-driver update cell ran serially after build-artif..."
+      "title": "美國制裁涉ATM吐鈔攻擊詐欺網路，全美相關攻擊損失逾4千萬美元",
+      "link": "https://www.ithome.com.tw/news/179336",
+      "publishedAt": "2026-10-02 08:10:00",
+      "summary": "美國財政部外國資產控制辦公室（OFAC）對與委內瑞拉犯罪組織Tren de Aragua（TdA）有關的詐欺網路實施制裁，8名個人及2家公司遭列入制裁對象，相關犯罪活動包括ATM吐鈔攻擊及洗錢。美國財政部指出，截至2025年8月，美國境內已有超過1,500起疑似ATM吐鈔攻擊，通報損失合計4,073萬美元。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "美國強化跨產業的基礎設施韌性，近50家不同領域領導企業加入關鍵基礎設施聯盟（ACI）",
-      "link": "https://www.ithome.com.tw/news/179334",
-      "publishedAt": "2026-10-01 12:10:26",
-      "summary": "美國關鍵基礎設施聯盟（Alliance for Critical Infrastructure，ACI）於9月30日宣布擴大組織規模，目前已有近50家企業加入，包括通訊、能",
+      "title": "今年前8月遭利用漏洞數超越2025全年，N-day漏洞利用明顯增加",
+      "link": "https://www.ithome.com.tw/news/179326",
+      "publishedAt": "2026-10-02 08:10:00",
+      "summary": "Google旗下威脅情報團隊GTIG分析2025年初至2026年8月底的漏洞趨勢，指出2026年揭露及實際遭利用的漏洞都明顯增加。AI已開始被用於協助尋找漏洞，不過開源生態系中的自動化CVE編號指派機制，也會推高漏洞揭露數量。攻擊者也可能利用AI分析產品版本差異、修補及漏洞資訊，更快將已知漏洞用於攻擊。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "Google發表Gemini 4 Argon，輸出上限增至100萬個Token",
-      "link": "https://www.ithome.com.tw/news/179337",
-      "publishedAt": "2026-10-01 12:10:18",
-      "summary": "Google周三（9/30）發表新一代AI模型Gemini 4 Argon，主攻複雜、長時間工作流程，輸出上限達100萬個Token，較先前Gemini模型的6.4萬個Token大幅提高。目前Argon先透過Fairwind Program提供給一批受信任的資安防禦人員測試，之後才會逐步擴大開放。",
+      "title": "軟體供應鏈攻擊擴大至CI/CD，企業需防建置流程遭操弄",
+      "link": "https://www.ithome.com.tw/news/179322",
+      "publishedAt": "2026-10-02 08:10:00",
+      "summary": "Google旗下資安團隊Mandiant近日針對軟體開發與CI/CD環境提出防護建議。根據他們近期觀察到的攻擊活動，軟體供應鏈攻擊已不只涉及遭污染的開源套件，攻擊者也鎖定企業信任的安全掃描工具、公用函式庫及AI程式開發工具，開發人員工作站與CI/CD基礎架構同樣成為攻擊目標。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "因應PQC簽章帶來的憑證架構負擔，Cloudflare完成初步大規模MTC實測，已傳送數十億份憑證",
-      "link": "https://www.ithome.com.tw/news/179335",
-      "publishedAt": "2026-10-01 12:10:01",
-      "summary": "由於PQC簽章體積遠大於傳統簽章，恐將增加既有憑證架構負擔，今年2月底Google與Cloudflare合作展開默克樹憑證（Merkle Tree Certificates，MTC）可行性測試，期望透過新的憑證架構與驗證機制加以改善這項問題。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(sessions): run restart recovery in the SQLite worker (#163119)",
+      "link": "https://github.com/openclaw/openclaw/commit/d35e7d4a2a27e6044cb27aa31529eb7df77e4f8b",
+      "publishedAt": "2026-10-02T01:17:34Z",
+      "summary": "fix(sessions): run restart recovery in the SQLite worker (#163119) Keep atomic transcript cloning and source/successor publication off the Gateway event loop. Retain caller and placement authority through transaction and commit admission, and settle committed or unchanged worker receipts before publishing identity.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): run restart recovery in the SQLite worker (#163119)",
+      "summaryZh": "重點：修正(sessions): run restart recovery in the SQLite worker (#163119) Keep atomic transcript cloning and source/successor pu..."
     },
     {
       "id": 8,
-      "title": "Microsoft強化Entra ID登入驗證流程，阻擋外部指令碼注入",
-      "link": "https://www.ithome.com.tw/news/179331",
-      "publishedAt": "2026-10-01 11:10:56",
-      "summary": "Microsoft將自10月中旬起，強制在Entra ID瀏覽器登入流程實施強化版內容安全性原則（Content Security Policy，CSP），預計10月底前完成。在這項新政策下，僅允許來自受信任Microsoft CDN網域的指令碼執行，阻擋外部或未授權程式碼注入，以降低跨站指令碼（XSS）等攻擊竊取認證資訊的風險。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(agents): agents add wizard fails to recreate a deleted agent when…",
+      "link": "https://github.com/openclaw/openclaw/commit/8fcc7c9608a940ad9c40ed8f57cfbc8450849508",
+      "publishedAt": "2026-10-02T01:13:39Z",
+      "summary": "fix(agents): agents add wizard fails to recreate a deleted agent when saving auth (#143991) * fix(agents): guided agents add fails to recreate a deleted agent when it stores auth The wizard persists staged auth profiles into the new agent's database before createAgent has claimed the completed deletion record for that id. The deletion fence rejected the same identity even for cleanup_completed rows, so creation aborted with \"OpenClaw agent database is unavailable while agent is deleted.\" Let the creation lifecycle open its own database beneath a completed tombstone while the auth receipt runs; incomplete deletions and every caller outside creation keep failing closed. * docs(cli): note that agents add recreates a fully deleted agent id Document that creation claims the finished deletion record when it publishes the new agent, including when the wizard copies or configures auth, and that an id with pending deletion cleanup is refused until that deletion is retried. * fix(state): bind creation-claimed agent databases to the creation scope Handles opened beneath a completed deletion record under the agent creation claim landed in the ordinary agent-database cache untagged. After a failed creation rolled its staged auth back, the retained tombstone no longer fenced that process: warm lookups returned the handle without consulting the journal, and a callback retained from inside the scope kept the fence exemption. Move the creation claim into its own owner, modeled on the deletion-cleanup scope. The scope tags every cold handle it admits, warm lookups and write transactions refuse tagged handles to callers outside that same live scope, all admitted handles close when the scope settles, and a settled scope grants neither the exemption nor handle access. Regressions cover the out-of-scope writer while the scope is live, the warm handle after rollback, the retained context after settlement, and handle closure when the scope body throws. * fix(agents): keep the staged auth receipt when the creation scope fails to close The creation claim now closes the handles it admitted when it settles, and that close can fail. The receipt returned by prepareConfigCommit was assigned only after the scope returned, so a close failure after successful staging lost the receipt and the outer catch skipped rollback, leaving staged credentials and provider-auth locks behind without a published config. Capture the receipt inside the scope before its cleanup runs, so rollback still owns compensation when the close fails. Regression covers a scope close failure after staging: rollback runs once, nothing is committed or published. * fix(agents): retain creation ownership across native admission Reserve pending native custody before integrity checks yield and transfer it to the admitted handle only after publication. Retirement joins the existing async close owner, and expired claims cannot resume index repair or borrow aliases. Exercise real held-integrity admission and lease retention, and replace the removed database-list test helper with the current exact-path open check. --------- Co-authored-by: Ioannis Alexandros Giannoulakos Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): agents add wizard fails to recreate a deleted agent when…",
+      "summaryZh": "重點：修正(agents): agents add wizard fails to recreate a deleted agent when saving auth (#143991) * 修正(agents): guided agents a..."
     },
     {
       "id": 9,
-      "title": "商用逾30年C++編譯器前端EDG開源，C++ Alliance接手維護",
-      "link": "https://www.ithome.com.tw/news/179328",
-      "publishedAt": "2026-10-01 11:10:50",
-      "summary": "老牌C/C++編譯器技術供應商Edison Design Group（EDG）正式公開C/C++編譯器前端原始碼，結束逾30年的專有授權模式。後續專案由非營利組織C++ Alliance接手維護，既有EDG開發人員也會繼續參與，原始碼目前已公開在GitHub。 EDG的C++編譯器前端自1992年推出，而編譯器前端主要負責程式碼編譯的前置工作，負責處理語法、型別和程式結構，再把分析結果交給後續的編譯或開發工具使用。因此EDG前端不像GCC或Clang主要供一般開發者直接作為編譯工具使用，而是提供給其他軟體業者整合進自家產品。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(plugins): queue compatibility removals pending reader migration (…",
+      "link": "https://github.com/openclaw/openclaw/commit/ec1fb60ba61c20c847e808d147d38f2c747b9f12",
+      "publishedAt": "2026-10-02T01:13:25Z",
+      "summary": "fix(plugins): queue compatibility removals pending reader migration (#163127)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): queue compatibility removals pending reader migration (…",
+      "summaryZh": "重點：修正(plugins): queue compatibility removals pending reader migration (#163127)..."
     },
     {
       "id": 10,
-      "title": "中國駭客UAT-11587於亞洲多國政府散布後門Antino，其中包含臺灣",
-      "link": "https://www.ithome.com.tw/news/179333",
-      "publishedAt": "2026-10-01 11:10:48",
-      "summary": "9月30日思科威脅情報團隊Talos揭露鎖定亞洲各國政府機關、參與制訂政策組織的網路間諜活動，攻擊範圍橫跨臺灣、印度、菲律賓、柬埔寨等國，其共通點是攻擊者會使用以Rust打造的後門程式Antino。相關活動最早可追蹤至2025年9月，截至今年7月，已有位於16個組織受害或是遭到鎖定，這些組織分布於包含臺灣在內的8個亞洲國家。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "docs(cron): scope consecutive-failure wait to failure alerts (#162695)",
+      "link": "https://github.com/openclaw/openclaw/commit/e993be854b4df70b47dafd3f960a86c8effe0c89",
+      "publishedAt": "2026-10-02T01:08:07Z",
+      "summary": "docs(cron): scope consecutive-failure wait to failure alerts (#162695) ## What Problem This Solves Follow-up to #160996. The cron authoring guidance (docs `payloads.md` and the automations tool description) said failure notifications wait for consecutive failed runs, \"so a one-off outage stays quiet\". That isn't true, so the guidance taught models a wrong cost for failing loudly: - A command payload with announce delivery still delivers its output when it exits non-zero: `runCommandJob` in `src/gateway/server-cron.ts` passes the summary to completion delivery without checking the exit status. - Since #162391, an agent's `AUTOMATION_FAILED` explanation is delivered for announce jobs. ## Solution Only the failure alert waits for consecutive failures; the run's own output still follows the job's delivery setting. Both places now say exactly that. The tool description stays static (prompt-cache stable) and grows by 12 characters. Prompt snapshots are regenerated. ## User Impact No runtime behavior change. Models writing automations get accurate guidance about what a failed run sends. ## Evidence The automations tool description an agent actually receives, taken from the regenerated prompt snapshot (`codex-dynamic-tools.telegram-direct.json`, built by the real prompt builder): - Before: `throw from the script so the run records the failure (returning {error} still succeeds); failure alerts already wait for consecutive failures, so a one-off failure stays quiet.` - After: `throw from the script so the run records the failure (returning {error} still succeeds); only the failure alert waits for consecutive failures, run output still follows the job's delivery.` Checks on the exact head: - `pnpm run prompt:snapshots:check`: snapshots are current (7 files). - `node scripts/run-vitest.mjs src/agents/tools/cron-tool.test.ts`: 72 passed. Text-only change, so no live channel proof applies: no message, delivery or runtime path changes. Runtime output from a real OpenClaw setup on head `15919727aaa`: the actual `createCronTool()` builder run in an isolated state dir (default config), printing the failure-guidance sentences of the `automations` tool description an agent receives: ```text tool: automations When a run fails, throw from the script so the run records the failure (returning {error} still succeeds); only the failure alert waits for consecutive failures, run output still follows the job's delivery. FAILURE ALERTS: jobs with a failure route default to alerting after 2 consecutive execution failures with a 1h cooldown. ``` The same sentence on `origin/main` read: `…failure alerts already wait for consecutive failures, so a one-off failure stays quiet.` Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件(排程): scope consecutive-failure wait to failure alerts (#162695)",
+      "summaryZh": "重點：文件(排程): scope consecutive-failure wait to failure alerts (#162695) ## What Problem This Solves Follow-up to #160996. The..."
     }
   ]
 }
