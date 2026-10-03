@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-02T20:24:04.343Z",
+  "generatedAt": "2026-10-03T00:11:37.648Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): gate portal discovery and startup reads by scope (#160984)",
-      "link": "https://github.com/openclaw/openclaw/commit/51a2de3a8b271c55949a275f29d2b92d5c456e86",
-      "publishedAt": "2026-10-02T20:23:37Z",
-      "summary": "fix(ui): gate portal discovery and startup reads by scope (#160984) Co-authored-by: roboclaw-bot Co-authored-by: Patrick-Erichsen",
+      "title": "fix(gateway): accept fenced JSON from the session observer model (#16…",
+      "link": "https://github.com/openclaw/openclaw/commit/5d08c652bc5a0de3d38742d256813e20497ed7a7",
+      "publishedAt": "2026-10-03T00:10:07Z",
+      "summary": "fix(gateway): accept fenced JSON from the session observer model (#163878) Haiku-class utility models wrap the observer digest in a Markdown code fence, which the strict parser rejected twice and then disabled the observer for the run without saying why. Strip one surrounding fence before strict validation and include a redacted 160-character prefix of the last rejected reply in the failure, so health digests land on those Gateways and rejections are diagnosable from the journal.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): gate portal discovery and startup reads by scope (#160984)",
-      "summaryZh": "重點：修正(ui): gate portal discovery and startup reads by scope (#160984) Co-authored-by: roboclaw-bot Co-authored-by: Patrick-..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): accept fenced JSON from the session observer 模型 (#16…",
+      "summaryZh": "重點：修正(Gateway): accept fenced JSON from the session observer 模型 (#163878) Haiku-class utility 模型 wrap the observer digest i..."
     },
     {
       "id": 2,
-      "title": "fix(test): avoid unnecessary node launcher worker builds (#163752)",
-      "link": "https://github.com/openclaw/openclaw/commit/e3df0defba4462fcb32eb5b69b76d01b5c8d9d55",
-      "publishedAt": "2026-10-02T20:22:24Z",
-      "summary": "fix(test): avoid unnecessary node launcher worker builds (#163752)",
+      "title": "refactor(node-host): consolidate command execution ownership (#163868)",
+      "link": "https://github.com/openclaw/openclaw/commit/3df4459de867c18056d2f34029f52bbb651c1b78",
+      "publishedAt": "2026-10-03T00:02:29Z",
+      "summary": "refactor(node-host): consolidate command execution ownership (#163868) Let system.run own policy defaults, environment sanitization, native socket routing, and lifecycle event formatting. Remove forwarded implementation callbacks, duplicate event types, and the single-use filesystem dispatcher. Preserve approval checks, event ordering, output tails, and Claude event suppression; keep execution and response adapters where behavior differs. Production LOC: +92/-254, net -162 across five files. Validation: 194 tests passed and one platform skip across nine files on AWS Linux; core and affected test types, targeted lint, and formatting passed. Same-host live local/node pong comparisons completed before and after. Codex autoreview found no actionable P0-P2 issues. Test cost (one worker): invoke 13.80s, system-run 10.35s, socket 11.02s, Claude 14.22s; siblings 25.84s. Initial cold invoke run included compiler preparation and took 34.70s. Commit hooks skipped with --no-verify only after pnpm exec oxfmt --check passed for all eight changed files on the validation lease; this sparse worktree has no node_modules.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): avoid unnecessary node launcher worker builds (#163752)",
-      "summaryZh": "重點：修正(test): avoid unnecessary node launcher worker builds (#163752)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(node-host): consolidate command execution ownership (#163868)",
+      "summaryZh": "重點：refactor(node-host): consolidate command execution ownership (#163868) Let system.run own policy defaults, environment s..."
     },
     {
       "id": 3,
-      "title": "improve(control-ui): flag builds too large to keep the previous build…",
-      "link": "https://github.com/openclaw/openclaw/commit/aad3deb6d88ed3cff93cf37b3d0c72ba29504cb0",
-      "publishedAt": "2026-10-02T20:21:11Z",
-      "summary": "improve(control-ui): flag builds too large to keep the previous build for open tabs (#163362) The Gateway retains Control UI generations within one 96 MiB budget, current first, so already-open tabs can load lazy chunks after an update. Once one build's retained identity bytes exceed half of that budget, the previous generation no longer fits and stale tabs 404 again. Nothing reported that before users hit it. The Control UI performance check now reads the build's asset manifest, counts the entries retention keeps (everything except .br/.gz sidecars), and limits them to half the retention budget. The line is always in the build report, base comparisons show the delta, and a violation follows the existing size-limit policy: an error locally, a GitHub warning annotation on the retention budget in Actions. The budget and the sidecar rule move to the build-owned manifest module so retention, the static server, and the script share one owner without the script loading Gateway runtime code. Retention behavior is unchanged.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(control-ui): flag builds too large to keep the previous build…",
-      "summaryZh": "重點：improve(control-ui): flag builds too large to keep the previous build for open tabs (#163362) The Gateway retains Contro..."
+      "title": "顛覆 20 年「零工廠」獲利方程式，揭 Nike 布廠竣邦砸 10 億赴越建廠內幕",
+      "link": "https://finance.technews.tw/2026/10/03/jb-international-inc/",
+      "publishedAt": "Sat, 03 Oct 2026 00:00:11 +0000",
+      "summary": "不靠生產獲利，上櫃布廠竣邦近三年穩健成長；然而，它卻在營運巔峰之際砸近十億重金建廠，推翻自家多年打造的獲利方程 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "refactor(telegram): deslop telegram (#163759)",
-      "link": "https://github.com/openclaw/openclaw/commit/b4d1a0efc8a9f6797e7cd03f8f92814a8ca96782",
-      "publishedAt": "2026-10-02T20:17:53Z",
-      "summary": "refactor(telegram): deslop telegram (#163759) Consolidate Telegram dispatch, inbound buffering, media acquisition, preview delivery, callbacks, and binding mutation plumbing while retaining current configuration, persistence, protocol and SDK contracts. Remove obsolete pre-Bot-API-7 forwarding aliases under the July 2026 compatibility floor. Stabilize three durable-adoption fixtures with explicit dispatch readiness instead of wall-clock polling, retaining all commit, timeout, abort and settlement assertions. Production reduction: 794 net lines. Full coverage and validation evidence are recorded in the pull request.",
+      "title": "refactor(gateway): move placement result settlement into workers (#16…",
+      "link": "https://github.com/openclaw/openclaw/commit/8b34405bba4ec6e15a7e89c39d58838d0f91f80e",
+      "publishedAt": "2026-10-02T23:59:44Z",
+      "summary": "refactor(gateway): move placement result settlement into workers (#163819) * refactor(gateway): move placement result settlement into workers Await workspace-result claims, acceptance, recovery handoff, draining, cancellation, and settlement through the existing placement dispatcher. Prepare revocable result facts with the placement read owner and publish acknowledged postimages before observers. Preserve exact physical-store and claim custody, atomic acceptance/journal cleanup, and conservative handling of unknown outcomes without filesystem rollback or write replay. Migrate runtime callers and cover caller-thread SQL, stale claims, commit-grant revocation, recovery, and publication ordering. No schema, retention, durability, or public SDK contract changes. * fix(plugins): preserve released placement context contracts Retain the synchronous placement readers and orphan-deferral completion shipped through the v2026.9.7 Gateway plugin context. Add deprecated compatibility records and awaited Async companions, migrate internal callers, and prove the public return types and synchronous effects. * fix(tooling): include placement compatibility reader imports Keep the extracted PR wrapper closed over the restored synchronous result readers. Add the 15 transitive modules reported by the inventory and extracted package-resolution checks; both boundary checks pass after reproducing the failures in five runs. * test(plugins): assert released gateway context equality Check each released SDK context entry point explicitly while preserving the synchronous return-type and awaited companion assertions. This avoids duplicate union constituents; type-aware lint, focused type checking, and the complete repair changed-file gates pass.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Telegram): deslop Telegram (#163759)",
-      "summaryZh": "重點：refactor(Telegram): deslop Telegram (#163759) Consolidate Telegram dispatch, inbound buffering, media acquisition, previ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): move placement result settlement into workers (#16…",
+      "summaryZh": "重點：refactor(Gateway): move placement result settlement into workers (#163819) * refactor(Gateway): move placement result se..."
     },
     {
       "id": 5,
+      "title": "refactor(doctor): remove unused harness environment argument (#163855)",
+      "link": "https://github.com/openclaw/openclaw/commit/f8cfaacda1d595c560aeb8c56aaa9d16befc501b",
+      "publishedAt": "2026-10-02T23:57:56Z",
+      "summary": "refactor(doctor): remove unused harness environment argument (#163855) Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：refactor(文件tor): remove unused harness environment argument (#163855)",
+      "summaryZh": "重點：refactor(文件tor): remove unused harness environment argument (#163855) Co-authored-by: Vincent Koc..."
+    },
+    {
+      "id": 6,
+      "title": "ChatGPT 推出虛擬試穿功能，上傳照片即可 AI 模擬穿搭效果",
+      "link": "https://technews.tw/2026/10/03/chatgpt-adds-virtual-try-on-for-clothes/",
+      "publishedAt": "Fri, 02 Oct 2026 23:44:16 +0000",
+      "summary": "有關 ChatGPT 如何在購物時幫助使用者，OpenAI 再次展開測試，宣布向全球推出兩項全新購物功能，讓使 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "尋找超新星爆發前的「母星」，NASA 錢卓拉最新發現 84 個神祕天體帶來破案曙光",
       "link": "https://technews.tw/2026/10/03/nasa-chandra-latest-galaxy-images/",
       "publishedAt": "Fri, 02 Oct 2026 16:00:42 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "NASA 採樣揭露貝努小行星身世，實為內外太陽系物質「混血兒」",
       "link": "https://technews.tw/2026/10/03/origin-of-asteroid-bennu-revealed/",
       "publishedAt": "Fri, 02 Oct 2026 16:00:15 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "欲藉 2 奈米盼重返高通供應鏈，台積電一單不漏全數拿下讓三星盼了個寂寞",
       "link": "https://finance.technews.tw/2026/10/02/samsung-hopes-to-rejoin-qualcomms-supply-chain-by-leveraging-its-2nm-technology/",
       "publishedAt": "Fri, 02 Oct 2026 12:40:23 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "OpenAI調查失控AI代理人活動，已通知逾100個組織",
       "link": "https://www.ithome.com.tw/news/179368",
       "publishedAt": "2026-10-02 12:10:47",
       "summary": "OpenAI周三（9/30）公布AI代理人未對齊行為的最新調查進度，指出截至9月26日，已就相關異常活動通知超過100個組織，目前仍在持續回溯歷史紀錄，預期還會發現更多案例。 這項調查源於OpenAI先前發現內部研究模型入侵Hugging Face的事件。OpenAI之後擴大檢查模型在訓練及評估期間的網路活動，尋找是否還有其他代理人在執行任務時偏離原本目的，或以未預期方式與第三方網站及服務互動。目前調查已進行約一個月，尚未發現其他事件的規模或嚴重程度達到Hugging Face事件。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "研究人員揭露惡意軟體BambooToken，透過MQTT通訊協定控制Windows與Linux電腦",
-      "link": "https://www.ithome.com.tw/news/179370",
-      "publishedAt": "2026-10-02 12:10:28",
-      "summary": "資安業者Lumen近日揭露新型惡意軟體BambooToken，根據樣本與網路遙測，該惡意軟體至少自2023年2月起開始活動，並持續至2026年7月，主要出現在亞洲及南美，已有十多家企業受害，包括行動App後端、旅館、生技、法律、金融、加密貨幣及軟體開發業者。目前該惡意軟體尚無法歸因於特定攻擊組織，但Lumen認為其攻擊目標與活動模式，符合中國相關威脅行動的特徵。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "開源AI代理框架Pi邁入1.0，另推出長時間代理框架Pi Durable",
-      "link": "https://www.ithome.com.tw/news/179369",
-      "publishedAt": "2026-10-02 12:10:12",
-      "summary": "Earendil發布開源AI代理框架Pi 1.0，同時推出實驗性代理執行框架Pi Durable，讓開發者建立可長時間執行的AI代理應用。當執行中的服務重新啟動或意外中斷，Pi Durable可以讀取先前保存的進度，接著處理尚未完成的工作，也支援多條對話同時執行及多人介入同一代理任務。",
       "source": "iThome",
       "tag": "繁中"
     }
