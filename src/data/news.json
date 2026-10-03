@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-03T17:00:51.274Z",
+  "generatedAt": "2026-10-03T20:41:21.006Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ci): use Kova canonical mock-auth repair (#164387)",
-      "link": "https://github.com/openclaw/openclaw/commit/93eb82c3975c1d4771afb6a5c630ce2864f1c9ec",
-      "publishedAt": "2026-10-03T16:57:58Z",
-      "summary": "fix(ci): use Kova canonical mock-auth repair (#164387) Advance the canonical-config and trusted-live pins to the verified merge of Kova #165. Keep the legacy pin, selection logic, credential routing, and performance budgets unchanged. Co-authored-by: Peter Steinberger",
+      "title": "refactor(acp): persist parent-stream diagnostic batches through the a…",
+      "link": "https://github.com/openclaw/openclaw/commit/930bd387bbaa8acf6538e8af03e029329d0e5d8d",
+      "publishedAt": "2026-10-03T20:39:17Z",
+      "summary": "refactor(acp): persist parent-stream diagnostic batches through the agent writer (#164454) * refactor(acp): persist parent-stream diagnostic batches through the agent writer Move durable diagnostic sequence allocation and ordered batch insertion into the canonical per-agent worker. Retain bounded relay buffering, confirmed-refusal retries, unknown-outcome non-replay, and accepted settlement through Gateway close. Keep run-ID relay replacement immediate. * fix(acp): retain source guard binding and await relay test cleanup * fix(acp): preserve diagnostic retry backoff and register worker Keep rollback backoff intact when diagnostic events arrive during an in-flight write. Register the ACP adapter under the loader-required worker export contract. The deferred-write regression fails before the timer fix; all 32 relay tests and 54 export guard tests pass. P2 review is clean.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): use Kova canonical mock-auth repair (#164387)",
-      "summaryZh": "重點：修正(ci): use Kova canonical mock-auth repair (#164387) Advance the canonical-config and trusted-live pins to the verified..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(acp): persist parent-stream diagnostic batches through the a…",
+      "summaryZh": "重點：refactor(acp): persist parent-stream diagnostic batches through the agent writer (#164454) * refactor(acp): persist pare..."
     },
     {
       "id": 2,
-      "title": "refactor(telegram): remove legacy reply-cache fallbacks (#164173)",
-      "link": "https://github.com/openclaw/openclaw/commit/2997396323c87c4cf1a1dc22e3cfeba52ae39da3",
-      "publishedAt": "2026-10-03T16:54:43Z",
-      "summary": "refactor(telegram): remove legacy reply-cache fallbacks (#164173) Require canonical version-1 reply-cache rows and use recorded message identities for transcript deduplication. Historical unversioned projections become cache misses without deleting their stored bytes; markerless replies may appear in both context and transcript. Independent P2 review and exact-head CI passed. Shared remote proof passed 109 cases, the changed gate, canonical packaging, and the unmodified published 2026.9.7 update. Real Telegram Test Server proof preserved exact reply ancestors and links across restart, with confirmed cleanup. The retained observations were validated without repeating live messages. Production +9/-42/net -33. Full proof, measured test costs, and intentional cache behavior are recorded in the PR.",
+      "title": "perf(sessions): share immutable initial transcript messages (#164502)",
+      "link": "https://github.com/openclaw/openclaw/commit/adcfdcd5c7443bb6cfba3d0e91edadcefa92e4ba",
+      "publishedAt": "2026-10-03T20:38:21Z",
+      "summary": "perf(sessions): share immutable initial transcript messages (#164502) Reuse equal message payloads across the bounded raw and projected model views. Freeze shared values while preserving private-field projection. This reduces per-active-session retention without changing transcript bytes, replay, or incognito storage.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Telegram): remove legacy reply-cache fallbacks (#164173)",
-      "summaryZh": "重點：refactor(Telegram): remove legacy reply-cache fallbacks (#164173) Require canonical version-1 reply-cache rows and use r..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): share immutable initial transcript messages (#164502)",
+      "summaryZh": "重點：perf(sessions): share immutable initial transcript messages (#164502) Reuse equal message payloads across the bounded ra..."
     },
     {
       "id": 3,
-      "title": "fix: every attachment send fails when a channel mediaMaxMb is 0 (#163…",
-      "link": "https://github.com/openclaw/openclaw/commit/2850fb696cc4127d3d4e5404c224a709cd6fae17",
-      "publishedAt": "2026-10-03T16:52:09Z",
-      "summary": "fix: every attachment send fails when a channel mediaMaxMb is 0 (#163701) Fixes #163700. When a channel set `mediaMaxMb` to 0 or a negative value, `resolveAttachmentMaxBytes` turned it into a 0-byte cap, so every attachment send failed with `Media too large ... (limit: 0 bytes)`. Matrix, LINE and Zalo schemas accept such values. A non-positive cap is now treated as unset, matching the existing rule in `src/media/configured-max-bytes.ts`. Positive limits are unchanged. Proof: a built Gateway sent through the `message` action and the real Matrix plugin to a local Matrix stand-in (Crabline plus an upload stub). Base rejected a 68-byte PNG at limit 0. This change uploaded the identical bytes and delivered an `m.image` with caps of 0 and -5. A tiny positive cap still rejects before upload, and unset still succeeds. The regression tests fail on base and pass here. A live gpt-5-mini smoke call passed. Co-authored-by: Ayaan Zaidi",
+      "title": "chore(ui): refresh control ui locales (#164524)",
+      "link": "https://github.com/openclaw/openclaw/commit/5baccf5b39e6284c279246188bfb74bec7206f81",
+      "publishedAt": "2026-10-03T20:37:50Z",
+      "summary": "chore(ui): refresh control ui locales (#164524) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: every attachment send fails when a channel mediaMaxMb is 0 (#163…",
-      "summaryZh": "重點：修正: every attachment send fails when a channel mediaMaxMb is 0 (#163701) 修正 #163700. When a channel set `mediaMaxMb` to ..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#164524)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#164524) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 4,
-      "title": "fix(baseten): refresh Model API defaults and capabilities (#164389)",
-      "link": "https://github.com/openclaw/openclaw/commit/be72b3094cd16bb178b5f67e18529d290a1ea1e1",
-      "publishedAt": "2026-10-03T16:50:40Z",
-      "summary": "fix(baseten): refresh Model API defaults and capabilities (#164389) Default new setups to DeepSeek V4.1 Flash while preserving explicit model selections and authored catalogs. Refresh the curated fallback and restore documented sparse DeepSeek capabilities and current Pro replay controls. Qualify native tool, image, and Pro replay requests; retain the full provider sweep as unrun and document the existing sparse-live GLM limitation.",
+      "title": "docs(sessions): define worker-owned transcript working sets (#164519)",
+      "link": "https://github.com/openclaw/openclaw/commit/c732cad6448e7d2e8b36ae79e9ed2b66c68666fc",
+      "publishedAt": "2026-10-03T20:35:03Z",
+      "summary": "docs(sessions): define worker-owned transcript working sets (#164519)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(baseten): refresh 模型 API defaults and capabilities (#164389)",
-      "summaryZh": "重點：修正(baseten): refresh 模型 API defaults and capabilities (#164389) Default new setups to DeepSeek V4.1 Flash while preservi..."
+      "titleZh": "OpenClaw 文件更新：文件(sessions): define worker-owned transcript working sets (#164519)",
+      "summaryZh": "重點：文件(sessions): define worker-owned transcript working sets (#164519)..."
     },
     {
       "id": 5,
