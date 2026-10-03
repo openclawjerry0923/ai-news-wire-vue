@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-10-03T06:06:07.973Z",
+  "generatedAt": "2026-10-03T12:16:33.353Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(skills): run skill library import and mutations in workers (…",
+      "link": "https://github.com/openclaw/openclaw/commit/a38eefeebae5a2f1d4f048dadfccea614cd898ff",
+      "publishedAt": "2026-10-03T12:15:21Z",
+      "summary": "refactor(skills): run skill library import and mutations in workers (skilllib B) (#164262) * refactor(skills): move library reads and selection into workers Bind prepared selections to current library and profile authority across admission waits, including rollback and unknown native commit outcomes. Preserve private revision disclosure and worker error identity. Native import and mutations remain for the follow-up; retain the shipped synchronous SDK readers. * refactor(skills): run library imports and mutations in workers Reuse the shared-state writer and skill-library selection authority for synchronous worker transactions and acknowledged publication. Preserve revision CAS, quotas, upload expiry, live ownership, immutable-file recovery, and critical-scan rejection. * fix(test): keep skill library Gateway inventory in canonical order",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(skills): run skill library import and mutations in workers (…",
+      "summaryZh": "重點：refactor(skills): run skill library import and mutations in workers (skilllib B) (#164262) * refactor(skills): move libr..."
+    },
+    {
+      "id": 2,
+      "title": "test(crabbox): preserve schemas and lazy fixture loading",
+      "link": "https://github.com/openclaw/openclaw/commit/35ee06f41f3ac6a6f8bda95ce30ee313f8b2b5fc",
+      "publishedAt": "2026-10-03T12:12:34Z",
+      "summary": "test(crabbox): preserve schemas and lazy fixture loading Commit 0508a6d22f560 made the managed-binary error formatter a runtime import, pulling logging and canonical SQL reads into relocated fixtures. The esbuild fixtures omitted schema inlining, so reads targeted missing .tmp SQL files. Their monolithic 74 MB bundle also exceeded lifecycle readiness deadlines when TSX processed its dynamic imports. Reuse the canonical schema inliner in all three fixture builds. Preserve lazy imports with code splitting, relocate and clean exact compiler outputs, and load compiled JavaScript behind the real TSX entrypoint. Production code, deadlines, assertions, and mocks remain unchanged. A15: scheduled CI run 37116831255 at 10bddffa349e. Before: 264 failed, 7 passed, 1 skipped. Final full replay: 270 passed, 1 skipped, 1 unresolved transport rejection timeout at the existing 10-second child deadline (observed 11.659 seconds). Missing-schema and all lifecycle regressions pass. Do not treat the full file as green. Fresh-checkout wrapper --help, changed-file gate, and independent review passed. Latest remote main 5f52ff0f863c5 has no equivalent fixture fix. Test cost: 924.59s wall for node scripts/run-vitest.mjs test/scripts/crabbox-wrapper.test.ts --maxWorkers=1 (OPENCLAW_VITEST_NO_OUTPUT_TIMEOUT_MS=1800000).",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(crabbox): preserve schemas and lazy 修正ture loading",
+      "summaryZh": "重點：test(crabbox): preserve schemas and lazy 修正ture loading 提交 0508a6d22f560 made the managed-binary error formatter a runti..."
+    },
+    {
+      "id": 3,
+      "title": "fix(crabbox): slow coordinator reads and unsupported backends no long…",
+      "link": "https://github.com/openclaw/openclaw/commit/2288edbca9dd24e9a195b54d077964d6cebb579f",
+      "publishedAt": "2026-10-03T12:10:49Z",
+      "summary": "fix(crabbox): slow coordinator reads and unsupported backends no longer strand cloud workers (#164231) * fix(crabbox): recover coordinator timeouts and reject unsupported backends * fix(crabbox): retry node runtime preparation reads Include ordinary runtime preparation in the existing fixed-lease coordinator retry policy. Extend the provider-flow regression and document the phase without changing timeouts, budgets, or allocation ownership.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): slow coordinator reads and unsupported backends no long…",
+      "summaryZh": "重點：修正(crabbox): slow coordinator reads and unsupported backends no longer strand cloud workers (#164231) * 修正(crabbox): rec..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ci): lower the OPENCLAW_* env-var budget to 475",
+      "link": "https://github.com/openclaw/openclaw/commit/5f52ff0f863c544519ec80bbd7eeea4248bbf4d3",
+      "publishedAt": "2026-10-03T12:04:09Z",
+      "summary": "fix(ci): lower the OPENCLAW_* env-var budget to 475 OPENCLAW_NODE_EXEC_FALLBACK was removed by #164153 without lowering the shrink-only budget.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): lower the OpenClaw_* env-var budget to 475",
+      "summaryZh": "重點：修正(ci): lower the OpenClaw_* env-var budget to 475 OpenClaw_NODE_EXEC_FALLBACK was removed by #164153 without lowering t..."
+    },
+    {
+      "id": 5,
       "title": "CISA警示FortiMail漏洞CVE-2026-104286已遭實際利用",
       "link": "https://www.ithome.com.tw/news/179386",
       "publishedAt": "2026-10-03 11:10:17",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Chrome 154本週第二度發布更新版，緊急修補11個漏洞",
       "link": "https://www.ithome.com.tw/news/179385",
       "publishedAt": "2026-10-03 10:10:14",
@@ -20,82 +64,38 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix: Gateway stalls while background skill reviews or rooted cron job…",
-      "link": "https://github.com/openclaw/openclaw/commit/0c96fd043ab36303f1e2098766f3e6d2a26ab8cf",
-      "publishedAt": "2026-10-03T06:05:13Z",
-      "summary": "fix: Gateway stalls while background skill reviews or rooted cron jobs start (#164049) * fix(agents): reuse the agent plugin generation for rooted background runs Rooted runs (skill workshop reviews in auto mode, cron jobs with an execution root) passed the execution root as workspaceDir, which also keyed the prepared model runtime and plugin metadata. No configured generation matched, so each run cold-built its own generation and cold-loaded tool plugins synchronously on the Gateway main thread (observed: 99 s prepared-runtime + 51 s plugin-tools, dropping websockets and a chat.send). When bootstrapWorkspaceDir resolves to the agent's canonical workspace, select the prepared runtime with that workspace and keep the run bound to its execution root. Compaction follows the same selection. Non-canonical or absent bootstrap workspaces keep their own generation. * test(agents): run the rooted prepared-runtime regression in the database worker lane",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Gateway stalls while background skill reviews or rooted 排程 job…",
-      "summaryZh": "重點：修正: Gateway stalls while background skill reviews or rooted 排程 jobs start (#164049) * 修正(agents): reuse the agent plugin..."
-    },
-    {
-      "id": 4,
-      "title": "fix(ci): make informational security notices easier to spot (#164056)",
-      "link": "https://github.com/openclaw/openclaw/commit/e6f2610a1c0bc8804ec84fb7c08da814d583f97e",
-      "publishedAt": "2026-10-03T06:04:31Z",
-      "summary": "fix(ci): make informational security notices easier to spot (#164056) * fix(ci): make informational security notices easier to spot * fix(ci): keep informational notices at body text size * fix(ci): lead with the security approval outcome",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): make informational 安全 notices easier to spot (#164056)",
-      "summaryZh": "重點：修正(ci): make informational 安全 notices easier to spot (#164056) * 修正(ci): make informational 安全 notices easier to spot * ..."
-    },
-    {
-      "id": 5,
-      "title": "feat(state): incognito actor history routing (P5a, inactive) (#164044)",
-      "link": "https://github.com/openclaw/openclaw/commit/34ba15d44ab21b2423fd5fcc0c674c491b274d1f",
-      "publishedAt": "2026-10-03T06:02:24Z",
-      "summary": "feat(state): incognito actor history routing (P5a, inactive) (#164044) Reuse worker history selectors on the retained incognito actor with FIFO, live disclosure authorization, and snapshot hydration. Keep production host-owned until P7; P5b compute, Memory, and Codex routing is stacked next.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(state): incognito actor history routing (P5a, inactive) (#164044)",
-      "summaryZh": "重點：新功能(state): incognito actor history routing (P5a, inactive) (#164044) Reuse worker history selectors on the retained inc..."
-    },
-    {
-      "id": 6,
-      "title": "新研究顯示：TikTok 近 95% 熱傳韓式護膚及「玻璃肌」短片含誤導性說法",
-      "link": "https://technews.tw/2026/10/03/tiktok-korean-skincare-glass-skin-videos-95-percent-misleading-claims/",
-      "publishedAt": "Sat, 03 Oct 2026 06:00:58 +0000",
-      "summary": "9 月 30 日於 2026 年歐洲皮膚病與性病學會（EADV）大會發表的一項最新研究顯示，TikTok 上近 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "川普召集黃仁勳、馬斯克等科技巨頭簽「AI 憲法」，四層稽核機制能解失控風險？",
-      "link": "https://technews.tw/2026/10/03/trump-ai-constitution-jensen-huang-tech-giants-four-layer-audit-prevent-ai-rogue/",
-      "publishedAt": "Sat, 03 Oct 2026 06:00:53 +0000",
-      "summary": "美國總統川普（Donald Trump）日前在白宮召集輝達（NVIDIA）執行長黃仁勳、SpaceXAI 創辦 [&#8230;]",
+      "title": "近九成開發者都在用 AI 寫程式，美國學界報告：信任與驗證才是下道關卡",
+      "link": "https://technews.tw/2026/10/03/engineering-trustworthy-software-systems-with-ai-at-scale/",
+      "publishedAt": "Sat, 03 Oct 2026 08:30:57 +0000",
+      "summary": "美國計算社群聯盟（Computing Community Consortium，CCC）9 月 24 日發布最 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "fix(webhooks): preserve callbacks while retiring implicit ports (#162…",
-      "link": "https://github.com/openclaw/openclaw/commit/c7c937abfea22f17be5cac24bfc906d4d91368f6",
-      "publishedAt": "2026-10-03T05:57:00Z",
-      "summary": "fix(webhooks): preserve callbacks while retiring implicit ports (#162759) Retire implicit channel webhook ports for new installations and preserve existing callback endpoints with one-shot Doctor pins through the existing config backup and include writer. Register Telegram replacement webhooks before releasing old listeners, preserve proxy URLs, and require host/plugin API >=2026.9.9 for Telegram, Feishu, Microsoft Teams, and Nextcloud Talk standalone plugins. OpenClaw 2026.9.9 must ship the listener-pin migration. Validated with the actual published 2026.9.7 updater, signed four-channel Gateway callbacks, permanent pin removal, fresh installs, and actual published 2026.9.8 rejection of all four new packages without replacing running plugins. See the PR for source identities, measured costs, and qualified prior proof.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(webhooks): preserve callbacks while retiring implicit ports (#162…",
-      "summaryZh": "重點：修正(webhooks): preserve callbacks while retiring implicit ports (#162759) Retire implicit channel webhook ports for new i..."
+      "title": "為付離婚財產分割金！SK 會長崔泰源擬出售 9,440 億韓圜持股",
+      "link": "https://technews.tw/2026/10/03/sk-chairman-chey-tae-won-sell-94-4-billion-won-in-sk-shares/",
+      "publishedAt": "Sat, 03 Oct 2026 07:50:34 +0000",
+      "summary": "SK 集團會長崔泰源將出售價值 9,440 億韓圜（約 6.967 億美元）的 SK 集團股份，作為支付給前妻 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "打字不用找按鍵，Google 日本今年推「輸送帶鍵盤」讓字母自己過來",
-      "link": "https://ccc.technews.tw/2026/10/03/google-shows-off-a-wild-keyboard-that-is-literally-an-excavator-of-keys/",
-      "publishedAt": "Sat, 03 Oct 2026 05:30:39 +0000",
-      "summary": "Google 日本於 10 月 1 日公開了最新的 Gboard 實驗作品「Gboard くるくる版本」。這款 [&#8230;]",
+      "title": "華為最新麒麟 9050 Pro 晶片照曝光！兩層 Die 垂直堆疊，尺寸再縮小",
+      "link": "https://technews.tw/2026/10/03/huaweis-latest-kirin-9050-pro-chip/",
+      "publishedAt": "Sat, 03 Oct 2026 07:37:15 +0000",
+      "summary": "華為最新麒麟 9050 Pro 晶片近日再傳新進展，外媒 Wccftech 引述社群平台 X 帳號 Kurna [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "南電9月營收55.86 億元",
-      "link": "https://finance.technews.tw/2026/10/03/n-p-c-8046-202609-financial-report/",
-      "publishedAt": "Sat, 03 Oct 2026 04:10:06 +0000",
-      "summary": "南電（8046）今（3）日公布 9 月營收，達 55.86 億元，較 8 月成長 4.4%，較去年同期成長 5 [&#8230;]",
+      "title": "醫院警報響不停怎麼辦？延遲機制讓儀器警示音銳減近八成，病人安全不打折",
+      "link": "https://technews.tw/2026/10/03/improving-medical-alarm-fatigue/",
+      "publishedAt": "Sat, 03 Oct 2026 07:30:23 +0000",
+      "summary": "醫院裡的監視器、輸液幫浦與各式儀器日夜發出無休止的嗶嗶聲與警示音，不僅讓病患難以安穩休息，更讓護理人員面臨嚴重 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
