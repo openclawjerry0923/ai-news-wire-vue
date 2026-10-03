@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-03T20:41:21.006Z",
+  "generatedAt": "2026-10-03T23:33:14.692Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(acp): persist parent-stream diagnostic batches through the a…",
-      "link": "https://github.com/openclaw/openclaw/commit/930bd387bbaa8acf6538e8af03e029329d0e5d8d",
-      "publishedAt": "2026-10-03T20:39:17Z",
-      "summary": "refactor(acp): persist parent-stream diagnostic batches through the agent writer (#164454) * refactor(acp): persist parent-stream diagnostic batches through the agent writer Move durable diagnostic sequence allocation and ordered batch insertion into the canonical per-agent worker. Retain bounded relay buffering, confirmed-refusal retries, unknown-outcome non-replay, and accepted settlement through Gateway close. Keep run-ID relay replacement immediate. * fix(acp): retain source guard binding and await relay test cleanup * fix(acp): preserve diagnostic retry backoff and register worker Keep rollback backoff intact when diagnostic events arrive during an in-flight write. Register the ACP adapter under the loader-required worker export contract. The deferred-write regression fails before the timer fix; all 32 relay tests and 54 export guard tests pass. P2 review is clean.",
+      "title": "fix(ollama): /think max falls back to high when the ollama provider p…",
+      "link": "https://github.com/openclaw/openclaw/commit/58b544712d0349f85a06fda6a249f872012582a1",
+      "publishedAt": "2026-10-03T23:30:20Z",
+      "summary": "fix(ollama): /think max falls back to high when the ollama provider points at ollama.com (#162204) Co-authored-by: Dallin Romney",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(acp): persist parent-stream diagnostic batches through the a…",
-      "summaryZh": "重點：refactor(acp): persist parent-stream diagnostic batches through the agent writer (#164454) * refactor(acp): persist pare..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ollama): /think max falls back to high when the ollama provider p…",
+      "summaryZh": "重點：修正(ollama): /think max falls back to high when the ollama provider points at ollama.com (#162204) Co-authored-by: Dallin..."
     },
     {
       "id": 2,
-      "title": "perf(sessions): share immutable initial transcript messages (#164502)",
-      "link": "https://github.com/openclaw/openclaw/commit/adcfdcd5c7443bb6cfba3d0e91edadcefa92e4ba",
-      "publishedAt": "2026-10-03T20:38:21Z",
-      "summary": "perf(sessions): share immutable initial transcript messages (#164502) Reuse equal message payloads across the bounded raw and projected model views. Freeze shared values while preserving private-field projection. This reduces per-active-session retention without changing transcript bytes, replay, or incognito storage.",
+      "title": "fix(mcp): preserve App pagination cursor bytes (#164368)",
+      "link": "https://github.com/openclaw/openclaw/commit/64772f5e249beb6f5388e1a8e94a4bd682c695d8",
+      "publishedAt": "2026-10-03T23:30:16Z",
+      "summary": "fix(mcp): preserve App pagination cursor bytes (#164368) Fixes #164365. MCP Apps received the first or wrong tools or resource-template page when a server returned an empty or whitespace-bearing continuation cursor, because the UI bridge and the Gateway trimmed or dropped it. Present string cursors now pass through the bridge, the Gateway parser and MCP app operations unchanged. The wire shape (an optional string cursor) is unchanged, with no gateway-protocol schema change. Absent and normal cursors, resource aggregation and catalog discovery are unchanged. Proof: a built Gateway over authenticated WS, with a local stdio MCP App that paginates using `\"\"` and padded cursors, dropped or trimmed them on base and returned the wrong page. With this change the exact bytes reached the server and the correct pages came back. The Gateway and installed AppBridge regression tests fail on base and pass here. A live gpt-5-mini smoke call passed. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): share immutable initial transcript messages (#164502)",
-      "summaryZh": "重點：perf(sessions): share immutable initial transcript messages (#164502) Reuse equal message payloads across the bounded ra..."
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): preserve App pagination cursor bytes (#164368)",
+      "summaryZh": "重點：修正(mcp): preserve App pagination cursor bytes (#164368) 修正 #164365. MCP Apps received the first or wrong tools or resour..."
     },
     {
       "id": 3,
-      "title": "chore(ui): refresh control ui locales (#164524)",
-      "link": "https://github.com/openclaw/openclaw/commit/5baccf5b39e6284c279246188bfb74bec7206f81",
-      "publishedAt": "2026-10-03T20:37:50Z",
-      "summary": "chore(ui): refresh control ui locales (#164524) Co-authored-by: github-actions[bot]",
+      "title": "fix: Gateway stalls when background runs start outside the agent work…",
+      "link": "https://github.com/openclaw/openclaw/commit/1660c032f48bfb81c2d7f3cba92143a1928606a7",
+      "publishedAt": "2026-10-03T23:27:08Z",
+      "summary": "fix: Gateway stalls when background runs start outside the agent workspace (#164594) Runs whose workspace was not the agent's canonical workspace (cron jobs, subagents, and other runs without a canonical bootstrap workspace) keyed their own prepared runtime and cold-loaded the whole plugin inventory synchronously on the Gateway main thread. In a Gateway every run workspace resolves to the same immutable boot inventory, so that generation was a duplicate of the configured one. These runs now borrow the agent's configured generation and keep their own execution workspace, the same selection #164049 introduced for rooted runs; compaction follows it. Plugin tool resolution also cold-loaded, on every turn, selected tool plugins that the prepared generation had already recorded as disabled or failed (for example memory-core outside the selected memory slot). Those records are settled loader outcomes and are no longer reloaded. Measured with forced [trace:embedded-run] stage summaries in a Gateway-shaped fixture: prepared-runtime 10627 ms -> 0 ms, worst main-thread block 10610 ms -> 15 ms, per-turn tool cold loads 2 -> 0.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#164524)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#164524) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：修正: Gateway stalls when background runs start outside the agent work…",
+      "summaryZh": "重點：修正: Gateway stalls when background runs start outside the agent workspace (#164594) Runs whose workspace was not the age..."
     },
     {
       "id": 4,
-      "title": "docs(sessions): define worker-owned transcript working sets (#164519)",
-      "link": "https://github.com/openclaw/openclaw/commit/c732cad6448e7d2e8b36ae79e9ed2b66c68666fc",
-      "publishedAt": "2026-10-03T20:35:03Z",
-      "summary": "docs(sessions): define worker-owned transcript working sets (#164519)",
+      "title": "fix(doctor): quarantine an unusable agent deletion journal instead of…",
+      "link": "https://github.com/openclaw/openclaw/commit/4bcd6956b0a431b3d7024f1ad13095947c242bf8",
+      "publishedAt": "2026-10-03T23:22:50Z",
+      "summary": "fix(doctor): quarantine an unusable agent deletion journal instead of blocking the update (#164509) A corrupted or unverifiable agent deletion journal made the candidate Doctor refuse the whole update as data-at-risk / incomplete-migration, blocking 2026.9.8 for an operator whose system agent carried a stale journal. Doctor now quarantines an unusable journal under the agent's recovery directory with a receipt, preserves the held stores and runtime deletion tombstones (never deletes), warns with the exact operator command, and lets the update continue; healthy agents stay eligible for migration and the reserved-agent-ID advice is corrected. Opportunistic bounded fix: detached automatic maintenance no longer relinquishes Doctor's database cleanup ownership (NOCOW lease release). Closes #164316. Reported on Discord (#general, Rlavington).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件(sessions): define worker-owned transcript working sets (#164519)",
-      "summaryZh": "重點：文件(sessions): define worker-owned transcript working sets (#164519)..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): quarantine an unusable agent deletion journal instead of…",
+      "summaryZh": "重點：修正(文件tor): quarantine an unusable agent deletion journal instead of blocking the update (#164509) A corrupted or unverif..."
     },
     {
       "id": 5,
