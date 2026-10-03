@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-10-03T12:16:33.353Z",
+  "generatedAt": "2026-10-03T17:00:51.274Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(skills): run skill library import and mutations in workers (…",
-      "link": "https://github.com/openclaw/openclaw/commit/a38eefeebae5a2f1d4f048dadfccea614cd898ff",
-      "publishedAt": "2026-10-03T12:15:21Z",
-      "summary": "refactor(skills): run skill library import and mutations in workers (skilllib B) (#164262) * refactor(skills): move library reads and selection into workers Bind prepared selections to current library and profile authority across admission waits, including rollback and unknown native commit outcomes. Preserve private revision disclosure and worker error identity. Native import and mutations remain for the follow-up; retain the shipped synchronous SDK readers. * refactor(skills): run library imports and mutations in workers Reuse the shared-state writer and skill-library selection authority for synchronous worker transactions and acknowledged publication. Preserve revision CAS, quotas, upload expiry, live ownership, immutable-file recovery, and critical-scan rejection. * fix(test): keep skill library Gateway inventory in canonical order",
+      "title": "fix(ci): use Kova canonical mock-auth repair (#164387)",
+      "link": "https://github.com/openclaw/openclaw/commit/93eb82c3975c1d4771afb6a5c630ce2864f1c9ec",
+      "publishedAt": "2026-10-03T16:57:58Z",
+      "summary": "fix(ci): use Kova canonical mock-auth repair (#164387) Advance the canonical-config and trusted-live pins to the verified merge of Kova #165. Keep the legacy pin, selection logic, credential routing, and performance budgets unchanged. Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(skills): run skill library import and mutations in workers (…",
-      "summaryZh": "重點：refactor(skills): run skill library import and mutations in workers (skilllib B) (#164262) * refactor(skills): move libr..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): use Kova canonical mock-auth repair (#164387)",
+      "summaryZh": "重點：修正(ci): use Kova canonical mock-auth repair (#164387) Advance the canonical-config and trusted-live pins to the verified..."
     },
     {
       "id": 2,
-      "title": "test(crabbox): preserve schemas and lazy fixture loading",
-      "link": "https://github.com/openclaw/openclaw/commit/35ee06f41f3ac6a6f8bda95ce30ee313f8b2b5fc",
-      "publishedAt": "2026-10-03T12:12:34Z",
-      "summary": "test(crabbox): preserve schemas and lazy fixture loading Commit 0508a6d22f560 made the managed-binary error formatter a runtime import, pulling logging and canonical SQL reads into relocated fixtures. The esbuild fixtures omitted schema inlining, so reads targeted missing .tmp SQL files. Their monolithic 74 MB bundle also exceeded lifecycle readiness deadlines when TSX processed its dynamic imports. Reuse the canonical schema inliner in all three fixture builds. Preserve lazy imports with code splitting, relocate and clean exact compiler outputs, and load compiled JavaScript behind the real TSX entrypoint. Production code, deadlines, assertions, and mocks remain unchanged. A15: scheduled CI run 37116831255 at 10bddffa349e. Before: 264 failed, 7 passed, 1 skipped. Final full replay: 270 passed, 1 skipped, 1 unresolved transport rejection timeout at the existing 10-second child deadline (observed 11.659 seconds). Missing-schema and all lifecycle regressions pass. Do not treat the full file as green. Fresh-checkout wrapper --help, changed-file gate, and independent review passed. Latest remote main 5f52ff0f863c5 has no equivalent fixture fix. Test cost: 924.59s wall for node scripts/run-vitest.mjs test/scripts/crabbox-wrapper.test.ts --maxWorkers=1 (OPENCLAW_VITEST_NO_OUTPUT_TIMEOUT_MS=1800000).",
+      "title": "refactor(telegram): remove legacy reply-cache fallbacks (#164173)",
+      "link": "https://github.com/openclaw/openclaw/commit/2997396323c87c4cf1a1dc22e3cfeba52ae39da3",
+      "publishedAt": "2026-10-03T16:54:43Z",
+      "summary": "refactor(telegram): remove legacy reply-cache fallbacks (#164173) Require canonical version-1 reply-cache rows and use recorded message identities for transcript deduplication. Historical unversioned projections become cache misses without deleting their stored bytes; markerless replies may appear in both context and transcript. Independent P2 review and exact-head CI passed. Shared remote proof passed 109 cases, the changed gate, canonical packaging, and the unmodified published 2026.9.7 update. Real Telegram Test Server proof preserved exact reply ancestors and links across restart, with confirmed cleanup. The retained observations were validated without repeating live messages. Production +9/-42/net -33. Full proof, measured test costs, and intentional cache behavior are recorded in the PR.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(crabbox): preserve schemas and lazy 修正ture loading",
-      "summaryZh": "重點：test(crabbox): preserve schemas and lazy 修正ture loading 提交 0508a6d22f560 made the managed-binary error formatter a runti..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(Telegram): remove legacy reply-cache fallbacks (#164173)",
+      "summaryZh": "重點：refactor(Telegram): remove legacy reply-cache fallbacks (#164173) Require canonical version-1 reply-cache rows and use r..."
     },
     {
       "id": 3,
-      "title": "fix(crabbox): slow coordinator reads and unsupported backends no long…",
-      "link": "https://github.com/openclaw/openclaw/commit/2288edbca9dd24e9a195b54d077964d6cebb579f",
-      "publishedAt": "2026-10-03T12:10:49Z",
-      "summary": "fix(crabbox): slow coordinator reads and unsupported backends no longer strand cloud workers (#164231) * fix(crabbox): recover coordinator timeouts and reject unsupported backends * fix(crabbox): retry node runtime preparation reads Include ordinary runtime preparation in the existing fixed-lease coordinator retry policy. Extend the provider-flow regression and document the phase without changing timeouts, budgets, or allocation ownership.",
+      "title": "fix: every attachment send fails when a channel mediaMaxMb is 0 (#163…",
+      "link": "https://github.com/openclaw/openclaw/commit/2850fb696cc4127d3d4e5404c224a709cd6fae17",
+      "publishedAt": "2026-10-03T16:52:09Z",
+      "summary": "fix: every attachment send fails when a channel mediaMaxMb is 0 (#163701) Fixes #163700. When a channel set `mediaMaxMb` to 0 or a negative value, `resolveAttachmentMaxBytes` turned it into a 0-byte cap, so every attachment send failed with `Media too large ... (limit: 0 bytes)`. Matrix, LINE and Zalo schemas accept such values. A non-positive cap is now treated as unset, matching the existing rule in `src/media/configured-max-bytes.ts`. Positive limits are unchanged. Proof: a built Gateway sent through the `message` action and the real Matrix plugin to a local Matrix stand-in (Crabline plus an upload stub). Base rejected a 68-byte PNG at limit 0. This change uploaded the identical bytes and delivered an `m.image` with caps of 0 and -5. A tiny positive cap still rejects before upload, and unset still succeeds. The regression tests fail on base and pass here. A live gpt-5-mini smoke call passed. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(crabbox): slow coordinator reads and unsupported backends no long…",
-      "summaryZh": "重點：修正(crabbox): slow coordinator reads and unsupported backends no longer strand cloud workers (#164231) * 修正(crabbox): rec..."
+      "titleZh": "OpenClaw 程式碼更新：修正: every attachment send fails when a channel mediaMaxMb is 0 (#163…",
+      "summaryZh": "重點：修正: every attachment send fails when a channel mediaMaxMb is 0 (#163701) 修正 #163700. When a channel set `mediaMaxMb` to ..."
     },
     {
       "id": 4,
-      "title": "fix(ci): lower the OPENCLAW_* env-var budget to 475",
-      "link": "https://github.com/openclaw/openclaw/commit/5f52ff0f863c544519ec80bbd7eeea4248bbf4d3",
-      "publishedAt": "2026-10-03T12:04:09Z",
-      "summary": "fix(ci): lower the OPENCLAW_* env-var budget to 475 OPENCLAW_NODE_EXEC_FALLBACK was removed by #164153 without lowering the shrink-only budget.",
+      "title": "fix(baseten): refresh Model API defaults and capabilities (#164389)",
+      "link": "https://github.com/openclaw/openclaw/commit/be72b3094cd16bb178b5f67e18529d290a1ea1e1",
+      "publishedAt": "2026-10-03T16:50:40Z",
+      "summary": "fix(baseten): refresh Model API defaults and capabilities (#164389) Default new setups to DeepSeek V4.1 Flash while preserving explicit model selections and authored catalogs. Refresh the curated fallback and restore documented sparse DeepSeek capabilities and current Pro replay controls. Qualify native tool, image, and Pro replay requests; retain the full provider sweep as unrun and document the existing sparse-live GLM limitation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): lower the OpenClaw_* env-var budget to 475",
-      "summaryZh": "重點：修正(ci): lower the OpenClaw_* env-var budget to 475 OpenClaw_NODE_EXEC_FALLBACK was removed by #164153 without lowering t..."
+      "titleZh": "OpenClaw 程式碼更新：修正(baseten): refresh 模型 API defaults and capabilities (#164389)",
+      "summaryZh": "重點：修正(baseten): refresh 模型 API defaults and capabilities (#164389) Default new setups to DeepSeek V4.1 Flash while preservi..."
     },
     {
       "id": 5,
+      "title": "NASA 宣布最新遠紅外線望遠鏡 PRIMA 計畫，探索星球形成與材料之謎",
+      "link": "https://technews.tw/2026/10/04/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
+      "publishedAt": "Sat, 03 Oct 2026 16:00:37 +0000",
+      "summary": "恆星如何從厚重的塵埃誕生？行星水又從哪裡來？NASA 宣布新遠紅外線太空望遠鏡 PRIMA（PRobe far [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "本為星際任務設計卻成地球救星，「太空農業」如何破解極端氣候糧食危機？",
+      "link": "https://technews.tw/2026/10/04/space-agriculture-solve-global-food-crisis/",
+      "publishedAt": "Sat, 03 Oct 2026 16:00:21 +0000",
+      "summary": "原本專為太空任務設計的農業技術，正逐漸轉變為拯救地球農業的關鍵解方。根據相關報導與專家分析，包含「控制環境農業 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "AI 與機器人加速標本數位化，英國打造 7 千萬件館藏網路超級博物館",
+      "link": "https://technews.tw/2026/10/03/how-ai-is-creating-a-uk-super-museum-and-revealing-our-planets-history/",
+      "publishedAt": "Sat, 03 Oct 2026 13:30:15 +0000",
+      "summary": "英國研究員運用人工智慧（AI）與機器人，將全國各地收藏的自然史標本數位化，打造線上「超級博物館」。民眾用手機或 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "CISA警示FortiMail漏洞CVE-2026-104286已遭實際利用",
       "link": "https://www.ithome.com.tw/news/179386",
       "publishedAt": "2026-10-03 11:10:17",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Chrome 154本週第二度發布更新版，緊急修補11個漏洞",
       "link": "https://www.ithome.com.tw/news/179385",
       "publishedAt": "2026-10-03 10:10:14",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "近九成開發者都在用 AI 寫程式，美國學界報告：信任與驗證才是下道關卡",
       "link": "https://technews.tw/2026/10/03/engineering-trustworthy-software-systems-with-ai-at-scale/",
       "publishedAt": "Sat, 03 Oct 2026 08:30:57 +0000",
       "summary": "美國計算社群聯盟（Computing Community Consortium，CCC）9 月 24 日發布最 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "為付離婚財產分割金！SK 會長崔泰源擬出售 9,440 億韓圜持股",
-      "link": "https://technews.tw/2026/10/03/sk-chairman-chey-tae-won-sell-94-4-billion-won-in-sk-shares/",
-      "publishedAt": "Sat, 03 Oct 2026 07:50:34 +0000",
-      "summary": "SK 集團會長崔泰源將出售價值 9,440 億韓圜（約 6.967 億美元）的 SK 集團股份，作為支付給前妻 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "華為最新麒麟 9050 Pro 晶片照曝光！兩層 Die 垂直堆疊，尺寸再縮小",
-      "link": "https://technews.tw/2026/10/03/huaweis-latest-kirin-9050-pro-chip/",
-      "publishedAt": "Sat, 03 Oct 2026 07:37:15 +0000",
-      "summary": "華為最新麒麟 9050 Pro 晶片近日再傳新進展，外媒 Wccftech 引述社群平台 X 帳號 Kurna [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "醫院警報響不停怎麼辦？延遲機制讓儀器警示音銳減近八成，病人安全不打折",
-      "link": "https://technews.tw/2026/10/03/improving-medical-alarm-fatigue/",
-      "publishedAt": "Sat, 03 Oct 2026 07:30:23 +0000",
-      "summary": "醫院裡的監視器、輸液幫浦與各式儀器日夜發出無休止的嗶嗶聲與警示音，不僅讓病患難以安穩休息，更讓護理人員面臨嚴重 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
