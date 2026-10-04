@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-04T10:56:46.225Z",
+  "generatedAt": "2026-10-04T15:42:42.850Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(doctor): import sessions from completed V2 receipts without artif…",
-      "link": "https://github.com/openclaw/openclaw/commit/59a39dc89f54cf7df387f42b5a716bfff09fcc3a",
-      "publishedAt": "2026-10-04T10:54:28Z",
-      "summary": "fix(doctor): import sessions from completed V2 receipts without artifact identity (#164867) Resolve pre-artifact migration receipts in Doctor from the surviving archive contents. Preserve existing SQLite metadata when identity is unknown, and retain old receipts and archives without fabricating identity fields. Closes #164842; related to #157160 and #157615.",
+      "title": "fix(chat): model picker spins on every message (#164963)",
+      "link": "https://github.com/openclaw/openclaw/commit/fdba2abd7edae0b6b5aa2573886556e3dedadbcd",
+      "publishedAt": "2026-10-04T15:42:32Z",
+      "summary": "fix(chat): model picker spins on every message (#164963) * fix(chat): model picker spins on every message Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: 8a6158f8-fea3-4b57-9ee4-9e1c136b8ef1 * test(chat): keep pending model observation quiet Preserve mounted-pane and reentrant fallback coverage while expecting the new non-busy model picker before run observation. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): import sessions from completed V2 receipts without artif…",
-      "summaryZh": "重點：修正(文件tor): import sessions from completed V2 receipts without artifact identity (#164867) Resolve pre-artifact migration..."
+      "titleZh": "OpenClaw 程式碼更新：修正(chat): 模型 picker spins on every message (#164963)",
+      "summaryZh": "重點：修正(chat): 模型 picker spins on every message (#164963) * 修正(chat): 模型 picker spins on every message Worked on by: - @vycto..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): hide pre-session edits to branch-added files in uncomm…",
-      "link": "https://github.com/openclaw/openclaw/commit/e28f1c00d89dacafa4794bd8773d994a0100437c",
-      "publishedAt": "2026-10-04T10:52:20Z",
-      "summary": "fix(sessions): hide pre-session edits to branch-added files in uncommitted diffs (#164671) On a feature branch, the session Review diff in the `uncommitted` scope listed files the agent never touched. If the branch added a file in a commit and the user edited it before the session started, it showed as a session change. The session baseline was fingerprinted relative to the merge base, while the uncommitted comparison was made relative to HEAD. The comparison now uses matching references. The persisted baseline shape and fingerprint bytes are unchanged. The `all` scope, files the agent does edit, and non-branch workspaces are unchanged. Proof: in a real built Gateway Review panel with a scripted write-tool turn, base listed `added.txt` and `agent.txt`, and this change lists only `agent.txt`. Before and after screenshots are in the PR. The regression test fails on base and passes here. A live gpt-5-mini smoke call passed. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): remove duplicate person-group filter buttons (#164608)",
+      "link": "https://github.com/openclaw/openclaw/commit/5f9beae28d7d249b61696e1d276107a0c060b7c9",
+      "publishedAt": "2026-10-04T15:41:07Z",
+      "summary": "fix(ui): remove duplicate person-group filter buttons (#164608) * fix(ui): remove duplicate person-group filter buttons Co-authored-by: vyctorbrzezowski * fix(ui): remove duplicate person-group filter buttons Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: cae11c94-4a9c-47c4-bf2b-3bc3f0ca2e7c * test(ui): wait for login readiness before reading secure context Co-authored-by: vyctorbrzezowski --------- Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): hide pre-session edits to branch-added files in uncomm…",
-      "summaryZh": "重點：修正(sessions): hide pre-session edits to branch-added files in un提交ted diffs (#164671) On a 新功能 branch, the session Revie..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): remove duplicate person-group filter buttons (#164608)",
+      "summaryZh": "重點：修正(ui): remove duplicate person-group filter buttons (#164608) * 修正(ui): remove duplicate person-group filter buttons Co..."
     },
     {
       "id": 3,
-      "title": "test: remove retired agent admission suppression inventory",
-      "link": "https://github.com/openclaw/openclaw/commit/979466250d54290e42945acc1ad42923c465b8c1",
-      "publishedAt": "2026-10-04T10:49:14Z",
-      "summary": "test: remove retired agent admission suppression inventory The async admission refactor in ebe793f1522137 removed its Promise.reject suppression. Drop the obsolete inventory entry while preserving the exact suppression assertion. Scheduled main CI reproduced the 80-versus-79 mismatch; the repaired file passes all three tests in 18.09s. Changed checks and independent review through P2 pass. No production behavior changes.",
+      "title": "test(gateway,outbound,scripts): remove low-value tests (batch d203) (…",
+      "link": "https://github.com/openclaw/openclaw/commit/9da00b0b92eadc6a31a8fa418b1f9ca9bbce7e7a",
+      "publishedAt": "2026-10-04T15:26:25Z",
+      "summary": "test(gateway,outbound,scripts): remove low-value tests (batch d203) (#164976) * test(gateway): deslop v0020 tests * test(outbound): deslop v0024 tests * test(scripts): deslop v0029 tests * test(state,tui): deslop v0026 tests * test(scripts): deslop v0031 tests * test(scripts): deslop v0030 tests * test(scripts): deslop v0028 tests * test(scripts): deslop v0032 tests * test(scripts): deslop v0033 tests * test(plugins): deslop v0025 tests * test: preserve security guard and current test routing",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: remove retired agent admission suppression inventory",
-      "summaryZh": "重點：test: remove retired agent admission suppression inventory The async admission refactor in ebe793f1522137 removed its Pr..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway,outbound,scripts): remove low-value tests (batch d203) (…",
+      "summaryZh": "重點：test(Gateway,outbound,scripts): remove low-value tests (batch d203) (#164976) * test(Gateway): deslop v0020 tests * test..."
     },
     {
       "id": 4,
-      "title": "perf(agents): read worktree publication and tool availability through…",
-      "link": "https://github.com/openclaw/openclaw/commit/715c18120e19eb23fb5ba54e97fac55efaf5fe3a",
-      "publishedAt": "2026-10-04T10:44:34Z",
-      "summary": "perf(agents): read worktree publication and tool availability through the worktree reader (#164685) * perf(state): carry admitted schema facts with database handles Refresh freshness at read admission and after BEGIN while reusing handle-owned facts for runtime schema checks. Validate canonical triggers before exposing agent readers and classify shared-state failures only after failed admission. Focused runtime checks execute zero SQL statements, versus 30 with the baseline owner. Preserve foreign-commit and snapshot semantics. Full workload measurement and remote integration checks remain merge preconditions after remote runner and fleet-capacity admission failed. * perf(agents): run per-turn session-entry patches through the worker Route audited writer claims, live-model-switch bookkeeping, and pending-final preparation, settlement, and cleanup through the existing agent executor. Preserve native opaque SDK callbacks and the excluded lifecycle and cron paths. The paired isolated Gateway workload reduces native patch transactions from 8 to 2 per warmed turn and target-site SQL from 48 to 12. Overall main-thread SQL averages 648.5 to 493.4 statements per warmed turn. Lifecycle persistence remains follow-up work after #142236; cron preparation remains with #161105. Local caller, settlement, error identity, import-boundary, cycle, and database ratchet proof passes. Full build, changed checks, and released SDK diff remain explicit merge preconditions under the maintainer's validation instruction. * test(outbound): align recovery fixtures with queue state Create and read producer-recovery sessions under the same explicit shared-state root as their delivery queue. Worker-backed pending-final settlement correctly rejects the previous fixture ownership mismatch. Preserve durable payloads and all existing assertions. * fix(state): preserve worker handoffs during schema admission Use the existing worker generation claim for maintenance metadata instead of retaining a host read handle. Keep both live ownership checks around the required transaction-entry freshness probe. Consolidate shared-state cache initialization, refresh, and terminal failures in its admission sibling and update the compiled-wrapper inventory. This keeps the cache within the existing module-size limit without changing stored schema or quarantine semantics. Focused maintenance, ownership, schema, worker, wrapper, and quarantine proof passed. Independent Codex review is clean through P2. Full landing validation remains required before merge. * test(agents): extract accounting persistence fixture Keep the accounting persistence suite within its line cap by moving fixture construction into a dedicated test-support module. Preserve suite-owned state, immediate operation registration, and every test case and assertion. * fix(state): keep retained handles free of schema probes Refresh canonical readiness when it consumes schema facts. Retention only holds native lifetime, so cold restore and other worker handoffs no longer execute host SQLite before dispatch. Protect foreign schema invalidation at the warm readiness fast path. Tighten retained-reader budgets to the optimized counts, and require early missing-table diagnosis before callbacks while preserving handle-cleanup assertions. Validation: 93 focused tests, production types, state/config test types, and independent review clean through P2. * perf(agents): read worktree publication lookups in worker Move publication preparation and per-turn tool availability through the existing worktree reader. Capture the physical store and session lifecycle before yielding, refresh availability facts, and preserve live effect guards and branch identity semantics. * test(gateway): document publication reader mock isolation Keep the SQL boundary fixture isolated from session storage, managed-worktree services, configuration, and credential state. Document those boundaries for the new first-party mock-export check. No executable test code, assertions, timeouts, or production behavior changes. The mock-export check, formatter, reader tests, and scoped P2 review pass.",
+      "title": "test(state): intercept crash admission without an unbound method",
+      "link": "https://github.com/openclaw/openclaw/commit/edae0298da2332cecac7913f90e59f2052361db1",
+      "publishedAt": "2026-10-04T15:22:22Z",
+      "summary": "test(state): intercept crash admission without an unbound method The native crash fixture added an unlisted method suppression, breaking the production suppression inventory on main. Replace prototype extraction with a native SQLite subclass and super.prepare(), preserving the integrity-scan pause without expanding the allowlist or weakening assertions. The unchanged suppression suite passes all three tests (29.11s shard wall). The existing eight-case crash fixture reaches its IPC pause before and after the change (7.72s and 10.20s). Independent review through P2 is clean. No production behavior changes.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(agents): read worktree publication and tool availability through…",
-      "summaryZh": "重點：perf(agents): read worktree publication and tool availability through the worktree reader (#164685) * perf(state): carry..."
+      "titleZh": "OpenClaw 程式碼更新：test(state): intercept crash admission without an unbound method",
+      "summaryZh": "重點：test(state): intercept crash admission without an unbound method The native crash 修正ture added an unlisted method suppre..."
     },
     {
       "id": 5,
