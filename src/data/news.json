@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-04T15:42:42.850Z",
+  "generatedAt": "2026-10-04T19:15:56.837Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(chat): model picker spins on every message (#164963)",
-      "link": "https://github.com/openclaw/openclaw/commit/fdba2abd7edae0b6b5aa2573886556e3dedadbcd",
-      "publishedAt": "2026-10-04T15:42:32Z",
-      "summary": "fix(chat): model picker spins on every message (#164963) * fix(chat): model picker spins on every message Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: 8a6158f8-fea3-4b57-9ee4-9e1c136b8ef1 * test(chat): keep pending model observation quiet Preserve mounted-pane and reentrant fallback coverage while expecting the new non-busy model picker before run observation. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: vyctorbrzezowski",
+      "title": "refactor(sessions): run lifecycle and deletion transactions in the ag…",
+      "link": "https://github.com/openclaw/openclaw/commit/d4fa0c8d4410cf5fc130a23a26f11e64006a6cb4",
+      "publishedAt": "2026-10-04T19:13:52Z",
+      "summary": "refactor(sessions): run lifecycle and deletion transactions in the agent executor (compound 3b) (#164922) * refactor(sessions): run lifecycle and deletion in the agent executor Move durable lifecycle planning, audited native-participant reclamation, and exact message rewrites into the existing executor. Preserve reversible precommit vetoes, conditional compensation, unknown-outcome blocking, current grants, and accepted settlement at close. Retain the released opaque callback contracts. Keep physical shared-store ownership during rewrites and publish filtered committed lifecycle facts so a delayed receipt cannot report an obsolete reset after a successor. Focused caller, native settlement, import, and real Gateway close-order checks pass. Independent Codex review is clean through P2. No schema, retention, durability, configuration, or update migration changes. * fix(scripts): register session executor worker protocols",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(chat): 模型 picker spins on every message (#164963)",
-      "summaryZh": "重點：修正(chat): 模型 picker spins on every message (#164963) * 修正(chat): 模型 picker spins on every message Worked on by: - @vycto..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): run lifecycle and deletion transactions in the ag…",
+      "summaryZh": "重點：refactor(sessions): run lifecycle and deletion transactions in the agent executor (compound 3b) (#164922) * refactor(ses..."
     },
     {
       "id": 2,
-      "title": "fix(ui): remove duplicate person-group filter buttons (#164608)",
-      "link": "https://github.com/openclaw/openclaw/commit/5f9beae28d7d249b61696e1d276107a0c060b7c9",
-      "publishedAt": "2026-10-04T15:41:07Z",
-      "summary": "fix(ui): remove duplicate person-group filter buttons (#164608) * fix(ui): remove duplicate person-group filter buttons Co-authored-by: vyctorbrzezowski * fix(ui): remove duplicate person-group filter buttons Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: cae11c94-4a9c-47c4-bf2b-3bc3f0ca2e7c * test(ui): wait for login readiness before reading secure context Co-authored-by: vyctorbrzezowski --------- Co-authored-by: vyctorbrzezowski",
+      "title": "perf(model-catalog): write remote catalog refreshes through the state…",
+      "link": "https://github.com/openclaw/openclaw/commit/e9b7f1daf4ab43876d2bc4aa59c26aaf38300694",
+      "publishedAt": "2026-10-04T19:10:44Z",
+      "summary": "perf(model-catalog): write remote catalog refreshes through the state writer (#165034) Capture the catalog store before fetching and run refresh reads, bundle replacement, and HTTP 304 metadata updates through the existing state broker. Reread authoritative rows inside synchronous worker transactions and retain live transaction/commit admission. Preserve legacy catalog adoption and newer-write protection. Join accepted writes during Gateway shutdown and name the next scheduled check or manual refresh command when a background refresh fails.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): remove duplicate person-group filter buttons (#164608)",
-      "summaryZh": "重點：修正(ui): remove duplicate person-group filter buttons (#164608) * 修正(ui): remove duplicate person-group filter buttons Co..."
+      "titleZh": "OpenClaw 程式碼更新：perf(模型-catalog): write remote catalog refreshes through the state…",
+      "summaryZh": "重點：perf(模型-catalog): write remote catalog refreshes through the state writer (#165034) Capture the catalog store before fet..."
     },
     {
       "id": 3,
-      "title": "test(gateway,outbound,scripts): remove low-value tests (batch d203) (…",
-      "link": "https://github.com/openclaw/openclaw/commit/9da00b0b92eadc6a31a8fa418b1f9ca9bbce7e7a",
-      "publishedAt": "2026-10-04T15:26:25Z",
-      "summary": "test(gateway,outbound,scripts): remove low-value tests (batch d203) (#164976) * test(gateway): deslop v0020 tests * test(outbound): deslop v0024 tests * test(scripts): deslop v0029 tests * test(state,tui): deslop v0026 tests * test(scripts): deslop v0031 tests * test(scripts): deslop v0030 tests * test(scripts): deslop v0028 tests * test(scripts): deslop v0032 tests * test(scripts): deslop v0033 tests * test(plugins): deslop v0025 tests * test: preserve security guard and current test routing",
+      "title": "fix(release): extend Docker package pack timeout (#165057)",
+      "link": "https://github.com/openclaw/openclaw/commit/44cdde556815c12206afed3d5e068c12ddc5d97f",
+      "publishedAt": "2026-10-04T19:10:09Z",
+      "summary": "fix(release): extend Docker package pack timeout (#165057)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway,outbound,scripts): remove low-value tests (batch d203) (…",
-      "summaryZh": "重點：test(Gateway,outbound,scripts): remove low-value tests (batch d203) (#164976) * test(Gateway): deslop v0020 tests * test..."
+      "titleZh": "OpenClaw 文件更新：修正(版本發布): extend 文件ker package pack timeout (#165057)",
+      "summaryZh": "重點：修正(版本發布): extend 文件ker package pack timeout (#165057)..."
     },
     {
       "id": 4,
-      "title": "test(state): intercept crash admission without an unbound method",
-      "link": "https://github.com/openclaw/openclaw/commit/edae0298da2332cecac7913f90e59f2052361db1",
-      "publishedAt": "2026-10-04T15:22:22Z",
-      "summary": "test(state): intercept crash admission without an unbound method The native crash fixture added an unlisted method suppression, breaking the production suppression inventory on main. Replace prototype extraction with a native SQLite subclass and super.prepare(), preserving the integrity-scan pause without expanding the allowlist or weakening assertions. The unchanged suppression suite passes all three tests (29.11s shard wall). The existing eight-case crash fixture reaches its IPC pause before and after the change (7.72s and 10.20s). Independent review through P2 is clean. No production behavior changes.",
+      "title": "perf(diagnostics): calibrate memory pressure to runtime limits (#165042)",
+      "link": "https://github.com/openclaw/openclaw/commit/301a4be725de4eacc340738b058a8baff84a5a93",
+      "publishedAt": "2026-10-04T19:07:06Z",
+      "summary": "perf(diagnostics): calibrate memory pressure to runtime limits (#165042) Measure main and worker heaps against their actual V8 limits and RSS against host or cgroup capacity. Remove growth-only pressure and fixed byte fallbacks so healthy Gateways retain warm workers. Include measured limits in journal and bundle evidence while keeping critical cleanup asynchronous and Prometheus byte gauges unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(state): intercept crash admission without an unbound method",
-      "summaryZh": "重點：test(state): intercept crash admission without an unbound method The native crash 修正ture added an unlisted method suppre..."
+      "titleZh": "OpenClaw 程式碼更新：perf(diagnostics): calibrate 記憶 pressure to runtime limits (#165042)",
+      "summaryZh": "重點：perf(diagnostics): calibrate 記憶 pressure to runtime limits (#165042) Measure main and worker heaps against their actual ..."
     },
     {
       "id": 5,
