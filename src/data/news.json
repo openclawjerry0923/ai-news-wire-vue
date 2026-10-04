@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-04T19:15:56.837Z",
+  "generatedAt": "2026-10-04T22:49:50.198Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(sessions): run lifecycle and deletion transactions in the ag…",
-      "link": "https://github.com/openclaw/openclaw/commit/d4fa0c8d4410cf5fc130a23a26f11e64006a6cb4",
-      "publishedAt": "2026-10-04T19:13:52Z",
-      "summary": "refactor(sessions): run lifecycle and deletion transactions in the agent executor (compound 3b) (#164922) * refactor(sessions): run lifecycle and deletion in the agent executor Move durable lifecycle planning, audited native-participant reclamation, and exact message rewrites into the existing executor. Preserve reversible precommit vetoes, conditional compensation, unknown-outcome blocking, current grants, and accepted settlement at close. Retain the released opaque callback contracts. Keep physical shared-store ownership during rewrites and publish filtered committed lifecycle facts so a delayed receipt cannot report an obsolete reset after a successor. Focused caller, native settlement, import, and real Gateway close-order checks pass. Independent Codex review is clean through P2. No schema, retention, durability, configuration, or update migration changes. * fix(scripts): register session executor worker protocols",
+      "title": "fix(gateway): stop deferred agent admission from queueing behind othe…",
+      "link": "https://github.com/openclaw/openclaw/commit/c8b847edc7e4e5089cec4b01ca056727f24e279a",
+      "publishedAt": "2026-10-04T22:45:33Z",
+      "summary": "fix(gateway): stop deferred agent admission from queueing behind other agents (#165107) Deferred startup recovery chained every agent's whole preparation (secrets refresh, session migration, model refresh) through one FIFO, so a 12 MB agent waited ~36 minutes behind two slower agents on a starved Gateway, and nothing was logged between deferral and recovery. Open and session migration now run per agent (two open slots, four migration slots, readiness awaited without a slot). Only credential/model publication and final admission keep the FIFO turn, with the existing config, revision, auth-store, model and deletion checks. Migration uses the same agent-database configuration guard as the open step. Recovery and degraded lines now carry elapsedMs and phaseDurationsMs, and a 60 s progress warning names each pending agent's phase and, while waiting for publication, the agent holding the turn.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): run lifecycle and deletion transactions in the ag…",
-      "summaryZh": "重點：refactor(sessions): run lifecycle and deletion transactions in the agent executor (compound 3b) (#164922) * refactor(ses..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop deferred agent admission from queueing behind othe…",
+      "summaryZh": "重點：修正(Gateway): stop deferred agent admission from queueing behind other agents (#165107) Deferred startup recovery chained..."
     },
     {
       "id": 2,
-      "title": "perf(model-catalog): write remote catalog refreshes through the state…",
-      "link": "https://github.com/openclaw/openclaw/commit/e9b7f1daf4ab43876d2bc4aa59c26aaf38300694",
-      "publishedAt": "2026-10-04T19:10:44Z",
-      "summary": "perf(model-catalog): write remote catalog refreshes through the state writer (#165034) Capture the catalog store before fetching and run refresh reads, bundle replacement, and HTTP 304 metadata updates through the existing state broker. Reread authoritative rows inside synchronous worker transactions and retain live transaction/commit admission. Preserve legacy catalog adoption and newer-write protection. Join accepted writes during Gateway shutdown and name the next scheduled check or manual refresh command when a background refresh fails.",
+      "title": "fix(exec): bound sandbox finalization and quiet polling loops (#165167)",
+      "link": "https://github.com/openclaw/openclaw/commit/14bcf5e85d22201fa832069afbf113d22431a590",
+      "publishedAt": "2026-10-04T22:42:49Z",
+      "summary": "fix(exec): bound sandbox finalization and quiet polling loops (#165167) Bound workspace container-control waits while retaining uncertain pause receipts for recovery. Keep idle process hints stable so no-progress polling reaches the existing terminal threshold, and honor owned execution deadlines when classifying quiet tools.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(模型-catalog): write remote catalog refreshes through the state…",
-      "summaryZh": "重點：perf(模型-catalog): write remote catalog refreshes through the state writer (#165034) Capture the catalog store before fet..."
+      "titleZh": "OpenClaw 程式碼更新：修正(exec): bound sandbox finalization and quiet polling loops (#165167)",
+      "summaryZh": "重點：修正(exec): bound sandbox finalization and quiet polling loops (#165167) Bound workspace container-control waits while ret..."
     },
     {
       "id": 3,
-      "title": "fix(release): extend Docker package pack timeout (#165057)",
-      "link": "https://github.com/openclaw/openclaw/commit/44cdde556815c12206afed3d5e068c12ddc5d97f",
-      "publishedAt": "2026-10-04T19:10:09Z",
-      "summary": "fix(release): extend Docker package pack timeout (#165057)",
+      "title": "fix: Telegram sends fail after channel-routed chat handoffs (#165137)",
+      "link": "https://github.com/openclaw/openclaw/commit/228ff5759f6fa8e6933e7eafa7d404355493a68f",
+      "publishedAt": "2026-10-04T22:33:39Z",
+      "summary": "fix: Telegram sends fail after channel-routed chat handoffs (#165137) * fix: Telegram sends fail after channel-routed chat handoffs * fix: preserve chat admission identity when projecting message-tool context * test: use real channel classification for routed CLI replies",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(版本發布): extend 文件ker package pack timeout (#165057)",
-      "summaryZh": "重點：修正(版本發布): extend 文件ker package pack timeout (#165057)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: Telegram sends fail after channel-routed chat handoffs (#165137)",
+      "summaryZh": "重點：修正: Telegram sends fail after channel-routed chat handoffs (#165137) * 修正: Telegram sends fail after channel-routed chat..."
     },
     {
       "id": 4,
-      "title": "perf(diagnostics): calibrate memory pressure to runtime limits (#165042)",
-      "link": "https://github.com/openclaw/openclaw/commit/301a4be725de4eacc340738b058a8baff84a5a93",
-      "publishedAt": "2026-10-04T19:07:06Z",
-      "summary": "perf(diagnostics): calibrate memory pressure to runtime limits (#165042) Measure main and worker heaps against their actual V8 limits and RSS against host or cgroup capacity. Remove growth-only pressure and fixed byte fallbacks so healthy Gateways retain warm workers. Include measured limits in journal and bundle evidence while keeping critical cleanup asynchronous and Prometheus byte gauges unchanged.",
+      "title": "improve: native tool rows show Tool Search calls and every client sha…",
+      "link": "https://github.com/openclaw/openclaw/commit/42ebb9d73483b2d0d55178709b960af363cdd07d",
+      "publishedAt": "2026-10-04T22:23:35Z",
+      "summary": "improve: native tool rows show Tool Search calls and every client shares tool icons (#165095) * fix(apps): show Tool Search tool_call rows as the called tool in native chat With Tool Search enabled, the model invokes tools through the `tool_call` dispatcher (`{ id, args }`). #163829 taught the Control UI and shared TS display to render these as the called tool; the native apps still showed a bare \"Tool Call\" row with no detail. Apply the same presentation-only unwrap at each native display owner: - Swift: ToolDisplayRegistry.displayCall (OpenClawKit) maps tool_call to the called tool (catalog ids openclaw|mcp|client:: resolve to the tool name; plain names pass through; inner args only when they are an object). resolve() applies it, and the chat row uses it for title, detail, icon, diff, and result formatting. macOS work-activity kind and the iOS Live Activity tool name use the display name. The transcript cache keeps only the dispatcher id (plus inner patch input) so cache-restored rows still render the called tool. - Android: unwrapToolCallForDisplay projects ChatToolActivity name, detail, and arguments for history rows and live rows. Execution identity stays raw: toolCallId, stored transcript names, pending live call state, merge/presentation keys, outcomes, approvals, and result extraction (browser tabs, web_search source previews). tool-display.json is unchanged. * refactor(tools): replace tool emoji with shared semantic icons Graphical clients had already moved from tool emoji to icons, but the emoji stayed the source of truth: the Control UI picked its SVG by mapping each tool's emoji through a hand-written table (about 45 of 71 tools fell through to the puzzle), Swift guessed SF Symbols from name substrings, and Android showed a generic list glyph for most tools. Text surfaces still prefixed emoji. The shared tool display config now owns tool iconography: every tool and the fallback carry an `icon`, a semantic name from the Control UI icon set, and `emoji` is gone. tool-display.json is regenerated from the config. - Web reads `icon` directly; the emoji-to-icon and name-override tables are deleted (five foreign alias names translate to canonical tools). Row-kind icons and plugin activity icons keep their precedence. 45 tools that showed a puzzle now get real icons; existing visuals are unchanged. - Swift (OpenClawKit/ChatUI) decodes `icon` and maps it through one SF Symbol table with the web row-kind precedence, replacing the substring heuristic. Android reads the bundled asset once and maps it through one Material table. Each platform has a test asserting every config icon has a glyph. - Text surfaces drop the pictograph: channel progress drafts (Telegram, Slack, Discord, Matrix, Feishu, ...), ACP summaries, tool-meta aggregates, and the TUI now read like `Exec: pnpm test`. The plugin SDK ChannelProgressDraftLine.icon field is unchanged; core no longer sets it, so plain renderers use their existing bullet. - Status reactions are emoji by nature and keep their exact per-tool reaction emoji through a reaction-owned table, no longer coupled to tool display. Docs updated for the plain progress rows and semantic icons. * test(channels): align gateway progress assertions with plain tool labels * test(discord): align consolidated progress expectations Preserve the plain tool labels when main consolidates progress cases into the final-draft suite. * fix(ui): narrow shared tool icon names with a type guard",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(diagnostics): calibrate 記憶 pressure to runtime limits (#165042)",
-      "summaryZh": "重點：perf(diagnostics): calibrate 記憶 pressure to runtime limits (#165042) Measure main and worker heaps against their actual ..."
+      "titleZh": "OpenClaw 程式碼更新：improve: native tool rows show Tool Search calls and every client sha…",
+      "summaryZh": "重點：improve: native tool rows show Tool Search calls and every client shares tool icons (#165095) * 修正(apps): show Tool Sear..."
     },
     {
       "id": 5,
