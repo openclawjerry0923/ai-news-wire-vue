@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-10-04T22:49:50.198Z",
+  "generatedAt": "2026-10-05T01:40:52.626Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(gateway): stop deferred agent admission from queueing behind othe…",
-      "link": "https://github.com/openclaw/openclaw/commit/c8b847edc7e4e5089cec4b01ca056727f24e279a",
-      "publishedAt": "2026-10-04T22:45:33Z",
-      "summary": "fix(gateway): stop deferred agent admission from queueing behind other agents (#165107) Deferred startup recovery chained every agent's whole preparation (secrets refresh, session migration, model refresh) through one FIFO, so a 12 MB agent waited ~36 minutes behind two slower agents on a starved Gateway, and nothing was logged between deferral and recovery. Open and session migration now run per agent (two open slots, four migration slots, readiness awaited without a slot). Only credential/model publication and final admission keep the FIFO turn, with the existing config, revision, auth-store, model and deletion checks. Migration uses the same agent-database configuration guard as the open step. Recovery and degraded lines now carry elapsedMs and phaseDurationsMs, and a 60 s progress warning names each pending agent's phase and, while waiting for publication, the agent holding the turn.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop deferred agent admission from queueing behind othe…",
-      "summaryZh": "重點：修正(Gateway): stop deferred agent admission from queueing behind other agents (#165107) Deferred startup recovery chained..."
+      "title": "Cloudflare開源Clef決策模型，主打快速判斷並整合Workers AI",
+      "link": "https://www.ithome.com.tw/news/179382",
+      "publishedAt": "2026-10-05 08:10:22",
+      "summary": "Cloudflare推出自行訓練的決策模型Clef與Clef-flash，兩款模型已整合至Workers AI，並以Apache 2.0授權開放模型權重。Clef採用與Jev相容的程式介面，既有使用Jev的應用較容易改用Clef，主要用於AI代理進行分類、判斷或決定下一步動作。 決策模型和一般大型語言模型負責的工作不同，大型語言模型可以產生文字、進行推理或操作工具，決策模型則專門處理範圍明確的判斷。開發者先設定可接受的答案，模型讀取輸入資料後，直接回傳符合指定格式的答案及各選項機率。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(exec): bound sandbox finalization and quiet polling loops (#165167)",
-      "link": "https://github.com/openclaw/openclaw/commit/14bcf5e85d22201fa832069afbf113d22431a590",
-      "publishedAt": "2026-10-04T22:42:49Z",
-      "summary": "fix(exec): bound sandbox finalization and quiet polling loops (#165167) Bound workspace container-control waits while retaining uncertain pause receipts for recovery. Keep idle process hints stable so no-progress polling reaches the existing terminal threshold, and honor owned execution deadlines when classifying quiet tools.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): bound sandbox finalization and quiet polling loops (#165167)",
-      "summaryZh": "重點：修正(exec): bound sandbox finalization and quiet polling loops (#165167) Bound workspace container-control waits while ret..."
+      "title": "中國相關網路間諜TA419鎖定美國AI政策圈，假冒前白宮官員進行Microsoft帳號網釣",
+      "link": "https://www.ithome.com.tw/news/179378",
+      "publishedAt": "2026-10-05 08:10:00",
+      "summary": "資安業者Proofpoint揭露中國相關網路間諜組織TA419，該組織至少自2025年4月持續對任職於美國及日本境內智庫、國防承包商、大學及法律事務所的人員，發動以竊取登入憑證為目的的針對性網釣攻擊，今年進一步鎖定美國AI政策圈。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: Telegram sends fail after channel-routed chat handoffs (#165137)",
-      "link": "https://github.com/openclaw/openclaw/commit/228ff5759f6fa8e6933e7eafa7d404355493a68f",
-      "publishedAt": "2026-10-04T22:33:39Z",
-      "summary": "fix: Telegram sends fail after channel-routed chat handoffs (#165137) * fix: Telegram sends fail after channel-routed chat handoffs * fix: preserve chat admission identity when projecting message-tool context * test: use real channel classification for routed CLI replies",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Telegram sends fail after channel-routed chat handoffs (#165137)",
-      "summaryZh": "重點：修正: Telegram sends fail after channel-routed chat handoffs (#165137) * 修正: Telegram sends fail after channel-routed chat..."
+      "title": "微軟示警AI加劇資安攻防速度落差，臺灣觀測到的國家級駭客活動事件數居亞太首位",
+      "link": "https://www.ithome.com.tw/news/179372",
+      "publishedAt": "2026-10-05 08:10:00",
+      "summary": "微軟最新全球網路威脅觀察指出，AI正加快漏洞研究、惡意程式開發及入侵後的攻擊活動。漏洞從實際環境中被發現到遭武器化，中位時間已縮短至遠低於24小時；企業修補重大對外漏洞則可能需要30至60天。過去6個月，攻擊者不只利用AI協助執行攻擊，也開始讓AI協調不同攻擊步驟，朝自主執行網路攻擊發展。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "improve: native tool rows show Tool Search calls and every client sha…",
-      "link": "https://github.com/openclaw/openclaw/commit/42ebb9d73483b2d0d55178709b960af363cdd07d",
-      "publishedAt": "2026-10-04T22:23:35Z",
-      "summary": "improve: native tool rows show Tool Search calls and every client shares tool icons (#165095) * fix(apps): show Tool Search tool_call rows as the called tool in native chat With Tool Search enabled, the model invokes tools through the `tool_call` dispatcher (`{ id, args }`). #163829 taught the Control UI and shared TS display to render these as the called tool; the native apps still showed a bare \"Tool Call\" row with no detail. Apply the same presentation-only unwrap at each native display owner: - Swift: ToolDisplayRegistry.displayCall (OpenClawKit) maps tool_call to the called tool (catalog ids openclaw|mcp|client:: resolve to the tool name; plain names pass through; inner args only when they are an object). resolve() applies it, and the chat row uses it for title, detail, icon, diff, and result formatting. macOS work-activity kind and the iOS Live Activity tool name use the display name. The transcript cache keeps only the dispatcher id (plus inner patch input) so cache-restored rows still render the called tool. - Android: unwrapToolCallForDisplay projects ChatToolActivity name, detail, and arguments for history rows and live rows. Execution identity stays raw: toolCallId, stored transcript names, pending live call state, merge/presentation keys, outcomes, approvals, and result extraction (browser tabs, web_search source previews). tool-display.json is unchanged. * refactor(tools): replace tool emoji with shared semantic icons Graphical clients had already moved from tool emoji to icons, but the emoji stayed the source of truth: the Control UI picked its SVG by mapping each tool's emoji through a hand-written table (about 45 of 71 tools fell through to the puzzle), Swift guessed SF Symbols from name substrings, and Android showed a generic list glyph for most tools. Text surfaces still prefixed emoji. The shared tool display config now owns tool iconography: every tool and the fallback carry an `icon`, a semantic name from the Control UI icon set, and `emoji` is gone. tool-display.json is regenerated from the config. - Web reads `icon` directly; the emoji-to-icon and name-override tables are deleted (five foreign alias names translate to canonical tools). Row-kind icons and plugin activity icons keep their precedence. 45 tools that showed a puzzle now get real icons; existing visuals are unchanged. - Swift (OpenClawKit/ChatUI) decodes `icon` and maps it through one SF Symbol table with the web row-kind precedence, replacing the substring heuristic. Android reads the bundled asset once and maps it through one Material table. Each platform has a test asserting every config icon has a glyph. - Text surfaces drop the pictograph: channel progress drafts (Telegram, Slack, Discord, Matrix, Feishu, ...), ACP summaries, tool-meta aggregates, and the TUI now read like `Exec: pnpm test`. The plugin SDK ChannelProgressDraftLine.icon field is unchanged; core no longer sets it, so plain renderers use their existing bullet. - Status reactions are emoji by nature and keep their exact per-tool reaction emoji through a reaction-owned table, no longer coupled to tool display. Docs updated for the plain progress rows and semantic icons. * test(channels): align gateway progress assertions with plain tool labels * test(discord): align consolidated progress expectations Preserve the plain tool labels when main consolidates progress cases into the final-draft suite. * fix(ui): narrow shared tool icon names with a type guard",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: native tool rows show Tool Search calls and every client sha…",
-      "summaryZh": "重點：improve: native tool rows show Tool Search calls and every client shares tool icons (#165095) * 修正(apps): show Tool Sear..."
+      "title": "AI紅隊平臺新創Armadin完成2.56億美元B輪募資",
+      "link": "https://www.ithome.com.tw/news/179364",
+      "publishedAt": "2026-10-05 08:10:00",
+      "summary": "AI資安新創公司Armadin宣布完成2.56億美元B輪募資，成立以來累計募資達4.45億美元，新資金將用於持續開發旗下平臺、強化相關研究及拓展市場。Armadin由成立資安公司Mandiant而聞名的Kevin Mandia等人創辦，聚焦AI紅隊演練，提供AI代理驅動的攻擊型資安平臺。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "美國 FDA 推動法規轉型，以器官晶片與電腦模型取代動物實驗",
-      "link": "https://technews.tw/2026/10/04/tech-to-replace-animal-testing-is-almost-ready/",
-      "publishedAt": "Sun, 04 Oct 2026 08:30:57 +0000",
-      "summary": "美國以人類細胞、器官晶片與電腦模型取代動物實驗的趨勢，正從實驗室走向監管制度核心。從哈佛大學魏斯研究所（Wys [&#8230;]",
-      "source": "TechNews",
+      "title": "Reco完成5,500萬美元募資，擴大AI代理安全業務",
+      "link": "https://www.ithome.com.tw/news/179363",
+      "publishedAt": "2026-10-05 08:10:00",
+      "summary": "Gartner預測，全球《財星》500大企業平均每家使用的AI代理，將從2025年不到15個增加至2028年超過15萬個。隨著AI代理數量快速增加，企業也需要掌握AI代理的存取權限與範圍。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "法軍打造自主 AI 空戰架構，2028 年測試戰機與無人僚機協同飛行",
-      "link": "https://technews.tw/2026/10/04/french-air-force-is-building-its-own-military-ai-systems/",
-      "publishedAt": "Sun, 04 Oct 2026 08:22:39 +0000",
-      "summary": "隨著各國加速開發無人僚機，法國也開始為新一代空戰模式鋪路，法國空軍與太空軍、軍備總署（DGA）及國防人工智慧機 [&#8230;]",
+      "title": "OpenAI 擴大聯手輝達＋解禁賣壓 Cerebras 股價腰斬",
+      "link": "https://finance.technews.tw/2026/10/05/cerebras-stock-hits-post-ipo-low/",
+      "publishedAt": "Mon, 05 Oct 2026 01:40:12 +0000",
+      "summary": "美國人工智慧（AI）晶片新創公司 Cerebras 上市蜜月期快速退燒。受 OpenAI 部分 AI 推論工作 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "AI 助攻量子設計：德國新創 QC Design 推 Meridian 可壓低邏輯錯誤率逾十倍",
-      "link": "https://technews.tw/2026/10/04/qc-design-reports-10x-logical-error-reduction-with-meridian-ai/",
-      "publishedAt": "Sun, 04 Oct 2026 07:30:00 +0000",
-      "summary": "德國量子軟體新創 QC Design 於 9 月 24 日發表白皮書，公布專為容錯量子運算架構設計打造的 AI [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test(core,plugins,ui): remove low-value tests (batch d208) (#165243)",
+      "link": "https://github.com/openclaw/openclaw/commit/67f261dad075e52f09bc2c47fd7e954fd5cf64b4",
+      "publishedAt": "2026-10-05T01:38:38Z",
+      "summary": "test(core,plugins,ui): remove low-value tests (batch d208) (#165243) * test(slack): deslop w0016 tests * test(auto-reply): deslop w0018 tests * test(ui): deslop w0009 tests * test(gateway): deslop w0021 tests * test(doctor): deslop w0020 tests * test(agents): deslop w0019 tests * test(codex): deslop w0024 tests * test(gateway): deslop w0008 tests * test(commands): deslop w0025 tests * test(system-agent): deslop w0023 tests * test: retain distinct authority and lifecycle coverage * test(slack): share native delivery denial fixtures * test(codex): preserve current command output presentation The moved UTF-16 progress case must retain main’s plain Bash prefix. The prior replay failed checks-node-changed-extensions-bundle-1 on the stale emoji expectation; truncation and surrogate-pair assertions remain unchanged.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(core,plugins,ui): remove low-value tests (batch d208) (#165243)",
+      "summaryZh": "重點：test(core,plugins,ui): remove low-value tests (batch d208) (#165243) * test(slack): deslop w0016 tests * test(auto-reply..."
     },
     {
       "id": 8,
-      "title": "挑戰 99.5% 成功率，NVIDIA 攜鴻海讓機器人組裝 GB300",
-      "link": "https://finance.technews.tw/2026/10/04/nvidia-foxconn-robot/",
-      "publishedAt": "Sun, 04 Oct 2026 06:47:39 +0000",
-      "summary": "AI 伺服器需求持續爆發，如何讓產線自動化程度再往前推，也成為供應鏈下一階段競賽焦點。據 NVIDIA 部落格 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: accept detailed web-search schema rejection (#165223)",
+      "link": "https://github.com/openclaw/openclaw/commit/b9bed02183f2320aaa28249b18b9f445db400431",
+      "publishedAt": "2026-10-05T01:38:26Z",
+      "summary": "fix: accept detailed web-search schema rejection (#165223) Accept the current detailed schema rejection in the synthetic web-search check while retaining unrelated-error controls. Refs #165222.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: accept detailed web-search schema rejection (#165223)",
+      "summaryZh": "重點：修正: accept detailed web-search schema rejection (#165223) Accept the current detailed schema rejection in the synthetic ..."
     },
     {
       "id": 9,
-      "title": "AI 時代的「禮儀」與邊界：人類監督與透明揭露才是核心",
-      "link": "https://technews.tw/2026/10/04/the-rules-of-ai-etiquette/",
-      "publishedAt": "Sun, 04 Oct 2026 06:30:25 +0000",
-      "summary": "生成式 AI 持續滲透教育、法律、音訊創作與內容產製等領域，也讓「AI 禮儀」與使用規範成為新的討論焦點。外界 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: Windows Bun packaging fails to find npm (#165241)",
+      "link": "https://github.com/openclaw/openclaw/commit/7bda48406a627787950298b18238674fe1d1646c",
+      "publishedAt": "2026-10-05T01:34:34Z",
+      "summary": "fix: Windows Bun packaging fails to find npm (#165241) Use the existing bundled-npm owner for Bun tooling and translate native Windows paths at Bash packaging boundaries. Keep explicit Node toolchains, literal arguments, and executable/artifact safeguards. Correct Node-specific runtime fixtures, npm JSON expectations, source-launch setup, and Doctor worker cleanup. Native Node and fork proof includes package manifest 57/57 and terminal 21 pass / 1 existing skip. Supplemental Windows publication still reports the inherited strict process-tree refusal; diagnostics now retain its primary error. Validation: 251 focused tests pass on each local runtime with 33 existing platform skips, both source-capsule assertions pass, full changed checks and P2 review pass, exact-head CI 37250882081 and ClawSweeper are clean.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: Windows Bun packaging fails to find npm (#165241)",
+      "summaryZh": "重點：修正: Windows Bun packaging fails to find npm (#165241) Use the existing bundled-npm owner for Bun tooling and translate n..."
     },
     {
       "id": 10,
-      "title": "THE 世界大學 2027 排名出爐！台灣名次最佳前五大學有一特色",
-      "link": "https://technews.tw/2026/10/04/taiwan-2027-the-rankings/",
-      "publishedAt": "Sun, 04 Oct 2026 06:00:55 +0000",
-      "summary": "英國權威高等教育調查機構「泰晤士高等教育」（THE）於 2026 年 9 月 30 日正式公布最新的 2027 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "chore(ui): refresh control ui locales (#165248)",
+      "link": "https://github.com/openclaw/openclaw/commit/3493b3bff4b68f3545532c5ed21e3255674703af",
+      "publishedAt": "2026-10-05T01:32:33Z",
+      "summary": "chore(ui): refresh control ui locales (#165248) Co-authored-by: github-actions[bot]",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#165248)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#165248) Co-authored-by: github-actions[bot]..."
     }
   ]
 }
