@@ -1,8 +1,79 @@
 {
-  "generatedAt": "2026-10-05T08:31:00.069Z",
+  "generatedAt": "2026-10-05T18:00:46.068Z",
   "items": [
     {
       "id": 1,
+      "title": "perf(sessions): serve remaining per-turn session authority reads from…",
+      "link": "https://github.com/openclaw/openclaw/commit/4bd8ee5fedcb179527daeffffacbfa0920e61132",
+      "publishedAt": "2026-10-05T17:59:07Z",
+      "summary": "perf(sessions): serve remaining per-turn session authority reads from workers (#165028) * perf(sessions): serve remaining per-turn session authority reads from workers Move current chat admission, reply authority, lifecycle preparation, verbosity, and maintenance reads through existing workers. Retain physical source identity and foreign-commit freshness, preserve accepted lifecycle settlement through close, and carry prepared transcript selection facts. * refactor(sessions): finish async admission cutover Join accepted event batches and listener settlement in fixtures. Keep restart metadata preparation with the work-admission owner and make callback this contracts explicit. * test(sessions): drain the merged event subscription fixture Use the existing async-aware event subscription helper in the consolidated verbosity test. The previous merge retained the plain unsubscribe callback while awaiting its drain method, causing a TypeError before the assertions. The corrected event-handler file passes all 82 tests. Together with the four unchanged passing files, the integrated focused group covers 163 cases. The one-line fixture correction is clean through P2 autoreview. * test(gateway): finish async lifecycle fixture cutover Await asynchronous agent-event consumers and projection disposal. Move lifecycle fault injection to prepared callbacks, and track accepted writes through owner-controlled persistence before fixture cleanup. Initialize runtime config before observing row publications. * test(gateway): preserve lifecycle fixture module exports Use partial mocks for lifecycle preparation, session entry writes, and worker reads. Remove the three obsolete mock-factory baseline entries. The five affected tests, typed core lint, mock-export scanner, and P2 review pass. * test(gateway): serialize malformed-row fixture writes Join the physical-store writer queue before inserting the malformed fixture row. Session replacement starts asynchronous maintenance; an uncoordinated synchronous host write can block the admission callback a worker needs to release its SQLite lock. Preserve the raw bytes, post-admission position, lack of publication, and all assertions. The original lock reproduced in CI and one of five head controls; the targeted repaired case, typed lint, formatting, and P2 review pass. The separate slow handle-cap case remains recorded in local controls. * test(gateway): settle Talk fixture lifecycle work before reseeding Join observed request and root work, accepted lifecycle preparation, and transcript publication before clearing the shared Talk fixture. Writer queue draining alone cannot see preparation still waiting on worker reads. Reuse the existing observer and preparation tracker; preserve every Talk behavior assertion and the real persistence path. A controlled probe showed cleanup could outpace accepted preparation, but did not identify the exact CI conflicting writer. The repaired Node 24 full file passes all eight cases; its exact CI merge/shard composition passes all 297 tests. Typed lint, formatting, and P2 review pass. No timer, retry, production API, or per-test Gateway boot is added. * test(reply): isolate Slack lease cleanup from admission readiness Keep request admission on its real scheduler and control only post-resolver handoff and final settlement with fake time. Replace the one-second resolver poll with an explicit owned gate, preserve delivery assertions, and verify lease release at its configured 25 ms bound. Move the unchanged Slack fixture into the existing harness to satisfy the line cap. All 132 dispatch cases pass; an omitted final release still fails the lease assertion; P2 review is clean. * test(gateway): share private completion recorder assertions Move the unchanged recorder checks into existing private-completion fixture support while preserving the parent callback and current-session binding. This resolves the Testbox line-cap failure without removing assertions or changing deadlines. Full private-completion proof passes 23 cases in 338.21 seconds; typed lint, line cap, formatting, and P2 review pass. * refactor(meetings): keep fixture-only types in test support * test(gateway): reuse session projection fixture seeds * test(gateway): construct complete exporter method descriptors Use the production plugin descriptor constructor so the synthetic RPC fixture supplies the required profileAccess contract. The handler-map conversion helper returns input descriptors intended for later normalization, not the completed descriptors stored by the plugin registry. Keep the same lazy handlers, method names, admin scope, and runtime assertions. The exact failing root-test type graph and all ten method-registry cases pass. * test(gateway): align projection fixture comment with main * fix(sessions): fence sharing snapshots after writer admission A row publication before ordered FIFO admission describes state the coming snapshot will include. Starting the outer fence earlier can exhaust its refresh budget and reject current sharing facts before dispatch starts. Validate retained discovery and begin the caller fence after every selected FIFO is admitted, before the first snapshot. Keep physical-store, alias, source, and revocation fencing active during capture and consumption. The new callback is internal and performs no SQL or database admission. A real-membership regression fails on the previous owner and passes after this change. Existing lookup, ordered-read, and pending-input owner suites pass, as do all 12 ACP completion cases locally. The isolated regression takes 11.98s wall time including wrapper setup; no timeout, retry, or assertion was weakened. Scoped lint, types, and P2 review pass.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): serve remaining per-turn session authority reads from…",
+      "summaryZh": "重點：perf(sessions): serve remaining per-turn session authority reads from workers (#165028) * perf(sessions): serve remainin..."
+    },
+    {
+      "id": 2,
+      "title": "fix(sessions): fence sharing snapshots after writer admission",
+      "link": "https://github.com/openclaw/openclaw/commit/d511ab92b63ae9709ff13eb87da9c4707060dbc4",
+      "publishedAt": "2026-10-05T17:44:59Z",
+      "summary": "fix(sessions): fence sharing snapshots after writer admission A row publication before ordered FIFO admission describes state the coming snapshot will include. Starting the outer fence earlier can exhaust its refresh budget and reject current sharing facts before dispatch starts. Validate retained discovery and begin the caller fence after every selected FIFO is admitted, before the first snapshot. Keep physical-store, alias, source, and revocation fencing active during capture and consumption. The new callback is internal and performs no SQL or database admission. A real-membership regression fails on the previous owner and passes after this change. Existing lookup, ordered-read, and pending-input owner suites pass, as do all 12 ACP completion cases locally. The isolated regression takes 11.98s wall time including wrapper setup; no timeout, retry, or assertion was weakened. Scoped lint, types, and P2 review pass.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): fence sharing snapshots after writer admission",
+      "summaryZh": "重點：修正(sessions): fence sharing snapshots after writer admission A row publication before ordered FIFO admission describes s..."
+    },
+    {
+      "id": 3,
+      "title": "fix: restore status Git probe fixture for full checkouts (#165697)",
+      "link": "https://github.com/openclaw/openclaw/commit/2b3b9e3b326e77470a8375621a2413070c3c6f47",
+      "publishedAt": "2026-10-05T17:43:28Z",
+      "summary": "fix: restore status Git probe fixture for full checkouts (#165697) Correct the status Git-probe fixture to report a full checkout, restoring its normal update-status assertion. Closes #165690.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: restore status Git probe 修正ture for full checkouts (#165697)",
+      "summaryZh": "重點：修正: restore status Git probe 修正ture for full checkouts (#165697) Correct the status Git-probe 修正ture to report a full ch..."
+    },
+    {
+      "id": 4,
+      "title": "fix: preserve safe Testbox admission diagnostics (#165693)",
+      "link": "https://github.com/openclaw/openclaw/commit/4c4e42aabbe9230b582b7be5bed77f5840077bdd",
+      "publishedAt": "2026-10-05T17:38:55Z",
+      "summary": "fix: preserve safe Testbox admission diagnostics (#165693) Preserve bounded GitHub request and rate-limit diagnostics when Testbox admission fails. Fixes #165650.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: preserve safe Testbox admission diagnostics (#165693)",
+      "summaryZh": "重點：修正: preserve safe Testbox admission diagnostics (#165693) Preserve bounded GitHub request and rate-limit diagnostics whe..."
+    },
+    {
+      "id": 5,
+      "title": "宛如月球誕生重演，韋伯望遠鏡捕捉外星系「行星級劇烈碰撞」新證據",
+      "link": "https://technews.tw/2026/10/05/star-collision_extreme-debris-disk/",
+      "publishedAt": "Mon, 05 Oct 2026 14:14:00 +0000",
+      "summary": "在太陽系形成早期，科學家認為一顆約火星大小的天體「忒伊亞」（Theia）曾撞擊初生地球，大量岩石因撞擊而汽化並 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "愛普*9月營收11.89 億元",
+      "link": "https://finance.technews.tw/2026/10/05/ap-memory-6531-202609-financial-report/",
+      "publishedAt": "Mon, 05 Oct 2026 14:10:05 +0000",
+      "summary": "愛普*（6531）今（5）日公布 9 月營收，達 11.89 億元，較 8 月成長 15.3%，較去年同期成長 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "華邦電 9 月營收年增逾 250%，預計前 10 個月營收將突破 2,000 億元",
+      "link": "https://finance.technews.tw/2026/10/05/winbond-electronics-september-revenue-increased-by-over-250-year-on-year/",
+      "publishedAt": "Mon, 05 Oct 2026 12:45:46 +0000",
+      "summary": "記憶體大廠華邦電最新營收表現搶眼，公司結算2026年9月含子公司新唐科技等之合併營收為新台幣282.49億元， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "Rust預告停止32位元Windows主機工具，開發者需改採交叉編譯",
       "link": "https://www.ithome.com.tw/news/179393",
       "publishedAt": "2026-10-05 12:10:27",
@@ -11,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 9,
       "title": "駭客組織ShinyHunters成員在約旦遭捕，據報將協助FBI追查同夥",
       "link": "https://www.ithome.com.tw/news/179404",
       "publishedAt": "2026-10-05 12:10:00",
@@ -20,84 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 10,
       "title": "AI導致低品質報告氾濫，arXiv將限制報告每月提交最多2篇",
       "link": "https://www.ithome.com.tw/news/179401",
       "publishedAt": "2026-10-05 11:10:57",
       "summary": "由於AI生成的低品質報告氾濫造成管理負擔，知名論文發布平臺arXiv上周更新論文發布規範，限制每個月每人僅能提交最多2篇論文，而審稿論文最多只能有3篇論文。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "管理員下AI提示出錯，致美珍香洩露近10萬會員資料",
-      "link": "https://www.ithome.com.tw/news/179402",
-      "publishedAt": "2026-10-05 11:10:55",
-      "summary": "知名食品業者美珍香（Bee Cheng Hiang）今年4月發生一起因AI行銷工具下錯提示，導致超過9.5萬會員的電子郵件信箱等個資外洩。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "Dell修補容器儲存套件CSM 13個漏洞，含兩個CVSS滿分漏洞",
-      "link": "https://www.ithome.com.tw/news/179395",
-      "publishedAt": "2026-10-05 11:10:55",
-      "summary": "Dell於10月1日發布Container Storage Modules（CSM）更新，修補13個自身程式碼漏洞，包括6個CVSS 9.6分以上的重大漏洞。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "美國CISA警告Citirx NetScaler漏洞遭積極利用，要求聯邦機構緊急修補",
-      "link": "https://www.ithome.com.tw/news/179397",
-      "publishedAt": "2026-10-05 11:10:51",
-      "summary": "10月4日美國網路安全與基礎設施安全局（CISA）表示，他們已掌握Citrix NetScaler漏洞CVE-2026-88779遭到利用的證據，將其加入已遭利用的漏洞名單（KEV），聯邦機構必須在10月7日前",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(memory): session indexing fails with \"database is locked\" on roll…",
-      "link": "https://github.com/openclaw/openclaw/commit/6272c4760b9d0d540514a899f7302e05f4cfcf77",
-      "publishedAt": "2026-10-05T08:29:14Z",
-      "summary": "fix(memory): session indexing fails with \"database is locked\" on rollback-journal agent databases (#164624) * fix(memory): session indexing fails with \"database is locked\" on rollback-journal agent databases Worker admission reran writeChunks' assertCurrent, which read the session tombstone table on the host connection. Under rollback journaling a large replacement spills the page cache and takes EXCLUSIVE before COMMIT, so the host read waited its full busy timeout on its own Worker and the publication rolled back. Read tombstones in prepare, before BEGIN, instead. * test(memory): simplify publication admission regression guards Keep the rollback-journal lock constraint explicit and restore typed SQLite guards after admission. Preserve the contributor fix and assert committed chunks and search results without private call counters. --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): session indexing fails with \"database is locked\" on roll…",
-      "summaryZh": "重點：修正(記憶): session indexing fails with \"database is locked\" on rollback-journal agent databases (#164624) * 修正(記憶): session..."
-    },
-    {
-      "id": 8,
-      "title": "fix(ui): give the pinned-items pencil its own sidebar slot and lead w…",
-      "link": "https://github.com/openclaw/openclaw/commit/dce12d2fe478f6a44a343386a58ed3c40d50badd",
-      "publishedAt": "2026-10-05T08:26:23Z",
-      "summary": "fix(ui): give the pinned-items pencil its own sidebar slot and lead with the reorder grip (#165199) The Control UI sidebar's \"Edit pinned items\" pencil now has its own trailing slot in the lead row instead of floating as an absolute overlay, and nav reorder grips sit in the row's leading gutter. The two no longer collide on hover. The pencil stays anchored to the parent row when the lead entry is an expanded plugin group. The translateX workarounds that moved Home badges out of the pencil's way are removed.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): give the pinned-items pencil its own sidebar slot and lead w…",
-      "summaryZh": "重點：修正(ui): give the pinned-items pencil its own sidebar slot and lead with the reorder grip (#165199) The Control UI sideba..."
-    },
-    {
-      "id": 9,
-      "title": "refactor(extensions): deslop memory-wiki and GitHub publication (#165…",
-      "link": "https://github.com/openclaw/openclaw/commit/a9f4080f9749a14fdd1c7225f341b0941d2b61cb",
-      "publishedAt": "2026-10-05T08:18:54Z",
-      "summary": "refactor(extensions): deslop memory-wiki and GitHub publication (#165407) * refactor(memory-wiki): deslop memory-wiki Consolidate query scoring, report and lint metadata, import preparation, source adapters, and normalization-owned result types without changing configuration, persisted state, CLI/RPC/tool surfaces, or recovery fences. Remove 909 net production lines (13,320 to 12,411). Exclude claim-health and status because another active deslop PR owns those files. The existing wiki suite passed 488 tests across 45 files with one platform skip before those overlapping edits were withdrawn. No tests or assertions changed. Independent review's recovery-deduplication concern was rejected after verifying the retained existing-path guard, unique scan/singleton callers, private record ownership, and passing crash/reopen and recovery retry coverage. * chore(memory-wiki): shrink assertion baseline * refactor(memory-wiki): retain typed snapshot projections * refactor(github): deslop publication internals * fix(github): preserve live publication worktree owner errors Keep retired or replaced worktrees absent during shared publication discovery while rejecting a recorded live worktree owned by another logical session. The existing shared-receipt regression failed before this fix; all 561 publication tests pass with it. * refactor(github): clarify publication callback ownership",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(extensions): deslop 記憶-wiki and GitHub publication (#165…",
-      "summaryZh": "重點：refactor(extensions): deslop 記憶-wiki and GitHub publication (#165407) * refactor(記憶-wiki): deslop 記憶-wiki Consolidate qu..."
-    },
-    {
-      "id": 10,
-      "title": "test(chat): await progress, foreground, and capability owners in view…",
-      "link": "https://github.com/openclaw/openclaw/commit/b658e685c314d154946358293b190e1fd3ad7c4d",
-      "publishedAt": "2026-10-05T08:15:32Z",
-      "summary": "test(chat): await progress, foreground, and capability owners in view model tests (#165170) * test(chat): replace polling waits with owned completion signals Await bootstrap, send, foreground, event, and retry tasks or deadline-free fake arrivals and observed state; isolate periodic recovery in foreground fixtures. Return existing foreground, chat, progress-card, and Swarm settling tasks without changing behavior or increasing production line count. * test(chat): drop assertions repeated by observed waits * style(chat): drop the redundant return in resumeFromForeground",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(chat): await progress, foreground, and capability owners in view…",
-      "summaryZh": "重點：test(chat): await progress, foreground, and capability owners in view 模型 tests (#165170) * test(chat): replace polling w..."
     }
   ]
 }
