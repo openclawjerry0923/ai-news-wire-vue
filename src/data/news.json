@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-10-06T07:15:18.552Z",
+  "generatedAt": "2026-10-06T14:47:58.243Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(update): avoid duplicate snapshots during candidate readiness (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/b5d202d49f508b9ff2dc392775d0fc9d0525d3aa",
+      "publishedAt": "2026-10-06T14:47:13Z",
+      "summary": "fix(update): avoid duplicate snapshots during candidate readiness (#166126) Only await warning work when a warning exists. Keep fresh checks around readiness probes and real warning writes. Four cold-state polls now create eight snapshots instead of sixteen; preserve recovery detection during a probe.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid duplicate snapshots during candidate readiness (#1…",
+      "summaryZh": "重點：修正(update): avoid duplicate snapshots during candidate readiness (#166126) Only await warning work when a warning exists..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ui): clear parent unread dot left by hidden subagent runs (#165792)",
+      "link": "https://github.com/openclaw/openclaw/commit/bff90d69144ceec82e75f92d59c3a29ec7876351",
+      "publishedAt": "2026-10-06T14:30:32Z",
+      "summary": "fix(ui): clear parent unread dot left by hidden subagent runs (#165792) Hidden subagent runs (which have no sidebar row since #151470) could leave a parent session, or Home, showing an unread dot forever. Opening the parent and Mark as read only acknowledged the parent row, and an ordinary parent's menu offered Mark as unread instead of Mark as read. Opening a parent or Home now also acknowledges its hidden runs. The session menu sees hidden-run unread, so Mark as read is offered and clears it. Proof: a real built Gateway and Chromium, with a scripted `sessions_spawn` hidden run that finishes unread. On main the dot stays after opening the parent, and the menu offers only Mark as unread. With this change, opening the parent or Home clears it, the menu offers Mark as read, and choosing it clears the dot. New hidden activity brings the dot back, and visible-child and unrelated session unread markers are unaffected. The regression tests fail on base and pass here. Before and after screenshots are in the PR. Related: #165709 Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): clear parent unread dot left by hidden subagent runs (#165792)",
+      "summaryZh": "重點：修正(ui): clear parent unread dot left by hidden subagent runs (#165792) Hidden subagent runs (which have no sidebar row s..."
+    },
+    {
+      "id": 3,
+      "title": "fix(ui): clear false message attention during active delivery (#166124)",
+      "link": "https://github.com/openclaw/openclaw/commit/6693bb9665ced2a4fea3e286f62acfd0116e2c72",
+      "publishedAt": "2026-10-06T13:47:25Z",
+      "summary": "fix(ui): clear false message attention during active delivery (#166124) * fix(ui): synchronize outbox attention with live delivery Use the gateway outbox owner for sidebar and native attention counts, and refresh consumers when live delivery changes. Preserve genuine failures across selected and background panes. * fix(ui): keep attention registry independent of chat runtime Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): clear false message attention during active delivery (#166124)",
+      "summaryZh": "重點：修正(ui): clear false message attention during active delivery (#166124) * 修正(ui): synchronize outbox attention with live ..."
+    },
+    {
+      "id": 4,
+      "title": "fix(heartbeat): report a background command's result when its output …",
+      "link": "https://github.com/openclaw/openclaw/commit/1a5524f70f5c29af364fe4a10acda0d5782cf809",
+      "publishedAt": "2026-10-06T13:36:03Z",
+      "summary": "fix(heartbeat): report a background command's result when its output went to a file (#166123) A successful background command whose output went elsewhere (e.g. redirected to a file) now wakes the conversation with \"Exec completed (, code 0) without captured stdout/stderr.\" through the normal continuation prompt, instead of \"no command output was found. Reply NO_REPLY only\", so the agent can finish its own follow-up (read the file, report). Routine completions still stay silent. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): report a background command's result when its output …",
+      "summaryZh": "重點：修正(heartbeat): report a background command's result when its output went to a file (#166123) A successful background com..."
+    },
+    {
+      "id": 5,
+      "title": "104 人力銀行遭駭客入侵，12 萬筆履歷資料遭未授權讀取",
+      "link": "https://finance.technews.tw/2026/10/06/104-corporation-hacked/",
+      "publishedAt": "Tue, 06 Oct 2026 13:18:44 +0000",
+      "summary": "104 人力銀行母公司一零四資訊科技今日晚間發布重大訊息，說明該公司發生網路資安事件。104 人力銀行指出，該 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "聯電 9 月營收創歷史新高，AI 營收將大幅成長帶動代工價格",
+      "link": "https://finance.technews.tw/2026/10/06/umcs-september-revenue-hit-a-record-high/",
+      "publishedAt": "Tue, 06 Oct 2026 12:15:53 +0000",
+      "summary": "晶圓代工大廠聯電9月合併營收達253.5億元，成功刷新單月歷史新高紀錄。受惠於22奈米業務持續放量以及8吋晶圓 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "持續提升產品安全，永恒數位網路視訊監控系統導入雙因素身分驗證",
       "link": "https://www.ithome.com.tw/news/179432",
       "publishedAt": "2026-10-06 12:10:56",
@@ -11,7 +73,16 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
+      "title": "2026 諾貝爾物理學獎一人獨得，美籍學者推動南極天文台活捉宇宙微中子",
+      "link": "https://technews.tw/2026/10/06/francis-halzen-icecube-neutrino-nobel-prize-in-physics/",
+      "publishedAt": "Tue, 06 Oct 2026 11:15:45 +0000",
+      "summary": "宇宙最難以捉摸的粒子——微中子，幾乎不與物質交互作用，卻能原封不動攜帶宇宙最劇烈事件資訊直抵地球，是追蹤神祕宇 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "日經新聞員工M365帳號遭到入侵，被用於發布約9,000封釣魚信",
       "link": "https://www.ithome.com.tw/news/179429",
       "publishedAt": "2026-10-06 11:10:40",
@@ -20,84 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 10,
       "title": "JetBrains縮減KMP的Swift開發工具支援，Swift程式碼改由Xcode等工具處理",
       "link": "https://www.ithome.com.tw/news/179428",
       "publishedAt": "2026-10-06 11:10:37",
       "summary": "JetBrains宣布，從IntelliJ IDEA 2026.3與Android Studio Rabbit 2 | 2026.2.2開始，Kotlin Multiplatform（KMP）外掛將停止提供Swift程式碼編輯功能，包括語法上色、檔案導覽，以及在Swift與Kotlin程式碼之間直接跳轉。不過，開發者仍可執行iOS應用程式，也能在iOS裝置上除錯Kotlin程式碼。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "Reflection AI推出首款開放權重模型Beam，要挑戰中國GLM-5.2",
-      "link": "https://www.ithome.com.tw/news/179430",
-      "publishedAt": "2026-10-06 11:10:26",
-      "summary": "Reflection AI周一（10/5）發表首款開放權重模型Beam，採用稀疏型混合專家（MoE）架構，總參數量5010億、每次推理啟用230億個參數，主攻程式開發、推理及AI代理人工作負載。Reflection AI表示，Beam在程式開發及代理人任務上的表現可與中國智譜AI（Z.ai）的GLM-5.2競爭。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "OpenSSL修補14個漏洞，包含可能造成當機與服務阻斷的高風險漏洞",
-      "link": "https://www.ithome.com.tw/news/179431",
-      "publishedAt": "2026-10-06 11:10:13",
-      "summary": "OpenSSL專案於9月29日發布資安公告，修補OpenSSL加密通訊函式庫14個漏洞，涵蓋DTLS、QUIC、X.509、SM2等元件，包括4.0、3.6、3.5、3.4、3.0、1.1.1及1.0.2等分支版本都受影響，其中3.0以前版本已結束一般公開支援，目前僅提供購買Premium Support的用戶修補版本，其餘版本的用戶則可依使用版本，升級至已修補的4.0.3、3.6.5、3.5.9及3.4.8版。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Dell修補伺服器部署工具DSU 5個漏洞，含可能導致攻擊者取得root權限的重大漏洞",
-      "link": "https://www.ithome.com.tw/news/179427",
-      "publishedAt": "2026-10-06 11:10:00",
-      "summary": "Dell於10月1日發布命令列部署工具DSU（Dell System Update）更新，修補5個漏洞，涵蓋路徑穿越、權限配置及存取控制等問題。DSU是Dell用於 搭配PowerEdge伺服器的部署工具，可供管理員在伺服器的Linux與Windows系統上部署BIOS、韌體及軟體更新，用戶應儘速升級至已完成修補的2.3.0.0以上版本。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(gateway): keep Codex selectable after startup (#165979)",
-      "link": "https://github.com/openclaw/openclaw/commit/e48b6092788e499e60548ff03636175faed4cbbb",
-      "publishedAt": "2026-10-06T07:05:47Z",
-      "summary": "fix(gateway): keep Codex selectable after startup (#165979) Preserve the authored config alongside catalog-enriched runtime defaults during startup secret activation, including reused preflight and the no-secret path. This prevents catalog capabilities from becoming authored transport overrides that incorrectly exclude Codex on official OpenAI Responses routes. Keep endpoint and credential compatibility unchanged. Cover all three startup credential paths through the route resolver and assert published startup auth.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep Codex selectable after startup (#165979)",
-      "summaryZh": "重點：修正(Gateway): keep Codex selectable after startup (#165979) Preserve the authored config alongside catalog-enriched runti..."
-    },
-    {
-      "id": 8,
-      "title": "fix(release): repair beta validation blockers (#165977)",
-      "link": "https://github.com/openclaw/openclaw/commit/48b40f4909f63e8140972fe81492c5286579ca38",
-      "publishedAt": "2026-10-06T07:03:54Z",
-      "summary": "fix(release): repair beta validation blockers (#165977)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): repair beta validation blockers (#165977)",
-      "summaryZh": "重點：修正(版本發布): repair beta validation blockers (#165977)..."
-    },
-    {
-      "id": 9,
-      "title": "fix(ui): keep passive chat viewers following incoming turns (#165484)",
-      "link": "https://github.com/openclaw/openclaw/commit/cd060c5fde7434b5834a46bd5b181047db28c021",
-      "publishedAt": "2026-10-06T07:00:15Z",
-      "summary": "fix(ui): keep passive chat viewers following incoming turns (#165484) Let reader scroll intent own transcript following regardless of which client started a turn. Remove remote-input tracking and typing-specific anchor clears, while preserving scrollback, restoration, prepend anchors, and manual commands. Cover remote arrivals and deferred typing growth with regressions that fail on the original implementation. Mocked Gateway browser proof keeps following viewers at the end and preserves reading anchors across two client contexts.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep passive chat viewers following incoming turns (#165484)",
-      "summaryZh": "重點：修正(ui): keep passive chat viewers following incoming turns (#165484) Let reader scroll intent own transcript following r..."
-    },
-    {
-      "id": 10,
-      "title": "fix: allow plugin queue modes and require safe X guest queues (#165965)",
-      "link": "https://github.com/openclaw/openclaw/commit/0c6af8bb3e8c83a9a29a34ea3a6962731062eb87",
-      "publishedAt": "2026-10-06T06:57:32Z",
-      "summary": "fix: allow plugin queue modes and require safe X guest queues (#165965)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: allow plugin queue modes and require safe X guest queues (#165965)",
-      "summaryZh": "重點：修正: allow plugin queue modes and require safe X guest queues (#165965)..."
     }
   ]
 }
