@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-06T14:47:58.243Z",
+  "generatedAt": "2026-10-06T20:00:00.395Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(update): avoid duplicate snapshots during candidate readiness (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/b5d202d49f508b9ff2dc392775d0fc9d0525d3aa",
-      "publishedAt": "2026-10-06T14:47:13Z",
-      "summary": "fix(update): avoid duplicate snapshots during candidate readiness (#166126) Only await warning work when a warning exists. Keep fresh checks around readiness probes and real warning writes. Four cold-state polls now create eight snapshots instead of sixteen; preserve recovery detection during a probe.",
+      "title": "fix(llama-cpp): managed setup crashes and loops on macOS below 13.3 (…",
+      "link": "https://github.com/openclaw/openclaw/commit/8f5c33c30d710d34c01a017a05f0ccbff8315452",
+      "publishedAt": "2026-10-06T19:54:06Z",
+      "summary": "fix(llama-cpp): managed setup crashes and loops on macOS below 13.3 (#163358) * fix(llama-cpp): explain the macOS 13.3 floor instead of a dyld crash and retry loop The pinned b10809 macOS archives (x64 and arm64) are built with minos 13.3, and libggml-blas imports Accelerate's `_cblas_sgemm$NEWLAPACK$ILP64`, which macOS 12 does not export. On those hosts guided and embedding-only setup downloaded the build, failed with a raw `dyld: Symbol not found`, and told the user to retry, which can never succeed. Read the product version with sw_vers before reusing or downloading a macOS build and refuse below 13.3 with the route that works: build llama-server for that Mac and point models.providers.llama-cpp .localService.command at it, or use a remote provider. An unreadable version keeps the existing launch check as the guard. Host refusals, including the existing Linux glibc and musl checks, now throw UnsupportedLlamaServerHostError, and guided setup drops its \"run doctor, then retry\" advice for them. Fixes #128879 * test(llama-cpp): keep the install cancellation test host-independent On macOS hosts the default asset is a Darwin build, so the new sw_vers probe ran through the test's deferred execFile mock and doubled the call count. Answer sw_vers immediately, hold only the server version probe, and count server probes by command. * fix(llama-cpp): keep reusing a validating server on older macOS The macOS floor ran before the reuse branch, so guided setup on macOS 12 refused a self-built llama-server already in the managed install path even though it passes the pinned-build validation. Reuse any build that validates; on macOS below 13.3 turn a failed validation into the host-limit error with the launch failure as its cause, and gate only fresh downloads up front. * fix(llama-cpp): refuse unsupported hosts before any download Managed setup previously downloaded the embedding model (and, in chat mode, the chat GGUF) before calling into ensureLlamaServerInstalled, where the macOS 13.3 and Linux glibc checks live. On unsupported hosts the eventual refusal was correct, but hundreds of megabytes were already fetched for a dead-end install. Call ensureLlamaServerInstalled at the top of runLlamaCppSetup's try block instead, before any ensureLlamaCppModel call. Its validate-and- reuse branch (`installLlamaServer` returns an installed+validating server on any macOS version before asserting the OS floor) is preserved, so an older Mac with a self-built binary at the pinned release still reaches guided setup success — the earlier attempt that bypassed reuse via an unconditional host assertion is dropped. The nested call from prepareManagedLlamaServer later hits installationPromises as a cheap no-op. Tested on macOS 12.7.6 iMac11,2 (Core i3-540, no AVX): embedding-only setup refuses with the host-support message immediately when no installed server exists, with no GGUF download attempt and no dyld crash. The validating-server reuse path through guided setup is covered by a new regression test. * test(llama-cpp): exercise unreadable macOS version handling Reach the version probe from a failing installed server, preserve the launch error, fix setup test formatting, and clarify later runtime revalidation. No executable production behavior changes. Co-authored-by: VACInc --------- Co-authored-by: xXG0DLessXx Co-authored-by: NovaUnboundAi Co-authored-by: roboclaw-bot Co-authored-by: VACInc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid duplicate snapshots during candidate readiness (#1…",
-      "summaryZh": "重點：修正(update): avoid duplicate snapshots during candidate readiness (#166126) Only await warning work when a warning exists..."
+      "titleZh": "OpenClaw 程式碼更新：修正(llama-cpp): managed setup crashes and loops on macOS below 13.3 (…",
+      "summaryZh": "重點：修正(llama-cpp): managed setup crashes and loops on macOS below 13.3 (#163358) * 修正(llama-cpp): explain the macOS 13.3 flo..."
     },
     {
       "id": 2,
-      "title": "fix(ui): clear parent unread dot left by hidden subagent runs (#165792)",
-      "link": "https://github.com/openclaw/openclaw/commit/bff90d69144ceec82e75f92d59c3a29ec7876351",
-      "publishedAt": "2026-10-06T14:30:32Z",
-      "summary": "fix(ui): clear parent unread dot left by hidden subagent runs (#165792) Hidden subagent runs (which have no sidebar row since #151470) could leave a parent session, or Home, showing an unread dot forever. Opening the parent and Mark as read only acknowledged the parent row, and an ordinary parent's menu offered Mark as unread instead of Mark as read. Opening a parent or Home now also acknowledges its hidden runs. The session menu sees hidden-run unread, so Mark as read is offered and clears it. Proof: a real built Gateway and Chromium, with a scripted `sessions_spawn` hidden run that finishes unread. On main the dot stays after opening the parent, and the menu offers only Mark as unread. With this change, opening the parent or Home clears it, the menu offers Mark as read, and choosing it clears the dot. New hidden activity brings the dot back, and visible-child and unrelated session unread markers are unaffected. The regression tests fail on base and pass here. Before and after screenshots are in the PR. Related: #165709 Co-authored-by: Ayaan Zaidi",
+      "title": "perf(worktrees): avoid full session parsing during GC (#166072)",
+      "link": "https://github.com/openclaw/openclaw/commit/4de57f22aa1dcd118ec156a08588adb1b54404bd",
+      "publishedAt": "2026-10-06T19:38:26Z",
+      "summary": "perf(worktrees): avoid full session parsing during GC (#166072) * perf(worktrees): avoid full session parsing during GC Batch narrow session owner facts for each GC pass while preserving fresh reads at destructive mutation guards. Share canonical store selection with single-entry worker reads and defer cleanup for uncertain metadata. * test(worktrees): align CLI fixture with owner census * perf(worktrees): simplify batched owner selection Capture logical identities before yielding and share each agent's selected stores. Preserve bound incognito roots through the logical reader and cover that composition with the existing actor test.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): clear parent unread dot left by hidden subagent runs (#165792)",
-      "summaryZh": "重點：修正(ui): clear parent unread dot left by hidden subagent runs (#165792) Hidden subagent runs (which have no sidebar row s..."
+      "titleZh": "OpenClaw 程式碼更新：perf(worktrees): avoid full session parsing during GC (#166072)",
+      "summaryZh": "重點：perf(worktrees): avoid full session parsing during GC (#166072) * perf(worktrees): avoid full session parsing during GC ..."
     },
     {
       "id": 3,
-      "title": "fix(ui): clear false message attention during active delivery (#166124)",
-      "link": "https://github.com/openclaw/openclaw/commit/6693bb9665ced2a4fea3e286f62acfd0116e2c72",
-      "publishedAt": "2026-10-06T13:47:25Z",
-      "summary": "fix(ui): clear false message attention during active delivery (#166124) * fix(ui): synchronize outbox attention with live delivery Use the gateway outbox owner for sidebar and native attention counts, and refresh consumers when live delivery changes. Preserve genuine failures across selected and background panes. * fix(ui): keep attention registry independent of chat runtime Co-authored-by: Vincent Koc",
+      "title": "fix(update): recover stopped legacy managed services (#166232)",
+      "link": "https://github.com/openclaw/openclaw/commit/76beb568588720ed7d9cfafc4c8730637afe7532",
+      "publishedAt": "2026-10-06T19:12:10Z",
+      "summary": "fix(update): recover stopped legacy managed services (#166232)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): clear false message attention during active delivery (#166124)",
-      "summaryZh": "重點：修正(ui): clear false message attention during active delivery (#166124) * 修正(ui): synchronize outbox attention with live ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): recover stopped legacy managed services (#166232)",
+      "summaryZh": "重點：修正(update): recover stopped legacy managed services (#166232)..."
     },
     {
       "id": 4,
-      "title": "fix(heartbeat): report a background command's result when its output …",
-      "link": "https://github.com/openclaw/openclaw/commit/1a5524f70f5c29af364fe4a10acda0d5782cf809",
-      "publishedAt": "2026-10-06T13:36:03Z",
-      "summary": "fix(heartbeat): report a background command's result when its output went to a file (#166123) A successful background command whose output went elsewhere (e.g. redirected to a file) now wakes the conversation with \"Exec completed (, code 0) without captured stdout/stderr.\" through the normal continuation prompt, instead of \"no command output was found. Reply NO_REPLY only\", so the agent can finish its own follow-up (read the file, report). Routine completions still stay silent. Co-authored-by: Ayaan Zaidi",
+      "title": "perf(gateway): stream bounded link preview metadata (#166195)",
+      "link": "https://github.com/openclaw/openclaw/commit/cc7e664dfe34fd3b0bd53473dc10d033dc5c0e29",
+      "publishedAt": "2026-10-06T18:50:28Z",
+      "summary": "perf(gateway): stream bounded link preview metadata (#166195) * perf(gateway): stream bounded link preview metadata Read only the bounded HTML head instead of building a full page DOM. Preserve anonymous URL caching, metadata precedence, public URL guards, and image validation. * test(qa): avoid package bootstrap in session runtime proofs",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): report a background command's result when its output …",
-      "summaryZh": "重點：修正(heartbeat): report a background command's result when its output went to a file (#166123) A successful background com..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): stream bounded link preview metadata (#166195)",
+      "summaryZh": "重點：perf(Gateway): stream bounded link preview metadata (#166195) * perf(Gateway): stream bounded link preview metadata Read..."
     },
     {
       "id": 5,
