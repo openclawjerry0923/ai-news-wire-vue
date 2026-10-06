@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-10-05T18:00:46.068Z",
+  "generatedAt": "2026-10-06T00:37:18.800Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(sessions): serve remaining per-turn session authority reads from…",
-      "link": "https://github.com/openclaw/openclaw/commit/4bd8ee5fedcb179527daeffffacbfa0920e61132",
-      "publishedAt": "2026-10-05T17:59:07Z",
-      "summary": "perf(sessions): serve remaining per-turn session authority reads from workers (#165028) * perf(sessions): serve remaining per-turn session authority reads from workers Move current chat admission, reply authority, lifecycle preparation, verbosity, and maintenance reads through existing workers. Retain physical source identity and foreign-commit freshness, preserve accepted lifecycle settlement through close, and carry prepared transcript selection facts. * refactor(sessions): finish async admission cutover Join accepted event batches and listener settlement in fixtures. Keep restart metadata preparation with the work-admission owner and make callback this contracts explicit. * test(sessions): drain the merged event subscription fixture Use the existing async-aware event subscription helper in the consolidated verbosity test. The previous merge retained the plain unsubscribe callback while awaiting its drain method, causing a TypeError before the assertions. The corrected event-handler file passes all 82 tests. Together with the four unchanged passing files, the integrated focused group covers 163 cases. The one-line fixture correction is clean through P2 autoreview. * test(gateway): finish async lifecycle fixture cutover Await asynchronous agent-event consumers and projection disposal. Move lifecycle fault injection to prepared callbacks, and track accepted writes through owner-controlled persistence before fixture cleanup. Initialize runtime config before observing row publications. * test(gateway): preserve lifecycle fixture module exports Use partial mocks for lifecycle preparation, session entry writes, and worker reads. Remove the three obsolete mock-factory baseline entries. The five affected tests, typed core lint, mock-export scanner, and P2 review pass. * test(gateway): serialize malformed-row fixture writes Join the physical-store writer queue before inserting the malformed fixture row. Session replacement starts asynchronous maintenance; an uncoordinated synchronous host write can block the admission callback a worker needs to release its SQLite lock. Preserve the raw bytes, post-admission position, lack of publication, and all assertions. The original lock reproduced in CI and one of five head controls; the targeted repaired case, typed lint, formatting, and P2 review pass. The separate slow handle-cap case remains recorded in local controls. * test(gateway): settle Talk fixture lifecycle work before reseeding Join observed request and root work, accepted lifecycle preparation, and transcript publication before clearing the shared Talk fixture. Writer queue draining alone cannot see preparation still waiting on worker reads. Reuse the existing observer and preparation tracker; preserve every Talk behavior assertion and the real persistence path. A controlled probe showed cleanup could outpace accepted preparation, but did not identify the exact CI conflicting writer. The repaired Node 24 full file passes all eight cases; its exact CI merge/shard composition passes all 297 tests. Typed lint, formatting, and P2 review pass. No timer, retry, production API, or per-test Gateway boot is added. * test(reply): isolate Slack lease cleanup from admission readiness Keep request admission on its real scheduler and control only post-resolver handoff and final settlement with fake time. Replace the one-second resolver poll with an explicit owned gate, preserve delivery assertions, and verify lease release at its configured 25 ms bound. Move the unchanged Slack fixture into the existing harness to satisfy the line cap. All 132 dispatch cases pass; an omitted final release still fails the lease assertion; P2 review is clean. * test(gateway): share private completion recorder assertions Move the unchanged recorder checks into existing private-completion fixture support while preserving the parent callback and current-session binding. This resolves the Testbox line-cap failure without removing assertions or changing deadlines. Full private-completion proof passes 23 cases in 338.21 seconds; typed lint, line cap, formatting, and P2 review pass. * refactor(meetings): keep fixture-only types in test support * test(gateway): reuse session projection fixture seeds * test(gateway): construct complete exporter method descriptors Use the production plugin descriptor constructor so the synthetic RPC fixture supplies the required profileAccess contract. The handler-map conversion helper returns input descriptors intended for later normalization, not the completed descriptors stored by the plugin registry. Keep the same lazy handlers, method names, admin scope, and runtime assertions. The exact failing root-test type graph and all ten method-registry cases pass. * test(gateway): align projection fixture comment with main * fix(sessions): fence sharing snapshots after writer admission A row publication before ordered FIFO admission describes state the coming snapshot will include. Starting the outer fence earlier can exhaust its refresh budget and reject current sharing facts before dispatch starts. Validate retained discovery and begin the caller fence after every selected FIFO is admitted, before the first snapshot. Keep physical-store, alias, source, and revocation fencing active during capture and consumption. The new callback is internal and performs no SQL or database admission. A real-membership regression fails on the previous owner and passes after this change. Existing lookup, ordered-read, and pending-input owner suites pass, as do all 12 ACP completion cases locally. The isolated regression takes 11.98s wall time including wrapper setup; no timeout, retry, or assertion was weakened. Scoped lint, types, and P2 review pass.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): serve remaining per-turn session authority reads from…",
-      "summaryZh": "重點：perf(sessions): serve remaining per-turn session authority reads from workers (#165028) * perf(sessions): serve remainin..."
+      "title": "Google Spanner資料庫內建訊息佇列，同筆交易處理AI代理資料更新與任務派送",
+      "link": "https://www.ithome.com.tw/news/179417",
+      "publishedAt": "2026-10-06 08:10:01",
+      "summary": "Google替分散式資料庫Spanner加入原生訊息佇列功能，讓應用程式可以在同一筆資料庫交易中，同時更新資料並加入後續任務。兩個動作會一起成功或一起取消，避免AI代理已經改變資料狀態，後續工作卻沒有執行。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(sessions): fence sharing snapshots after writer admission",
-      "link": "https://github.com/openclaw/openclaw/commit/d511ab92b63ae9709ff13eb87da9c4707060dbc4",
-      "publishedAt": "2026-10-05T17:44:59Z",
-      "summary": "fix(sessions): fence sharing snapshots after writer admission A row publication before ordered FIFO admission describes state the coming snapshot will include. Starting the outer fence earlier can exhaust its refresh budget and reject current sharing facts before dispatch starts. Validate retained discovery and begin the caller fence after every selected FIFO is admitted, before the first snapshot. Keep physical-store, alias, source, and revocation fencing active during capture and consumption. The new callback is internal and performs no SQL or database admission. A real-membership regression fails on the previous owner and passes after this change. Existing lookup, ordered-read, and pending-input owner suites pass, as do all 12 ACP completion cases locally. The isolated regression takes 11.98s wall time including wrapper setup; no timeout, retry, or assertion was weakened. Scoped lint, types, and P2 review pass.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): fence sharing snapshots after writer admission",
-      "summaryZh": "重點：修正(sessions): fence sharing snapshots after writer admission A row publication before ordered FIFO admission describes s..."
+      "title": "南韓金融業接連遭網路攻擊，金融主管機關FSC召開緊急會議",
+      "link": "https://www.ithome.com.tw/news/179422",
+      "publishedAt": "2026-10-06 08:10:00",
+      "summary": "南韓多家大型銀行近期接連發生網路攻擊與個資外洩事件。南韓金融委員會（Financial Services Commission，FSC）已召開緊急會議，要求金融機構全面檢查可從外部存取的IT資產與服務，確認是否存在安全漏洞及存取控制問題。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: restore status Git probe fixture for full checkouts (#165697)",
-      "link": "https://github.com/openclaw/openclaw/commit/2b3b9e3b326e77470a8375621a2413070c3c6f47",
-      "publishedAt": "2026-10-05T17:43:28Z",
-      "summary": "fix: restore status Git probe fixture for full checkouts (#165697) Correct the status Git-probe fixture to report a full checkout, restoring its normal update-status assertion. Closes #165690.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore status Git probe 修正ture for full checkouts (#165697)",
-      "summaryZh": "重點：修正: restore status Git probe 修正ture for full checkouts (#165697) Correct the status Git-probe 修正ture to report a full ch..."
+      "title": "Unsloth Studio存在任意程式碼執行漏洞，檢查模型資訊時就可能觸發",
+      "link": "https://www.ithome.com.tw/news/179390",
+      "publishedAt": "2026-10-06 08:10:00",
+      "summary": "AI資安業者Pillar Security近期揭露，用於LLM微調及量化的開源函式庫Unsloth，其Web操作介面Unsloth Studio存在任意程式碼執行漏洞，使用Unsloth 2026.5.10及之前版本執行Studio者受到影響。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix: preserve safe Testbox admission diagnostics (#165693)",
-      "link": "https://github.com/openclaw/openclaw/commit/4c4e42aabbe9230b582b7be5bed77f5840077bdd",
-      "publishedAt": "2026-10-05T17:38:55Z",
-      "summary": "fix: preserve safe Testbox admission diagnostics (#165693) Preserve bounded GitHub request and rate-limit diagnostics when Testbox admission fails. Fixes #165650.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve safe Testbox admission diagnostics (#165693)",
-      "summaryZh": "重點：修正: preserve safe Testbox admission diagnostics (#165693) Preserve bounded GitHub request and rate-limit diagnostics whe..."
+      "title": "攻擊者濫用ChatGPT Custom GPT發動ClickFix攻擊，誘騙使用者植入木馬",
+      "link": "https://www.ithome.com.tw/news/179389",
+      "publishedAt": "2026-10-06 08:10:00",
+      "summary": "使用ChatGPT的企業與一般使用者需要留意Custom GPT遭攻擊者濫用的風險。資安業者Huntress近日發現，攻擊者建立名為「Plus 5.6」的Custom GPT。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "宛如月球誕生重演，韋伯望遠鏡捕捉外星系「行星級劇烈碰撞」新證據",
-      "link": "https://technews.tw/2026/10/05/star-collision_extreme-debris-disk/",
-      "publishedAt": "Mon, 05 Oct 2026 14:14:00 +0000",
-      "summary": "在太陽系形成早期，科學家認為一顆約火星大小的天體「忒伊亞」（Theia）曾撞擊初生地球，大量岩石因撞擊而汽化並 [&#8230;]",
-      "source": "TechNews",
+      "title": "硬體權杖驗證軟體Thales SConnect爆重大漏洞，金融與政府舊版用戶恐有風險",
+      "link": "https://www.ithome.com.tw/news/179388",
+      "publishedAt": "2026-10-06 08:10:00",
+      "summary": "仍在使用法國科技業者Thales旗下舊版硬體權杖驗證軟體SConnect的組織，需要留意CVE-2026-18397。這項漏洞的CVSS 4.0風險分數為9.4分，屬重大漏洞。使用者若透過瀏覽器載入攻擊者控制的惡意網頁內容，攻擊者可能利用漏洞在其電腦執行程式碼。SConnect曾用於環球銀行金融電信協會（SWIFT）的3SKey硬體權杖驗證。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "愛普*9月營收11.89 億元",
-      "link": "https://finance.technews.tw/2026/10/05/ap-memory-6531-202609-financial-report/",
-      "publishedAt": "Mon, 05 Oct 2026 14:10:05 +0000",
-      "summary": "愛普*（6531）今（5）日公布 9 月營收，達 11.89 億元，較 8 月成長 15.3%，較去年同期成長 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: verify ClawHub after release finalization retries (#165877)",
+      "link": "https://github.com/openclaw/openclaw/commit/2f1e555cc58fae3cfee13a21d0dd39a98634f181",
+      "publishedAt": "2026-10-06T00:34:25Z",
+      "summary": "fix: verify ClawHub after release finalization retries (#165877) Verify ClawHub publication after release finalization retries using the retained successful dispatch producer and its immutable evidence. Fixes #165848.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: verify ClawHub after 版本發布 finalization retries (#165877)",
+      "summaryZh": "重點：修正: verify ClawHub after 版本發布 finalization retries (#165877) Verify ClawHub publication after 版本發布 finalization retries ..."
     },
     {
       "id": 7,
-      "title": "華邦電 9 月營收年增逾 250%，預計前 10 個月營收將突破 2,000 億元",
-      "link": "https://finance.technews.tw/2026/10/05/winbond-electronics-september-revenue-increased-by-over-250-year-on-year/",
-      "publishedAt": "Mon, 05 Oct 2026 12:45:46 +0000",
-      "summary": "記憶體大廠華邦電最新營收表現搶眼，公司結算2026年9月含子公司新唐科技等之合併營收為新台幣282.49億元， [&#8230;]",
+      "title": "為阻止核災可以虐待人嗎？AI 模型竟給男女用戶不同答案",
+      "link": "https://technews.tw/2026/10/06/gender-bias-across-llms-is-common-and-highly-heterogeneous/",
+      "publishedAt": "Tue, 06 Oct 2026 00:30:46 +0000",
+      "summary": "一項最新研究顯示，不同大型語言模型在性別偏見與道德判斷上的表現差異極大，甚至出現截然相反的結果。研究團隊比較了 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "Rust預告停止32位元Windows主機工具，開發者需改採交叉編譯",
-      "link": "https://www.ithome.com.tw/news/179393",
-      "publishedAt": "2026-10-05 12:10:27",
-      "summary": "Rust團隊預告，從Rust 1.100開始，不再替32位元Windows提供可直接執行的Rust編譯器等開發工具。開發者仍可製作32位元Windows程式，但之後必須改在64位元Windows等受支援的電腦上完成編譯，再產生供32位元Windows執行的程式。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "refactor(sessions): move strict harness transcript appends into worke…",
+      "link": "https://github.com/openclaw/openclaw/commit/eb405f0d5c50d7d858617d701cc03328c08d4afb",
+      "publishedAt": "2026-10-06T00:27:01Z",
+      "summary": "refactor(sessions): move strict harness transcript appends into workers (#165793) * refactor(sessions): move strict harness transcript appends into workers Prepare harness messages outside transactions and validate live source authority only after replay recognition. Preserve released synchronous callbacks while adding awaited strict preparation, carrying native binding authority through worker grants, and settling each preparation once. * test(agentsapi): type transcript authority mock as callable * fix(sessions): satisfy transcript preparation CI contracts Wrap commit guards on the writer's private message copies while preserving the original callback. Share the Copilot mock's typed async preparation helper so suppression and display behavior follow the SDK contract. Full frozen-dependency changed checks and focused regressions pass; independent P2 review is clean.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(sessions): move strict harness transcript appends into worke…",
+      "summaryZh": "重點：refactor(sessions): move strict harness transcript appends into workers (#165793) * refactor(sessions): move strict harn..."
     },
     {
       "id": 9,
-      "title": "駭客組織ShinyHunters成員在約旦遭捕，據報將協助FBI追查同夥",
-      "link": "https://www.ithome.com.tw/news/179404",
-      "publishedAt": "2026-10-05 12:10:00",
-      "summary": "繼荷蘭警方於9月29日證實逮捕疑似駭客組織ShinyHunters成員後，又有一該組織成員被捕。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test(node-host): stabilize cancelled command termination (#165867)",
+      "link": "https://github.com/openclaw/openclaw/commit/5f0a95cbf1bd5a61cff1fbce851d3ee8fe639138",
+      "publishedAt": "2026-10-06T00:23:09Z",
+      "summary": "test(node-host): stabilize cancelled command termination (#165867)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(node-host): stabilize cancelled command termination (#165867)",
+      "summaryZh": "重點：test(node-host): stabilize cancelled command termination (#165867)..."
     },
     {
       "id": 10,
-      "title": "AI導致低品質報告氾濫，arXiv將限制報告每月提交最多2篇",
-      "link": "https://www.ithome.com.tw/news/179401",
-      "publishedAt": "2026-10-05 11:10:57",
-      "summary": "由於AI生成的低品質報告氾濫造成管理負擔，知名論文發布平臺arXiv上周更新論文發布規範，限制每個月每人僅能提交最多2篇論文，而審稿論文最多只能有3篇論文。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test(reply): assert direct source-only follow-up admission",
+      "link": "https://github.com/openclaw/openclaw/commit/80d27bdf9111d1aa2d5c1334432d099a6dd4a4f7",
+      "publishedAt": "2026-10-06T00:21:49Z",
+      "summary": "test(reply): assert direct source-only follow-up admission The source-only reservation path from #165788 enqueues a follow-up directly; it no longer creates a parked steering candidate. Keep the queued/unaborted source and no-backend-injection assertions, and verify the exact follow-up admission instead of the retired intermediate callback. The original assertion fails in all five PR-head and five main-base runs, and in scheduled main CI 37388801510. The corrected file passes all 20 tests with --maxWorkers=1; P2 review is clean.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(reply): assert direct source-only follow-up admission",
+      "summaryZh": "重點：test(reply): assert direct source-only follow-up admission The source-only reservation path from #165788 enqueues a foll..."
     }
   ]
 }
