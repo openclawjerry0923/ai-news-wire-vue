@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-10-07T11:34:42.038Z",
+  "generatedAt": "2026-10-07T18:33:55.910Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(ui): consolidate page rendering and state ownership (#166682)",
+      "link": "https://github.com/openclaw/openclaw/commit/4581d2ae6d12c823dff66177cfd57ec5fdf3feea",
+      "publishedAt": "2026-10-07T18:22:52Z",
+      "summary": "refactor(ui): consolidate page rendering and state ownership (#166682) * refactor(ui): consolidate page rendering and state ownership * refactor(ui): resolve page consolidation lint findings",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): consolidate page rendering and state ownership (#166682)",
+      "summaryZh": "重點：refactor(ui): consolidate page rendering and state ownership (#166682) * refactor(ui): consolidate page rendering and st..."
+    },
+    {
+      "id": 2,
+      "title": "perf(sessions): retain transcript previews across metadata edits (#16…",
+      "link": "https://github.com/openclaw/openclaw/commit/e73b64b7f620e79844064a945447bbbb2a1f15d8",
+      "publishedAt": "2026-10-07T18:19:22Z",
+      "summary": "perf(sessions): retain transcript previews across metadata edits (#166635) * perf(sessions): retain transcript previews across metadata edits Keep backfill revisions tied to transcript watermarks and fallback inputs, preserving completed and in-flight work across unrelated metadata changes. Invalidate repaired transcript projections explicitly and release revisions with row residency. Cover metadata edit counts, held preview publication, and stored model changes through the resident projection and real session writers. * fix(sessions): preserve backfills across readiness changes * test(gateway): stop awaiting metadata transcript backfills",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): retain transcript previews across metadata edits (#16…",
+      "summaryZh": "重點：perf(sessions): retain transcript previews across metadata edits (#166635) * perf(sessions): retain transcript previews ..."
+    },
+    {
+      "id": 3,
+      "title": "fix: generate chat titles from the supplied source message (#166308)",
+      "link": "https://github.com/openclaw/openclaw/commit/8c939f5b9215964ba41d33e34fa286e706fe7798",
+      "publishedAt": "2026-10-07T18:18:42Z",
+      "summary": "fix: generate chat titles from the supplied source message (#166308) Generate dashboard and Telegram DM-topic titles from the supplied source message instead of injected harness context, and ask the title model for plain text so labels never come back wrapped in the JSON input envelope. Related: #163817 Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: generate chat titles from the supplied source message (#166308)",
+      "summaryZh": "重點：修正: generate chat titles from the supplied source message (#166308) Generate dashboard and Telegram DM-topic titles from..."
+    },
+    {
+      "id": 4,
+      "title": "refactor: consolidate doctor migrations and update workflows",
+      "link": "https://github.com/openclaw/openclaw/commit/16095df1d75095e182d9742c86b63d319772fcfd",
+      "publishedAt": "2026-10-07T18:17:38Z",
+      "summary": "refactor: consolidate doctor migrations and update workflows Consolidate Doctor migration and repair mechanics, plugin handling, and updater execution context while preserving CLI text, configuration and persisted shapes, shipped migration support, and recovery authority checks. Remove 1,512 net production lines. Validation passed 4,478 tests across 305 files, the controlled original-base/current-head finalizer comparisons, changed checks, zero runtime/Madge cycles, independent P0-P2 review, and exact-head hosted CI.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：refactor: consolidate 文件tor migrations and update workflows",
+      "summaryZh": "重點：refactor: consolidate 文件tor migrations and update workflows Consolidate 文件tor migration and repair mechanics, plugin han..."
+    },
+    {
+      "id": 5,
       "title": "Apache HTTP Server發布2.4.69版修補20個漏洞，包含3個重大漏洞",
       "link": "https://www.ithome.com.tw/news/179473",
       "publishedAt": "2026-10-07 12:10:08",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "OpenAI用內部模型挑戰4,000道數學問題，公開722篇研究手稿",
       "link": "https://www.ithome.com.tw/news/179471",
       "publishedAt": "2026-10-07 12:10:01",
@@ -20,18 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(heartbeat): deliver Android notification wakes when heartbeat.eve…",
-      "link": "https://github.com/openclaw/openclaw/commit/de38a04548251cbd6cc7e190c1470412c077908b",
-      "publishedAt": "2026-10-07T11:13:23Z",
-      "summary": "fix(heartbeat): deliver Android notification wakes when heartbeat.every is 0m (#166522) * test(heartbeat): cover node notification wakes with disabled cadence * fix(heartbeat): deliver node notification wakes with disabled cadence The node notifications.changed handler requests its wake as notifications-event/event/notifications-event, but the unscheduled-wake policy only admitted the immediate/\"wake\" shape used by system events and cron. With heartbeat.every \"0m\" both admission gates rejected the wake. Closes #166508 Co-authored-by: Jay Zhou",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): deliver Android notification wakes when heartbeat.eve…",
-      "summaryZh": "重點：修正(heartbeat): deliver Android notification wakes when heartbeat.every is 0m (#166522) * test(heartbeat): cover node not..."
-    },
-    {
-      "id": 4,
+      "id": 7,
       "title": "FBI傳與Accenture的承包商解約，疑因未修補PeopleSoft漏洞造成ShinyHunters入侵",
       "link": "https://www.ithome.com.tw/news/179467",
       "publishedAt": "2026-10-07 11:10:57",
@@ -40,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 8,
       "title": "Atlassian揭露影響旗下8款主要應用系統的任意檔案讀取漏洞",
       "link": "https://www.ithome.com.tw/news/179469",
       "publishedAt": "2026-10-07 11:10:27",
@@ -49,46 +82,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "Anthropic擴大資安Claude存取計畫，Glasswing半年找到逾12萬漏洞",
       "link": "https://www.ithome.com.tw/news/179470",
       "publishedAt": "2026-10-07 11:10:13",
       "summary": "Anthropic周二（10/6）宣布擴大Cyber Verification Program（CVP），整合原本分開運作的Project Glasswing，並重新分為3個資安存取層級，讓通過驗證的資安團隊可依工作需求，取得限制較少的Claude模型能力。Anthropic同時公布Project Glasswing成果，指出合作夥伴自今年4月至7月間已發現至少12.9萬個經驗證的軟體漏洞。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test(update): assert the detailed Node runtime refusal",
-      "link": "https://github.com/openclaw/openclaw/commit/19cc8e6568f28df938905306fee31d1082478d98",
-      "publishedAt": "2026-10-07T11:06:10Z",
-      "summary": "test(update): assert the detailed Node runtime refusal The target-runtime admission case still exits with code 1, records node-runtime-preflight, and refuses package installation. Its exact output expectation predates the named check and installation diagnostics in #166410. Require the complete current refusal: engines.node, target requirement, detected Node version and executable, resolved install root, entrypoint, Gateway ownership context, and unchanged recovery guidance. Keep every refusal and no-install assertion. Production behavior is unchanged. Validation: both reported update files passed 69 tests on Testbox; 143 update siblings and preflight-owner files passed under their owning configurations. The full infra configuration covered 1,942 files across six Linux partitions. Four AWS worktree cases correctly rejected the 8 GiB tmpfs capacity; all 11 cases passed on disk-backed scratch with the reserve unchanged. Two inherited Doctor warning assertions were fixed upstream by 0dc209168731. check-changed, CLI update types, lint, boundary lint, three Knip scans, and P2 review passed. The separate SQLite-spy fix landed upstream in 800fce298ba8 and is not duplicated. No test cases or CI work were added.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(update): assert the detailed Node runtime refusal",
-      "summaryZh": "重點：test(update): assert the detailed Node runtime refusal The target-runtime admission case still exits with code 1, record..."
-    },
-    {
-      "id": 8,
-      "title": "fix(worker): replay transient transcript commit failures",
-      "link": "https://github.com/openclaw/openclaw/commit/dfb27239f2b6265dad3d2059926f9cc86c34f2f3",
-      "publishedAt": "2026-10-07T10:59:41Z",
-      "summary": "fix(worker): replay transient transcript commit failures Restore reconnect and exact-batch replay for owner-classified SQLite contention, temporary admission refusals, cancellation, and unavailable workers. Reconcile unknown SQLite worker receipts through the transcript ledger instead of retaining a terminal RPC rejection. Log the original interruption and preserve the existing terminal path for other failures. Exercise the composed worker run across transient errors and a lost commit receipt, asserting completion, one provider call, and no duplicate messages. Keep deterministic failure and lost-ACK replay coverage intact.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(worker): replay transient transcript 提交 failures",
-      "summaryZh": "重點：修正(worker): replay transient transcript 提交 failures Restore reconnect and exact-batch replay for owner-classified SQLite..."
-    },
-    {
-      "id": 9,
-      "title": "test(doctor): match the multi-line managed-admission warning across l…",
-      "link": "https://github.com/openclaw/openclaw/commit/0dc20916873149b6f6803d1eae711c8d44f3de9e",
-      "publishedAt": "2026-10-07T10:50:54Z",
-      "summary": "test(doctor): match the multi-line managed-admission warning across line breaks (#166559) Fixes a pre-existing red on main surfaced while landing #166548.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：test(文件tor): match the multi-line managed-admission warning across l…",
-      "summaryZh": "重點：test(文件tor): match the multi-line managed-admission warning across line breaks (#166559) 修正 a pre-existing red on main s..."
     },
     {
       "id": 10,
