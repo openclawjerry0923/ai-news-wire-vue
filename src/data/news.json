@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T04:46:30.039Z",
+  "generatedAt": "2026-10-07T11:34:42.038Z",
   "items": [
     {
       "id": 1,
@@ -21,7 +21,18 @@
     },
     {
       "id": 3,
-      "title": "FBI傳與Accenture解約，疑因未修補PeopleSoft漏洞造成ShinyHunters入侵",
+      "title": "fix(heartbeat): deliver Android notification wakes when heartbeat.eve…",
+      "link": "https://github.com/openclaw/openclaw/commit/de38a04548251cbd6cc7e190c1470412c077908b",
+      "publishedAt": "2026-10-07T11:13:23Z",
+      "summary": "fix(heartbeat): deliver Android notification wakes when heartbeat.every is 0m (#166522) * test(heartbeat): cover node notification wakes with disabled cadence * fix(heartbeat): deliver node notification wakes with disabled cadence The node notifications.changed handler requests its wake as notifications-event/event/notifications-event, but the unscheduled-wake policy only admitted the immediate/\"wake\" shape used by system events and cron. With heartbeat.every \"0m\" both admission gates rejected the wake. Closes #166508 Co-authored-by: Jay Zhou",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(heartbeat): deliver Android notification wakes when heartbeat.eve…",
+      "summaryZh": "重點：修正(heartbeat): deliver Android notification wakes when heartbeat.every is 0m (#166522) * test(heartbeat): cover node not..."
+    },
+    {
+      "id": 4,
+      "title": "FBI傳與Accenture的承包商解約，疑因未修補PeopleSoft漏洞造成ShinyHunters入侵",
       "link": "https://www.ithome.com.tw/news/179467",
       "publishedAt": "2026-10-07 11:10:57",
       "summary": "美國聯邦調查局（FBI）向路透社證實，已與一家未及時部署修補程式的IT服務承包商解約。FBI資安主管Brett Leatherman表示，調查顯示先前的資料外洩事件，源自第三方管理平臺的資安失誤，承包商未部署已發布的安全更新，FBI因此與該承包商解約，並採取措施降低後續風險。",
@@ -29,7 +40,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Atlassian揭露影響旗下8款主要應用系統的任意檔案讀取漏洞",
       "link": "https://www.ithome.com.tw/news/179469",
       "publishedAt": "2026-10-07 11:10:27",
@@ -38,7 +49,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Anthropic擴大資安Claude存取計畫，Glasswing半年找到逾12萬漏洞",
       "link": "https://www.ithome.com.tw/news/179470",
       "publishedAt": "2026-10-07 11:10:13",
@@ -47,57 +58,46 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "Mozilla推出Firefox 157.0.1更新，修補檔案處理元件弱點",
-      "link": "https://www.ithome.com.tw/news/179464",
-      "publishedAt": "2026-10-07 10:10:29",
-      "summary": "繼上週發布Firefox 157大改版後，本週Mozilla基金會針對該版本推出修補程式。10月6日Mozilla推出Firefox安全性更新157.0.1，這次只有修補一個中度風險漏洞CVE-2026-106016，此弱點存在於檔案處理元件，可被用於繞過特定的緩解措施。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
       "id": 7,
-      "title": "fix(duckduckgo): send an honest User-Agent instead of a spoofed brows…",
-      "link": "https://github.com/openclaw/openclaw/commit/51f4a70164cff99a8cf6ea34989e03ab1bb57884",
-      "publishedAt": "2026-10-07T04:46:25Z",
-      "summary": "fix(duckduckgo): send an honest User-Agent instead of a spoofed browser (#164726) Identify DuckDuckGo web_search requests as openclaw-duckduckgo/ instead of a spoofed desktop Chrome User-Agent, which DuckDuckGo answered with an HTTP 202 bot challenge and surfaced as provider_error. Fixes #164471. Co-authored-by: Krrish Co-authored-by: Copilot Co-authored-by: Ayaan Zaidi",
+      "title": "test(update): assert the detailed Node runtime refusal",
+      "link": "https://github.com/openclaw/openclaw/commit/19cc8e6568f28df938905306fee31d1082478d98",
+      "publishedAt": "2026-10-07T11:06:10Z",
+      "summary": "test(update): assert the detailed Node runtime refusal The target-runtime admission case still exits with code 1, records node-runtime-preflight, and refuses package installation. Its exact output expectation predates the named check and installation diagnostics in #166410. Require the complete current refusal: engines.node, target requirement, detected Node version and executable, resolved install root, entrypoint, Gateway ownership context, and unchanged recovery guidance. Keep every refusal and no-install assertion. Production behavior is unchanged. Validation: both reported update files passed 69 tests on Testbox; 143 update siblings and preflight-owner files passed under their owning configurations. The full infra configuration covered 1,942 files across six Linux partitions. Four AWS worktree cases correctly rejected the 8 GiB tmpfs capacity; all 11 cases passed on disk-backed scratch with the reserve unchanged. Two inherited Doctor warning assertions were fixed upstream by 0dc209168731. check-changed, CLI update types, lint, boundary lint, three Knip scans, and P2 review passed. The separate SQLite-spy fix landed upstream in 800fce298ba8 and is not duplicated. No test cases or CI work were added.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(duckduckgo): send an honest User-Agent instead of a spoofed brows…",
-      "summaryZh": "重點：修正(duckduckgo): send an honest User-Agent instead of a spoofed browser (#164726) Identify DuckDuckGo web_search requests..."
+      "titleZh": "OpenClaw 程式碼更新：test(update): assert the detailed Node runtime refusal",
+      "summaryZh": "重點：test(update): assert the detailed Node runtime refusal The target-runtime admission case still exits with code 1, record..."
     },
     {
       "id": 8,
-      "title": "fix(gateway): stop dashboard title work from blocking session rollove…",
-      "link": "https://github.com/openclaw/openclaw/commit/3c904ae54750cd6b98d5bf2667bd334dcb32a902",
-      "publishedAt": "2026-10-07T04:45:45Z",
-      "summary": "fix(gateway): stop dashboard title work from blocking session rollover (#162689) Make deferred dashboard title work wait for the turn to be released before acquiring session admission, so the first Control UI message after a session reset no longer fails with a rollover drain timeout. Genuine competing session work still serializes rollover, and the guarded title writer still targets the same session identity. Closes #162420. Co-authored-by: Cursor Co-authored-by: Ayaan Zaidi",
+      "title": "fix(worker): replay transient transcript commit failures",
+      "link": "https://github.com/openclaw/openclaw/commit/dfb27239f2b6265dad3d2059926f9cc86c34f2f3",
+      "publishedAt": "2026-10-07T10:59:41Z",
+      "summary": "fix(worker): replay transient transcript commit failures Restore reconnect and exact-batch replay for owner-classified SQLite contention, temporary admission refusals, cancellation, and unavailable workers. Reconcile unknown SQLite worker receipts through the transcript ledger instead of retaining a terminal RPC rejection. Log the original interruption and preserve the existing terminal path for other failures. Exercise the composed worker run across transient errors and a lost commit receipt, asserting completion, one provider call, and no duplicate messages. Keep deterministic failure and lost-ACK replay coverage intact.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): stop dashboard title work from blocking session rollove…",
-      "summaryZh": "重點：修正(Gateway): stop dashboard title work from blocking session rollover (#162689) Make deferred dashboard title work wait ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(worker): replay transient transcript 提交 failures",
+      "summaryZh": "重點：修正(worker): replay transient transcript 提交 failures Restore reconnect and exact-batch replay for owner-classified SQLite..."
     },
     {
       "id": 9,
-      "title": "fix(exec): node-host exec warns about pathPrepend when none is config…",
-      "link": "https://github.com/openclaw/openclaw/commit/a7b8f359a0495ee0eb37b2293b649085c1a83393",
-      "publishedAt": "2026-10-07T04:45:01Z",
-      "summary": "fix(exec): node-host exec warns about pathPrepend when none is configured (#164506) Only warn that tools.exec.pathPrepend is ignored for host=node when the operator actually configured pathPrepend; the Gateway-local CLI shim merged into the exec config no longer triggers a false warning on every node exec result. Effective PATH and env are unchanged. Closes #164505. Co-authored-by: Ayaan Zaidi",
+      "title": "test(doctor): match the multi-line managed-admission warning across l…",
+      "link": "https://github.com/openclaw/openclaw/commit/0dc20916873149b6f6803d1eae711c8d44f3de9e",
+      "publishedAt": "2026-10-07T10:50:54Z",
+      "summary": "test(doctor): match the multi-line managed-admission warning across line breaks (#166559) Fixes a pre-existing red on main surfaced while landing #166548.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(exec): node-host exec warns about pathPrepend when none is config…",
-      "summaryZh": "重點：修正(exec): node-host exec warns about pathPrepend when none is configured (#164506) Only warn that tools.exec.pathPrepend..."
+      "titleZh": "OpenClaw 文件更新：test(文件tor): match the multi-line managed-admission warning across l…",
+      "summaryZh": "重點：test(文件tor): match the multi-line managed-admission warning across line breaks (#166559) 修正 a pre-existing red on main s..."
     },
     {
       "id": 10,
-      "title": "fix(gateway): reconcile root node workspaces and surface failures (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/7f1bd4f4a982371544953285b6dfbf2cf7bf969e",
-      "publishedAt": "2026-10-07T04:44:13Z",
-      "summary": "fix(gateway): reconcile root node workspaces and surface failures (#166441)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): reconcile root node workspaces and surface failures (#1…",
-      "summaryZh": "重點：修正(Gateway): reconcile root node workspaces and surface failures (#166441)..."
+      "title": "放大分子「左右手」差異，Kagan 與硤合憲三獲 2026 諾貝爾化學獎",
+      "link": "https://technews.tw/2026/10/07/henri-kagan-and-kenso-soai-are-the-2026-nobel-prize-for-chemistry-winners/",
+      "publishedAt": "Wed, 07 Oct 2026 10:16:55 +0000",
+      "summary": "瑞典皇家科學院今日宣布，法國巴黎薩克雷大學（Université Paris-Saclay）榮譽教授化學家亨利 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
