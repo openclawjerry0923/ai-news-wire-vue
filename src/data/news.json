@@ -1,102 +1,102 @@
 {
-  "generatedAt": "2026-10-07T18:33:55.910Z",
+  "generatedAt": "2026-10-07T23:28:38.906Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(ui): consolidate page rendering and state ownership (#166682)",
-      "link": "https://github.com/openclaw/openclaw/commit/4581d2ae6d12c823dff66177cfd57ec5fdf3feea",
-      "publishedAt": "2026-10-07T18:22:52Z",
-      "summary": "refactor(ui): consolidate page rendering and state ownership (#166682) * refactor(ui): consolidate page rendering and state ownership * refactor(ui): resolve page consolidation lint findings",
+      "title": "test(config,agents,gateway,plugins): remove low-value tests (batch d0…",
+      "link": "https://github.com/openclaw/openclaw/commit/c6655169436924be7f12fe6979758dc2393bc8a2",
+      "publishedAt": "2026-10-07T23:28:18Z",
+      "summary": "test(config,agents,gateway,plugins): remove low-value tests (batch d012) (#166803) * test(config): deslop w1109 tests * test(discord): deslop w1114 tests * test(code-mode): deslop w1107 tests * test(gateway): deslop w1108 tests * test(config): deslop w1116 tests * test(infra): deslop w1118 tests * test(agents): deslop w1112 tests * test(gateway): deslop w1117 tests * test(scripts): deslop w1115 tests * test(gateway): deslop w1110 tests",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): consolidate page rendering and state ownership (#166682)",
-      "summaryZh": "重點：refactor(ui): consolidate page rendering and state ownership (#166682) * refactor(ui): consolidate page rendering and st..."
+      "titleZh": "OpenClaw 程式碼更新：test(config,agents,Gateway,plugins): remove low-value tests (batch d0…",
+      "summaryZh": "重點：test(config,agents,Gateway,plugins): remove low-value tests (batch d012) (#166803) * test(config): deslop w1109 tests * ..."
     },
     {
       "id": 2,
-      "title": "perf(sessions): retain transcript previews across metadata edits (#16…",
-      "link": "https://github.com/openclaw/openclaw/commit/e73b64b7f620e79844064a945447bbbb2a1f15d8",
-      "publishedAt": "2026-10-07T18:19:22Z",
-      "summary": "perf(sessions): retain transcript previews across metadata edits (#166635) * perf(sessions): retain transcript previews across metadata edits Keep backfill revisions tied to transcript watermarks and fallback inputs, preserving completed and in-flight work across unrelated metadata changes. Invalidate repaired transcript projections explicitly and release revisions with row residency. Cover metadata edit counts, held preview publication, and stored model changes through the resident projection and real session writers. * fix(sessions): preserve backfills across readiness changes * test(gateway): stop awaiting metadata transcript backfills",
+      "title": "perf(plugins): bound retained heap across runtime reloads (#166751)",
+      "link": "https://github.com/openclaw/openclaw/commit/40d735e451b19b939a0a4289096d7cd89a8f7812",
+      "publishedAt": "2026-10-07T23:21:19Z",
+      "summary": "perf(plugins): bound retained heap across runtime reloads (#166751) * perf(plugins): bound retained heap across runtime reloads Release retired registry and cache graphs held by inherited async scopes, closed schedulers, cancellation stacks, and lifecycle lease closures. Keep selected generations only through each admitted call or stream's lifetime, including nested calls under long-running consumers. Preserve adopted-owner runtime access, prepared selections, expired-lease refusals, and resolved plugin values while reducing reload heap retention. * fix(plugins): preserve pending scopes and runtime facade identity Keep direct registry-scope callbacks alive through their returned completion, then release custody so detached native resources cannot retain the registry. Reuse runtime namespace facades per source while selecting the current registry at invocation time. This preserves cold native-command authorization and Discord STT interception across runtime adoption and source replacement.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): retain transcript previews across metadata edits (#16…",
-      "summaryZh": "重點：perf(sessions): retain transcript previews across metadata edits (#166635) * perf(sessions): retain transcript previews ..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): bound retained heap across runtime reloads (#166751)",
+      "summaryZh": "重點：perf(plugins): bound retained heap across runtime reloads (#166751) * perf(plugins): bound retained heap across runtime ..."
     },
     {
       "id": 3,
-      "title": "fix: generate chat titles from the supplied source message (#166308)",
-      "link": "https://github.com/openclaw/openclaw/commit/8c939f5b9215964ba41d33e34fa286e706fe7798",
-      "publishedAt": "2026-10-07T18:18:42Z",
-      "summary": "fix: generate chat titles from the supplied source message (#166308) Generate dashboard and Telegram DM-topic titles from the supplied source message instead of injected harness context, and ask the title model for plain text so labels never come back wrapped in the JSON input envelope. Related: #163817 Co-authored-by: Ayaan Zaidi",
+      "title": "fix(code-mode): preserve core coding signatures in bounded catalog (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/d794f3d9b248f5ea13128265287965d5b0aa002d",
+      "publishedAt": "2026-10-07T23:20:44Z",
+      "summary": "fix(code-mode): preserve core coding signatures in bounded catalog (#166785) Prioritize the existing core file and shell family before declared output hints so catalog growth cannot hide workdir, timeoutSeconds, or process timeout. Keep input validation, callable identity, and the 8000-character index budget unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: generate chat titles from the supplied source message (#166308)",
-      "summaryZh": "重點：修正: generate chat titles from the supplied source message (#166308) Generate dashboard and Telegram DM-topic titles from..."
+      "titleZh": "OpenClaw 程式碼更新：修正(code-mode): preserve core coding signatures in bounded catalog (#…",
+      "summaryZh": "重點：修正(code-mode): preserve core coding signatures in bounded catalog (#166785) Prioritize the existing core file and shell ..."
     },
     {
       "id": 4,
-      "title": "refactor: consolidate doctor migrations and update workflows",
-      "link": "https://github.com/openclaw/openclaw/commit/16095df1d75095e182d9742c86b63d319772fcfd",
-      "publishedAt": "2026-10-07T18:17:38Z",
-      "summary": "refactor: consolidate doctor migrations and update workflows Consolidate Doctor migration and repair mechanics, plugin handling, and updater execution context while preserving CLI text, configuration and persisted shapes, shipped migration support, and recovery authority checks. Remove 1,512 net production lines. Validation passed 4,478 tests across 305 files, the controlled original-base/current-head finalizer comparisons, changed checks, zero runtime/Madge cycles, independent P0-P2 review, and exact-head hosted CI.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：refactor: consolidate 文件tor migrations and update workflows",
-      "summaryZh": "重點：refactor: consolidate 文件tor migrations and update workflows Consolidate 文件tor migration and repair mechanics, plugin han..."
+      "title": "19 歲天才創辦人獲 1,100 萬美元融資，新創 Ghost 推出要價 3,499 美元的「專屬 AI 個人電腦」",
+      "link": "https://technews.tw/2026/10/08/ghost-ai/",
+      "publishedAt": "Wed, 07 Oct 2026 23:20:08 +0000",
+      "summary": "成立僅一年的新創公司 Ghost 於週一正式亮相（結束隱形模式），並宣布完成 1,100 萬美元的種子輪融資。 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 5,
+      "title": "refactor(transcripts): move locked writes onto the worker owner (#165…",
+      "link": "https://github.com/openclaw/openclaw/commit/a10773f7f6af0bfd39c2bfafc9a533bee4375ec2",
+      "publishedAt": "2026-10-07T23:18:33Z",
+      "summary": "refactor(transcripts): move locked writes onto the worker owner (#165921) * fix(sessions): preserve native rollback authority Keep prepared initialization rollback and opaque SDK deletion mutations on native planning and transaction paths. Ordinary host-minted binding participants retain worker execution and receipt settlement. Remove worker-only initialization finalizers and protect the same-store authority boundary with a real rollback regression. * test(sessions): retain rollback observer receiver * fix(sessions): settle accepted locked transcript appends Join accepted native lock operations in FIFO order before releasing the reservation, including callback failure and Gateway close. Preserve prepared receipt authority and its original cleanup receiver through harness adapters. Add awaited locked-message preparation with physical identity and fresh-insert version checks. Keep the released synchronous option deprecated and compatible, and migrate bundled catalog and Codex callers. No schema or durability change. * style(sessions): avoid shadowing transcript lock parameters * fix(sessions): prevent stale worker commit acknowledgments * refactor(transcripts): run locked writes through the worker owner Move durable locked transcript reads and mutations onto the existing history reader and agent writer. Retain physical identity, current source and custody authority, exact snapshots, FIFO settlement, and acknowledged publication. Keep released synchronous callbacks and admitted native scopes compatible. Preserve prepared replay, message suppression, frozen anchors, and host-only callback parameters across the worker boundary. No schema or retention change. * fix(transcripts): explicitly await retained lock cleanup * fix(transcripts): retain callback and refusal boundaries Remove nested preparation callbacks before worker preflight and preserve validated, redacted writer-refusal details through the worker error codec. Share the refusal parser with metadata transport without admitting arbitrary object causes. Join worker-backed fixture closure and keep SQLite fixture timestamps on a shared wall clock. Preserve all cleanup, FIFO, and replay assertions. Validation: 81 codec/owner tests, 13 CLI history tests, both original fixture failures, and 48 import/build-closure test results pass. Original codec fails three refusal-detail assertions. Core and affected test types pass; fresh P2 reviews of the full candidate and repair delta have no actionable findings. * test(transcripts): align fixtures with worker-owned writes Drain worker owners before removing database fixtures and explicitly close seed workers before cold-admission lease checks. Inject rollback faults on the worker connection and use the native writer for the test of same- connection cache identity. Keep the CLI test under its suite-owned state root. Preserve the existing rollback, privacy, cache, lease, and ordering assertions. The original state-fixture failures reproduce five times per file on the PR head and pass five times on the merge base. Focused repaired runtime proof is still in progress; affected types, lint, and independent P2 review pass. * perf(transcripts): retain worker reads and consolidate queries * perf(transcripts): advance mutation clocks in one statement * refactor(transcripts): keep snapshot checks with the reader * perf(transcripts): share the reconciliation status query * perf(transcripts): reuse the parent of anchored replays * docs(transcripts): clarify retained writer ownership * fix(transcripts): preserve readmission and reduce locked read queries * fix(sqlite): reuse admitted schema markers across readers * fix(transcripts): preserve worker read diagnostics and signal handling * fix(errors): match DNS failures outside generated path fragments * refactor(sessions): keep admitted key lookup in read owner",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(transcripts): move locked writes onto the worker owner (#165…",
+      "summaryZh": "重點：refactor(transcripts): move locked writes onto the worker owner (#165921) * 修正(sessions): preserve native rollback autho..."
+    },
+    {
+      "id": 6,
+      "title": "AI 圖打敗圖庫霸主，Getty Images 股價崩跌遭紐交所除牌",
+      "link": "https://technews.tw/2026/10/08/getty-images-faces-delisting-amid-ai-image-impact/",
+      "publishedAt": "Wed, 07 Oct 2026 23:10:43 +0000",
+      "summary": "全球最大圖庫公司之一 Getty Images，因股價過低遭紐約證券交易所（NYSE）除牌，股份轉至 OTC [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "跨界與重構：智駕晶片的車載 AI 時代角力賽",
+      "link": "https://technews.tw/2026/10/08/crossover-restructuring-competition-smart-driving-chips-automotive-ai-era/",
+      "publishedAt": "Wed, 07 Oct 2026 23:00:23 +0000",
+      "summary": "新車銷售量停滯且電動化轉型放緩之際，智駕系統已成為車企競爭的核心焦點。2026 年全球新車市場的 L2 滲透率 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "Surface Laptop Ultra 筆電展開預購，RTX Spark 晶片、磁吸式 USB-C 充電成亮點",
+      "link": "https://ccc.technews.tw/2026/10/08/surface-laptop-ultra-and-surface-rtx-spark-dev-box-now-available-for-pre-order/",
+      "publishedAt": "Wed, 07 Oct 2026 20:29:31 +0000",
+      "summary": "微軟揭曉 Surface Laptop Ultra 數個月過後，7 日宣布這款搭載 RTX Spark 晶片的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
+      "title": "旺宏 9 月營收再創新高，前三季營收同步締造新高紀錄",
+      "link": "https://finance.technews.tw/2026/10/08/macronixs-september-revenue-hit-a-new-high/",
+      "publishedAt": "Wed, 07 Oct 2026 16:00:40 +0000",
+      "summary": "記憶體大廠旺宏公布9月營收，單月合併營收達新台幣83.67億元，較8月份增加2.7%、較2025年同期也增加1 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 10,
       "title": "Apache HTTP Server發布2.4.69版修補20個漏洞，包含3個重大漏洞",
       "link": "https://www.ithome.com.tw/news/179473",
       "publishedAt": "2026-10-07 12:10:08",
       "summary": "Apache軟體基金會10月1日發布開源Web伺服器Apache HTTP Server更新，修補20個資安漏洞，涵蓋記憶體破壞、資訊洩漏、阻斷服務及權限管理等問題，影響2.4.0至2.4.68等版本，用戶應升級至已完成修補的2.4.69版。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "OpenAI用內部模型挑戰4,000道數學問題，公開722篇研究手稿",
-      "link": "https://www.ithome.com.tw/news/179471",
-      "publishedAt": "2026-10-07 12:10:01",
-      "summary": "OpenAI周二（10/6）公布大批由內部前沿模型產生的數學研究成果，並在GitHub公開722篇研究手稿。OpenAI尚未公開產生這批成果的前沿模型，目前正研究如何以負責任的方式釋出。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "FBI傳與Accenture的承包商解約，疑因未修補PeopleSoft漏洞造成ShinyHunters入侵",
-      "link": "https://www.ithome.com.tw/news/179467",
-      "publishedAt": "2026-10-07 11:10:57",
-      "summary": "美國聯邦調查局（FBI）向路透社證實，已與一家未及時部署修補程式的IT服務承包商解約。FBI資安主管Brett Leatherman表示，調查顯示先前的資料外洩事件，源自第三方管理平臺的資安失誤，承包商未部署已發布的安全更新，FBI因此與該承包商解約，並採取措施降低後續風險。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Atlassian揭露影響旗下8款主要應用系統的任意檔案讀取漏洞",
-      "link": "https://www.ithome.com.tw/news/179469",
-      "publishedAt": "2026-10-07 11:10:27",
-      "summary": "10月5日軟體開發廠商Atlassian發布資安公告，揭露重大等級的任意檔案讀取漏洞CVE-2026-21589，未通過身分驗證的攻擊者可直接存取應用系統根目錄的特定檔案，CVSS v4.0嚴重程度評為9.3分，影響所有版本的Bitb",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Anthropic擴大資安Claude存取計畫，Glasswing半年找到逾12萬漏洞",
-      "link": "https://www.ithome.com.tw/news/179470",
-      "publishedAt": "2026-10-07 11:10:13",
-      "summary": "Anthropic周二（10/6）宣布擴大Cyber Verification Program（CVP），整合原本分開運作的Project Glasswing，並重新分為3個資安存取層級，讓通過驗證的資安團隊可依工作需求，取得限制較少的Claude模型能力。Anthropic同時公布Project Glasswing成果，指出合作夥伴自今年4月至7月間已發現至少12.9萬個經驗證的軟體漏洞。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "放大分子「左右手」差異，Kagan 與硤合憲三獲 2026 諾貝爾化學獎",
-      "link": "https://technews.tw/2026/10/07/henri-kagan-and-kenso-soai-are-the-2026-nobel-prize-for-chemistry-winners/",
-      "publishedAt": "Wed, 07 Oct 2026 10:16:55 +0000",
-      "summary": "瑞典皇家科學院今日宣布，法國巴黎薩克雷大學（Université Paris-Saclay）榮譽教授化學家亨利 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
