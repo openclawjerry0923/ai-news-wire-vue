@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T04:56:50.631Z",
+  "generatedAt": "2026-10-08T11:52:39.561Z",
   "items": [
     {
       "id": 1,
@@ -21,6 +21,59 @@
     },
     {
       "id": 3,
+      "title": "SonicWall修補SMA1000設備滿分伺服器請求偽造漏洞",
+      "link": "https://www.ithome.com.tw/news/179514",
+      "publishedAt": "2026-10-08 12:10:08",
+      "summary": "10月6日資安廠商SonicWall針對SMA1000用戶提出警告，他們為該設備發布熱修補更新，修補CVE-2026-102255、CVE-2026-102256、CVE-2026-102257，以及CVE-2026-102258等一系列漏洞，由於沒有其他替代的緩解措施，呼籲用戶儘速套用因應。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 4,
+      "title": "refactor(gateway): consolidate request and lifecycle handling (#167159)",
+      "link": "https://github.com/openclaw/openclaw/commit/de4ba759b988a6c1ad4a2b4f185c713c3b3f4136",
+      "publishedAt": "2026-10-08T11:51:25Z",
+      "summary": "refactor(gateway): consolidate request and lifecycle handling (#167159) Consolidate shared Gateway request preparation, response projection, and lifecycle bookkeeping while retaining explicit variant-specific authority, recovery, and error behavior. Remove 856 net production lines across 111 files without changing tests, configuration, protocol or persisted shapes, or user-visible text. Defer the six-line session-search handler consolidation so the storage-owner path remains unchanged. Validation includes independent review, the complete changed-file gate, focused and broad Gateway tests, zero runtime/madge cycles, strict PR-wrapper checks, SDK API comparison, and hosted CI on the final head. The PR body and linked coverage log retain the detailed proof and unrelated local-test findings.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): consolidate request and lifecycle handling (#167159)",
+      "summaryZh": "重點：refactor(Gateway): consolidate request and lifecycle handling (#167159) Consolidate shared Gateway request preparation, ..."
+    },
+    {
+      "id": 5,
+      "title": "fix: await the main reply in the Active Memory Gateway test (#167193)",
+      "link": "https://github.com/openclaw/openclaw/commit/e380a256e9a0b1653555017bf2be95fa501d2999",
+      "publishedAt": "2026-10-08T11:49:19Z",
+      "summary": "fix: await the main reply in the Active Memory Gateway test (#167193) Wait for the Active Memory main reply before observing final run settlement, preserving the existing test and RPC timeout values and recall assertions. Fixes #167192.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: await the main reply in the Active 記憶 Gateway test (#167193)",
+      "summaryZh": "重點：修正: await the main reply in the Active 記憶 Gateway test (#167193) Wait for the Active 記憶 main reply before observing fina..."
+    },
+    {
+      "id": 6,
+      "title": "fix: accept systemd OOM signals in memory test (#167195)",
+      "link": "https://github.com/openclaw/openclaw/commit/7a1ac513eec7c3b7660ed908d5d470b016af55c8",
+      "publishedAt": "2026-10-08T11:47:07Z",
+      "summary": "fix: accept systemd OOM signals in memory test (#167195) Accept systemd's OOM SIGTERM result alongside the kernel's SIGKILL in the aggregate-memory integration test. Preserve retained allocations, the 256 MiB limit, the 15-second timeout, cancellation failure, and whole-scope cleanup checks.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: accept systemd OOM signals in 記憶 test (#167195)",
+      "summaryZh": "重點：修正: accept systemd OOM signals in 記憶 test (#167195) Accept systemd's OOM SIGTERM result alongside the kernel's SIGKILL i..."
+    },
+    {
+      "id": 7,
+      "title": "fix(update): admit managed handoff writers through the coordinator lo…",
+      "link": "https://github.com/openclaw/openclaw/commit/977b46b22f21a1dbb98be73ba2fac779642ae817",
+      "publishedAt": "2026-10-08T11:45:09Z",
+      "summary": "fix(update): admit managed handoff writers through the coordinator lock before pinning the protective reader (#167051) Proven with a published-driver (2026.9.8) x candidate cell: 50/50 concurrent candidate writers succeed with no BUSY or path-mismatch; an older-release holder now gets an actionable refusal; no hangs or integrity failures.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): admit managed handoff writers through the coordinator lo…",
+      "summaryZh": "重點：修正(update): admit managed handoff writers through the coordinator lock before pinning the protective reader (#167051) Pr..."
+    },
+    {
+      "id": 8,
       "title": "杏一網站疑似發生個資外洩",
       "link": "https://www.ithome.com.tw/news/179507",
       "publishedAt": "2026-10-08 11:10:52",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "ChatGPT回答不只文字，GPT-6開始動態組合互動介面",
       "link": "https://www.ithome.com.tw/news/179503",
       "publishedAt": "2026-10-08 11:10:46",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "鈊象營運資訊設備遭到入侵，部分營運資料與玩家個資外洩",
       "link": "https://www.ithome.com.tw/news/179504",
       "publishedAt": "2026-10-08 11:10:41",
       "summary": "遊戲軟體公司鈊象（3293）於9月底公告，該公司營運資訊設備遭不明IP位址入侵，10月7日他們於股市公開資訊觀測站發布新的重大訊息提出新的說明，表示這起事故造成遊戲營",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "多家韓國金融業者接連遭駭，CrowdStrike揭露疑似中國背景駭客結合AI與滲透測試工具從事攻擊",
-      "link": "https://www.ithome.com.tw/news/179506",
-      "publishedAt": "2026-10-08 11:10:36",
-      "summary": "自9月底以來，韓國金融業接連發生網路攻擊與個資外洩事件，促使韓國金融主管機關召開緊急會議並要求徹查，資安業者CrowdStrike於10月7日揭露，發",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(discord): redact credentials in PluralKit API error bodies (#141317)",
-      "link": "https://github.com/openclaw/openclaw/commit/a6a353a790eda1d29b87de573233d601a7524a1a",
-      "publishedAt": "2026-10-08T04:56:02Z",
-      "summary": "fix(discord): redact credentials in PluralKit API error bodies (#141317) Redact credentials that a failing PluralKit API echoes in its error body before the text reaches logs or errors, reusing the shared tool-payload redactor. Status and error messages stay intact. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): redact credentials in PluralKit API error bodies (#141317)",
-      "summaryZh": "重點：修正(Discord): redact credentials in PluralKit API error bodies (#141317) Redact credentials that a failing PluralKit API ..."
-    },
-    {
-      "id": 8,
-      "title": "test(process): select broker coverage by transport support (#166858)",
-      "link": "https://github.com/openclaw/openclaw/commit/0681dda57638f51655523319ec9a63ea4693ca31",
-      "publishedAt": "2026-10-08T04:50:22Z",
-      "summary": "test(process): select broker coverage by transport support (#166858) Copied runtime exclusions hid compatible Bun broker coverage. Share the product command-transport selector with its tests and enable the portable lifecycle/resource suites while preserving Node-only transferable pipes and Linux Gateway selection. Verified on Linux with Node 24.19 (90 passing cases) and pinned Bun fc53 (21 passing, 69 intentional transport-selection skips), scoped changed checks, independent P2 review, exact-head CI, and ClawSweeper. Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(process): select broker coverage by transport support (#166858)",
-      "summaryZh": "重點：test(process): select broker coverage by transport support (#166858) Copied runtime exclusions hid compatible Bun broker..."
-    },
-    {
-      "id": 9,
-      "title": "fix(state): give one actionable answer for state written by a newer r…",
-      "link": "https://github.com/openclaw/openclaw/commit/b7969ee4f9e0870cdb16b56a54394053681c8bcb",
-      "publishedAt": "2026-10-08T04:48:07Z",
-      "summary": "fix(state): give one actionable answer for state written by a newer release and keep status reads read-only (#166963) Follow-up to #166906: Doctor --fix, Gateway startup, offline database preflight and update status now give one install-compatible-build / restore-backup answer for a database written by a newer release, and update status no longer creates SQLite sidecars.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(state): give one actionable answer for state written by a newer r…",
-      "summaryZh": "重點：修正(state): give one actionable answer for state written by a newer 版本發布 and keep status reads read-only (#166963) Follow..."
-    },
-    {
-      "id": 10,
-      "title": "fix(gateway): bound unattributable proxy warnings per source (#134404)",
-      "link": "https://github.com/openclaw/openclaw/commit/1eb5970ff9724b88cd058bc347dee4f68dbc9612",
-      "publishedAt": "2026-10-08T04:30:33Z",
-      "summary": "fix(gateway): bound unattributable proxy warnings per source (#134404) Replace the lifetime one-shot latch on unattributable trusted-proxy warnings with a bounded per-source budget (32-entry cache, five-minute TTL, 16 warnings per window), so new sources are still reported while one noisy source cannot flood the log. Request handling and auth decisions are unchanged. Fixes #134297. Co-authored-by: Claude Opus 5 (1M context) Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): bound unattributable proxy warnings per source (#134404)",
-      "summaryZh": "重點：修正(Gateway): bound unattributable proxy warnings per source (#134404) Replace the lifetime one-shot latch on unattributa..."
     }
   ]
 }
