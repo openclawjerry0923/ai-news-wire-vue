@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T05:00:03.924Z",
+  "generatedAt": "2026-10-09T11:48:15.940Z",
   "items": [
     {
       "id": 1,
@@ -12,6 +12,50 @@
     },
     {
       "id": 2,
+      "title": "fix(update): explain which managed handoff lease identity changed (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/4938f90b94a574ac7629b227f6097c6d63a3ce9b",
+      "publishedAt": "2026-10-09T11:42:27Z",
+      "summary": "fix(update): explain which managed handoff lease identity changed (#167794) The refusal 'managed handoff lease database identity changed' gave operators no path, no hint which identity differed and no next step, so they searched the state directory for a database that lives in the OpenClaw temp directory. The lease database owner now reports the database path, which part changed (path, file identity or parent directory identity, or missing), the recorded and current values, and the profile-aware openclaw update repair command. Refusal semantics and the ENOENT code are unchanged. Refs #167771 #167557. Reported by @waynegault.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): explain which managed handoff lease identity changed (#1…",
+      "summaryZh": "重點：修正(update): explain which managed handoff lease identity changed (#167794) The refusal 'managed handoff lease database i..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(ui): consolidate page lifecycle and rendering (#167780)",
+      "link": "https://github.com/openclaw/openclaw/commit/81901bfd217ebaacc674b2d06850f1caaba0e3c4",
+      "publishedAt": "2026-10-09T11:35:32Z",
+      "summary": "refactor(ui): consolidate page lifecycle and rendering (#167780) * refactor(ui): consolidate page lifecycle and rendering * refactor(ui): keep profile order lock type local * fix(ui): preserve the void reaction callback",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): consolidate page lifecycle and rendering (#167780)",
+      "summaryZh": "重點：refactor(ui): consolidate page lifecycle and rendering (#167780) * refactor(ui): consolidate page lifecycle and renderin..."
+    },
+    {
+      "id": 4,
+      "title": "test(hooks): settle transcript reconciliation before corrupting proje…",
+      "link": "https://github.com/openclaw/openclaw/commit/210b6ff641e35dcf188fd09587d4dd92456338ad",
+      "publishedAt": "2026-10-09T11:34:54Z",
+      "summary": "test(hooks): settle transcript reconciliation before corrupting projection Readable projection readiness can precede the reconciliation writer orphan sweep. Join the existing reconcile promise before the fixture runs raw corruption SQL, preventing its synchronous SQLite lock wait from blocking the writer commit grant. Keep every capture assertion unchanged.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(hooks): settle transcript reconciliation before corrupting proje…",
+      "summaryZh": "重點：test(hooks): settle transcript reconciliation before corrupting projection Readable projection readiness can precede the..."
+    },
+    {
+      "id": 5,
+      "title": "test(ui): preserve live terminal inventory across workspace reload",
+      "link": "https://github.com/openclaw/openclaw/commit/0011af38333bca1def5ef198f043f9a7e8684340",
+      "publishedAt": "2026-10-09T11:34:54Z",
+      "summary": "test(ui): preserve live terminal inventory across workspace reload Wait for terminal adoption before reload and retain its live inventory and attach response. Assert that restoration attaches the same session without opening a replacement. The previous fixture could restore an exited terminal while waiting indefinitely for keyboard input.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): preserve live terminal inventory across workspace reload",
+      "summaryZh": "重點：test(ui): preserve live terminal inventory across workspace reload Wait for terminal adoption before reload and retain i..."
+    },
+    {
+      "id": 6,
       "title": "日本IDC Frontier雲端遭勒索軟體攻擊，波及495家客戶、部分系統靠備份重建",
       "link": "https://www.ithome.com.tw/news/179548",
       "publishedAt": "2026-10-09 11:10:50",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "微軟測試新Windows Search，不只能搜尋還能執行動作",
       "link": "https://www.ithome.com.tw/news/179549",
       "publishedAt": "2026-10-09 11:10:45",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "HPE預告將推出第13代伺服器平臺，主打三大系統安全性強化特色",
       "link": "https://www.ithome.com.tw/news/179547",
       "publishedAt": "2026-10-09 11:10:44",
@@ -38,64 +82,20 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "3個國碼頂級網域遭劫持，攻擊者取得Google等組織HTTPS憑證",
-      "link": "https://www.ithome.com.tw/news/179500",
-      "publishedAt": "2026-10-09 08:10:00",
-      "summary": "Google近日揭露，該公司得知一連串網域劫持事件，攻擊者入侵迦納.gh、獅子山.sl及美屬薩摩亞.as等3個由第三方管理的國碼頂級網域名稱（country code top-level domain，ccTLD），竄改部分網域的權威DNS紀錄，並取得數個Google及其他組織網域的未經授權HTTPS憑證。Google指出，該公司本身的系統並未遭到入侵。",
-      "source": "iThome",
+      "id": 9,
+      "title": "天然氣管線延宕，甲骨文擬動用卡車供氣搶救 AI 資料中心進度",
+      "link": "https://technews.tw/2026/10/09/oracle-trucks-gas-ai-data-center-progress-natural-gas-pipeline-delays/",
+      "publishedAt": "Fri, 09 Oct 2026 09:07:01 +0000",
+      "summary": "AI 資料中心建設面臨能源供應瓶頸。據外電報導，甲骨文正考慮利用卡車運送壓縮天然氣，解決新墨西哥州 Proje [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
-      "id": 6,
-      "title": "perf(github): overlap preview visibility and avatar reads (#167597)",
-      "link": "https://github.com/openclaw/openclaw/commit/447144510b899463ee89774b62d015631d3bd891",
-      "publishedAt": "2026-10-09T04:57:52Z",
-      "summary": "perf(github): overlap preview visibility and avatar reads (#167597) * perf(github): overlap preview visibility and avatar reads Load anonymous avatar decoration alongside the final public-repository check while keeping initial admission, redirect guards and current-identity delivery checks intact. Synthetic authenticated dispatch measurements reduce avatar-bearing preview latency by about 25 percent without changing request counts or cache freshness. * test(github): avoid returning preview fixture timer handles",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(github): overlap preview visibility and avatar reads (#167597)",
-      "summaryZh": "重點：perf(github): overlap preview visibility and avatar reads (#167597) * perf(github): overlap preview visibility and avata..."
-    },
-    {
-      "id": 7,
-      "title": "fix(gateway): Gateway stalls after startup recapturing plugins for mo…",
-      "link": "https://github.com/openclaw/openclaw/commit/41b460730728d1f3ccabbc492c5bf242cd252cee",
-      "publishedAt": "2026-10-09T04:56:15Z",
-      "summary": "fix(gateway): Gateway stalls after startup recapturing plugins for model catalog updates (#167544) Related: #160959 ## What Problem This Solves Fixes: shortly after every Gateway start, the scheduled remote model catalog refresh copies every external plugin a second time and loads it cold. With a large plugin, this blocks the Gateway for as long as the startup capture did. ## User Impact User impact: when the hosted model catalog is newer than the installed build (the normal case for released versions), adopting it no longer re-copies or re-evaluates external plugins. The Gateway stays responsive after startup. Prepared turns keep using the Gateway's unchanged plugin instances, as they already do after config hot reloads. ## Why This Change Was Made #161267 made prepared model runtimes borrow unchanged plugin instances from the admitting Gateway. The lender is resolved from the Gateway registry scope of the work that triggers the rebuild. Hot reloads already run their prepared-runtime refresh inside that scope (`server-reload-hot.ts`). The post-ready `update.remote-model-catalog` scheduler job calls `applyRemoteModelCatalogUpdate` with no registry scope. The prepared rebuild therefore finds no lender, and its inbound registry cold-loads every plugin. This change runs scheduled catalog adoption inside the live Gateway registry scope, the same way the hot-reload refresh does. No new cache, manager or module sharing is added. Each registry keeps its own load and dispose lifecycle, and borrowing follows the existing #161267 contract. ## Evidence **Trigger proven on origin/main 6070074.** Runs were isolated Gateways with an external plugin used as the context engine, each held 60 s after `ready`, with scratch probes outside the repo: - Catalog refresh enabled: 8/8 runs captured and loaded the plugin a second time after ready. The probe at `loadPreparedInboundPluginRegistry` logged `lender=false requestScope=false` during `applyRemoteModelCatalogUpdate`, followed by `remote model catalog applied`. - Catalog refresh disabled (`models.catalogRefresh.enabled: false`): 3/3 runs had no second load. - Full stack of the second capture: `buildSnapshotBatch → prepareWorkspacePluginRegistries → loadPreparedInboundPluginRegistry → loadAgentRuntimePluginRegistryHandle → loadOpenClawPlugins`. - Cost on main with an 8k-file plugin: `startup.maintenance.plugin-registry` took 46.2 s and 57.7 s with event-loop max 45.2 s and 57.3 s, plus a 78 s post-ready reload in another run. **With this change.** Same harness: - On 6070074 with this patch: 7/7 runs had 0 loads after ready. In each run the catalog was refreshed (`status: updated`) and applied, and the probe logged `inbound lender=true requestScope=true`. - On this PR's exact head versus its exact parent: these builds are newer than the current hosted catalog, so the runs serve the same hosted catalog with a newer `generatedAt` from a loopback `models.catalogRefresh.url`. Each run was held 60 s after ready, and the catalog was refreshed (`status: updated`) and applied in every run. The parent loaded the plugin a second time after ready in 5/5 runs; this head did so in 0/7 runs. **Lifecycle:** on 6070074 with this patch, the catalog was adopted (borrowing the Gateway instance), then a config hot reload of the plugin (`Plugin replacement applied`) ran, then the Gateway stopped. Each instance evaluated once and was disposed exactly once (`count=1`), and no capture directories remained. **Tests:** - New regression `adopts scheduled remote catalogs inside the live Gateway registry scope` fails without the production change (Expected the Gateway registry, received `undefined`) and passes with it. - `server-startup-update-check.test.ts`: 7 passed. `update-startup-request-adoption.test.ts`: 3 passed. oxlint on the changed files passes. `codex review`: clean. No overlap with Pash/Sarah changes. **Merge risk:** two-way door. The change touches no persisted state, config or published contract, and a revert restores the scheduler's unscoped adoption. The blast radius is Gateways with external plugins when a hosted model catalog is adopted. Those catalog rebuilds now borrow Gateway instances under the accepted #161267 behavior. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): Gateway stalls after startup recapturing plugins for mo…",
-      "summaryZh": "重點：修正(Gateway): Gateway stalls after startup recapturing plugins for 模型 catalog updates (#167544) Related: #160959 ## What ..."
-    },
-    {
-      "id": 8,
-      "title": "perf(agents): preserve image replay prefixes between cleanup batches …",
-      "link": "https://github.com/openclaw/openclaw/commit/a134038ad7fbf939038ada4dde61c0fa7eb02e33",
-      "publishedAt": "2026-10-09T04:52:13Z",
-      "summary": "perf(agents): preserve image replay prefixes between cleanup batches (#167613) Advance historical image cleanup eight completed turns at a time after the initial cut, preserving recent turns and deterministic restart replay. The live synthetic replay raises cache-read share from 47.35% to 88.66% and reduces cache-read drops from 25 to 4. Retained image context is bounded to 3-10 completed turns; compaction and overflow recovery still own capacity. Regression, 206 sibling files / 2621 tests, and independent review pass. Changed checks pass except four dead exports reproduced on clean main.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(agents): preserve image replay pre修正 between cleanup batches …",
-      "summaryZh": "重點：perf(agents): preserve image replay pre修正 between cleanup batches (#167613) Advance historical image cleanup eight compl..."
-    },
-    {
-      "id": 9,
-      "title": "fix(browser): honor explicit management request timeouts (#167252)",
-      "link": "https://github.com/openclaw/openclaw/commit/fd2fa6b904a2069bf9c2c150302475dffdc51e29",
-      "publishedAt": "2026-10-09T04:43:39Z",
-      "summary": "fix(browser): honor explicit management request timeouts (#167252) Pass the explicit `openclaw browser --timeout` value to browser management requests (for example `tabs`) instead of always using the fixed 45-second budget. Without `--timeout`, the default is unchanged. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): honor explicit management request timeouts (#167252)",
-      "summaryZh": "重點：修正(browser): honor explicit management request timeouts (#167252) Pass the explicit `OpenClaw browser --timeout` value t..."
-    },
-    {
       "id": 10,
-      "title": "黃仁勳、蘇姿丰與馬斯克同獲殊榮，川普頒發美國國家科學獎章",
-      "link": "https://technews.tw/2026/10/09/jensen-huang-lisa-su-elon-musk-national-medal-science-trump/",
-      "publishedAt": "Fri, 09 Oct 2026 03:30:22 +0000",
-      "summary": "美國總統川普於當地時間 8 日舉行「科學：新黃金時代」（Science: A New Golden Age）高 [&#8230;]",
+      "title": "AI 也會痛？酷刑室專案逼機器人陷入困境，殘酷設定引發網友炎上",
+      "link": "https://technews.tw/2026/10/09/ai-torture-chamber/",
+      "publishedAt": "Fri, 09 Oct 2026 08:30:05 +0000",
+      "summary": "近日，一個名為「AI Torture Chamber」（AI 酷刑室）的 GitHub 專案在網路上引爆激烈爭 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
