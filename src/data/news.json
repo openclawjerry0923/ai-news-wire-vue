@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-09T18:04:11.412Z",
+  "generatedAt": "2026-10-09T23:04:16.630Z",
   "items": [
     {
       "id": 1,
-      "title": "test(codex): batch large history projection fixtures",
-      "link": "https://github.com/openclaw/openclaw/commit/affd282dba168daeb165f29b8c4bf76267c4023c",
-      "publishedAt": "2026-10-09T18:00:47Z",
-      "summary": "test(codex): batch large history projection fixtures Build the ordered item-limit and oversized-history inputs with the existing atomic transcript batch API. Preserve every input message, assertion, case, and deadline while avoiding hundreds of independent fixture transactions. The native incognito projection case reproduced a 120-second timeout on main. Linux validation now passes the original 53-test group; its two large incognito cases take 9.7 and 11.4 seconds. Suppression checks, the native changed-file check, extension test types, lint, all three Knip scans, and runtime/Madge cycle checks pass. Independent P2 review is clean.",
+      "title": "fix(telegram): keep pending questions when settings commands arrive (…",
+      "link": "https://github.com/openclaw/openclaw/commit/427f926e7c2d763e362f59678c6486b6f2f4aec4",
+      "publishedAt": "2026-10-09T23:03:12Z",
+      "summary": "fix(telegram): keep pending questions when settings commands arrive (#168004) The Telegram ingress supersede predicate let any recognized command or bot_command entity discard pending pre-adoption input, so a question followed within about half a second by /verbose, /think, /usage or /reasoning was silently dropped. Only authorized stop requests and /new or /reset may now cancel pending input; every other command waits behind it. Found by our Telegram Test Server bug hunt. Related #166504. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(codex): batch large history projection 修正tures",
-      "summaryZh": "重點：test(codex): batch large history projection 修正tures Build the ordered item-limit and oversized-history inputs with the e..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Telegram): keep pending questions when settings commands arrive (…",
+      "summaryZh": "重點：修正(Telegram): keep pending questions when settings commands arrive (#168004) The Telegram ingress supersede predicate le..."
     },
     {
       "id": 2,
-      "title": "fix(agents): isolate prompt-cache drop diagnostics (#167890)",
-      "link": "https://github.com/openclaw/openclaw/commit/8fb756e74dc37b4971c17c52b8bb0e034de822eb",
-      "publishedAt": "2026-10-09T17:56:07Z",
-      "summary": "fix(agents): isolate prompt-cache drop diagnostics (#167890) Keep request usage with its execution session even when foreground and background review requests share provider cache affinity. Compare bounded final-request hashes and report request gaps and prompt sizes to distinguish serialization changes from unexplained cache misses.",
+      "title": "fix(anthropic): refresh system context when Claude sessions resume (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/810c56d7b4c5130d91e75683d4ca699e5ccfa6a9",
+      "publishedAt": "2026-10-09T23:03:04Z",
+      "summary": "fix(anthropic): refresh system context when Claude sessions resume (#167817) * fix(anthropic): refresh system context when Claude sessions resume * test(anthropic): prove refreshed prompts use native resume --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): isolate prompt-cache drop diagnostics (#167890)",
-      "summaryZh": "重點：修正(agents): isolate prompt-cache drop diagnostics (#167890) Keep request usage with its execution session even when fore..."
+      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): refresh system context when Claude sessions resume (#…",
+      "summaryZh": "重點：修正(anthropic): refresh system context when Claude sessions resume (#167817) * 修正(anthropic): refresh system context when..."
     },
     {
       "id": 3,
-      "title": "refactor: share remaining worker-boundary test probes (#167705)",
-      "link": "https://github.com/openclaw/openclaw/commit/3e90389813229bd33c169fb07b883b567847224e",
-      "publishedAt": "2026-10-09T17:32:05Z",
-      "summary": "refactor: share remaining worker-boundary test probes (#167705) Consolidate 62 worker-boundary interception sites across 41 core test/support files onto the existing shared probe. Preserve the domain scenarios, assertions, callback order, one-shot interceptions, captured context, and restore/disposal timing while removing 292 net lines of repeated test wiring. No production behavior, SQL, durability, or released Plugin SDK contract changes. Merge main without rebasing and retain both adjacent imports and the new conversation-authority regressions in the transcript-lock suite. Validation: exact-head CI 37962356184 passed in attempt 1, including CI and security gates. All 30 focused transcript-lock tests, post-integration core test typechecks, Madge, formatting, and P2 autoreview passed. ClawSweeper completed the integration-head review with no findings. Co-authored-by: Peter Steinberger",
+      "title": "docs(apple): document orphaned WebSocket upgrades on cancellation (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/a3cb823779cbcba2d0d0078a92b8c9cf8fd8791e",
+      "publishedAt": "2026-10-09T23:00:25Z",
+      "summary": "docs(apple): document orphaned WebSocket upgrades on cancellation (#168003) Cancelling a URLSessionWebSocketTask just as its HTTP 101 arrives can complete the task as cancelled and then open the upgraded socket anyway. No URLSession API reclaims that socket; generation and admission fencing keep it unused and the Gateway closes its end at the preauth timeout. Document that at WebSocketTaskBox.cancel, and correct the fleet comment: session invalidation releases the delegate and idle connections but cannot reclaim the orphan. Proof: headless URLSession probe leaked 3-8/100 near-simultaneous cancels across every client-side variant; transport probe through GatewayNodeSession + GatewayTLSPinningSession leaked 13/300 with zero connect frames, routes, or reconnects on orphans. OpenClawKit builds; SwiftFormat and SwiftLint clean.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: share remaining worker-boundary test probes (#167705)",
-      "summaryZh": "重點：refactor: share remaining worker-boundary test probes (#167705) Consolidate 62 worker-boundary interception sites across..."
+      "titleZh": "OpenClaw 文件更新：文件(apple): 文件ument orphaned WebSocket upgrades on cancellation (#1…",
+      "summaryZh": "重點：文件(apple): 文件ument orphaned WebSocket upgrades on cancellation (#168003) Cancelling a URLSessionWebSocketTask just as it..."
     },
     {
       "id": 4,
-      "title": "fix(storage): publish conversation and plugin-state mutation receipts…",
-      "link": "https://github.com/openclaw/openclaw/commit/22e485657b286b6a740eb7083c8c70063c813374",
-      "publishedAt": "2026-10-09T17:29:03Z",
-      "summary": "fix(storage): publish conversation and plugin-state mutation receipts (#167731) Publish committed conversation and plugin-state row facts through the existing SQLite postcommit and worker receipt owners, including touches, expiry, eviction, deletion, and clear. Preserve unknown settlement, supersession, overflow handling, and existing final-authority guards. Keep main's worker-backed ClickClack store and direct persisted-target validation, with stale-route regression coverage. No stored schema, retention, permission, or released SDK contract changes. The measured first-turn +18 statements (+0.68%) is explicitly accepted because these receipts enable the follow-up removal of freshness probes. Validation: 43 focused integration/import tests plus wrapper inventory; core and extension production/test types; zero import cycles; changed-file formatting; exact-head published 2026.9.8 update cell (19 phases), preserving durable data and clearing incognito data. Landing uses the authorized inherited-CI exception: two unchanged restart-recovery fixture cases close a projection reader while holding a writer, triggering main's development cleanup guard from #167662. All other selected CI categories and independent security gates passed. ClawSweeper completed the final head with no findings. Head-pinned REST squash follows native worktree/lock contention exceeding 30 minutes.",
+      "title": "fix(openai): ChatGPT-only model list offers unlisted pro models that …",
+      "link": "https://github.com/openclaw/openclaw/commit/dc9ee31af1eb6a10fb6c0a10dce5c3b4e607dc86",
+      "publishedAt": "2026-10-09T22:59:56Z",
+      "summary": "fix(openai): ChatGPT-only model list offers unlisted pro models that fail (#167975) ## What Problem This Solves Fixes: for a user signed in with only a ChatGPT account, the default model list offers `openai/gpt-5.4-pro` and `openai/gpt-5.5-pro` even though that account's model listing doesn't include them, so choosing either one fails. ## User Impact ChatGPT-only users stop seeing these two models in the default model view (TUI and the Gateway `models.list` default view). Models the account lists stay, and so do hidden rows the account is entitled to, such as `gpt-5.5`. A user who also has an OpenAI API key still sees both pro models. ## Why This Change Was Made - A successful ChatGPT account listing now records every model id it returned, hidden rows included, as private `listedModelIds` on the ready provider outcome. The public `providerOutcomes` projection still carries only provider, profile and status. - The picker's availability check uses that list. A model served both by an API key and by ChatGPT, but missing from the account's listing, can't be used through the ChatGPT account. It stays available only if a usable non-subscription credential exists. - The list applies only to the credential that made it. The check reads the ready outcome whose `profileId` matches the selected ChatGPT profile; another account's listing never narrows or widens it, and a profile with no ready listing of its own keeps today's behavior. - When the model is unavailable, no reason code is attached, so the UI and `/models` show a neutral \"Unavailable\" instead of \"Sign-in needed\" or \"add a key\". The user is signed in; this account just doesn't have the model. - This change covers the picker only. If someone types an unlisted id by hand, the request can still reach OpenAI and fail with OpenAI's own error. - To stay within the line-cap ratchet, two pieces moved: the runtime credential overlay now lives in `model-auth-availability.runtime-overlay.ts`, and the ready-outcome builder now lives in `extensions/openai/model-service-tiers.ts`. Neither move changes behavior. ## Evidence Real ChatGPT account (device-code sign-in), isolated profile, loopback Gateway. Same profile, main build `d0fc39e` vs this branch `f53ad9c`: | Gateway `models.list` view=default, provider openai | main | branch | |---|---|---| | ChatGPT-only | 11 rows: 8 listed + `gpt-5.4-pro`, `gpt-5.5`, `gpt-5.5-pro` | 9 rows: 8 listed + `gpt-5.5` | | ChatGPT + OpenAI API key (control) | n/a | `gpt-5.4-pro`, `gpt-5.5-pro` present and available | `openclaw models list --provider openai --plain` (configured view) showed the same 8 listed rows on both builds; that view was never affected. - Regression: `src/agents/model-catalog-decisions.test.ts` \"with a ChatGPT account listing\". An unlisted dual-route id is unavailable with no reason code. A hidden listed id stays available. With an API key, or when the listing is unavailable, the subscription route is kept. - Multi-account regression (same file, \"uses only the selected account's listing\"): profiles A and B, A's ready listing omits `gpt-5.5-pro` and `gpt-5.5`, B selected. B with no outcome or an unavailable outcome keeps the subscription route; B's own listing that includes the model keeps it available; B's own listing that omits it makes it unavailable even when a third account lists it. The no-observation, unavailable, and omits cases fail on `de076ec6362` and pass on the fix. The real-account run above was not repeated: the OpenAI catalog hook already stamps the ready outcome with the discovering profile's id (`projectOpenAICatalog`), which is the selected profile in the single-account case, so that path is unchanged. - Provider: `extensions/openai/openai-provider.test.ts`: `listedModelIds` includes hidden rows. - Suites: model-auth-availability (4 files), model-catalog-decisions, model-catalog-service-tiers, openai-provider (3 files), models-list-result.provider-outcomes. All pass. - `node scripts/check-changed.mjs` passes. This includes the line-cap ratchet, tsgo core and core tests, and plugin boundaries. `oxlint --type-aware` is clean on the changed files. ## Merge Danger - Adds an optional `listedModelIds` field to `ProviderCatalogOutcome` (the plugin SDK `provider-catalog-shared` type). The change is additive and documented in `docs/plugins/sdk-provider-plugins/model-catalogs.md` as private provenance that is never projected publicly. - Touches `src/agents/model-auth-availability.ts`, which has prior history from pash-openai (`4573635c77f`). That history includes `extensions/openai/openai-provider.test.ts`. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(storage): publish conversation and plugin-state mutation receipts…",
-      "summaryZh": "重點：修正(storage): publish conversation and plugin-state mutation receipts (#167731) Publish 提交ted conversation and plugin-sta..."
+      "titleZh": "OpenClaw 程式碼更新：修正(openai): ChatGPT-only 模型 list offers unlisted pro 模型 that …",
+      "summaryZh": "重點：修正(openai): ChatGPT-only 模型 list offers unlisted pro 模型 that fail (#167975) ## What Problem This Solves 修正: for a user s..."
     },
     {
       "id": 5,
