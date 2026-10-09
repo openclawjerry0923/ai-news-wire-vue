@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-10-09T11:48:15.940Z",
+  "generatedAt": "2026-10-09T18:04:11.412Z",
   "items": [
     {
       "id": 1,
+      "title": "test(codex): batch large history projection fixtures",
+      "link": "https://github.com/openclaw/openclaw/commit/affd282dba168daeb165f29b8c4bf76267c4023c",
+      "publishedAt": "2026-10-09T18:00:47Z",
+      "summary": "test(codex): batch large history projection fixtures Build the ordered item-limit and oversized-history inputs with the existing atomic transcript batch API. Preserve every input message, assertion, case, and deadline while avoiding hundreds of independent fixture transactions. The native incognito projection case reproduced a 120-second timeout on main. Linux validation now passes the original 53-test group; its two large incognito cases take 9.7 and 11.4 seconds. Suppression checks, the native changed-file check, extension test types, lint, all three Knip scans, and runtime/Madge cycle checks pass. Independent P2 review is clean.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(codex): batch large history projection 修正tures",
+      "summaryZh": "重點：test(codex): batch large history projection 修正tures Build the ordered item-limit and oversized-history inputs with the e..."
+    },
+    {
+      "id": 2,
+      "title": "fix(agents): isolate prompt-cache drop diagnostics (#167890)",
+      "link": "https://github.com/openclaw/openclaw/commit/8fb756e74dc37b4971c17c52b8bb0e034de822eb",
+      "publishedAt": "2026-10-09T17:56:07Z",
+      "summary": "fix(agents): isolate prompt-cache drop diagnostics (#167890) Keep request usage with its execution session even when foreground and background review requests share provider cache affinity. Compare bounded final-request hashes and report request gaps and prompt sizes to distinguish serialization changes from unexplained cache misses.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): isolate prompt-cache drop diagnostics (#167890)",
+      "summaryZh": "重點：修正(agents): isolate prompt-cache drop diagnostics (#167890) Keep request usage with its execution session even when fore..."
+    },
+    {
+      "id": 3,
+      "title": "refactor: share remaining worker-boundary test probes (#167705)",
+      "link": "https://github.com/openclaw/openclaw/commit/3e90389813229bd33c169fb07b883b567847224e",
+      "publishedAt": "2026-10-09T17:32:05Z",
+      "summary": "refactor: share remaining worker-boundary test probes (#167705) Consolidate 62 worker-boundary interception sites across 41 core test/support files onto the existing shared probe. Preserve the domain scenarios, assertions, callback order, one-shot interceptions, captured context, and restore/disposal timing while removing 292 net lines of repeated test wiring. No production behavior, SQL, durability, or released Plugin SDK contract changes. Merge main without rebasing and retain both adjacent imports and the new conversation-authority regressions in the transcript-lock suite. Validation: exact-head CI 37962356184 passed in attempt 1, including CI and security gates. All 30 focused transcript-lock tests, post-integration core test typechecks, Madge, formatting, and P2 autoreview passed. ClawSweeper completed the integration-head review with no findings. Co-authored-by: Peter Steinberger",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor: share remaining worker-boundary test probes (#167705)",
+      "summaryZh": "重點：refactor: share remaining worker-boundary test probes (#167705) Consolidate 62 worker-boundary interception sites across..."
+    },
+    {
+      "id": 4,
+      "title": "fix(storage): publish conversation and plugin-state mutation receipts…",
+      "link": "https://github.com/openclaw/openclaw/commit/22e485657b286b6a740eb7083c8c70063c813374",
+      "publishedAt": "2026-10-09T17:29:03Z",
+      "summary": "fix(storage): publish conversation and plugin-state mutation receipts (#167731) Publish committed conversation and plugin-state row facts through the existing SQLite postcommit and worker receipt owners, including touches, expiry, eviction, deletion, and clear. Preserve unknown settlement, supersession, overflow handling, and existing final-authority guards. Keep main's worker-backed ClickClack store and direct persisted-target validation, with stale-route regression coverage. No stored schema, retention, permission, or released SDK contract changes. The measured first-turn +18 statements (+0.68%) is explicitly accepted because these receipts enable the follow-up removal of freshness probes. Validation: 43 focused integration/import tests plus wrapper inventory; core and extension production/test types; zero import cycles; changed-file formatting; exact-head published 2026.9.8 update cell (19 phases), preserving durable data and clearing incognito data. Landing uses the authorized inherited-CI exception: two unchanged restart-recovery fixture cases close a projection reader while holding a writer, triggering main's development cleanup guard from #167662. All other selected CI categories and independent security gates passed. ClawSweeper completed the final head with no findings. Head-pinned REST squash follows native worktree/lock contention exceeding 30 minutes.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(storage): publish conversation and plugin-state mutation receipts…",
+      "summaryZh": "重點：修正(storage): publish conversation and plugin-state mutation receipts (#167731) Publish 提交ted conversation and plugin-sta..."
+    },
+    {
+      "id": 5,
+      "title": "SMILE 衛星獨特紫外波段發威，捕捉覆蓋 1/3 地球的極光帶",
+      "link": "https://technews.tw/2026/10/10/smile-satellite-captures-daylight-aurora-over-arctic/",
+      "publishedAt": "Fri, 09 Oct 2026 16:00:49 +0000",
+      "summary": "歐洲與中國合作研發的 SMILE 衛星（Solar wind Magnetosphere Ionosphere [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "滑手機停不下來不是沒定力，科學證實科技正悄悄改寫你的大腦化學",
+      "link": "https://technews.tw/2026/10/10/technology-reshapes-brain/",
+      "publishedAt": "Fri, 09 Oct 2026 16:00:07 +0000",
+      "summary": "最新觀點指出，智慧型手機、社群媒體與生成式 AI 對人類的影響，早已超越單純的「讓人分心」，而是正在化學層面上 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "當威脅情報只剩大量數據，企業該相信什麼？",
       "link": "https://www.ithome.com.tw/news/179529",
       "publishedAt": "2026-10-09 12:10:00",
@@ -11,51 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "fix(update): explain which managed handoff lease identity changed (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/4938f90b94a574ac7629b227f6097c6d63a3ce9b",
-      "publishedAt": "2026-10-09T11:42:27Z",
-      "summary": "fix(update): explain which managed handoff lease identity changed (#167794) The refusal 'managed handoff lease database identity changed' gave operators no path, no hint which identity differed and no next step, so they searched the state directory for a database that lives in the OpenClaw temp directory. The lease database owner now reports the database path, which part changed (path, file identity or parent directory identity, or missing), the recorded and current values, and the profile-aware openclaw update repair command. Refusal semantics and the ENOENT code are unchanged. Refs #167771 #167557. Reported by @waynegault.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): explain which managed handoff lease identity changed (#1…",
-      "summaryZh": "重點：修正(update): explain which managed handoff lease identity changed (#167794) The refusal 'managed handoff lease database i..."
-    },
-    {
-      "id": 3,
-      "title": "refactor(ui): consolidate page lifecycle and rendering (#167780)",
-      "link": "https://github.com/openclaw/openclaw/commit/81901bfd217ebaacc674b2d06850f1caaba0e3c4",
-      "publishedAt": "2026-10-09T11:35:32Z",
-      "summary": "refactor(ui): consolidate page lifecycle and rendering (#167780) * refactor(ui): consolidate page lifecycle and rendering * refactor(ui): keep profile order lock type local * fix(ui): preserve the void reaction callback",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): consolidate page lifecycle and rendering (#167780)",
-      "summaryZh": "重點：refactor(ui): consolidate page lifecycle and rendering (#167780) * refactor(ui): consolidate page lifecycle and renderin..."
-    },
-    {
-      "id": 4,
-      "title": "test(hooks): settle transcript reconciliation before corrupting proje…",
-      "link": "https://github.com/openclaw/openclaw/commit/210b6ff641e35dcf188fd09587d4dd92456338ad",
-      "publishedAt": "2026-10-09T11:34:54Z",
-      "summary": "test(hooks): settle transcript reconciliation before corrupting projection Readable projection readiness can precede the reconciliation writer orphan sweep. Join the existing reconcile promise before the fixture runs raw corruption SQL, preventing its synchronous SQLite lock wait from blocking the writer commit grant. Keep every capture assertion unchanged.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(hooks): settle transcript reconciliation before corrupting proje…",
-      "summaryZh": "重點：test(hooks): settle transcript reconciliation before corrupting projection Readable projection readiness can precede the..."
-    },
-    {
-      "id": 5,
-      "title": "test(ui): preserve live terminal inventory across workspace reload",
-      "link": "https://github.com/openclaw/openclaw/commit/0011af38333bca1def5ef198f043f9a7e8684340",
-      "publishedAt": "2026-10-09T11:34:54Z",
-      "summary": "test(ui): preserve live terminal inventory across workspace reload Wait for terminal adoption before reload and retain its live inventory and attach response. Assert that restoration attaches the same session without opening a replacement. The previous fixture could restore an exited terminal while waiting indefinitely for keyboard input.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): preserve live terminal inventory across workspace reload",
-      "summaryZh": "重點：test(ui): preserve live terminal inventory across workspace reload Wait for terminal adoption before reload and retain i..."
-    },
-    {
-      "id": 6,
+      "id": 8,
       "title": "日本IDC Frontier雲端遭勒索軟體攻擊，波及495家客戶、部分系統靠備份重建",
       "link": "https://www.ithome.com.tw/news/179548",
       "publishedAt": "2026-10-09 11:10:50",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "微軟測試新Windows Search，不只能搜尋還能執行動作",
       "link": "https://www.ithome.com.tw/news/179549",
       "publishedAt": "2026-10-09 11:10:45",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "HPE預告將推出第13代伺服器平臺，主打三大系統安全性強化特色",
       "link": "https://www.ithome.com.tw/news/179547",
       "publishedAt": "2026-10-09 11:10:44",
       "summary": "處理器大廠AMD今年7月底發表代號為Venice的第六代EPYC處理器，將於11月正式推出首批產品（EPYC 9006 SP7系列），部分伺服器廠商近期也陸續發表搭配這批處理器的新一代機型。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "天然氣管線延宕，甲骨文擬動用卡車供氣搶救 AI 資料中心進度",
-      "link": "https://technews.tw/2026/10/09/oracle-trucks-gas-ai-data-center-progress-natural-gas-pipeline-delays/",
-      "publishedAt": "Fri, 09 Oct 2026 09:07:01 +0000",
-      "summary": "AI 資料中心建設面臨能源供應瓶頸。據外電報導，甲骨文正考慮利用卡車運送壓縮天然氣，解決新墨西哥州 Proje [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AI 也會痛？酷刑室專案逼機器人陷入困境，殘酷設定引發網友炎上",
-      "link": "https://technews.tw/2026/10/09/ai-torture-chamber/",
-      "publishedAt": "Fri, 09 Oct 2026 08:30:05 +0000",
-      "summary": "近日，一個名為「AI Torture Chamber」（AI 酷刑室）的 GitHub 專案在網路上引爆激烈爭 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
