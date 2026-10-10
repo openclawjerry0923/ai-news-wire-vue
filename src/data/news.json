@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-10-10T10:59:14.119Z",
+  "generatedAt": "2026-10-10T16:11:14.896Z",
   "items": [
     {
       "id": 1,
+      "title": "improve: reduce SQLite work during chat preparation (#168318)",
+      "link": "https://github.com/openclaw/openclaw/commit/baff85bf5e7b99ccfd3cffa6b1dc19cab44a59af",
+      "publishedAt": "2026-10-10T16:10:54Z",
+      "summary": "improve: reduce SQLite work during chat preparation (#168318) * perf(sqlite): checkpoint shared admission across workers (WIP) * test(sqlite): align worker fixtures with shared admission * perf(sqlite): avoid repeated quarantine reads in retained scopes * docs(sqlite): define single-owner database freshness * perf(sqlite): replace runtime probes with writer publications Checkpoint the single-owner cutover, cache invalidation regressions, and request-owned read transactions. Keep explicit migration verification. Paired measurement and final validation are still in progress. * test(sqlite): align first-admission coverage and deletion fixtures Route retained existing-state writer coverage through the host-owned worker project, preserve first-admission incompatibility refusal, and match the final deletion-authority contract. Keep the gateway test under its inherited line count by moving existing pure fixture helpers. Regenerate assertion allowances without adding production assertions. * build(sqlite): include shared admission in compiled wrappers Include the thirteen transitive admission modules required by the native wrapper import-closure proof. Carry the existing birthtime through the worker validation fixture to preserve its physical-file identity. * test(sqlite): use the canonical settlement owner in publication proof * fix(sqlite): complete writer custody and snapshot cache lifetimes Preserve snapshot-local reuse without freshness queries, publish dedicated archive writes, and remove Workboard polling. Retain native authority and settlement boundaries. Checkpoint reviewed corrections and focused regression repairs; final integrated proof remains in progress. * test(sqlite): exercise worker failure through its owner * fix(sqlite): retain integrity and worker admission through cleanup * fix(sqlite): preserve cleanup and explicit maintenance validation * fix(sqlite): retain revocation and scoped worker admission * test(sqlite): preserve reader coverage in existing fixture owners * fix(sqlite): preserve cache receipts across sibling writers and temp DDL * fix(sqlite): preserve migration and read-cache owners * fix(workboard): type the replacement card-list promise * fix(sqlite): preserve maintenance and bootstrap admission * fix(sqlite): keep temporary trigger admission connection-local * fix(sqlite): preserve unavailable discovery target isolation * perf(sqlite): coalesce memory and chat preparation commands * fix(sqlite): preserve cold schema admission in one-shot commands * refactor(sqlite): tighten one-shot result types and test boundaries * refactor(memory): make publication callback contracts explicit",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve: reduce SQLite work during chat preparation (#168318)",
+      "summaryZh": "重點：improve: reduce SQLite work during chat preparation (#168318) * perf(sqlite): checkpoint shared admission across workers..."
+    },
+    {
+      "id": 2,
+      "title": "test(ui): serialize browser capability build fixtures",
+      "link": "https://github.com/openclaw/openclaw/commit/472281221ae943eaa1bb92b39fb0f65ff03f8372",
+      "publishedAt": "2026-10-10T16:07:48Z",
+      "summary": "test(ui): serialize browser capability build fixtures",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): serialize browser capability build 修正tures",
+      "summaryZh": "重點：test(ui): serialize browser capability build 修正tures..."
+    },
+    {
+      "id": 3,
+      "title": "perf(control-ui): seed reloads with authenticated config (#168265)",
+      "link": "https://github.com/openclaw/openclaw/commit/4644b0272c68d03496821dff6afa787059971952",
+      "publishedAt": "2026-10-10T16:05:48Z",
+      "summary": "perf(control-ui): seed reloads with authenticated config (#168265) Authenticated Control UI documents now carry the same bootstrap config as /control-ui-config.json (one builder, same read authorization, private no-store), so a signed-in reload paints the real brand and assistant identity before Gateway hello with no config request. Unauthenticated shells stay unchanged; plugin grant cookies are set only after the scope check.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(control-ui): seed reloads with authenticated config (#168265)",
+      "summaryZh": "重點：perf(control-ui): seed reloads with authenticated config (#168265) Authenticated Control UI 文件uments now carry the same ..."
+    },
+    {
+      "id": 4,
+      "title": "chore(ci): ratchet session accessor debt baseline after dispatch fixt…",
+      "link": "https://github.com/openclaw/openclaw/commit/e9bbc78b9bbdcd887a2b3693ea4ee1ebc1805672",
+      "publishedAt": "2026-10-10T16:02:27Z",
+      "summary": "chore(ci): ratchet session accessor debt baseline after dispatch fixture cleanup bc8c4d5c1954 removed the six legacy session reads from dispatch-from-config.test-support.ts without lowering the baseline, so lint:tmp:session-accessor-boundary failed on the stale allowance. Regenerated with pnpm lint:tmp:session-accessor-boundary:gen (shrink-only, one entry removed).",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(ci): ratchet session accessor debt baseline after dispatch 修正t…",
+      "summaryZh": "重點：chore(ci): ratchet session accessor debt baseline after dispatch 修正ture cleanup bc8c4d5c1954 removed the six legacy sess..."
+    },
+    {
+      "id": 5,
+      "title": "缺料缺礦又搶輸 AI！低軌衛星「巨型星系」大夢受挫，業界預期恐掀淘汰整併潮",
+      "link": "https://technews.tw/2026/10/11/space-ai-resource-competition/",
+      "publishedAt": "Sat, 10 Oct 2026 16:00:40 +0000",
+      "summary": "亞馬遜（Amazon）計劃在軌道部署超過 5,000 顆衛星，藍源（Blue Origin）也提出 5,400 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "北雙子望遠鏡解析 1181 年超新星殘骸 Pa 30，揭露珍珠串狀氣體團塊",
+      "link": "https://technews.tw/2026/10/11/striking-new-images-of-unique-supernova-remnant-reveal-pearl-like-chains/",
+      "publishedAt": "Sat, 10 Oct 2026 16:00:15 +0000",
+      "summary": "天文學家利用位於夏威夷茂納凱亞（Mauna Kea）的雙子座北望遠鏡（Gemini North），取得超新星遺 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "企業如何防止AI代理「做錯事」，專家建議四大治理方向",
       "link": "https://www.ithome.com.tw/news/179532",
       "publishedAt": "2026-10-10 12:10:00",
@@ -11,51 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "test(ui): sample rail anchor after viewport resize",
-      "link": "https://github.com/openclaw/openclaw/commit/123d5a1331a8307969767b34e8f8808461ea205b",
-      "publishedAt": "2026-10-10T10:50:53Z",
-      "summary": "test(ui): sample rail anchor after viewport resize The Details layout fixture introduced in #161674 shrinks the browser window while still comparing sampled coordinates with its 900px anchor. Wait for ResizeObserver delivery and the next frame, then retain the new window's exact track and tick positions during composer growth. Preserve every case, exact equality, hidden-rail cutoff, and restoration check. No product code, sleeps, retries, or tolerance changes. Validation: controlled resize fails before and passes after; 30 pressured runs on four CPUs with two workers; nine full-file cases; typed and boundary lint; UI E2E types; independent P2 review. Owning shard 7/8 passes the rail cases and retains the two baseline dashboard pin failures covered by #168328. Check-changed retains unrelated unused-export failures.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): sample rail anchor after viewport resize",
-      "summaryZh": "重點：test(ui): sample rail anchor after viewport resize The Details layout 修正ture introduced in #161674 shrinks the browser w..."
-    },
-    {
-      "id": 3,
-      "title": "fix: avoid deferring available linked plugins during updates (#168190)",
-      "link": "https://github.com/openclaw/openclaw/commit/468a57d3837b6df6e3a10231ecea35a54f3edfc6",
-      "publishedAt": "2026-10-10T10:50:14Z",
-      "summary": "fix: avoid deferring available linked plugins during updates (#168190) ## What Problem This Solves Fixes: `openclaw update` defers Doctor work for an available, explicitly linked plugin until package convergence, although package convergence deliberately skips path installs. ## User Impact Available operator-managed linked plugins can complete their Doctor work in the activation phase instead of needlessly deferring it. Missing or stale packages and unrecorded configuration paths remain deferred. Other reasons for the post-plugin Doctor, including deferred model retirement, are unchanged. ## Why This Change Was Made The existing availability decision now recognizes a present `source: \"path\"` install as independent of package convergence. It continues to require the existing payload and descriptor checks to pass. Update behavior: candidate-side only; it uses the existing update environment and needs no new marker. No new configuration option, schema, or persisted-state format. ## Evidence - Final focused run: both linked/unrecorded state-migration cases passed. The affected Doctor test typecheck graph passed. - The regression drives Doctor preflight in the update environment with a real installed-plugin index and a plugin state-migration contract. It checks that linked installs migrate retained binding data, while the same unrecorded path keeps its migration obligation and original bytes. - Negative control: the linked-install case fails with the original availability implementation, while the unrecorded-path control passes. - The earlier full preflight suite passed all 13 tests. A later full-file run hit timeouts, an abort, and a lost lease (9 passed, 4 failed); the final focused run is the direct regression proof. - Driver: **released v2026.9.8 (git-source install mode, same as the affected install)** → exact candidate `08189f5bbe8cb82567587a3ed8edbba4e2cee65e`. The real managed-Gateway update succeeded, with the linked plugin's state migration executed exactly once during activation and its data/settings preserved (inline evidence below). - npm-package mode is not exercised by that native run because the local Docker npm cell is blocked by **OrbStack virtiofs**: both this candidate and the exact merge base `bc524d8903002ca70d07f9770b2f993e5e7aec59` fail the installed driver's retained-runtime inode check before candidate post-core work. The [Linux release-check published-upgrade-survivor-2026.9.8 job](https://github.com/openclaw/openclaw/actions/runs/38032945484/job/114159364272) passed on Ubuntu 24.04 and supplies the npm-mode evidence; this is a successful job, not a claim that its entire workflow passed. - Native managed-Gateway replay: control `bbb82fd1e8a` (tree identical to `bc524d89030`) versus combined `47c4c3641b6e` (tree identical to `f14888c058d`, containing this change and #168226). Both use an actual linked plugin and legacy bundled-path install records. Only commit metadata was advanced to avoid the already-current fast path. Both updates finished successfully and returned `/readyz` 200. - Control's activation Doctor deferred the linked plugin with “Package convergence must wait”. Combined's activation Doctor did not defer it; the linked-plugin path and records survived. The focused migration regression above separately verifies retained data bytes. Combined also eliminated bundled-alias write/revert churn; control retained it. - Readiness downtime, summing every last-200 → next-200 interval: control **420.642 s** (one outage); combined **498.144 s** (494.934 s + 3.210 s). The stopped-window activation Doctor step took **75.030 s** versus **90.987 s**. These loaded-host samples do not establish a speedup. Both still ran the post-plugin Doctor for deferred model retirement; that independent trigger is unchanged. - Native artifacts: `runs/do-{ctl,f12}/evidence/legacy-index/{summary.json,update-result.json,readiness.jsonl,downtime-all-intervals.json}`, plus `native-legacy-evidence.json` with config-audit and retirement records. - [Maintainer decision](https://github.com/openclaw/openclaw/pull/168190#issuecomment-6094669695): approve the healthy recorded-path exception while retaining the missing/stale/unrecorded/package-managed deferral. ### Released-driver stateful upgrade The fixture was installed through `plugins install --link` and declared a real Doctor state-migration contract. Its migration renames `legacy-binding.json` to `migrated-binding.json` without changing bytes and appends `1` followed by a newline to a counter. Backup resources use Doctor's supplied state directory, so candidate validation runs on the cloned state, not live state. Sanitized `update-result.json` / persisted update-ledger excerpts: ```json { \"status\": \"ok\", \"mode\": \"git\", \"before\": {\"sha\": \"fc23bc864e4553c2d215e479eeec47b67a0bf943\", \"version\": \"2026.9.8\"}, \"after\": {\"sha\": \"08189f5bbe8cb82567587a3ed8edbba4e2cee65e\", \"version\": \"2026.9.9\"}, \"activationDoctor\": { \"step\": \"openclaw doctor\", \"status\": \"completed\", \"startedAtMs\": 1791628709879, \"endedAtMs\": 1791628789375, \"exitCode\": 0 }, \"postUpdate.plugins.npm.outcomes\": [ {\"pluginId\": \"harness-probe\", \"status\": \"skipped\", \"message\": \"Skipping \\\"harness-probe\\\" (source: path).\"} ], \"readyzAfter\": 200 } ``` Live-state observations after the update: ```text migration-count.txt bytes: 31 0a # exactly \"1\" + newline migration-count.txt mtime: 2026-10-10T10:39:18.433789Z activation Doctor window: 2026-10-10T10:38:29.879Z–10:39:49.375Z legacy-binding.json exists: false migrated-binding.json: {\"binding\":\"retained\",\"data\":\"byte-preserved\"} + trailing newline plugin settings: {\"binding\":\"settings-retained\"} package-convergence deferrals in update result + complete ledger: 0 ``` The counter was written **inside the activation Doctor window**, before post-plugin convergence. The final live counter remains exactly one, including after the later Doctor. Data SHA-256 is over the original/migrated file bytes; settings SHA-256 compares the before/after JSON subtree serialized with the same two-space indentation and trailing newline: | Bytes | Before SHA-256 | After SHA-256 | | --- | --- | --- | | Plugin data | `adbf0252af99cc5ed2cd81923331a1a3f9aa5e0138bf771c9e9ed8981e5049fb` | `adbf0252af99cc5ed2cd81923331a1a3f9aa5e0138bf771c9e9ed8981e5049fb` | | Plugin settings | `d3ba894374d916f631bf16386b64fc1e1b69cee66bf5ff227b039c5693c0c035` | `d3ba894374d916f631bf16386b64fc1e1b69cee66bf5ff227b039c5693c0c035` | Read-only SQLite `diagnostic_events` config-audit rows (timestamps UTC; local paths/process identity omitted): | Timestamp | Origin | Changed paths | | --- | --- | --- | | 09:09:42.462 | plugin-install | `plugins.installs` | | 09:09:57.820 | cli | `plugins.entries.harness-probe.config`, `plugins.installs` | | 10:39:23.947 | doctor | `meta.migrations.webhookListeners`, `plugins.installs`, `wizard` | | 10:40:11.428 | not recorded | `plugins.installs`, `plugins.load.paths[1]`, `[2]`, `[3]` | | 10:40:40.654 | doctor | `plugins.installs`, `plugins.load.paths[1]`, `[2]`, `[3]`, `wizard.lastRunAt`, `wizard.lastRunCommit` | No update-time row changed `plugins.entries.harness-probe.config`. The latter alias add/remove is expected here: this exact candidate contains fix 2 only, not the separate fix in #168226. Deferred model retirement still caused the later Doctor; it did not rerun the plugin migration. Inspectable retained outputs and proof boundary Native update-result excerpts (paths omitted; no output values changed): ```json { \"control\": { \"status\": \"ok\", \"postUpdate.plugins.sync.changed\": true, \"activationDoctor.durationMs\": 75030, \"activationDoctor.stderr\": \"Plugin \\\"harness-probe\\\" data/settings upgrade is unfinished: Package convergence must wait until the updating parent releases its install records.\", \"finalReadyz\": 200 }, \"combined\": { \"status\": \"ok\", \"postUpdate.plugins.sync.changed\": false, \"activationDoctor.durationMs\": 90987, \"activationDoctor.packageConvergenceDeferralCount\": 0, \"finalReadyz\": 200 } } ``` Both persisted installed indexes retained `harness-probe` with `source: \"path\"` and unchanged source/install paths. Both also retained the three bundled path records, including their original `spec` and `installedAt` values. The native probe does not declare a data-migration contract; this run proves the real updater's availability/deferral branch and retained existing state, not execution of a stateful migration. Stateful migration coverage is the focused regression on this exact head: ```text node scripts/run-vitest.mjs run src/commands/doctor-config-preflight.plugin-deferral.test.ts -t 'package convergence skips it' Test Files 1 passed (1) Tests 2 passed | 11 skipped (13) ``` Its linked case invokes the real migration contract and verifies `{\"binding\":\"retained\"}` plus a trailing newline in the migrated file; its unrecorded-path control verifies the original bytes remain and no destination exists. Local Docker npm-mode output on both candidate and exact merge-base control (OrbStack virtiofs limitation, not the successful native git-source run above): ```text package-install: exitCode 0 package-update: exitCode 1 reason: unexpected-error Retained runtime entry does not reference its inventoried file: /dist/a2ui-D3SkzOIh.mjs postUpdate: null ``` Maintainer-intent check: no overlapping changes from the maintainers named in the repository review guide were found in the affected files. Merge danger: two-way door; reverting restores the needless deferral. Blast radius is Doctor availability for explicitly recorded path plugins during updates. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid deferring available linked plugins during updates (#168190)",
-      "summaryZh": "重點：修正: avoid deferring available linked plugins during updates (#168190) ## What Problem This Solves 修正: `OpenClaw update` ..."
-    },
-    {
-      "id": 4,
-      "title": "fix(memory-core): prevent duplicate dream diary entries per sweep (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/ab2b6c2f1d44e11dbca867370926b331c6d34933",
-      "publishedAt": "2026-10-10T10:49:49Z",
-      "summary": "fix(memory-core): prevent duplicate dream diary entries per sweep (#167887) * fix(memory-core): prevent duplicate dream diary entries per sweep * chore: prune stale memory doctor max-lines entry * chore: prune retired dreaming phase mock allowance * test(memory): include session identity in pending diary forget proof --------- Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): prevent duplicate dream diary entries per sweep (#1…",
-      "summaryZh": "重點：修正(記憶-core): prevent duplicate dream diary entries per sweep (#167887) * 修正(記憶-core): prevent duplicate dream diary entr..."
-    },
-    {
-      "id": 5,
-      "title": "fix(update): recover blocked updates after completed receipt identity…",
-      "link": "https://github.com/openclaw/openclaw/commit/eae2e5421daa5b0647126830917df8772ab35f70",
-      "publishedAt": "2026-10-10T10:49:22Z",
-      "summary": "fix(update): recover blocked updates after completed receipt identity drift (#168388) * fix(update): recover retired receipts with an independent helper Allow a newer standalone recovery helper to archive an exact completed publication receipt under fresh update ownership, preserving bytes and leaving the serving installation unchanged. Keep unfinished recovery bound to its original helper. Document the first-hop recovery route for published updaters blocked by historical device IDs. * fix(update): clarify completed receipt recovery checks Avoid shadowing the prior settlement during archival, check external status before the stale-receipt regression, and link the first-hop recovery procedure from update repair guidance.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): recover blocked updates after completed receipt identity…",
-      "summaryZh": "重點：修正(update): recover blocked updates after completed receipt identity drift (#168388) * 修正(update): recover retired recei..."
-    },
-    {
-      "id": 6,
+      "id": 8,
       "title": "拒當預售屋韭菜！全台單坪價差飆破 18 萬、買五年新古屋直接打 7 折",
       "link": "https://finance.technews.tw/2026/10/10/shinkoya/",
       "publishedAt": "Sat, 10 Oct 2026 09:28:50 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "AI 競賽進入下半場：不再只拚「模型最強」，規模化與落地部署才是決勝關鍵",
       "link": "https://technews.tw/2026/10/10/the-unglamorous-reality-of-winning-the-ai-race/",
       "publishedAt": "Sat, 10 Oct 2026 08:30:00 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "AI 設計抗體實測出爐：最佳化既有抗體成效最佳，從零設計仍需實驗把關",
       "link": "https://technews.tw/2026/10/10/ai-and-therapeutic-antibody-design/",
       "publishedAt": "Sat, 10 Oct 2026 07:30:31 +0000",
       "summary": "人工智慧（AI）正逐步改變新藥研發方式，改良治療用抗體正是最受期待的應用之一。抗體是能辨識特定標的的蛋白質，已 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "台股高檔震盪「高息型」最吃香！盤點 12 檔 ETF 規模逆勢創新高",
-      "link": "https://finance.technews.tw/2026/10/10/high-interest-type/",
-      "publishedAt": "Sat, 10 Oct 2026 07:20:05 +0000",
-      "summary": "台股大盤創高後拉回整理，但根據 CMONEY 統計顯示，包括群益半導體收益（00927）、國泰永續高股息（00 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "拯救數百萬歐元損失，酩悅軒尼詩靠 AI「數位嗅覺」精準捕捉葡萄酒隱形殺手",
-      "link": "https://technews.tw/2026/10/10/ai-olfactory-breakthrough/",
-      "publishedAt": "Sat, 10 Oct 2026 07:00:37 +0000",
-      "summary": "酩悅軒尼詩（Moët Hennessy）正將人工智慧與化學感測技術導入葡萄酒釀造流程，試圖在發酵問題發生前，預 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
