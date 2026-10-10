@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-10T16:11:14.896Z",
+  "generatedAt": "2026-10-10T20:30:07.020Z",
   "items": [
     {
       "id": 1,
-      "title": "improve: reduce SQLite work during chat preparation (#168318)",
-      "link": "https://github.com/openclaw/openclaw/commit/baff85bf5e7b99ccfd3cffa6b1dc19cab44a59af",
-      "publishedAt": "2026-10-10T16:10:54Z",
-      "summary": "improve: reduce SQLite work during chat preparation (#168318) * perf(sqlite): checkpoint shared admission across workers (WIP) * test(sqlite): align worker fixtures with shared admission * perf(sqlite): avoid repeated quarantine reads in retained scopes * docs(sqlite): define single-owner database freshness * perf(sqlite): replace runtime probes with writer publications Checkpoint the single-owner cutover, cache invalidation regressions, and request-owned read transactions. Keep explicit migration verification. Paired measurement and final validation are still in progress. * test(sqlite): align first-admission coverage and deletion fixtures Route retained existing-state writer coverage through the host-owned worker project, preserve first-admission incompatibility refusal, and match the final deletion-authority contract. Keep the gateway test under its inherited line count by moving existing pure fixture helpers. Regenerate assertion allowances without adding production assertions. * build(sqlite): include shared admission in compiled wrappers Include the thirteen transitive admission modules required by the native wrapper import-closure proof. Carry the existing birthtime through the worker validation fixture to preserve its physical-file identity. * test(sqlite): use the canonical settlement owner in publication proof * fix(sqlite): complete writer custody and snapshot cache lifetimes Preserve snapshot-local reuse without freshness queries, publish dedicated archive writes, and remove Workboard polling. Retain native authority and settlement boundaries. Checkpoint reviewed corrections and focused regression repairs; final integrated proof remains in progress. * test(sqlite): exercise worker failure through its owner * fix(sqlite): retain integrity and worker admission through cleanup * fix(sqlite): preserve cleanup and explicit maintenance validation * fix(sqlite): retain revocation and scoped worker admission * test(sqlite): preserve reader coverage in existing fixture owners * fix(sqlite): preserve cache receipts across sibling writers and temp DDL * fix(sqlite): preserve migration and read-cache owners * fix(workboard): type the replacement card-list promise * fix(sqlite): preserve maintenance and bootstrap admission * fix(sqlite): keep temporary trigger admission connection-local * fix(sqlite): preserve unavailable discovery target isolation * perf(sqlite): coalesce memory and chat preparation commands * fix(sqlite): preserve cold schema admission in one-shot commands * refactor(sqlite): tighten one-shot result types and test boundaries * refactor(memory): make publication callback contracts explicit",
+      "title": "fix(memory-flush): fallback to estimatePromptTokensFromSessionTranscr…",
+      "link": "https://github.com/openclaw/openclaw/commit/b66d8da2938da040a1db9a83851d80d59320ff5c",
+      "publishedAt": "2026-10-10T20:27:10Z",
+      "summary": "fix(memory-flush): fallback to estimatePromptTokensFromSessionTranscript when usage data is unavailable (#83178) * fix(memory-flush): fallback to estimatePromptTokensFromSessionTranscript when usage data is unavailable When a model provider (e.g., MiniMax) does not return usage data in its API response, the session entry's totalTokens stays undefined. The preflight compaction path already handles this via estimatePromptTokensFromSessionTranscript, but the memory-flush path did not have the same fallback. This caused entry.totalTokens to remain undefined across compactions, preventing the system from recognizing context reductions and triggering redundant compactions. This change adds the same fallback from the preflight path into the memory-flush path, ensuring entry.totalTokens is populated even when the model does not provide usage data. * fix(memory): flush context without provider token usage Use the transcript estimator for pre-compaction memory checkpoints while keeping heuristic totals out of persisted provider usage. Share output-once projection with compaction and preserve empty-history flush behavior. Fixes #83177. Co-authored-by: njuboy11 * test(memory): align flush fixtures with transcript owners --------- Co-authored-by: njuboy11 Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: reduce SQLite work during chat preparation (#168318)",
-      "summaryZh": "重點：improve: reduce SQLite work during chat preparation (#168318) * perf(sqlite): checkpoint shared admission across workers..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-flush): fallback to estimatePromptTokensFromSessionTranscr…",
+      "summaryZh": "重點：修正(記憶-flush): fallback to estimatePromptTokensFromSessionTranscript when usage data is unavailable (#83178) * 修正(記憶-flus..."
     },
     {
       "id": 2,
-      "title": "test(ui): serialize browser capability build fixtures",
-      "link": "https://github.com/openclaw/openclaw/commit/472281221ae943eaa1bb92b39fb0f65ff03f8372",
-      "publishedAt": "2026-10-10T16:07:48Z",
-      "summary": "test(ui): serialize browser capability build fixtures",
+      "title": "fix: model list builds slow down quadratically with large provider ca…",
+      "link": "https://github.com/openclaw/openclaw/commit/ca48776ba03f8d6aa396db8c732d53b3bf3a9fd8",
+      "publishedAt": "2026-10-10T20:26:28Z",
+      "summary": "fix: model list builds slow down quadratically with large provider catalogs (#166223) * perf(models): skip unmatchable provider rows in runtime policy lookup resolveModelConfig scanned every authored row of the selected provider and parsed each row id to test for an exact match. Catalog projection resolves a runtime policy several times per row (harness policy, CLI runtime auth, catalog decision runtime, native evaluation), so a provider with N authored models cost O(N^2) ref parses per models.list build. With 402 rows this was the largest single cost in an uncached build. An exact match must end with the requested model id, so rows that do not are skipped before parsing. Matching semantics are unchanged; a table test pins self-qualified row matching that the prefilter relies on. * test(models): bound parsing work for large provider catalogs --------- Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): serialize browser capability build 修正tures",
-      "summaryZh": "重點：test(ui): serialize browser capability build 修正tures..."
+      "titleZh": "OpenClaw 程式碼更新：修正: 模型 list builds slow down quadratically with large provider ca…",
+      "summaryZh": "重點：修正: 模型 list builds slow down quadratically with large provider catalogs (#166223) * perf(模型): skip unmatchable provider ..."
     },
     {
       "id": 3,
-      "title": "perf(control-ui): seed reloads with authenticated config (#168265)",
-      "link": "https://github.com/openclaw/openclaw/commit/4644b0272c68d03496821dff6afa787059971952",
-      "publishedAt": "2026-10-10T16:05:48Z",
-      "summary": "perf(control-ui): seed reloads with authenticated config (#168265) Authenticated Control UI documents now carry the same bootstrap config as /control-ui-config.json (one builder, same read authorization, private no-store), so a signed-in reload paints the real brand and assistant identity before Gateway hello with no config request. Unauthenticated shells stay unchanged; plugin grant cookies are set only after the scope check.",
+      "title": "perf(control-ui): preload native plugin assets together (#168059)",
+      "link": "https://github.com/openclaw/openclaw/commit/712f0ec826b8f0de0c633524a8d634cbb8696f6f",
+      "publishedAt": "2026-10-10T20:21:30Z",
+      "summary": "perf(control-ui): preload native plugin assets together (#168059) Control UI plugin entry modules, their static imports, and stylesheets are now preloaded as soon as the bootstrap config is known (including the config embedded in authenticated documents), CSS and JS load in parallel, and the plugin catalog RPC and config refresh run concurrently. The Gateway records each plugin revision's static browser imports once per snapshot. A plugin catalog failure leaves bootstrap identity and document delivery intact (empty plugin list); the plugins.controlUi.list RPC remains the owner that reports catalog errors.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(control-ui): seed reloads with authenticated config (#168265)",
-      "summaryZh": "重點：perf(control-ui): seed reloads with authenticated config (#168265) Authenticated Control UI 文件uments now carry the same ..."
+      "titleZh": "OpenClaw 程式碼更新：perf(control-ui): preload native plugin assets together (#168059)",
+      "summaryZh": "重點：perf(control-ui): preload native plugin assets together (#168059) Control UI plugin entry modules, their static imports,..."
     },
     {
       "id": 4,
-      "title": "chore(ci): ratchet session accessor debt baseline after dispatch fixt…",
-      "link": "https://github.com/openclaw/openclaw/commit/e9bbc78b9bbdcd887a2b3693ea4ee1ebc1805672",
-      "publishedAt": "2026-10-10T16:02:27Z",
-      "summary": "chore(ci): ratchet session accessor debt baseline after dispatch fixture cleanup bc8c4d5c1954 removed the six legacy session reads from dispatch-from-config.test-support.ts without lowering the baseline, so lint:tmp:session-accessor-boundary failed on the stale allowance. Regenerated with pnpm lint:tmp:session-accessor-boundary:gen (shrink-only, one entry removed).",
+      "title": "test(agents): match compatible Responses runtime carrier shape",
+      "link": "https://github.com/openclaw/openclaw/commit/84459372b99a57607fbded75fa5a403d75c9e55f",
+      "publishedAt": "2026-10-10T20:16:35Z",
+      "summary": "test(agents): match compatible Responses runtime carrier shape Align provider-review continuation request captures with #168546. The ChatGPT Responses fixture is outside the native OpenAI endpoint predicate, so its runtime carrier keeps the user role and original content blocks. Keep the exact reviewed steer, carrier ordering, image omission, request count, transcript immutability and review-settlement assertions. This only updates two expected arrays; no request assembly or provider policy changes. Linux proof: 32 focused tests, all 1,454 tests in the original 111-file shard, and 11 provider-role tests pass. Restoring unconditional instruction role conversion makes all four affected cases fail. Selected test types, lint and P2 review pass. The unrelated dead-export failures also reproduce on the untouched baseline; no ignores or suppressions were changed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ci): ratchet session accessor debt baseline after dispatch 修正t…",
-      "summaryZh": "重點：chore(ci): ratchet session accessor debt baseline after dispatch 修正ture cleanup bc8c4d5c1954 removed the six legacy sess..."
+      "titleZh": "OpenClaw 程式碼更新：test(agents): match compatible Responses runtime carrier shape",
+      "summaryZh": "重點：test(agents): match compatible Responses runtime carrier shape Align provider-review continuation request captures with ..."
     },
     {
       "id": 5,
