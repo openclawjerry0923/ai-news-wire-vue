@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-10-11T18:39:32.359Z",
+  "generatedAt": "2026-10-11T22:42:25.516Z",
   "items": [
     {
       "id": 1,
-      "title": "test(ui): use current sidebar ownership controls in live fixtures",
-      "link": "https://github.com/openclaw/openclaw/commit/25e9c07762221ddb73ff9c90eed55d26d0029ad3",
-      "publishedAt": "2026-10-11T18:39:23Z",
-      "summary": "test(ui): use current sidebar ownership controls in live fixtures Use the shared owner-picker helper for the mixed-owner search fixture. Single-owner dashboard and native catalog fixtures have no owner selector and do not need a scope change; preserve all behavior assertions. Baseline reproduced three selector failures. Candidate four cases pass in 92.481s including UI preparation (42.694s case time). Scoped lint, format and independent P2 review pass.",
+      "title": "test(gateway): settle managed-worktree reply fixtures",
+      "link": "https://github.com/openclaw/openclaw/commit/491dfa6b1597e99ddd246fe3e1f10a1a01c76f65",
+      "publishedAt": "2026-10-11T22:37:31Z",
+      "summary": "test(gateway): settle managed-worktree reply fixtures Fix the existing-worktree sessions.create/sessions.send hourly failure in jobs 114482209021 and 114506381242 (runs 38143525086 and 38151645476). The runtime stub introduced in b7ec596e38a2 skipped lifecycle completion. Its initial reply could finish with recovery custody still on the row; a background display-name write then invalidated the unnecessary orphan recovery during the follow-up send. Linux pressure reproduced the exact SessionRecoverySourceChangedError and traced the title publication. Report the prepared session and run lifecycle, then await the exact run's committed terminal row before returning the mock reply. Keep every existing assertion and the production recovery guards unchanged. Proof on Linux/Node 24.19.0: final file passed 20/20 CPU-pressured runs; reverting only the fix failed immediately with the same error. All three original 25-file/277-test shard replays passed. The single-worker file run passed all 9 cases in 90 seconds (86.70 seconds Vitest). The complete Gateway config ran 510 files/4917 tests: 4913 passed, three unrelated baseline failures, and one existing skip. HTTP failures reproduce on clean a45edbfa69ea and are fixed separately by 2f019cb204c4; the ACP abort-order failure belongs to an unchanged earlier process group. Changed-file oxlint, boundary lint, formatting, architecture and diff checks passed. Test typecheck and check-changed retain the identical seven UI TS2339 baseline errors, verified with the patch removed. Independent P2 review of the final diff was clean.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): use current sidebar ownership controls in live 修正tures",
-      "summaryZh": "重點：test(ui): use current sidebar ownership controls in live 修正tures Use the shared owner-picker helper for the mixed-owner ..."
+      "titleZh": "OpenClaw 程式碼更新：test(Gateway): settle managed-worktree reply 修正tures",
+      "summaryZh": "重點：test(Gateway): settle managed-worktree reply 修正tures 修正 the existing-worktree sessions.create/sessions.send hourly failu..."
     },
     {
       "id": 2,
-      "title": "test(ui): type deliberate composer sends in Firefox (#169262)",
-      "link": "https://github.com/openclaw/openclaw/commit/9e722cd27e44505e48782ff853f22e0d1d9fcaff",
-      "publishedAt": "2026-10-11T18:38:29Z",
-      "summary": "test(ui): type deliberate composer sends in Firefox (#169262)",
+      "title": "refactor(sdk): await session and preference preparation (#169122)",
+      "link": "https://github.com/openclaw/openclaw/commit/2665147fc1c2de4814606c7674e7014d1317ad8d",
+      "publishedAt": "2026-10-11T22:35:27Z",
+      "summary": "refactor(sdk): await session and preference preparation (#169122) Route bundled session, conversation, model-menu, ambient transcript, and TTS preference preparation through the existing async owners. Preserve deprecated synchronous Plugin SDK contracts and real execution, disclosure, and deletion authority checks. Remove redundant ordinary-path reads, retain metadata-only SQL projections, and document the async replacements.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): type deliberate composer sends in Firefox (#169262)",
-      "summaryZh": "重點：test(ui): type deliberate composer sends in Firefox (#169262)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(sdk): await session and preference preparation (#169122)",
+      "summaryZh": "重點：refactor(sdk): await session and preference preparation (#169122) Route bundled session, conversation, 模型-menu, ambient ..."
     },
     {
       "id": 3,
-      "title": "fix(diagnostics): expire completed startup stall attribution (#169221)",
-      "link": "https://github.com/openclaw/openclaw/commit/86c2aae466c57e3405bc85f0da3d1b6063146112",
-      "publishedAt": "2026-10-11T18:31:31Z",
-      "summary": "fix(diagnostics): expire completed startup stall attribution (#169221) * fix(diagnostics): expire completed startup stall attribution Prevent detached callbacks from retaining completed startup labels, and record the lifecycle reason for each channel account handoff. * test(diagnostics): make synchronous completion explicit * test(gateway): assert channel reload start reasons",
+      "title": "test(ui): remove Lit fixtures from Solid component tests (#169387)",
+      "link": "https://github.com/openclaw/openclaw/commit/3be41182be9b09709f3e6c038c46aeb7d633841d",
+      "publishedAt": "2026-10-11T22:28:45Z",
+      "summary": "test(ui): remove Lit fixtures from Solid component tests (#169387)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): expire completed startup stall attribution (#169221)",
-      "summaryZh": "重點：修正(diagnostics): expire completed startup stall attribution (#169221) * 修正(diagnostics): expire completed startup stall ..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): remove Lit 修正tures from Solid component tests (#169387)",
+      "summaryZh": "重點：test(ui): remove Lit 修正tures from Solid component tests (#169387)..."
     },
     {
       "id": 4,
-      "title": "fix(ui): coalesce initial foundation chunks within boot budgets",
-      "link": "https://github.com/openclaw/openclaw/commit/926602532b623c60e281e35759dc8af33e77cbd7",
-      "publishedAt": "2026-10-11T18:29:48Z",
-      "summary": "fix(ui): coalesce initial foundation chunks within boot budgets Separate already-initial foundation dependencies from the dense UI source-size partition cap. Preserve the initial module boundary and emitted gzip gates. Group the Solid login gate and shared plugin schema with their existing runtime owners and regenerate the measured boot manifest. Original production build reproduced 36 chat requests against the unchanged 35 limit. Final build: chat 35, new-session 30, startup 8 requests and 420845 bytes gzip; largest ordinary chunk 194.1 KiB. All 29 build/copy cases and 25 login browser cases pass, production and owning UI types/lint pass, and fresh independent P2 review is clean.",
+      "title": "perf(sessions): reuse config-owned roster and projection facts (#169263)",
+      "link": "https://github.com/openclaw/openclaw/commit/2040d1b71db98e8b2a5d740770c37e17f64316ba",
+      "publishedAt": "2026-10-11T22:21:52Z",
+      "summary": "perf(sessions): reuse config-owned roster and projection facts (#169263) * perf(sessions): reuse config-owned roster and projection facts Retain roster facts for the published config revision and model facts across row-only publications. Let selection and facts publications retire list caches while preserving materialization-scoped weak presentations. Keep independent mutable inputs batch-scoped and invalidate same-object config republication. Exercise configuration refresh through the actual publisher. * fix(sessions): keep roster publication reads import-light Publish config identity and revision before observers through an import-free leaf so roster reads do not introduce a full-graph import cycle. Include the leaf in the extracted maintainer runtime and retire its eligibility on reset. Prove model metadata reuse through updated session-list output and catalog lookup counts instead of asserting empty cache-map identity. * test(gateway): type mutable catalog regression entries * test(gateway): keep catalog regression on API capacity",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): coalesce initial foundation chunks within boot budgets",
-      "summaryZh": "重點：修正(ui): coalesce initial foundation chunks within boot budgets Separate already-initial foundation dependencies from the..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): reuse config-owned roster and projection facts (#169263)",
+      "summaryZh": "重點：perf(sessions): reuse config-owned roster and projection facts (#169263) * perf(sessions): reuse config-owned roster and..."
     },
     {
       "id": 5,
+      "title": "台達等大廠遭美 337 調查，台達電：產品未受影響",
+      "link": "https://technews.tw/2026/10/12/ai-vertical-power-patent-storm-delta-others-us-337-probe-delta-products-unaffected/",
+      "publishedAt": "Sun, 11 Oct 2026 22:00:30 +0000",
+      "summary": "美國國際貿易委員會（USITC）於 10 月 9 日宣布，針對特定垂直供電系統及相關運算設備啟動 337 調查 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "借鏡地表最強生物抗凍蛋白，或突破人類紅血球冷凍保存難題",
       "link": "https://technews.tw/2026/10/11/red-blood-cell-tardigrade-cahs-protein-trehalose-centrifugation/",
       "publishedAt": "Sun, 11 Oct 2026 09:49:05 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "美 337 調查再盯上台廠，鴻海、廣達：營運未受影響",
       "link": "https://finance.technews.tw/2026/10/11/337-usa-victor/",
       "publishedAt": "Sun, 11 Oct 2026 08:34:13 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "目標成為 AI 代理界的麥金塔！蘋果前設計師操刀 Hark 推出主動式 AI 程式 Hark Pro，為硬體明年上市鋪路",
       "link": "https://technews.tw/2026/10/11/ai-startup-hark-debuts-proactive-hark-pro-app-ahead-of-2027-hardware-launch/",
       "publishedAt": "Sun, 11 Oct 2026 08:30:41 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "棕矮星也會變天，韋伯望遠鏡捕捉 7.5 光年外鄰居天體雲層變化",
       "link": "https://technews.tw/2026/10/11/wise-0855-brown-dwarf-star-atmosphere-water-cloud/",
       "publishedAt": "Sun, 11 Oct 2026 08:18:46 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "AI 代理的下道關卡，網站願不願意放行",
       "link": "https://infosecu.technews.tw/2026/10/11/the-next-hurdle-for-ai-agents-getting-websites-to-let-them-in/",
       "publishedAt": "Sun, 11 Oct 2026 07:30:36 +0000",
       "summary": "Meta 的 Muse、Instinct、ChatGPT 的 Dots 等個人 AI 代理人（AI Agent [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "丹納赫將推首座 AI 自動實驗室，抗體試劑開發最高快 8 倍",
-      "link": "https://technews.tw/2026/10/11/danaher-launching-ai-powered-autonomous-lab-for-drug-discovery/",
-      "publishedAt": "Sun, 11 Oct 2026 07:00:45 +0000",
-      "summary": "美國生命科學大廠丹納赫（Danaher）7 日宣布，推出首座 AI 驅動的自動研究實驗室，協助科學家更快速、有 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
