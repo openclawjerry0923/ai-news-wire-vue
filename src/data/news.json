@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-10-13T17:58:56.684Z",
+  "generatedAt": "2026-10-13T22:35:14.946Z",
   "items": [
     {
       "id": 1,
-      "title": "feat: preserve PostgreSQL stores in backups and updates (#170828)",
-      "link": "https://github.com/openclaw/openclaw/commit/d0ea7eae7eade7740fad79db1aa73a2ebd337bde",
-      "publishedAt": "2026-10-13T17:58:11Z",
-      "summary": "feat: preserve PostgreSQL stores in backups and updates (#170828) Route archive, local, and Git backups plus updater capture/restore through one engine-aware backup owner. Preserve exact PostgreSQL update captures and restore to a fresh owned namespace with the matched anchor; retain SQLite behavior. Add optional openclaw.databaseEngines capability metadata. An absent field means SQLite-only; installations with physical PostgreSQL stores refuse targets without postgres before mutation. updateAdmissionProtocol remains unchanged. Port enablement (P3-6c/d) requires a published release containing this PR. The port command stays disabled. Validation: 155 focused tests and two clean review rounds; exact-head PostgreSQL conformance, dialect ratchet 10 to 10, and published 2026.10.3 driver update passed with readyz 200. Three unrelated CI failures are documented in the PR under the authorized landing exception.",
-      "source": "OpenClaw Commits",
+      "title": "openclaw 2026.10.3",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.3",
+      "publishedAt": "2026-10-13T22:33:26Z",
+      "summary": "OpenClaw v2026.10.3 90 commits · 79 pull requests · 99 contributors Changes included in this release The release notes and changelog contain the same content, presented in two formats: Release notes — formatted for people. Changelog — plain Markdown for AI agents and tools. Thanks @aaajiao @adenzhou1350 @aia007731-lab @aleps001 @alexph-dev @an2in @arifarai @bluet @ceckert @chedong @clawdgawd @Claynetic @CodeForcer @creanet-64 @davidevelyn @davidmackrory-byte @destinedenergy @DonnieFi @eduherranz @ericcurtin @ezimerman @frxiaobei @fuller-stack-dev @georgenaz @gisk0 @GoldenrodScript @goutamadwant @Grynn @h6y3 @hannesrudolph @Hansen1018 @harshitgupta31415 @holgergruenhagen @Jeehut @jjjhenriksen @jlapenna @jokerman1302-eng @josephsilvagnoli @joshpetras @jullianatolentino @justinforsound @k-sekula @k94118 @kimjinsuhh @kiranvk-2011 @lakemike @Leit-motif @lishewen @maestrokling @marl0n @masatohoshino @mcooks-cmd @mightyx @mkdelta221 @motookoyama @mychataa @Mydudeclaps @N4DH @neilofneils404 @NianJiuZst @nosmile99 @ns-spec @nukk-pain @obviyus @Oldrich333 @olveww-dot @orthogonalistic @philknows @php737 @rauf543 @RomneyDa @rongtianhua @ruicozibon @S1gv4rd @saju01 @sayitfast @shakkernerd @sirius1024 @sjf-oa @slinkoff @snotty @steipete @sunnyshu0925 @svdinu-jpg @Takhoffman @TOMUIV @vinaycodeaxe @vincentkoc @wangmiao0668000666 @warhangel @waynegault @wbumgardner-max @wg-mojo @xilopaint @XX441 @yetval @Yigtwxx @yoyo837 @zhangguiping-xydt Release verification npm package: https://www.npmjs.com/package/openclaw/v/2026.10.3 registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.3.tgz integrity: sha512-ncl6LntMlf76K39LFhVrDXQTbaGNAG5j52f7PL5P8vIn0knWmCrvfAe9DHMslFq+47HeOWBH2CBYQH8zEb+UAA== release SHA: 59cb44796b0f1f0daa0e37af8b1495abb45d9bc1 full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.3/release-evidence.md release publish: https://github.com/openclaw/openclaw/actions/runs/38400437628 npm preflight: https://github.com/openclaw/openclaw/actions/runs/38363208380 full release validation: https://github.com/openclaw/openclaw/actions/runs/38362444278 plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/38401383477 plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/38401391115; public finalization and exact artifact verification follow terminal release-parent completion plugin ClawHub bootstrap: not needed OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/38403796506 npm Telegram beta E2E: not supplied Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.3; run pnpm android:version:pin -- --from-gateway before the next tag.",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: preserve PostgreSQL stores in backups and updates (#170828)",
-      "summaryZh": "重點：新功能: preserve PostgreSQL stores in backups and updates (#170828) Route archive, local, and Git backups plus updater capt..."
+      "titleZh": "OpenClaw 版本更新：2026.10.3",
+      "summaryZh": "重點：OpenClaw v2026.10.3 90 提交 · 79 pull requests · 99 contributors Changes included in this 版本發布 The 版本發布 notes and changelo..."
     },
     {
       "id": 2,
-      "title": "test(agents): handle expected worker deadline before timer advance",
-      "link": "https://github.com/openclaw/openclaw/commit/35157a1b370969d557e6730202d670d25db170f8",
-      "publishedAt": "2026-10-13T17:57:38Z",
-      "summary": "test(agents): handle expected worker deadline before timer advance The real worker deadline test attached its rejection handler after awaiting asynchronous timer advancement. The intentional rejection therefore surfaced as unhandled despite passing fallback assertions in scheduled main 38439503520. Attach the handler immediately, before awaiting worker notification or advancing timers. Preserve real IPC, timeout classification and the configured fallback assertions. Culprit: 4ea40f2b890e9359cb15faae433d0807c0d52d5a (#156650). Codex review and changed-file format/lint/diff checks pass.",
+      "title": "fix(agents): retire warm CLI sessions before manual compaction (#157766)",
+      "link": "https://github.com/openclaw/openclaw/commit/57c5289d690c8ba6bf186ad90b489c787a48e942",
+      "publishedAt": "2026-10-13T22:33:26Z",
+      "summary": "fix(agents): retire warm CLI sessions before manual compaction (#157766) fix(cli-runner): retire the warm CLI process after manual compaction After a manual /compact on a native CLI backend (for example claude-cli), the previous warm CLI process stayed alive and the next turn reused it, so the model kept working from pre-compaction context. Compaction now retires the warm process through the existing serialized queue, and the next turn starts a fresh process with the compacted history. Ordinary turns still reuse the warm process, and other sessions are unaffected. Proof: built Gateway with a recording fake Claude CLI, shipped /compact: on main the next turn reused the same PID with pre-compaction history; the candidate retires that PID and resumes in a new process with compacted history. Ordinary-turn reuse and a second session are unchanged. Fixes #157483. Thanks @deepujain. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): handle expected worker deadline before timer advance",
-      "summaryZh": "重點：test(agents): handle expected worker deadline before timer advance The real worker deadline test attached its rejection ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): retire warm CLI sessions before manual compaction (#157766)",
+      "summaryZh": "重點：修正(agents): retire warm CLI sessions before manual compaction (#157766) 修正(cli-runner): retire the warm CLI process afte..."
     },
     {
       "id": 3,
-      "title": "test(release): drain checksum input in publisher fixture",
-      "link": "https://github.com/openclaw/openclaw/commit/400cc5df5b6bed84d3ab8f7e1d968c7ed8299718",
-      "publishedAt": "2026-10-13T17:55:28Z",
-      "summary": "test(release): drain checksum input in publisher fixture The scheduled main run 38439503520 failed the signed Linux publisher case with status 141. Its sha256sum stub exited without reading the checksum pipe, allowing printf to receive SIGPIPE under pipefail. Drain stdin before successful exit; preserve the real workflow and all four existing branch assertions. Culprit: 86d2daf6c8b8aa0ba19e29594776a44e00e7c48f (#171125). Codex review and changed-file format/lint/diff checks pass.",
+      "title": "fix: isolate retained and incompatible secondary agent databases (#17…",
+      "link": "https://github.com/openclaw/openclaw/commit/cd42a911bf633eae83fed0dbb7ba938ac1468765",
+      "publishedAt": "2026-10-13T22:32:56Z",
+      "summary": "fix: isolate retained and incompatible secondary agent databases (#171372) * fix(state): isolate retained and incompatible secondary agent stores * fix(state): preserve standalone startup error aggregation * fix(state): exclude unconfigured fixed-store sibling candidates * fix(agents): preserve broad deletion-safety candidate scans",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(版本發布): drain checksum input in publisher 修正ture",
-      "summaryZh": "重點：test(版本發布): drain checksum input in publisher 修正ture The scheduled main run 38439503520 failed the signed Linux publishe..."
+      "titleZh": "OpenClaw 程式碼更新：修正: isolate retained and incompatible secondary agent databases (#17…",
+      "summaryZh": "重點：修正: isolate retained and incompatible secondary agent databases (#171372) * 修正(state): isolate retained and incompatible..."
     },
     {
       "id": 4,
-      "title": "fix(synology-chat): stop one account's send burst from delaying other…",
-      "link": "https://github.com/openclaw/openclaw/commit/139c89173e22fcc03b7fe7510b3195a1e9e2f766",
-      "publishedAt": "2026-10-13T17:54:53Z",
-      "summary": "fix(synology-chat): stop one account's send burst from delaying other accounts (#144991) fix(synology-chat): pace sends per webhook so accounts don't delay each other Synology Chat used one process-wide send queue, so a burst of outbound messages on one account delayed every other account's messages. Sends are now paced per incoming webhook URL, and idle per-webhook slots are pruned once their cooldown has elapsed. Pacing and ordering for the same webhook are unchanged. Proof: built Gateway, /tools/invoke sends to two loopback webhook servers: during an 8-message burst on account A, account B's message took 4,028 ms on main and 97 ms on the candidate. A's messages stayed ordered and paced. Thanks @Abhishek-B-R. Co-authored-by: Ayaan Zaidi",
+      "title": "perf: reuse prepared session source authority (#171353)",
+      "link": "https://github.com/openclaw/openclaw/commit/83e694c1f45f9bd09577af83b1ece52256fed709",
+      "publishedAt": "2026-10-13T22:32:28Z",
+      "summary": "perf: reuse prepared session source authority (#171353) Reuse the selecting entry reader's retained predicate during source preparation, removing the duplicate worker read. Borrowers share the selector's lifetime; releasing a borrower does not revoke its owner, while owner disposal revokes borrowers. Conversation authority and checks at the actual worker effect remain intact. Regression coverage includes unrelated writes, selected-field revocation, reset/delete/recreate, and both release directions. Codex review is clean at P0/P1. Required CI/static gates are verified before merge. The integrated L2 harness pair has unchanged warm causal SQL/requests: 124 [124–129] statements and 34 [34–36] requests, with MAIN 0. No whole-sink T1 retirement is claimed. Per-PR scope is four files, +59/-24.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(synology-chat): stop one account's send burst from delaying other…",
-      "summaryZh": "重點：修正(synology-chat): stop one account's send burst from delaying other accounts (#144991) 修正(synology-chat): pace sends pe..."
+      "titleZh": "OpenClaw 程式碼更新：perf: reuse prepared session source authority (#171353)",
+      "summaryZh": "重點：perf: reuse prepared session source authority (#171353) Reuse the selecting entry reader's retained predicate during sou..."
     },
     {
       "id": 5,
+      "title": "全球半導體設備支出爆發！SEMI 估 2029 年達 2,270 億美元，美國擴產加速",
+      "link": "https://technews.tw/2026/10/14/semicon-west-clark-tseng/",
+      "publishedAt": "Tue, 13 Oct 2026 19:50:30 +0000",
+      "summary": "AI 與高效能運算（HPC）需求持續攀升，帶動全球半導體產業加大資本投資。SEMI 全球資深總監曾瑞榆（Cla [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "應材矽谷 EPIC 中心正式開幕！台積電魏哲家：加速 2 奈米以下技術量產",
       "link": "https://technews.tw/2026/10/13/applied-materials-epic-center/",
       "publishedAt": "Tue, 13 Oct 2026 14:58:12 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "攻智慧感測！智原推 MIPI C/D Combo PHY IP，通過聯電 14 奈米 FinFET 矽驗證",
       "link": "https://technews.tw/2026/10/13/faraday-powers-intelligent-sensing-with-new-14nm-mipi-cd-combo-phy-ip/",
       "publishedAt": "Tue, 13 Oct 2026 14:43:51 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Apple TV 4K、HomePod mini 升級！Siri AI 加持、遙控器不怕找不到",
       "link": "https://ccc.technews.tw/2026/10/13/apple-tv-4k-homepod-mini-2gen/",
       "publishedAt": "Tue, 13 Oct 2026 14:01:59 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "主打蘋果與夥伴共同設計，Apple Home Collection 亮相",
       "link": "https://technews.tw/2026/10/13/apple-home-collection/",
       "publishedAt": "Tue, 13 Oct 2026 13:39:43 +0000",
@@ -82,21 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "Siri AI 住你家，蘋果 HomeView 一次認得六張臉",
       "link": "https://technews.tw/2026/10/13/siri-ai-homeview/",
       "publishedAt": "Tue, 13 Oct 2026 13:25:19 +0000",
       "summary": "蘋果傳聞已久的智慧家庭裝置 HomeView 終於亮相！這款產品結合 7 吋觸控螢幕、智慧音響與家庭控制中心的 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "逾1.6萬個Supabase資料庫暴露於公開網路，恐洩漏敏感資料",
-      "link": "https://www.ithome.com.tw/news/179616",
-      "publishedAt": "2026-10-13 12:10:47",
-      "summary": "資安業者UpGuard於10月1日發布報告，指出該公司掃描約30萬個使用Supabase資料庫的網域後，發現16,326個資料庫存在設定錯誤，資料表可被公開讀取。Supabase是提供託管PostgreSQL資料庫及後端服務的平臺，常用於為網站與行動應用程式提供後端支援，而UpGuard發現的逾1.6萬個暴露Supabase資料庫中，超過一半含有個人識別資訊，部分還包含明文密碼、身分驗證權杖及一次性密碼（OTP），少數資料表則疑似含信用卡資料。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
