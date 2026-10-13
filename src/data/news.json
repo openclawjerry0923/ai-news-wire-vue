@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-10-13T10:12:28.025Z",
+  "generatedAt": "2026-10-13T17:58:56.684Z",
   "items": [
     {
       "id": 1,
+      "title": "feat: preserve PostgreSQL stores in backups and updates (#170828)",
+      "link": "https://github.com/openclaw/openclaw/commit/d0ea7eae7eade7740fad79db1aa73a2ebd337bde",
+      "publishedAt": "2026-10-13T17:58:11Z",
+      "summary": "feat: preserve PostgreSQL stores in backups and updates (#170828) Route archive, local, and Git backups plus updater capture/restore through one engine-aware backup owner. Preserve exact PostgreSQL update captures and restore to a fresh owned namespace with the matched anchor; retain SQLite behavior. Add optional openclaw.databaseEngines capability metadata. An absent field means SQLite-only; installations with physical PostgreSQL stores refuse targets without postgres before mutation. updateAdmissionProtocol remains unchanged. Port enablement (P3-6c/d) requires a published release containing this PR. The port command stays disabled. Validation: 155 focused tests and two clean review rounds; exact-head PostgreSQL conformance, dialect ratchet 10 to 10, and published 2026.10.3 driver update passed with readyz 200. Three unrelated CI failures are documented in the PR under the authorized landing exception.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能: preserve PostgreSQL stores in backups and updates (#170828)",
+      "summaryZh": "重點：新功能: preserve PostgreSQL stores in backups and updates (#170828) Route archive, local, and Git backups plus updater capt..."
+    },
+    {
+      "id": 2,
+      "title": "test(agents): handle expected worker deadline before timer advance",
+      "link": "https://github.com/openclaw/openclaw/commit/35157a1b370969d557e6730202d670d25db170f8",
+      "publishedAt": "2026-10-13T17:57:38Z",
+      "summary": "test(agents): handle expected worker deadline before timer advance The real worker deadline test attached its rejection handler after awaiting asynchronous timer advancement. The intentional rejection therefore surfaced as unhandled despite passing fallback assertions in scheduled main 38439503520. Attach the handler immediately, before awaiting worker notification or advancing timers. Preserve real IPC, timeout classification and the configured fallback assertions. Culprit: 4ea40f2b890e9359cb15faae433d0807c0d52d5a (#156650). Codex review and changed-file format/lint/diff checks pass.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents): handle expected worker deadline before timer advance",
+      "summaryZh": "重點：test(agents): handle expected worker deadline before timer advance The real worker deadline test attached its rejection ..."
+    },
+    {
+      "id": 3,
+      "title": "test(release): drain checksum input in publisher fixture",
+      "link": "https://github.com/openclaw/openclaw/commit/400cc5df5b6bed84d3ab8f7e1d968c7ed8299718",
+      "publishedAt": "2026-10-13T17:55:28Z",
+      "summary": "test(release): drain checksum input in publisher fixture The scheduled main run 38439503520 failed the signed Linux publisher case with status 141. Its sha256sum stub exited without reading the checksum pipe, allowing printf to receive SIGPIPE under pipefail. Drain stdin before successful exit; preserve the real workflow and all four existing branch assertions. Culprit: 86d2daf6c8b8aa0ba19e29594776a44e00e7c48f (#171125). Codex review and changed-file format/lint/diff checks pass.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(版本發布): drain checksum input in publisher 修正ture",
+      "summaryZh": "重點：test(版本發布): drain checksum input in publisher 修正ture The scheduled main run 38439503520 failed the signed Linux publishe..."
+    },
+    {
+      "id": 4,
+      "title": "fix(synology-chat): stop one account's send burst from delaying other…",
+      "link": "https://github.com/openclaw/openclaw/commit/139c89173e22fcc03b7fe7510b3195a1e9e2f766",
+      "publishedAt": "2026-10-13T17:54:53Z",
+      "summary": "fix(synology-chat): stop one account's send burst from delaying other accounts (#144991) fix(synology-chat): pace sends per webhook so accounts don't delay each other Synology Chat used one process-wide send queue, so a burst of outbound messages on one account delayed every other account's messages. Sends are now paced per incoming webhook URL, and idle per-webhook slots are pruned once their cooldown has elapsed. Pacing and ordering for the same webhook are unchanged. Proof: built Gateway, /tools/invoke sends to two loopback webhook servers: during an 8-message burst on account A, account B's message took 4,028 ms on main and 97 ms on the candidate. A's messages stayed ordered and paced. Thanks @Abhishek-B-R. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(synology-chat): stop one account's send burst from delaying other…",
+      "summaryZh": "重點：修正(synology-chat): stop one account's send burst from delaying other accounts (#144991) 修正(synology-chat): pace sends pe..."
+    },
+    {
+      "id": 5,
+      "title": "應材矽谷 EPIC 中心正式開幕！台積電魏哲家：加速 2 奈米以下技術量產",
+      "link": "https://technews.tw/2026/10/13/applied-materials-epic-center/",
+      "publishedAt": "Tue, 13 Oct 2026 14:58:12 +0000",
+      "summary": "美商應用材料斥資 50 億美元在美國矽谷打造的 EPIC 中心正式揭幕，包括台積電、英特爾、美光、三星及 SK [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "攻智慧感測！智原推 MIPI C/D Combo PHY IP，通過聯電 14 奈米 FinFET 矽驗證",
+      "link": "https://technews.tw/2026/10/13/faraday-powers-intelligent-sensing-with-new-14nm-mipi-cd-combo-phy-ip/",
+      "publishedAt": "Tue, 13 Oct 2026 14:43:51 +0000",
+      "summary": "ASIC 設計服務暨 IP 研發廠商智原科技推出 MIPI C/D Combo PHY IP 解決方案，以聯電 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Apple TV 4K、HomePod mini 升級！Siri AI 加持、遙控器不怕找不到",
+      "link": "https://ccc.technews.tw/2026/10/13/apple-tv-4k-homepod-mini-2gen/",
+      "publishedAt": "Tue, 13 Oct 2026 14:01:59 +0000",
+      "summary": "蘋果今日除了推出全新 HomeView 智慧家庭中控螢幕以及配件產品外，也同步發表第四代 Apple TV 4 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "主打蘋果與夥伴共同設計，Apple Home Collection 亮相",
+      "link": "https://technews.tw/2026/10/13/apple-home-collection/",
+      "publishedAt": "Tue, 13 Oct 2026 13:39:43 +0000",
+      "summary": "過往智慧門鈴、門鎖等產品，蘋果大多仰賴第三方配件廠商來提供，不過現在終於有「蘋果與夥伴共同設計」的智慧家庭配件 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
+      "title": "Siri AI 住你家，蘋果 HomeView 一次認得六張臉",
+      "link": "https://technews.tw/2026/10/13/siri-ai-homeview/",
+      "publishedAt": "Tue, 13 Oct 2026 13:25:19 +0000",
+      "summary": "蘋果傳聞已久的智慧家庭裝置 HomeView 終於亮相！這款產品結合 7 吋觸控螢幕、智慧音響與家庭控制中心的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 10,
       "title": "逾1.6萬個Supabase資料庫暴露於公開網路，恐洩漏敏感資料",
       "link": "https://www.ithome.com.tw/news/179616",
       "publishedAt": "2026-10-13 12:10:47",
       "summary": "資安業者UpGuard於10月1日發布報告，指出該公司掃描約30萬個使用Supabase資料庫的網域後，發現16,326個資料庫存在設定錯誤，資料表可被公開讀取。Supabase是提供託管PostgreSQL資料庫及後端服務的平臺，常用於為網站與行動應用程式提供後端支援，而UpGuard發現的逾1.6萬個暴露Supabase資料庫中，超過一半含有個人識別資訊，部分還包含明文密碼、身分驗證權杖及一次性密碼（OTP），少數資料表則疑似含信用卡資料。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 2,
-      "title": "企業數位大小章搬上手機！行動工商憑證如何改變驗證、簽章與授權管理",
-      "link": "https://www.ithome.com.tw/news/179617",
-      "publishedAt": "2026-10-13 12:10:21",
-      "summary": "今年5月18日，經濟部推出了行動工商憑證，讓企業不必再依賴實體晶片卡與讀卡機，就能透過手機完成身分驗證及數位簽章。行動工商憑證不只是改變使用方式，更將傳統分散在各應用系統的憑證查驗，轉為集中驗證架構，並支援依網站及期限設定行動附卡授權，讓企業更容易管理數位身分與憑證使用權限。 經濟部商業發展署資訊室主任丁珕日前也在2026數位政府高峰會上揭露了打造行動工商憑證背後的歷程。目前超過190套公共服務系統，支援實體和行動工商憑證，像是公司資料變更登記、電子發票管理、員工勞健保申報、營業稅申報等，企業可透過手機完成身分驗證，辦理相關線上業務。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 3,
-      "title": "Meta推出前沿AI模型Muse Wonder，挑戰OpenAI與Anthropic",
-      "link": "https://www.ithome.com.tw/news/179608",
-      "publishedAt": "2026-10-13 11:10:42",
-      "summary": "Meta周一（10/12）推出新一代前沿AI模型Muse Wonder與Muse Wonder Full，主攻個人與專業AI代理人任務，強化複雜推理、程式開發及長時間任務執行能力。Meta表示，這是該公司迄今能力最強的模型，足以與全球頂尖AI模型競爭。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "HashiCorp封存Boundary社群版，既有部署不再獲原廠安全修補",
-      "link": "https://www.ithome.com.tw/news/179607",
-      "publishedAt": "2026-10-13 11:10:40",
-      "summary": "HashiCorp宣布停止開發旗下特權存取管理工具Boundary社群版（Community Edition，CE），已於10月8日封存GitHub儲存庫，並且不再規畫新版、錯誤修正或安全修補。既有部署仍可使用，但未來若發現新的安全漏洞，社群版已沒有原廠修補計畫。此次決定只影響Boundary CE，HCP Boundary與Boundary Enterprise不受影響。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "Kiteworks修補126個漏洞，包含可能導致系統遭接管的EPG滿分漏洞",
-      "link": "https://www.ithome.com.tw/news/179606",
-      "publishedAt": "2026-10-13 11:10:29",
-      "summary": "企業安全檔案傳輸與分享服務商Kiteworks日前修補旗下產品共126個漏洞，涵蓋核心平臺Core、電子郵件防護閘道（Email Protection Gateway，EPG）及Secure Data Forms（SDF），其中包括11個重大漏洞，涉及驗證繞過、管理員帳號接管、儲存型跨網站指令碼（XSS）及存取控制等問題。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "駭客組織CyberXero濫用Claude Code攻擊WordPress網站，竊取近63萬烏克蘭用戶資料",
-      "link": "https://www.ithome.com.tw/news/179612",
-      "publishedAt": "2026-10-13 11:10:27",
-      "summary": "駭客濫用AI增強攻擊的力道，現在可說是越來越頻繁，如今有初始存取管道掮客（IAB）也加入利用的行列。資安公司SOCRadar揭露以經濟利益為動機的俄羅斯初始存取管道掮客CyberXero，駭客結合攻擊工具與基礎設施運作的AI調度指揮機制，從事兩種型態的活動，一種是針對烏克蘭能源及關鍵基礎設施而來，疑似竊取超過62.8萬名烏克蘭用戶的資料；另一種是鎖定WordPress網站和電商平臺，他們在波蘭、中國、巴基斯坦等國從事相關活動。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(migrations): avoid string-limit failures on large transcript arch…",
-      "link": "https://github.com/openclaw/openclaw/commit/10b32a5c5357b1364617129be8139f7e4aa36c82",
-      "publishedAt": "2026-10-13T10:11:59Z",
-      "summary": "fix(migrations): avoid string-limit failures on large transcript archives (#170853) * fix(migrations): stream transcript archive transforms * fix(migrations): complete streaming archive inspection and cancellation Route media repair and historical-directive inspection through one record stream, removing the whole-string fallback and redundant line wrappers. Coordinate stream errors and teardown so interrupted recompression preserves Doctor's original cancellation reason and leaves uncommitted data retryable. Add regressions for UTF-8 chunk boundaries, invalid zstd input, inspection, and second-pass cancellation with unchanged canonical bytes and retry. PR CI provides test/typecheck proof per maintainer policy; local proof is changed-file formatting and core lint. Related: #170847. Co-authored-by: Bernard M. Wright * fix(migrations): await archive pipeline teardown CI found unhandled AbortError events after composed archive iterators rejected, despite passing transformation assertions. Await pipeline-owned decoding and recompression so failures settle every participating stream. Keep cancellation checks on the original error path and make the existing progress tests trigger at explicit parse and committed-cursor boundaries. PR CI remains the test/typecheck gate; local lint and formatting only. * fix(migrations): type archive pipeline byte streams Declare the decoded and encoded pipeline callback inputs explicitly so the plugin SDK declaration build does not infer implicit any parameters. No runtime behavior change. Addresses the exact-head CI boundary-build failure; PR CI remains the typecheck and test gate. --------- Co-authored-by: Peter Steinberger Co-authored-by: Bernard M. Wright",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(migrations): avoid string-limit failures on large transcript arch…",
-      "summaryZh": "重點：修正(migrations): avoid string-limit failures on large transcript archives (#170853) * 修正(migrations): stream transcript a..."
-    },
-    {
-      "id": 8,
-      "title": "perf(sessions): reuse committed participant facts (#170746)",
-      "link": "https://github.com/openclaw/openclaw/commit/381697655d01f9ec6d7688a6b186a66d29d4c4f1",
-      "publishedAt": "2026-10-13T10:10:57Z",
-      "summary": "perf(sessions): reuse committed participant facts (#170746) Reuse the session actor’s committed participant records for warmed entry projections and participant updates. Keep SQL for cold or evicted actors, and compose publication through the existing transaction owner. Ten warmed turns: causal SQL 171.2 -> 159.8 statements/turn; worker requests 41.2 -> 40.5; participant projection reads 8.1 -> 1.1; exact participant reads 1 -> 0. MAIN remains zero. Final-head CI and both scoped reviews passed. The later harness child flow and shutdown failed, so measurement evidence is limited to completed warmed turns. Existing incognito T1 paths and the P2 warm-actor canonical-repair composition remain documented follow-ups.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): reuse 提交ted participant facts (#170746)",
-      "summaryZh": "重點：perf(sessions): reuse 提交ted participant facts (#170746) Reuse the session actor’s 提交ted participant records for warmed e..."
-    },
-    {
-      "id": 9,
-      "title": "fix(llm): apply stream payload patches to replacement payloads (#160567)",
-      "link": "https://github.com/openclaw/openclaw/commit/073d43cfec6424a351ceab9af382b056f64af526",
-      "publishedAt": "2026-10-13T10:10:35Z",
-      "summary": "fix(llm): apply stream payload patches to replacement payloads (#160567) fix(llm): keep provider payload transforms when onPayload returns a replacement When a provider plugin's onPayload hook returned a replacement payload (sync or async), the wrapper patched the original request but sent the replacement unchanged, so provider transforms were lost. Transforms are now applied to the payload that is actually sent. In-place mutation is unchanged. Proof: built `agent --local` with an installed public-SDK provider plugin and a capturing loopback endpoint: on main the policy marker was missing for sync and async replacements; the candidate keeps it. Mutating hooks keep it on both. Thanks @YangManBOBO. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(llm): apply stream payload patches to replacement payloads (#160567)",
-      "summaryZh": "重點：修正(llm): apply stream payload patches to replacement payloads (#160567) 修正(llm): keep provider payload transforms when o..."
-    },
-    {
-      "id": 10,
-      "title": "fix(tools): keep tools with JSON Schema examples available (#160542)",
-      "link": "https://github.com/openclaw/openclaw/commit/49a2b9b8efd6685f6dd61d54b13b9b123bc0c0bd",
-      "publishedAt": "2026-10-13T10:07:19Z",
-      "summary": "fix(tools): keep tools with JSON Schema examples available (#160542) fix(ai): don't quarantine tools whose schema literals contain dynamic-reference keys The tool-schema projection walker treated instance data inside examples, default, const and enum as schema keywords, so a valid tool whose literal values contained `$dynamicRef` or `$dynamicAnchor` was quarantined and disappeared. The walker now skips literal subtrees using the existing literal-key set. Genuine dynamic references are still rejected. Proof: built CLI with a real stdio MCP server: main advertised only the plain control tool; the candidate advertises the literal-data tool and the control, still quarantines a tool with a genuine $dynamicRef, and the literal-data tool executes with the expected payload. Thanks @Shenrui-Ma. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(tools): keep tools with JSON Schema examples available (#160542)",
-      "summaryZh": "重點：修正(tools): keep tools with JSON Schema examples available (#160542) 修正(ai): don't quarantine tools whose schema literals..."
     }
   ]
 }
