@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-10-13T22:35:14.946Z",
+  "generatedAt": "2026-10-14T01:38:59.824Z",
   "items": [
     {
       "id": 1,
-      "title": "openclaw 2026.10.3",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.3",
-      "publishedAt": "2026-10-13T22:33:26Z",
-      "summary": "OpenClaw v2026.10.3 90 commits · 79 pull requests · 99 contributors Changes included in this release The release notes and changelog contain the same content, presented in two formats: Release notes — formatted for people. Changelog — plain Markdown for AI agents and tools. Thanks @aaajiao @adenzhou1350 @aia007731-lab @aleps001 @alexph-dev @an2in @arifarai @bluet @ceckert @chedong @clawdgawd @Claynetic @CodeForcer @creanet-64 @davidevelyn @davidmackrory-byte @destinedenergy @DonnieFi @eduherranz @ericcurtin @ezimerman @frxiaobei @fuller-stack-dev @georgenaz @gisk0 @GoldenrodScript @goutamadwant @Grynn @h6y3 @hannesrudolph @Hansen1018 @harshitgupta31415 @holgergruenhagen @Jeehut @jjjhenriksen @jlapenna @jokerman1302-eng @josephsilvagnoli @joshpetras @jullianatolentino @justinforsound @k-sekula @k94118 @kimjinsuhh @kiranvk-2011 @lakemike @Leit-motif @lishewen @maestrokling @marl0n @masatohoshino @mcooks-cmd @mightyx @mkdelta221 @motookoyama @mychataa @Mydudeclaps @N4DH @neilofneils404 @NianJiuZst @nosmile99 @ns-spec @nukk-pain @obviyus @Oldrich333 @olveww-dot @orthogonalistic @philknows @php737 @rauf543 @RomneyDa @rongtianhua @ruicozibon @S1gv4rd @saju01 @sayitfast @shakkernerd @sirius1024 @sjf-oa @slinkoff @snotty @steipete @sunnyshu0925 @svdinu-jpg @Takhoffman @TOMUIV @vinaycodeaxe @vincentkoc @wangmiao0668000666 @warhangel @waynegault @wbumgardner-max @wg-mojo @xilopaint @XX441 @yetval @Yigtwxx @yoyo837 @zhangguiping-xydt Release verification npm package: https://www.npmjs.com/package/openclaw/v/2026.10.3 registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.3.tgz integrity: sha512-ncl6LntMlf76K39LFhVrDXQTbaGNAG5j52f7PL5P8vIn0knWmCrvfAe9DHMslFq+47HeOWBH2CBYQH8zEb+UAA== release SHA: 59cb44796b0f1f0daa0e37af8b1495abb45d9bc1 full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.3/release-evidence.md release publish: https://github.com/openclaw/openclaw/actions/runs/38400437628 npm preflight: https://github.com/openclaw/openclaw/actions/runs/38363208380 full release validation: https://github.com/openclaw/openclaw/actions/runs/38362444278 plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/38401383477 plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/38401391115; public finalization and exact artifact verification follow terminal release-parent completion plugin ClawHub bootstrap: not needed OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/38403796506 npm Telegram beta E2E: not supplied Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.3; run pnpm android:version:pin -- --from-gateway before the next tag.",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.10.3",
-      "summaryZh": "重點：OpenClaw v2026.10.3 90 提交 · 79 pull requests · 99 contributors Changes included in this 版本發布 The 版本發布 notes and changelo..."
+      "title": "LineageOS提高新版核心支援門檻，舊核心裝置官方支援止於22.2版",
+      "link": "https://www.ithome.com.tw/news/179659",
+      "publishedAt": "2026-10-14 09:10:55",
+      "summary": "開源Android作業系統LineageOS開發團隊宣布，以Android 17為基礎的LineageOS 24.0已準備發布首批裝置版本，並調整舊裝置支援政策。採用Linux 4.4及4.9核心的裝置，官方支援將止於以Android 15為基礎的LineageOS 22.2版，不再接受23.2及24.0版的支援申請。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(agents): retire warm CLI sessions before manual compaction (#157766)",
-      "link": "https://github.com/openclaw/openclaw/commit/57c5289d690c8ba6bf186ad90b489c787a48e942",
-      "publishedAt": "2026-10-13T22:33:26Z",
-      "summary": "fix(agents): retire warm CLI sessions before manual compaction (#157766) fix(cli-runner): retire the warm CLI process after manual compaction After a manual /compact on a native CLI backend (for example claude-cli), the previous warm CLI process stayed alive and the next turn reused it, so the model kept working from pre-compaction context. Compaction now retires the warm process through the existing serialized queue, and the next turn starts a fresh process with the compacted history. Ordinary turns still reuse the warm process, and other sessions are unaffected. Proof: built Gateway with a recording fake Claude CLI, shipped /compact: on main the next turn reused the same PID with pre-compaction history; the candidate retires that PID and resumes in a new process with compacted history. Ordinary-turn reuse and a second session are unchanged. Fixes #157483. Thanks @deepujain. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): retire warm CLI sessions before manual compaction (#157766)",
-      "summaryZh": "重點：修正(agents): retire warm CLI sessions before manual compaction (#157766) 修正(cli-runner): retire the warm CLI process afte..."
+      "title": "IonQ擬以最高13億美元併購零信任資安業者Elisity",
+      "link": "https://www.ithome.com.tw/news/179631",
+      "publishedAt": "2026-10-14 08:10:00",
+      "summary": "量子運算業者IonQ於10月12日宣布，已與零信任資安業者Elisity簽署併購協議，擬以最高13億美元的全股票交易併購該公司，藉此擴大企業資安業務。這項交易預計2026年第4季完成，仍須取得主管機關核准並符合其他交割條件。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: isolate retained and incompatible secondary agent databases (#17…",
-      "link": "https://github.com/openclaw/openclaw/commit/cd42a911bf633eae83fed0dbb7ba938ac1468765",
-      "publishedAt": "2026-10-13T22:32:56Z",
-      "summary": "fix: isolate retained and incompatible secondary agent databases (#171372) * fix(state): isolate retained and incompatible secondary agent stores * fix(state): preserve standalone startup error aggregation * fix(state): exclude unconfigured fixed-store sibling candidates * fix(agents): preserve broad deletion-safety candidate scans",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: isolate retained and incompatible secondary agent databases (#17…",
-      "summaryZh": "重點：修正: isolate retained and incompatible secondary agent databases (#171372) * 修正(state): isolate retained and incompatible..."
+      "title": "駭客濫用Power BI發動網釣，利用ScreenConnect維持遠端存取",
+      "link": "https://www.ithome.com.tw/news/179604",
+      "publishedAt": "2026-10-14 08:10:00",
+      "summary": "資安業者Huntress近日揭露一波濫用微軟Power BI服務的網路釣魚攻擊。攻擊者利用Power BI的合法網域，降低網釣郵件遭安全系統攔截的可能性，再誘使受害者下載遠端監控與管理（RMM）工具ScreenConnect，以便後續透過該工具遠端存取受害電腦。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "perf: reuse prepared session source authority (#171353)",
-      "link": "https://github.com/openclaw/openclaw/commit/83e694c1f45f9bd09577af83b1ece52256fed709",
-      "publishedAt": "2026-10-13T22:32:28Z",
-      "summary": "perf: reuse prepared session source authority (#171353) Reuse the selecting entry reader's retained predicate during source preparation, removing the duplicate worker read. Borrowers share the selector's lifetime; releasing a borrower does not revoke its owner, while owner disposal revokes borrowers. Conversation authority and checks at the actual worker effect remain intact. Regression coverage includes unrelated writes, selected-field revocation, reset/delete/recreate, and both release directions. Codex review is clean at P0/P1. Required CI/static gates are verified before merge. The integrated L2 harness pair has unchanged warm causal SQL/requests: 124 [124–129] statements and 34 [34–36] requests, with MAIN 0. No whole-sink T1 retirement is claimed. Per-PR scope is four files, +59/-24.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: reuse prepared session source authority (#171353)",
-      "summaryZh": "重點：perf: reuse prepared session source authority (#171353) Reuse the selecting entry reader's retained predicate during sou..."
+      "title": "OWASP回顧第三季AI資安事件，AI代理越權成焦點",
+      "link": "https://www.ithome.com.tw/news/179582",
+      "publishedAt": "2026-10-14 08:10:00",
+      "summary": "OWASP旗下GenAI Security Project近期整理2026年第3季生成式AI與AI代理資安事件，呈現AI代理越權、提示詞注入及敏感資料外洩等不同風險，其中多起事件反映過度代理授權（Excessive Agency）的安全問題。部分AI代理並未受到惡意提示詞操控，卻因測試環境未充分限制操作權限及網路連線，在執行安全測試任務時，反而入侵了測試範圍以外的真實企業系統。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "全球半導體設備支出爆發！SEMI 估 2029 年達 2,270 億美元，美國擴產加速",
-      "link": "https://technews.tw/2026/10/14/semicon-west-clark-tseng/",
-      "publishedAt": "Tue, 13 Oct 2026 19:50:30 +0000",
-      "summary": "AI 與高效能運算（HPC）需求持續攀升，帶動全球半導體產業加大資本投資。SEMI 全球資深總監曾瑞榆（Cla [&#8230;]",
-      "source": "TechNews",
+      "title": "CSA提出零信任DNS授權架構，解析網域名稱前先驗證身分、確認權限",
+      "link": "https://www.ithome.com.tw/news/179519",
+      "publishedAt": "2026-10-14 08:10:00",
+      "summary": "企業即使已導入零信任存取控制，DNS解析仍可能缺乏使用者身分與權限檢查，讓未經授權的使用者有機會透過DNS查詢得知內部服務的位址資訊。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "應材矽谷 EPIC 中心正式開幕！台積電魏哲家：加速 2 奈米以下技術量產",
-      "link": "https://technews.tw/2026/10/13/applied-materials-epic-center/",
-      "publishedAt": "Tue, 13 Oct 2026 14:58:12 +0000",
-      "summary": "美商應用材料斥資 50 億美元在美國矽谷打造的 EPIC 中心正式揭幕，包括台積電、英特爾、美光、三星及 SK [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ui): keep Pages pins inside row highlight and fill pinned pins (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/fd1eeeb685b11c47dc5417d423ccc19b21d42570",
+      "publishedAt": "2026-10-14T01:34:51Z",
+      "summary": "fix(ui): keep Pages pins inside row highlight and fill pinned pins (#171515) Co-authored-by: Patrick-Erichsen",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep Pages pins inside row highlight and fill pinned pins (#…",
+      "summaryZh": "重點：修正(ui): keep Pages pins inside row highlight and fill pinned pins (#171515) Co-authored-by: Patrick-Erichsen..."
     },
     {
       "id": 7,
-      "title": "攻智慧感測！智原推 MIPI C/D Combo PHY IP，通過聯電 14 奈米 FinFET 矽驗證",
-      "link": "https://technews.tw/2026/10/13/faraday-powers-intelligent-sensing-with-new-14nm-mipi-cd-combo-phy-ip/",
-      "publishedAt": "Tue, 13 Oct 2026 14:43:51 +0000",
-      "summary": "ASIC 設計服務暨 IP 研發廠商智原科技推出 MIPI C/D Combo PHY IP 解決方案，以聯電 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(database): engine-aware admission transaction scope for publicati…",
+      "link": "https://github.com/openclaw/openclaw/commit/ff2380669e2cf5e7bb1989e6e5650ad210ec3684",
+      "publishedAt": "2026-10-14T01:34:33Z",
+      "summary": "fix(database): engine-aware admission transaction scope for publication anchors (#171518) Keep PostgreSQL admission facts transaction-local while sharing the store publication anchor. Align memory schema-extension staging and key registration with that identity, preserving SQLite behavior. Preserve the worker-retirement semantics from #171456. Follows #171475 and #171434. Validated with 253 focused tests, three PostgreSQL 17 regressions, and exact-head CI PostgreSQL conformance. The inherited mock-export ratchet failure and its native CI exception evidence are recorded in the PR.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(database): engine-aware admission transaction scope for publicati…",
+      "summaryZh": "重點：修正(database): engine-aware admission transaction scope for publication anchors (#171518) Keep PostgreSQL admission facts..."
     },
     {
       "id": 8,
-      "title": "Apple TV 4K、HomePod mini 升級！Siri AI 加持、遙控器不怕找不到",
-      "link": "https://ccc.technews.tw/2026/10/13/apple-tv-4k-homepod-mini-2gen/",
-      "publishedAt": "Tue, 13 Oct 2026 14:01:59 +0000",
-      "summary": "蘋果今日除了推出全新 HomeView 智慧家庭中控螢幕以及配件產品外，也同步發表第四代 Apple TV 4 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(agents): finish async reasoning responses after prefix persistenc…",
+      "link": "https://github.com/openclaw/openclaw/commit/d1f7bc91f81f1099c461e842c8e2f7078af7e737",
+      "publishedAt": "2026-10-14T01:32:09Z",
+      "summary": "fix(agents): finish async reasoning responses after prefix persistence (#171431) Detach unfinished assistant prefixes after compaction replay reindexing and before persistence admission, so transcript freezing cannot freeze the provider's live response blocks. Preserve stored-message immutability and persistence-before-tool-execution ordering. Add a regression through the Responses stream, async agent loop, and session persistence boundary. Verified the exact read-only reasoning replay failure without the fix and successful completion with the fix; supplemental SQLite reopen proof and related tests pass. Co-authored-by: obviyus",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): finish async reasoning responses after pre修正 persistenc…",
+      "summaryZh": "重點：修正(agents): finish async reasoning responses after pre修正 persistence (#171431) Detach unfinished assistant pre修正 after c..."
     },
     {
       "id": 9,
-      "title": "主打蘋果與夥伴共同設計，Apple Home Collection 亮相",
-      "link": "https://technews.tw/2026/10/13/apple-home-collection/",
-      "publishedAt": "Tue, 13 Oct 2026 13:39:43 +0000",
-      "summary": "過往智慧門鈴、門鎖等產品，蘋果大多仰賴第三方配件廠商來提供，不過現在終於有「蘋果與夥伴共同設計」的智慧家庭配件 [&#8230;]",
+      "title": "應材獲利目標夯、未給營收展望 市場失望股價摔",
+      "link": "https://finance.technews.tw/2026/10/14/applied-materials-stock-could-be-flashing-a-sell-signal-on-this-investor-day-omission/",
+      "publishedAt": "Wed, 14 Oct 2026 01:30:31 +0000",
+      "summary": "半導體設備大廠應用材料（Applied Materials Inc.）雖在投資人日提出 2030 年獲利能力提 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "Siri AI 住你家，蘋果 HomeView 一次認得六張臉",
-      "link": "https://technews.tw/2026/10/13/siri-ai-homeview/",
-      "publishedAt": "Tue, 13 Oct 2026 13:25:19 +0000",
-      "summary": "蘋果傳聞已久的智慧家庭裝置 HomeView 終於亮相！這款產品結合 7 吋觸控螢幕、智慧音響與家庭控制中心的 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(auth): prepare model-selection profile compatibility asynchronously",
+      "link": "https://github.com/openclaw/openclaw/commit/f183f3867156a7fadc36af5e56983378de14fc80",
+      "publishedAt": "2026-10-14T01:26:44Z",
+      "summary": "fix(auth): prepare model-selection profile compatibility asynchronously Reuse the existing auth provider preparation owner from bundled Codex and voice session patches so cold auth ownership never falls through to synchronous credential lookup. Preserve recorded-provider precedence and explicit credential absence through the focused model-session runtime SDK. Extend direct-session regression coverage for a persisted provider that differs from its profile ID prefix, and make the voice patch fixture honor async preparation. Document the SDK contract. Validation: changed-file formatting and lint; git diff --check; independent Codex review with no actionable P0-P2 findings. Focused hosted tests and SDK compilation/export proof remain pending.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(auth): prepare 模型-selection profile compatibility asynchronously",
+      "summaryZh": "重點：修正(auth): prepare 模型-selection profile compatibility asynchronously Reuse the existing auth provider preparation owner f..."
     }
   ]
 }
