@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-10-14T07:12:08.852Z",
+  "generatedAt": "2026-10-14T13:22:23.027Z",
   "items": [
     {
       "id": 1,
+      "title": "perf(sessions): avoid futile maintenance writer work (#171211)",
+      "link": "https://github.com/openclaw/openclaw/commit/44898a369528ebae66ab73d66ba559cead60041a",
+      "publishedAt": "2026-10-14T13:17:48Z",
+      "summary": "perf(sessions): avoid futile maintenance writer work (#171211) Retain protected-only maintenance facts through certified unrelated writes, publish protection changes through the existing owner, and yield between retention batches. Remove the superseded preliminary planner without changing retention policy or configuration. Focused regression proof and independent review pass. All six fresh measurement roles qualify, including all 180 candidate natural archives. Exact-head CI passes all touched tests and owner siblings; the remaining test-type and cron failures reproduce on its exact main parent and land under the authorized inherited-failure exception. See #171211 for complete measurements and evidence.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): avoid futile maintenance writer work (#171211)",
+      "summaryZh": "重點：perf(sessions): avoid futile maintenance writer work (#171211) Retain protected-only maintenance facts through certified..."
+    },
+    {
+      "id": 2,
+      "title": "refactor(ui): consolidate session identity rendering in Solid (#171557)",
+      "link": "https://github.com/openclaw/openclaw/commit/1592e6dcf9482dcde5d191016548ece1b9a8c71f",
+      "publishedAt": "2026-10-14T13:13:28Z",
+      "summary": "refactor(ui): consolidate session identity rendering in Solid (#171557) * refactor(ui): consolidate session identity rendering in Solid Reuse the native owner-chip and person-link renderers in chat, sidebar filters, and palette results. Remove the retired Lit templates and route owner types through the domain module. Preserve link gestures and accessibility; port the owner and activity-glyph browser fixtures to Solid. * fix(ui): retain owner avatars at picker content boundary * fix(ui): wait for the rendered sidebar in invite fixtures * test(ui): wait for the focused hovercard mount * test(ui): wait for newer draft route readiness",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): consolidate session identity rendering in Solid (#171557)",
+      "summaryZh": "重點：refactor(ui): consolidate session identity rendering in Solid (#171557) * refactor(ui): consolidate session identity ren..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(ui): use native picker and modal rendering (#171591)",
+      "link": "https://github.com/openclaw/openclaw/commit/a05ccb5b279d513b3248955fb79265d2dbd55c70",
+      "publishedAt": "2026-10-14T13:06:33Z",
+      "summary": "refactor(ui): use native picker and modal rendering (#171591) * refactor(ui): use native picker and modal rendering * fix(ui): preserve focus on draft copy feedback * fix(ui): keep draft recovery click handlers synchronous * refactor(ui): keep picker and draft view contracts acyclic * chore(ui): retire removed model picker assertion allowance * test(ui): preserve legacy picker template boundaries * test(ui): wait for the focused hovercard mount * test(ui): await plugin action geometry after resizing * test(ui): wait for sidebar after footer removal * test(ui): wait for rendered debug polling samples * test(ui): await new-session route before editing a newer draft * test(ui): dispose picker adapter roots between cases * test(ui): wait for the workspace menu to finish opening * test(ui): bound debug polling work and await terminal readiness * test(ui): record guarded raw config failure boundaries",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): use native picker and modal rendering (#171591)",
+      "summaryZh": "重點：refactor(ui): use native picker and modal rendering (#171591) * refactor(ui): use native picker and modal rendering * 修正..."
+    },
+    {
+      "id": 4,
+      "title": "perf(workspaces): skip cleanup probes for non-directory targets (#172…",
+      "link": "https://github.com/openclaw/openclaw/commit/ff22ecbe8b1a811f03d07d977bdfb19377bf9ed6",
+      "publishedAt": "2026-10-14T12:54:25Z",
+      "summary": "perf(workspaces): skip cleanup probes for non-directory targets (#172115) Select directory cleanup candidates with an advisory lstat instead of repeating ancestor traversal and fs-safe metadata admission for every changed file. Keep guarded mutations and ancestor skipping for failed probes, including cyclic symlinks.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(workspaces): skip cleanup probes for non-directory targets (#172…",
+      "summaryZh": "重點：perf(workspaces): skip cleanup probes for non-directory targets (#172115) Select directory cleanup candidates with an ad..."
+    },
+    {
+      "id": 5,
       "title": "Ivanti發布10月例行更新，修補已遭利用的SSL VPN漏洞",
       "link": "https://www.ithome.com.tw/news/179674",
       "publishedAt": "2026-10-14 12:10:57",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "OpenAI工程師涉嫌安裝竊聽裝置遭FBI逮捕",
       "link": "https://www.ithome.com.tw/news/179670",
       "publishedAt": "2026-10-14 12:10:54",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "Google發布ChromeOS與ChromeOS Flex穩定版更新，修補106個資安漏洞",
       "link": "https://www.ithome.com.tw/news/179675",
       "publishedAt": "2026-10-14 12:10:47",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "Rust型別檢查漏洞藏近11年，違反記憶體安全限制的程式仍可通過編譯",
       "link": "https://www.ithome.com.tw/news/179665",
       "publishedAt": "2026-10-14 12:10:29",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "荷蘭連鎖超市Albert Heijn遭遇資安事件，網站、App及電子貨架標籤受影響",
       "link": "https://www.ithome.com.tw/news/179671",
       "publishedAt": "2026-10-14 12:10:03",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "微軟修補3個零時差漏洞，其中一個已遭利用",
       "link": "https://www.ithome.com.tw/news/179667",
       "publishedAt": "2026-10-14 11:10:50",
       "summary": "本週微軟發布10月例行更新（Patch Tuesday），破紀錄修補1,413個資安漏洞，並提及有2個零時差漏洞CVE-2026-96951、CVE-2026-108398",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test(ci): align inventories with retired repair and plugin fallback p…",
-      "link": "https://github.com/openclaw/openclaw/commit/e9b76ed65f9ec8643943981a73b8ef116ca1790f",
-      "publishedAt": "2026-10-14T07:11:24Z",
-      "summary": "test(ci): align inventories with retired repair and plugin fallback paths (#171885)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): align inventories with retired repair and plugin fallback p…",
-      "summaryZh": "重點：test(ci): align inventories with retired repair and plugin fallback paths (#171885)..."
-    },
-    {
-      "id": 8,
-      "title": "test(crabbox): pin warm-image snapshot keys (#171880)",
-      "link": "https://github.com/openclaw/openclaw/commit/679928298d85cc7003e3bd9c2488456bc03ba0ea",
-      "publishedAt": "2026-10-14T07:09:00Z",
-      "summary": "test(crabbox): pin warm-image snapshot keys (#171880) A live Gateway update on 2026-10-14 silently sent the next cloud session cold: #171073 had (deliberately) changed the warm-image profile fingerprint for every profile, and the only test touching the key asserted that it differed from an old value, never what it is. Golden tests now pin the exact Crabbox warm-image profile key and the preparation and cache keys for one canonical Linux profile without setup secrets, each with a note that changing the value invalidates every user's warm images on update and must be deliberate and explained. Test-only; no production change and no key change. Refs: https://github.com/openclaw/openclaw/pull/171880",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(crabbox): pin warm-image snapshot keys (#171880)",
-      "summaryZh": "重點：test(crabbox): pin warm-image snapshot keys (#171880) A live Gateway update on 2026-10-14 silently sent the next cloud s..."
-    },
-    {
-      "id": 9,
-      "title": "fix(discord): bind channel tool policy to resolved channel ids (#171829)",
-      "link": "https://github.com/openclaw/openclaw/commit/68c3f3fb660c5dd808231199b0fe265ea26086f2",
-      "publishedAt": "2026-10-14T07:07:11Z",
-      "summary": "fix(discord): bind channel tool policy to resolved channel ids (#171829) The Discord group-policy adapter that core uses for per-channel tools, toolsBySender, and requireMention matched guild channel name/slug keys against the conversation label. For threads that label is the thread name, which any member who can create threads chooses, so a thread named after a privileged channel entry took that entry's policy; the monitor itself never matches thread names. Name/slug keys resolved at startup or live-policy reload now bind to their channel id: other channels and threads sharing the name fall back to the guild policy, and the bound channel keeps its entry after a rename. Id entries still win, and unresolved name keys keep the documented name matching. Accepted edge: a superseded live-policy resolution can briefly publish its bindings before the newer one lands. Refs #168134.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Discord): bind channel tool policy to resolved channel ids (#171829)",
-      "summaryZh": "重點：修正(Discord): bind channel tool policy to resolved channel ids (#171829) The Discord group-policy adapter that core uses ..."
-    },
-    {
-      "id": 10,
-      "title": "fix(state): prevent large fleets staying degraded after startup (#168…",
-      "link": "https://github.com/openclaw/openclaw/commit/520860b45bbe9db217d0f272375b1682f75ff39c",
-      "publishedAt": "2026-10-14T07:04:29Z",
-      "summary": "fix(state): prevent large fleets staying degraded after startup (#168638) * fix(state): retry typed startup journal-read overloads with backoff The startup 8-permit journal bound caps this producer's fan-out, but the shared state-read pool rejects admission whenever other sources already occupy its 128 pending slots; that rejection reached the preparation catch and marked healthy agents permanently degraded. Retry only the typed transient overload on the journal-read boundary with bounded abort-aware backoff, re-acquiring the permit and re-validating the admission between attempts, so tombstone verdicts and genuine read failures stay terminal. * fix(state): preserve startup ownership while waiting for journal reads Keep the startup journal limit private and reuse existing permit and retry owners. Revalidate ownership after permit acquisition, before worker reads. Consolidate deterministic regressions for 140 agents, transient capacity, terminal failures, and revoked ownership without real backoff waits. Fixes #168585 Original fix by @ruel225; maintainer cleanup preserves bounded startup reads and shared-pool overload recovery. Tests and typechecks are delegated to PR CI under maintainer policy; local validation is changed-file lint/format. Co-authored-by: ruel225 * test(state): omit redundant deferred type arguments --------- Co-authored-by: ruel225 Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(state): prevent large fleets staying degraded after startup (#168…",
-      "summaryZh": "重點：修正(state): prevent large fleets staying degraded after startup (#168638) * 修正(state): retry typed startup journal-read o..."
     }
   ]
 }
