@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-10-15T07:03:55.305Z",
+  "generatedAt": "2026-10-15T13:08:10.860Z",
   "items": [
     {
       "id": 1,
+      "title": "test(agents, voice-call, node-host, slack): remove low-value tests (b…",
+      "link": "https://github.com/openclaw/openclaw/commit/0357002a6e6ae44aa8cab94be569270788bc01fe",
+      "publishedAt": "2026-10-15T13:07:58Z",
+      "summary": "test(agents, voice-call, node-host, slack): remove low-value tests (batch d122) (#173140) * test(voice-call): deslop x4062 tests * test(agents): deslop x4066 tests * test(node-host): deslop x4064 tests * test(agents): deslop x4067 tests * test(agents): deslop x4069 tests * test(slack): deslop x4068 tests * test: retain distinct boundary regression coverage",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents, voice-call, node-host, slack): remove low-value tests (b…",
+      "summaryZh": "重點：test(agents, voice-call, node-host, slack): remove low-value tests (batch d122) (#173140) * test(voice-call): deslop x40..."
+    },
+    {
+      "id": 2,
+      "title": "test(ui): mount composer and attachment fixtures with Solid (#173051)",
+      "link": "https://github.com/openclaw/openclaw/commit/2057d6d4828104240a2913ade0b0e2ab296fa230",
+      "publishedAt": "2026-10-15T13:06:50Z",
+      "summary": "test(ui): mount composer and attachment fixtures with Solid (#173051)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): mount composer and attachment 修正tures with Solid (#173051)",
+      "summaryZh": "重點：test(ui): mount composer and attachment 修正tures with Solid (#173051)..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(browser,qa-lab): consolidate trusted internal execution path…",
+      "link": "https://github.com/openclaw/openclaw/commit/a5a27984042551f583c219c5b1b83aad3b80b166",
+      "publishedAt": "2026-10-15T13:05:09Z",
+      "summary": "refactor(browser,qa-lab): consolidate trusted internal execution paths (#173065) * refactor(browser,qa-lab): consolidate internal validation and capture Keep external validation, navigation and credential authority, selected evidence integrity, process settlement and public contracts. Trust canonical normalized actions and fresh internal evidence instead of repeating their owners' work. Stage bundled sources and compute their runtime host floor in one pass. Best-effort tradeoffs accepted - Internal child evidence changing completed/pending history: #147756/#168841 describe synthetic ownership foundations, not human mutation incidents. Keep the first captured facts; canonical publication still validates the graph. - Invalid internal evidence selection/combination: duplicate preflights from #147756 are not external boundaries. Invalid snapshots fail at canonical publication instead of every adapter/select step. - Fresh V3 snapshots or local taxonomy objects mutating between private calls: no external writer holds them. Use owner-held facts; path rebasing still copies because it mutates paths. - Gallery roots/symlinks changing during one request: private consumers use the canonical ingress root. Actual artifact containment and download authorization remain at their boundaries. - Gallery model rows not belonging to their own declaration list: impossible because those rows are created from that exact list. Actual arbitrary-path downloads keep the allowlist. - Configured replacement Telegram skill returning malformed internal results: #133030 introduced a canonical leased-skill producer, not a human malformed-result incident. Canonical credential validation and effect-time lease health remain; malformed replacements fail at use. - Local filesystem calls hanging during Mantis cleanup: #111051/#158313 provide synthetic timeout qualification, not a human uncancellable-local-FS incident. Await the OS; preserve Git deadlines, exact path/inode authority and process settlement. - Mantis path replacement between consecutive ownership probes: preserve one precheck plus child-side pinned identity at destructive dispatch; a disappeared/replaced path fails safely. - Typed log collector returning an impossible bad cursor: #137622 added the retirement mode as a review defense. Trust its paired owner; retain bounded rollover, redaction and legacy fallback. - Fetch implementation ignoring AbortSignal: Matrix's removed outer timer defended fake-only behavior. Native request deadline/cancellation, parallel healthy-peer probes, response-body and loser cleanup remain. - Artifact disappearing immediately after its successful own write: #92606/445317a38b1 add the redundant access check, with no human disappearance report. Real write failures propagate; actual readers detect later deletion. - Private Browser leaves receiving unnormalized values: #63977 owns external /act normalization; extraction #113771 retained mirror checks. Keep external fill repair #131231 and all effect authority. Invalid internal calls may fail at Playwright rather than a second validator. - Unnormalized oversized/deep batches reaching the private executor: restored executor 61d171ab0b2 has no human bounds incident. Keep recursive ingress depth repair #120274 and total count bound #63977; remove duplicate executor depth plumbing. - Abort firing between synchronous resetTransport checks: #126407 added synthetic lifecycle coverage. No async work intervenes, so keep entry and post-await invocation checks. - Taxonomy file disappearing after successful parse: #91500/#92558 introduced reporting, not a human mid-report deletion incident. Finish with parsed facts; the next read notices deletion. The named standalone session-memory backend and tests remain untouched. Proof: fresh independent P0-P2 review scoped-clean after repairing a reproduced false-coverage descendant-admission defect; targeted source graph types and syntax-boundary lint pass; runtime/static cycles both zero; format/diff clean. Browser focused owner/sibling cohort: 12 files, 194 tests pass. Invocation/containment/staging: 3 files, 34 tests pass, including the reproduced false-coverage regression. Both unchanged Gateway-child staging-cleanup cases pass after retaining staging-directory creation before root metadata parsing. Below-500 coordinator packet: 442 net production LOC removed (+198/-640). No cleanup PR or merge claim. Full check-changed, type-aware package lint and Telegram command-menu Gateway E2E remain unproven under host saturation. The remaining full QA owner cohort was interrupted before assertions; not green. Suppression inventory fails only on untouched UI rows, reproduced on clean main 45b463f13896f5e6f5d64b1e219e900e12a02dd8; no suppression allowance changed. * refactor(browser,qa-lab): remove test-only execution indirection Publish Chrome MCP handles synchronously and wait only for transport readiness. Keep process identity, close settlement, waiter sharing and effect authority. Remove character-eval callback injection and private projection/type mirrors; reuse canonical lifecycle cancellation and timer bounds. Best-effort tradeoffs accepted - Delayed asynchronous MCP factory handles existed only through the test seam (ea2b558e5ee/#104601; extracted by #113114). Linked #103784 is a forced Delay launch/source-proof matrix, not a human actual-use incident. Production constructs the handle synchronously; readiness remains asynchronous and cancellable, and exact owned process cleanup still settles before replacement. - Same-tick lifecycle completion and abort now follow the canonical SDK Promise.race ordering rather than a private listener implementation (#127761/22e12267f68, synthetic lifecycle qualification). Shared work is not cancelled; synchronous pre-abort and effect authority stay intact. - A private already-clamped timer no longer repeats the SDK maximum check (4abde61366b; centralized by 5f4fc7512e3). The same canonical grace helper caps the result, with no timeout change. Character-eval test callbacks were never supplied by its sole production CLI caller (3101d81053d; #92606). Tests now mock the actual suite/manual-lane owners. Six private pwAi projections had only test consumers; canonical session exports remain. Port reservation accepts the actual node:net.Server instead of a mirror. Full-branch production reduction: 610 net lines (+241/-851), excluding tests, fixtures, test-support, generated files and declarations. No public/config/SDK, storage, protocol or dependency contract changes. Phase E remains untouched. * fix(qa-lab): drop unproven cleanup paths and type standalone restorer Restore character-eval and CLI runtime byte-for-byte to the cleanup base after exact-head CI found concurrent mock bypass and captured-taxonomy failures. Keep every original behavioral assertion; no retry, timeout or skip changes. The local character replay was inconclusive, so drop its whole cleanup cluster instead of waiting for host capacity. Restore CLI snapshot capture as well. Declare the imported credential-restorer's receiver-free function contract. The canonical exported function never uses this; no runtime guard or credential validation changes. This fixes the typed unbound-method lint finding. Branch production reduction is now 568 net lines (+229/-797), tests/fixtures/ test-support/generated/declarations excluded. Prior full autoreview remains valid for this strict restoration subset; independent repair review confirms exact base blobs and the type-only correction. Source-graph types, focused syntax-boundary lint, formatting and diff checks pass. * refactor(qa-lab): split pending Telegram credential cleanup Restore the two Telegram files to current main for #173065. Park their rewrite and receiver-free lint contract on deslop/y13-telegram-userbot-credential-20261015 pending Test Server userbot proof with Convex-leased credentials. Coordinator waives the floor for the remaining 474 net production lines.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(browser,qa-lab): consolidate trusted internal execution path…",
+      "summaryZh": "重點：refactor(browser,qa-lab): consolidate trusted internal execution paths (#173065) * refactor(browser,qa-lab): consolidate..."
+    },
+    {
+      "id": 4,
+      "title": "chore: remove stale max-lines ledger entry (#173139)",
+      "link": "https://github.com/openclaw/openclaw/commit/33bc2446427839a6e07288ce0b4e5ee8387b48bc",
+      "publishedAt": "2026-10-15T13:04:34Z",
+      "summary": "chore: remove stale max-lines ledger entry (#173139) Remove the unused bundled shape-guard allowance after its suppression was retired. Preserve tests and existing lint and environment budgets. Co-authored-by: vincentkoc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore: remove stale max-lines ledger entry (#173139)",
+      "summaryZh": "重點：chore: remove stale max-lines ledger entry (#173139) Remove the unused bundled shape-guard allowance after its suppressi..."
+    },
+    {
+      "id": 5,
+      "title": "台灣美光先進封裝與測試二廠啟用，深化 AI 時代高頻寬記憶體布局",
+      "link": "https://finance.technews.tw/2026/10/15/micron-taiwans-advanced-packaging-and-testing-plant-2-commences-operation/",
+      "publishedAt": "Thu, 15 Oct 2026 12:50:29 +0000",
+      "summary": "記憶體大廠美光科技15日於台中舉行台灣美光先進封裝與測試二廠（Micron Advanced Assembly [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "軟體公司Ahsay再度修補已遭串連及利用的備份管理平臺AhsayCBS零時差漏洞",
       "link": "https://www.ithome.com.tw/news/179712",
       "publishedAt": "2026-10-15 12:10:54",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "思科修補已遭利用的郵件安全閘道任意檔案寫入漏洞",
       "link": "https://www.ithome.com.tw/news/179710",
       "publishedAt": "2026-10-15 12:10:24",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "美國司法部跨州打擊北韓遠端工作網路，起訴14人並破獲筆電農場",
       "link": "https://www.ithome.com.tw/news/179709",
       "publishedAt": "2026-10-15 12:10:23",
@@ -29,75 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
+      "title": "訂單能見度至 2028 年！弘塑美國布局瞄準亞利桑那州，董座：最大瓶頸是缺料、缺人",
+      "link": "https://technews.tw/2026/10/15/gptc-semicon-west-2026/",
+      "publishedAt": "Thu, 15 Oct 2026 11:15:27 +0000",
+      "summary": "近年先進封裝成為業界焦點，隨著台積電擴大在美支出，同步帶動本土設備商加速海外布局。弘塑科技董事長張鴻泰在 SE [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 10,
       "title": "Palo Alto Networks修補遭利用的防火牆作業系統遠端程式碼執行漏洞",
       "link": "https://www.ithome.com.tw/news/179705",
       "publishedAt": "2026-10-15 11:10:56",
       "summary": "10月15日資安公司Palo Alto Networks提出警告，旗下防火牆作業系統PAN-OS存在高風險漏洞CVE-2026-0322，且該漏洞已遭利用。此為管理介面當中的遠端程式碼執行（RCE）弱點，擁有網路存取權限的攻擊者可在防火牆上，以root權限執行任意程式碼，CVSS v4.0嚴重程度評分為8.6，影響PA系列的實體防火牆設備、VM系列的虛擬防火牆，以及防火牆集中管理平臺Panorama，不影響雲端防火牆Cloud NGFW、安全存取服務邊緣（SASE）平臺Prisma Access。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "Shadowserver警示仍有數百組Danfoss冷藏控制器暴露於公開網路",
-      "link": "https://www.ithome.com.tw/news/179703",
-      "publishedAt": "2026-10-15 11:10:51",
-      "summary": "法國數百家超市近日發生Danfoss冷藏控制系統遭駭事件，駭客遠端操控設備啟動除霜功能，導致溫度異常升高，大量生鮮及冷凍食品報廢。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "SpaceXSI推出Grok Voice 3.0，語音評測奪冠",
-      "link": "https://www.ithome.com.tw/news/179704",
-      "publishedAt": "2026-10-15 11:10:43",
-      "summary": "SpaceX旗下AI部門SpaceXSI周三（10/14）推出新一代語音模型Grok Voice 3.0，在第三方評測機構Artificial Analysis的語音對語音綜合指數（Speech-to-Speech Index）中，以86.9分排名第一，超越OpenAI及Google的競爭模型。新模型主打快速語音回應與企業客服應用，SpaceXSI宣稱回應時間可低於1秒。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "perf(gateway): remove redundant work from repeated RPC reads (#172847)",
-      "link": "https://github.com/openclaw/openclaw/commit/35c4065063ab7df967d010154185e2da76f112fd",
-      "publishedAt": "2026-10-15T07:03:23Z",
-      "summary": "perf(gateway): remove redundant work from repeated RPC reads (#172847)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): remove redundant work from repeated RPC reads (#172847)",
-      "summaryZh": "重點：perf(Gateway): remove redundant work from repeated RPC reads (#172847)..."
-    },
-    {
-      "id": 8,
-      "title": "perf(agents): bound requester lookup and transcript replay work (#172…",
-      "link": "https://github.com/openclaw/openclaw/commit/148a19f69f2c27e8d0453b2a75c96f306a827b12",
-      "publishedAt": "2026-10-15T07:00:49Z",
-      "summary": "perf(agents): bound requester lookup and transcript replay work (#172848) * perf(agents): bound requester lookup and transcript replay work * test(agents): narrow transcript rewrite assertions",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(agents): bound requester lookup and transcript replay work (#172…",
-      "summaryZh": "重點：perf(agents): bound requester lookup and transcript replay work (#172848) * perf(agents): bound requester lookup and tra..."
-    },
-    {
-      "id": 9,
-      "title": "fix(sqlite): new work fails when idle handles fill store capacity (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/ef39438c4a2f255334e81864c7d9ccef7cec0d65",
-      "publishedAt": "2026-10-15T06:59:19Z",
-      "summary": "fix(sqlite): new work fails when idle handles fill store capacity (#164477) * fix(sqlite): reuse idle store reservations at capacity * fix(sqlite): simplify idle capacity reclamation and guard cancellation Keep the bounded shared-state owner retirement path, protect opening authority after retirement, and replace repeated capacity-worker boots with focused admission/client contracts. Document the remaining per-agent handle scope for #162497. Co-authored-by: PollyBot13 * test(sqlite): type capacity retirement callbacks explicitly --------- Co-authored-by: Peter Steinberger Co-authored-by: PollyBot13",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sqlite): new work fails when idle handles fill store capacity (#1…",
-      "summaryZh": "重點：修正(sqlite): new work fails when idle handles fill store capacity (#164477) * 修正(sqlite): reuse idle store reservations a..."
-    },
-    {
-      "id": 10,
-      "title": "fix(failover): skip same-model retries for Chinese quota exhaustion (…",
-      "link": "https://github.com/openclaw/openclaw/commit/e0e08a60f8b9fd88de4be19e243f163aa5389baa",
-      "publishedAt": "2026-10-15T06:58:54Z",
-      "summary": "fix(failover): skip same-model retries for Chinese quota exhaustion (#172173) * fix(failover): treat Chinese usage-cap messages as periodic limits A provider that reports an exhausted usage window in Chinese (MiniMax Token Plan 2056: \"已达到 Token Plan 用量上限：请升级 Token Plan 套餐或购买积分补充用量。\", no Retry-After header) was classified as an ordinary transient rate limit, so the run burned the same-model retry spiral on a provider that cannot recover until the window resets. The English periodic wording already classified correctly. Extend the periodic-usage predicate with the Chinese usage/quota cap phrasing, keeping length/context caps and transient rate-limit messages out of that path. * fix(failover): recognize the Chinese usage cap in the retry window Review finding (P2): classifying the MiniMax Token Plan 2056 message as a periodic usage limit did not stop the same-model retry spiral, because the retry-window owner (retry-evidence.ts) kept its English-only long-window evidence and the controller therefore still entered the retry budget. hasLongWindowRateLimitEvidence now also matches the Chinese usage/quota cap phrasing; CJK text has no word boundaries, so it checks separately from the ASCII pattern, the same way the short-window owner already handles its Chinese phrases. * fix(failover): share Chinese quota exhaustion evidence Recognize the reported MiniMax Token Plan 2056 wording and exhausted Chinese quotas at the canonical message-pattern owner. Reuse that predicate for retry decisions and retain transient-throttle negative controls at the recovery boundary. Fixes #172165. Original fix by @skyzhao1223; maintainer cleanup removes the duplicate matcher and replaces helper-only assertions with consumer coverage. Co-authored-by: skyzhao1223 * test(failover): cover Chinese quota classification at its consumer Replace incorrect verbatim reply expectations with the reported MiniMax wording in the classification corpus, including its representative ID. Existing reply sanitization remains unchanged; the fix concerns retry and classification behavior. --------- Co-authored-by: skyzhao1223 Co-authored-by: Peter Steinberger",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(failover): skip same-模型 retries for Chinese quota exhaustion (…",
-      "summaryZh": "重點：修正(failover): skip same-模型 retries for Chinese quota exhaustion (#172173) * 修正(failover): treat Chinese usage-cap messag..."
     }
   ]
 }
