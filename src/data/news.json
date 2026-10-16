@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-10-16T10:52:57.962Z",
+  "generatedAt": "2026-10-16T15:15:39.398Z",
   "items": [
     {
       "id": 1,
+      "title": "refactor(ui): own native browser subscriptions in Solid (#174327)",
+      "link": "https://github.com/openclaw/openclaw/commit/3148bd9b038db8ae0593d886b6412fa157d4f6dc",
+      "publishedAt": "2026-10-16T15:15:16Z",
+      "summary": "refactor(ui): own native browser subscriptions in Solid (#174327)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): own native browser subscriptions in Solid (#174327)",
+      "summaryZh": "重點：refactor(ui): own native browser subscriptions in Solid (#174327)..."
+    },
+    {
+      "id": 2,
+      "title": "fix(sessions): stop retrying replaced delivery endpoints on every res…",
+      "link": "https://github.com/openclaw/openclaw/commit/7593d68192d591780a7aad518b17172b6fcb1099",
+      "publishedAt": "2026-10-16T15:12:40Z",
+      "summary": "fix(sessions): stop retrying replaced delivery endpoints on every restart (#174278) * fix(sessions): settle replaced delivery endpoints after restart Record a durable blocked-delivery notice before cancelling replay of inputs whose source or target was reset, archived, or replaced. Preserve accepted input data and all endpoint fences; leave permission and storage failures retryable. Add correlation identifiers without logging messages or raw session keys, and prove that a second recovery pass is silent. * test(sessions): preserve cancelled delivery receipt assertions * fix(sessions): preserve recovery notices during orphan repair * test(sessions): assert typed recovery context messages * fix(sessions): preserve notices at orphan rewind boundaries * test(sessions): retain fake timers for recovery persistence",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): stop retrying replaced delivery endpoints on every res…",
+      "summaryZh": "重點：修正(sessions): stop retrying replaced delivery endpoints on every restart (#174278) * 修正(sessions): settle replaced deliv..."
+    },
+    {
+      "id": 3,
+      "title": "perf(gateway): cut allocation hotspots under concurrent agent turns (…",
+      "link": "https://github.com/openclaw/openclaw/commit/041004eec43a18b5629e6f52698d06a0d42ee301",
+      "publishedAt": "2026-10-16T15:12:16Z",
+      "summary": "perf(gateway): cut allocation hotspots under concurrent agent turns (#174130) * perf(gateway): trim per-request and per-turn allocation hotspots Heap profiles of the gateway concurrency bench (16 sessions x 4 turns with tool events, history clients, subscribers, control plane) showed: - Control UI bootstrap and config.get rebuilt the full schema redaction lookup per request (~7% of sampled allocations). Cache it per immutable ConfigUiHints object. - Embedded attempt cleanup spread the whole attempt params per cleanup step; pass only the fields runOwnedAgentCleanup reads. - intersectSessionEventToolsAllow rebuilt a tool-policy matcher (group expansion + glob compile) for every candidate x restriction pair; build one matcher per restriction. - Tool descriptor snapshots were per session only, so every new session republished identical descriptors. Seed a session's first attempt from the latest snapshot with identical inputs; per-tool identity checks still gate every reuse. * perf(agents): skip redundant context copies on the turn path - Bootstrap file and routing resolution spread the whole embedded attempt for every call; pass the fields their callees declare. - Re-entering the current plugin execution frame still called AsyncLocalStorage.run, which copies the entire async context map; run the callback directly when the frame is already current. - Gateway scope copies built two property descriptors per key; plain enumerable-checked assignment onto the fresh scope is equivalent. * perf(agents): share descriptor publication between concurrent cold sessions Sessions that start together all miss the descriptor snapshot and each republished and prewarmed the same provider schemas at settlement. At publish time, reuse an entry another session already published when its source schema, output schema, and description identities match. * perf(gateway): stop re-deriving paths and buffers on hot read paths - The activity-summary pump rechecks every queued state and re-resolved each one's session store path; memoize store paths per config publication. - matchesAgentDatabaseReadCandidatePath resolved both paths even when they were the identical string. - SQLite worker transfers copied single-frame records into a fresh buffer before deserializing; deserialize the frame bytes directly. * refactor(gateway): keep recap store-path memo with activity-summary state Move the per-config store-path memo next to the other activity-summary scope helpers to keep the service under the file-size limit, and drop the single-frame transfer fast path: the profiled bytes were the deserialized values themselves, not the reassembly copy. * fix(gateway): address review on shared descriptors and recap store paths - Key the activity-summary store-path memo by the store setting value; config publications can mutate the same object in place. - Require a matching tool name before reusing another session's published descriptor.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): cut allocation hotspots under concurrent agent turns (…",
+      "summaryZh": "重點：perf(Gateway): cut allocation hotspots under concurrent agent turns (#174130) * perf(Gateway): trim per-request and per-..."
+    },
+    {
+      "id": 4,
+      "title": "test(onboard): prepare native pin state before spoofing Windows",
+      "link": "https://github.com/openclaw/openclaw/commit/58d7e878feb0b27f85c4ecb48595c38b534553ab",
+      "publishedAt": "2026-10-16T15:08:43Z",
+      "summary": "test(onboard): prepare native pin state before spoofing Windows PR #174228 (6e8bb0f3aebf) intentionally makes noninteractive setup record fresh-profile runtime-pin migration completion before serving. Its body states: \"Profile setup and Gateway startup record the completed no-work receipt before serving\". The daemon health timing fixture spoofs process.platform across setup, which sent the new real filesystem creation through Windows-only native inspection on Linux and macOS. Initialize the real migration owner before the platform spoof. Keep the production path, assertions and timeouts. The unchanged file reproduced the exact ENOTSUP failure from hourly 38916811035; the fixture correction passes all 18 cases locally.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(onboard): prepare native pin state before spoofing Windows",
+      "summaryZh": "重點：test(onboard): prepare native pin state before spoofing Windows PR #174228 (6e8bb0f3aebf) intentionally makes noninterac..."
+    },
+    {
+      "id": 5,
+      "title": "台灣將收緊對中國先進晶片出口，未許可輸出產品將首度列刑事犯罪",
+      "link": "https://finance.technews.tw/2026/10/16/taiwan-to-tighten-export-controls-on-advanced-chips-to-china/",
+      "publishedAt": "Fri, 16 Oct 2026 14:35:11 +0000",
+      "summary": "為進一步同步美國的出口管制政策，並配合川普政府對先進半導體走私至中國的管制，台灣正準備收緊人工智慧（AI）晶片 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "彭博專訪 龔明鑫：台灣準備對中國緊縮 AI 晶片出口管制並打擊走私",
+      "link": "https://technews.tw/2026/10/16/bloomberg-interview-gong-ming-hsin-taiwan-tightens-ai-chip-export-controls-china/",
+      "publishedAt": "Fri, 16 Oct 2026 14:07:29 +0000",
+      "summary": "經濟部長龔明鑫近日接受彭博專訪表示，台灣準備緊縮人工智慧（AI）晶片出口管制，進一步與美國限制措施保持一致，加 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "91APP雲端平臺資料庫Commerce Cloud遭自動化攻擊",
       "link": "https://www.ithome.com.tw/news/179741",
       "publishedAt": "2026-10-16 12:10:46",
@@ -11,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "Google發布Chrome 155更新，修補重大等級的記憶體釋放後再存取使用漏洞",
       "link": "https://www.ithome.com.tw/news/179737",
       "publishedAt": "2026-10-16 11:10:54",
@@ -20,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 9,
       "title": "TypeSafe擴充Jev決策模型，支援圖片判斷與物件定位",
       "link": "https://www.ithome.com.tw/news/179738",
       "publishedAt": "2026-10-16 11:10:50",
@@ -29,74 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 10,
       "title": "美國CISA警告影響Atlassian旗下多款系統的重大漏洞遭積極利用",
       "link": "https://www.ithome.com.tw/news/179739",
       "publishedAt": "2026-10-16 11:10:37",
       "summary": "10月15日美國網路安全與基礎設施安全局（CISA）表示，他們已掌握一個新漏洞遭積極利用的證據，將其加入已遭利用的漏洞名單（KEV），並要求聯邦機構需在3天內（10月18日前）完成修補。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "perf(sqlite): avoid scratch databases during schema admission (#173617)",
-      "link": "https://github.com/openclaw/openclaw/commit/fd1511568e8160d9193c5364dbabb830719da5d5",
-      "publishedAt": "2026-10-16T10:50:12Z",
-      "summary": "perf(sqlite): avoid scratch databases during schema admission (#173617) Generate strict SQLite schema catalogs alongside PostgreSQL DDL and compare live fingerprints at admission. Load full diagnostic catalogs lazily, preserving DEFAULT, CHECK, partial-index and trigger drift detection. Remove static runtime scratch construction and cross-process contract transfer. Equivalence covers fresh stores and supported upgrade definitions. Static scratch SQL falls from 403 statements to zero, including 121 MAIN statements; warmed causal SQL and requests remain unchanged. Existing main CI and export-scan failures are documented in the PR.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): avoid scratch databases during schema admission (#173617)",
-      "summaryZh": "重點：perf(sqlite): avoid scratch databases during schema admission (#173617) Generate strict SQLite schema catalogs alongside..."
-    },
-    {
-      "id": 6,
-      "title": "test(gateway,chat): remove low-value tests (batch d149) (#173988)",
-      "link": "https://github.com/openclaw/openclaw/commit/ac12aab55bacb18917f9e8bce39edabb93b1fe2e",
-      "publishedAt": "2026-10-16T10:49:58Z",
-      "summary": "test(gateway,chat): remove low-value tests (batch d149) (#173988) * test(gateway): deslop x7021 tests * test(gateway): deslop x7021 tests * test(gateway): deslop x7021 tests * test(chat): deslop x7024 tests * test(chat): deslop x7024 tests * test(chat): deslop x7024 tests * test(gateway): deslop x7022 tests * test(gateway): deslop x7022 tests * test(chat): retain audio and draft reload boundary coverage * test: repair d149 consolidated lifecycle and media fixtures * test: prune obsolete d149 fixture baseline allowances",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway,chat): remove low-value tests (batch d149) (#173988)",
-      "summaryZh": "重點：test(Gateway,chat): remove low-value tests (batch d149) (#173988) * test(Gateway): deslop x7021 tests * test(Gateway): d..."
-    },
-    {
-      "id": 7,
-      "title": "fix(ci): avoid redundant Testbox sync and install work (#174070)",
-      "link": "https://github.com/openclaw/openclaw/commit/28f8cab70da15789b92ac2962dc6101f5a95f890",
-      "publishedAt": "2026-10-16T10:46:45Z",
-      "summary": "fix(ci): avoid redundant Testbox sync and install work (#174070) * fix(ci): preserve unchanged Testbox source files * fix(ci): stop unrelated staging recovery after commands * fix(ci): reuse audited Testbox dependency inputs * fix(ci): settle one hydration install attempt * fix(ci): align Testbox fixtures with canonical admission * docs(ci): describe explicit staging recovery * docs(ci): clarify mirror disposal recovery ownership",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): avoid redundant Testbox sync and install work (#174070)",
-      "summaryZh": "重點：修正(ci): avoid redundant Testbox sync and install work (#174070) * 修正(ci): preserve unchanged Testbox source files * 修正(c..."
-    },
-    {
-      "id": 8,
-      "title": "fix: release idle broker stderr and correct Bun test fixtures (#174096)",
-      "link": "https://github.com/openclaw/openclaw/commit/72629e1fdff973fef9316e33e8fcf8d3cf643e38",
-      "publishedAt": "2026-10-16T10:43:56Z",
-      "summary": "fix: release idle broker stderr and correct Bun test fixtures (#174096)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: 版本發布 idle broker stderr and correct Bun test 修正tures (#174096)",
-      "summaryZh": "重點：修正: 版本發布 idle broker stderr and correct Bun test 修正tures (#174096)..."
-    },
-    {
-      "id": 9,
-      "title": "91APP 資料庫遭攻擊，已報案調查、呼籲消費者小心詐騙",
-      "link": "https://infosecu.technews.tw/2026/10/16/91app-ky-20261016/",
-      "publishedAt": "Fri, 16 Oct 2026 10:39:32 +0000",
-      "summary": "上櫃公司 91APP（91APP*-KY）16 日重訊公告，其 Commerce Cloud 資料庫遭受自動化 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "簡立峰：AI 失控論只是種想像，台灣軟硬體迎 AI 新經濟",
-      "link": "https://infosecu.technews.tw/2026/10/16/jian-lifeng-ai-out-of-control-imagination-taiwan-software-hardware-new-ai-economy/",
-      "publishedAt": "Fri, 16 Oct 2026 10:20:27 +0000",
-      "summary": "Google 台灣前董事總經理簡立峰今天表示，說人工智慧（AI）失控論「還早」，AI 失控論「只是一種想像」， [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
