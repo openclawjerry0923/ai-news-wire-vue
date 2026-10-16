@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-10-16T15:15:39.398Z",
+  "generatedAt": "2026-10-16T19:23:02.228Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(ui): own native browser subscriptions in Solid (#174327)",
-      "link": "https://github.com/openclaw/openclaw/commit/3148bd9b038db8ae0593d886b6412fa157d4f6dc",
-      "publishedAt": "2026-10-16T15:15:16Z",
-      "summary": "refactor(ui): own native browser subscriptions in Solid (#174327)",
+      "title": "refactor(ui): simplify agent switcher derivations (#174537)",
+      "link": "https://github.com/openclaw/openclaw/commit/40fbe218cd43f01bc257df7425916e54eb7d14ec",
+      "publishedAt": "2026-10-16T19:22:53Z",
+      "summary": "refactor(ui): simplify agent switcher derivations (#174537)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): own native browser subscriptions in Solid (#174327)",
-      "summaryZh": "重點：refactor(ui): own native browser subscriptions in Solid (#174327)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): simplify agent switcher derivations (#174537)",
+      "summaryZh": "重點：refactor(ui): simplify agent switcher derivations (#174537)..."
     },
     {
       "id": 2,
-      "title": "fix(sessions): stop retrying replaced delivery endpoints on every res…",
-      "link": "https://github.com/openclaw/openclaw/commit/7593d68192d591780a7aad518b17172b6fcb1099",
-      "publishedAt": "2026-10-16T15:12:40Z",
-      "summary": "fix(sessions): stop retrying replaced delivery endpoints on every restart (#174278) * fix(sessions): settle replaced delivery endpoints after restart Record a durable blocked-delivery notice before cancelling replay of inputs whose source or target was reset, archived, or replaced. Preserve accepted input data and all endpoint fences; leave permission and storage failures retryable. Add correlation identifiers without logging messages or raw session keys, and prove that a second recovery pass is silent. * test(sessions): preserve cancelled delivery receipt assertions * fix(sessions): preserve recovery notices during orphan repair * test(sessions): assert typed recovery context messages * fix(sessions): preserve notices at orphan rewind boundaries * test(sessions): retain fake timers for recovery persistence",
+      "title": "refactor: share agent and provider contract types (#174458)",
+      "link": "https://github.com/openclaw/openclaw/commit/4b9b7b0c0d0ca7e4a7a86e4d0fcb3b7a3c1cd248",
+      "publishedAt": "2026-10-16T19:20:23Z",
+      "summary": "refactor: share agent and provider contract types (#174458)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): stop retrying replaced delivery endpoints on every res…",
-      "summaryZh": "重點：修正(sessions): stop retrying replaced delivery endpoints on every restart (#174278) * 修正(sessions): settle replaced deliv..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: share agent and provider contract types (#174458)",
+      "summaryZh": "重點：refactor: share agent and provider contract types (#174458)..."
     },
     {
       "id": 3,
-      "title": "perf(gateway): cut allocation hotspots under concurrent agent turns (…",
-      "link": "https://github.com/openclaw/openclaw/commit/041004eec43a18b5629e6f52698d06a0d42ee301",
-      "publishedAt": "2026-10-16T15:12:16Z",
-      "summary": "perf(gateway): cut allocation hotspots under concurrent agent turns (#174130) * perf(gateway): trim per-request and per-turn allocation hotspots Heap profiles of the gateway concurrency bench (16 sessions x 4 turns with tool events, history clients, subscribers, control plane) showed: - Control UI bootstrap and config.get rebuilt the full schema redaction lookup per request (~7% of sampled allocations). Cache it per immutable ConfigUiHints object. - Embedded attempt cleanup spread the whole attempt params per cleanup step; pass only the fields runOwnedAgentCleanup reads. - intersectSessionEventToolsAllow rebuilt a tool-policy matcher (group expansion + glob compile) for every candidate x restriction pair; build one matcher per restriction. - Tool descriptor snapshots were per session only, so every new session republished identical descriptors. Seed a session's first attempt from the latest snapshot with identical inputs; per-tool identity checks still gate every reuse. * perf(agents): skip redundant context copies on the turn path - Bootstrap file and routing resolution spread the whole embedded attempt for every call; pass the fields their callees declare. - Re-entering the current plugin execution frame still called AsyncLocalStorage.run, which copies the entire async context map; run the callback directly when the frame is already current. - Gateway scope copies built two property descriptors per key; plain enumerable-checked assignment onto the fresh scope is equivalent. * perf(agents): share descriptor publication between concurrent cold sessions Sessions that start together all miss the descriptor snapshot and each republished and prewarmed the same provider schemas at settlement. At publish time, reuse an entry another session already published when its source schema, output schema, and description identities match. * perf(gateway): stop re-deriving paths and buffers on hot read paths - The activity-summary pump rechecks every queued state and re-resolved each one's session store path; memoize store paths per config publication. - matchesAgentDatabaseReadCandidatePath resolved both paths even when they were the identical string. - SQLite worker transfers copied single-frame records into a fresh buffer before deserializing; deserialize the frame bytes directly. * refactor(gateway): keep recap store-path memo with activity-summary state Move the per-config store-path memo next to the other activity-summary scope helpers to keep the service under the file-size limit, and drop the single-frame transfer fast path: the profiled bytes were the deserialized values themselves, not the reassembly copy. * fix(gateway): address review on shared descriptors and recap store paths - Key the activity-summary store-path memo by the store setting value; config publications can mutate the same object in place. - Require a matching tool name before reusing another session's published descriptor.",
+      "title": "refactor(ui): reuse settings search value binding (#174554)",
+      "link": "https://github.com/openclaw/openclaw/commit/db287868d939cbd1e77ff1ef21afe9bc18293b73",
+      "publishedAt": "2026-10-16T19:19:31Z",
+      "summary": "refactor(ui): reuse settings search value binding (#174554)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): cut allocation hotspots under concurrent agent turns (…",
-      "summaryZh": "重點：perf(Gateway): cut allocation hotspots under concurrent agent turns (#174130) * perf(Gateway): trim per-request and per-..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): reuse settings search value binding (#174554)",
+      "summaryZh": "重點：refactor(ui): reuse settings search value binding (#174554)..."
     },
     {
       "id": 4,
-      "title": "test(onboard): prepare native pin state before spoofing Windows",
-      "link": "https://github.com/openclaw/openclaw/commit/58d7e878feb0b27f85c4ecb48595c38b534553ab",
-      "publishedAt": "2026-10-16T15:08:43Z",
-      "summary": "test(onboard): prepare native pin state before spoofing Windows PR #174228 (6e8bb0f3aebf) intentionally makes noninteractive setup record fresh-profile runtime-pin migration completion before serving. Its body states: \"Profile setup and Gateway startup record the completed no-work receipt before serving\". The daemon health timing fixture spoofs process.platform across setup, which sent the new real filesystem creation through Windows-only native inspection on Linux and macOS. Initialize the real migration owner before the platform spoof. Keep the production path, assertions and timeouts. The unchanged file reproduced the exact ENOTSUP failure from hourly 38916811035; the fixture correction passes all 18 cases locally.",
+      "title": "test(database): PostgreSQL search product-flow conformance (#174462)",
+      "link": "https://github.com/openclaw/openclaw/commit/3ccddbd641b5a9cdada1c38f1212f56db75a66be",
+      "publishedAt": "2026-10-16T19:18:19Z",
+      "summary": "test(database): PostgreSQL search product-flow conformance (#174462) * test(database): PostgreSQL search product-flow conformance Exercise public memory, transcript, and standing-intent flows on PostgreSQL. Enable standing-intent search through registered engine projections, resolve custom session stores asynchronously, and bound memory queries and results. Preserve SQLite search behavior and document engine-local ranking, extension requirements, and the existing bounded transcript-visibility contract. * fix(database): preserve session ownership during search preparation Keep canonical session writes in their existing FIFO before yielding while resolving custom PostgreSQL store ownership through the read worker. Capture routing before discovery and await Doctor reader retirement at finalization. Extend public vector and sessions_search conformance, and repair maintenance test completion and cleanup so they observe the owning workers. * fix(sessions): preserve captured write environment during preparation * test(gateway): prepare runtime config for native session controls * test: prune retired session scope mock allowances * fix(sessions): preserve shared-store patch admission order",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(onboard): prepare native pin state before spoofing Windows",
-      "summaryZh": "重點：test(onboard): prepare native pin state before spoofing Windows PR #174228 (6e8bb0f3aebf) intentionally makes noninterac..."
+      "titleZh": "OpenClaw 程式碼更新：test(database): PostgreSQL search product-flow conformance (#174462)",
+      "summaryZh": "重點：test(database): PostgreSQL search product-flow conformance (#174462) * test(database): PostgreSQL search product-flow co..."
     },
     {
       "id": 5,
+      "title": "任天堂重申保留 Switch 2 實體卡，堅守玩家收藏與分享需求",
+      "link": "https://ccc.technews.tw/2026/10/17/switch-2-sticks-with-physical-game-cards-for-now-ondo-finance-company-ondo-tokenized-stocks-institutional-grade-finance-delivered-onchain-accessible-to-all-explore-tokeniz/",
+      "publishedAt": "Fri, 16 Oct 2026 16:00:58 +0000",
+      "summary": "Sony 已宣布 2028 年起停止為 PlayStation 新遊戲製作實體光碟，但任天堂表明目前沒有取消實 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "精度堪比「240 公里外打硬幣」，NASA 羅曼太空望遠鏡超高穩定度通過關鍵測試",
+      "link": "https://technews.tw/2026/10/17/nasa-roman-space-telescope-initial-optical-test-successful/",
+      "publishedAt": "Fri, 16 Oct 2026 16:00:29 +0000",
+      "summary": "美國國家航空暨太空總署（NASA）的南希·格蕾絲·羅曼太空望遠鏡（Nancy Grace Roman Spac [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "韋伯望遠鏡在宇宙早期捕捉到疑似超新星，爆炸後僅 4~10 天就發現",
+      "link": "https://technews.tw/2026/10/17/jwst-spots-possible-supernova-in-early-universe/",
+      "publishedAt": "Fri, 16 Oct 2026 16:00:06 +0000",
+      "summary": "美國太空總署（NASA）的詹姆斯·韋伯太空望遠鏡（JWST）在恆星爆炸後僅數天，便在宇宙早期偵測到一顆疑似超新 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "台灣將收緊對中國先進晶片出口，未許可輸出產品將首度列刑事犯罪",
       "link": "https://finance.technews.tw/2026/10/16/taiwan-to-tighten-export-controls-on-advanced-chips-to-china/",
       "publishedAt": "Fri, 16 Oct 2026 14:35:11 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "彭博專訪 龔明鑫：台灣準備對中國緊縮 AI 晶片出口管制並打擊走私",
       "link": "https://technews.tw/2026/10/16/bloomberg-interview-gong-ming-hsin-taiwan-tightens-ai-chip-export-controls-china/",
       "publishedAt": "Fri, 16 Oct 2026 14:07:29 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "91APP雲端平臺資料庫Commerce Cloud遭自動化攻擊",
       "link": "https://www.ithome.com.tw/news/179741",
       "publishedAt": "2026-10-16 12:10:46",
       "summary": "10月16日電商技術服務公司91APP（6741）於股市公開資訊觀測站發布重大訊息，表示旗下的Commerce Cloud資料庫於兩天前（10月14日）發現遭受自動化攻擊，攻擊者非法擷取部分資訊，91APP委請第三方資安公正單位協助調查、向警方報案，並採取必要防護措施降低影響，依法通報相關主管機關，目前遭",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Google發布Chrome 155更新，修補重大等級的記憶體釋放後再存取使用漏洞",
-      "link": "https://www.ithome.com.tw/news/179737",
-      "publishedAt": "2026-10-16 11:10:54",
-      "summary": "10月15日Google為Chrome 155發布更新，一共修補10個資安漏洞，從危險程度來看，重大等級1個、高風險等級有6個，Windows與macOS版用戶需更新為155.0.8059.84或155.0.8059.85，Linux與",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "TypeSafe擴充Jev決策模型，支援圖片判斷與物件定位",
-      "link": "https://www.ithome.com.tw/news/179738",
-      "publishedAt": "2026-10-16 11:10:50",
-      "summary": "美國AI新創公司TypeSafe AI發布決策型AI模型Jev 1.14.0，同步開放圖片輸入與長上下文等實驗性功能。新版新增Box物件定位功能，回傳位置座標與信心分數，讓應用程式直接使用判斷結果。不過，官方提醒影像相關功能尚未達到正式環境的可靠度要求。 Jev是TypeSafe開發的決策型AI模型，與逐字生成回答的聊天模型不同，開發者提供資料與問題後，Jev會直接回傳是非判斷、分類選項或評分，並提供機率資訊，供程式決定後續動作。圖片輸入功能則讓Jev能夠分析影像內容，執行分類與比對等工作。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "美國CISA警告影響Atlassian旗下多款系統的重大漏洞遭積極利用",
-      "link": "https://www.ithome.com.tw/news/179739",
-      "publishedAt": "2026-10-16 11:10:37",
-      "summary": "10月15日美國網路安全與基礎設施安全局（CISA）表示，他們已掌握一個新漏洞遭積極利用的證據，將其加入已遭利用的漏洞名單（KEV），並要求聯邦機構需在3天內（10月18日前）完成修補。",
       "source": "iThome",
       "tag": "繁中"
     }
