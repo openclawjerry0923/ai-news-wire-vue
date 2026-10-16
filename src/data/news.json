@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-16T19:23:02.228Z",
+  "generatedAt": "2026-10-16T22:36:47.545Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(ui): simplify agent switcher derivations (#174537)",
-      "link": "https://github.com/openclaw/openclaw/commit/40fbe218cd43f01bc257df7425916e54eb7d14ec",
-      "publishedAt": "2026-10-16T19:22:53Z",
-      "summary": "refactor(ui): simplify agent switcher derivations (#174537)",
+      "title": "refactor(agents): remove redundant preparation and bookkeeping guards…",
+      "link": "https://github.com/openclaw/openclaw/commit/87c1f1c673b136b23c374596bc718e317b8810bd",
+      "publishedAt": "2026-10-16T22:35:27Z",
+      "summary": "refactor(agents): remove redundant preparation and bookkeeping guards (#174632) * refactor(agents): remove redundant preparation and bookkeeping guards Trust canonical typed producers and existing effect owners instead of repeating snapshots, validation, and speculative historical interleaving checks. Preserve security admission, durable writes, FIFO and ordinary settlement. Optional mid-turn Decision setting changes are best effort; uncapped response read failures now propagate. * fix(agents): preserve canonical registration and legacy stop semantics",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): simplify agent switcher derivations (#174537)",
-      "summaryZh": "重點：refactor(ui): simplify agent switcher derivations (#174537)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): remove redundant preparation and bookkeeping guards…",
+      "summaryZh": "重點：refactor(agents): remove redundant preparation and bookkeeping guards (#174632) * refactor(agents): remove redundant pre..."
     },
     {
       "id": 2,
-      "title": "refactor: share agent and provider contract types (#174458)",
-      "link": "https://github.com/openclaw/openclaw/commit/4b9b7b0c0d0ca7e4a7a86e4d0fcb3b7a3c1cd248",
-      "publishedAt": "2026-10-16T19:20:23Z",
-      "summary": "refactor: share agent and provider contract types (#174458)",
+      "title": "refactor: deslop wave-6 residues (ui) (#174669)",
+      "link": "https://github.com/openclaw/openclaw/commit/6585a68dcdf962625ee52cb9db571680619d4df2",
+      "publishedAt": "2026-10-16T22:34:59Z",
+      "summary": "refactor: deslop wave-6 residues (ui) (#174669) * refactor: deslop wave-6 residues (ui) * refactor(ui): withdraw unproved constant consolidations Withdraw only the hover parser and settings-search constant families reached by the failed optional-runtime browser flow. The CI-tested baseline has identical original bytes for these four files. Preserve the graph-independent navigation, projection, transcript-cache, mascot, inventory and modal recovery work. Parked source: deslop/bundle-w6d-parked-ui-hover-20261015. Frozen independent review is reused for the unchanged retained subset; no baseline replay or green CI is claimed. * refactor(ui): retain residues with matching main CI evidence Restore the four-file constant consolidation subset after scheduled main run 38969675015 job 117205055957 independently exhibited the exact initial-roster timeout from the original PR run. The test and readiness helper are unchanged; coordinator rule 12 classifies this as inherited, not grounds to withdraw work. The full source tree again matches the independently reviewed original UI head. No passing replay, test weakening, or main-failure repair is claimed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: share agent and provider contract types (#174458)",
-      "summaryZh": "重點：refactor: share agent and provider contract types (#174458)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: deslop wave-6 residues (ui) (#174669)",
+      "summaryZh": "重點：refactor: deslop wave-6 residues (ui) (#174669) * refactor: deslop wave-6 residues (ui) * refactor(ui): withdraw unprove..."
     },
     {
       "id": 3,
-      "title": "refactor(ui): reuse settings search value binding (#174554)",
-      "link": "https://github.com/openclaw/openclaw/commit/db287868d939cbd1e77ff1ef21afe9bc18293b73",
-      "publishedAt": "2026-10-16T19:19:31Z",
-      "summary": "refactor(ui): reuse settings search value binding (#174554)",
+      "title": "perf: batch GitHub coauthor attribution reads (#174694)",
+      "link": "https://github.com/openclaw/openclaw/commit/67558d5f69827fefdf9977754b789a8fd1d278a8",
+      "publishedAt": "2026-10-16T22:33:47Z",
+      "summary": "perf: batch GitHub coauthor attribution reads (#174694) Read profile aliases, verified GitHub identities, and coauthor consent in one worker-owned snapshot SELECT. Preserve receipt-driven cache invalidation, final publication authority, Enterprise verified-email handling, and admitted legacy schema support.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(ui): reuse settings search value binding (#174554)",
-      "summaryZh": "重點：refactor(ui): reuse settings search value binding (#174554)..."
+      "titleZh": "OpenClaw 程式碼更新：perf: batch GitHub coauthor attribution reads (#174694)",
+      "summaryZh": "重點：perf: batch GitHub coauthor attribution reads (#174694) Read profile aliases, verified GitHub identities, and coauthor c..."
     },
     {
       "id": 4,
-      "title": "test(database): PostgreSQL search product-flow conformance (#174462)",
-      "link": "https://github.com/openclaw/openclaw/commit/3ccddbd641b5a9cdada1c38f1212f56db75a66be",
-      "publishedAt": "2026-10-16T19:18:19Z",
-      "summary": "test(database): PostgreSQL search product-flow conformance (#174462) * test(database): PostgreSQL search product-flow conformance Exercise public memory, transcript, and standing-intent flows on PostgreSQL. Enable standing-intent search through registered engine projections, resolve custom session stores asynchronously, and bound memory queries and results. Preserve SQLite search behavior and document engine-local ranking, extension requirements, and the existing bounded transcript-visibility contract. * fix(database): preserve session ownership during search preparation Keep canonical session writes in their existing FIFO before yielding while resolving custom PostgreSQL store ownership through the read worker. Capture routing before discovery and await Doctor reader retirement at finalization. Extend public vector and sessions_search conformance, and repair maintenance test completion and cleanup so they observe the owning workers. * fix(sessions): preserve captured write environment during preparation * test(gateway): prepare runtime config for native session controls * test: prune retired session scope mock allowances * fix(sessions): preserve shared-store patch admission order",
+      "title": "fix(onboard): report a failed Gateway restart truthfully in setup (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/c7a77fe791520c6f6dc76d090cf457a9bd55b7e5",
+      "publishedAt": "2026-10-16T22:33:36Z",
+      "summary": "fix(onboard): report a failed Gateway restart truthfully in setup (#174767) The setup wizard's Gateway service restart printed a success message and then rejected when the restart failed, so operators saw 'restarted' for a Gateway that was not running. The shared onboarding owner now records restart failures as a failed state with the reason, keeps the progress line neutral, and the wizard shows the real error and recovery commands. Production net -1 LOC. Supersedes #173355, thanks @skyzhao1223. Fixes #173348 Co-authored-by: skyzhao1223",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(database): PostgreSQL search product-flow conformance (#174462)",
-      "summaryZh": "重點：test(database): PostgreSQL search product-flow conformance (#174462) * test(database): PostgreSQL search product-flow co..."
+      "titleZh": "OpenClaw 程式碼更新：修正(onboard): report a failed Gateway restart truthfully in setup (#1…",
+      "summaryZh": "重點：修正(onboard): report a failed Gateway restart truthfully in setup (#174767) The setup wizard's Gateway service restart pr..."
     },
     {
       "id": 5,
