@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-17T18:13:33.392Z",
+  "generatedAt": "2026-10-17T21:17:12.804Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(sessions): publish committed facts under PostgreSQL admission (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/f5de32afc6a57c4edf14e9fdb0edae1301482ffd",
-      "publishedAt": "2026-10-17T18:12:49Z",
-      "summary": "fix(sessions): publish committed facts under PostgreSQL admission (#175718) Capture replacement publication sources from engine-neutral admitted facts. Bind PostgreSQL postimages to namespace, store identity, admission lifetime and the existing write receipts while preserving authority, rollback and unknown-outcome checks. PostgreSQL warm-window requests fall from 59.9 to 17.3 in the owner census. Three alternating SQLite measurement pairs retain identical causal SQL and request counts. Exact-head CI and PostgreSQL owner review passed.",
+      "title": "perf(sqlite): reuse verified source quick check during upgrades (#175…",
+      "link": "https://github.com/openclaw/openclaw/commit/3ce9e7c2961cce1202215601799d52dd76e75dcf",
+      "publishedAt": "2026-10-17T21:15:49Z",
+      "summary": "perf(sqlite): reuse verified source quick check during upgrades (#175776) Carry a one-use QUICK receipt from a byte-equal raw capture to the unchanged live source within the same exclusive maintenance owner. Keep explicit FULL, transformed recovery-image certification, mutation-scoped FULL and FK checks, and refuse reuse after source mutation or recovery data. Build on the narrowed maintenance scopes in #175808. Preserve the candidate-side update behavior contract; the installed updater still executes its own version.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): publish 提交ted facts under PostgreSQL admission (#1…",
-      "summaryZh": "重點：修正(sessions): publish 提交ted facts under PostgreSQL admission (#175718) Capture replacement publication sources from engi..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): reuse verified source quick check during upgrades (#175…",
+      "summaryZh": "重點：perf(sqlite): reuse verified source quick check during upgrades (#175776) Carry a one-use QUICK receipt from a byte-equa..."
     },
     {
       "id": 2,
-      "title": "fix(test): prevent TSX cache file descriptor bursts",
-      "link": "https://github.com/openclaw/openclaw/commit/8cf4ec4d8aa0d1096a9987a898f53b79e22c1e60",
-      "publishedAt": "2026-10-17T18:10:51Z",
-      "summary": "fix(test): prevent TSX cache file descriptor bursts Disable TSX disk writes before owned test loaders start. Synchronous imports can queue hundreds of unawaited cache writes; retain TSX's in-memory cache and Vitest's separate transform cache. Keep delayed handoff gates attached to their operation and test lifetime so an early startup error is reported instead of hidden by a timeout. Preserve every handoff assertion and deadline. Proof: Linux original policy reached 500 open descriptors at a 512 cap; the wrapper-only repair passed all 23 unchanged cases three times, with 27-89 descriptors sampled at case starts (476.81s wrapper wall). Final macOS handoff file: 23 passed in 169.34s wall. Cache/runner regressions, targeted types/lint and independent P2 review passed.",
+      "title": "fix(chat): keep session filters when changing model settings (#175722)",
+      "link": "https://github.com/openclaw/openclaw/commit/6ebd9d9dd9ffd9d627effa6c3988e8a75a69e5fb",
+      "publishedAt": "2026-10-17T21:11:24Z",
+      "summary": "fix(chat): keep session filters when changing model settings (#175722) * fix(chat): reconcile picker settings once through the session owner Avoid a second roster read and preserve the foreground query after model or thinking changes. Keep the canonical mutation reconciliation and send barrier intact. * test(chat): hold canonical settings reconciliation in fixtures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): prevent TSX cache file descriptor bursts",
-      "summaryZh": "重點：修正(test): prevent TSX cache file descriptor bursts Disable TSX disk writes before owned test loaders start. Synchronous ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(chat): keep session filters when changing 模型 settings (#175722)",
+      "summaryZh": "重點：修正(chat): keep session filters when changing 模型 settings (#175722) * 修正(chat): reconcile picker settings once through th..."
     },
     {
       "id": 3,
-      "title": "fix(update): verify readiness after authentication rejection (#175735)",
-      "link": "https://github.com/openclaw/openclaw/commit/ea0111cec74931b9587ba0e68fde44fed4a7b725",
-      "publishedAt": "2026-10-17T18:09:34Z",
-      "summary": "fix(update): verify readiness after authentication rejection (#175735) After a 2026.10.2 -> 2026.10.4 update, post-restart verification connected without a device identity, the new Gateway rejected it with 1008 'device identity required', and the verifier kept retrying for the full 30-minute health window before recording a failure even though the Gateway was healthy. Deterministic authentication refusals now end the retry loop immediately; the verifier then confirms the expected version/build and readiness through the Gateway's local HTTP startup/readiness endpoints and records success with an authentication warning. Gateway admission and pairing are unchanged; an unready or mismatched Gateway still fails verification. Fixes #175712",
+      "title": "test(sessions,channels): remove low-value tests (batch d236) (#175813)",
+      "link": "https://github.com/openclaw/openclaw/commit/3a545656706860d218f7be8872636ca7957c858f",
+      "publishedAt": "2026-10-17T21:09:35Z",
+      "summary": "test(sessions,channels): remove low-value tests (batch d236) (#175813) * test(ui): deslop x7857 tests * test(ui): deslop x7857 tests * test(sessions): deslop x7852 tests * test(sessions): deslop x7852 tests * test(sessions): deslop x7855 tests * test(sessions): deslop x7855 tests * test(sessions): deslop x7855 tests * test(xai): deslop x7862 tests * test(xai): deslop x7862 tests * test(commands): deslop x7851 tests * test(commands): deslop x7851 tests * test(commands): deslop x7851 tests * test(cli): deslop x7858 tests * test(cli): deslop x7858 tests * test(gateway): deslop x7863 tests * test(gateway): deslop x7863 tests * test(gateway): deslop x7863 tests * test(tui): deslop x7860 tests * test(tui): deslop x7860 tests * test(tui): deslop x7860 tests * test(slack): deslop x7864 tests * test(slack): deslop x7864 tests * test(telegram): deslop x7859 tests * test(telegram): deslop x7859 tests * test(telegram): deslop x7859 tests * test(state): deslop x7865 tests * test(state): deslop x7865 tests * test(state): deslop x7865 tests * test(gateway): deslop x7839 tests * test: repair replayed fixtures against current contracts * test: preserve canonical fixture paths and prune stale mock entries",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): verify readiness after authentication rejection (#175735)",
-      "summaryZh": "重點：修正(update): verify readiness after authentication rejection (#175735) After a 2026.10.2 -> 2026.10.4 update, post-restar..."
+      "titleZh": "OpenClaw 程式碼更新：test(sessions,channels): remove low-value tests (batch d236) (#175813)",
+      "summaryZh": "重點：test(sessions,channels): remove low-value tests (batch d236) (#175813) * test(ui): deslop x7857 tests * test(ui): deslop..."
     },
     {
       "id": 4,
-      "title": "fix(whatsapp): final replies disappear after unrelated reloads",
-      "link": "https://github.com/openclaw/openclaw/commit/2c760972446b4855007af0fcb8baf14853852546",
-      "publishedAt": "2026-10-17T18:08:55Z",
-      "summary": "fix(whatsapp): final replies disappear after unrelated reloads Fix WhatsApp final replies being discarded when unrelated configuration or plugin settings reload during a turn, including accounts with their own settings. Retain the original Gateway configuration with the admitted channel registration and compare its relevant channel/default/plugin settings with the current configuration. Prepare the selected WhatsApp account from current configuration for final delivery through the existing account resolver, preserving reply prefixes, chunking, and current global policy. Validation: focused monitor, dispatch, and shared durable-delivery regressions cover unrelated reloads, account overrides, relevant-change rejection, and lifecycle/sender guards. Exact-head CI passed: https://github.com/openclaw/openclaw/actions/runs/39051587992 Live WhatsApp transport delivery was not tested.",
+      "title": "perf(config): defer form schema generation during config reads (#175818)",
+      "link": "https://github.com/openclaw/openclaw/commit/d1fe9f58c6b7231251e8b21adae23b08239d60aa",
+      "publishedAt": "2026-10-17T21:09:07Z",
+      "summary": "perf(config): defer form schema generation during config reads (#175818) * perf(config): defer form schema generation during config reads Build redaction hints from the existing core and plugin metadata without materializing JSON schema or presentation tiers. Share both lazy results within the existing config and plugin-generation cache, and use the redaction path for config reads, writes, and command transcripts. * test(config): document runtime schema mock isolation * test(config): prune retired runtime schema mock exemption",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): final replies disappear after unrelated reloads",
-      "summaryZh": "重點：修正(whatsapp): final replies disappear after unrelated reloads 修正 WhatsApp final replies being discarded when unrelated c..."
+      "titleZh": "OpenClaw 程式碼更新：perf(config): defer form schema generation during config reads (#175818)",
+      "summaryZh": "重點：perf(config): defer form schema generation during config reads (#175818) * perf(config): defer form schema generation du..."
     },
     {
       "id": 5,
