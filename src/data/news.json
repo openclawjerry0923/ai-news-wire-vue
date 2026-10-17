@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-17T21:17:12.804Z",
+  "generatedAt": "2026-10-17T23:48:13.106Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(sqlite): reuse verified source quick check during upgrades (#175…",
-      "link": "https://github.com/openclaw/openclaw/commit/3ce9e7c2961cce1202215601799d52dd76e75dcf",
-      "publishedAt": "2026-10-17T21:15:49Z",
-      "summary": "perf(sqlite): reuse verified source quick check during upgrades (#175776) Carry a one-use QUICK receipt from a byte-equal raw capture to the unchanged live source within the same exclusive maintenance owner. Keep explicit FULL, transformed recovery-image certification, mutation-scoped FULL and FK checks, and refuse reuse after source mutation or recovery data. Build on the narrowed maintenance scopes in #175808. Preserve the candidate-side update behavior contract; the installed updater still executes its own version.",
+      "title": "improve(memory): reindex only changed chunks of an edited memory file…",
+      "link": "https://github.com/openclaw/openclaw/commit/1ae7b3c3590082865cc1bd6ba2bff20711c5eb33",
+      "publishedAt": "2026-10-17T23:45:39Z",
+      "summary": "improve(memory): reindex only changed chunks of an edited memory file (#175608) Memory files always took complete replacement: every chunk row was deleted and reinserted, and the FTS entries were rebuilt, even when an edit touched one chunk. Lift the six sessions-only gates so the existing delta planner and publication path also serve memory files. When no prepared chunk matches a stored row, keep complete replacement, which scans vectors once instead of issuing scalar deletes per row. Unchanged chunks keep their rows and only refresh recall metadata and provenance. The builtin memory docs now describe both sources. Co-authored-by: Mitchell Etzel",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): reuse verified source quick check during upgrades (#175…",
-      "summaryZh": "重點：perf(sqlite): reuse verified source quick check during upgrades (#175776) Carry a one-use QUICK receipt from a byte-equa..."
+      "titleZh": "OpenClaw 程式碼更新：improve(記憶): reindex only changed chunks of an edited 記憶 file…",
+      "summaryZh": "重點：improve(記憶): reindex only changed chunks of an edited 記憶 file (#175608) 記憶 files always took complete replacement: every..."
     },
     {
       "id": 2,
-      "title": "fix(chat): keep session filters when changing model settings (#175722)",
-      "link": "https://github.com/openclaw/openclaw/commit/6ebd9d9dd9ffd9d627effa6c3988e8a75a69e5fb",
-      "publishedAt": "2026-10-17T21:11:24Z",
-      "summary": "fix(chat): keep session filters when changing model settings (#175722) * fix(chat): reconcile picker settings once through the session owner Avoid a second roster read and preserve the foreground query after model or thinking changes. Keep the canonical mutation reconciliation and send barrier intact. * test(chat): hold canonical settings reconciliation in fixtures",
+      "title": "refactor(catalog): trust the optional build-stamp loader",
+      "link": "https://github.com/openclaw/openclaw/commit/00adf856e25545861a26b106ee3ddad6cdbcdbfa",
+      "publishedAt": "2026-10-17T23:44:45Z",
+      "summary": "refactor(catalog): trust the optional build-stamp loader Remove the duplicate optional catalog-stamp catch while retaining the canonical loader's missing/unreadable/malformed file recovery, optional-store recovery, compatibility/source policy, first-winner publication and live-admission assertion. Unexpected internal stamp-owner invariant errors now surface. Five net production lines removed, tests unchanged. Exact signed reviewed head: 22e67ea8a697d9251085ba2b9f55e3d7c9a6b151. Fresh complete review scoped-clean P0-P2/0.99, canonical type-aware lint, formatting and mandatory14-case suppression guard passed. Local focused runtime stopped before assertions at prohibited broad worker compilation; targeted types retained36 unchanged dependency diagnostics. Neither is claimed passing. Exact-head CI39079279717 GREEN. All188 check runs enumerated:61success,126intentional skips,1neutral; no failed, cancelled or incomplete check. All3 commit statuses SUCCESS, including openclaw/ci-gate. No substantive review or inline findings. No inherited-red exception, CI rerun, confirmation push or rebase. Phase E memory machinery and tests untouched.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(chat): keep session filters when changing 模型 settings (#175722)",
-      "summaryZh": "重點：修正(chat): keep session filters when changing 模型 settings (#175722) * 修正(chat): reconcile picker settings once through th..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(catalog): trust the optional build-stamp loader",
+      "summaryZh": "重點：refactor(catalog): trust the optional build-stamp loader Remove the duplicate optional catalog-stamp catch while retaini..."
     },
     {
       "id": 3,
-      "title": "test(sessions,channels): remove low-value tests (batch d236) (#175813)",
-      "link": "https://github.com/openclaw/openclaw/commit/3a545656706860d218f7be8872636ca7957c858f",
-      "publishedAt": "2026-10-17T21:09:35Z",
-      "summary": "test(sessions,channels): remove low-value tests (batch d236) (#175813) * test(ui): deslop x7857 tests * test(ui): deslop x7857 tests * test(sessions): deslop x7852 tests * test(sessions): deslop x7852 tests * test(sessions): deslop x7855 tests * test(sessions): deslop x7855 tests * test(sessions): deslop x7855 tests * test(xai): deslop x7862 tests * test(xai): deslop x7862 tests * test(commands): deslop x7851 tests * test(commands): deslop x7851 tests * test(commands): deslop x7851 tests * test(cli): deslop x7858 tests * test(cli): deslop x7858 tests * test(gateway): deslop x7863 tests * test(gateway): deslop x7863 tests * test(gateway): deslop x7863 tests * test(tui): deslop x7860 tests * test(tui): deslop x7860 tests * test(tui): deslop x7860 tests * test(slack): deslop x7864 tests * test(slack): deslop x7864 tests * test(telegram): deslop x7859 tests * test(telegram): deslop x7859 tests * test(telegram): deslop x7859 tests * test(state): deslop x7865 tests * test(state): deslop x7865 tests * test(state): deslop x7865 tests * test(gateway): deslop x7839 tests * test: repair replayed fixtures against current contracts * test: preserve canonical fixture paths and prune stale mock entries",
+      "title": "fix: omit inaccessible automations from session details (#175908)",
+      "link": "https://github.com/openclaw/openclaw/commit/8299e4970ba97719b216d0180672a1bd501dbaab",
+      "publishedAt": "2026-10-17T23:43:16Z",
+      "summary": "fix: omit inaccessible automations from session details (#175908) Session Details respects existing automation read access and retires inventory after access changes. Fixes #175894.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(sessions,channels): remove low-value tests (batch d236) (#175813)",
-      "summaryZh": "重點：test(sessions,channels): remove low-value tests (batch d236) (#175813) * test(ui): deslop x7857 tests * test(ui): deslop..."
+      "titleZh": "OpenClaw 程式碼更新：修正: omit inaccessible automations from session details (#175908)",
+      "summaryZh": "重點：修正: omit inaccessible automations from session details (#175908) Session Details respects existing automation read acces..."
     },
     {
       "id": 4,
-      "title": "perf(config): defer form schema generation during config reads (#175818)",
-      "link": "https://github.com/openclaw/openclaw/commit/d1fe9f58c6b7231251e8b21adae23b08239d60aa",
-      "publishedAt": "2026-10-17T21:09:07Z",
-      "summary": "perf(config): defer form schema generation during config reads (#175818) * perf(config): defer form schema generation during config reads Build redaction hints from the existing core and plugin metadata without materializing JSON schema or presentation tiers. Share both lazy results within the existing config and plugin-generation cache, and use the redaction path for config reads, writes, and command transcripts. * test(config): document runtime schema mock isolation * test(config): prune retired runtime schema mock exemption",
+      "title": "fix(codex): mirror the persisted user admission (#146257)",
+      "link": "https://github.com/openclaw/openclaw/commit/09cf9282b8fc8d17f3b90ffcc91c574bbdd6026b",
+      "publishedAt": "2026-10-17T23:40:39Z",
+      "summary": "fix(codex): mirror the persisted user admission (#146257)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(config): defer form schema generation during config reads (#175818)",
-      "summaryZh": "重點：perf(config): defer form schema generation during config reads (#175818) * perf(config): defer form schema generation du..."
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): mirror the persisted user admission (#146257)",
+      "summaryZh": "重點：修正(codex): mirror the persisted user admission (#146257)..."
     },
     {
       "id": 5,
