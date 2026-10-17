@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-17T15:07:01.278Z",
+  "generatedAt": "2026-10-17T18:13:33.392Z",
   "items": [
     {
       "id": 1,
-      "title": "test(database): isolate PostgreSQL Git backup fixture lifecycle",
-      "link": "https://github.com/openclaw/openclaw/commit/0b64fd18fcdccfa5ef3a1837909e7321ebcbca50",
-      "publishedAt": "2026-10-17T15:04:17Z",
-      "summary": "test(database): isolate PostgreSQL Git backup fixture lifecycle Reinstall the fixture environment before each case because Vitest clears beforeAll env stubs before the first test. Keep offline custody on the same state root that backup discovery and exports exercise. Prepare the initial six-store backup in its own bounded setup hook and retain every discovery, redaction, refresh, history and restore assertion. Join the original async test bodies through the existing fixture lifetime so a timed-out backup settles before another case or database teardown.",
+      "title": "fix(sessions): publish committed facts under PostgreSQL admission (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/f5de32afc6a57c4edf14e9fdb0edae1301482ffd",
+      "publishedAt": "2026-10-17T18:12:49Z",
+      "summary": "fix(sessions): publish committed facts under PostgreSQL admission (#175718) Capture replacement publication sources from engine-neutral admitted facts. Bind PostgreSQL postimages to namespace, store identity, admission lifetime and the existing write receipts while preserving authority, rollback and unknown-outcome checks. PostgreSQL warm-window requests fall from 59.9 to 17.3 in the owner census. Three alternating SQLite measurement pairs retain identical causal SQL and request counts. Exact-head CI and PostgreSQL owner review passed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(database): isolate PostgreSQL Git backup 修正ture lifecycle",
-      "summaryZh": "重點：test(database): isolate PostgreSQL Git backup 修正ture lifecycle Reinstall the 修正ture environment before each case because..."
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): publish 提交ted facts under PostgreSQL admission (#1…",
+      "summaryZh": "重點：修正(sessions): publish 提交ted facts under PostgreSQL admission (#175718) Capture replacement publication sources from engi..."
     },
     {
       "id": 2,
-      "title": "refactor(cli): remove redundant startup headers (#175499)",
-      "link": "https://github.com/openclaw/openclaw/commit/8cfa2ec42441eefefcdbf5626d8063fd239137bc",
-      "publishedAt": "2026-10-17T14:54:51Z",
-      "summary": "refactor(cli): remove redundant startup headers (#175499) * refactor(cli): remove redundant command commentary * refactor(cli): narrow comment cleanup to startup headers",
+      "title": "fix(test): prevent TSX cache file descriptor bursts",
+      "link": "https://github.com/openclaw/openclaw/commit/8cf4ec4d8aa0d1096a9987a898f53b79e22c1e60",
+      "publishedAt": "2026-10-17T18:10:51Z",
+      "summary": "fix(test): prevent TSX cache file descriptor bursts Disable TSX disk writes before owned test loaders start. Synchronous imports can queue hundreds of unawaited cache writes; retain TSX's in-memory cache and Vitest's separate transform cache. Keep delayed handoff gates attached to their operation and test lifetime so an early startup error is reported instead of hidden by a timeout. Preserve every handoff assertion and deadline. Proof: Linux original policy reached 500 open descriptors at a 512 cap; the wrapper-only repair passed all 23 unchanged cases three times, with 27-89 descriptors sampled at case starts (476.81s wrapper wall). Final macOS handoff file: 23 passed in 169.34s wall. Cache/runner regressions, targeted types/lint and independent P2 review passed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(cli): remove redundant startup headers (#175499)",
-      "summaryZh": "重點：refactor(cli): remove redundant startup headers (#175499) * refactor(cli): remove redundant command commentary * refacto..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): prevent TSX cache file descriptor bursts",
+      "summaryZh": "重點：修正(test): prevent TSX cache file descriptor bursts Disable TSX disk writes before owned test loaders start. Synchronous ..."
     },
     {
       "id": 3,
-      "title": "perf(ci): retain only reusable Node runtime Rust dependencies (#175605)",
-      "link": "https://github.com/openclaw/openclaw/commit/1bad54b1f8888f2870ce72f18ef893758d6ff0c3",
-      "publishedAt": "2026-10-17T14:54:05Z",
-      "summary": "perf(ci): retain only reusable Node runtime Rust dependencies (#175605)",
+      "title": "fix(update): verify readiness after authentication rejection (#175735)",
+      "link": "https://github.com/openclaw/openclaw/commit/ea0111cec74931b9587ba0e68fde44fed4a7b725",
+      "publishedAt": "2026-10-17T18:09:34Z",
+      "summary": "fix(update): verify readiness after authentication rejection (#175735) After a 2026.10.2 -> 2026.10.4 update, post-restart verification connected without a device identity, the new Gateway rejected it with 1008 'device identity required', and the verifier kept retrying for the full 30-minute health window before recording a failure even though the Gateway was healthy. Deterministic authentication refusals now end the retry loop immediately; the verifier then confirms the expected version/build and readiness through the Gateway's local HTTP startup/readiness endpoints and records success with an authentication warning. Gateway admission and pairing are unchanged; an unready or mismatched Gateway still fails verification. Fixes #175712",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ci): retain only reusable Node runtime Rust dependencies (#175605)",
-      "summaryZh": "重點：perf(ci): retain only reusable Node runtime Rust dependencies (#175605)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): verify readiness after authentication rejection (#175735)",
+      "summaryZh": "重點：修正(update): verify readiness after authentication rejection (#175735) After a 2026.10.2 -> 2026.10.4 update, post-restar..."
     },
     {
       "id": 4,
-      "title": "refactor(runtime): consume canonical config and supported APIs (#175517)",
-      "link": "https://github.com/openclaw/openclaw/commit/672bee382de2436c0b65e79f781220867e61e5d4",
-      "publishedAt": "2026-10-17T14:54:01Z",
-      "summary": "refactor(runtime): consume canonical config and supported APIs (#175517) * refactor(runtime): remove retired compatibility paths Consume canonical TTS provider maps, required supported-runtime APIs and V2 state methods in bundled adapters. Remove private forwarding aliases and unreachable fallback paths without changing public SDK exports or persisted formats. Keep Doctor transforms, update compatibility and supported old data. Best-effort tradeoffs accepted: - Direct callers supplying retired flat TTS blocks must normalize them through Doctor; internal synthesis producers now construct the canonical map. - Unsupported runtimes and incompatible pinned-dependency replacements no longer get speculative API-absence fallbacks; supported APIs are required directly. - Bundled adapters require the current host. Closed bounded-store runtime references reject through V2 instead of continuing against a retired runtime. - A non-protocol bare node.invoke reply is an ordinary Logbook capture failure; the supported payload and payloadJSON envelopes remain accepted. No schema, retention, durability, security-policy, protocol, dependency or standalone session-memory backend changes. This is the single below-500 z29 residue for coordinator bundling, not a claim of exact-head hosted CI proof. Local proof gap: lint-suppressions is 13/14 because the unchanged MCP lifecycle fixture contains two directives absent from its unchanged allowlist. Both file blobs match base and current main; this cut adds no suppressions. Archive/state worker suites remain pending after resource-budget cancellations. * refactor(runtime): separate bundled state adapter cut Keep the reviewed runtime/TTS/API-floor cleanup in this PR and move the bundled V2 state adapters to a separate area PR. No new runtime behavior. * test: align runtime cleanup fixtures with supported APIs * refactor: isolate catalog-reachable cleanup pending proof * test: preserve protected session memory coverage unchanged",
+      "title": "fix(whatsapp): final replies disappear after unrelated reloads",
+      "link": "https://github.com/openclaw/openclaw/commit/2c760972446b4855007af0fcb8baf14853852546",
+      "publishedAt": "2026-10-17T18:08:55Z",
+      "summary": "fix(whatsapp): final replies disappear after unrelated reloads Fix WhatsApp final replies being discarded when unrelated configuration or plugin settings reload during a turn, including accounts with their own settings. Retain the original Gateway configuration with the admitted channel registration and compare its relevant channel/default/plugin settings with the current configuration. Prepare the selected WhatsApp account from current configuration for final delivery through the existing account resolver, preserving reply prefixes, chunking, and current global policy. Validation: focused monitor, dispatch, and shared durable-delivery regressions cover unrelated reloads, account overrides, relevant-change rejection, and lifecycle/sender guards. Exact-head CI passed: https://github.com/openclaw/openclaw/actions/runs/39051587992 Live WhatsApp transport delivery was not tested.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(runtime): consume canonical config and supported APIs (#175517)",
-      "summaryZh": "重點：refactor(runtime): consume canonical config and supported APIs (#175517) * refactor(runtime): remove retired compatibili..."
+      "titleZh": "OpenClaw 程式碼更新：修正(whatsapp): final replies disappear after unrelated reloads",
+      "summaryZh": "重點：修正(whatsapp): final replies disappear after unrelated reloads 修正 WhatsApp final replies being discarded when unrelated c..."
     },
     {
       "id": 5,
+      "title": "Instagram 私訊也能作曲，Meta AI 新功能讓文字一鍵變成歌",
+      "link": "https://technews.tw/2026/10/18/instagrams-ai-music-creation-feature/",
+      "publishedAt": "Sat, 17 Oct 2026 16:00:51 +0000",
+      "summary": "Instagram（IG）最近在私訊（DM）加入 AI 作曲功能，用戶只要輸入文字或自訂歌詞，再選擇音樂風格， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "5 分鐘轉一圈，薇拉·魯賓天文台尋獲史上最大「超高速自轉」小行星",
+      "link": "https://technews.tw/2026/10/18/vera-rubin-observatory-finds-largest-ultra-fast-spinning-asteroid/",
+      "publishedAt": "Sat, 17 Oct 2026 16:00:45 +0000",
+      "summary": "美國薇拉·魯賓天文台（Vera C. Rubin Observatory），利用太陽系天體觀測資料，發現目前已 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "日本核准台積電熊本二廠升級 3 奈米計畫，預計 2028 年底投產",
       "link": "https://finance.technews.tw/2026/10/17/japan-approves-tsmcs-kumamoto-fab-2-upgrade-plan-to-3nm-process/",
       "publishedAt": "Sat, 17 Oct 2026 12:45:47 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "SK 海力士明確否認拿條件換美國允許中國大連廠設備輸入",
       "link": "https://finance.technews.tw/2026/10/17/sk-hynix-explicitly-denied-using-conditions-in-exchange-for-the-us-allowing-the-import-of-equipment-from-its-dalian-china-plant/",
       "publishedAt": "Sat, 17 Oct 2026 09:10:19 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "不禁 AI 但拒絕 AI 垃圾內容，YouTube、TikTok 等社群平台齊改規則",
       "link": "https://technews.tw/2026/10/17/from-substack-to-youtube-here-are-the-social-platforms-cracking-down-on-ai-slop/",
       "publishedAt": "Sat, 17 Oct 2026 08:30:15 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "AI 記憶體下一步？三星確認速度、可擴展性、持久性為發展重點",
       "link": "https://finance.technews.tw/2026/10/17/samsung-confirms-speed-scalability-and-durability-as-key-focuses-for-ai-memory-development/",
       "publishedAt": "Sat, 17 Oct 2026 08:00:17 +0000",
       "summary": "韓國三星電子（Samsung Electronics）於日前在加州舉行的開放運算計畫（OCP）全球峰會上，正式 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "最賺錢的時候押注下一步，黃仁勳帶領輝達再一次歷史性轉型",
-      "link": "https://technews.tw/2026/10/17/nvidia-completes-another-historic-transformation/",
-      "publishedAt": "Sat, 17 Oct 2026 08:00:01 +0000",
-      "summary": "幾個月狂砸 400 億美元，輝達（NVIDIA）就這樣大剌剌在所有人注視下，又一次完成重要轉型。 過去幾個月， [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "買二手嬰兒用品要小心，美國調查發現禁售、召回商品仍在網路販售",
-      "link": "https://technews.tw/2026/10/17/ebay-facebook-mercari-craigslist-still-sell-banned-baby-gear/",
-      "publishedAt": "Sat, 17 Oct 2026 07:30:31 +0000",
-      "summary": "美國非營利組織《消費者報告》（Consumer Reports）最新調查指出，Craigslist、eBay、 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
