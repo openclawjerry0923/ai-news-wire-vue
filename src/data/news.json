@@ -1,52 +1,61 @@
 {
-  "generatedAt": "2026-10-18T13:01:13.978Z",
+  "generatedAt": "2026-10-18T17:06:22.742Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(tests): remove unused database capability table (#176196)",
-      "link": "https://github.com/openclaw/openclaw/commit/be72b1b955c24f0b23a54a5098d836be1386e6ec",
-      "publishedAt": "2026-10-18T12:54:07Z",
-      "summary": "refactor(tests): remove unused database capability table (#176196)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(tests): remove unused database capability table (#176196)",
-      "summaryZh": "重點：refactor(tests): remove unused database capability table (#176196)..."
+      "title": "AI發展與普及速度受制於安全性不足，SailPoint創辦人呼籲整個產業持續投入並付諸行動",
+      "link": "https://www.ithome.com.tw/news/179760",
+      "publishedAt": "2026-10-19 12:10:38",
+      "summary": "近期頂尖AI模型服務失控事件引發關注，日前造訪香港的SailPoint執行長暨創辦人Mark McClain表示，AI不會也不該停下發展的腳步，關鍵在於設法提升AI安全性。他也談到該公司提倡的適應性身分，這是為了因應動態環境即時處理需求而發展的身分防護機制。最後，為了讓大家理解AI與安全性之間的關係，他特別用F1賽車為喻，指出煞車是否完善，是影響跑車能否發揮速度的關鍵，AI也是如此。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(gateway): clear stale restart-loop breaker error on recovery (#17…",
-      "link": "https://github.com/openclaw/openclaw/commit/5b814c4cb920f548932118c8ca8458d31a18948a",
-      "publishedAt": "2026-10-18T12:51:01Z",
-      "summary": "fix(gateway): clear stale restart-loop breaker error on recovery (#176182)",
+      "title": "test(channels): initialize Telegram binding contract runtime",
+      "link": "https://github.com/openclaw/openclaw/commit/f6d03f693201759b74f4e1a3703281d3ab212690",
+      "publishedAt": "2026-10-18T17:02:55Z",
+      "summary": "test(channels): initialize Telegram binding contract runtime The registry-backed fixture registers Telegram's channel directly and omitted the runtime initialization performed by the production loader. Since #175379 captures that runtime when creating the binding manager, the contract failed with \"Telegram runtime not initialized\". Initialize the fixture through Telegram's narrow runtime setter and back its state API with the existing isolated plugin-state test store. Preserve all capability, bind, unbind and cleanup assertions. Production startup, reload, cross-plugin runtime ownership and Telegram transport are unchanged. Current-main baseline reproduced the reported failure, with four other channel cases passing. The repaired contract passes all five cases under pinned Bun. Owning core/plugin-SDK test types, scoped lint, formatting and independent P2 autoreview pass. No live Telegram behavior is claimed.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): clear stale restart-loop breaker error on recovery (#17…",
-      "summaryZh": "重點：修正(Gateway): clear stale restart-loop breaker error on recovery (#176182)..."
+      "titleZh": "OpenClaw 程式碼更新：test(channels): initialize Telegram binding contract runtime",
+      "summaryZh": "重點：test(channels): initialize Telegram binding contract runtime The registry-backed 修正ture registers Telegram's channel dir..."
     },
     {
       "id": 3,
-      "title": "fix(memory-wiki): preserve concepts when OKF input is not UTF-8 (#176…",
-      "link": "https://github.com/openclaw/openclaw/commit/fdf779477ea47c799a3cf15f8ae8a120ded3c923",
-      "publishedAt": "2026-10-18T12:50:29Z",
-      "summary": "fix(memory-wiki): preserve concepts when OKF input is not UTF-8 (#176009)",
+      "title": "fix(ci): avoid rewriting portable pnpm package archives (#176279)",
+      "link": "https://github.com/openclaw/openclaw/commit/e6b4a1595f7357ccfbe76c6347cd36813f301ed9",
+      "publishedAt": "2026-10-18T17:00:45Z",
+      "summary": "fix(ci): avoid rewriting portable pnpm package archives (#176279)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶-wiki): preserve concepts when OKF input is not UTF-8 (#176…",
-      "summaryZh": "重點：修正(記憶-wiki): preserve concepts when OKF input is not UTF-8 (#176009)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): avoid rewriting portable pnpm package archives (#176279)",
+      "summaryZh": "重點：修正(ci): avoid rewriting portable pnpm package archives (#176279)..."
     },
     {
       "id": 4,
-      "title": "fix(agents): distinguish invalid tool arguments from blocked calls (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/1b610856798641ffd82e430bda6897246203f35a",
-      "publishedAt": "2026-10-18T12:49:49Z",
-      "summary": "fix(agents): distinguish invalid tool arguments from blocked calls (#176104) * fix(agents): distinguish invalid tool arguments from blocked calls * test(agents): honor asynchronous admission hook contract --------- Co-authored-by: yinx65588-boop",
+      "title": "fix(ci): repair diagnostic and WhatsApp export audits (#176286)",
+      "link": "https://github.com/openclaw/openclaw/commit/14a53244238016c712d2313640c7d72e7e46181e",
+      "publishedAt": "2026-10-18T16:57:38Z",
+      "summary": "fix(ci): repair diagnostic and WhatsApp export audits (#176286) * fix(ci): recognize diagnostic reset test consumers * fix(ci): remove unused WhatsApp translator type Co-authored-by: Vincent Koc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): distinguish invalid tool arguments from blocked calls (#…",
-      "summaryZh": "重點：修正(agents): distinguish invalid tool arguments from blocked calls (#176104) * 修正(agents): distinguish invalid tool argum..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): repair diagnostic and WhatsApp export audits (#176286)",
+      "summaryZh": "重點：修正(ci): repair diagnostic and WhatsApp export audits (#176286) * 修正(ci): recognize diagnostic reset test consumers * 修正(..."
     },
     {
       "id": 5,
+      "title": "refactor(firecrawl): cover parsing through real client calls (#176287)",
+      "link": "https://github.com/openclaw/openclaw/commit/94fa98bfd93a62c4fb5f442dc3a3e9cc888f4b8e",
+      "publishedAt": "2026-10-18T16:49:29Z",
+      "summary": "refactor(firecrawl): cover parsing through real client calls (#176287)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(firecrawl): cover parsing through real client calls (#176287)",
+      "summaryZh": "重點：refactor(firecrawl): cover parsing through real client calls (#176287)..."
+    },
+    {
+      "id": 6,
       "title": "AI 面試不會取代面試官，關鍵在「人機分工」而非全權交給 AI",
       "link": "https://technews.tw/2026/10/18/ai-interviews-not-replacing-interviewers-company-success-human-ai-collaboration-not-full-ai-delegation/",
       "publishedAt": "Sun, 18 Oct 2026 09:30:24 +0000",
@@ -55,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "德國放棄直接採購 MQ-28，無人僚機競爭重新洗牌",
       "link": "https://technews.tw/2026/10/18/germany-canceled-mq-28-purchase-and-reconsider-other-options/",
       "publishedAt": "Sun, 18 Oct 2026 08:56:14 +0000",
@@ -64,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "年輕專業人士要小心「能力幻覺」，MIT 研究：用 AI 不等於能力成長",
       "link": "https://technews.tw/2026/10/18/ai-raised-patent-drafting-scores-but-redlining-gains-varied-by-experience/",
       "publishedAt": "Sun, 18 Oct 2026 08:30:33 +0000",
@@ -73,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "衣索比亞「抗飢餓之樹」養活數千萬人，為何耐旱高產卻難以推廣全球？",
       "link": "https://technews.tw/2026/10/18/why-is-ethiopias-enset-hard-to-popularize-globally/",
       "publishedAt": "Sun, 18 Oct 2026 08:00:54 +0000",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "25 歲工程師捨微軟 640 萬高薪，靠 AI 零資金創辦理財工具 Treasury",
       "link": "https://finance.technews.tw/2026/10/18/engineer-leaves-microsoft-high-paying-job-for-ai-startup/",
       "publishedAt": "Sun, 18 Oct 2026 07:30:03 +0000",
       "summary": "25 歲的西雅圖創業者 Junead Khan 去年離開微軟，放棄年薪超過 20 萬美元的工作，轉而全力投入自 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "思想不再是祕密？AI「讀心術」竟能看見你腦中的畫面",
-      "link": "https://technews.tw/2026/10/18/ai-mind-reading-reconstructs-brain-imagery/",
-      "publishedAt": "Sun, 18 Oct 2026 07:00:40 +0000",
-      "summary": "科幻電影中的「讀心術」正逐步化為現實。由以色列魏茨曼科學研究學院（Weizmann Institute of [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
