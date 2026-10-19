@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-19T12:23:39.540Z",
+  "generatedAt": "2026-10-19T19:04:35.593Z",
   "items": [
     {
       "id": 1,
-      "title": "openclaw 2026.10.10-beta.2",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.10-beta.2",
-      "publishedAt": "2026-10-19T12:23:09Z",
-      "summary": "2026.10.10-beta.2 Highlights Changes Fixes Workspace safety: reject a multi-file apply_patch before changing files when a later update target is missing or its context does not match, preserving the original workspace for the next attempt. Commit-time I/O failures can still leave partial effects. (#160409; related #117742 and #127496) Thanks @masatohoshino, @obviyus, and @yetval. Tool policy: run plugin before_tool_call hooks in standalone openclaw agent exec sessions so plugin tool guards take effect. (#159333; fixes #158824) Thanks @joseairosa and @obviyus. Buzz: reconnect when a relay closes during NIP-42 authentication without terminating the Gateway or interrupting other channels and sessions. (#170591; fixes #147269) Thanks @masatohoshino, @obviyus, @jarvis-modern-mail, and @RomneyDa. macOS downloads: save dashboard and conversation attachments through the native Save dialog while keeping the current page open. (#173654) Thanks @Patrick-Erichsen. OpenRouter onboarding: accept valid API keys with the default openrouter/auto model instead of rejecting setup with a route mismatch. (#173292; related #162798) Thanks @chandraveshchaudhari and @obviyus. macOS setup: let fresh native profiles start the Gateway and complete automatic setup, including when supervised startup needs a retry. (#173246) Gateway startup: follow a replacement model-runtime refresh instead of exiting when initial preparation is superseded. (#173366; related #173357) Thanks @Jackten and @RomneyDa. Gateway logging: keep serving and shut down normally when a deleted temporary-directory backing path makes daily log rollover fail. (#160433; fixes #130807) Thanks @masatohoshino, @obviyus, @WadeOwenWatts, and @Patrick-Erichsen. Gateway stability: stop session diff capture from opening live SQLite and hard-linked files, preventing SIGBUS crash loops when the shared-memory file is truncated. (#174017) Native app updates: let Doctor finish agent database upgrades on native-first profiles instead of reporting success while the Gateway refuses to start on an older schema. (#174297) Cron: plan history maintenance from run identities and load full payloads only for rows it updates, so large cron histories no longer exhaust the SQLite worker's memory and take channels down. (#174530; fixes #174078) Thanks @wangmiao0668000666, @RomneyDa, and @asikorskiy. Windows Claude CLI: stop every turn with a stored Anthropic credential from stalling until the no-output watchdog when Claude Code never reads the credential pipe. (#174571; fixes #174204) Thanks @RomneyDa and @scalesmart. Plugins: restore the SDK facade exports that published external plugins still import, so those plugins load again. (#173777; fixes #173386) Thanks @RomneyDa and @FtlC-ian. Chat tools: keep the chat usable after removing a tool server that failed to start, cleaning up its failed startup before reporting the launch error. (#171397) Thanks @joelagnel. Updates: bound the post-activation Doctor step by the update's allowance instead of waiting indefinitely with the Gateway down. (#173862) Updates: keep Gateway-managed source updates from failing with missing backup modules after the runtime is replaced. (#173587) Thanks @vishnusenthil-16. Updates: make openclaw update --no-restart honest for npm, pnpm, and bun installs, which restart themselves after the package is replaced, record the update as successful, and keep a still-serving older build unverified. (#173409, #174649; fixes #171311) Thanks @RomneyDa and @mwbroxson. Complete contribution record This audited record covers the complete v2026.10.10-beta.1..f90bd06 history: 24 in-range PRs + 0 retained seed-only PRs = 24 unique PRs. The generation manifest also supplies direct commits as editorial input; the grouped notes above prioritize user impact. Shipped baseline exclusions: v2026.10.10-beta.1 (1 PRs: #171016). Pull requests PR #173654 Thanks @Patrick-Erichsen. PR #159333 Related #158824. Thanks @joseairosa and @obviyus. PR #160433 Related #130807. Thanks @masatohoshino and @obviyus and @WadeOwenWatts. PR #170591 Related #147269. Thanks @masatohoshino and @obviyus and @jarvis-modern-mail. PR #173246 PR #173292 Thanks @chandraveshchaudhari and @obviyus. PR #173366 PR #173259 Thanks @RomneyDa. PR #173511 Thanks @RomneyDa. PR #173319 Thanks @RomneyDa. PR #160409 Thanks @masatohoshino. PR #171397 Thanks @joelagnel. PR #174017 PR #173777 Related #173386. Thanks @RomneyDa and @FtlC-ian. PR #173587 Thanks @vishnusenthil-16. PR #173862 PR #174297 PR #174556 Thanks @RomneyDa. PR #173205 Thanks @RomneyDa. PR #174530 Related #174078. Thanks @wangmiao0668000666 and @RomneyDa and @asikorskiy. PR #174571 Related #174204. Thanks @RomneyDa and @scalesmart. PR #174614 Thanks @RomneyDa. PR #173409 Related #171311. Thanks @RomneyDa and @mwbroxson. PR #174649 Thanks @RomneyDa. Release verification npm package: https://www.npmjs.com/package/openclaw/v/2026.10.10-beta.2 registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.10-beta.2.tgz integrity: sha512-Kbs8X970M+kouV52kMSaF0zpxf62vink1OqpEMCcc60O7uQx6VELzcpHT5bO6KuPFeKNNSzZ40mvWwebiTKuIQ== release SHA: 2b85c4c25ea98d72ca1d3e93fb0fd9cac8f0ddab full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.10-beta.2/release-evidence.md release publish: https://github.com/openclaw/openclaw/actions/runs/39189217327 npm preflight: https://github.com/openclaw/openclaw/actions/runs/38980450683 full release validation: https://github.com/openclaw/openclaw/actions/runs/38979780344 plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/39190082116 plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/39190084831; public finalization and exact artifact verification follow terminal release-parent completion plugin ClawHub bootstrap: not needed OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/39190750431 npm Telegram beta E2E: not supplied",
-      "source": "OpenClaw Releases",
+      "title": "feat(ui): queue session renames and reactions while the Gateway recon…",
+      "link": "https://github.com/openclaw/openclaw/commit/e75403f38e696963535a94437b99d9fb69034f5c",
+      "publishedAt": "2026-10-19T19:04:15Z",
+      "summary": "feat(ui): queue session renames and reactions while the Gateway reconnects (#177558) * feat(ui): queue session metadata and reactions while reconnecting Keep unsent display assignments and reactions with the admitted Gateway identity, coalesce each key at the tail, and include them in connection status. Reconcile optimistic state and surface replay failures without replaying in-flight work. Keep the queue memory-only with reload protection. * fix(ui): keep queued offline changes through same-identity reconnects Bind queued work and optimistic presentation to credential and recovery identity rather than transport instances. Keep newer assignments ordered until the deferred drain settles, without replaying in-flight requests. * fix(ui): preserve reconnect lifecycle in the deferred outbox Keep old-client deletion and roster retirement while retaining queued metadata for the same credential scope. Avoid empty-queue snapshot publications during credential retirement, retain unadmitted rename drafts, and complete the existing test fixtures and browser contract. * style(agents): normalize node media result formatting Carry the formatting-only correction already landed on main in d3d368b1e0298486bfe06cb7d7b4e52e3c329542 (#177575) into this reviewed PR head so its exact-head CI can pass normally.",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 版本更新：2026.10.10-beta.2",
-      "summaryZh": "重點：2026.10.10-beta.2 Highlights Changes 修正 Workspace safety: reject a multi-file apply_patch before changing files when a l..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): queue session renames and reactions while the Gateway recon…",
+      "summaryZh": "重點：新功能(ui): queue session renames and reactions while the Gateway reconnects (#177558) * 新功能(ui): queue session metadata an..."
     },
     {
       "id": 2,
-      "title": "refactor(channels): trim redundant channel and security summaries (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/972c9ffc2f365b7bb01f20826b66fbf920e2a223",
-      "publishedAt": "2026-10-19T12:21:37Z",
-      "summary": "refactor(channels): trim redundant channel and security summaries (#177261) * refactor(channels): trim redundant source summaries * refactor: narrow channel cleanup after unresolved CI",
+      "title": "fix(update): prevent debug logs from blocking Gateway updates (#177563)",
+      "link": "https://github.com/openclaw/openclaw/commit/60f7650683f74c3f47a528ec396557b26d8a9f9c",
+      "publishedAt": "2026-10-19T19:01:05Z",
+      "summary": "fix(update): prevent debug logs from blocking Gateway updates (#177563) Route managed handoff diagnostics to stderr before the recovery runtime runs, preserving stdout for READY and other control messages. Retain the generated-helper regression and document the installed-driver limitation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(channels): trim redundant channel and 安全 summaries (#1…",
-      "summaryZh": "重點：refactor(channels): trim redundant channel and 安全 summaries (#177261) * refactor(channels): trim redundant source summar..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): prevent debug logs from blocking Gateway updates (#177563)",
+      "summaryZh": "重點：修正(update): prevent debug logs from blocking Gateway updates (#177563) Route managed handoff diagnostics to stderr befor..."
     },
     {
       "id": 3,
-      "title": "refactor(runtime): fold private status and channel owner surfaces (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/626604108775c0a937fc12f99ef29453ec17eb21",
-      "publishedAt": "2026-10-19T12:20:57Z",
-      "summary": "refactor(runtime): fold private status and channel owner surfaces (#177290)",
+      "title": "refactor(ui): finish display cleanup and enforce Solid idioms (#177472)",
+      "link": "https://github.com/openclaw/openclaw/commit/be00d75ebfa142e11c92deca76ed3eab542266c5",
+      "publishedAt": "2026-10-19T19:00:43Z",
+      "summary": "refactor(ui): finish display cleanup and enforce Solid idioms (#177472) * refactor(ui): remove display-only memo and focus bookkeeping * test(ui): warm lazy preview before teardown assertion * test(ui): await lazy skill menu navigation * refactor(ui): ratchet Solid flush and ownership escapes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(runtime): fold private status and channel owner surfaces (#1…",
-      "summaryZh": "重點：refactor(runtime): fold private status and channel owner surfaces (#177290)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): finish display cleanup and enforce Solid idioms (#177472)",
+      "summaryZh": "重點：refactor(ui): finish display cleanup and enforce Solid idioms (#177472) * refactor(ui): remove display-only memo and foc..."
     },
     {
       "id": 4,
-      "title": "test: remove low-value tests (batch d288) (#177284)",
-      "link": "https://github.com/openclaw/openclaw/commit/dfc18caabc9f44d98e14d6250dd411d45096007a",
-      "publishedAt": "2026-10-19T12:13:18Z",
-      "summary": "test: remove low-value tests (batch d288) (#177284) * test(google-meet): deslop x8489 tests * test(google-meet): deslop x8489 tests * test(xai): deslop x8487 tests * test(xai): deslop x8487 tests * test(xai): deslop x8487 tests * test(terminal): deslop x8493 tests * test(terminal): deslop x8493 tests * test(gateway-protocol): deslop x8494 tests * test(gateway-protocol): deslop x8494 tests * test(voice-call): deslop x8492 tests * test(voice-call): deslop x8492 tests * test(infra): deslop x8488 tests * test(infra): further deslop x8488 tests * test(worktrees): deslop x8496 tests * test(worktrees): deslop x8496 tests * test(policy): deslop x8498 tests * test(amazon-bedrock-mantle): deslop x8497 tests * test(amazon-bedrock-mantle): deslop x8497 tests * test(channels): deslop x8502 tests * test(agents): deslop x8499 tests * test(agents): deslop x8499 tests * test(agents): deslop x8500 tests * test(ui): deslop x8503 tests * test(slack): deslop x8505 tests * test(ui): deslop x8504 tests * test(ui): deslop x8504 tests * test: align replayed fixtures with current main * test: preserve worker reuse coverage and repair fixture contracts * test: mark extracted worker fixture methods receiver-free * test: prune explained worker cleanup mock baseline",
+      "title": "refactor(channels): reuse the audit finding contract (#177597)",
+      "link": "https://github.com/openclaw/openclaw/commit/f28d741aaa42acf0ce4335412c326d386088028a",
+      "publishedAt": "2026-10-19T18:58:09Z",
+      "summary": "refactor(channels): reuse the audit finding contract (#177597) Derive Discord and Slack finding arrays from the existing public collector result instead of duplicating its shape. Type-only imports preserve exactly identical JavaScript and add no SDK surface. Release-note context: internal type consolidation; audit rules and findings are unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: remove low-value tests (batch d288) (#177284)",
-      "summaryZh": "重點：test: remove low-value tests (batch d288) (#177284) * test(google-meet): deslop x8489 tests * test(google-meet): deslop ..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(channels): reuse the audit finding contract (#177597)",
+      "summaryZh": "重點：refactor(channels): reuse the audit finding contract (#177597) Derive Discord and Slack finding arrays from the existing..."
     },
     {
       "id": 5,
