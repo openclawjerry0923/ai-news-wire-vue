@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T22:49:24.551Z",
+  "generatedAt": "2026-10-19T00:53:02.651Z",
   "items": [
     {
       "id": 1,
@@ -12,92 +12,92 @@
     },
     {
       "id": 2,
-      "title": "fix(agents): return the full sessions_send reply past the terminal sn…",
-      "link": "https://github.com/openclaw/openclaw/commit/b3c8f8a61dc05fc4263c61450fb3970a6133c5d8",
-      "publishedAt": "2026-10-18T22:49:09Z",
-      "summary": "fix(agents): return the full sessions_send reply past the terminal snapshot bound (#175685) * fix(agents): return the full sessions_send reply past the terminal snapshot bound A waiting sessions_send returned the run's terminal reply snapshot, which is bounded to 4,096 characters, so long peer replies were cut with no signal. When the reply sits at the bound, read the accepted run's own stored reply by run id; if that is unavailable, keep the bounded text and report replyTruncated with a pointer to sessions_history. * fix(agents): detect truncated sessions_send replies by marker, not length Truncation trims the whole retained prefix before its marker, so a cut reply can be far shorter than the bound (4,000 characters + 100 spaces + TAIL becomes 4,000 characters + marker). Treat any reply ending in the marker as possibly cut and let the accepted run's stored reply decide: it extends the prefix (recover it) or equals it (a reply that really ends in an ellipsis). * fix(agents): recover complete inline session replies Reuse the existing run-filtered reply reader and canonical snapshot sanitizer, remove the extra recovery helpers, and disclose unavailable or budget-limited reply text without suggesting that the original task be repeated. Keep the strict output schema and session-tool docs consistent with the result. Related: #175597 Original fix by @wr-web; maintainer cleanup preserves the inline-only scope. Co-authored-by: Wang Rui --------- Co-authored-by: Peter Steinberger Co-authored-by: Wang Rui",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): return the full sessions_send reply past the terminal sn…",
-      "summaryZh": "重點：修正(agents): return the full sessions_send reply past the terminal snapshot bound (#175685) * 修正(agents): return the full..."
+      "title": "Nginx修補5項漏洞，3項恐導致遠端程式碼執行",
+      "link": "https://www.ithome.com.tw/news/179759",
+      "publishedAt": "2026-10-19 08:10:00",
+      "summary": "網路應用與資安業者F5旗下Nginx專案於10月14日發布1.30.6及1.31.7版，修補5項資安漏洞。其中3項涉及記憶體處理問題，攻擊者在符合特定利用條件時，可能造成Nginx工作處理程序崩潰，甚至在伺服器上執行程式碼。另外兩項漏洞分別涉及TLS工作階段票證及HTTP/3請求處理，可能讓攻擊者繞過用戶端憑證驗證，或在Nginx轉送至後端伺服器的HTTP請求中插入額外資料。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "refactor: centralize migration source snapshot verification (#176030)",
-      "link": "https://github.com/openclaw/openclaw/commit/ec1d76d12311be6a5bc104f1c9b2e4213dec4419",
-      "publishedAt": "2026-10-18T22:48:40Z",
-      "summary": "refactor: centralize migration source snapshot verification (#176030) Let LegacyMigrationSourceClaim own the repeated fresh-read and identity/hash comparison while retaining exact caller diagnostics and the freshly parsed device identity. Preserve raw-byte hashing, source claims, rollback, receipts, cleanup and exclusive state custody. Production delta: 15 net lines removed across seven existing owner and caller paths. Independent source review and bounded formatting passed; focused runtime and semantic type proof remain pending.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: centralize migration source snapshot verification (#176030)",
-      "summaryZh": "重點：refactor: centralize migration source snapshot verification (#176030) Let LegacyMigrationSourceClaim own the repeated fr..."
+      "title": "G7將舉行AI網路攻擊演練，檢驗金融業應變能力",
+      "link": "https://www.ithome.com.tw/news/179758",
+      "publishedAt": "2026-10-19 08:10:00",
+      "summary": "AI技術快速發展，也讓金融業面臨新的網路攻擊風險。七大工業國集團（G7）計畫舉行桌上演練，模擬金融體系遭到AI輔助的網路攻擊，檢驗各國財政部門與中央銀行的應變能力。根據路透社報導，日本財務大臣片山皐月（Satsuki Katayama）表示，這項計畫已獲G7部長層級同意。日本財務省官員指出，G7將藉此檢驗現有應變程序，並根據結果修訂應變手冊，民間金融機構也可能視模擬情境參與。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(opencode-go): refresh bundled Go catalog to OpenCode's current li…",
-      "link": "https://github.com/openclaw/openclaw/commit/e84284a6b902affb5393a1dcc262f5a80178b7ce",
-      "publishedAt": "2026-10-18T22:48:23Z",
-      "summary": "fix(opencode-go): refresh bundled Go catalog to OpenCode's current lineup (#176384) Refresh the bundled OpenCode Go catalog, pricing, and image default to match the current upstream lineup. Extend DeepSeek thinking support and live coverage across all four Go routes.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(opencode-go): refresh bundled Go catalog to OpenCode's current li…",
-      "summaryZh": "重點：修正(opencode-go): refresh bundled Go catalog to OpenCode's current lineup (#176384) Refresh the bundled OpenCode Go catal..."
+      "title": "Proofpoint以63億美元併購Varonis，擴大資料與AI安全業務",
+      "link": "https://www.ithome.com.tw/news/179755",
+      "publishedAt": "2026-10-19 08:10:00",
+      "summary": "資安業者Proofpoint於10月15日宣布，與資料安全業者Varonis簽署併購協議，將以約63億美元全現金併購Varonis，預計2027年上半年完成。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "fix(ui): Usage shows unknown totals and hides analytics when one resp…",
-      "link": "https://github.com/openclaw/openclaw/commit/ea3aca88abba06602cbc0a8e523be3c8a8ae21ed",
-      "publishedAt": "2026-10-18T22:46:57Z",
-      "summary": "fix(ui): Usage shows unknown totals and hides analytics when one response ends early (#176404) * fix(ui): show Usage totals as lower bounds when a response ended early One interrupted response made the whole range read \"unknown\" and hid the chart and every analytics section. The known subtotal is a lower bound: totals now read \"≥ value\", the analytics stay visible with a note that explains the bound, and usage with no known price reads \"Unpriced\" instead of $0.00. * test(ui): give the unpriced provider fixture its message count * fix(ui): mark every restored Usage analytic as exact, lower bound, or unknown With analytics no longer hidden for interrupted ranges, partial sums in the daily chart, type breakdown, cost windows, Started by, activity and heatmap now carry the lower-bound marker. Ratios built from partial counters (per-message averages, throughput, cache hit rate) show as unknown, and cost shares are hidden while the overall total is a lower bound.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): Usage shows unknown totals and hides analytics when one resp…",
-      "summaryZh": "重點：修正(ui): Usage shows unknown totals and hides analytics when one response ends early (#176404) * 修正(ui): show Usage total..."
+      "title": "Google揭露中國相關駭客利用BeyondTrust零時差漏洞入侵企業內網",
+      "link": "https://www.ithome.com.tw/news/179742",
+      "publishedAt": "2026-10-19 08:10:00",
+      "summary": "Google威脅情報團隊（GTIG）與Mandiant於10月16日揭露，疑似與中國有關的網路間諜組織ARMORY CASTLE利用BeyondTrust Remote Support零時差漏洞CVE-2026-102764入侵企業遠端支援設備，並進一步存取企業內部系統。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "AI 面試不會取代面試官，關鍵在「人機分工」而非全權交給 AI",
-      "link": "https://technews.tw/2026/10/18/ai-interviews-not-replacing-interviewers-company-success-human-ai-collaboration-not-full-ai-delegation/",
-      "publishedAt": "Sun, 18 Oct 2026 09:30:24 +0000",
-      "summary": "企業導入 AI 面試持續加速，但能否真正提升招募效率與選才品質，關鍵不在是否使用 AI，而是如何分配 AI 與 [&#8230;]",
-      "source": "TechNews",
+      "title": "微軟打擊跨國網釣犯罪服務，涉及逾10億則惡意訊息",
+      "link": "https://www.ithome.com.tw/news/179734",
+      "publishedAt": "2026-10-19 08:10:00",
+      "summary": "微軟宣布打擊跨國網釣犯罪服務，與醫療產業資安資訊分享與分析中心Health-ISAC合作，依據美國聯邦法院命令，接管並重新導向地下犯罪服務YAM Store、CoGUI及Iron Man使用的部分惡意網域。根據微軟統計，今年1月以來，犯罪者利用這些服務發送超過10億則網釣電子郵件及簡訊，鎖定全球150多個國家的消費者及逾7.5萬個組織，其中超過7.5億則訊息針對微軟客戶。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "德國放棄直接採購 MQ-28，無人僚機競爭重新洗牌",
-      "link": "https://technews.tw/2026/10/18/germany-canceled-mq-28-purchase-and-reconsider-other-options/",
-      "publishedAt": "Sun, 18 Oct 2026 08:56:14 +0000",
-      "summary": "德國國防部已正式通知波音，將不再直接採購 MQ-28「幽靈蝙蝠」（Ghost Bat）無人僚機，並重新調整「協 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "perf(sqlite): reuse native timeout policy and pinned schema snapshots…",
+      "link": "https://github.com/openclaw/openclaw/commit/59eeed0be517f825fe74b3d9e39352b55cee02f4",
+      "publishedAt": "2026-10-19T00:51:33Z",
+      "summary": "perf(sqlite): reuse native timeout policy and pinned schema snapshots (#176545) Initialize busy timeout through the native constructor and seed the existing policy cache, including the native negative-value clamp. Reuse enclosing schema snapshots and the single-statement agent admission timestamp path while preserving PostgreSQL locking and cross-store commit order. Focused regressions, changed-owner tests, final-head static checks and all three PostgreSQL shards pass. Two Codex reviews and PostgreSQL review complete. Knip findings and most behavioral failures match main; the unrelated archive drain-start ordering failure remains investigated but unresolved after a filesystem-stalled replay. Full evidence and limitations are recorded in the PR. Workload savings remain estimated and unmeasured.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): reuse native timeout policy and pinned schema snapshots…",
+      "summaryZh": "重點：perf(sqlite): reuse native timeout policy and pinned schema snapshots (#176545) Initialize busy timeout through the nati..."
     },
     {
       "id": 8,
-      "title": "年輕專業人士要小心「能力幻覺」，MIT 研究：用 AI 不等於能力成長",
-      "link": "https://technews.tw/2026/10/18/ai-raised-patent-drafting-scores-but-redlining-gains-varied-by-experience/",
-      "publishedAt": "Sun, 18 Oct 2026 08:30:33 +0000",
-      "summary": "麻省理工學院（MIT）經濟學者大衛·奧托（David Autor）最新研究顯示，人工智慧或許能讓工作成果看起來 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "refactor(ui): derive board action error lifetime (#176670)",
+      "link": "https://github.com/openclaw/openclaw/commit/d48d36d7c2053b464b68e5024f3229612ad09eca",
+      "publishedAt": "2026-10-19T00:51:03Z",
+      "summary": "refactor(ui): derive board action error lifetime (#176670)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): derive board action error lifetime (#176670)",
+      "summaryZh": "重點：refactor(ui): derive board action error lifetime (#176670)..."
     },
     {
       "id": 9,
-      "title": "衣索比亞「抗飢餓之樹」養活數千萬人，為何耐旱高產卻難以推廣全球？",
-      "link": "https://technews.tw/2026/10/18/why-is-ethiopias-enset-hard-to-popularize-globally/",
-      "publishedAt": "Sun, 18 Oct 2026 08:00:54 +0000",
-      "summary": "只要 60 株植物，就能供應一家五口一整年的食物需求？在衣索比亞，有一種被稱為「抗飢餓的樹」（The tree [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "refactor(state): reuse admitted preparation facts (#176517)",
+      "link": "https://github.com/openclaw/openclaw/commit/a62ca7b983d3d8ab3319c824e62c671357b000e5",
+      "publishedAt": "2026-10-19T00:50:11Z",
+      "summary": "refactor(state): reuse admitted preparation facts (#176517) Reuse the validated schema version in agent maintenance and media prerequisite migration, and remove the eager physical identity probe during prepared-source refresh. Keep read/open identity checks, canonical replacement rejection, and migration integrity and ownership checks. Accepted edge: external replacement may survive preparation while an admitted writable actor retains its original handle until canonical retirement. Validation: 61 focused owner tests, exact-head state-owner CI and all three PostgreSQL shards; unrelated subagent recovery failures match main, type-aware lint, source contracts, Madge, ratchets, Knip with all findings attributed to main, published-driver update, and one scoped-clean Codex review.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(state): reuse admitted preparation facts (#176517)",
+      "summaryZh": "重點：refactor(state): reuse admitted preparation facts (#176517) Reuse the validated schema version in agent maintenance and ..."
     },
     {
       "id": 10,
-      "title": "25 歲工程師捨微軟 640 萬高薪，靠 AI 零資金創辦理財工具 Treasury",
-      "link": "https://finance.technews.tw/2026/10/18/engineer-leaves-microsoft-high-paying-job-for-ai-startup/",
-      "publishedAt": "Sun, 18 Oct 2026 07:30:03 +0000",
-      "summary": "25 歲的西雅圖創業者 Junead Khan 去年離開微軟，放棄年薪超過 20 萬美元的工作，轉而全力投入自 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "refactor(ui): share chat header and attention lifecycles (#176666)",
+      "link": "https://github.com/openclaw/openclaw/commit/6c973700e21cbff89034f8651ff9554f4e326f5a",
+      "publishedAt": "2026-10-19T00:50:07Z",
+      "summary": "refactor(ui): share chat header and attention lifecycles (#176666) Bind header shortcut capture through the shared listener with existing component teardown. Derive the child-attention interval from the next status expiry and pause it when no finite expiry remains, preserving canonical session ownership and the existing menu actions interface.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): share chat header and attention lifecycles (#176666)",
+      "summaryZh": "重點：refactor(ui): share chat header and attention lifecycles (#176666) Bind header shortcut capture through the shared liste..."
     }
   ]
 }
