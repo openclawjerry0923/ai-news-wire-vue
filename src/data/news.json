@@ -1,26 +1,79 @@
 {
-  "generatedAt": "2026-10-19T05:48:37.691Z",
+  "generatedAt": "2026-10-19T12:23:39.540Z",
   "items": [
     {
       "id": 1,
-      "title": "Microchip擴充資料中心產品線，導入CNSA 2.0後量子密碼學支援",
-      "link": "https://www.ithome.com.tw/news/179774",
-      "publishedAt": "2026-10-19 12:10:50",
-      "summary": "晶片供應商Microchip於10月12日宣布擴充資料中心產品組合，推出Switchtec PCIe 6.0低通道數交換器，並更新Flashtec SSD控制器及Adaptec SmartRAID 4300系列NVMe RAID儲存加速器，因應AI資料中心對連線效能、儲存容量與安全性的需求。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "openclaw 2026.10.10-beta.2",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.10-beta.2",
+      "publishedAt": "2026-10-19T12:23:09Z",
+      "summary": "2026.10.10-beta.2 Highlights Changes Fixes Workspace safety: reject a multi-file apply_patch before changing files when a later update target is missing or its context does not match, preserving the original workspace for the next attempt. Commit-time I/O failures can still leave partial effects. (#160409; related #117742 and #127496) Thanks @masatohoshino, @obviyus, and @yetval. Tool policy: run plugin before_tool_call hooks in standalone openclaw agent exec sessions so plugin tool guards take effect. (#159333; fixes #158824) Thanks @joseairosa and @obviyus. Buzz: reconnect when a relay closes during NIP-42 authentication without terminating the Gateway or interrupting other channels and sessions. (#170591; fixes #147269) Thanks @masatohoshino, @obviyus, @jarvis-modern-mail, and @RomneyDa. macOS downloads: save dashboard and conversation attachments through the native Save dialog while keeping the current page open. (#173654) Thanks @Patrick-Erichsen. OpenRouter onboarding: accept valid API keys with the default openrouter/auto model instead of rejecting setup with a route mismatch. (#173292; related #162798) Thanks @chandraveshchaudhari and @obviyus. macOS setup: let fresh native profiles start the Gateway and complete automatic setup, including when supervised startup needs a retry. (#173246) Gateway startup: follow a replacement model-runtime refresh instead of exiting when initial preparation is superseded. (#173366; related #173357) Thanks @Jackten and @RomneyDa. Gateway logging: keep serving and shut down normally when a deleted temporary-directory backing path makes daily log rollover fail. (#160433; fixes #130807) Thanks @masatohoshino, @obviyus, @WadeOwenWatts, and @Patrick-Erichsen. Gateway stability: stop session diff capture from opening live SQLite and hard-linked files, preventing SIGBUS crash loops when the shared-memory file is truncated. (#174017) Native app updates: let Doctor finish agent database upgrades on native-first profiles instead of reporting success while the Gateway refuses to start on an older schema. (#174297) Cron: plan history maintenance from run identities and load full payloads only for rows it updates, so large cron histories no longer exhaust the SQLite worker's memory and take channels down. (#174530; fixes #174078) Thanks @wangmiao0668000666, @RomneyDa, and @asikorskiy. Windows Claude CLI: stop every turn with a stored Anthropic credential from stalling until the no-output watchdog when Claude Code never reads the credential pipe. (#174571; fixes #174204) Thanks @RomneyDa and @scalesmart. Plugins: restore the SDK facade exports that published external plugins still import, so those plugins load again. (#173777; fixes #173386) Thanks @RomneyDa and @FtlC-ian. Chat tools: keep the chat usable after removing a tool server that failed to start, cleaning up its failed startup before reporting the launch error. (#171397) Thanks @joelagnel. Updates: bound the post-activation Doctor step by the update's allowance instead of waiting indefinitely with the Gateway down. (#173862) Updates: keep Gateway-managed source updates from failing with missing backup modules after the runtime is replaced. (#173587) Thanks @vishnusenthil-16. Updates: make openclaw update --no-restart honest for npm, pnpm, and bun installs, which restart themselves after the package is replaced, record the update as successful, and keep a still-serving older build unverified. (#173409, #174649; fixes #171311) Thanks @RomneyDa and @mwbroxson. Complete contribution record This audited record covers the complete v2026.10.10-beta.1..f90bd06 history: 24 in-range PRs + 0 retained seed-only PRs = 24 unique PRs. The generation manifest also supplies direct commits as editorial input; the grouped notes above prioritize user impact. Shipped baseline exclusions: v2026.10.10-beta.1 (1 PRs: #171016). Pull requests PR #173654 Thanks @Patrick-Erichsen. PR #159333 Related #158824. Thanks @joseairosa and @obviyus. PR #160433 Related #130807. Thanks @masatohoshino and @obviyus and @WadeOwenWatts. PR #170591 Related #147269. Thanks @masatohoshino and @obviyus and @jarvis-modern-mail. PR #173246 PR #173292 Thanks @chandraveshchaudhari and @obviyus. PR #173366 PR #173259 Thanks @RomneyDa. PR #173511 Thanks @RomneyDa. PR #173319 Thanks @RomneyDa. PR #160409 Thanks @masatohoshino. PR #171397 Thanks @joelagnel. PR #174017 PR #173777 Related #173386. Thanks @RomneyDa and @FtlC-ian. PR #173587 Thanks @vishnusenthil-16. PR #173862 PR #174297 PR #174556 Thanks @RomneyDa. PR #173205 Thanks @RomneyDa. PR #174530 Related #174078. Thanks @wangmiao0668000666 and @RomneyDa and @asikorskiy. PR #174571 Related #174204. Thanks @RomneyDa and @scalesmart. PR #174614 Thanks @RomneyDa. PR #173409 Related #171311. Thanks @RomneyDa and @mwbroxson. PR #174649 Thanks @RomneyDa. Release verification npm package: https://www.npmjs.com/package/openclaw/v/2026.10.10-beta.2 registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.10-beta.2.tgz integrity: sha512-Kbs8X970M+kouV52kMSaF0zpxf62vink1OqpEMCcc60O7uQx6VELzcpHT5bO6KuPFeKNNSzZ40mvWwebiTKuIQ== release SHA: 2b85c4c25ea98d72ca1d3e93fb0fd9cac8f0ddab full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.10-beta.2/release-evidence.md release publish: https://github.com/openclaw/openclaw/actions/runs/39189217327 npm preflight: https://github.com/openclaw/openclaw/actions/runs/38980450683 full release validation: https://github.com/openclaw/openclaw/actions/runs/38979780344 plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/39190082116 plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/39190084831; public finalization and exact artifact verification follow terminal release-parent completion plugin ClawHub bootstrap: not needed OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/39190750431 npm Telegram beta E2E: not supplied",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 版本更新：2026.10.10-beta.2",
+      "summaryZh": "重點：2026.10.10-beta.2 Highlights Changes 修正 Workspace safety: reject a multi-file apply_patch before changing files when a l..."
     },
     {
       "id": 2,
-      "title": "ConnectWise備份API憑證遭濫用，173個M365租戶遭未授權存取",
-      "link": "https://www.ithome.com.tw/news/179771",
-      "publishedAt": "2026-10-19 12:10:46",
-      "summary": "資安業者Huntress於10月16日揭露，ConnectWise Cloud Backup的Microsoft 365應用程式憑證遭到濫用，攻擊者藉此未經授權登入173個Microsoft 365租戶。",
+      "title": "refactor(channels): trim redundant channel and security summaries (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/972c9ffc2f365b7bb01f20826b66fbf920e2a223",
+      "publishedAt": "2026-10-19T12:21:37Z",
+      "summary": "refactor(channels): trim redundant channel and security summaries (#177261) * refactor(channels): trim redundant source summaries * refactor: narrow channel cleanup after unresolved CI",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(channels): trim redundant channel and 安全 summaries (#1…",
+      "summaryZh": "重點：refactor(channels): trim redundant channel and 安全 summaries (#177261) * refactor(channels): trim redundant source summar..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(runtime): fold private status and channel owner surfaces (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/626604108775c0a937fc12f99ef29453ec17eb21",
+      "publishedAt": "2026-10-19T12:20:57Z",
+      "summary": "refactor(runtime): fold private status and channel owner surfaces (#177290)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(runtime): fold private status and channel owner surfaces (#1…",
+      "summaryZh": "重點：refactor(runtime): fold private status and channel owner surfaces (#177290)..."
+    },
+    {
+      "id": 4,
+      "title": "test: remove low-value tests (batch d288) (#177284)",
+      "link": "https://github.com/openclaw/openclaw/commit/dfc18caabc9f44d98e14d6250dd411d45096007a",
+      "publishedAt": "2026-10-19T12:13:18Z",
+      "summary": "test: remove low-value tests (batch d288) (#177284) * test(google-meet): deslop x8489 tests * test(google-meet): deslop x8489 tests * test(xai): deslop x8487 tests * test(xai): deslop x8487 tests * test(xai): deslop x8487 tests * test(terminal): deslop x8493 tests * test(terminal): deslop x8493 tests * test(gateway-protocol): deslop x8494 tests * test(gateway-protocol): deslop x8494 tests * test(voice-call): deslop x8492 tests * test(voice-call): deslop x8492 tests * test(infra): deslop x8488 tests * test(infra): further deslop x8488 tests * test(worktrees): deslop x8496 tests * test(worktrees): deslop x8496 tests * test(policy): deslop x8498 tests * test(amazon-bedrock-mantle): deslop x8497 tests * test(amazon-bedrock-mantle): deslop x8497 tests * test(channels): deslop x8502 tests * test(agents): deslop x8499 tests * test(agents): deslop x8499 tests * test(agents): deslop x8500 tests * test(ui): deslop x8503 tests * test(slack): deslop x8505 tests * test(ui): deslop x8504 tests * test(ui): deslop x8504 tests * test: align replayed fixtures with current main * test: preserve worker reuse coverage and repair fixture contracts * test: mark extracted worker fixture methods receiver-free * test: prune explained worker cleanup mock baseline",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: remove low-value tests (batch d288) (#177284)",
+      "summaryZh": "重點：test: remove low-value tests (batch d288) (#177284) * test(google-meet): deslop x8489 tests * test(google-meet): deslop ..."
+    },
+    {
+      "id": 5,
+      "title": "Microchip為NVMe SSD控制器導入CNSA 2.0後量子密碼學支援",
+      "link": "https://www.ithome.com.tw/news/179774",
+      "publishedAt": "2026-10-19 12:10:50",
+      "summary": "晶片供應商Microchip於10月12日宣布擴充資料中心產品組合，為Flashtec SSD控制器引進後量子密碼學支援，並推出強化安全性功能的Switchtec PCIe 6.0交換器，更新Flashtec SSD控制器及Adaptec SmartRAID 4300系列NVMe RAID儲存加速器，因應AI資料中心對連線效能、儲存容量",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 6,
+      "title": "162個M365租戶遭未授權存取，ConnectWise備份API憑證遭濫用",
+      "link": "https://www.ithome.com.tw/news/179771",
+      "publishedAt": "2026-10-19 12:10:46",
+      "summary": "資安業者Huntress於10月16日揭露，ConnectWise Cloud Backup的Microsoft 365應用程式憑證遭到濫用，攻擊者藉此未經授權登入162個Microsoft 365租戶。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Adobe於10月上半修補176個資安漏洞",
+      "link": "https://www.ithome.com.tw/news/179772",
+      "publishedAt": "2026-10-19 12:10:43",
+      "summary": "10月13日Adobe發布本月上半的例行更新，為11種應用程式及系統元件推出修補程式，總共修補了176個資安漏洞。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "AI發展與普及速度受制於安全性不足，SailPoint創辦人呼籲整個產業持續投入並付諸行動",
       "link": "https://www.ithome.com.tw/news/179760",
       "publishedAt": "2026-10-19 12:10:38",
@@ -29,75 +82,22 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "日本漢堡王CRM系統遭駭，外洩逾1,100萬會員個資",
-      "link": "https://www.ithome.com.tw/news/179766",
-      "publishedAt": "2026-10-19 11:10:47",
-      "summary": "速食連鎖業者日本漢堡王上週公告官方App會員情報管理系統遭駭，導致超過千萬會員資訊外洩。 漢堡王在10月13日發現管理App會員資訊的系統遭到未授權存取。該公司在發現時已立即切斷連線。初步判斷，攻擊者是在10月2日到10月7日存取系統並竊走資訊。攻擊者如何成功駭入系統，該公司偕同外部資安廠商調查中。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "Meta、蘋果合作將Muse帶到Mac電腦上執行",
-      "link": "https://www.ithome.com.tw/news/179764",
-      "publishedAt": "2026-10-19 11:10:47",
-      "summary": "Meta上週推出Mac版Muse App，並開放多模態AI模型Muse Spark Open的權重，同時與蘋果合作，讓這款大型模型能在Mac Studio上執行。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "中國駭客UAT-11985利用Google服務從事AiTM網釣，鎖定臺灣研究機構",
-      "link": "https://www.ithome.com.tw/news/179769",
-      "publishedAt": "2026-10-19 11:10:42",
-      "summary": "思科威脅情報團隊Talos指出，他們在2026年中旬發現專門針對臺灣研究機構的進階持續性威脅（APT）魚叉式網路釣魚活動，中國駭客UAT-11985部署先進的對手中間人攻擊（AitM）釣魚框架，模擬Google身分驗證網頁，假借臺灣歐盟中心、政治大學國際關係研究中心，以及臺灣智庫等機構的名義寄送釣魚信，這些信件具有高度相似的結構與措辭，內容先以冗長的地緣政治及政策分析建立專業形象，再針對收件者加入稱讚、專屬邀請或VIP席位等說詞，最後提供活動時間、地點及報名方式。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(ci): build the macOS Periphery index once (#176920)",
-      "link": "https://github.com/openclaw/openclaw/commit/1f85bb87fb4b5dad553d1082abdc446b9f2688f2",
-      "publishedAt": "2026-10-19T05:48:02Z",
-      "summary": "fix(ci): build the macOS Periphery index once (#176920) * fix(ci): build the macOS Periphery index once * fix(test): satisfy Periphery fixture lint rules * docs(ci): describe combined Periphery workflow selection * test(ci): follow the shared iOS Periphery job owner Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): build the macOS Periphery index once (#176920)",
-      "summaryZh": "重點：修正(ci): build the macOS Periphery index once (#176920) * 修正(ci): build the macOS Periphery index once * 修正(test): satisf..."
-    },
-    {
-      "id": 8,
-      "title": "fix(diagnostics): identify slow session diff request shapes (#176974)",
-      "link": "https://github.com/openclaw/openclaw/commit/3ec3c3bd7e0e2c1693a70115840fb94882d00049",
-      "publishedAt": "2026-10-19T05:47:41Z",
-      "summary": "fix(diagnostics): identify slow session diff request shapes (#176974)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): identify slow session diff request shapes (#176974)",
-      "summaryZh": "重點：修正(diagnostics): identify slow session diff request shapes (#176974)..."
-    },
-    {
       "id": 9,
-      "title": "refactor(plugins): trim policy diagnostic synopsis comments (#176953)",
-      "link": "https://github.com/openclaw/openclaw/commit/fbc4e3a20f52ee301945f648b78cc30ab7cf86e1",
-      "publishedAt": "2026-10-19T05:47:04Z",
-      "summary": "refactor(plugins): trim policy diagnostic synopsis comments (#176953)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): trim policy diagnostic synopsis comments (#176953)",
-      "summaryZh": "重點：refactor(plugins): trim policy diagnostic synopsis comments (#176953)..."
+      "title": "Adobe Commerce重大漏洞BlockStrap恐讓攻擊者直接在伺服器執行任意程式碼",
+      "link": "https://www.ithome.com.tw/news/179773",
+      "publishedAt": "2026-10-19 12:10:31",
+      "summary": "上週Adobe修補Adobe Commerce（Magento Open Source）一系列資安漏洞，其中包含CVSS嚴重程度達到滿分10分的CVE-2026-103849。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "refactor(storage): unify transcript reader resource ownership (#176849)",
-      "link": "https://github.com/openclaw/openclaw/commit/0ee0def0f8a4133c0613d262ab201924df565e7a",
-      "publishedAt": "2026-10-19T05:43:40Z",
-      "summary": "refactor(storage): unify transcript reader resource ownership (#176849) * refactor: consolidate transcript reader resource ownership * fix: transfer reused transcript maintenance claims Observe the shared physical registration when reusing a retained candidate, not just its alias registrations. This prevents the original maintenance scope from retiring a worker after an independent caller has retained it. The unchanged exact, family and alias lifetime tests reproduce the gap and pass with the physical claim transferred through the existing owner API. * fix(storage): preserve shared reader maintenance ownership",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(storage): unify transcript reader resource ownership (#176849)",
-      "summaryZh": "重點：refactor(storage): unify transcript reader resource ownership (#176849) * refactor: consolidate transcript reader resour..."
+      "title": "三大電信攜手高檢署打詐，導入 AI、大數據提前辨識詐騙風險",
+      "link": "https://infosecu.technews.tw/2026/10/19/telecom-operator-scam/",
+      "publishedAt": "Mon, 19 Oct 2026 11:19:37 +0000",
+      "summary": "面對詐騙手法日益科技化，台灣三大電信業者進一步擴大防詐合作。台灣電信產業發展協會今日與臺灣高等檢察署簽署「電信 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
