@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-20T18:58:40.814Z",
+  "generatedAt": "2026-10-20T22:13:02.617Z",
   "items": [
     {
       "id": 1,
-      "title": "test(openai): control speech header timeout after request arrival (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/b7c858fcf24508d8589f937918e2384d88210ffc",
-      "publishedAt": "2026-10-20T18:55:51Z",
-      "summary": "test(openai): control speech header timeout after request arrival (#178660)",
+      "title": "fix(database): first chat fails after PostgreSQL admission reuse (#17…",
+      "link": "https://github.com/openclaw/openclaw/commit/e71db35b7240b85283726d1bf74efb0cfb43c54d",
+      "publishedAt": "2026-10-20T22:11:40Z",
+      "summary": "fix(database): first chat fails after PostgreSQL admission reuse (#178774) * fix(database): retain PostgreSQL search admission across handles Share admitted schema definitions through the physical admission owner so first-use memory and standing-intent search can initialize after a port or handle reopen. Keep schema publication and rollback in the existing admission lifecycle. * fix(database): keep migration recipes out of admission snapshots",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(openai): control speech header timeout after request arrival (#1…",
-      "summaryZh": "重點：test(openai): control speech header timeout after request arrival (#178660)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(database): first chat fails after PostgreSQL admission reuse (#17…",
+      "summaryZh": "重點：修正(database): first chat fails after PostgreSQL admission reuse (#178774) * 修正(database): retain PostgreSQL search admis..."
     },
     {
       "id": 2,
-      "title": "test(runtime): remove low-value tests (batch d332) (#178586)",
-      "link": "https://github.com/openclaw/openclaw/commit/19d3bbf3a10e10543f6f23c209189ff21832732c",
-      "publishedAt": "2026-10-20T18:54:51Z",
-      "summary": "test(runtime): remove low-value tests (batch d332) (#178586) * test(process): deslop z0318 tests * test(process): deslop z0318 tests * test(process): deslop z0318 tests * test(agents): deslop z0317 tests * test(agents): deslop z0317 tests * test(agents): deslop z0317 tests * test(talk): deslop z0319 tests * test(talk): deslop z0319 tests * test(talk): deslop z0319 tests * test(plugin-sdk): deslop z0316 tests * test(plugin-sdk): deslop z0316 tests * test(gateway): deslop z0320 tests * test(gateway): deslop z0320 tests * test(gateway): deslop z0320 tests * test(auto-reply): deslop z0322 tests * test(auto-reply): deslop z0322 tests * test(auto-reply): deslop z0322 tests * test(agents): deslop z0321 tests * test(agents): deslop z0321 tests * test(agents): deslop z0321 tests * test(config): deslop z0323 tests * test(config): deslop z0323 tests * test(config): deslop z0323 tests * test(scripts): deslop z0326 tests * test(scripts): deslop z0326 tests * test(scripts): deslop z0326 tests * test(gateway): deslop z0324 tests * test(gateway): deslop z0324 tests * test(agents): preserve current fallback classification cases * test: retain history bounds and platform fixture guards * test: repair campaign fixture contracts from CI * test(talk): retain receiver-free RPC fixture invocation * test: prune resolved mock isolation baseline entries",
+      "title": "fix(update): keep a fixed shared-state migration diagnosis in failure…",
+      "link": "https://github.com/openclaw/openclaw/commit/097a2f70d0c4ea0751346d5b50dd7d677744fa74",
+      "publishedAt": "2026-10-20T22:08:09Z",
+      "summary": "fix(update): keep a fixed shared-state migration diagnosis in failure reports (#178689) Fixes #178550. Shared-state schema repair failures now carry a fixed public diagnosis that survives report redaction; private exception details stay local (#145390 allowlist unchanged).",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(runtime): remove low-value tests (batch d332) (#178586)",
-      "summaryZh": "重點：test(runtime): remove low-value tests (batch d332) (#178586) * test(process): deslop z0318 tests * test(process): deslop..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): keep a 修正 shared-state migration diagnosis in failure…",
+      "summaryZh": "重點：修正(update): keep a 修正 shared-state migration diagnosis in failure reports (#178689) 修正 #178550. Shared-state schema repa..."
     },
     {
       "id": 3,
-      "title": "fix: avoid redundant PostgreSQL transcript projection trips (#178632)",
-      "link": "https://github.com/openclaw/openclaw/commit/03834a76775db33acf5e361fb92c9bb841aaab71",
-      "publishedAt": "2026-10-20T18:54:00Z",
-      "summary": "fix: avoid redundant PostgreSQL transcript projection trips (#178632) * perf: fuse PostgreSQL transcript projection flushes Flush prepared active rows, FTS content and the final watermark in one bounded PG CTE while preserving row-only flushes, SQLite writes, transaction locks and live commit authority. * fix: include PostgreSQL projection writer in wrapper inventory",
+      "title": "fix(doctor): release legacy agent DB leases proven to predate the cur…",
+      "link": "https://github.com/openclaw/openclaw/commit/f1a05b0de1508912499beaedcbfcc28e5f541918",
+      "publishedAt": "2026-10-20T22:07:48Z",
+      "summary": "fix(doctor): release legacy agent DB leases proven to predate the current boot (#178703) Fixes #137925. Legacy null-identity agent database leases (surviving Windows PID reuse) blocked Doctor forever. Doctor now releases a legacy lease only when its recorded time predates the current boot start by more than five minutes (same boot reader as #178184), with a warning naming the lease; same-boot or unreadable boot evidence keeps blocking with actionable guidance.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid redundant PostgreSQL transcript projection trips (#178632)",
-      "summaryZh": "重點：修正: avoid redundant PostgreSQL transcript projection trips (#178632) * perf: fuse PostgreSQL transcript projection flush..."
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): 版本發布 legacy agent DB leases proven to predate the cur…",
+      "summaryZh": "重點：修正(文件tor): 版本發布 legacy agent DB leases proven to predate the current boot (#178703) 修正 #137925. Legacy null-identity age..."
     },
     {
       "id": 4,
-      "title": "refactor(plugins): consolidate lifecycle and validated request owners…",
-      "link": "https://github.com/openclaw/openclaw/commit/a903120833e0393e65af9865b9681ded4d14facf",
-      "publishedAt": "2026-10-20T18:52:32Z",
-      "summary": "refactor(plugins): consolidate lifecycle and validated request owners (#178653) * refactor(browser): keep service lifecycle with its registered owner * refactor(plugins): trust fresh Teams routes and inline policy key check * refactor(policy): deduplicate repair previews once * refactor(plugins): trust owning request boundaries * refactor(qa-lab): call character evaluation runtime owners directly",
+      "title": "fix(ios): avoid blocking screenshot phases on resource diagnostics (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/65fab36c6b5004c56a57d79628a277dd41f4a6b0",
+      "publishedAt": "2026-10-20T22:06:47Z",
+      "summary": "fix(ios): avoid blocking screenshot phases on resource diagnostics (#178765) * fix(ios): avoid blocking screenshot phases on resource diagnostics * test(ios): align screenshot diagnostics workflow expectations",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(plugins): consolidate lifecycle and validated request owners…",
-      "summaryZh": "重點：refactor(plugins): consolidate lifecycle and validated request owners (#178653) * refactor(browser): keep service lifecy..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): avoid blocking screenshot phases on resource diagnostics (#…",
+      "summaryZh": "重點：修正(ios): avoid blocking screenshot phases on resource diagnostics (#178765) * 修正(ios): avoid blocking screenshot phases ..."
     },
     {
       "id": 5,
