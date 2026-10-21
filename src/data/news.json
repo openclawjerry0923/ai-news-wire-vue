@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-10-20T22:13:02.617Z",
+  "generatedAt": "2026-10-21T01:20:48.173Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(database): first chat fails after PostgreSQL admission reuse (#17…",
-      "link": "https://github.com/openclaw/openclaw/commit/e71db35b7240b85283726d1bf74efb0cfb43c54d",
-      "publishedAt": "2026-10-20T22:11:40Z",
-      "summary": "fix(database): first chat fails after PostgreSQL admission reuse (#178774) * fix(database): retain PostgreSQL search admission across handles Share admitted schema definitions through the physical admission owner so first-use memory and standing-intent search can initialize after a port or handle reopen. Keep schema publication and rollback in the existing admission lifecycle. * fix(database): keep migration recipes out of admission snapshots",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(database): first chat fails after PostgreSQL admission reuse (#17…",
-      "summaryZh": "重點：修正(database): first chat fails after PostgreSQL admission reuse (#178774) * 修正(database): retain PostgreSQL search admis..."
+      "title": "AOMEI備份軟體遭供應鏈攻擊，駭客短暫劫持更新機制散布後門",
+      "link": "https://www.ithome.com.tw/news/179805",
+      "publishedAt": "2026-10-21 08:10:00",
+      "summary": "Google威脅情報團隊（GTIG）與Mandiant近日揭露一起針對AOMEI Technology軟體更新基礎設施的供應鏈攻擊。攻擊者在2026年4月至7月間，透過備份軟體AOMEI Backupper的更新機制投遞惡意程式。研究人員觀測到，攻擊者曾多次短暫竄改伺服器設定檔，每次持續約5至10分鐘，隨後恢復原狀，讓資安人員事後檢查時可能只看到正常設定，增加追查攻擊的難度。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(update): keep a fixed shared-state migration diagnosis in failure…",
-      "link": "https://github.com/openclaw/openclaw/commit/097a2f70d0c4ea0751346d5b50dd7d677744fa74",
-      "publishedAt": "2026-10-20T22:08:09Z",
-      "summary": "fix(update): keep a fixed shared-state migration diagnosis in failure reports (#178689) Fixes #178550. Shared-state schema repair failures now carry a fixed public diagnosis that survives report redaction; private exception details stay local (#145390 allowlist unchanged).",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): keep a 修正 shared-state migration diagnosis in failure…",
-      "summaryZh": "重點：修正(update): keep a 修正 shared-state migration diagnosis in failure reports (#178689) 修正 #178550. Shared-state schema repa..."
+      "title": "多個組織的MCP專案存在SSRF漏洞，研究人員示警AI代理信任問題",
+      "link": "https://www.ithome.com.tw/news/179776",
+      "publishedAt": "2026-10-21 08:10:00",
+      "summary": "獨立資安研究人員Syed Anas Mohiuddin近期公布模型上下文協定（MCP）的安全研究成果，發現Google、摩根大通（JPMorgan Chase）等多個組織的MCP專案存在類似的伺服器端請求偽造（Server-Side Request Forgery，SSRF）漏洞。攻擊者可能利用這些漏洞，誘使MCP伺服器向攻擊者原本無法直接存取的內部系統發出網路請求。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(doctor): release legacy agent DB leases proven to predate the cur…",
-      "link": "https://github.com/openclaw/openclaw/commit/f1a05b0de1508912499beaedcbfcc28e5f541918",
-      "publishedAt": "2026-10-20T22:07:48Z",
-      "summary": "fix(doctor): release legacy agent DB leases proven to predate the current boot (#178703) Fixes #137925. Legacy null-identity agent database leases (surviving Windows PID reuse) blocked Doctor forever. Doctor now releases a legacy lease only when its recorded time predates the current boot start by more than five minutes (same boot reader as #178184), with a warning naming the lease; same-boot or unreadable boot evidence keeps blocking with actionable guidance.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): 版本發布 legacy agent DB leases proven to predate the cur…",
-      "summaryZh": "重點：修正(文件tor): 版本發布 legacy agent DB leases proven to predate the current boot (#178703) 修正 #137925. Legacy null-identity age..."
+      "title": "AI代理安全新創Pluto Security獲4,200萬美元投資",
+      "link": "https://www.ithome.com.tw/news/179756",
+      "publishedAt": "2026-10-21 08:10:00",
+      "summary": "以色列資安新創公司Pluto Security於10月13日宣布結束隱身階段，累計募得4,200萬美元資金。該公司計畫利用募資所得開發產品、擴大資安研究及拓展美國市場。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(ios): avoid blocking screenshot phases on resource diagnostics (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/65fab36c6b5004c56a57d79628a277dd41f4a6b0",
-      "publishedAt": "2026-10-20T22:06:47Z",
-      "summary": "fix(ios): avoid blocking screenshot phases on resource diagnostics (#178765) * fix(ios): avoid blocking screenshot phases on resource diagnostics * test(ios): align screenshot diagnostics workflow expectations",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): avoid blocking screenshot phases on resource diagnostics (#…",
-      "summaryZh": "重點：修正(ios): avoid blocking screenshot phases on resource diagnostics (#178765) * 修正(ios): avoid blocking screenshot phases ..."
+      "title": "AWS測試AI代理自主尋找及利用漏洞，37項CVE有33項成功",
+      "link": "https://www.ithome.com.tw/news/179744",
+      "publishedAt": "2026-10-21 08:10:00",
+      "summary": "雲端服務業者AWS公布旗下自主滲透測試AI代理AWS Security Agent的測試結果。研究人員使用2025至2026年間揭露的37項CVE漏洞進行測試，AI代理成功利用其中33項漏洞，並取得用來驗證漏洞利用結果的測試標記（Flag），成功率達89.2%。這項測試使用Claude Opus 5模型，每項漏洞的測試時間上限為10小時。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "影音串流平臺Plex被鎖定，攻擊者利用漏洞攻擊鏈Plex2Shell植入挖礦軟體與後門",
-      "link": "https://www.ithome.com.tw/news/179806",
-      "publishedAt": "2026-10-20 12:10:29",
-      "summary": "10月16日研究人員Zach Main（Zmain）公布影音串流伺服器Plex Media Server漏洞利用鏈Plex2Shell，該利用鏈涵蓋CVE-2026-96652、CVE-2026-96654、CVE-2026-96655、CVE-2026-96656等4個漏洞，然而在相關資訊與概念驗證程式碼（PoC）公布的隔天，這些弱點就被用於實際攻擊。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Broadcom Wi-Fi晶片存在未修補的WPSplinter漏洞，攻擊者無須密碼即可取得路由器root權限",
-      "link": "https://www.ithome.com.tw/news/179807",
-      "publishedAt": "2026-10-20 12:10:22",
-      "summary": "資安研究人員Quentin Kaiser於10月16日揭露，Broadcom Wi-Fi晶片的WPS連線機制（Wi-Fi Protected Setup）存在未修補漏洞，影響採用相關晶片的路由器與無線基地臺，導致攻擊者無須密碼即可取得設備root權限。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "服飾公司滿心接獲消費者反映個資疑似外洩，茅頭指向委外平臺資料庫遭自動化攻擊",
-      "link": "https://www.ithome.com.tw/news/179803",
-      "publishedAt": "2026-10-20 12:10:22",
-      "summary": "10月19日服飾公司滿心（2916）於股市公開資訊觀測站發布重大訊息，表示他們近期接獲消費者反映個資疑似外洩，原因是他們委外服務平臺廠商提供的資料庫遭遇自動化攻擊，導致部分資訊遭非法擷取。事發後滿心立即聯繫該委外服務平臺廠商，要求釐清滿心相關資料是否涉及此次資安事件，以及實際受影響的資料範圍。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Zeabur再遭駭後公布調查結果，攻擊者讀取逾321萬筆環境變數",
-      "link": "https://www.ithome.com.tw/news/179804",
-      "publishedAt": "2026-10-20 12:10:09",
-      "summary": "臺灣雲端部署平臺Zeabur於10月中旬再傳重大資安事件，影響範圍比8月底的事故更大。Zeabur於臺灣時間10月16日凌晨對外通報事故，創辦人林沅霖隔日說明事故始於14日（UTC），並宣布平臺將於年底停止營運。10月19日，該公司進一步公布初步調查結果，說明目前掌握的攻擊路徑、影響範圍、事件原因及已採取的補救措施，並揭露攻擊者透過兩條路徑入侵共享叢集及專用伺服器，進而讀取超過321萬筆環境變數及32萬筆帳號資料，也發現8月事件後仍有部分內部憑證未完成輪替。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "高雄台積電 F22 廠區工安意外，螺栓斷裂致 4 人墜落送醫後續勒令停工",
-      "link": "https://finance.technews.tw/2026/10/20/industrial-accident-at-tsmc-f22-plant-in-kaohsiung/",
-      "publishedAt": "Tue, 20 Oct 2026 11:30:53 +0000",
-      "summary": "高雄市楠梓園區台積電F22 P4新建工程工地20日傍晚發生重大工安意外。事故起因於吊車執行鋼構吊掛安裝作業時發 [&#8230;]",
+      "title": "沒變瘦也有用，研究：8 週運動全身器官出現變化",
+      "link": "https://technews.tw/2026/10/21/exercise-benefits-the-body-even-without-weight-loss-study-finds-changes-across-organs-after-8-weeks/",
+      "publishedAt": "Wed, 21 Oct 2026 01:12:01 +0000",
+      "summary": "許多人開始運動，是為了減重或改善體態，但如果持續運動幾個星期，體重仍然沒有變化，是否代表努力白費？美國最新研究 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
-      "id": 10,
-      "title": "雲端服務平臺OVHcloud CLI工具遭供應鏈攻擊，被植入竊資程式",
-      "link": "https://www.ithome.com.tw/news/179797",
-      "publishedAt": "2026-10-20 11:10:26",
-      "summary": "10月19日雲端服務平臺OVHcloud創辦人Octave Klaba在X揭露，該平臺的命令列工具（CLI）遭供應鏈攻擊，被植入竊資程式。這套工具可讓用戶從終端機管理OVHcloud雲端服務，也能整合自動化部署流程，初步調查顯示，0.11.0至0.15.0等5個版本受到這次攻擊影響，被植入可搜尋電腦磁碟、竊取敏感資料的惡意程式。",
-      "source": "iThome",
+      "id": 6,
+      "title": "提前一年 Panasonic 鈣鈦礦太陽能電池 2029 年量產",
+      "link": "https://technews.tw/2026/10/21/panasonic-perovskite-2029-april/",
+      "publishedAt": "Wed, 21 Oct 2026 01:10:14 +0000",
+      "summary": "日本 Panasonic 將在 2029 年 4 月開始量產次世代太陽能電池「鈣鈦礦」（Perovskite） [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "refactor(runtime): retire private native-owner adapters (#178885)",
+      "link": "https://github.com/openclaw/openclaw/commit/73601c86e785de0d9a7f83eb694e463ecd0750c9",
+      "publishedAt": "2026-10-21T01:07:18Z",
+      "summary": "refactor(runtime): retire private native-owner adapters (#178885) * refactor(runtime): collapse native edge test seams * chore: shrink retired maintenance assertion allowance",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(runtime): retire private native-owner adapters (#178885)",
+      "summaryZh": "重點：refactor(runtime): retire private native-owner adapters (#178885) * refactor(runtime): collapse native edge test seams *..."
+    },
+    {
+      "id": 8,
+      "title": "test(agents,plugins,state,ui): remove low-value tests (batch d343) (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/554b779bc7d50d86313fcb017ca38e0ecc679e83",
+      "publishedAt": "2026-10-21T01:06:25Z",
+      "summary": "test(agents,plugins,state,ui): remove low-value tests (batch d343) (#178832) * test(slack): deslop z0441 tests * test(plugins): deslop z0442 tests * test(plugins): deslop z0442 tests * test(plugins): deslop z0442 tests * test(state): deslop z0445 tests * test(state): deslop z0445 tests * test(state): deslop z0445 tests * test(ui): deslop z0443 tests * test(ui): deslop z0443 tests * test(ui): deslop z0443 tests * test(browser): deslop z0446 tests * test(browser): deslop z0446 tests * test(browser): deslop z0446 tests * test(ui): deslop z0444 tests * test(ui): deslop z0444 tests * test(subagents): deslop z0447 tests * test(subagents): deslop z0447 tests * test(subagents): deslop z0447 tests * test(agents): deslop z0450 tests * test(agents): deslop z0450 tests * test(doctor): deslop z0448 tests * test(doctor): deslop z0448 tests * test(doctor): deslop z0448 tests * test(gateway): deslop z0451 tests * test(gateway): deslop z0451 tests * test(gateway): deslop z0451 tests * test(ui): deslop z0449 tests * test(ui): deslop z0449 tests * test(ui): deslop z0449 tests * test(ui): deslop z0453 tests * test: retain lifecycle regressions and type kill custody fixtures * test: document isolated browser and MCP mocks * test: align reduced fixtures with owning contracts * test(ui): retain button type in picker fixture * test(gateway): preserve receiver-safe worker emit capture * test(doctor): retain existing preflight fixtures * test: preserve browser cache and schema regression coverage * test: retain compatible registry and doctor fixtures",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents,plugins,state,ui): remove low-value tests (batch d343) (#…",
+      "summaryZh": "重點：test(agents,plugins,state,ui): remove low-value tests (batch d343) (#178832) * test(slack): deslop z0441 tests * test(pl..."
+    },
+    {
+      "id": 9,
+      "title": "fix(clickclack): retain newer queued progress completions (#178895)",
+      "link": "https://github.com/openclaw/openclaw/commit/900e6aa3215fb46b933221cb490b22ab83e7d0cc",
+      "publishedAt": "2026-10-21T01:01:26Z",
+      "summary": "fix(clickclack): retain newer queued progress completions (#178895)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(clickclack): retain newer queued progress completions (#178895)",
+      "summaryZh": "重點：修正(clickclack): retain newer queued progress completions (#178895)..."
+    },
+    {
+      "id": 10,
+      "title": "fix(sessions): avoid long writer stalls during age retention (#178845)",
+      "link": "https://github.com/openclaw/openclaw/commit/1989e3dc4360a17d039440a886f71e582758a487",
+      "publishedAt": "2026-10-21T00:55:34Z",
+      "summary": "fix(sessions): avoid long writer stalls during age retention (#178845) * fix(sessions): bound age retention and batch archive writes Drain automatic age retention in 64-candidate pages while releasing the writer between settled batches. Keep the initial cutoff and model-run policy, batch context versions and independent archive upserts, and preserve final protection, reference, and archive-durability checks. * test(sessions): follow the relocated entry writer in guard fixtures * fix(sessions): keep retention continuation type with age owner * fix(sessions): stop retention pages when maintenance closes * test: await settled retention in placement preservation cases",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(sessions): avoid long writer stalls during age retention (#178845)",
+      "summaryZh": "重點：修正(sessions): avoid long writer stalls during age retention (#178845) * 修正(sessions): bound age retention and batch arch..."
     }
   ]
 }
