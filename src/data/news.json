@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T18:21:20.241Z",
+  "generatedAt": "2026-10-22T22:09:13.930Z",
   "items": [
     {
       "id": 1,
@@ -12,47 +12,47 @@
     },
     {
       "id": 2,
-      "title": "fix(scripts): PR wrapper leaks materialized trust-anchor dirs in TMPD…",
-      "link": "https://github.com/openclaw/openclaw/commit/3a4c80c4c569c138ecd22ca5f9e0d258d4632f54",
-      "publishedAt": "2026-10-22T18:15:59Z",
-      "summary": "fix(scripts): PR wrapper leaks materialized trust-anchor dirs in TMPDIR on failures and interrupts (#180848) * fix(scripts): retire materialized PR anchors on every exit path Materialized wrappers were retired only after fully clean supervised exits, leaking code and dependency links on failures, signals, bootstrap exits, unsupervised commands, and failed execs. Keep creator ownership across the Bash and supervisor exec chain. Share FD/path/PID identity checks, retire drained operations independently of PR lock decisions, and restore cleanup after Bash 3.2 failed execs. Retain code for undrained operations and sweep at most four old owned anchors at startup using creator PIDs in new names. PID reuse conservatively delays sweeping. Legacy names have no liveness record and may be reclaimed after 24 hours even during a long operation. Drained cleanup accepts the same fd-closing escapee residual as clean exits; missing runtime or ownership evidence remains retain-only. Cover lifecycle exits, crash-retained recovery fixtures, dependency pinning, and bounded stale sweeping without changing lock recovery semantics. * docs(scripts): name the stale-anchor sweep residual A dead creator PID is the sweep's only evidence that an operation ended. Descendants that outlive a crashed or undrained supervisor by more than 24 hours can lose their anchor; their PR lock stays retained. Also replace the busy loop in the forwarded-SIGTERM supervisor test with sleep.",
+      "title": "fix: project search shows unrelated projects from shared Git owners a…",
+      "link": "https://github.com/openclaw/openclaw/commit/7951d383ff29c37aacf804ef715222e948a8d119",
+      "publishedAt": "2026-10-22T22:02:07Z",
+      "summary": "fix: project search shows unrelated projects from shared Git owners and paths (#180885) * fix: project search shows unrelated projects from shared Git owners and paths Worked on by: - @shakkernerd Co-authored-by: shakkernerd OpenClaw-Publication: 8ac7f027-07a5-4d5a-ab2b-4af0839b3628 * Publish openclaw/rapid-shell Worked on by: - @shakkernerd Co-authored-by: shakkernerd OpenClaw-Publication: d46d72c2-2c56-40b0-af60-2de071a339f1 --------- Co-authored-by: shakkernerd",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(scripts): PR wrapper leaks materialized trust-anchor dirs in TMPD…",
-      "summaryZh": "重點：修正(scripts): PR wrapper leaks materialized trust-anchor dirs in TMPDIR on failures and interrupts (#180848) * 修正(scripts..."
+      "titleZh": "OpenClaw 程式碼更新：修正: project search shows unrelated projects from shared Git owners a…",
+      "summaryZh": "重點：修正: project search shows unrelated projects from shared Git owners and paths (#180885) * 修正: project search shows unrela..."
     },
     {
       "id": 3,
-      "title": "fix(models): honor configured catalog acquisition timeouts (#180842)",
-      "link": "https://github.com/openclaw/openclaw/commit/071ce2302f9cd1ecc19ea898f78c0b00f4a3431b",
-      "publishedAt": "2026-10-22T18:14:50Z",
-      "summary": "fix(models): honor configured catalog acquisition timeouts (#180842) Carry provider timeoutSeconds through shared catalog acquisition and pending-load identity without extending admitted deadlines. Preserve unset and zero-timeout behavior. Complete the shared acquisition scope reported by @Joelincn in #168356, building on #177313.",
+      "title": "fix(plugins): grant channel plugin commands their native capabilities…",
+      "link": "https://github.com/openclaw/openclaw/commit/1a82e93a5d6190829b72655fba8a626d6d4221fe",
+      "publishedAt": "2026-10-22T21:57:10Z",
+      "summary": "fix(plugins): grant channel plugin commands their native capabilities (#180968) Plugin commands typed in Slack, Discord and other channels never received the command-scoped native subagents (#180173) or scheduled turns (#180282), although the docs describe authorized channel senders as eligible. Channel ingress already binds the verified sender's operator authority, but the native gate also required a Gateway chat.send run id and user-turn recorder, which channel dispatch never supplies. For channel ingress only, the host now mints that run id and recorder, and only for the operator authority host ingress bound to the message's verified principal. The existing gate is unchanged: command authorization, the declared capability, the requester's native tool policy, admission and per-call authority rechecks still decide. Unlinked, unverified, demoted or unauthorized senders keep seeing no capability. The committed input uses the message's route-scoped source turn id, so a continuing agent turn and restart recovery join it, and it stores the same redacted form the delivered-command transcript mirror records. That mirror now records only the reply once a native command committed the input.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(模型): honor configured catalog acquisition timeouts (#180842)",
-      "summaryZh": "重點：修正(模型): honor configured catalog acquisition timeouts (#180842) Carry provider timeoutSeconds through shared catalog acq..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): grant channel plugin commands their native capabilities…",
+      "summaryZh": "重點：修正(plugins): grant channel plugin commands their native capabilities (#180968) Plugin commands typed in Slack, Discord a..."
     },
     {
       "id": 4,
-      "title": "refactor(workboard): present board saves through Solid actions (#180811)",
-      "link": "https://github.com/openclaw/openclaw/commit/d56331a993ee779d30313cad4c51a2201d7f0201",
-      "publishedAt": "2026-10-22T18:13:27Z",
-      "summary": "refactor(workboard): present board saves through Solid actions (#180811)",
+      "title": "fix(ui): align startup ratchet with measured bundle (#181012)",
+      "link": "https://github.com/openclaw/openclaw/commit/2baa44b258db8371154cf0c3a7d11208f2896946",
+      "publishedAt": "2026-10-22T21:56:27Z",
+      "summary": "fix(ui): align startup ratchet with measured bundle (#181012)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(workboard): present board saves through Solid actions (#180811)",
-      "summaryZh": "重點：refactor(workboard): present board saves through Solid actions (#180811)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): align startup ratchet with measured bundle (#181012)",
+      "summaryZh": "重點：修正(ui): align startup ratchet with measured bundle (#181012)..."
     },
     {
       "id": 5,
-      "title": "chore: remove the unused Slack QA runner fixture (#180849)",
-      "link": "https://github.com/openclaw/openclaw/commit/8e1fafd407fd28d904a26dd04f7d2165df43356d",
-      "publishedAt": "2026-10-22T18:10:06Z",
-      "summary": "chore: remove the unused Slack QA runner fixture (#180849) Co-authored-by: vincentkoc",
+      "title": "refactor(ui): simplify tool preview fact consumers (#181007)",
+      "link": "https://github.com/openclaw/openclaw/commit/21bd84bf25c257c419aac472b6e1cea7c6e6d815",
+      "publishedAt": "2026-10-22T21:55:02Z",
+      "summary": "refactor(ui): simplify tool preview fact consumers (#181007)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore: remove the unused Slack QA runner 修正ture (#180849)",
-      "summaryZh": "重點：chore: remove the unused Slack QA runner 修正ture (#180849) Co-authored-by: vincentkoc..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(ui): simplify tool preview fact consumers (#181007)",
+      "summaryZh": "重點：refactor(ui): simplify tool preview fact consumers (#181007)..."
     },
     {
       "id": 6,
