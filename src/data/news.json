@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-10-23T13:08:27.022Z",
+  "generatedAt": "2026-10-23T18:07:35.796Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(browser): keep lazy Browser control start from writing Gateway au…",
-      "link": "https://github.com/openclaw/openclaw/commit/06240dbb61b9db325fa1a54a088eb8f1dc63de28",
-      "publishedAt": "2026-10-23T13:06:16Z",
-      "summary": "fix(browser): keep lazy Browser control start from writing Gateway auth (#181620)",
+      "title": "fix(agent-core): build package declarations without Promise.withResol…",
+      "link": "https://github.com/openclaw/openclaw/commit/1eae4fc0d708c9c7e4c8225e705a38273be1d6d2",
+      "publishedAt": "2026-10-23T18:07:22Z",
+      "summary": "fix(agent-core): build package declarations without Promise.withResolvers (#181806) #181576 used Promise.withResolvers in agent-core's tool-batch launcher, but the package declaration build compiles against the repo's ES2023 lib, so pnpm build failed on main with TS2550 and produced no artifacts. Capture the resolver from a plain promise instead (the executor runs synchronously, and only resolve is used); behavior is identical and the package lib target stays unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(browser): keep lazy Browser control start from writing Gateway au…",
-      "summaryZh": "重點：修正(browser): keep lazy Browser control start from writing Gateway auth (#181620)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(agent-core): build package declarations without Promise.withResol…",
+      "summaryZh": "重點：修正(agent-core): build package declarations without Promise.withResolvers (#181806) #181576 used Promise.withResolvers in..."
     },
     {
       "id": 2,
-      "title": "fix(doctor): repair unsupported Gateway Node runtimes (#181618)",
-      "link": "https://github.com/openclaw/openclaw/commit/53f8d4f7f577aff93ca625c210185145a90ad81a",
-      "publishedAt": "2026-10-23T12:58:30Z",
-      "summary": "fix(doctor): repair unsupported Gateway Node runtimes (#181618) After a 2026.10.5 to 2026.10.6 update, a systemd user Gateway whose unit pinned an absolute Node that 2026.10.6 no longer supports kept crash-looping, and doctor --fix could not repair it: Doctor misclassified the %t runtime environment-file drop-in as an operator override and only repaired the service runtime interactively. Doctor now repairs a provably owned service (command matches the installed package root, no launcher override, only runtime/PATH findings; service platform passed explicitly) to the install plan's compatible Node in non-interactive mode through the existing backup and reconciliation owner, preserving unrelated drop-ins and refusing real PATH or launcher overrides. Current main already refuses the incompatible-Node update before staging or migration; docs now describe both. Fixes #181611, reported by @samueltardieu.",
-      "source": "OpenClaw Commits",
+      "title": "release-publish/6cc605dfe204-1792778379",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F6cc605dfe204-1792778379",
+      "publishedAt": "2026-10-23T17:59:09Z",
+      "summary": "test(ui): align boot stress fixture with sharing permissions (#181798)",
+      "source": "OpenClaw Releases",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): repair unsupported Gateway Node runtimes (#181618)",
-      "summaryZh": "重點：修正(文件tor): repair unsupported Gateway Node runtimes (#181618) After a 2026.10.5 to 2026.10.6 update, a systemd user Gate..."
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/6cc605dfe204-1792778379",
+      "summaryZh": "重點：test(ui): align boot stress 修正ture with sharing permissions (#181798)..."
     },
     {
       "id": 3,
-      "title": "fix(fal): report unsupported video overrides for MiniMax and HeyGen i…",
-      "link": "https://github.com/openclaw/openclaw/commit/ae3e7605dad3bf186ae980252b016d687addc0b9",
-      "publishedAt": "2026-10-23T12:52:55Z",
-      "summary": "fix(fal): report unsupported video overrides for MiniMax and HeyGen instead of claiming they were applied (#177687) fix(fal): report video overrides that Fal models ignore Fal MiniMax and HeyGen video requests silently dropped unsupported geometry and audio overrides, while the CLI and runtime metadata said no overrides were ignored; Kling and Wan similarly misreported unsupported audio. The request sent to Fal is unchanged; the reported ignoredOverrides now list what each model actually dropped. Evidence: built CLI against a local HTTP fixture standing in for Fal (with the private-network guard left on). For MiniMax and HeyGen, main reported ignored [] while the request carried only the prompt (twice); with this change the request is the same and ignored lists the geometry and audio overrides (twice). Kling and Wan now report ignored audio, Seedance reports nothing ignored for its supported fields, and the saved MP4 bytes are identical. A live gpt-5.4-mini run passes. Production +28/-2. Thanks @yetval. Co-authored-by: Ayaan Zaidi",
+      "title": "test(ui): align boot stress fixture with sharing permissions (#181798)",
+      "link": "https://github.com/openclaw/openclaw/commit/6cc605dfe2044a2d2649dea02458e7982739d493",
+      "publishedAt": "2026-10-23T17:59:09Z",
+      "summary": "test(ui): align boot stress fixture with sharing permissions (#181798)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(fal): report unsupported video overrides for MiniMax and HeyGen i…",
-      "summaryZh": "重點：修正(fal): report unsupported video overrides for MiniMax and HeyGen instead of claiming they were applied (#177687) 修正(fa..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): align boot stress 修正ture with sharing permissions (#181798)",
+      "summaryZh": "重點：test(ui): align boot stress 修正ture with sharing permissions (#181798)..."
     },
     {
       "id": 4,
-      "title": "fix: announce Models provider read failures (#181172)",
-      "link": "https://github.com/openclaw/openclaw/commit/97d96e53d22f8740b63aa441ad152ad88264e54c",
-      "publishedAt": "2026-10-23T12:51:59Z",
-      "summary": "fix: announce Models provider read failures (#181172) Announce Models provider-read failures and retain the existing error notice during retry. Reviewed-by: @shakkernerd Co-authored-by: etzelm Co-authored-by: Shakker",
+      "title": "fix(update): accept stale owned FTS indexes in update snapshots (#181…",
+      "link": "https://github.com/openclaw/openclaw/commit/1b27dd68d0574b47098b6a1b670836795c8749e5",
+      "publishedAt": "2026-10-23T17:56:07Z",
+      "summary": "fix(update): accept stale owned FTS indexes in update snapshots (#181206) A Node upgrade that changes SQLite unicode61 tokenization (SQLite 3.54, U+FFFE) makes healthy canonical agent FTS indexes report \"malformed inverted index\". The candidate state snapshot refused the update with candidate-snapshot-failed before the candidate's Doctor or agent database admission could rebuild them, and its Doctor guidance was a dead end under the old runtime. assertSqliteIntegrity gains an opt-in ftsSchemas option: when every finding names an exactly owned FTS definition, the check passes, the table and foreign-key checks still run, and full-integrity admission is not recorded. Only the candidate rehearsal snapshot and update database backups opt in with AGENT_FTS_SCHEMAS. Unowned or mixed findings stay fatal. The classifier moves into sqlite-integrity.ts to avoid an import cycle. The candidate worker performs the rehearsal snapshot, so the fix applies on the first update to a candidate containing it; activation backups need the installed updater to contain it. Refs #176220",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: announce 模型 provider read failures (#181172)",
-      "summaryZh": "重點：修正: announce 模型 provider read failures (#181172) Announce 模型 provider-read failures and retain the existing error notice..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): accept stale owned FTS indexes in update snapshots (#181…",
+      "summaryZh": "重點：修正(update): accept stale owned FTS indexes in update snapshots (#181206) A Node upgrade that changes SQLite unicode61 to..."
     },
     {
       "id": 5,
+      "title": "NASA 最新示警：北極海冰「冬夏雙減」結構脆化，2050 年前恐面臨夏季無冰危機",
+      "link": "https://technews.tw/2026/10/24/arctic-sea-ice-shrinking-crisis/",
+      "publishedAt": "Fri, 23 Oct 2026 16:00:58 +0000",
+      "summary": "根據 NASA 與美國國家冰雪資料中心（NSIDC）的最新分析，北極海冰正遭遇嚴峻的氣候考驗，無論是冬季還是夏 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "科幻場景成真，研究證實「雙太陽系統」有孕育穩定類地行星潛力",
+      "link": "https://technews.tw/2026/10/24/could-a-two-sun-world-become-reality/",
+      "publishedAt": "Fri, 23 Oct 2026 16:00:47 +0000",
+      "summary": "宇宙中，雙太陽系統長期以來僅存在於科幻小說與電影的想像之中。然而，這類在天空中擁有兩個恆星的奇特世界，是否真的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "免吃藥開刀，研究證實客製化「微調走路角度」有效緩解膝關節痛",
+      "link": "https://technews.tw/2026/10/24/changing-walking-angle-can-relieve-arthritis/",
+      "publishedAt": "Fri, 23 Oct 2026 16:00:04 +0000",
+      "summary": "美國最新研究指出，膝退化性關節炎患者若能根據自身狀況，微調走路時的足部角度，即使不依賴藥物或手術，也能有效減輕 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "日本遊戲大廠卡普空會員資料外洩逾1,177萬筆，近200個帳號的密碼遭改",
       "link": "https://www.ithome.com.tw/news/179912",
       "publishedAt": "2026-10-23 12:10:04",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "PHP2Shell漏洞影響全球10%的組織，Check Point警示歐洲首當其衝",
       "link": "https://www.ithome.com.tw/news/179908",
       "publishedAt": "2026-10-23 11:10:46",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "日本首相針對PHP2Shell漏洞提出警告，呼籲網站管理員準備修補及採取相關因應措施",
       "link": "https://www.ithome.com.tw/news/179910",
       "publishedAt": "2026-10-23 11:10:43",
       "summary": "資安漏洞嚴重程度的認定，一般而言大多會根據兩種指標，一是CVSS評分，另一種則為是否有資安公司，甚至如美國網路安全與基礎設施安全局（CISA）等國家級資安機構出面警告，但如今有資安漏洞上升至國家安全層級，罕見地由國家元首呼籲用戶確認及預備修補。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "PHP2Shell恐源自20年前的嚴重記憶體錯誤",
-      "link": "https://www.ithome.com.tw/news/179913",
-      "publishedAt": "2026-10-23 11:10:10",
-      "summary": "10月21日PHP開發團隊發布及修補統稱為PHP2Shell的重大漏洞CVE-2026-109618、CVE-2026-109619，這些漏洞由資安公司Wiz、Calif，以及",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "戶外用品業者歐都納接獲消費者反映疑似個資外洩，重訊指出委外平臺業者資料庫遭自動化攻擊",
-      "link": "https://www.ithome.com.tw/news/179909",
-      "publishedAt": "2026-10-23 11:10:01",
-      "summary": "以戶外機能服飾、登山裝備及休閒用品為主要商品的興櫃公司歐都納（2940），於10月22日在公開資訊觀測站發布資安事件重大訊息，表示委外服務平臺業者的資料庫遭到自動化攻擊，部分資訊遭非法擷取，當日並接獲消費者反映疑似個資外洩。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "私鑰安全事故延燒，印度eMudhra宣布退出SSL/TLS憑證市場",
-      "link": "https://www.ithome.com.tw/news/179911",
-      "publishedAt": "2026-10-23 11:10:00",
-      "summary": "印度數位憑證業者eMudhra週四（10/22）宣布，將退出全球SSL/TLS憑證市場。該公司日前被發現有8張中繼憑證授權機構（CA）憑證的私密金鑰存在嚴重安全問題，攻擊者可輕易還原私鑰，進而偽造網站憑證。這讓Google、蘋果、微軟及Mozilla等業者相繼封鎖有問題的中繼CA憑證，亦使得eMudhra最終決定退出憑證業務。",
       "source": "iThome",
       "tag": "繁中"
     }
