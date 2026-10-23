@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-10-23T07:04:21.329Z",
+  "generatedAt": "2026-10-23T13:08:27.022Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(browser): keep lazy Browser control start from writing Gateway au…",
+      "link": "https://github.com/openclaw/openclaw/commit/06240dbb61b9db325fa1a54a088eb8f1dc63de28",
+      "publishedAt": "2026-10-23T13:06:16Z",
+      "summary": "fix(browser): keep lazy Browser control start from writing Gateway auth (#181620)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): keep lazy Browser control start from writing Gateway au…",
+      "summaryZh": "重點：修正(browser): keep lazy Browser control start from writing Gateway auth (#181620)..."
+    },
+    {
+      "id": 2,
+      "title": "fix(doctor): repair unsupported Gateway Node runtimes (#181618)",
+      "link": "https://github.com/openclaw/openclaw/commit/53f8d4f7f577aff93ca625c210185145a90ad81a",
+      "publishedAt": "2026-10-23T12:58:30Z",
+      "summary": "fix(doctor): repair unsupported Gateway Node runtimes (#181618) After a 2026.10.5 to 2026.10.6 update, a systemd user Gateway whose unit pinned an absolute Node that 2026.10.6 no longer supports kept crash-looping, and doctor --fix could not repair it: Doctor misclassified the %t runtime environment-file drop-in as an operator override and only repaired the service runtime interactively. Doctor now repairs a provably owned service (command matches the installed package root, no launcher override, only runtime/PATH findings; service platform passed explicitly) to the install plan's compatible Node in non-interactive mode through the existing backup and reconciliation owner, preserving unrelated drop-ins and refusing real PATH or launcher overrides. Current main already refuses the incompatible-Node update before staging or migration; docs now describe both. Fixes #181611, reported by @samueltardieu.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：修正(文件tor): repair unsupported Gateway Node runtimes (#181618)",
+      "summaryZh": "重點：修正(文件tor): repair unsupported Gateway Node runtimes (#181618) After a 2026.10.5 to 2026.10.6 update, a systemd user Gate..."
+    },
+    {
+      "id": 3,
+      "title": "fix(fal): report unsupported video overrides for MiniMax and HeyGen i…",
+      "link": "https://github.com/openclaw/openclaw/commit/ae3e7605dad3bf186ae980252b016d687addc0b9",
+      "publishedAt": "2026-10-23T12:52:55Z",
+      "summary": "fix(fal): report unsupported video overrides for MiniMax and HeyGen instead of claiming they were applied (#177687) fix(fal): report video overrides that Fal models ignore Fal MiniMax and HeyGen video requests silently dropped unsupported geometry and audio overrides, while the CLI and runtime metadata said no overrides were ignored; Kling and Wan similarly misreported unsupported audio. The request sent to Fal is unchanged; the reported ignoredOverrides now list what each model actually dropped. Evidence: built CLI against a local HTTP fixture standing in for Fal (with the private-network guard left on). For MiniMax and HeyGen, main reported ignored [] while the request carried only the prompt (twice); with this change the request is the same and ignored lists the geometry and audio overrides (twice). Kling and Wan now report ignored audio, Seedance reports nothing ignored for its supported fields, and the saved MP4 bytes are identical. A live gpt-5.4-mini run passes. Production +28/-2. Thanks @yetval. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(fal): report unsupported video overrides for MiniMax and HeyGen i…",
+      "summaryZh": "重點：修正(fal): report unsupported video overrides for MiniMax and HeyGen instead of claiming they were applied (#177687) 修正(fa..."
+    },
+    {
+      "id": 4,
+      "title": "fix: announce Models provider read failures (#181172)",
+      "link": "https://github.com/openclaw/openclaw/commit/97d96e53d22f8740b63aa441ad152ad88264e54c",
+      "publishedAt": "2026-10-23T12:51:59Z",
+      "summary": "fix: announce Models provider read failures (#181172) Announce Models provider-read failures and retain the existing error notice during retry. Reviewed-by: @shakkernerd Co-authored-by: etzelm Co-authored-by: Shakker",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: announce 模型 provider read failures (#181172)",
+      "summaryZh": "重點：修正: announce 模型 provider read failures (#181172) Announce 模型 provider-read failures and retain the existing error notice..."
+    },
+    {
+      "id": 5,
       "title": "日本遊戲大廠卡普空會員資料外洩逾1,177萬筆，近200個帳號的密碼遭改",
       "link": "https://www.ithome.com.tw/news/179912",
       "publishedAt": "2026-10-23 12:10:04",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "PHP2Shell漏洞影響全球10%的組織，Check Point警示歐洲首當其衝",
       "link": "https://www.ithome.com.tw/news/179908",
       "publishedAt": "2026-10-23 11:10:46",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "日本首相針對PHP2Shell漏洞提出警告，呼籲網站管理員準備修補及採取相關因應措施",
       "link": "https://www.ithome.com.tw/news/179910",
       "publishedAt": "2026-10-23 11:10:43",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "PHP2Shell恐源自20年前的嚴重記憶體錯誤",
       "link": "https://www.ithome.com.tw/news/179913",
       "publishedAt": "2026-10-23 11:10:10",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "戶外用品業者歐都納接獲消費者反映疑似個資外洩，重訊指出委外平臺業者資料庫遭自動化攻擊",
       "link": "https://www.ithome.com.tw/news/179909",
       "publishedAt": "2026-10-23 11:10:01",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "私鑰安全事故延燒，印度eMudhra宣布退出SSL/TLS憑證市場",
       "link": "https://www.ithome.com.tw/news/179911",
       "publishedAt": "2026-10-23 11:10:00",
       "summary": "印度數位憑證業者eMudhra週四（10/22）宣布，將退出全球SSL/TLS憑證市場。該公司日前被發現有8張中繼憑證授權機構（CA）憑證的私密金鑰存在嚴重安全問題，攻擊者可輕易還原私鑰，進而偽造網站憑證。這讓Google、蘋果、微軟及Mozilla等業者相繼封鎖有問題的中繼CA憑證，亦使得eMudhra最終決定退出憑證業務。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "refactor: fold single-consumer internal surface owners (#181424)",
-      "link": "https://github.com/openclaw/openclaw/commit/faeacc706b4887e65c4db1e6ac992179a6f82630",
-      "publishedAt": "2026-10-23T07:03:23Z",
-      "summary": "refactor: fold single-consumer internal surface owners (#181424) * refactor: fold single-consumer internal surface owners * fix: preserve receiver-free callbacks after owner folding",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: fold single-consumer internal surface owners (#181424)",
-      "summaryZh": "重點：refactor: fold single-consumer internal surface owners (#181424) * refactor: fold single-consumer internal surface owner..."
-    },
-    {
-      "id": 8,
-      "title": "fix(gateway): keep channel-less agent turns channel-less after restar…",
-      "link": "https://github.com/openclaw/openclaw/commit/fcdcbca7d7445dd6208cb527bb2a8d37a7ba5eaf",
-      "publishedAt": "2026-10-23T07:03:00Z",
-      "summary": "fix(gateway): keep channel-less agent turns channel-less after restart recovery (#181420) * fix(gateway): preserve channel-less restart recovery At src/gateway/agent-turn/agent-restart-recovery-context.ts:62, an absent session delivery route incorrectly selected WebChat for an internal operator recovery turn. Require an explicit WebChat route instead, while preserving Control UI context and correlated channel delivery authority. Cover delivery planning through Gateway dispatch and embedded runtime resolution, retain real WebChat message-tool delivery, and document the channel-less recovery behavior. Subagent restart and requester-settle wakes do not enter the main-session-only fallback. Validation: the channel-less regression fails on the base with WebChat instead of undefined; all four focused test files pass (71 tests) with the fix. Changed-file oxfmt/oxlint and both targeted typecheck graphs pass. * fix(agents): preserve restart recovery source channels The agent-command claim recorded internal ingress but discarded the runtime message channel (agent-command-restart-recovery.ts:352 on base 575b49f73c2). The resolver's route-less fallback at agent-restart-recovery-context.ts:62 therefore resumed channel-less agent RPC turns as WebChat. Record the original message channel, including explicit null for channel-less turns, at command admission and record WebChat in the chat journal. Preserve that fact through claim adoption and clear it with the rest of the claim. Restore the recorded channel while retaining the route-guarded WebChat fallback for older in-flight claims. Preserve #172982's dashboard/WebChat progress sink and rejection of targetless sends on external-channel keys. The producer-to-runtime regression fails on base with webchat instead of an absent channel. Focused recovery, message-tool and prefix-stability tests cover the fix; no configuration or migration is needed. * fix(gateway): restore only channel-less recovery from the recorded source channel Recorded non-WebChat channels keep the ingress-specific restoration, including channel delivery authority.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): keep channel-less agent turns channel-less after restar…",
-      "summaryZh": "重點：修正(Gateway): keep channel-less agent turns channel-less after restart recovery (#181420) * 修正(Gateway): preserve channel..."
-    },
-    {
-      "id": 9,
-      "title": "chore(ui): refresh control ui locales (#181441)",
-      "link": "https://github.com/openclaw/openclaw/commit/1b7c2086914078573c4793b9e680a3e44899109d",
-      "publishedAt": "2026-10-23T06:59:31Z",
-      "summary": "chore(ui): refresh control ui locales (#181441) Co-authored-by: github-actions[bot]",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#181441)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#181441) Co-authored-by: github-actions[bot]..."
-    },
-    {
-      "id": 10,
-      "title": "fix(macos): show actual Gateway version and keep recovery visible (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/bd36d908702df5188810790207f352de0a0688b9",
-      "publishedAt": "2026-10-23T06:58:30Z",
-      "summary": "fix(macos): show actual Gateway version and keep recovery visible (#181389) * fix(macos): show actual bundled Gateway status and recovery * fix(macos): keep pending Gateway recovery actionable --------- Co-authored-by: Scott Hanselman Co-authored-by: Dallin Romney",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): show actual Gateway version and keep recovery visible (#1…",
-      "summaryZh": "重點：修正(macos): show actual Gateway version and keep recovery visible (#181389) * 修正(macos): show actual bundled Gateway stat..."
     }
   ]
 }
