@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-23T18:07:35.796Z",
+  "generatedAt": "2026-10-23T21:53:01.003Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(agent-core): build package declarations without Promise.withResol…",
-      "link": "https://github.com/openclaw/openclaw/commit/1eae4fc0d708c9c7e4c8225e705a38273be1d6d2",
-      "publishedAt": "2026-10-23T18:07:22Z",
-      "summary": "fix(agent-core): build package declarations without Promise.withResolvers (#181806) #181576 used Promise.withResolvers in agent-core's tool-batch launcher, but the package declaration build compiles against the repo's ES2023 lib, so pnpm build failed on main with TS2550 and produced no artifacts. Capture the resolver from a plain promise instead (the executor runs synchronously, and only resolve is used); behavior is identical and the package lib target stays unchanged.",
+      "title": "fix: Skill workshop reader stays short as the skill list grows (#181830)",
+      "link": "https://github.com/openclaw/openclaw/commit/1ba6f92d40748765de3b7bf325ee24b4d08f483f",
+      "publishedAt": "2026-10-23T21:52:14Z",
+      "summary": "fix: Skill workshop reader stays short as the skill list grows (#181830) * Merge selected base main Co-authored-by: etzelm * fix: Skill workshop reader stays short as the skill list grows Worked on by: - @etzelm Co-authored-by: etzelm OpenClaw-Publication: d874299b-6b8b-4bc5-804e-d42d8e68ec34 * Publish openclaw/fix-skill-workshop-height-openclaw Worked on by: - @etzelm Co-authored-by: etzelm OpenClaw-Publication: c54074f0-2223-4e7c-b44a-6b3e0bf0e24a --------- Co-authored-by: etzelm",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agent-core): build package declarations without Promise.withResol…",
-      "summaryZh": "重點：修正(agent-core): build package declarations without Promise.withResolvers (#181806) #181576 used Promise.withResolvers in..."
+      "titleZh": "OpenClaw 程式碼更新：修正: Skill workshop reader stays short as the skill list grows (#181830)",
+      "summaryZh": "重點：修正: Skill workshop reader stays short as the skill list grows (#181830) * Merge selected base main Co-authored-by: etzel..."
     },
     {
       "id": 2,
-      "title": "release-publish/6cc605dfe204-1792778379",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F6cc605dfe204-1792778379",
-      "publishedAt": "2026-10-23T17:59:09Z",
-      "summary": "test(ui): align boot stress fixture with sharing permissions (#181798)",
-      "source": "OpenClaw Releases",
+      "title": "perf(github): overlap pull request comment reads (#181887)",
+      "link": "https://github.com/openclaw/openclaw/commit/34c95cb9e0017b061942cb6df4b3801f7cc53e9e",
+      "publishedAt": "2026-10-23T21:49:15Z",
+      "summary": "perf(github): overlap pull request comment reads (#181887) Fetch discussion and inline review comments concurrently while retaining dispatch and delivery access checks. Preserve partial results and comment ordering. Add synthetic overlap regression and a rerunnable reader benchmark.",
+      "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：版本發布-publish/6cc605dfe204-1792778379",
-      "summaryZh": "重點：test(ui): align boot stress 修正ture with sharing permissions (#181798)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(github): overlap pull request comment reads (#181887)",
+      "summaryZh": "重點：perf(github): overlap pull request comment reads (#181887) Fetch discussion and inline review comments concurrently whil..."
     },
     {
       "id": 3,
-      "title": "test(ui): align boot stress fixture with sharing permissions (#181798)",
-      "link": "https://github.com/openclaw/openclaw/commit/6cc605dfe2044a2d2649dea02458e7982739d493",
-      "publishedAt": "2026-10-23T17:59:09Z",
-      "summary": "test(ui): align boot stress fixture with sharing permissions (#181798)",
+      "title": "docs: document tested video preparation paths and compatibility gaps …",
+      "link": "https://github.com/openclaw/openclaw/commit/74cb12dd2c7597f0d9a388b94bb2b776cac6db25",
+      "publishedAt": "2026-10-23T21:44:44Z",
+      "summary": "docs: document tested video preparation paths and compatibility gaps (#181079) * Merge selected base main Co-authored-by: TheAngryPit * docs: document tested video preparation paths and compatibility gaps Worked on by: - @TheAngryPit Co-authored-by: TheAngryPit OpenClaw-Publication: abb3da3c-3958-4837-977c-7adecd91cbf4 --------- Co-authored-by: TheAngryPit",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): align boot stress 修正ture with sharing permissions (#181798)",
-      "summaryZh": "重點：test(ui): align boot stress 修正ture with sharing permissions (#181798)..."
+      "titleZh": "OpenClaw 文件更新：文件: 文件ument tested video preparation paths and compatibility gaps …",
+      "summaryZh": "重點：文件: 文件ument tested video preparation paths and compatibility gaps (#181079) * Merge selected base main Co-authored-by: T..."
     },
     {
       "id": 4,
-      "title": "fix(update): accept stale owned FTS indexes in update snapshots (#181…",
-      "link": "https://github.com/openclaw/openclaw/commit/1b27dd68d0574b47098b6a1b670836795c8749e5",
-      "publishedAt": "2026-10-23T17:56:07Z",
-      "summary": "fix(update): accept stale owned FTS indexes in update snapshots (#181206) A Node upgrade that changes SQLite unicode61 tokenization (SQLite 3.54, U+FFFE) makes healthy canonical agent FTS indexes report \"malformed inverted index\". The candidate state snapshot refused the update with candidate-snapshot-failed before the candidate's Doctor or agent database admission could rebuild them, and its Doctor guidance was a dead end under the old runtime. assertSqliteIntegrity gains an opt-in ftsSchemas option: when every finding names an exactly owned FTS definition, the check passes, the table and foreign-key checks still run, and full-integrity admission is not recorded. Only the candidate rehearsal snapshot and update database backups opt in with AGENT_FTS_SCHEMAS. Unowned or mixed findings stay fatal. The classifier moves into sqlite-integrity.ts to avoid an import cycle. The candidate worker performs the rehearsal snapshot, so the fix applies on the first update to a candidate containing it; activation backups need the installed updater to contain it. Refs #176220",
+      "title": "feat(models): expose canonical model family in models.list and the re…",
+      "link": "https://github.com/openclaw/openclaw/commit/2995f75ce20d9944e797a3056016da06f88d733b",
+      "publishedAt": "2026-10-23T21:43:48Z",
+      "summary": "feat(models): expose canonical model family in models.list and the requester catalog (#181685) Add an optional `family` to model catalog rows: the developer lineage a provider or catalog declares, such as `anthropic` for every route serving a Claude model. Bundled single-developer catalogs declare it per provider and the GitHub Copilot catalog per row. Copilot discovery maps its model `vendor`, and ClawRouter routed rows take the family of the exact bundled upstream row. Unknown models carry no family; nothing is inferred from model ids or names. The family follows catalog route rules: a configured model that moves to another API or endpoint drops it, a hosted overlay keeps the bundled row's family, and a malformed persisted value drops only that fact. `models.list` rows, the protocol schema and the plugin requester catalog expose it, advertised to plugins as `requester-model-family-v1`.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): accept stale owned FTS indexes in update snapshots (#181…",
-      "summaryZh": "重點：修正(update): accept stale owned FTS indexes in update snapshots (#181206) A Node upgrade that changes SQLite unicode61 to..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(模型): expose canonical 模型 family in 模型.list and the re…",
+      "summaryZh": "重點：新功能(模型): expose canonical 模型 family in 模型.list and the requester catalog (#181685) Add an optional `family` to 模型 catalo..."
     },
     {
       "id": 5,
