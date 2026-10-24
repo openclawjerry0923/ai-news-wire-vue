@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-23T21:53:01.003Z",
+  "generatedAt": "2026-10-24T00:19:19.420Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: Skill workshop reader stays short as the skill list grows (#181830)",
-      "link": "https://github.com/openclaw/openclaw/commit/1ba6f92d40748765de3b7bf325ee24b4d08f483f",
-      "publishedAt": "2026-10-23T21:52:14Z",
-      "summary": "fix: Skill workshop reader stays short as the skill list grows (#181830) * Merge selected base main Co-authored-by: etzelm * fix: Skill workshop reader stays short as the skill list grows Worked on by: - @etzelm Co-authored-by: etzelm OpenClaw-Publication: d874299b-6b8b-4bc5-804e-d42d8e68ec34 * Publish openclaw/fix-skill-workshop-height-openclaw Worked on by: - @etzelm Co-authored-by: etzelm OpenClaw-Publication: c54074f0-2223-4e7c-b44a-6b3e0bf0e24a --------- Co-authored-by: etzelm",
+      "title": "fix(perf): report natural GC cost for paired RPC measurements (#181973)",
+      "link": "https://github.com/openclaw/openclaw/commit/34875012f54f9076336635977b99e6907704926b",
+      "publishedAt": "2026-10-24T00:18:54Z",
+      "summary": "fix(perf): report natural GC cost for paired RPC measurements (#181973) * fix(perf): report natural GC cost for paired RPC measurements * fix(perf): preserve mixed polling benchmark results * fix(perf): separate untraced GC timing from promotion",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: Skill workshop reader stays short as the skill list grows (#181830)",
-      "summaryZh": "重點：修正: Skill workshop reader stays short as the skill list grows (#181830) * Merge selected base main Co-authored-by: etzel..."
+      "titleZh": "OpenClaw 程式碼更新：修正(perf): report natural GC cost for paired RPC measurements (#181973)",
+      "summaryZh": "重點：修正(perf): report natural GC cost for paired RPC measurements (#181973) * 修正(perf): report natural GC cost for paired RPC..."
     },
     {
       "id": 2,
-      "title": "perf(github): overlap pull request comment reads (#181887)",
-      "link": "https://github.com/openclaw/openclaw/commit/34c95cb9e0017b061942cb6df4b3801f7cc53e9e",
-      "publishedAt": "2026-10-23T21:49:15Z",
-      "summary": "perf(github): overlap pull request comment reads (#181887) Fetch discussion and inline review comments concurrently while retaining dispatch and delivery access checks. Preserve partial results and comment ordering. Add synthetic overlap regression and a rerunnable reader benchmark.",
+      "title": "perf(workers): reduce unused imports and duplicate admission maps (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/a69cf566f908ddc996c832c88108d0a966cda1a3",
+      "publishedAt": "2026-10-24T00:17:38Z",
+      "summary": "perf(workers): reduce unused imports and duplicate admission maps (#181962) * perf(workers): stop retaining unused execution graphs and duplicate admission maps * test(perf): identify worker GC traces before paired measurements * test(perf): reject missed worker measurement starts * docs(perf): clarify worker measurement start synchronization * test(status): preserve Git probe spies across concurrent imports * test(perf): isolate non-Git worker parent module graphs * perf(plugins): release consumed admission transfer entries",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(github): overlap pull request comment reads (#181887)",
-      "summaryZh": "重點：perf(github): overlap pull request comment reads (#181887) Fetch discussion and inline review comments concurrently whil..."
+      "titleZh": "OpenClaw 程式碼更新：perf(workers): reduce unused imports and duplicate admission maps (#1…",
+      "summaryZh": "重點：perf(workers): reduce unused imports and duplicate admission maps (#181962) * perf(workers): stop retaining unused execu..."
     },
     {
       "id": 3,
-      "title": "docs: document tested video preparation paths and compatibility gaps …",
-      "link": "https://github.com/openclaw/openclaw/commit/74cb12dd2c7597f0d9a388b94bb2b776cac6db25",
-      "publishedAt": "2026-10-23T21:44:44Z",
-      "summary": "docs: document tested video preparation paths and compatibility gaps (#181079) * Merge selected base main Co-authored-by: TheAngryPit * docs: document tested video preparation paths and compatibility gaps Worked on by: - @TheAngryPit Co-authored-by: TheAngryPit OpenClaw-Publication: abb3da3c-3958-4837-977c-7adecd91cbf4 --------- Co-authored-by: TheAngryPit",
+      "title": "fix(ui): improve contrast between the active spinner and pending task…",
+      "link": "https://github.com/openclaw/openclaw/commit/cb2dbda93738f84f6b25c974c6d0b2d50698b76b",
+      "publishedAt": "2026-10-24T00:15:29Z",
+      "summary": "fix(ui): improve contrast between the active spinner and pending tasks (#181843) * fix(ui): strengthen active task progress spinner contrast * fix(ui): align and soften pending task markers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: 文件ument tested video preparation paths and compatibility gaps …",
-      "summaryZh": "重點：文件: 文件ument tested video preparation paths and compatibility gaps (#181079) * Merge selected base main Co-authored-by: T..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): improve contrast between the active spinner and pending task…",
+      "summaryZh": "重點：修正(ui): improve contrast between the active spinner and pending tasks (#181843) * 修正(ui): strengthen active task progres..."
     },
     {
       "id": 4,
-      "title": "feat(models): expose canonical model family in models.list and the re…",
-      "link": "https://github.com/openclaw/openclaw/commit/2995f75ce20d9944e797a3056016da06f88d733b",
-      "publishedAt": "2026-10-23T21:43:48Z",
-      "summary": "feat(models): expose canonical model family in models.list and the requester catalog (#181685) Add an optional `family` to model catalog rows: the developer lineage a provider or catalog declares, such as `anthropic` for every route serving a Claude model. Bundled single-developer catalogs declare it per provider and the GitHub Copilot catalog per row. Copilot discovery maps its model `vendor`, and ClawRouter routed rows take the family of the exact bundled upstream row. Unknown models carry no family; nothing is inferred from model ids or names. The family follows catalog route rules: a configured model that moves to another API or endpoint drops it, a hosted overlay keeps the bundled row's family, and a malformed persisted value drops only that fact. `models.list` rows, the protocol schema and the plugin requester catalog expose it, advertised to plugins as `requester-model-family-v1`.",
+      "title": "fix(test): make shard timings work in fresh installs (#182030)",
+      "link": "https://github.com/openclaw/openclaw/commit/677dc2817c0152891f0332772934cea4b2576c66",
+      "publishedAt": "2026-10-24T00:15:17Z",
+      "summary": "fix(test): make shard timings work in fresh installs (#182030) Resolve the workspace helper from source so release prepush changed tests do not depend on an undeclared root workspace link. Co-authored-by: roboclaw-bot Co-authored-by: RomneyDa",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(模型): expose canonical 模型 family in 模型.list and the re…",
-      "summaryZh": "重點：新功能(模型): expose canonical 模型 family in 模型.list and the requester catalog (#181685) Add an optional `family` to 模型 catalo..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): make shard timings work in fresh installs (#182030)",
+      "summaryZh": "重點：修正(test): make shard timings work in fresh installs (#182030) Resolve the workspace helper from source so 版本發布 prepush c..."
     },
     {
       "id": 5,
+      "title": "一手送健保、一手削弱勢？《老人福利法》大修背後的殘酷代價",
+      "link": "https://finance.technews.tw/2026/10/24/price-free-nhi-premiums-seniors-65-low-income-subsidies-dentures-lenses-gone-senior-benefits-healthcare-gap-vulnerable/",
+      "publishedAt": "Sat, 24 Oct 2026 00:00:37 +0000",
+      "summary": "立法院三讀通過《老人福利法》，未來將在排富前提下，由中央統一補助年滿 65 歲以上長輩健保費。 但這項修法可能 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "補足印太運補缺口，美國空軍投資 Natilus 翼身融合貨機",
+      "link": "https://technews.tw/2026/10/24/usaf-invested-natilus-3-5-million-for-its-kona-bwb-aircraft/",
+      "publishedAt": "Fri, 23 Oct 2026 23:00:55 +0000",
+      "summary": "美國空軍近期授予航空新創 Natilus 350 萬美元研發合約，支持旗下翼身融合貨機 KONA 開發，瞄準印 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "NASA 最新示警：北極海冰「冬夏雙減」結構脆化，2050 年前恐面臨夏季無冰危機",
       "link": "https://technews.tw/2026/10/24/arctic-sea-ice-shrinking-crisis/",
       "publishedAt": "Fri, 23 Oct 2026 16:00:58 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "科幻場景成真，研究證實「雙太陽系統」有孕育穩定類地行星潛力",
       "link": "https://technews.tw/2026/10/24/could-a-two-sun-world-become-reality/",
       "publishedAt": "Fri, 23 Oct 2026 16:00:47 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "免吃藥開刀，研究證實客製化「微調走路角度」有效緩解膝關節痛",
       "link": "https://technews.tw/2026/10/24/changing-walking-angle-can-relieve-arthritis/",
       "publishedAt": "Fri, 23 Oct 2026 16:00:04 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "日本遊戲大廠卡普空會員資料外洩逾1,177萬筆，近200個帳號的密碼遭改",
       "link": "https://www.ithome.com.tw/news/179912",
       "publishedAt": "2026-10-23 12:10:04",
       "summary": "日本遊戲大廠卡普空（Capcom）證實，旗下會員帳號服務CAPCOM ID遭第三方入侵，導致全球超過1,177萬筆會員資料外洩，其中有196個帳號的登入密碼遭擅自變更。卡普空表示，未發現會員自行設定的密碼外洩，信用卡資料也不在此次外洩範圍。 CAPCOM ID是卡普空旗下網路服務及部分線上遊戲使用的共用帳號。外洩資料包括會員電子郵件地址、帳號建立時間、最後登入時間、登入次數，以及最後登入時使用的IP位址，而有43筆還包含出生年月日、性別、國家或地區及暱稱。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "PHP2Shell漏洞影響全球10%的組織，Check Point警示歐洲首當其衝",
-      "link": "https://www.ithome.com.tw/news/179908",
-      "publishedAt": "2026-10-23 11:10:46",
-      "summary": "震撼全球的PHP2Shell網站漏洞危機，目前已知的影響，除了全世界70%的網站都可能有潛在風險，資安廠商Check Point目前揭露全球衝擊程度的研究數據，該公司表示，由於PHP2Shell漏洞的細節在預定公",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "日本首相針對PHP2Shell漏洞提出警告，呼籲網站管理員準備修補及採取相關因應措施",
-      "link": "https://www.ithome.com.tw/news/179910",
-      "publishedAt": "2026-10-23 11:10:43",
-      "summary": "資安漏洞嚴重程度的認定，一般而言大多會根據兩種指標，一是CVSS評分，另一種則為是否有資安公司，甚至如美國網路安全與基礎設施安全局（CISA）等國家級資安機構出面警告，但如今有資安漏洞上升至國家安全層級，罕見地由國家元首呼籲用戶確認及預備修補。",
       "source": "iThome",
       "tag": "繁中"
     }
