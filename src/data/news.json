@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-25T10:53:40.321Z",
+  "generatedAt": "2026-10-25T14:52:25.931Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(reef): avoid duplicate pairing reads per reconciliation (#183465)",
-      "link": "https://github.com/openclaw/openclaw/commit/beaf18f6c0023714b4c34211b5d08d5f1ab2d93a",
-      "publishedAt": "2026-10-25T10:48:57Z",
-      "summary": "perf(reef): avoid duplicate pairing reads per reconciliation (#183465) * docs(perf): preregister pairing allowlist attribution * test(perf): attribute pairing reads across synthetic channels * perf(reef): share pairing inventory across reconciliation * fix(reef): satisfy pairing reconciliation lint",
+      "title": "refactor: deslop media, backup and transport fixtures (#183640)",
+      "link": "https://github.com/openclaw/openclaw/commit/53fe804a9cf080bbda7928101fbc4cfb836ad09c",
+      "publishedAt": "2026-10-25T14:50:40Z",
+      "summary": "refactor: deslop media, backup and transport fixtures (#183640)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(reef): avoid duplicate pairing reads per reconciliation (#183465)",
-      "summaryZh": "重點：perf(reef): avoid duplicate pairing reads per reconciliation (#183465) * 文件(perf): preregister pairing allowlist attribu..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: deslop media, backup and transport 修正tures (#183640)",
+      "summaryZh": "重點：refactor: deslop media, backup and transport 修正tures (#183640)..."
     },
     {
       "id": 2,
-      "title": "fix(build): make runtime script assets independent of dependency path…",
-      "link": "https://github.com/openclaw/openclaw/commit/60c3a7c35283dd6377baff1e6ab137d1e0e96c0d",
-      "publishedAt": "2026-10-25T10:43:29Z",
-      "summary": "fix(build): make runtime script assets independent of dependency paths (#183493)",
+      "title": "fix: avoid sorts on non-null PostgreSQL partial indexes (#183443)",
+      "link": "https://github.com/openclaw/openclaw/commit/38753ff3b97dcd388165b063f32d4788324e2a08",
+      "publishedAt": "2026-10-25T14:49:06Z",
+      "summary": "fix: avoid sorts on non-null PostgreSQL partial indexes (#183443) * fix: avoid sorts on non-null PostgreSQL partial indexes * fix(postgres): complete partial-index ordering validation",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(build): make runtime script assets independent of dependency path…",
-      "summaryZh": "重點：修正(build): make runtime script assets independent of dependency paths (#183493)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: avoid sorts on non-null PostgreSQL partial indexes (#183443)",
+      "summaryZh": "重點：修正: avoid sorts on non-null PostgreSQL partial indexes (#183443) * 修正: avoid sorts on non-null PostgreSQL partial indexe..."
     },
     {
       "id": 3,
-      "title": "test(doctor): follow generated runtime probe in gateway service autho…",
-      "link": "https://github.com/openclaw/openclaw/commit/d9fca9f0514bc86b06b61518e6aaf85152080385",
-      "publishedAt": "2026-10-25T10:42:10Z",
-      "summary": "test(doctor): follow generated runtime probe in gateway service authority tests Update the stale inline-probe fixture for the generated daemon-runtime-probe.mjs boundary introduced by #183120. Preserve all 21 cases, authority assertions, and rejection of unexpected subprocesses. Proof: on macOS, Node and Bun each reproduce 5 base failures with Unexpected fixture runtime process and pass all 21 cases with the fix (CI reported 14 failures). Focused type-aware oxlint, format check, git diff --check, and one isolated Codex review pass.",
+      "title": "fix(plugins): plugin session actions, hooks, and subagent-end notific…",
+      "link": "https://github.com/openclaw/openclaw/commit/4bbb8154288d9ebeb2d84faa946948820914dcf5",
+      "publishedAt": "2026-10-25T14:41:41Z",
+      "summary": "fix(plugins): plugin session actions, hooks, and subagent-end notifications fail during a plugin reload (#182310) * fix(plugins): wait out a plugin reload instead of failing calls during the swap Fresh host calls refused by a quiesced plugin instance with a pending replacement now wait for the reload to settle and resolve once more against the current registry: plugins.sessionAction, typed hook dispatch, and context-engine onSubagentEnded. A second refusal surfaces as retryable UNAVAILABLE (reason plugin-reloading). Memory provider calls admitted before quiesce no longer fail when they complete after it. Refs #182024 * fix(plugins): rerun hook admission and context for replacement handlers A hook dispatch that waits out a plugin reload now returns to its own loop before invoking the replacement registration, so claiming-hook binding admission is prepared and checked again, session_end transcript context is projected for the registration actually invoked, and a dispatch whose timeout expired during the wait starts no late replacement handler. * fix(plugins): ship reservation module with PR wrapper and prove binding admission across reload Add plugin-instance-replacement.ts to the trusted PR wrapper inventory, use respondError for the plugin-reloading response, and prove through the real conversation-binding owner that a binding reassigned or revoked during a plugin reload rejects before the replacement receives the inbound claim.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：test(文件tor): follow generated runtime probe in Gateway service autho…",
-      "summaryZh": "重點：test(文件tor): follow generated runtime probe in Gateway service authority tests Update the stale inline-probe 修正ture for ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): plugin session actions, hooks, and subagent-end notific…",
+      "summaryZh": "重點：修正(plugins): plugin session actions, hooks, and subagent-end notifications fail during a plugin reload (#182310) * 修正(pl..."
     },
     {
       "id": 4,
-      "title": "fix(memory): emit JSON for selected-provider status refusals (#183373)",
-      "link": "https://github.com/openclaw/openclaw/commit/d4a17a6bfaf7977afce3c703b731ff5e0547baf0",
-      "publishedAt": "2026-10-25T10:41:21Z",
-      "summary": "fix(memory): emit JSON for selected-provider status refusals (#183373) fix(memory): print a JSON error from memory status --deep --json when another plugin owns the memory slot When a plugin other than Memory Core owned the memory slot, `openclaw memory status --deep --json` exited 1 with nothing on stdout, which broke scripts reading the documented JSON error. It now prints one standard cli_error JSON document naming the owning plugin, and still exits 1. Evidence: built CLI with the real memory-lancedb plugin installed through the shipped `openclaw plugins install memory-lancedb`. On main the deep JSON status printed nothing on stdout (twice); with this change it prints a cli_error document and exits 1 (twice). Plain `memory status --json` works on both. Thanks @Leon-SK668. Co-authored-by: Ayaan Zaidi",
+      "title": "perf(gateway): renew publication leases off the main thread (#183596)",
+      "link": "https://github.com/openclaw/openclaw/commit/a856d44ba4a0442a2bc4fa24d98bef291eace0f1",
+      "publishedAt": "2026-10-25T14:38:24Z",
+      "summary": "perf(gateway): renew publication leases off the main thread (#183596) Route personal GitHub profile and workspace publication lease renewals through the existing heartbeat worker while preserving durable ownership checks at effects. Native bootstrap acquisition and heartbeat startup fallback remain unchanged. Add a real-owner concurrent-write regression and repair scoped profiler imports for frozen build comparisons. Full ten-minute AB/BA timing and allocation stress completed without a demonstrated regression; exact-head CI and independent review passed. No SQLite schema, checkpoint, journal, or durability policy changes.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): emit JSON for selected-provider status refusals (#183373)",
-      "summaryZh": "重點：修正(記憶): emit JSON for selected-provider status refusals (#183373) 修正(記憶): print a JSON error from 記憶 status --deep --jso..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): renew publication leases off the main thread (#183596)",
+      "summaryZh": "重點：perf(Gateway): renew publication leases off the main thread (#183596) Route personal GitHub profile and workspace public..."
     },
     {
       "id": 5,
