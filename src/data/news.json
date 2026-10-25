@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-24T22:56:26.590Z",
+  "generatedAt": "2026-10-25T00:55:10.506Z",
   "items": [
     {
       "id": 1,
-      "title": "test(core,plugins): remove low-value tests (batch d493) (#182892)",
-      "link": "https://github.com/openclaw/openclaw/commit/18503f69a904a94eeb7571141d9db6be47e0ee3d",
-      "publishedAt": "2026-10-24T22:52:55Z",
-      "summary": "test(core,plugins): remove low-value tests (batch d493) (#182892) * test(core,plugins): remove low-value tests (batch d493) Consolidate the retained Nextcloud inbound, Ollama stream, voice-call, channel, service-plan, compaction and meeting participation cases. Preserve distinct boundary coverage found during review and adapt the replay to current main. Source batch: 21 replayed commits, nine skipped obsolete or conflicting commits; final review drops superseded file reductions and retains meaningful regressions. No production changes. * test: prune retired max-lines allowances * test: document isolated transport mocks * test: prune documented mock baseline entries",
+      "title": "fix(web-fetch): keep definition-list fields separate (#180557)",
+      "link": "https://github.com/openclaw/openclaw/commit/730a97454673f6382d960102f6a06ecf4869ff81",
+      "publishedAt": "2026-10-25T00:54:42Z",
+      "summary": "fix(web-fetch): keep definition-list fields separate (#180557) * fix(web-fetch): preserve definition-list term boundaries * docs(web-fetch): describe definition-list boundaries --------- Co-authored-by: Peter Steinberger Co-authored-by: AmelioMansour",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(core,plugins): remove low-value tests (batch d493) (#182892)",
-      "summaryZh": "重點：test(core,plugins): remove low-value tests (batch d493) (#182892) * test(core,plugins): remove low-value tests (batch d4..."
+      "titleZh": "OpenClaw 程式碼更新：修正(web-fetch): keep definition-list fields separate (#180557)",
+      "summaryZh": "重點：修正(web-fetch): keep definition-list fields separate (#180557) * 修正(web-fetch): preserve definition-list term boundaries ..."
     },
     {
       "id": 2,
-      "title": "perf(sqlite): avoid copying complete worker transfer records (#182932)",
-      "link": "https://github.com/openclaw/openclaw/commit/97aa674d4165aa4741c0253289eacb016d980bc5",
-      "publishedAt": "2026-10-24T22:52:45Z",
-      "summary": "perf(sqlite): avoid copying complete worker transfer records (#182932) Reuse complete SQLite worker frame bytes before deserialization instead of allocating and copying a second buffer. Preserve validation, error handling, and owned assembly for fragmented records. Paired receiver CPU per operation improved 39.8%, 13.8%, and 6.4% for the measured 1/16/128 KiB records; the 9 MiB fragmented control was neutral. Keep measurement tooling and a synthetic reply census for reproducible owner-level proof. Validated with focused framing/admission and caller tests, isolated synthetic Gateway turns, independent review, and exact-head PR CI. The sole failed test job matches seven onboarding fixture failures on scheduled main; landed under the authorized inherited-failure exception. No transaction, admission, schema, or decoded-value contract changes.",
+      "title": "perf(plugins): trim metadata refresh lease verification (#182970)",
+      "link": "https://github.com/openclaw/openclaw/commit/bf7cce65222638d005263ba5d07df7067109e023",
+      "publishedAt": "2026-10-25T00:53:54Z",
+      "summary": "perf(plugins): trim metadata refresh lease verification (#182970) Remove five observation-only lease verifications from post-ready plugin metadata refresh. The refresh uses three verification requests instead of eight, reducing its database work from 34 statements and 12 requests to 24 statements and 7 requests. Keep publication and transaction custody checks, local cancellation checks, and database-backed admission for inherited lifecycle scopes that can outlive their outer operation. Include focused count and expiry regressions and a startup benchmark mode that observes completion of the real registry maintenance task.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sqlite): avoid copying complete worker transfer records (#182932)",
-      "summaryZh": "重點：perf(sqlite): avoid copying complete worker transfer records (#182932) Reuse complete SQLite worker frame bytes before d..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): trim metadata refresh lease verification (#182970)",
+      "summaryZh": "重點：perf(plugins): trim metadata refresh lease verification (#182970) Remove five observation-only lease verifications from ..."
     },
     {
       "id": 3,
-      "title": "fix: retry asks the model to continue dropped reasoning when a turn h…",
-      "link": "https://github.com/openclaw/openclaw/commit/ab7631a256019cf835645793eb21d5125cd9869a",
-      "publishedAt": "2026-10-24T22:49:50Z",
-      "summary": "fix: retry asks the model to continue dropped reasoning when a turn hits the output limit (#182429) A reasoning-only turn that ends at the output token limit is omitted from provider replay (#88656), but the reasoning-only recovery still asked the model to \"continue from that partial turn\" in a paid retry. Reuse the replay predicate for continuation eligibility so that turn ends with the existing output-limit outcome. Replayed reasoning-only stops keep their continuation; structured refusals stay terminal. Related: #182178 Co-authored-by: Dmitriy",
+      "title": "fix(feishu): preserve bot mentions across command admission (#182441)",
+      "link": "https://github.com/openclaw/openclaw/commit/045b6475c25fbb04f2d88f7ef83fc1f4d6b173a5",
+      "publishedAt": "2026-10-25T00:53:45Z",
+      "summary": "fix(feishu): preserve bot mentions across command admission (#182441) Keep receiving-bot mentions in agent-facing message content, and derive command probes at each decision owner. Preserve abort and btw admission through receive debouncing and sequential routing. Render only locally verified receiving-bot identity for app-scoped bot events, keeping additional recipient restrictions unchanged.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: retry asks the 模型 to continue dropped reasoning when a turn h…",
-      "summaryZh": "重點：修正: retry asks the 模型 to continue dropped reasoning when a turn hits the output limit (#182429) A reasoning-only turn th..."
+      "titleZh": "OpenClaw 程式碼更新：修正(feishu): preserve bot mentions across command admission (#182441)",
+      "summaryZh": "重點：修正(feishu): preserve bot mentions across command admission (#182441) Keep receiving-bot mentions in agent-facing message..."
     },
     {
       "id": 4,
-      "title": "test: use non-bundled plugin for hot handoff (#182962)",
-      "link": "https://github.com/openclaw/openclaw/commit/349369c020470a2184304c35f99ab3fc45f13726",
-      "publishedAt": "2026-10-24T22:49:07Z",
-      "summary": "test: use non-bundled plugin for hot handoff (#182962) Align the webhook hot-handoff lifecycle fixture with operator-managed plugin provenance while preserving bundled restart semantics.",
+      "title": "perf(plugins): reuse prepared policy on recurring reads (#183047)",
+      "link": "https://github.com/openclaw/openclaw/commit/2111311cbc909b97cddaad38f19a06931352645d",
+      "publishedAt": "2026-10-25T00:52:58Z",
+      "summary": "perf(plugins): reuse prepared policy on recurring reads (#183047) * perf(plugins): reuse prepared policy on recurring reads * test(plugins): compile policy benchmark resolver at build time * chore(plugins): keep assertion invariant beside its cast",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: use non-bundled plugin for hot handoff (#182962)",
-      "summaryZh": "重點：test: use non-bundled plugin for hot handoff (#182962) Align the webhook hot-handoff lifecycle 修正ture with operator-mana..."
+      "titleZh": "OpenClaw 程式碼更新：perf(plugins): reuse prepared policy on recurring reads (#183047)",
+      "summaryZh": "重點：perf(plugins): reuse prepared policy on recurring reads (#183047) * perf(plugins): reuse prepared policy on recurring re..."
     },
     {
       "id": 5,
+      "title": "語音 AI 為何遲未迎爆發期，辨識準度與情緒是最大弱點",
+      "link": "https://technews.tw/2026/10/25/voice-ai-executives-say-context-still-limits-natural-conversations/",
+      "publishedAt": "Sun, 25 Oct 2026 00:30:50 +0000",
+      "summary": "語音 AI 雖然持續進化，但業界主管普遍認為，它距離迎來類似 ChatGPT 的關鍵時刻仍有明顯差距。Poly [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "星巴克去冰補滿 15 元踩中兩地雷！新董座高秀玲砍優惠卻踢到鐵板，品牌經營必學的兩原則",
+      "link": "https://finance.technews.tw/2026/10/25/uni-starbucks-ceo-sucks/",
+      "publishedAt": "Sun, 25 Oct 2026 00:00:59 +0000",
+      "summary": "台灣星巴克正在經歷由「去冰補滿加 15 元」引爆的品牌危機，這項企圖找回尊榮感與提升獲利的改革，為何狠狠踩中消 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "天文學者透過 EAGLE 模擬揭密：銀河系外圍是全宇宙最佳「星際宜居帶」",
       "link": "https://technews.tw/2026/10/25/milky-way-best-cradle-for-life/",
       "publishedAt": "Sat, 24 Oct 2026 16:00:39 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "過去觀測全是一片空白，韋伯望遠鏡揪出憑空冒出的不明發射線",
       "link": "https://technews.tw/2026/10/25/webb-telescope-spots-a-puzzling-object/",
       "publishedAt": "Sat, 24 Oct 2026 16:00:36 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "糖尿病藥物可能也能「護心」？研究發現 empagliflozin 能降低與心血管相關的發炎反應",
       "link": "https://technews.tw/2026/10/25/the-secret-heart-benefit-of-a-common-diabetes-drug/",
       "publishedAt": "Sat, 24 Oct 2026 16:00:23 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "沒有指令的 AI 都在做什麼？MIT 虛擬島嶼實驗：它們會玩耍、推理，甚至做實驗",
       "link": "https://technews.tw/2026/10/24/researchers-stranded-an-ai-agent-on-a-virtual-island/",
       "publishedAt": "Sat, 24 Oct 2026 09:00:20 +0000",
       "summary": "麻省理工學院（MIT）計算機科學與人工智慧實驗室（CSAIL）一項研究顯示，當 AI 代理人被放進封閉的虛擬環 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Bloom Energy 財報創高卻重挫 11%，現金流引疑慮",
-      "link": "https://technews.tw/2026/10/24/bloom-energy-stock-plunges-over-11-despite-strong-earnings-cash-flow-turns-negative-ai-investment-concerns-emerge/",
-      "publishedAt": "Sat, 24 Oct 2026 08:38:24 +0000",
-      "summary": "美國燃料電池業者 Bloom Energy 第三季營收及獲利雙雙創高，並第三度上調全年財測，但週五（23 日） [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "非科學家團隊靠 Claude 設計抗蠍毒蛋白質，64 小時完成、實驗驗證成功",
-      "link": "https://technews.tw/2026/10/24/ai-does-the-lab-work/",
-      "publishedAt": "Sat, 24 Oct 2026 08:00:32 +0000",
-      "summary": "一支幾乎沒有科學背景的五人團隊，在 Anthropic 的協助下完成一項引人注目的蛋白質設計實驗：他們讓 AI [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
