@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-25T14:52:25.931Z",
+  "generatedAt": "2026-10-25T18:12:05.166Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor: deslop media, backup and transport fixtures (#183640)",
-      "link": "https://github.com/openclaw/openclaw/commit/53fe804a9cf080bbda7928101fbc4cfb836ad09c",
-      "publishedAt": "2026-10-25T14:50:40Z",
-      "summary": "refactor: deslop media, backup and transport fixtures (#183640)",
+      "title": "refactor: deslop CLI fixtures, outbound and scheduler (#183754)",
+      "link": "https://github.com/openclaw/openclaw/commit/3ad7dd903c4aadffa563ac11ca535083ed63e0f3",
+      "publishedAt": "2026-10-25T18:11:40Z",
+      "summary": "refactor: deslop CLI fixtures, outbound and scheduler (#183754)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: deslop media, backup and transport 修正tures (#183640)",
-      "summaryZh": "重點：refactor: deslop media, backup and transport 修正tures (#183640)..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: deslop CLI 修正tures, outbound and scheduler (#183754)",
+      "summaryZh": "重點：refactor: deslop CLI 修正tures, outbound and scheduler (#183754)..."
     },
     {
       "id": 2,
-      "title": "fix: avoid sorts on non-null PostgreSQL partial indexes (#183443)",
-      "link": "https://github.com/openclaw/openclaw/commit/38753ff3b97dcd388165b063f32d4788324e2a08",
-      "publishedAt": "2026-10-25T14:49:06Z",
-      "summary": "fix: avoid sorts on non-null PostgreSQL partial indexes (#183443) * fix: avoid sorts on non-null PostgreSQL partial indexes * fix(postgres): complete partial-index ordering validation",
+      "title": "fix(browser): return JSON for invalid tab indexes (#183603)",
+      "link": "https://github.com/openclaw/openclaw/commit/6224601bcb5e4cd4bee1c6777ab0bd0b75840e5b",
+      "publishedAt": "2026-10-25T18:11:14Z",
+      "summary": "fix(browser): return JSON for invalid tab indexes (#183603) fix(browser): print JSON errors for invalid browser tab indexes With --json, browser tab commands given an invalid tab index (for example `tabs select 0` or `tabs close abc`) exited 1 with nothing on stdout, which broke scripts reading the documented JSON error. They now print one standard cli_error JSON document; stderr, exit codes and the open tabs are unchanged. Evidence: built CLI against an authenticated Gateway with native Chromium and two local pages. On main both invalid commands printed nothing on stdout (twice each); with this change each prints a cli_error document (twice each), with stderr byte-identical and the tabs untouched. Valid select and close still act on the right tab, confirmed through CDP, and human-readable output is unchanged. Production +6/-1. Thanks @Leon-SK668. Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: avoid sorts on non-null PostgreSQL partial indexes (#183443)",
-      "summaryZh": "重點：修正: avoid sorts on non-null PostgreSQL partial indexes (#183443) * 修正: avoid sorts on non-null PostgreSQL partial indexe..."
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): return JSON for invalid tab indexes (#183603)",
+      "summaryZh": "重點：修正(browser): return JSON for invalid tab indexes (#183603) 修正(browser): print JSON errors for invalid browser tab indexe..."
     },
     {
       "id": 3,
-      "title": "fix(plugins): plugin session actions, hooks, and subagent-end notific…",
-      "link": "https://github.com/openclaw/openclaw/commit/4bbb8154288d9ebeb2d84faa946948820914dcf5",
-      "publishedAt": "2026-10-25T14:41:41Z",
-      "summary": "fix(plugins): plugin session actions, hooks, and subagent-end notifications fail during a plugin reload (#182310) * fix(plugins): wait out a plugin reload instead of failing calls during the swap Fresh host calls refused by a quiesced plugin instance with a pending replacement now wait for the reload to settle and resolve once more against the current registry: plugins.sessionAction, typed hook dispatch, and context-engine onSubagentEnded. A second refusal surfaces as retryable UNAVAILABLE (reason plugin-reloading). Memory provider calls admitted before quiesce no longer fail when they complete after it. Refs #182024 * fix(plugins): rerun hook admission and context for replacement handlers A hook dispatch that waits out a plugin reload now returns to its own loop before invoking the replacement registration, so claiming-hook binding admission is prepared and checked again, session_end transcript context is projected for the registration actually invoked, and a dispatch whose timeout expired during the wait starts no late replacement handler. * fix(plugins): ship reservation module with PR wrapper and prove binding admission across reload Add plugin-instance-replacement.ts to the trusted PR wrapper inventory, use respondError for the plugin-reloading response, and prove through the real conversation-binding owner that a binding reassigned or revoked during a plugin reload rejects before the replacement receives the inbound claim.",
+      "title": "perf(state): skip admitted PostgreSQL search transactions (#183667)",
+      "link": "https://github.com/openclaw/openclaw/commit/998878e92720f3a7079e767388221fcfc8d21ce8",
+      "publishedAt": "2026-10-25T18:08:54Z",
+      "summary": "perf(state): skip admitted PostgreSQL search transactions (#183667)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): plugin session actions, hooks, and subagent-end notific…",
-      "summaryZh": "重點：修正(plugins): plugin session actions, hooks, and subagent-end notifications fail during a plugin reload (#182310) * 修正(pl..."
+      "titleZh": "OpenClaw 程式碼更新：perf(state): skip admitted PostgreSQL search transactions (#183667)",
+      "summaryZh": "重點：perf(state): skip admitted PostgreSQL search transactions (#183667)..."
     },
     {
       "id": 4,
-      "title": "perf(gateway): renew publication leases off the main thread (#183596)",
-      "link": "https://github.com/openclaw/openclaw/commit/a856d44ba4a0442a2bc4fa24d98bef291eace0f1",
-      "publishedAt": "2026-10-25T14:38:24Z",
-      "summary": "perf(gateway): renew publication leases off the main thread (#183596) Route personal GitHub profile and workspace publication lease renewals through the existing heartbeat worker while preserving durable ownership checks at effects. Native bootstrap acquisition and heartbeat startup fallback remain unchanged. Add a real-owner concurrent-write regression and repair scoped profiler imports for frozen build comparisons. Full ten-minute AB/BA timing and allocation stress completed without a demonstrated regression; exact-head CI and independent review passed. No SQLite schema, checkpoint, journal, or durability policy changes.",
+      "title": "fix(memory-core): split batches Mistral rejects for too many tokens o…",
+      "link": "https://github.com/openclaw/openclaw/commit/f2433d3e9b3d743cd05c0ef6e8cdfc11ee38c315",
+      "publishedAt": "2026-10-25T18:00:33Z",
+      "summary": "fix(memory-core): split batches Mistral rejects for too many tokens overall (#183567) fix(memory): split embedding batches when a Mistral-compatible endpoint rejects the token total When a Mistral-compatible embedding endpoint rejected a batch because its total tokens were too large (HTTP 400, code 3210), memory indexing aborted instead of using the existing recursive split recovery that other providers already get. That rejection now triggers the same split, so the batch is retried in smaller parts; per-input and quota errors still fail as before. Evidence: built CLI with a local Mistral-compatible embedding fixture, indexing a file through shipped memory commands. On main a 6-input batch (7,434 characters) failed with 400/3210 and indexing aborted (twice); with this change it splits into 3 + 3, the file is indexed and shipped memory search finds it with vector score 1 (twice). A batch that keeps failing splits down to single inputs and then stops, and per-input and quota errors make one request each, as before. Production +4/-2. Thanks @lonexreb. Co-authored-by: Claude Fable 5.1 Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): renew publication leases off the main thread (#183596)",
-      "summaryZh": "重點：perf(Gateway): renew publication leases off the main thread (#183596) Route personal GitHub profile and workspace public..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶-core): split batches Mistral rejects for too many tokens o…",
+      "summaryZh": "重點：修正(記憶-core): split batches Mistral rejects for too many tokens overall (#183567) 修正(記憶): split embedding batches when a ..."
     },
     {
       "id": 5,
+      "title": "小行星貝努巨石散熱之謎解開，關鍵在岩石內部裂縫密布",
+      "link": "https://technews.tw/2026/10/26/nasa-solves-a-strange-mystery-hidden-inside-asteroid-bennus-boulders/",
+      "publishedAt": "Sun, 25 Oct 2026 16:00:23 +0000",
+      "summary": "美國航太總署（NASA）「歐西里斯王號」（OSIRIS-REx）探測器 2018 年抵達小行星貝努（Bennu [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "太陽系後院藏有隱形黑洞？天文學家鎖定 50 光年內的「宇宙幽靈」",
+      "link": "https://technews.tw/2026/10/26/perhaps-black-holes-in-our-backyard/",
+      "publishedAt": "Sun, 25 Oct 2026 16:00:09 +0000",
+      "summary": "理論估算顯示，光是在我們的銀河系內部，就潛伏著 1 億到 10 億個由大質量恆星演化末期坍縮而成的「恆星級黑洞 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "洋紅色太陽能板大展身手，最新農電共生試驗：種菜、發電創造雙贏",
       "link": "https://technews.tw/2026/10/25/magenta-solar-panels-aid-agrivoltaics/",
       "publishedAt": "Sun, 25 Oct 2026 09:00:36 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "AI 也會「腦腐」？研究警告：吸收過多農場文將導致 AI 推理退化且難以逆轉",
       "link": "https://technews.tw/2026/10/25/ai-brain-rot/",
       "publishedAt": "Sun, 25 Oct 2026 08:00:47 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "偵測癌細胞留下的 RNA，尿液也能驗出膀胱癌？",
       "link": "https://technews.tw/2026/10/25/urine-cell-free-rna-for-bladder-cancer-detection-and-treatment-response-prediction/",
       "publishedAt": "Sun, 25 Oct 2026 07:30:15 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "下班回家連 Wi-Fi 就變慢？破解夜間網路降速主因與自救妙招",
       "link": "https://technews.tw/2026/10/25/practical-guide-improving-nighttime-wifi-network-performance/",
       "publishedAt": "Sun, 25 Oct 2026 07:00:45 +0000",
       "summary": "許多人常碰到一個狀況：白天居家上網一路順暢，但到了傍晚或夜間，Wi-Fi 速度卻大幅下滑。其實，這通常不是你家 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Supermicro 攜手 Nokia，將 NVIDIA Aerial RAN Computer 解決方案引入網絡邊緣，支援低延遲 AI 服務",
-      "link": "https://technews.tw/2026/10/25/supermicro-nokia-nvidia-aerial-ran-computer/",
-      "publishedAt": "Sun, 25 Oct 2026 06:00:51 +0000",
-      "summary": "Super Micro Computer, Inc. 是提供 AI、企業運算、儲存及 5G／邊緣全面 IT 解 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "AI 駭客攻擊速度快人類 10 倍、日韓接連受害，台灣企業準備好了嗎？",
-      "link": "https://infosecu.technews.tw/2026/10/25/ai-hackers-attack-10x-faster-humans-japan-south-korea-victimized-taiwanese-enterprises-ready/",
-      "publishedAt": "Sun, 25 Oct 2026 06:00:32 +0000",
-      "summary": "一個存在超過十年的開源程式語言 PHP 底層漏洞，為何迫使日本政府機關與連鎖牛丼品牌 すき 家（Sukiya） [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
