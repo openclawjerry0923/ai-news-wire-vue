@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-10-26T03:38:15.670Z",
+  "generatedAt": "2026-10-26T09:49:25.208Z",
   "items": [
     {
       "id": 1,
+      "title": "駭客打造Skynet自主攻擊代理人，劫持AI模型可執行10萬步攻擊",
+      "link": "https://www.ithome.com.tw/news/179951",
+      "publishedAt": "2026-10-26 12:10:52",
+      "summary": "資安業者賽門鐵克（Symantec）上周三（10/21）揭露，有駭客打造名為Skynet的自主攻擊AI代理人，可劫持曝露於網際網路的AI模型，利用其推論能力規畫網路攻擊，最多可連續執行10萬個步驟，無須人類批准；攻擊工具涵蓋漏洞利用、資料竊取及加密貨幣挖礦等功能。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
       "title": "日本快遞業者佐川急便網站服務被駭，外洩個人、企業及會員個資逾5,300萬筆",
       "link": "https://www.ithome.com.tw/news/179948",
       "publishedAt": "2026-10-26 10:10:45",
@@ -11,7 +20,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Amadeus訂票系統帳號憑證外流，洩露大韓、韓亞航空客戶資訊",
       "link": "https://www.ithome.com.tw/news/179947",
       "publishedAt": "2026-10-26 10:10:44",
@@ -20,7 +29,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "製藥巨頭BMS領投Pathos AI，攜手推動阿茲海默症藥物研發",
       "link": "https://www.ithome.com.tw/news/179950",
       "publishedAt": "2026-10-26 10:10:42",
@@ -29,7 +38,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "OpenAI將不再在連網環境下訓練頂尖AI模型",
       "link": "https://www.ithome.com.tw/news/179949",
       "publishedAt": "2026-10-26 10:10:00",
@@ -38,65 +47,56 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 6,
+      "title": "fix(ci): wait for mounted elapsed clocks in Gateway browser proof (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/36dea26dc9470353104821ed142a95d63725dfd3",
+      "publishedAt": "2026-10-26T09:47:33Z",
+      "summary": "fix(ci): wait for mounted elapsed clocks in Gateway browser proof (#184457) Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): wait for mounted elapsed clocks in Gateway browser proof (#1…",
+      "summaryZh": "重點：修正(ci): wait for mounted elapsed clocks in Gateway browser proof (#184457) Co-authored-by: Vincent Koc..."
+    },
+    {
+      "id": 7,
+      "title": "test(runtime,ui): remove low-value tests (batch d602) (#184413)",
+      "link": "https://github.com/openclaw/openclaw/commit/1a7c8156dc645849694bec495d5d9edf120e54e0",
+      "publishedAt": "2026-10-26T09:41:53Z",
+      "summary": "test(runtime,ui): remove low-value tests (batch d602) (#184413) * test(infra): remove duplicate o0232 proof layers Keep filesystem-sensitive trust proof; remove helper replays covered by exec-safe-bin-runtime-policy.test.ts (explicit trust merging, package-manager opt-in, writable warnings) and exec-approvals-safe-bins.test.ts (real executable identity and PATH shadowing). Consolidate platform casing into one inode-identity contract. Npm default environment inventory remains covered by safe-package-install.test.ts and install-source-utils.test.ts. Normalized approval plan metadata remains covered by node-invoke-system-run-approval.test.ts: uses systemRunPlan when approval ownership differs and ignores caller tampering. Cron remapping remains covered by routing/session-key.test.ts: respects custom mainKey for ephemeral cron event session remapping. Trim the child fixture to its sole all-modes caller, retaining all four custody outcomes and finally-release. Reuse fresh endpoint credential fixtures and simplify APNs settlement assertions without weakening error identity or captured inputs. No production edits or test runs. * test(gateway): deslop o0234 tests Consolidate health-policy tables without deleting any expanded cases. Compact creation-attribution fixtures while preserving exact persisted actor and sandbox assertions. Retain lifecycle, authority, and cleanup coverage throughout the shard. * test(gateway): reduce o0234 fixture and assertion layers Remove the shutdown export inventory, share no-mutation spies, compact initial-session setup, and retain sandbox error outcomes without callback argument inventories. Keep non-final Gateway memory retention here. Final actor retirement after accepted work is covered by server-close.incognito-manager.test.ts (settles an accepted memory manager append before the real close retires its owner) and server-close.agent-databases.test.ts (settles accepted incognito outbox work after the close prelude and before actor retirement). Synchronous work entry remains covered by server-connection-work.test.ts (starts received work synchronously and joins connection cleanup after transport close). * test(gateway): remove remaining redundant o0234 checks Drop config writer invocation counts and an entry-key inventory already implied by exact persisted config equality. Drop creation signal invocation count while retaining committed creation, notices, and nonduplication assertions. The generic not-running health row is covered at the actual monitor boundary by channel-health-monitor.test.ts: counts failed restart attempts toward the production cooldown. Keep the stopped-lifecycle policy row and all distinct precedence/timestamp cases. * test(agents): deslop o0235 tests Remove duplicate auth materialization publication cases; prepared-model-runtime-materializations.test.ts retains the same stale-sibling, publication-phase, and recorded-binding assertions. Consolidate sandbox policy and runtime compatibility setup while preserving distinct boundaries. Reuse diagnostic completion and usage fixtures. * test(agents): consolidate o0235 test boundaries Combine route metadata and provider merge cases, consolidate captured catalog/auth generations, and remove internal call-shape/count assertions and copied inventories. Keep every approval, path-admission, lifecycle, credential, and diagnostic outcome. ModelRegistry's 'forks a catalog with request-isolated auth and provider mutations' retains fork isolation proof. Sandbox agent config's 'should prefer agent-specific sandbox tool policy' retains config projection proof; the retained sandbox explanation case covers mixed agent/global provenance and effective deny enforcement. agent-tools.schema retains wrapped-marker proof. * test(plugin-state): deslop o0237 tests Consolidate native-operation input, empty-scan, database, and transaction fixtures without dropping test cases. Reuse the owner admission probe and retain rollback, authority, ordering, expiry, and SQL work-count assertions. The removed duplicate worker-thread assertion remains in moves rows across namespaces in one worker command and rolls back undeclared writes. Static-only CI campaign: formatting, diff check, and plain oxlint pass; runtime proof deferred to hosted CI. Net reduction is 70 lines (4.5%), below the target because the remaining boundary scenarios are distinct. * test(plugin-state): remove duplicate proof layers for o0237 Remove SQL call-shape counters and redundant retention input replay; retain persisted cleanup, quota, rollback, authority, expiry, and lifecycle assertions. Use scoped resource cleanup and trim the Visitor native-command payload dump without removing its commit-time expiry gate. The direct cold-snapshot replay is covered by invalidates empty receipts after either watched namespace changes and decodes only live requested snapshot rows and retains expiry across clock corrections. Worker snapshot integration also remains in bounds cold buffered loads and serves committed writes and operation snapshots without rereads. Publication shapes remain in installs whole worker receipts before atomic operation replies and write-time expiry and installs native transaction facts after commit and discards savepoint rollback. Basic CRUD remains in the publication and store suites; runtime binding still verifies plugin isolation. No production or helper files changed. CI-only validation: plain oxlint, oxfmt, and diff check pass. No tests or coverage run. Original shard 1543 lines to 1234 lines, a 20.0 percent reduction; this additional commit removes 239 lines net. * test(auto-reply): deslop o0236 tests Remove the duplicate prepared-routing layer: route-reply.prepared.test.ts retains raw/prepared directives, admitted reasoning, producer retirement, and replacement-writer rejection after awaited channel work. The config runtime-snapshot tests retain matching-source selection and scoped-config preservation. Keep reply secret-scope wiring and both recovery custody variants. CI-only campaign: static lint and formatting verified; tests and coverage deferred to hosted CI. * test(auto-reply): consolidate o0236 fixtures and cases Reuse typed followup fixtures and real fallback selection; consolidate missing-answer and no-shell cases, bootstrap state transitions, and per-test TTS setup. Keep secret scopes, start signals, delivery custody, async cancellation, and memory completion assertions. Protocol identity cases retain preparation/start-signal coverage; bootstrap wording cases retain the workspace transition and async-access cases. Remove repeated internal receipts, call shapes, and fixture-only observations. CI-only: formatting, plain oxlint, and diff checks passed; no tests or coverage run. Shard total: 1693 to 1354 lines. * test(profile): deslop o0241 tests Consolidate preference action tests and share strict RPC fixtures and UI assertions. Retain pending writes, identity/navigation retirement, reconnects, credentialed avatars and upload-policy revalidation. Remove the read-only editing replay covered by profile-page.reconnect.test.tsx (retires loaded profile details and a pending refresh when access is revoked), including its initial enabled editor checks. Remove the hero image-error replay covered by identity-avatar-view.test.tsx (retains pending images through replacement/remount under pressure). CI-only campaign: formatting, diff-check and plain oxlint passed; no tests, builds or coverage run. Test LOC 1666 -> 1414 (15.1%); remaining distinct lifecycle/security behavior limits further safe cuts. * test(plugins): deslop o0239 tests Remove four work-admission replays covered by runtime-agent.test.ts: draining refusal, queued archive/replacement rejection, and callback lifecycle interruption. Keep deletion-journal, fresh admission, nested mutation and callback custody proof. Consolidate native subagent unload fixtures and channel/session-event setup while preserving distinct authority assertions. No production or test-support changes. Static gates: oxfmt, plain oxlint, git diff --check. Runtime and coverage proof deferred to hosted CI under the campaign CI-only rule. Shard LOC: 1391 -> 1187 (14.7%); remaining distinct authority and lifecycle contracts prevent an honest 20% cut. * test(plugins): finish structural reduction for o0239 Remove native unload guard replays covered by registry.native-subagent.test.ts: rechecks the actual registry owner after asynchronous preparation. Detached spawn refusal remains covered by wired-hooks-reply-dispatch.test.ts: closes native requester custody after timeout, decline or rejection, including overlapping hooks. Keep the direct scope-abort and listing-expiry contracts. Table the two distinct context abort paths, retain their event sequences, and trim fixture self-checks and redundant internal call-shape assertions. Keep sandbox, credential, recovery and terminal-write assertions. Cumulative shard LOC: 1391 -> 1110 (20.2%). Plain oxlint, oxfmt and diff checks pass; tests and coverage intentionally deferred to hosted CI. * test(gateway): deslop o0238 tests * test(gateway): consolidate o0238 worker boundary tests * test(gateway): reduce o0238 duplicate boundary layers Retain the two lifecycle custody/aggregation paths; plain drain refusal and propagation remain covered by server.sessions.archive-lifecycle.test.ts. Keep setup/cache behavior at provider-intent and project-preparation boundaries, successful invocation closure in desktop-ssh-identity.test.ts, and transfer binding validation in node-workspace-transfer-service.test.ts. Consolidate artifact/target hash variants and successful attachment/SSH flows. Assert presence preparation results outside the provider callback so caught callback errors cannot hide a failed content assertion. CI-only: plain oxlint, oxfmt, and diff checks; no test runs. * test(gateway): deslop o0243 tests Share probe retry fixtures without removing either entry point's cases. Exercise the real method-scope policy in HTTP endpoint tests, retaining forbidden-response, unread-body, and authority-revocation assertions. CI-only validation: oxfmt, plain oxlint, and diff checks; no test execution. * test(gateway): finish o0243 structural reductions Remove the reconnect timing workload, which has no latency assertion. Functional keepers: sessions-read searches rich displayed fields; canonical-validation authorizes exact rows and fences corrupt subscriptions; cron.validation keeps new jobs scoped to their creator; startup-projection-warm completes startup and projection preparation. Remove narrow model-publication replays covered through the real wrapper by server-startup-post-attach: uses the current runtime config for deferred model publication; joins pending request imports after preparation fails and preserves the model failure. Retain workspace flags and credential hydration boundaries. Cover shared retry classification once through read probes; retain exec guards and delegation. Preserve transcript-append no-rescan proof with three viewers and 8000 rows, both worker read paths, GC retention, and all auth assertions. Remove redundant internal assertions and compact fixtures. Original shard: 1602 to 1280 lines. CI-only: oxfmt, plain oxlint, diff check; no test or build runs. * test(chat): deslop o0240 tests * test(chat): consolidate o0240 regression coverage Remove normalized tool pooling duplicated by chat-thread-grouping: keeps independent-run trailing activity with its owner. The remaining activity boundary case also covers singleton identity. Keep legacy assistant grouping and every distinct boundary. Remove token rendering replay covered by chat-transcript-render: keeps exact-run usage visible through final event batching and later corrections, plus chat-transcript-duration: keeps progress after accepted steers and before queued input. Remove offline identity-free Stop replay covered by run-lifecycle.abort: shows reconnect guidance when an offline session run has no browser run identity. Keep one reviewed reconnect flow including missing identity and eventual success. Remove CSS class inventories and internal RPC-count restatements; consolidate queue fixtures and repeated assertions. Static oxlint, formatting and diff checks pass; test execution deferred to hosted CI. * test(chat): remove redundant o0240 test layers Remove the placement-cache read-count wrapper. Keep rendered initial-prompt and recovery behavior in chat-view.startup, and cache behavior in chat-thread tests: repositions an initial placement prompt when recovery identifies its existing queue row; updates the live stream without rescanning retained history; keeps same-session render caches isolated between panes. Pending-input cache reuse remains in chat-thread-input-order. Share action and Stop focus lifecycle proof and existing queue/composer fixtures. Keep avatar publication on the real identity owner using distinct image data URLs; authenticated blob loading remains covered by chat-avatar: replaces a revised avatar without revoking a retained sibling image. Keep OS and machine selection proof in session-placement-move-dialog: moves with the selected OS and limits machine choices to that OS. Restart cases still prove exact dispatch target, generation and failure outcomes. Remove duplicate history-load instrumentation covered by chat-history: coalesces stale history while distinct peer messages update the transcript. Keep cross-owner transcript and roster outcomes. Plain oxlint, oxfmt and diff checks pass; no tests or builds run under campaign CI-only mode. Shard total: 1627 to 1301 lines. * test(plugin-sdk): deslop o0242 tests Reuse tool and QA registration fixtures. Preserve optional workspace registration assertions in the declared-tool execution test; retain both queue error-reporting paths and normalized pairing hooks in parameterized cases. Keep distinct security, lifecycle, persistence, and parsing boundaries. * test(plugin-sdk): consolidate o0242 boundary suites Replace the mocked channel-pairing suite with the real-store lifecycle in channel-pairing.store.test.ts, retaining normalized hooks, bound writers, duplicate suppression, approval isolation, and removal. The generic challenge callbacks remain covered by src/pairing/pairing-challenge.test.ts. Table parser and dedupe decision paths, unify Windows fixture and shell-policy proof, share QA setup, and retain browser activation and lifecycle checks in a single per-operation sequence. Static-only validation: oxlint, oxfmt, and diff-check. Original shard 1480 lines -> 1184 lines; no runtime tests per CI-only mode. * test(chat): deslop o0244 tests Consolidate repeated draft, queue, mention and highlighted-source setup while retaining all test cases and assertions. Leave distinct recovery failure, privacy, ownership, and diff budget paths intact. * test(chat): consolidate o0244 owner coverage Remove projection alias replays covered by session-key tests for advertised main identity, configured aliases, scoped global events, and opaque IDs. Keep unresolved-default and snapshot behavior at the projection boundary. Keep legacy tombstone filtering here; recovery admission cases and metadata badge tests own the repeated restore and projection assertions. Consolidate discard and restore persistence failures, textless discovery with clear fences, and required-destination retention with the full-destination recovery cases. * test(chat): merge o0244 outbox suites Move recovery cases into the existing jsdom outbox suite and share storage fixtures and cleanup. Consolidate discard composer-preservation and payload-retirement proof in one mixed-input case; retain distinct failure, ownership, and replay paths. Keep gateway-owner rejection in the external-write projection case. Count the new local test-support file: the complete shard is 1296 lines, down 20 percent from 1620. No test runs in CI-only mode. * test(shared): deslop o0246 tests Consolidate FIFO readiness probes and permit turnover setup; retain all lifecycle, authorization, schema and routing branches. The retained idempotent-release test covers reverse-order wait admission from the removed basic FIFO case. Keep schema pollution checks at Object.prototype and drop the duplicate inherited lookup. Remove Tailscale runner call-shape assertions while retaining fallback and URL result checks. Table existing profile and assistant-phase cases without dropping distinct behaviors. CI-only campaign: local oxlint, oxfmt and diff checks pass; tests and coverage not run. Shard shrinks 1501 to 1428 lines (4.9%); further cuts require dropping distinct behavior in already-consolidated suites. * test(shared): consolidate o0246 behavioral coverage Combine FIFO admission into sustained two-holder turnover; combine multi-key reservation and idempotent release; exercise nested channel ownership across SDK chunks with both inner and outer callable expiry checks. Keep requirement evaluation at requirements.test.ts: reports every missing category through the public wrapper, requires at least one any-bin locally or remotely, and always bypasses runtime requirements but respects OS. Keep presentation precedence, local-bin success and default process.platform proof in entry-status.test.ts. Consolidate Tailscale discovery exclusions, ticket lifecycle and clock fixtures, strict queue-prefix cases, schema keyword precedence, bootstrap handoff assertions and ignore-rule fixtures. Phase extraction retains coverage formerly asserted again at the block-selection helper. CI-only: no tests or coverage executed. Oxlint, oxfmt and diff checks pass. Original shard: 1501 lines; first commit: 1428; final: 1200 (20.05% reduction). No production changes or file deletions. * test(codex): deslop o0247 tests Remove four handoff matrix replays covered by auth-profile-runtime-contract.test.ts: locks a prepared Platform route to its resolved API key; locks a prepared subscription route to its forwarded oauth profile; keeps a user-home app-server on native auth despite a prepared Platform route; fails before profile selection when a prepared Platform route has no key. Reuse the native thread response fixture, inline a single-use idle fixture wrapper, consolidate scheduled-app fixture responses, and retain precise monotonic deadline assertions. Preserve all distinct authority, privacy, recovery and lifecycle checks. CI-only validation: plain oxlint, oxfmt, and git diff --check. The 20 percent line target is not met: 1644 to 1621 lines; cases 70 to 66. * test(codex): consolidate o0247 boundary test layers Collapse hook-policy config rejections into one table without removing any rejection path. Reuse the OAuth fixture and remove remaining auth handoff replays covered by auth-profile-runtime-contract.test.ts (locks a prepared Platform route to its resolved API key), run-attempt-connection.test.ts (keeps a user-home subscription on native account verification), and compact.test.ts (keeps native auth ownership). The latter retains real native account mismatch rejection; the matrix retains missing accounts and custom-provider acceptance. Remove the generic assistant-result replay from the protected prompt-hook test; run-attempt.test.ts retains completed-work projection proof. Keep prompt privacy, active-thread protection, all background outcome and receipt identities, and cleanup assertions. Simplify background failure assertions. Plain oxlint, oxfmt and diff-check pass; no tests run under CI-only mode. Additional reduction: 1621 to 1571 lines; cumulative 1644 to 1571, below the 20 percent target. * test: preserve boundary contracts in d602 reductions Restore distinct auth, lifecycle, identity and retirement proof identified by review. Keep the already-covered scoped-config and personal-profile cases at their existing owners. Repair CI-reported fixture types, static tool metadata and diagnostic narrowing; drop the Doctor custody and worker fixture rewrites that did not preserve their existing contracts. * test(gateway): preserve optional sandbox assertion semantics * test: preserve projection and profile proof in d602",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(runtime,ui): remove low-value tests (batch d602) (#184413)",
+      "summaryZh": "重點：test(runtime,ui): remove low-value tests (batch d602) (#184413) * test(infra): remove duplicate o0232 proof layers Keep ..."
+    },
+    {
+      "id": 8,
+      "title": "perf(gateway): skip redundant startup history prewarming (#184438)",
+      "link": "https://github.com/openclaw/openclaw/commit/79798ed63e1d974179c2bfd7960c04daa7f14dda",
+      "publishedAt": "2026-10-26T09:32:11Z",
+      "summary": "perf(gateway): skip redundant startup history prewarming (#184438) Use cold-only history prewarming at the owner and remove the private caller switch. Recovery already activates fully prepared foreground readers; real reads keep their normal database admission and concurrency. Add synthetic warm-owner and crash/restart worker census measurements.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): skip redundant startup history prewarming (#184438)",
+      "summaryZh": "重點：perf(Gateway): skip redundant startup history prewarming (#184438) Use cold-only history prewarming at the owner and rem..."
+    },
+    {
+      "id": 9,
+      "title": "perf(gateway): acknowledge PR subscriptions before cold preparation (…",
+      "link": "https://github.com/openclaw/openclaw/commit/745e1f6f21fd5c71e359c569c317586edd524968",
+      "publishedAt": "2026-10-26T09:30:43Z",
+      "summary": "perf(gateway): acknowledge PR subscriptions before cold preparation (#184422) * perf(gateway): acknowledge PR subscriptions before cold preparation Keep session preparation and guarded snapshot delivery with the subscription owner. Retain pending forced-refresh intent across cold replacements without taking over warm refresh work. Remove the admission callback and reply wait; add handler regression and owner/transport measurements. * test(gateway): join watcher retirement in PR authority proof",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): acknowledge PR subscriptions before cold preparation (…",
+      "summaryZh": "重點：perf(Gateway): acknowledge PR subscriptions before cold preparation (#184422) * perf(Gateway): acknowledge PR subscripti..."
+    },
+    {
+      "id": 10,
       "title": "希臘通過15歲以下社群媒體禁令，違規平臺最高罰全球營收6%",
       "link": "https://www.ithome.com.tw/news/179946",
       "publishedAt": "2026-10-26 09:10:44",
       "summary": "希臘國會上周五（10/23）正式通過禁止15歲以下兒童使用社群媒體的法案，同一天希臘數位治理部即宣布，新法將於2027年1月1日實施，要求社群平臺驗證使用者年齡，違規者最高可處全球營收6%的罰款。 希臘總理Kyriakos Mitsotakis今年4月已宣布這項政策，當時尚待國會立法。此次通過的法案正式將社群媒體使用門檻設定為15歲，並將執行責任交由平臺承擔，而非僅依賴家長監督。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "fix(node-host): keep capacity wait within its elapsed-time budget (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/65112cda4acb357a13cd772641ed88acd9bb5759",
-      "publishedAt": "2026-10-26T03:36:27Z",
-      "summary": "fix(node-host): keep capacity wait within its elapsed-time budget (#184042) Keep node worker capacity waits bounded when the system clock changes. Use the monotonic clock for the admission deadline while retaining wall time for durable launch timestamps. Preserve cleanup custody and cancellation behavior, with a wall-clock rollback regression. Co-authored-by: SunnyShu",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(node-host): keep capacity wait within its elapsed-time budget (#1…",
-      "summaryZh": "重點：修正(node-host): keep capacity wait within its elapsed-time budget (#184042) Keep node worker capacity waits bounded when ..."
-    },
-    {
-      "id": 7,
-      "title": "fix: account for promoted session row references (#184156)",
-      "link": "https://github.com/openclaw/openclaw/commit/35fa0549b216c02cd8dfb2bc9a2fead04b0c5a5f",
-      "publishedAt": "2026-10-26T03:35:50Z",
-      "summary": "fix: account for promoted session row references (#184156) Correct session-list baseline diagnostics to include the existing retained current-row reference bytes.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: account for promoted session row references (#184156)",
-      "summaryZh": "重點：修正: account for promoted session row references (#184156) Correct session-list baseline diagnostics to include the exist..."
-    },
-    {
-      "id": 8,
-      "title": "fix(text): deduplicate CRLF assistant replies (#183023)",
-      "link": "https://github.com/openclaw/openclaw/commit/c58bf481203daab810a25ed85d18bac6bec63f3f",
-      "publishedAt": "2026-10-26T03:33:46Z",
-      "summary": "fix(text): deduplicate CRLF assistant replies (#183023) Recognize CRLF paragraph boundaries in streaming duplicate-reply activation, including split separators, while preserving the existing checkpoint machinery and fenced text. Co-authored-by: liqiang2",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(text): deduplicate CRLF assistant replies (#183023)",
-      "summaryZh": "重點：修正(text): deduplicate CRLF assistant replies (#183023) Recognize CRLF paragraph boundaries in streaming duplicate-reply ..."
-    },
-    {
-      "id": 9,
-      "title": "fix(cli): reject blank agent identity path flags (#182622)",
-      "link": "https://github.com/openclaw/openclaw/commit/e61931e664fd5a5fc8da2275b63a04d2c50279e2",
-      "publishedAt": "2026-10-26T03:33:23Z",
-      "summary": "fix(cli): reject blank agent identity path flags (#182622) Co-authored-by: wangmiao0668000666",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): reject blank agent identity path flags (#182622)",
-      "summaryZh": "重點：修正(cli): reject blank agent identity path flags (#182622) Co-authored-by: wangmiao0668000666..."
-    },
-    {
-      "id": 10,
-      "title": "三星 SDI 狂攬美 1GWh 儲能大單！高鎳方形電池 SBB 1.7 接管電網",
-      "link": "https://technews.tw/2026/10/26/alpha-omega-power/",
-      "publishedAt": "Mon, 26 Oct 2026 03:32:05 +0000",
-      "summary": "韓國三星 SDI 位於密歇根州的子公司近日簽署一份 1GWh 協議，向美國公用規模儲能電站開發商、獨立電力生產 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
