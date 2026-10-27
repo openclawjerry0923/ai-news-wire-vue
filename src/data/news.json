@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-10-27T19:51:59.942Z",
+  "generatedAt": "2026-10-27T23:34:19.613Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: keep prepared runtime tests within line budget (#186209)",
-      "link": "https://github.com/openclaw/openclaw/commit/451ec41c26c67cca7d8a61b7da6b0188cf52249e",
-      "publishedAt": "2026-10-27T19:40:34Z",
-      "summary": "fix: keep prepared runtime tests within line budget (#186209) Simplifies prepared-runtime registry fixtures while preserving acquisition, scope, closure, and retirement coverage within the test-line budget.",
+      "title": "perf(process): avoid decoding child memory samples (#186373)",
+      "link": "https://github.com/openclaw/openclaw/commit/c737f7a989d5549eaa6834800ca3cb1d9e62064f",
+      "publishedAt": "2026-10-27T23:33:57Z",
+      "summary": "perf(process): avoid decoding child memory samples (#186373) * perf(process): avoid decoding child memory samples * test(process): consolidate child memory regression coverage",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep prepared runtime tests within line budget (#186209)",
-      "summaryZh": "重點：修正: keep prepared runtime tests within line budget (#186209) Simplifies prepared-runtime registry 修正tures while preservi..."
+      "titleZh": "OpenClaw 程式碼更新：perf(process): avoid decoding child 記憶 samples (#186373)",
+      "summaryZh": "重點：perf(process): avoid decoding child 記憶 samples (#186373) * perf(process): avoid decoding child 記憶 samples * test(process..."
     },
     {
       "id": 2,
-      "title": "docs: point logo work to the brand-kit README (#186198)",
-      "link": "https://github.com/openclaw/openclaw/commit/d45ff6de6c486eb7d68931492e84af4842e02e44",
-      "publishedAt": "2026-10-27T19:30:57Z",
-      "summary": "docs: point logo work to the brand-kit README (#186198) * docs: route branding work to the live Carapace kit * docs: simplify logo guidance to the brand kit pointer",
+      "title": "fix: long streamed HTML/JSX replies no longer re-project the whole re…",
+      "link": "https://github.com/openclaw/openclaw/commit/78325da1f9a843bd40e02f0a04932f11a69a29d6",
+      "publishedAt": "2026-10-27T23:33:44Z",
+      "summary": "fix: long streamed HTML/JSX replies no longer re-project the whole reply at every partial tag (#185293) * fix(text): keep partial-tag holds off the whole-reply path When a streamed delta ends on a \"",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: point logo work to the brand-kit README (#186198)",
-      "summaryZh": "重點：文件: point logo work to the brand-kit README (#186198) * 文件: route branding work to the live Carapace kit * 文件: simplify ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: long streamed HTML/JSX replies no longer re-project the whole re…",
+      "summaryZh": "重點：修正: long streamed HTML/JSX replies no longer re-project the whole reply at every partial tag (#185293) * 修正(text): keep ..."
     },
     {
       "id": 3,
-      "title": "perf(state): omit unused pending custody from message appends (#186213)",
-      "link": "https://github.com/openclaw/openclaw/commit/364c0d4ebcd400ee4285eb989ed60d2a8b000b93",
-      "publishedAt": "2026-10-27T19:19:44Z",
-      "summary": "perf(state): omit unused pending custody from message appends (#186213) * perf(state): omit unused pending custody from message appends * test(state): consolidate message custody payload regression * test(state): reuse actor command and failure fixtures",
+      "title": "test: consolidate repeated runtime and plugin fixtures (#186379)",
+      "link": "https://github.com/openclaw/openclaw/commit/0153f5f9801905123d3126d9a394fabfbd018772",
+      "publishedAt": "2026-10-27T23:31:45Z",
+      "summary": "test: consolidate repeated runtime and plugin fixtures (#186379)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(state): omit unused pending custody from message appends (#186213)",
-      "summaryZh": "重點：perf(state): omit unused pending custody from message appends (#186213) * perf(state): omit unused pending custody from ..."
+      "titleZh": "OpenClaw 程式碼更新：test: consolidate repeated runtime and plugin 修正tures (#186379)",
+      "summaryZh": "重點：test: consolidate repeated runtime and plugin 修正tures (#186379)..."
     },
     {
       "id": 4,
-      "title": "fix(team-controller): native update backups from failed or recovered …",
-      "link": "https://github.com/openclaw/openclaw/commit/9242bf5778642e156505d5589e862c5c464064b1",
-      "publishedAt": "2026-10-27T19:19:14Z",
-      "summary": "fix(team-controller): native update backups from failed or recovered deployments are never retired (#185600) * fix(team-controller): retire settled native update backups during release pruning Schema-crossing deployments create a per-transaction root under `/.openclaw-update/` where the candidate's `update migrate` writes its pre-migration snapshot and receipt. Only `update finish` on an accepted deployment removed the snapshot; restored rollbacks, forward recovery, migrations that died before their receipt, and early failures left their roots forever. Release pruning now settles them. While any activation journal exists, nothing is retired. Otherwise roots whose receipt is absent (Doctor never ran), `migrated`, `restored`, or `finished` are retired; `backed-up`, `failed`, `restoring-config`, and unreadable receipts stay with a RETAIN line. The current deployment keeps its own root until the next prune. The runtime account, which owns these trees, removes their contents; root only removes the emptied directory. Release-note context: the Team deployment controller now retires native update backups of settled transactions during release pruning. * fix(team-controller): run native backup removal from an accessible directory A real-account proof (real runuser and a separate runtime account) showed GNU find, run as the runtime account, refuses to start from a working directory only root can enter. Team runs deployments from root-private scripts, so every settled native root would have been retained instead of retired. The runtime-account removal now runs from /.",
+      "title": "improve: compact model-change notices with provider logos (#186054)",
+      "link": "https://github.com/openclaw/openclaw/commit/864239deba6ad32ab67d515743a6ce7197d4802f",
+      "publishedAt": "2026-10-27T23:30:53Z",
+      "summary": "improve: compact model-change notices with provider logos (#186054) * improve: compact model-change notices with provider logos * fix(ui): refine model change notice presentation * fix(ui): restore model notice spacing * test(ui): avoid pinning model notice icon markup",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(team-controller): native update backups from failed or recovered …",
-      "summaryZh": "重點：修正(team-controller): native update backups from failed or recovered deployments are never retired (#185600) * 修正(team-co..."
+      "titleZh": "OpenClaw 程式碼更新：improve: compact 模型-change notices with provider logos (#186054)",
+      "summaryZh": "重點：improve: compact 模型-change notices with provider logos (#186054) * improve: compact 模型-change notices with provider logo..."
     },
     {
       "id": 5,
+      "title": "珊瑚也懂互助？健康珊瑚能助白化同伴重現色彩",
+      "link": "https://technews.tw/2026/10/28/healthy-corals-may-help-bleached-corals-regain-color/",
+      "publishedAt": "Tue, 27 Oct 2026 23:30:47 +0000",
+      "summary": "珊瑚礁不僅美麗壯觀，也是許多海中生物賴以生存的家園。然而，隨著全球暖化加劇，珊瑚白化問題日益嚴重，它們不僅會褪 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "減少加工食品的麩胺酸，明顯改善退伍軍人慢性疼痛與腦霧",
+      "link": "https://technews.tw/2026/10/28/cutting-1-compound-from-processed-foods-could-reduce-brain-fog-anxiety-and-chronic-pain-scientists-say/",
+      "publishedAt": "Tue, 27 Oct 2026 23:20:10 +0000",
+      "summary": "美國海軍退役隨軍牧師 Deb Mariya 曾參與 1991 年「沙漠風暴行動」，之後 30 多年一直受創傷後 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "Chrome 真是「記憶體怪獸」？吃 RAM 背後其實有原因",
+      "link": "https://technews.tw/2026/10/28/why-google-chrome-is-always-using-so-much-ram/",
+      "publishedAt": "Tue, 27 Oct 2026 23:10:31 +0000",
+      "summary": "Google Chrome 長期被貼上「記憶體怪獸」的標籤，但相關報導指出，這種印象更像是網路迷因，而不完全符 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "Google Fitbit Edge 補齊穿戴產品線，AI 健康管理深化裝置差異化競爭",
+      "link": "https://technews.tw/2026/10/28/google-fitbit-edge-wearable-line-ai-health-management-device-differentiation-competition/",
+      "publishedAt": "Tue, 27 Oct 2026 23:00:32 +0000",
+      "summary": "Google 月中發表新健康穿戴裝置 Fitbit Edge，定位介於無螢幕 Fitbit Air 與智慧手錶 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "蘋果創作坊也導入 OpenAI 技術，AI 助理進駐 Keynote、Pages",
       "link": "https://technews.tw/2026/10/27/apple-creator-studio-openai/",
       "publishedAt": "Tue, 27 Oct 2026 14:19:15 +0000",
@@ -55,48 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "蘋果 M6 iMac AI 效能最高提升 5 倍，售價 49,900 元起",
       "link": "https://technews.tw/2026/10/27/m6-imac/",
       "publishedAt": "Tue, 27 Oct 2026 14:02:46 +0000",
       "summary": "蘋果推出搭載 M6 晶片的 14 吋 MacBook Pro 後，也同步更新桌上型電腦產品線，正式發表新款 2 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "設計壽命僅 2 年卻撐過 21 年，雨燕天文台光榮退役",
-      "link": "https://technews.tw/2026/10/27/swift-observatory-retired-with-honor/",
-      "publishedAt": "Tue, 27 Oct 2026 14:00:22 +0000",
-      "summary": "美國太空總署（NASA）尼爾·格雷爾斯雨燕天文台（Neil Gehrels Swift Observatory [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "M6 版 14 吋 MacBook Pro 也現身，售價 64,900 元起",
-      "link": "https://technews.tw/2026/10/27/m6-macbook-pro-2/",
-      "publishedAt": "Tue, 27 Oct 2026 13:52:12 +0000",
-      "summary": "蘋果昨日晚間才無預警推出了最新的 OLED iPad mini，稍早則是更新 MacBook Pro 產品線， [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "全球四大會計師事務所之一的PwC證實遭駭，Everest聲稱竊得590GB資料",
-      "link": "https://www.ithome.com.tw/news/179976",
-      "publishedAt": "2026-10-27 12:10:40",
-      "summary": "近年大型會計師事務所接連傳出資安事件，凸顯相關專業服務業者的資安風險，全球四大會計師事務所之一PwC近日也揭露遭駭，為其代管員工學習紀錄的第三方廠商遭到網路入侵，PwC已於10月23日證實此事，但表示受影響的外部平臺並未存放客戶資料、敏感個資或財務資訊，該公司獲知該事件後已迅速採取措施保護相關環境並展開調查，",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "美國CISA警告PHP2Shell遭到積極利用",
-      "link": "https://www.ithome.com.tw/news/179975",
-      "publishedAt": "2026-10-27 12:10:23",
-      "summary": "上週PHP開發團隊公布及修補的重大漏洞CVE-2026-109618、CVE-2026-109619（統稱PHP2Shell）震驚全球，美國網路安全與基礎設施安全局（CISA）在呼籲用戶立即修補相關弱點後，本週也掌握遭積極利用的證據並提出警告。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
