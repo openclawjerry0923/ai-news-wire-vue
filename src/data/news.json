@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-10-27T14:03:56.786Z",
+  "generatedAt": "2026-10-27T19:51:59.942Z",
   "items": [
     {
       "id": 1,
+      "title": "fix: keep prepared runtime tests within line budget (#186209)",
+      "link": "https://github.com/openclaw/openclaw/commit/451ec41c26c67cca7d8a61b7da6b0188cf52249e",
+      "publishedAt": "2026-10-27T19:40:34Z",
+      "summary": "fix: keep prepared runtime tests within line budget (#186209) Simplifies prepared-runtime registry fixtures while preserving acquisition, scope, closure, and retirement coverage within the test-line budget.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: keep prepared runtime tests within line budget (#186209)",
+      "summaryZh": "重點：修正: keep prepared runtime tests within line budget (#186209) Simplifies prepared-runtime registry 修正tures while preservi..."
+    },
+    {
+      "id": 2,
+      "title": "docs: point logo work to the brand-kit README (#186198)",
+      "link": "https://github.com/openclaw/openclaw/commit/d45ff6de6c486eb7d68931492e84af4842e02e44",
+      "publishedAt": "2026-10-27T19:30:57Z",
+      "summary": "docs: point logo work to the brand-kit README (#186198) * docs: route branding work to the live Carapace kit * docs: simplify logo guidance to the brand kit pointer",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 文件更新：文件: point logo work to the brand-kit README (#186198)",
+      "summaryZh": "重點：文件: point logo work to the brand-kit README (#186198) * 文件: route branding work to the live Carapace kit * 文件: simplify ..."
+    },
+    {
+      "id": 3,
+      "title": "perf(state): omit unused pending custody from message appends (#186213)",
+      "link": "https://github.com/openclaw/openclaw/commit/364c0d4ebcd400ee4285eb989ed60d2a8b000b93",
+      "publishedAt": "2026-10-27T19:19:44Z",
+      "summary": "perf(state): omit unused pending custody from message appends (#186213) * perf(state): omit unused pending custody from message appends * test(state): consolidate message custody payload regression * test(state): reuse actor command and failure fixtures",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(state): omit unused pending custody from message appends (#186213)",
+      "summaryZh": "重點：perf(state): omit unused pending custody from message appends (#186213) * perf(state): omit unused pending custody from ..."
+    },
+    {
+      "id": 4,
+      "title": "fix(team-controller): native update backups from failed or recovered …",
+      "link": "https://github.com/openclaw/openclaw/commit/9242bf5778642e156505d5589e862c5c464064b1",
+      "publishedAt": "2026-10-27T19:19:14Z",
+      "summary": "fix(team-controller): native update backups from failed or recovered deployments are never retired (#185600) * fix(team-controller): retire settled native update backups during release pruning Schema-crossing deployments create a per-transaction root under `/.openclaw-update/` where the candidate's `update migrate` writes its pre-migration snapshot and receipt. Only `update finish` on an accepted deployment removed the snapshot; restored rollbacks, forward recovery, migrations that died before their receipt, and early failures left their roots forever. Release pruning now settles them. While any activation journal exists, nothing is retired. Otherwise roots whose receipt is absent (Doctor never ran), `migrated`, `restored`, or `finished` are retired; `backed-up`, `failed`, `restoring-config`, and unreadable receipts stay with a RETAIN line. The current deployment keeps its own root until the next prune. The runtime account, which owns these trees, removes their contents; root only removes the emptied directory. Release-note context: the Team deployment controller now retires native update backups of settled transactions during release pruning. * fix(team-controller): run native backup removal from an accessible directory A real-account proof (real runuser and a separate runtime account) showed GNU find, run as the runtime account, refuses to start from a working directory only root can enter. Team runs deployments from root-private scripts, so every settled native root would have been retained instead of retired. The runtime-account removal now runs from /.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(team-controller): native update backups from failed or recovered …",
+      "summaryZh": "重點：修正(team-controller): native update backups from failed or recovered deployments are never retired (#185600) * 修正(team-co..."
+    },
+    {
+      "id": 5,
+      "title": "蘋果創作坊也導入 OpenAI 技術，AI 助理進駐 Keynote、Pages",
+      "link": "https://technews.tw/2026/10/27/apple-creator-studio-openai/",
+      "publishedAt": "Tue, 27 Oct 2026 14:19:15 +0000",
+      "summary": "蘋果持續擴大生成式 AI 在旗下應用程式的布局，宣布為訂閱制創作工具組合「Apple 創作坊」（Apple C [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "蘋果 M6 iMac AI 效能最高提升 5 倍，售價 49,900 元起",
       "link": "https://technews.tw/2026/10/27/m6-imac/",
       "publishedAt": "Tue, 27 Oct 2026 14:02:46 +0000",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "設計壽命僅 2 年卻撐過 21 年，雨燕天文台光榮退役",
       "link": "https://technews.tw/2026/10/27/swift-observatory-retired-with-honor/",
       "publishedAt": "Tue, 27 Oct 2026 14:00:22 +0000",
@@ -20,18 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "fix(codex): keep the exec-server exit diagnostic at a UTF-8 boundary …",
-      "link": "https://github.com/openclaw/openclaw/commit/9adda02605eca1f45eb10f009dd4c3e575713032",
-      "publishedAt": "2026-10-27T13:56:30Z",
-      "summary": "fix(codex): keep the exec-server exit diagnostic at a UTF-8 boundary (#183932) fix(codex): cut the exec-server exit diagnostic at a UTF-8 boundary The Codex exec-server exit diagnostic truncated stderr in the middle of a multi-byte UTF-8 character, so CJK or emoji output near the limit ended in replacement characters. Truncation now stops at a character boundary. Evidence: the compiled node worker launched the registered Codex exec-server in a managed workspace with a real failing executable. On main the diagnostic had 1 replacement character for CJK and 3 for emoji (twice each); with this change none (twice each), still with exit code 3. ASCII and already-aligned output are unchanged. Details: https://github.com/openclaw/openclaw/pull/183932#issuecomment-6443511499. Production 7 lines. Thanks @SunnyShu0925. Co-authored-by: SunnyShu Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep the exec-server exit diagnostic at a UTF-8 boundary …",
-      "summaryZh": "重點：修正(codex): keep the exec-server exit diagnostic at a UTF-8 boundary (#183932) 修正(codex): cut the exec-server exit diagno..."
-    },
-    {
-      "id": 4,
+      "id": 8,
       "title": "M6 版 14 吋 MacBook Pro 也現身，售價 64,900 元起",
       "link": "https://technews.tw/2026/10/27/m6-macbook-pro-2/",
       "publishedAt": "Tue, 27 Oct 2026 13:52:12 +0000",
@@ -40,40 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
-      "title": "fix(copilot): correct GitHub tool ordering expectation (#185612)",
-      "link": "https://github.com/openclaw/openclaw/commit/a3fee9204353615d4b8d3bea7a94504ff9bd5fc3",
-      "publishedAt": "2026-10-27T13:51:03Z",
-      "summary": "fix(copilot): correct GitHub tool ordering expectation (#185612)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(copilot): correct GitHub tool ordering expectation (#185612)",
-      "summaryZh": "重點：修正(copilot): correct GitHub tool ordering expectation (#185612)..."
-    },
-    {
-      "id": 6,
-      "title": "perf(sessions): avoid copying replacement snapshots before writing (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/243cfdaf2a87bf5bdc1206fce330cf40aff49ee6",
-      "publishedAt": "2026-10-27T13:48:57Z",
-      "summary": "perf(sessions): avoid copying replacement snapshots before writing (#185909) * perf(sessions): avoid copying replacement snapshots before writing Keep the entry writer responsible for detached persisted publications and return values. Copy only the mutable outer replacement fields before synchronous normalization; nested saved snapshots remain read-only until the owner produces its persisted copy. * test(sessions): consolidate replacement receipt fixtures",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(sessions): avoid copying replacement snapshots before writing (#…",
-      "summaryZh": "重點：perf(sessions): avoid copying replacement snapshots before writing (#185909) * perf(sessions): avoid copying replacement..."
-    },
-    {
-      "id": 7,
-      "title": "refactor(models): remove copied probe-target fixtures (#185944)",
-      "link": "https://github.com/openclaw/openclaw/commit/cbca3f2bdeeeda62888e8d9b8d5aeeda566d5c5c",
-      "publishedAt": "2026-10-27T13:46:31Z",
-      "summary": "refactor(models): remove copied probe-target fixtures (#185944)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(模型): remove copied probe-target 修正tures (#185944)",
-      "summaryZh": "重點：refactor(模型): remove copied probe-target 修正tures (#185944)..."
-    },
-    {
-      "id": 8,
+      "id": 9,
       "title": "全球四大會計師事務所之一的PwC證實遭駭，Everest聲稱竊得590GB資料",
       "link": "https://www.ithome.com.tw/news/179976",
       "publishedAt": "2026-10-27 12:10:40",
@@ -82,20 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 9,
+      "id": 10,
       "title": "美國CISA警告PHP2Shell遭到積極利用",
       "link": "https://www.ithome.com.tw/news/179975",
       "publishedAt": "2026-10-27 12:10:23",
       "summary": "上週PHP開發團隊公布及修補的重大漏洞CVE-2026-109618、CVE-2026-109619（統稱PHP2Shell）震驚全球，美國網路安全與基礎設施安全局（CISA）在呼籲用戶立即修補相關弱點後，本週也掌握遭積極利用的證據並提出警告。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Brotli解壓縮漏洞也影響.NET，微軟緊急發布臨時更新修補",
-      "link": "https://www.ithome.com.tw/news/179970",
-      "publishedAt": "2026-10-27 12:10:05",
-      "summary": "微軟10月25日發布.NET臨時（Out-of-Band）安全更新，緊急修補Brotli解壓縮漏洞。應用程式若解開攻擊者提供的惡意壓縮資料，可能讓未經身分驗證的攻擊者讀取或破壞程式記憶體，造成資料外洩、服務中斷或權限提升。此次更新也修補Linux封裝的檔案擁有權問題，並修正10月13日安全更新未完整處理的另兩項漏洞。",
       "source": "iThome",
       "tag": "繁中"
     }
