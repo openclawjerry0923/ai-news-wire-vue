@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-10-28T17:58:28.854Z",
+  "generatedAt": "2026-10-28T22:28:24.447Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: keep narrow subagent reports inside the panel (#186919)",
-      "link": "https://github.com/openclaw/openclaw/commit/b9251d11e37929b9dd7984ce06f8270fa710005f",
-      "publishedAt": "2026-10-28T17:55:14Z",
-      "summary": "fix: keep narrow subagent reports inside the panel (#186919) Keep subagent report text and its scrollbar inside narrowed panels.",
+      "title": "chore: provide measured test-line headroom (#187030)",
+      "link": "https://github.com/openclaw/openclaw/commit/0ded0ed7a8cae4867a3a201e32cccbfbfe9bde70",
+      "publishedAt": "2026-10-28T22:24:30Z",
+      "summary": "chore: provide measured test-line headroom (#187030) Raise the repository test-line ceiling to 6,320,000 with measured headroom for pending regression coverage.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep narrow subagent reports inside the panel (#186919)",
-      "summaryZh": "重點：修正: keep narrow subagent reports inside the panel (#186919) Keep subagent report text and its scrollbar inside narrowed ..."
+      "titleZh": "OpenClaw 程式碼更新：chore: provide measured test-line headroom (#187030)",
+      "summaryZh": "重點：chore: provide measured test-line headroom (#187030) Raise the repository test-line ceiling to 6,320,000 with measured h..."
     },
     {
       "id": 2,
-      "title": "fix(cli): retain why interrupted commands stopped (#186903)",
-      "link": "https://github.com/openclaw/openclaw/commit/6a2b56560cac16e0d29245234b7e23c56ba4f695",
-      "publishedAt": "2026-10-28T17:53:44Z",
-      "summary": "fix(cli): retain why interrupted commands stopped (#186903) * fix(cli): retain why interrupted commands stopped Carry the first accepted exit reason through maintenance gates into cancellation diagnostics. Preserve signal exit-code precedence and existing cleanup ordering; classify closed output and I/O failures without forwarding private error text. * test(cli): observe the owned work cancellation signal * test(cli): expect the canonical terminal failure summary",
+      "title": "feat(control-ui): show where to edit read-only Gateway configuration …",
+      "link": "https://github.com/openclaw/openclaw/commit/554f0b886bde6c089578c49967227f8b50d1cf16",
+      "publishedAt": "2026-10-28T22:17:21Z",
+      "summary": "feat(control-ui): show where to edit read-only Gateway configuration (#187015) Tell Gateway administrators when configuration writes are blocked and where to make changes. Read the serving Gateway’s existing write policy and show generic guidance unless the deployment supplies OPENCLAW_CONFIG_READONLY_NOTICE. Preserve that setting during service installation and regeneration. Co-authored-by: stevenlee-oai",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): retain why interrupted commands stopped (#186903)",
-      "summaryZh": "重點：修正(cli): retain why interrupted commands stopped (#186903) * 修正(cli): retain why interrupted commands stopped Carry the ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(control-ui): show where to edit read-only Gateway configuration …",
+      "summaryZh": "重點：新功能(control-ui): show where to edit read-only Gateway configuration (#187015) Tell Gateway administrators when configura..."
     },
     {
       "id": 3,
-      "title": "refactor(memory): share promotion budget recall fixture (#186934)",
-      "link": "https://github.com/openclaw/openclaw/commit/d86b97847c8f5bccca8358ad7ddc963881cd34c1",
-      "publishedAt": "2026-10-28T17:50:18Z",
-      "summary": "refactor(memory): share promotion budget recall fixture (#186934)",
+      "title": "test(perf): add real-Gateway flaky network proof for Control UI recov…",
+      "link": "https://github.com/openclaw/openclaw/commit/21dfc118ceffa297db15766f118596cf118c82aa",
+      "publishedAt": "2026-10-28T22:16:51Z",
+      "summary": "test(perf): add real-Gateway flaky network proof for Control UI recovery (#187040) Opt-in diagnostic: isolated dist Gateway with synthetic Team-shaped state behind a TCP fault proxy on an airplane-grade link. Scenarios blackout, offline-reload, and queue-reload check send-to-visible-status, restore-to-hello, offline cached transcript and status, and exactly-once delivery against explicit thresholds. Admission gains an optional public port and owns the shared free proof-port helper.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(記憶): share promotion budget recall 修正ture (#186934)",
-      "summaryZh": "重點：refactor(記憶): share promotion budget recall 修正ture (#186934)..."
+      "titleZh": "OpenClaw 程式碼更新：test(perf): add real-Gateway flaky network proof for Control UI recov…",
+      "summaryZh": "重點：test(perf): add real-Gateway flaky network proof for Control UI recovery (#187040) Opt-in diagnostic: isolated dist Gate..."
     },
     {
       "id": 4,
-      "title": "fix(config): warn when backup rotation fails (#184950)",
-      "link": "https://github.com/openclaw/openclaw/commit/a3283f78e00fc83c6bf44346099f270748e89287",
-      "publishedAt": "2026-10-28T17:48:25Z",
-      "summary": "fix(config): warn when backup rotation fails (#184950) Report config backup preparation and rotation failures once through the existing root and included-config warning channels, while preserving best-effort writes and ownership-conflict safeguards. Include actionable backup recovery guidance without exposing config paths or contents. Fixes #184891 Co-authored-by: sunlit-deng Co-authored-by: Tak Hoffman",
+      "title": "refactor(cron): reuse canonical lane wait state (#187026)",
+      "link": "https://github.com/openclaw/openclaw/commit/bb6c6a5a27637228a5c5d8c161821e5d926b205d",
+      "publishedAt": "2026-10-28T22:13:16Z",
+      "summary": "refactor(cron): reuse canonical lane wait state (#187026)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(config): warn when backup rotation fails (#184950)",
-      "summaryZh": "重點：修正(config): warn when backup rotation fails (#184950) Report config backup preparation and rotation failures once throug..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(排程): reuse canonical lane wait state (#187026)",
+      "summaryZh": "重點：refactor(排程): reuse canonical lane wait state (#187026)..."
     },
     {
       "id": 5,
