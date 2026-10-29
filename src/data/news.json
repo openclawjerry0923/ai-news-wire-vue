@@ -1,8 +1,52 @@
 {
-  "generatedAt": "2026-10-29T09:29:52.703Z",
+  "generatedAt": "2026-10-29T16:40:28.594Z",
   "items": [
     {
       "id": 1,
+      "title": "openclaw 2026.10.9",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.9",
+      "publishedAt": "2026-10-29T16:37:36Z",
+      "summary": "2026.10.9 Highlights Patch vulnerable runtime dependencies: fast-uri 4.2.3 rejects malformed URI schemes and hosts in MCP schema validation, oversized Zod collections are rejected early in A2UI and the Discord embedded app SDK, IMAP sender parsing uses nodemailer 10.1.4 so spoofed senders cannot pass the sender token gate, and Microsoft Teams uses patched MSAL Node 7.1.1. (#187294) Thanks @RomneyDa. Apply tools.fs.workspaceOnly to Gateway-built tools, so delegate changes still require approval and media tools stay inside the workspace. (#185094) Thanks @eleqtrizit, @RomneyDa, and @shakkernerd. Keep live credentials out of MCP CLI inspection and mask Google OAuth client secrets in logs. (#180321, #180308, #183193) Thanks @brandon-julio-t, @wr-web, @LeizhenZhang, and @RomneyDa. Make failed update rollbacks safe: Git-source rollbacks preserve operator edits instead of resetting the checkout, and npm rollbacks retry transient Windows denials and report the exact move that restores a bootable install instead of stranding the package root. (#185201, #184887, #185160, #184889) Thanks @wr-web, @syxscott, @LiuwqGit, @shakkernerd, and @RomneyDa. Recover intact agent databases and stale full-text indexes after SQLite tokenizer changes, including update snapshots. (#176234, #176220, #176833, #181206) Thanks @ndakota79 and @RomneyDa. Repair publication-complete updates after a remount while retaining the original launcher and sealed recovery helper. (#186557, #186527) Thanks @ericcaiwx-star, @sennyhoney, and @RomneyDa. Migrate large transcript archives without exceeding Node.js string limits. (#170853, #170847) Thanks @iamonlv426 and @RomneyDa. Allow agents to recover after a full disk once space becomes available, without requiring a restart. (#176902) Thanks @RomneyDa. Changes This maintenance release focuses on security dependency patches, recovery, data preservation, and reliability fixes. Fixes Resolve local media in Codex steering messages from the session's own workspace instead of the agent's default workspace. (#181528) Thanks @RomneyDa. Report uncertain process cleanup from buffered commands, such as local CLI speech providers, instead of presenting it as an ordinary command failure. (#184270, #184237) Thanks @shakkernerd and @RomneyDa. Keep reapproved node connections alive by publishing the approval with its committed pairing facts before the request resumes. Thanks @RomneyDa. Recover stopped Gateways when service activation cannot be verified; retain untouched-recovery behavior in Windows triage. (#172784, #181577, #181698) Thanks @SMF12138 and @RomneyDa. Avoid uninstalling a Gateway service during a passive macOS stop when no service is installed. (#181257) Thanks @shakkernerd, @LiuwqGit, @eleqtrizit, @syxscott, and @RomneyDa. Recover CLI Node runtimes when launched from the filesystem root, including launchd jobs. (#178112, #177739) Thanks @downingkeys and @RomneyDa. Start new ACP sessions in the requested working directory instead of the default workspace. (#176852, #123557) Thanks @yinx65588-boop, @crappier, and @RomneyDa. Prevent overlapping model refreshes from failing requests. (#179144) Thanks @RomneyDa. Honor an explicit SSH port 22 in openclaw gateway probe --ssh instead of the alias's configured port. (#171092) Thanks @zhangguiping-xydt, @obviyus, and @RomneyDa. Keep skill metadata such as icons and homepages when an inline YAML metadata value has a trailing comment. (#171224) Thanks @zhangguiping-xydt, @Takhoffman, and @RomneyDa. Show provider-ignored options in openclaw infer video generate text and JSON output. (#171172) Thanks @ly85206559, @obviyus, and @RomneyDa. Complete contribution record This audited record covers the complete v2026.10.8..c213740 history: 48 in-range PRs + 0 retained seed-only PRs = 48 unique PRs. The generation manifest also supplies direct commits as editorial input; the grouped notes above prioritize user impact. Shipped baseline exclusions: v2026.10.8 (3 PRs: #180390, #180668, #181596). Pull requests PR #185538 Thanks @RomneyDa. PR #170853 Related #170847. Thanks @iamonlv426 and @RomneyDa. PR #185201 Related #184887. Thanks @wr-web and @RomneyDa and @syxscott. PR #176902 Thanks @RomneyDa. PR #176852 Related #123557. Thanks @yinx65588-boop and @RomneyDa and @crappier. PR #178112 Related #177739. Thanks @RomneyDa and @downingkeys. PR #179144 Thanks @RomneyDa. PR #180321 Related #180308. Thanks @brandon-julio-t and @wr-web and @RomneyDa. PR #183193 Thanks @LeizhenZhang and @RomneyDa. PR #176833 Related #176220. Thanks @RomneyDa and @ndakota79. PR #181698 Related #181577. Thanks @RomneyDa and @SMF12138. PR #172784 Related #181577. Thanks @RomneyDa and @SMF12138. PR #185541 Related #181577. Thanks @RomneyDa and @SMF12138. PR #176234 Related #176220. Thanks @RomneyDa and @ndakota79. PR #181206 Related #176220. Thanks @RomneyDa and @ndakota79. PR #186557 Related #186527. Thanks @ericcaiwx-star and @RomneyDa and @sennyhoney. PR #181257 Related #184889, #184237. Thanks @shakkernerd and @RomneyDa and @LiuwqGit and @eleqtrizit and @syxscott. PR #171224 Thanks @zhangguiping-xydt and @Takhoffman and @RomneyDa. PR #171172 Thanks @ly85206559 and @RomneyDa and @obviyus. PR #171092 Thanks @zhangguiping-xydt and @RomneyDa and @obviyus. PR #181528 Thanks @RomneyDa. PR #185692 Thanks @RomneyDa. PR #179085 Thanks @RomneyDa. PR #179097 Thanks @RomneyDa. PR #179104 Thanks @RomneyDa. PR #179125 Thanks @RomneyDa. PR #179077 Thanks @RomneyDa. PR #179112 Thanks @RomneyDa. PR #179109 Thanks @RomneyDa. PR #179083 Thanks @RomneyDa. PR #179093 Thanks @RomneyDa. PR #179079 Thanks @RomneyDa. PR #180250 Thanks @RomneyDa. PR #180238 Thanks @RomneyDa. PR #180257 Thanks @RomneyDa. PR #180245 Thanks @RomneyDa. PR #180249 Thanks @RomneyDa. PR #185160 Related #184889. Thanks @LiuwqGit and @RomneyDa and @shakkernerd and @syxscott. PR #187259 Thanks @RomneyDa and @shakkernerd. PR #182010 Thanks @RomneyDa and @shakkernerd. PR #184270 Related #184237. Thanks @shakkernerd and @RomneyDa. PR #185094 Thanks @eleqtrizit and @RomneyDa and @shakkernerd. PR #187412 Thanks @RomneyDa. PR #187430 Thanks @RomneyDa. PR #187459 Thanks @RomneyDa. PR #187487 Thanks @RomneyDa. PR #187294 Thanks @RomneyDa. PR #187496 Thanks @RomneyDa. Release verification npm package: https://www.npmjs.com/package/openclaw/v/2026.10.9 registry tarball: https://registry.npmjs.org/openclaw/-/openclaw-2026.10.9.tgz integrity: sha512-KbIl0/7an0/nKBo92FnJg7LFcEpFVQyOgSRfHNE9yxELg1Ebql7BmBsdLL+1dDOLZnQtuwjt6Hy45CCrmYdJNA== release SHA: 8b18b5578f66eab1501cba4cef2310d88bfb9a41 full release CI report: https://github.com/openclaw/releases/blob/main/evidence/2026.10.9/release-evidence.md release publish: https://github.com/openclaw/openclaw/actions/runs/40896462808 npm preflight: https://github.com/openclaw/openclaw/actions/runs/40863629738 full release validation: https://github.com/openclaw/openclaw/actions/runs/40862370666 plugin npm publish: https://github.com/openclaw/openclaw/actions/runs/40898170961 plugin ClawHub submission: https://github.com/openclaw/openclaw/actions/runs/40898180399; public finalization and exact artifact verification follow terminal release-parent completion plugin ClawHub bootstrap: not needed OpenClaw npm publish: https://github.com/openclaw/openclaw/actions/runs/40899799314 npm Telegram beta E2E: not supplied Android APK: skipped — apps/android/version.json is 2026.8.2, release train is 2026.10.9; run pnpm android:version:pin -- --from-gateway before the next tag.",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 版本更新：2026.10.9",
+      "summaryZh": "重點：2026.10.9 Highlights Patch vulnerable runtime dependencies: fast-uri 4.2.3 rejects malformed URI schemes and hosts in MC..."
+    },
+    {
+      "id": 2,
+      "title": "fix: streamed replies with a literal [[ in prose no longer re-parse t…",
+      "link": "https://github.com/openclaw/openclaw/commit/50bb9ed9160849ac428c72c8cb5da0c254094d0a",
+      "publishedAt": "2026-10-29T16:26:27Z",
+      "summary": "fix: streamed replies with a literal [[ in prose no longer re-parse the whole answer (#187656) fix(reply): stop streamed replies with a literal \"[[\" from reparsing the whole reply When a streamed reply contained a literal \"[[\" that wasn't a directive, every new chunk made the stream reparse the whole accumulated reply looking for a directive, so long replies slowed down. The scan now keeps its Markdown ownership state between chunks and invalidates it correctly. That includes the case where a backtick-wrapped [[audio_as_voice]] is followed by another backtick. Real directives are still detected, and their metadata is published before text_end. Evidence: built Gateway with the real QA channel and loopback SSE. Canonical parse work fell by 95.5% in both serial 64 KiB raw turns, and the final text matched across all 16 fixture pairs. Four media controls and a Telegram Test Server guard passed, and directive metadata ordering is unchanged. Details are in the PR evidence comments. Thanks @JasonBuildAI. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: streamed replies with a literal [[ in prose no longer re-parse t…",
+      "summaryZh": "重點：修正: streamed replies with a literal [[ in prose no longer re-parse the whole answer (#187656) 修正(reply): stop streamed r..."
+    },
+    {
+      "id": 3,
+      "title": "refactor(sms): join held test work before cleanup (#156630)",
+      "link": "https://github.com/openclaw/openclaw/commit/76985e4c31c4c94c91e7ed79411c8189180b7ea8",
+      "publishedAt": "2026-10-29T16:03:31Z",
+      "summary": "refactor(sms): join held test work before cleanup (#156630) * refactor(sms): centralize fixtures and join async test work * fix: refresh the reviewed correction baseline Baseline-Refresh: 3fb69d65b782a262fc3a94898d5b2402ce8344ba * test(sms): own held fixture lifetimes and pin Twilio signature vector Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(sms): join held test work before cleanup (#156630)",
+      "summaryZh": "重點：refactor(sms): join held test work before cleanup (#156630) * refactor(sms): centralize 修正tures and join async test work..."
+    },
+    {
+      "id": 4,
+      "title": "test(agents): freeze monotonic timeout forwarding clock (#187763)",
+      "link": "https://github.com/openclaw/openclaw/commit/6676a9d8022b020214f0507f79efb94599ea2b78",
+      "publishedAt": "2026-10-29T16:01:42Z",
+      "summary": "test(agents): freeze monotonic timeout forwarding clock (#187763) Co-authored-by: Vincent Koc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents): freeze monotonic timeout forwarding clock (#187763)",
+      "summaryZh": "重點：test(agents): freeze monotonic timeout forwarding clock (#187763) Co-authored-by: Vincent Koc..."
+    },
+    {
+      "id": 5,
       "title": "GitHub發表能在單一任務內跨模型協同的Copilot Fusion",
       "link": "https://www.ithome.com.tw/news/180064",
       "publishedAt": "2026-10-29 12:10:54",
@@ -11,7 +55,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "PHP2Shell漏洞影響多家IT與OT廠商的產品，相關公告陸續出爐",
       "link": "https://www.ithome.com.tw/news/180047",
       "publishedAt": "2026-10-29 12:10:27",
@@ -20,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "微軟季度營收成長19%，Azure大增48%，Windows裝置下滑22%",
       "link": "https://www.ithome.com.tw/news/180062",
       "publishedAt": "2026-10-29 12:10:27",
@@ -29,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "中國駭客Volt Typhoon綁架連網設備打造攻擊框架Silent Train，用於攻擊美國關鍵基礎設施",
       "link": "https://www.ithome.com.tw/news/180063",
       "publishedAt": "2026-10-29 12:10:14",
@@ -38,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 9,
       "title": "macOS 27.2未修補eMudhra憑證風險，Git與curl仍可能遭中間人攻擊",
       "link": "https://www.ithome.com.tw/news/180061",
       "publishedAt": "2026-10-29 12:10:09",
@@ -47,57 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "美國制裁北韓遠端IT工作詐騙網絡，鎖定俄羅斯洗錢中間人",
       "link": "https://www.ithome.com.tw/news/180060",
       "publishedAt": "2026-10-29 12:10:01",
       "summary": "美國財政部外國資產管制辦公室（OFAC）於10月28日宣布制裁10名個人及1個實體，指控其協助北韓政府的遠端IT工作詐騙活動，包含在俄羅斯活動的北韓IT工作者、管理人員及俄羅斯籍洗錢中間人。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(ui): match canonical Unicode in Picker searches (#187521)",
-      "link": "https://github.com/openclaw/openclaw/commit/4e846533cd2b72c22ed1dc7cc88654014c08c833",
-      "publishedAt": "2026-10-29T09:27:56Z",
-      "summary": "fix(ui): match canonical Unicode in Picker searches (#187521) fix(ui): match canonically equivalent Unicode in the shared Picker search The Control UI's shared Picker compared lowercase labels and IDs without Unicode normalization, so typing a name in NFD missed an option stored in NFC, and the reverse, in every picker built on it. The shared comparison now uses lowercase NFC text, the rule the other Control UI filters use since #187036. Evidence: built Control UI served by a built Gateway in real Chromium, in two pickers on the shared owner: the Settings default model picker and the Workboard linked-session picker. On main both missed the option in either direction (twice); with this change both found the original label or ID (twice). ASCII, whitespace, unmatched and no-accent-folding controls are unchanged. Screenshots and details: https://github.com/openclaw/openclaw/pull/187521#issuecomment-6492927728. Thanks @Alix-007. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): match canonical Unicode in Picker searches (#187521)",
-      "summaryZh": "重點：修正(ui): match canonical Unicode in Picker searches (#187521) 修正(ui): match canonically equivalent Unicode in the shared ..."
-    },
-    {
-      "id": 8,
-      "title": "fix(worker): keep fd 0 open when releasing file-backed stdin (#187516)",
-      "link": "https://github.com/openclaw/openclaw/commit/a3dd92bd88c8160544dbb50a23ffd27727b97e5c",
-      "publishedAt": "2026-10-29T09:27:34Z",
-      "summary": "fix(worker): keep fd 0 open when releasing file-backed stdin (#187516) * fix(worker): keep fd 0 open when the deploy entry releases file-backed stdin * fix(worker): decide stdin release by fd type so Bun pipes are still released * test(worker): assert the stdin release helper instead of the runner's stdin * test(worker): explain stdin helper mock isolation",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(worker): keep fd 0 open when releasing file-backed stdin (#187516)",
-      "summaryZh": "重點：修正(worker): keep fd 0 open when releasing file-backed stdin (#187516) * 修正(worker): keep fd 0 open when the deploy entry..."
-    },
-    {
-      "id": 9,
-      "title": "fix(ci): activate bounded Git waits in validation workflows (#187532)",
-      "link": "https://github.com/openclaw/openclaw/commit/353f4a6545a619488fc6f37d298a34d3a66ffa80",
-      "publishedAt": "2026-10-29T09:27:19Z",
-      "summary": "fix(ci): activate bounded Git waits in validation workflows (#187532)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): activate bounded Git waits in validation workflows (#187532)",
-      "summaryZh": "重點：修正(ci): activate bounded Git waits in validation workflows (#187532)..."
-    },
-    {
-      "id": 10,
-      "title": "refactor: remove orphaned restart-recovery errors (#187533)",
-      "link": "https://github.com/openclaw/openclaw/commit/bde3017359edf796459ad4d5e3753ac6b84a49bf",
-      "publishedAt": "2026-10-29T09:20:45Z",
-      "summary": "refactor: remove orphaned restart-recovery errors (#187533)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor: remove orphaned restart-recovery errors (#187533)",
-      "summaryZh": "重點：refactor: remove orphaned restart-recovery errors (#187533)..."
     }
   ]
 }
