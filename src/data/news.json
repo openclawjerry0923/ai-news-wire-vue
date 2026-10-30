@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-10-30T15:37:53.072Z",
+  "generatedAt": "2026-10-30T20:28:19.778Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(pr): recover reviews blocked by interrupted checkout files (#188463)",
-      "link": "https://github.com/openclaw/openclaw/commit/968d8dfc7253d0372cd93af947172c8d819ffb2d",
-      "publishedAt": "2026-10-30T15:37:32Z",
-      "summary": "fix(pr): recover reviews blocked by interrupted checkout files (#188463) Preserve an explicitly selected unknown working-file preimage, restore its journaled source under current qualified tooling and the original operation lock, and leave ordinary bound replay responsible for completion. Co-authored-by: Solvely-Colin",
+      "title": "perf(test): avoid repeated Control UI fixture work (#188673)",
+      "link": "https://github.com/openclaw/openclaw/commit/39b2c9191e6a0c2041fd3a350976244ca2125932",
+      "publishedAt": "2026-10-30T20:27:40Z",
+      "summary": "perf(test): avoid repeated Control UI fixture work (#188673)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(pr): recover reviews blocked by interrupted checkout files (#188463)",
-      "summaryZh": "重點：修正(pr): recover reviews blocked by interrupted checkout files (#188463) Preserve an explicitly selected unknown working-..."
+      "titleZh": "OpenClaw 程式碼更新：perf(test): avoid repeated Control UI 修正ture work (#188673)",
+      "summaryZh": "重點：perf(test): avoid repeated Control UI 修正ture work (#188673)..."
     },
     {
       "id": 2,
-      "title": "refactor(test): scope provider contract loading to each suite (#188429)",
-      "link": "https://github.com/openclaw/openclaw/commit/b19c8c7ccc915b55d3a2d90fbbd03c7e1e6f41b2",
-      "publishedAt": "2026-10-30T15:36:13Z",
-      "summary": "refactor(test): scope provider contract loading to each suite (#188429)",
+      "title": "fix: resume configured fallback after interrupted attempts (#188672)",
+      "link": "https://github.com/openclaw/openclaw/commit/9114431fbb5a2a2251d020bee247568cf71673b5",
+      "publishedAt": "2026-10-30T20:27:19Z",
+      "summary": "fix: resume configured fallback after interrupted attempts (#188672) ` or `Related: #` line below this comment. Required PR title: type: user-facing description Use a parenthesized scope only when it adds clarity: fix(auth): login redirect loops when session cookie is expired Types: feat, fix, improve, refactor, docs, chore. For fixes, describe the user-visible symptom and trigger: fix: task list fails to load when user has no environments Avoid implementation details such as: fix: add null check to task query **MUST:** Keep **Allow edits from maintainers** enabled for this PR so maintainers can help update the branch when needed. --> ## What Problem This Solves when .\" For other changes, describe the need without inventing a bug. Name the affected workflow, not the code-level cause. --> Fixes: a configured fallback can report the backup model yet send no backup request and return a silent result after an interrupted primary attempt. ## User Impact .\" Lead with the concrete outcome in plain language, usually one sentence. For internal-only changes, say there is no user-visible change; do not invent a benefit. Keep important risks, breaking changes, migrations, and required user actions visible here. --> User impact: configured fallback attempts can continue the unanswered turn after operational model-switch notices and owner-classified timeouts. ## Why This Change Was Made ; include technical detail only when it explains behavior or a material tradeoff. Do not hide risks or required actions in . --> The existing persisted-turn replay owner now treats a model-fallback notice as operational bookkeeping rather than a completed answer. It also receives the existing fallback reason so a same-run timeout abort can continue. Direct and historical aborts and current source, target, writer, lifecycle, and cancellation checks retain their existing boundaries. ## Evidence , keeping the useful evidence summary visible. --> - Original reply, cron strictness, timeout, and streamed-recovery boundaries (F1–F4) have qualified supporting proof. The original cron timeout reproduced the silent, primary-only failure on the base and passed with the repair. Final affected routes exercised real scripted HTTP provider requests under Node 24 and checksum-pinned OpenClaw Bun. - 58 existing replay-owner case instances passed across bounded selections, including current-authority and direct/historical-abort negatives; this was not a single uninterrupted full-file run. All 14 prompt-prefix stability cases passed. No tests or assertions changed. - Focused strict typecheck, source-backed lint, formatting, unchanged test-line ratchet, and diff checks passed. Independent local autoreview of the complete two-file snapshot against `edeae71308d8` was scoped-clean at P0–P2 with no findings. The committed source is byte-identical to that reviewed snapshot. - The separate original Gateway boundaries F5 (recovered terminal content/notice prefix), F6 (the 180-second timeout), and F7 (spawned/hidden/direct ladders) were not executed successfully through setup and remain UNKNOWN. F6's reached stage and timeout cause remain independently unknown. These are not repair passes or a claim that all seven failure families share a cause. Public model listing and external provider/SDK availability are also unverified; no live paid provider was used. - Repository PR CI supplies the pending broad proof for this head. Requested by @steipete ## Work sessions [Discussion, implementation and verification](https://team.openclaw.ai/chat/roboclaw/~key/dashboard/b5679712-7777-4ff7-a05a-81c1efab2069) Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(test): scope provider contract loading to each suite (#188429)",
-      "summaryZh": "重點：refactor(test): scope provider contract loading to each suite (#188429)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: resume configured fallback after interrupted attempts (#188672)",
+      "summaryZh": "重點：修正: resume configured fallback after interrupted attempts (#188672) ` or `Related: #` line below this comment. Required ..."
     },
     {
       "id": 3,
-      "title": "fix(agent): use PostgreSQL state for retained agent exec (#188420)",
-      "link": "https://github.com/openclaw/openclaw/commit/24fa8e716fc4d8b655a21d8edd063c50f04efcfb",
-      "publishedAt": "2026-10-30T15:33:58Z",
-      "summary": "fix(agent): use PostgreSQL state for retained agent exec (#188420) * fix(agent): use PostgreSQL state for retained agent exec Select the run database engine for lease inspection and install it after retained-state custody. Keep temporary and isolated stores on SQLite and load config without pre-lock state observation. * test(agent): isolate exec PostgreSQL namespace assertions",
+      "title": "perf(update): reuse target restart readiness during verification (#18…",
+      "link": "https://github.com/openclaw/openclaw/commit/a7200e4641b996c743b71300a6c23a3c0bf6ceea",
+      "publishedAt": "2026-10-30T20:27:14Z",
+      "summary": "perf(update): reuse target restart readiness during verification (#188637) Reuse the successful target restart readiness snapshot for final native update verification. Preserve HTTP/core readiness, expected identity, running/PID checks, recovery and durable confirmation. Missing or mismatched receipts retain normal observation. Matched synthetic native pair: parent verification inspections 17 -> 0; separate verification 2946 -> 35 ms; read-to-durable-acceptance 6400 -> 3269 ms. Single pair, no statistical speedup claim. Production +15 lines, tests net zero. PR #188637",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agent): use PostgreSQL state for retained agent exec (#188420)",
-      "summaryZh": "重點：修正(agent): use PostgreSQL state for retained agent exec (#188420) * 修正(agent): use PostgreSQL state for retained agent e..."
+      "titleZh": "OpenClaw 程式碼更新：perf(update): reuse target restart readiness during verification (#18…",
+      "summaryZh": "重點：perf(update): reuse target restart readiness during verification (#188637) Reuse the successful target restart readiness..."
     },
     {
       "id": 4,
-      "title": "chore(ui): refresh control ui locales (#188467)",
-      "link": "https://github.com/openclaw/openclaw/commit/0dad367a93cb5669baf8ceda88d7f2c67353cc0f",
-      "publishedAt": "2026-10-30T15:30:19Z",
-      "summary": "chore(ui): refresh control ui locales (#188467) Co-authored-by: github-actions[bot]",
+      "title": "improve: avoid unnecessary transcript compression projections (#188655)",
+      "link": "https://github.com/openclaw/openclaw/commit/b906fc7f0819648d54c7913b2fab271666b5413f",
+      "publishedAt": "2026-10-30T20:25:38Z",
+      "summary": "improve: avoid unnecessary transcript compression projections (#188655) Skip the native transcript metadata SELECT when the compressed frame, prepared report, and encoder-derived minimum cannot satisfy the existing savings threshold. Preserve byte-identical transcript/provider data, model-selection facts, restart delivery, and PostgreSQL behavior. Addresses the redundant payload work from #185730 and #184702. Synthetic Gateway proof reduces ordinary warm turns from 48 to 45 SQL statements, with 13 worker requests and zero MAIN SQL unchanged; all fourteen turns and restart flows pass. The first sealed-history fingerprint from #186046 remains required. Validated with payload and prompt-prefix tests, 48 byte-equivalent variants, two isolated code reviews plus a type-correction delta review, and exact-head CI/PostgreSQL conformance.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#188467)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#188467) Co-authored-by: github-actions[bot]..."
+      "titleZh": "OpenClaw 程式碼更新：improve: avoid unnecessary transcript compression projections (#188655)",
+      "summaryZh": "重點：improve: avoid unnecessary transcript compression projections (#188655) Skip the native transcript metadata SELECT when ..."
     },
     {
       "id": 5,
+      "title": "朱諾號新發現：木星抵禦太陽風的「隱形護盾」比地球複雜得多",
+      "link": "https://technews.tw/2026/10/31/nasa-discovers-jupiters-invisible-shield-is-more-complex-than-earths/",
+      "publishedAt": "Fri, 30 Oct 2026 16:00:54 +0000",
+      "summary": "NASA 的朱諾號（Juno）探測器最新研究顯示，木星在面對太陽風時所形成的「隱形護盾」，遠比地球周邊的防禦機 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "AI 提前 15 個月預警「癌王」胰臟癌，敏感度高達 73% 遠勝傳統判讀",
+      "link": "https://technews.tw/2026/10/31/ai-early-detection-pancreatic-cancer/",
+      "publishedAt": "Fri, 30 Oct 2026 16:00:44 +0000",
+      "summary": "一項最新研究指出，人工智慧（AI）技術可能讓胰臟癌的偵測時間大幅提前。研究團隊開發的系統「REDMOD」，能從 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "宛如展翅的宇宙飛鳥，魯賓天文台捕捉 3700 光年外海鷗星雲壯麗影像",
+      "link": "https://technews.tw/2026/10/31/rubin-observatory-captures-stunning-view-of-seagull-nebula/",
+      "publishedAt": "Fri, 30 Oct 2026 16:00:30 +0000",
+      "summary": "海鷗星雲距離地球約 3,700 光年，位於麒麟座與大犬座之間，由 Sharpless（夏普利斯）2-292、S [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "TXOne Networks 推出 ServiceNow 整合，將企業弱點管理延伸至 OT 現場",
       "link": "https://infosecu.technews.tw/2026/10/30/txone-networks-launches-servicenow-integration/",
       "publishedAt": "Fri, 30 Oct 2026 12:30:21 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "聯發科 2026 年 ASIC 營收將達 25 億美元，確認已取得第二家雲端 ASIC 客戶",
       "link": "https://finance.technews.tw/2026/10/30/mediateks-asic-revenue-will-reach-2-5-billion-in-2026/",
       "publishedAt": "Fri, 30 Oct 2026 12:20:49 +0000",
@@ -64,39 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "Hive與Nefilim勒索軟體集團成員遭美國判刑，將入獄70個月",
       "link": "https://www.ithome.com.tw/news/180099",
       "publishedAt": "2026-10-30 12:10:37",
       "summary": "美國司法部於10月27日宣布，36歲烏克蘭籍男子Artem Stryzhak因參與Nefilim與Hive勒索軟體攻擊行動，遭美國法院判處70個月徒刑，他於2021年6月加入Nefilim集團成為附屬成員，使用該集團的勒索軟體發動攻擊，並將所獲贖金的20%交給該集團管理者。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Google修補Chrome 156，公布21個資安漏洞",
-      "link": "https://www.ithome.com.tw/news/180097",
-      "publishedAt": "2026-10-30 12:10:28",
-      "summary": "10月29日Google同時針對Chrome穩定版與延伸穩定（Extended Stable）版用戶發布更新，修補21個資安漏洞，重大等級與中度風險弱點各一，其餘大部分為高風險等級，Windows與macOS用戶應更新至156.0.8078.79或156.0.8078.80，Linux與",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "台灣美光宣布 FY26 獎酬今入帳，逾 700 名同仁全年整體薪酬超過 60 個月",
-      "link": "https://finance.technews.tw/2026/10/30/micron-taiwans-fy26-bonuses-were-credited-today/",
-      "publishedAt": "Fri, 30 Oct 2026 12:00:40 +0000",
-      "summary": "配合台灣薪資發放時程，台灣美光同仁 30 日隨 10 月薪資收到 FY26 各項獎酬，包括 FY26 年度激勵 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "記憶體漲勢延續至明年首季，vivo 台灣 X 系列銷量逆勢成長兩成",
-      "link": "https://technews.tw/2026/10/30/vivo-x500-series-taiwan/",
-      "publishedAt": "Fri, 30 Oct 2026 11:30:33 +0000",
-      "summary": "vivo 今日在台推出 X500 系列旗艦手機及摺疊旗艦 X Fold6。面對記憶體價格持續上漲、智慧手機市場 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
