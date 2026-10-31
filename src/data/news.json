@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-10-30T20:28:19.778Z",
+  "generatedAt": "2026-10-31T00:28:02.396Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(test): avoid repeated Control UI fixture work (#188673)",
-      "link": "https://github.com/openclaw/openclaw/commit/39b2c9191e6a0c2041fd3a350976244ca2125932",
-      "publishedAt": "2026-10-30T20:27:40Z",
-      "summary": "perf(test): avoid repeated Control UI fixture work (#188673)",
+      "title": "improve(ui): reduce Usage model-filter tail latency (#188869)",
+      "link": "https://github.com/openclaw/openclaw/commit/e765de67512f14a644f726372b0bb2b46e614a6c",
+      "publishedAt": "2026-10-31T00:26:49Z",
+      "summary": "improve(ui): reduce Usage model-filter tail latency (#188869) * perf(ui): retain usage analytics across model filters Keep the scoped analytics and keyed session rows mounted while text queries refresh, narrow the selected-row handoff, and avoid callback-only mosaic rebuilds. Preserve cost-window and day-column identity across refreshed usage data. Extend the real-Gateway usage benchmark with native WebKit comparisons, isolated diagnostics, frozen package verification, and bounded synthetic captures. Chromium qualification of the analytics changes improves all four model/filter CPU cells; final cost-window comparison is pending. * test(perf): keep Usage fixture dates consistent across roles Choose the date once in the driver so long comparisons remain equivalent across UTC midnight. Capture the cost-window panel after all timed interactions for before-and-after review.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): avoid repeated Control UI 修正ture work (#188673)",
-      "summaryZh": "重點：perf(test): avoid repeated Control UI 修正ture work (#188673)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): reduce Usage 模型-filter tail latency (#188869)",
+      "summaryZh": "重點：improve(ui): reduce Usage 模型-filter tail latency (#188869) * perf(ui): retain usage analytics across 模型 filters Keep the..."
     },
     {
       "id": 2,
-      "title": "fix: resume configured fallback after interrupted attempts (#188672)",
-      "link": "https://github.com/openclaw/openclaw/commit/9114431fbb5a2a2251d020bee247568cf71673b5",
-      "publishedAt": "2026-10-30T20:27:19Z",
-      "summary": "fix: resume configured fallback after interrupted attempts (#188672) ` or `Related: #` line below this comment. Required PR title: type: user-facing description Use a parenthesized scope only when it adds clarity: fix(auth): login redirect loops when session cookie is expired Types: feat, fix, improve, refactor, docs, chore. For fixes, describe the user-visible symptom and trigger: fix: task list fails to load when user has no environments Avoid implementation details such as: fix: add null check to task query **MUST:** Keep **Allow edits from maintainers** enabled for this PR so maintainers can help update the branch when needed. --> ## What Problem This Solves when .\" For other changes, describe the need without inventing a bug. Name the affected workflow, not the code-level cause. --> Fixes: a configured fallback can report the backup model yet send no backup request and return a silent result after an interrupted primary attempt. ## User Impact .\" Lead with the concrete outcome in plain language, usually one sentence. For internal-only changes, say there is no user-visible change; do not invent a benefit. Keep important risks, breaking changes, migrations, and required user actions visible here. --> User impact: configured fallback attempts can continue the unanswered turn after operational model-switch notices and owner-classified timeouts. ## Why This Change Was Made ; include technical detail only when it explains behavior or a material tradeoff. Do not hide risks or required actions in . --> The existing persisted-turn replay owner now treats a model-fallback notice as operational bookkeeping rather than a completed answer. It also receives the existing fallback reason so a same-run timeout abort can continue. Direct and historical aborts and current source, target, writer, lifecycle, and cancellation checks retain their existing boundaries. ## Evidence , keeping the useful evidence summary visible. --> - Original reply, cron strictness, timeout, and streamed-recovery boundaries (F1–F4) have qualified supporting proof. The original cron timeout reproduced the silent, primary-only failure on the base and passed with the repair. Final affected routes exercised real scripted HTTP provider requests under Node 24 and checksum-pinned OpenClaw Bun. - 58 existing replay-owner case instances passed across bounded selections, including current-authority and direct/historical-abort negatives; this was not a single uninterrupted full-file run. All 14 prompt-prefix stability cases passed. No tests or assertions changed. - Focused strict typecheck, source-backed lint, formatting, unchanged test-line ratchet, and diff checks passed. Independent local autoreview of the complete two-file snapshot against `edeae71308d8` was scoped-clean at P0–P2 with no findings. The committed source is byte-identical to that reviewed snapshot. - The separate original Gateway boundaries F5 (recovered terminal content/notice prefix), F6 (the 180-second timeout), and F7 (spawned/hidden/direct ladders) were not executed successfully through setup and remain UNKNOWN. F6's reached stage and timeout cause remain independently unknown. These are not repair passes or a claim that all seven failure families share a cause. Public model listing and external provider/SDK availability are also unverified; no live paid provider was used. - Repository PR CI supplies the pending broad proof for this head. Requested by @steipete ## Work sessions [Discussion, implementation and verification](https://team.openclaw.ai/chat/roboclaw/~key/dashboard/b5679712-7777-4ff7-a05a-81c1efab2069) Co-authored-by: steipete",
+      "title": "fix(diagnostics): identify stalls during native child launches (#188847)",
+      "link": "https://github.com/openclaw/openclaw/commit/8034bb1fafbe83e5ce95fc985686bc2f95ff5ce1",
+      "publishedAt": "2026-10-31T00:18:52Z",
+      "summary": "fix(diagnostics): identify stalls during native child launches (#188847) * fix(diagnostics): attribute native child launch stalls * test: use explicit array lengths in spawn benchmark * fix(diagnostics): keep spawn labels in synchronous phases",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: resume configured fallback after interrupted attempts (#188672)",
-      "summaryZh": "重點：修正: resume configured fallback after interrupted attempts (#188672) ` or `Related: #` line below this comment. Required ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(diagnostics): identify stalls during native child launches (#188847)",
+      "summaryZh": "重點：修正(diagnostics): identify stalls during native child launches (#188847) * 修正(diagnostics): attribute native child launch..."
     },
     {
       "id": 3,
-      "title": "perf(update): reuse target restart readiness during verification (#18…",
-      "link": "https://github.com/openclaw/openclaw/commit/a7200e4641b996c743b71300a6c23a3c0bf6ceea",
-      "publishedAt": "2026-10-30T20:27:14Z",
-      "summary": "perf(update): reuse target restart readiness during verification (#188637) Reuse the successful target restart readiness snapshot for final native update verification. Preserve HTTP/core readiness, expected identity, running/PID checks, recovery and durable confirmation. Missing or mismatched receipts retain normal observation. Matched synthetic native pair: parent verification inspections 17 -> 0; separate verification 2946 -> 35 ms; read-to-durable-acceptance 6400 -> 3269 ms. Single pair, no statistical speedup claim. Production +15 lines, tests net zero. PR #188637",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(update): reuse target restart readiness during verification (#18…",
-      "summaryZh": "重點：perf(update): reuse target restart readiness during verification (#188637) Reuse the successful target restart readiness..."
+      "title": "遭駭損失 63 億美元！幣安緊急暫停提款、承諾承擔損失，比特幣跌破 7.7 萬美元",
+      "link": "https://technews.tw/2026/10/31/binance-6-3bn-hack/",
+      "publishedAt": "Sat, 31 Oct 2026 00:18:06 +0000",
+      "summary": "全球最大加密貨幣交易所幣安（Binance）表示，週五（30 日）發生重大駭客攻擊事件，估計涉及金額達 63 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "improve: avoid unnecessary transcript compression projections (#188655)",
-      "link": "https://github.com/openclaw/openclaw/commit/b906fc7f0819648d54c7913b2fab271666b5413f",
-      "publishedAt": "2026-10-30T20:25:38Z",
-      "summary": "improve: avoid unnecessary transcript compression projections (#188655) Skip the native transcript metadata SELECT when the compressed frame, prepared report, and encoder-derived minimum cannot satisfy the existing savings threshold. Preserve byte-identical transcript/provider data, model-selection facts, restart delivery, and PostgreSQL behavior. Addresses the redundant payload work from #185730 and #184702. Synthetic Gateway proof reduces ordinary warm turns from 48 to 45 SQL statements, with 13 worker requests and zero MAIN SQL unchanged; all fourteen turns and restart flows pass. The first sealed-history fingerprint from #186046 remains required. Validated with payload and prompt-prefix tests, 48 byte-equivalent variants, two isolated code reviews plus a type-correction delta review, and exact-head CI/PostgreSQL conformance.",
+      "title": "test(tts): prepare runtime config for summary selection (#188862)",
+      "link": "https://github.com/openclaw/openclaw/commit/6f7b63cd95f27bd5c03df2b8a048087769708089",
+      "publishedAt": "2026-10-31T00:17:41Z",
+      "summary": "test(tts): prepare runtime config for summary selection (#188862) ## What Problem This Solves Fixes the real TTS summary-selection test failing with “Runtime config is not prepared” after #188720. ## User Impact This is a test-fixture repair with no user-visible behavior change. The existing summary and model-selection assertions remain unchanged. ## Why This Change Was Made Publish the fixture's config before real model acquisition and clear it after each test. This preserves #188720's live Codex settings lookup, including worker-hosted binary ownership, without changing production support behavior. ## Evidence - The unchanged test reproduces the same error on Node 24.22.1 and pinned Bun `1.4.4-canary.1+191755ec1`. The repair and two TTS siblings pass all 24 tests on each runtime (70.15 s and 53.53 s, including wrapper/setup). - Scoped typecheck, type-aware lint, format, test-line, timeout-race, max-lines and mock-export checks pass. No test ceiling, baseline or allocation changes. - Fresh independent full-context P0–P2 autoreview: scoped-clean, no findings. Existing assertions are byte-identical. Focused CI-boundary proof; no live-model or whole-shard replay claim. Requested by @steipete ## Work sessions [Discussion, implementation and verification](https://team.openclaw.ai/chat/roboclaw/~key/dashboard/b5679712-7777-4ff7-a05a-81c1efab2069) Co-authored-by: steipete Co-authored-by: Raj Muppala",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: avoid unnecessary transcript compression projections (#188655)",
-      "summaryZh": "重點：improve: avoid unnecessary transcript compression projections (#188655) Skip the native transcript metadata SELECT when ..."
+      "titleZh": "OpenClaw 程式碼更新：test(tts): prepare runtime config for summary selection (#188862)",
+      "summaryZh": "重點：test(tts): prepare runtime config for summary selection (#188862) ## What Problem This Solves 修正 the real TTS summary-se..."
     },
     {
       "id": 5,
+      "title": "fix(deps): align bundled plugin fs-safe pins with the root package (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/1237490f19768dc2656c600f6bbbca46c948b42f",
+      "publishedAt": "2026-10-31T00:15:11Z",
+      "summary": "fix(deps): align bundled plugin fs-safe pins with the root package (#188719) 0.26.15 but left eleven bundled plugins on 0.26.14. Package candidate resolution rejects conflicting bundled plugin dependency specs, so every ref-sourced package build (Update Migration, package acceptance, release checks) failed before any lane ran. Align the remaining plugins to the version the root already ships. No new upstream version enters the lockfile; the unused 0.26.14 entries drop out.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(deps): align bundled plugin fs-safe pins with the root package (#…",
+      "summaryZh": "重點：修正(deps): align bundled plugin fs-safe pins with the root package (#188719) 0.26.15 but left eleven bundled plugins on 0..."
+    },
+    {
+      "id": 6,
+      "title": "不沾鍋塗料「鐵氟龍」為何成為輝達機櫃新歡？黃仁勳新賭注或讓兩岸 PCB 廠版圖重新洗牌",
+      "link": "https://technews.tw/2026/10/31/nvidia-love-ptfe/",
+      "publishedAt": "Sat, 31 Oct 2026 00:00:34 +0000",
+      "summary": "為突破 AI 傳輸極限，輝達強推新材料 PTFE 進入伺服器 PCB 板，但「不沾」特性卻讓產線陷入困境，台廠 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "朱諾號新發現：木星抵禦太陽風的「隱形護盾」比地球複雜得多",
       "link": "https://technews.tw/2026/10/31/nasa-discovers-jupiters-invisible-shield-is-more-complex-than-earths/",
       "publishedAt": "Fri, 30 Oct 2026 16:00:54 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "AI 提前 15 個月預警「癌王」胰臟癌，敏感度高達 73% 遠勝傳統判讀",
       "link": "https://technews.tw/2026/10/31/ai-early-detection-pancreatic-cancer/",
       "publishedAt": "Fri, 30 Oct 2026 16:00:44 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "宛如展翅的宇宙飛鳥，魯賓天文台捕捉 3700 光年外海鷗星雲壯麗影像",
       "link": "https://technews.tw/2026/10/31/rubin-observatory-captures-stunning-view-of-seagull-nebula/",
       "publishedAt": "Fri, 30 Oct 2026 16:00:30 +0000",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "TXOne Networks 推出 ServiceNow 整合，將企業弱點管理延伸至 OT 現場",
       "link": "https://infosecu.technews.tw/2026/10/30/txone-networks-launches-servicenow-integration/",
       "publishedAt": "Fri, 30 Oct 2026 12:30:21 +0000",
       "summary": "工控（ICS）與營運技術（OT）環境打造資安解決方案TXOne Networks 宣布，Vulnerabili [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "聯發科 2026 年 ASIC 營收將達 25 億美元，確認已取得第二家雲端 ASIC 客戶",
-      "link": "https://finance.technews.tw/2026/10/30/mediateks-asic-revenue-will-reach-2-5-billion-in-2026/",
-      "publishedAt": "Fri, 30 Oct 2026 12:20:49 +0000",
-      "summary": "聯發科執行長蔡力行表示，2026 年雲端 ASIC 營收貢獻目標上調至25億美元，其中對第四季佔單季營收比重將 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Hive與Nefilim勒索軟體集團成員遭美國判刑，將入獄70個月",
-      "link": "https://www.ithome.com.tw/news/180099",
-      "publishedAt": "2026-10-30 12:10:37",
-      "summary": "美國司法部於10月27日宣布，36歲烏克蘭籍男子Artem Stryzhak因參與Nefilim與Hive勒索軟體攻擊行動，遭美國法院判處70個月徒刑，他於2021年6月加入Nefilim集團成為附屬成員，使用該集團的勒索軟體發動攻擊，並將所獲贖金的20%交給該集團管理者。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
