@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-10-31T13:23:01.976Z",
+  "generatedAt": "2026-10-31T18:16:02.933Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(bench): distinguish media shift sums from session windows (#189407)",
-      "link": "https://github.com/openclaw/openclaw/commit/a71843b3b968ffbfee102f4689237c2d01b5fdaa",
-      "publishedAt": "2026-10-31T13:21:49Z",
-      "summary": "fix(bench): distinguish media shift sums from session windows (#189407) Keep the media observer and reset boundaries while naming cumulative shift sums explicitly and reporting the largest reset-bounded session window. Derive phase sums from the existing snapshots and preserve unsupported metrics as null.\\n\\nExercise the serialized installer through its real read/reset API. The focused 138-line regression allocation covers window boundaries, recent-input filtering, attribution, reset, and native API availability.",
+      "title": "perf(gateway): avoid rejected reads for idle worktree reservations (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/110d1f0dc699df6df51333bcf34ae779bd222806",
+      "publishedAt": "2026-10-31T18:15:16Z",
+      "summary": "perf(gateway): avoid rejected reads for idle worktree reservations (#189631)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(bench): distinguish media shift sums from session windows (#189407)",
-      "summaryZh": "重點：修正(bench): distinguish media shift sums from session windows (#189407) Keep the media observer and reset boundaries whil..."
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): avoid rejected reads for idle worktree reservations (#…",
+      "summaryZh": "重點：perf(Gateway): avoid rejected reads for idle worktree reservations (#189631)..."
     },
     {
       "id": 2,
-      "title": "perf(test): build Bun fixture archives without ZIP processes (#189335)",
-      "link": "https://github.com/openclaw/openclaw/commit/572329cf4c02ffcda3d78db5fb25f9a549a1051d",
-      "publishedAt": "2026-10-31T13:21:06Z",
-      "summary": "perf(test): build Bun fixture archives without ZIP processes (#189335) * perf(test): build Bun fixture archives in memory * test: keep Bun archive process counts in proof evidence",
+      "title": "refactor(decisions): isolate model-facing tool schemas from execution…",
+      "link": "https://github.com/openclaw/openclaw/commit/5b5da7598a4f089ec7cf96f3b11cd0d4e69b1681",
+      "publishedAt": "2026-10-31T18:14:29Z",
+      "summary": "refactor(decisions): isolate model-facing tool schemas from execution policy (#189100) Decision tool schemas share a module with argument parsing, rubric hashing, capability guidance and result formatting. Move their unchanged declarations to a schema-only owner and update consumers. Model-facing input/output shapes and prompt bytes stay identical. Related: https://github.com/openclaw/openclaw/issues/189081",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(test): build Bun 修正ture archives without ZIP processes (#189335)",
-      "summaryZh": "重點：perf(test): build Bun 修正ture archives without ZIP processes (#189335) * perf(test): build Bun 修正ture archives in 記憶 * te..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(decisions): isolate 模型-facing tool schemas from execution…",
+      "summaryZh": "重點：refactor(decisions): isolate 模型-facing tool schemas from execution policy (#189100) Decision tool schemas share a module..."
     },
     {
       "id": 3,
-      "title": "fix(ci): restore macOS stale-service formatting (#189397)",
-      "link": "https://github.com/openclaw/openclaw/commit/94a2a5463910d8d614c9f56719cfbc45ae4c28f8",
-      "publishedAt": "2026-10-31T13:18:22Z",
-      "summary": "fix(ci): restore macOS stale-service formatting (#189397)",
+      "title": "fix(anthropic): report automatic Claude CLI compaction (#189623)",
+      "link": "https://github.com/openclaw/openclaw/commit/cdee3a194f96c38ce1fc73b48b7da81af851f556",
+      "publishedAt": "2026-10-31T18:14:03Z",
+      "summary": "fix(anthropic): report automatic Claude CLI compaction (#189623) Map streamed automatic compact_boundary records to the existing successful compaction lifecycle event. Keep manual boundaries with compact_result and preserve the shared parser contract. Co-authored-by: zijunl",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): restore macOS stale-service formatting (#189397)",
-      "summaryZh": "重點：修正(ci): restore macOS stale-service formatting (#189397)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): report automatic Claude CLI compaction (#189623)",
+      "summaryZh": "重點：修正(anthropic): report automatic Claude CLI compaction (#189623) Map streamed automatic compact_boundary records to the e..."
     },
     {
       "id": 4,
-      "title": "fix: keep waiting while Gateway restart startup advances (#189364)",
-      "link": "https://github.com/openclaw/openclaw/commit/40b332d1a8a97ab955a08b17e27554f5fa7b94cd",
-      "publishedAt": "2026-10-31T13:15:29Z",
-      "summary": "fix: keep waiting while Gateway restart startup advances (#189364) ## What Problem This Solves `gateway restart` can stop waiting at 60 seconds even after the replacement reports a new startup phase and becomes healthy shortly afterward. Related: #161158 ## User Impact Restarts and Doctor restoration keep observing a progressing startup within the existing five-minute cap. Verified readiness succeeds; failed and unverified outcomes retain their distinct nonzero exit codes. This covers native restart progress. The source updater's arbitrary shell callback/exit-2 contract and native `gateway start` deadline remain unresolved parts of #161158, so this PR does not close it. A silent pre-listener startup cannot earn progress credit without observable migration activity. ## Why This Change Was Made Count each new `/startupz` phase from the running replacement's own listener in the existing progress watchdog. Repeated phases, foreign listeners, and a later process cannot renew the window. Explicit deadlines, migration progress, identity/health checks, and the cap remain unchanged; no timeout increase or new configuration. The original exit-0-on-failure defect is already repaired on main. Add a stopped-replacement regression through the CLI failure reporter to preserve exit 1, alongside the existing pending/success contracts. ## Evidence - RED on main: startup changes phase at 45s and is healthy at 90s; the observer returns `still-starting` at 60s. GREEN with this repair. - 230 focused tests passed: 194 readiness/lifecycle/diagnostic tests plus 36 Doctor/update consumer tests. Controls cover no progress, replayed phases, a foreign listener, a changed PID, an explicit deadline, a dead replacement, and failure/pending exit codes. Commands used timeout, nice/ionice, and one Vitest worker; combined wrapper wall time was 61.74s, including test-worker compilation. [CI run 41200798470](https://github.com/openclaw/openclaw/actions/runs/41200798470) passed, including the aggregate CI gate; creation-to-completion wall time was 8m25s. Security checks passed. - Targeted services typecheck, three-file lint, formatting, test-line ratchet, and diff checks passed. - pr-simplify completed: reuse the existing watchdog and owner; net +19 production lines and +78 regression-test lines. The separate test-line allocation covers those distinct regression boundaries without changing the shared ceiling. - Independent Codex P0–P2 autoreview: **scoped-clean**, no actionable findings, covering base `140e7af6627723fd50b8ecf51927d80e77b4daa9` through the final local candidate committed unchanged as `40ee7ea8b9b37972c1c0d20243f0f21b733de887`. Full waiter, changed tests, and unchanged probe/lifecycle contracts were supplied; the reviewer did not execute tests. - No real Gateway/services, containers, product builds, or installed-upgrade proof were run, per the task constraints. HTTP/RPC/native process I/O is fixture-controlled; these tests do not claim live startup measurements. ## Work sessions [Implementation and verification](https://team.openclaw.ai/chat/roboclaw/~key/dashboard/78580230-7d1b-4329-a7dd-72554eb66323) Co-authored-by: steipete",
+      "title": "refactor(test): centralize standalone fixture cleanup (#189496)",
+      "link": "https://github.com/openclaw/openclaw/commit/c99d3fb257b63c3b92b960b2100efd7f74eef9b6",
+      "publishedAt": "2026-10-31T18:13:24Z",
+      "summary": "refactor(test): centralize standalone fixture cleanup (#189496)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep waiting while Gateway restart startup advances (#189364)",
-      "summaryZh": "重點：修正: keep waiting while Gateway restart startup advances (#189364) ## What Problem This Solves `Gateway restart` can stop..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(test): centralize standalone 修正ture cleanup (#189496)",
+      "summaryZh": "重點：refactor(test): centralize standalone 修正ture cleanup (#189496)..."
     },
     {
       "id": 5,
+      "title": "毅力號首度在火星實測太空衣沾附微塵，超細顆粒恐成載人任務健康隱憂",
+      "link": "https://technews.tw/2026/11/01/the-martian-dust-threatening-astronauts/",
+      "publishedAt": "Sat, 31 Oct 2026 16:00:33 +0000",
+      "summary": "美國太空總署（NASA）的「毅力號」（Perseverance）火星車在進行長達 1,645 個火星日（Mar [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "最新數學研究翻轉宇宙學暗能量假說：愛因斯坦重力方程即可驅動宇宙膨脹",
+      "link": "https://technews.tw/2026/11/01/challenging-dark-energy-reinterpreting-cosmic-expansion/",
+      "publishedAt": "Sat, 31 Oct 2026 16:00:14 +0000",
+      "summary": "一項最新數學研究指出，驅動宇宙加速膨脹的神祕力量，可能根本不需要「暗能量」來解釋。研究團隊分析發現，愛因斯坦的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "哈佛發現發炎訊號「停不下來」的關鍵，有望成為自體免疫疾病新療法",
+      "link": "https://technews.tw/2026/11/01/scientists-discover-a-hidden-trigger-that-keeps-inflammation-alive/",
+      "publishedAt": "Sat, 31 Oct 2026 16:00:01 +0000",
+      "summary": "免疫系統偵測到威脅時，細胞會透過訊號相互溝通並啟動發炎反應。數十年來，科學界普遍認為這類訊號必須經由受體傳遞， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "蘑菇 AI 陪伴機器人 Mori 亮相，不說話也沒有螢幕、主打找回注意力",
       "link": "https://technews.tw/2026/10/31/mori-might-be-the-cutest-ai-companion-robot-yet-and-it-reacts-to-you-like-a-pet/",
       "publishedAt": "Sat, 31 Oct 2026 09:00:02 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "科林研發、imec 擴大合作！布局 High-NA EUV 乾式光阻，加速量產進程",
       "link": "https://technews.tw/2026/10/31/lam-imec-collaboration/",
       "publishedAt": "Sat, 31 Oct 2026 08:18:58 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "年紀大了，咖啡怎麼愈來愈不香？可能是健康警訊",
       "link": "https://technews.tw/2026/10/31/why-your-sense-of-smell-fades-after-60/",
       "publishedAt": "Sat, 31 Oct 2026 08:00:37 +0000",
       "summary": "隨著年齡增長，視力和聽力都可能逐漸退化。除此之外，嗅覺的變化也可能默默發生。也許某天早晨，原本香氣濃郁的咖啡聞 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "重金屬藏在日常飲食裡，米飯、魚、巧克力怎麼吃最安心？",
-      "link": "https://technews.tw/2026/10/31/how-to-reduce-heavy-metals-in-food-10-practical-steps/",
-      "publishedAt": "Sat, 31 Oct 2026 08:00:10 +0000",
-      "summary": "砷、鉛、鎘、汞等重金屬並非藏在罕見食物，而是經土壤、灌溉水與加工過程，進入米飯、魚類、巧克力、蔬菜與自來水等日 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "全球 IPv6 普及率破五成，你家路由器跟上了嗎？",
-      "link": "https://technews.tw/2026/10/31/the-internet-needs-ipv6-and-so-does-your-home-network/",
-      "publishedAt": "Sat, 31 Oct 2026 08:00:03 +0000",
-      "summary": "自 1981 年推出以來，IPv4 原本以 32 位元位址支撐全球網路運作，總量約 43 億個，但這些位址早已 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "擠到活不下去，最新研究：腫瘤內部的高壓物理環境竟能觸發癌細胞「自毀」",
-      "link": "https://technews.tw/2026/10/31/physical-high-pressure-cancer-cell-self-destruction/",
-      "publishedAt": "Sat, 31 Oct 2026 07:00:47 +0000",
-      "summary": "傳統觀念認為癌細胞適應力極強，能輕易穿梭於各種組織之間。然而，一項發表於《Developmental Cell [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
