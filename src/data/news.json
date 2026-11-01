@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-11-01T08:50:59.140Z",
+  "generatedAt": "2026-11-01T15:50:38.128Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(release): tolerate DST-skewed artifact timestamps (#190166)",
-      "link": "https://github.com/openclaw/openclaw/commit/091884c4c7895512ad700f27b96a5065207c2b25",
-      "publishedAt": "2026-11-01T08:45:39Z",
-      "summary": "fix(release): tolerate DST-skewed artifact timestamps (#190166) * fix(release): tolerate DST-skewed artifact timestamps Co-authored-by: RomneyDa * fix(release): tolerate DST-skewed artifact timestamps OpenClaw-Publication: 14fcd935-d37a-4e14-bc3d-9b915c5b7d32 * test(release): preserve upload-step timestamp fixtures Co-authored-by: RomneyDa --------- Co-authored-by: RomneyDa",
+      "title": "refactor(cron): share current-run assertion across executors (#190462)",
+      "link": "https://github.com/openclaw/openclaw/commit/b2eca2d8a694494e6a1b07b56ee49049a7479627",
+      "publishedAt": "2026-11-01T15:49:42Z",
+      "summary": "refactor(cron): share current-run assertion across executors (#190462)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): tolerate DST-skewed artifact timestamps (#190166)",
-      "summaryZh": "重點：修正(版本發布): tolerate DST-skewed artifact timestamps (#190166) * 修正(版本發布): tolerate DST-skewed artifact timestamps Co-autho..."
+      "titleZh": "OpenClaw 程式碼更新：refactor(排程): share current-run assertion across executors (#190462)",
+      "summaryZh": "重點：refactor(排程): share current-run assertion across executors (#190462)..."
     },
     {
       "id": 2,
-      "title": "fix(macos): recover stale companion Gateway after app updates (#190162)",
-      "link": "https://github.com/openclaw/openclaw/commit/cc8e68e3716fdc440a91707fab8c95a860785b71",
-      "publishedAt": "2026-11-01T08:40:10Z",
-      "summary": "fix(macos): recover stale companion Gateway after app updates (#190162) Use the local Gateway autostart policy for stale-service replacement and retain companion installation semantics before credential preparation. Fixes #190149 Co-authored-by: steipete",
+      "title": "fix(windows): keep task inspection available when PowerShell launch i…",
+      "link": "https://github.com/openclaw/openclaw/commit/edf7c3dda871c70965a369fc230a9b9b4aa44e86",
+      "publishedAt": "2026-11-01T15:47:00Z",
+      "summary": "fix(windows): keep task inspection available when PowerShell launch is denied (#190464) Handle thrown and returned process-launch errors in the existing Scheduled Task query owner. Preserve unknown state and structured diagnostics without changing missing-task classification. Co-authored-by: ben.li",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): recover stale companion Gateway after app updates (#190162)",
-      "summaryZh": "重點：修正(macos): recover stale companion Gateway after app updates (#190162) Use the local Gateway autostart policy for stale-..."
+      "titleZh": "OpenClaw 程式碼更新：修正(windows): keep task inspection available when PowerShell launch i…",
+      "summaryZh": "重點：修正(windows): keep task inspection available when PowerShell launch is denied (#190464) Handle thrown and returned proces..."
     },
     {
       "id": 3,
-      "title": "test: compare command database bytes natively (#190168)",
-      "link": "https://github.com/openclaw/openclaw/commit/83afe082ec4cde35a40cc46f6819a81929f7b0a5",
-      "publishedAt": "2026-11-01T08:38:26Z",
-      "summary": "test: compare command database bytes natively (#190168) Keep exact-byte preservation through the existing native Buffer helper across backup, update recovery, and Doctor tests. Preserve all fixtures and assertions. Co-authored-by: steipete",
+      "title": "fix: clear no-op migration warnings for disabled plugins (#190441)",
+      "link": "https://github.com/openclaw/openclaw/commit/84a12cb62e379ce0ce32c78155cd8224cf7188be",
+      "publishedAt": "2026-11-01T15:46:14Z",
+      "summary": "fix: clear no-op migration warnings for disabled plugins (#190441) * test: reproduce disabled plugin migration warning with retained settings Co-authored-by: steipete * fix: settle inactive plugin migrations after no-op inspection Keep retained settings and pending source data; inspect Doctor contracts without activating runtime or tools. Co-authored-by: steipete * test: match healthy restart snapshot's omitted error field The readiness result is healthy; its public snapshot intentionally omits empty plugin errors. Co-authored-by: steipete --------- Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: compare command database bytes natively (#190168)",
-      "summaryZh": "重點：test: compare command database bytes natively (#190168) Keep exact-byte preservation through the existing native Buffer ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: clear no-op migration warnings for disabled plugins (#190441)",
+      "summaryZh": "重點：修正: clear no-op migration warnings for disabled plugins (#190441) * test: reproduce disabled plugin migration warning wi..."
     },
     {
       "id": 4,
-      "title": "fix: scheduled sessions keep stale context totals (#190161)",
-      "link": "https://github.com/openclaw/openclaw/commit/1498a2c2e6dedd756938420309364f1a630f5eb4",
-      "publishedAt": "2026-11-01T08:37:21Z",
-      "summary": "fix: scheduled sessions keep stale context totals (#190161) * fix(sessions): refresh context totals for scheduled turns * test(agents): require the native context snapshot at settlement",
+      "title": "fix(update): recover unpublished activations after lease database los…",
+      "link": "https://github.com/openclaw/openclaw/commit/1278a9ef37b2d7e5d7f9d5d59e8ece721d9d3952",
+      "publishedAt": "2026-11-01T15:43:12Z",
+      "summary": "fix(update): recover unpublished activations after lease database loss (#190436) * fix(update): recover unpublished activations after lease database loss Retire prepared, unpublished recovery after verifying previous live identities, using current executor ownership and preserving recovery and npm stage evidence. Keep status read-only when temporary lease authority is unavailable. Fixes part of #167557. Thanks to Subseaking for the prepared-state analysis. Co-authored-by: Subseaking Co-authored-by: steipete * test(update): prove recovery refuses lost executor ownership Exercise the actual replacement-store admission and SQLite owner reassignment before closing or archiving a missing-lease prepared operation. Co-authored-by: Subseaking Co-authored-by: steipete --------- Co-authored-by: Subseaking Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: scheduled sessions keep stale context totals (#190161)",
-      "summaryZh": "重點：修正: scheduled sessions keep stale context totals (#190161) * 修正(sessions): refresh context totals for scheduled turns * ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): recover unpublished activations after lease database los…",
+      "summaryZh": "重點：修正(update): recover unpublished activations after lease database loss (#190436) * 修正(update): recover unpublished activa..."
     },
     {
       "id": 5,
+      "title": "語音、視訊皆能錄，LINE「通話錄製」限時免費開放",
+      "link": "https://technews.tw/2026/11/01/line-adds-support-for-recording-voice-and-video-calls/",
+      "publishedAt": "Sun, 01 Nov 2026 09:54:13 +0000",
+      "summary": "如日前所宣布，LINE Premium 會員新功能「通話錄製」，現在藉 LINE Labs 開放所有 LINE [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "學者授四招破解假圖，點名食物照是 AI 最大死穴",
+      "link": "https://infosecu.technews.tw/2026/11/01/identifying-flaws-ai-generated-photos/",
+      "publishedAt": "Sun, 01 Nov 2026 09:00:03 +0000",
+      "summary": "隨著生成式人工智慧（AI）快速普及，逼真的假照片在網路上流竄，如何分辨 AI 生成影像已成為大眾關注的焦點。美 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "簡訊癱瘓手機通話，Android 驚現「死亡簡訊」漏洞",
       "link": "https://infosecu.technews.tw/2026/11/01/a-simple-text-message-could-render-your-phone-unusable/",
       "publishedAt": "Sun, 01 Nov 2026 08:09:38 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "廢棄塑膠變身吸水海綿，連沙漠水氣也能捕捉？",
       "link": "https://technews.tw/2026/11/01/waste-plastics-become-molecular-sponges-that-capture-water-from-air/",
       "publishedAt": "Sun, 01 Nov 2026 08:00:41 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "美 AI 私校 Alpha School 號稱學習快兩倍，紐時揭數據僅 42% 學生達標",
       "link": "https://technews.tw/2026/11/01/alpha-school-claims-to-teach-kids-twice-as-fast-many-dont-make-it/",
       "publishedAt": "Sun, 01 Nov 2026 07:00:25 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "全支付進駐 Samsung Wallet！業界首創深度整合手機智慧錢包",
       "link": "https://technews.tw/2026/11/01/pxpay-joins-samsung-wallet/",
       "publishedAt": "Sun, 01 Nov 2026 06:00:45 +0000",
       "summary": "支付市場迎來重大突破！全支付 10 月 30 日宣布進駐 Samsung Wallet，成為業界首家與內建手機 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "累計奔馳 5,500 萬公里、妥善率破 99%！創奕能源穩居台灣前三強，大舉插旗全球版圖",
-      "link": "https://finance.technews.tw/2026/11/01/tron-energy-technology-corporation/",
-      "publishedAt": "Sun, 01 Nov 2026 06:00:34 +0000",
-      "summary": "台灣前三大電動巴士供應商創奕能源今年上半年繳出 16.64 億元營收成績，看好國際市場潛力，創奕能源已將版圖延 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Wi-Fi 速度慢可能是選錯頻段，照距離挑選 2.4GHz 或 5GHz 更準確",
-      "link": "https://technews.tw/2026/11/01/your-devices-could-be-on-the-wrong-wi-fi-band-and-its-slowing-them-down/",
-      "publishedAt": "Sun, 01 Nov 2026 05:00:49 +0000",
-      "summary": "不少家用路由器同時提供 2.4GHz、5GHz，部分新機型甚至到 6GHz，但裝置若連到不合適頻段，速度與穩定 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
