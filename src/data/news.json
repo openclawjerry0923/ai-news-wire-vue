@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-01T15:50:38.128Z",
+  "generatedAt": "2026-11-01T20:16:37.924Z",
   "items": [
     {
       "id": 1,
-      "title": "refactor(cron): share current-run assertion across executors (#190462)",
-      "link": "https://github.com/openclaw/openclaw/commit/b2eca2d8a694494e6a1b07b56ee49049a7479627",
-      "publishedAt": "2026-11-01T15:49:42Z",
-      "summary": "refactor(cron): share current-run assertion across executors (#190462)",
+      "title": "test(infra): compare PostgreSQL conformance snapshots as bytes (#190634)",
+      "link": "https://github.com/openclaw/openclaw/commit/05c142d5e9cd77aef781578c2bf6b6e363969b89",
+      "publishedAt": "2026-11-01T20:15:20Z",
+      "summary": "test(infra): compare PostgreSQL conformance snapshots as bytes (#190634) Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(排程): share current-run assertion across executors (#190462)",
-      "summaryZh": "重點：refactor(排程): share current-run assertion across executors (#190462)..."
+      "titleZh": "OpenClaw 程式碼更新：test(infra): compare PostgreSQL conformance snapshots as bytes (#190634)",
+      "summaryZh": "重點：test(infra): compare PostgreSQL conformance snapshots as bytes (#190634) Co-authored-by: steipete..."
     },
     {
       "id": 2,
-      "title": "fix(windows): keep task inspection available when PowerShell launch i…",
-      "link": "https://github.com/openclaw/openclaw/commit/edf7c3dda871c70965a369fc230a9b9b4aa44e86",
-      "publishedAt": "2026-11-01T15:47:00Z",
-      "summary": "fix(windows): keep task inspection available when PowerShell launch is denied (#190464) Handle thrown and returned process-launch errors in the existing Scheduled Task query owner. Preserve unknown state and structured diagnostics without changing missing-task classification. Co-authored-by: ben.li",
+      "title": "chore(ui): add older-history paging depth benchmark",
+      "link": "https://github.com/openclaw/openclaw/commit/301be5f1c0cb1b40b7e51396b6c38b665c07e7c1",
+      "publishedAt": "2026-11-01T20:14:57Z",
+      "summary": "chore(ui): add older-history paging depth benchmark Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(windows): keep task inspection available when PowerShell launch i…",
-      "summaryZh": "重點：修正(windows): keep task inspection available when PowerShell launch is denied (#190464) Handle thrown and returned proces..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): add older-history paging depth benchmark",
+      "summaryZh": "重點：chore(ui): add older-history paging depth benchmark Co-authored-by: vyctorbrzezowski..."
     },
     {
       "id": 3,
-      "title": "fix: clear no-op migration warnings for disabled plugins (#190441)",
-      "link": "https://github.com/openclaw/openclaw/commit/84a12cb62e379ce0ce32c78155cd8224cf7188be",
-      "publishedAt": "2026-11-01T15:46:14Z",
-      "summary": "fix: clear no-op migration warnings for disabled plugins (#190441) * test: reproduce disabled plugin migration warning with retained settings Co-authored-by: steipete * fix: settle inactive plugin migrations after no-op inspection Keep retained settings and pending source data; inspect Doctor contracts without activating runtime or tools. Co-authored-by: steipete * test: match healthy restart snapshot's omitted error field The readiness result is healthy; its public snapshot intentionally omits empty plugin errors. Co-authored-by: steipete --------- Co-authored-by: steipete",
+      "title": "improve(ui): older chat history pages no longer rebuild every loaded row",
+      "link": "https://github.com/openclaw/openclaw/commit/438330757575169045b8ac8d8fe192deac72b8a4",
+      "publishedAt": "2026-11-01T20:14:42Z",
+      "summary": "improve(ui): older chat history pages no longer rebuild every loaded row Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: clear no-op migration warnings for disabled plugins (#190441)",
-      "summaryZh": "重點：修正: clear no-op migration warnings for disabled plugins (#190441) * test: reproduce disabled plugin migration warning wi..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): older chat history pages no longer rebuild every loaded row",
+      "summaryZh": "重點：improve(ui): older chat history pages no longer rebuild every loaded row Co-authored-by: vyctorbrzezowski..."
     },
     {
       "id": 4,
-      "title": "fix(update): recover unpublished activations after lease database los…",
-      "link": "https://github.com/openclaw/openclaw/commit/1278a9ef37b2d7e5d7f9d5d59e8ece721d9d3952",
-      "publishedAt": "2026-11-01T15:43:12Z",
-      "summary": "fix(update): recover unpublished activations after lease database loss (#190436) * fix(update): recover unpublished activations after lease database loss Retire prepared, unpublished recovery after verifying previous live identities, using current executor ownership and preserving recovery and npm stage evidence. Keep status read-only when temporary lease authority is unavailable. Fixes part of #167557. Thanks to Subseaking for the prepared-state analysis. Co-authored-by: Subseaking Co-authored-by: steipete * test(update): prove recovery refuses lost executor ownership Exercise the actual replacement-store admission and SQLite owner reassignment before closing or archiving a missing-lease prepared operation. Co-authored-by: Subseaking Co-authored-by: steipete --------- Co-authored-by: Subseaking Co-authored-by: steipete",
+      "title": "fix(packaging): exclude source-build ledgers from npm packages (#190030)",
+      "link": "https://github.com/openclaw/openclaw/commit/5f229e0fa945f6977f366b81e152847de0011052",
+      "publishedAt": "2026-11-01T20:13:47Z",
+      "summary": "fix(packaging): exclude source-build ledgers from npm packages (#190030) * fix(packaging): omit source-build ledgers from published packages Keep source-module URL metadata in build trees for source AOT compilation, while excluding it from root and separately packed AI publication. Preserve runtime resources and canonical distribution inventories. Allocate exactly 143 net regression-test lines for real npm/pnpm root and bundled-AI pack coverage, runtime exports, and inventory agreement; leave the shared baseline unchanged. * test(packaging): type fixture package names * test(packaging): complete declared publication fixture inputs * test(anthropic): cover repeated stdin failure notifications (#190335) * fix(anthropic): validate cancellation across stdin notifications * test(process): avoid returning from close promise executor * test(process): preserve typed stdin error identity (cherry picked from commit 50efbfdd14775fb9b84cf2b98dc75840e678040a)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): recover unpublished activations after lease database los…",
-      "summaryZh": "重點：修正(update): recover unpublished activations after lease database loss (#190436) * 修正(update): recover unpublished activa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(packaging): exclude source-build ledgers from npm packages (#190030)",
+      "summaryZh": "重點：修正(packaging): exclude source-build ledgers from npm packages (#190030) * 修正(packaging): omit source-build ledgers from ..."
     },
     {
       "id": 5,
