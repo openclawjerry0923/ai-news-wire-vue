@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-03T15:54:03.091Z",
+  "generatedAt": "2026-11-03T21:32:50.424Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(ui): use real font size tokens (#191188)",
-      "link": "https://github.com/openclaw/openclaw/commit/47680ea660302586d0c6340e69ad4e44a3e0d261",
-      "publishedAt": "2026-11-03T15:52:53Z",
-      "summary": "fix(ui): use real font size tokens (#191188) Use existing font-size tokens in the browser, credential, dashboard, and plugin styles. Existing targeted tests and E2E proof retained. Clean merge; the failed Plugins fixture action is unrelated to token substitution.",
+      "title": "fix(worktrees): bound registration waiting on repository operations (…",
+      "link": "https://github.com/openclaw/openclaw/commit/91a636fc0c9bab4ba8d84416fd00d88f7573b268",
+      "publishedAt": "2026-11-03T21:31:29Z",
+      "summary": "fix(worktrees): bound registration waiting on repository operations (#192275) Report a prolonged registration wait and cancel its queued admission after 30 seconds without interrupting an admitted writer. A cancelled request cannot create a checkout later. Preserve capped maintenance placement; pack queue ownership is handled by #191152. Include a repeatable concurrent-registration maintenance benchmark and the regression allocation.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): use real font size tokens (#191188)",
-      "summaryZh": "重點：修正(ui): use real font size tokens (#191188) Use existing font-size tokens in the browser, credential, dashboard, and plu..."
+      "titleZh": "OpenClaw 程式碼更新：修正(worktrees): bound registration waiting on repository operations (…",
+      "summaryZh": "重點：修正(worktrees): bound registration waiting on repository operations (#192275) Report a prolonged registration wait and ca..."
     },
     {
       "id": 2,
-      "title": "fix(ui): draw the provider usage sparkline with a real token (#191187)",
-      "link": "https://github.com/openclaw/openclaw/commit/cf669373df424b61e12ad5692bf69e4f0bf57551",
-      "publishedAt": "2026-11-03T15:52:20Z",
-      "summary": "fix(ui): draw the provider usage sparkline with a real token (#191187) fix(ui): draw the provider usage sparkline with a real token",
+      "title": "test(ui): match compact phone recovery height",
+      "link": "https://github.com/openclaw/openclaw/commit/18a14e3bfd1d1328826b16d748309df138ec52fc",
+      "publishedAt": "2026-11-03T21:29:44Z",
+      "summary": "test(ui): match compact phone recovery height",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): draw the provider usage sparkline with a real token (#191187)",
-      "summaryZh": "重點：修正(ui): draw the provider usage sparkline with a real token (#191187) 修正(ui): draw the provider usage sparkline with a r..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): match compact phone recovery height",
+      "summaryZh": "重點：test(ui): match compact phone recovery height..."
     },
     {
       "id": 3,
-      "title": "fix(ui): stop showing exception text in Talk trigger words (#191186)",
-      "link": "https://github.com/openclaw/openclaw/commit/4be1a4b28d1baeb273edf49442f92baa9580b377",
-      "publishedAt": "2026-11-03T15:52:01Z",
-      "summary": "fix(ui): stop showing exception text in Talk trigger words (#191186) Keep internal exception text out of Talk trigger words while preserving safe user-facing errors. Reused existing Talk and native-device validation. Current merge is clean; failed CI is limited to unrelated Plugins fixture actions and its aggregate gate.",
+      "title": "fix(desktop): update Windows ZIP extraction dependency (#192248)",
+      "link": "https://github.com/openclaw/openclaw/commit/f62754280188fd4034c870add6129bb9b52d9885",
+      "publishedAt": "2026-11-03T21:28:24Z",
+      "summary": "fix(desktop): update Windows ZIP extraction dependency (#192248) Windows desktop update extraction was locked to zip 4.6.1 inside the published CVE-2026-115909 and CVE-2026-115905 ranges. Vendor the exact pinned updater fork to preserve cleanup only after successful Windows installer launch, expand its workspace settings, and resolve zip 9.2.2. Linux and macOS retain their tar paths. Remove the vendor copy when a released updater includes both the ZIP repair and the existing launch-recovery behavior. Co-authored-by: Sebastien Tardif Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): stop showing exception text in Talk trigger words (#191186)",
-      "summaryZh": "重點：修正(ui): stop showing exception text in Talk trigger words (#191186) Keep internal exception text out of Talk trigger wor..."
+      "titleZh": "OpenClaw 程式碼更新：修正(desktop): update Windows ZIP extraction dependency (#192248)",
+      "summaryZh": "重點：修正(desktop): update Windows ZIP extraction dependency (#192248) Windows desktop update extraction was locked to zip 4.6...."
     },
     {
       "id": 4,
-      "title": "fix(git): run branch-read retry deadline on the monotonic clock (#191…",
-      "link": "https://github.com/openclaw/openclaw/commit/b7e576f97e8d51c120b1efcf6d88e69893da5fd1",
-      "publishedAt": "2026-11-03T15:51:27Z",
-      "summary": "fix(git): run branch-read retry deadline on the monotonic clock (#191982) fix: retry Git branch reads by elapsed time, not the wall clock The Git branch reader timed its retries with the wall clock. After the clock moved back, a path that was not yet a Git repository stayed reported as `not_git` long after the retry window should have passed. Retries now use the monotonic clock. Behavior without a clock change is unchanged. Evidence: built Gateway `worktrees.branches` with real Git, stepping only the process wall clock back one hour (no system clock change, forced refresh or watcher invalidation). Main stayed `not_git` twice; with this change the branch was discovered after the existing five-second window, twice. No-step controls were unchanged. Details: https://github.com/openclaw/openclaw/pull/191982#issuecomment-6607776706. Thanks @wangmiao0668000666. Co-authored-by: nebulacoder-v8.0 Co-authored-by: Ayaan Zaidi",
+      "title": "improve(ui): shimmer the working subagent count in Details (#192186)",
+      "link": "https://github.com/openclaw/openclaw/commit/359700a5962b9843e0fafb478ececf7b91b493de",
+      "publishedAt": "2026-11-03T21:26:50Z",
+      "summary": "improve(ui): shimmer the working subagent count in Details (#192186) * improve(ui): shimmer the working subagent count in Details The Details subagent summary showed \"N Working\" as static text while children ran. Apply the shared .text-shimmer to the running count so it matches the other active labels. Co-authored-by: vyctorbrzezowski * test(ui): keep the subagent shimmer test line-neutral getByRole already throws when the summary is missing, so drop the redundant toBeTruthy wrapper to offset the two added assertion lines. Co-authored-by: vyctorbrzezowski --------- Co-authored-by: roboclaw-bot Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(git): run branch-read retry deadline on the monotonic clock (#191…",
-      "summaryZh": "重點：修正(git): run branch-read retry deadline on the monotonic clock (#191982) 修正: retry Git branch reads by elapsed time, not..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): shimmer the working subagent count in Details (#192186)",
+      "summaryZh": "重點：improve(ui): shimmer the working subagent count in Details (#192186) * improve(ui): shimmer the working subagent count i..."
     },
     {
       "id": 5,
