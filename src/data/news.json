@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-11-04T16:54:26.920Z",
+  "generatedAt": "2026-11-04T22:27:42.226Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(codex): keep native shell for hidden subagents by disabling nativ…",
-      "link": "https://github.com/openclaw/openclaw/commit/37d5c24faec707c5e0cd2d3642abc3ae6cb8435c",
-      "publishedAt": "2026-11-04T16:52:43Z",
-      "summary": "fix(codex): keep native shell for hidden subagents by disabling native delegation (#192599) * fix(codex): keep native shell for session-tool denies by disabling native delegation * test(codex): live proof that hidden subagents keep the native shell without gateway fallback * test(codex): support API-key auth in the hidden subagent shell live proof * test(codex): spawn live-proof subagents through the parent model turn * fix(codex): fail closed when managed config pins native delegation on for session-tool denies Session-tool denies are enforced by disabling native delegation, so managed requirements or legacy managed layers that pin multi_agent/multi_agent_v2 on now fail the turn before inference. The live proof waits for the child settled reply and asserts delegation facts from the child native thread record. Docs updated; test lines allocated. * fix(codex): restore live-proof path import and keep delegation deny list private * fix(codex): reject structured and aliased managed delegation pins for session-tool denies A legacy managed layer can enable native delegation as [features.multi_agent_v2] enabled = true (reported as features.multi_agent_v2: {enabled: true} with its origin on .enabled) or through the collab alias. Preflight now recognizes boolean, table and alias forms and checks the origin of the enabled field, failing the turn before thread admission. Cases use config/read shapes captured from Codex 0.164.0. * test(codex): match test-line allocation after merging main",
+      "title": "fix(macos): retain dashboard state across native reconnect (#192694)",
+      "link": "https://github.com/openclaw/openclaw/commit/7e06a07a6279d1789549a1e77849698eea4915e3",
+      "publishedAt": "2026-11-04T22:20:29Z",
+      "summary": "fix(macos): retain dashboard state across native reconnect (#192694)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep native shell for hidden subagents by disabling nativ…",
-      "summaryZh": "重點：修正(codex): keep native shell for hidden subagents by disabling native delegation (#192599) * 修正(codex): keep native shel..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): retain dashboard state across native reconnect (#192694)",
+      "summaryZh": "重點：修正(macos): retain dashboard state across native reconnect (#192694)..."
     },
     {
       "id": 2,
-      "title": "fix(agents): start MCP failure cooldown after requests settle (#192870)",
-      "link": "https://github.com/openclaw/openclaw/commit/d79c89f95190fc1b66ef8b72498567ef408c38ee",
-      "publishedAt": "2026-11-04T16:51:03Z",
-      "summary": "fix(agents): start MCP failure cooldown after requests settle (#192870)",
+      "title": "fix(macos): show Quick Chat connection status before model errors (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/844d0222bd65e979eea562a3973ee8f83e90e26e",
+      "publishedAt": "2026-11-04T22:18:56Z",
+      "summary": "fix(macos): show Quick Chat connection status before model errors (#192801)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(agents): start MCP failure cooldown after requests settle (#192870)",
-      "summaryZh": "重點：修正(agents): start MCP failure cooldown after requests settle (#192870)..."
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): show Quick Chat connection status before 模型 errors (#1…",
+      "summaryZh": "重點：修正(macos): show Quick Chat connection status before 模型 errors (#192801)..."
     },
     {
       "id": 3,
-      "title": "fix(memory): continue turns when automatic project recall stalls (#19…",
-      "link": "https://github.com/openclaw/openclaw/commit/8cb658e39b6dbe1bbe03746bf2a468a898c15da2",
-      "publishedAt": "2026-11-04T16:47:00Z",
-      "summary": "fix(memory): continue turns when automatic project recall stalls (#192815) * fix(memory): bound automatic project recall preparation Continue turns after a one-second project recall budget, record the omission, and revoke late provider authority while retaining cleanup. Explicit memory tools keep their own lifetime. Cold stores may omit automatic recall on consecutive turns. * fix(memory): preserve turn authority while bounding recall wait Bound prompt observation without introducing a separate cancellation owner. Late memory work retains the existing live turn and audience checks and releases its provider through the original finally path. Keep the omission visible and discard late prompt results.",
+      "title": "test(ui): match German cron filter labels (#193026)",
+      "link": "https://github.com/openclaw/openclaw/commit/1cd17aa42c3ef6998d523df6a9e481be2c1aa77e",
+      "publishedAt": "2026-11-04T22:18:14Z",
+      "summary": "test(ui): match German cron filter labels (#193026)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): continue turns when automatic project recall stalls (#19…",
-      "summaryZh": "重點：修正(記憶): continue turns when automatic project recall stalls (#192815) * 修正(記憶): bound automatic project recall preparati..."
+      "titleZh": "OpenClaw 程式碼更新：test(ui): match German 排程 filter labels (#193026)",
+      "summaryZh": "重點：test(ui): match German 排程 filter labels (#193026)..."
     },
     {
       "id": 4,
-      "title": "perf(chat): keep follow state out of the transcript body (#165948)",
-      "link": "https://github.com/openclaw/openclaw/commit/f2c27f09ea536a3ec1df3be216263923009f23fd",
-      "publishedAt": "2026-11-04T16:31:50Z",
-      "summary": "perf(chat): keep follow state out of the transcript body (#165948) Isolate scroll-follow observation from transcript construction using one view-local observable state owner and two leaf consumers. Preserve the existing reader-follow, keyboard, session, and one-shot positioning policies. Reviewed at 5b531a0728f3bdc26a5a687ef8c0a3b411057b32. Native swipe traces were independently recounted; their source applicability is retained in the archived exact-head review. This is a transcript work-count improvement, not a physical-device latency or frame-rate claim. Co-authored-by: Solvely-Colin Co-authored-by: Marvinthebored",
+      "title": "fix(auth): show sign-in guidance in failed chat turns (#192647)",
+      "link": "https://github.com/openclaw/openclaw/commit/b41344c46cfd53bf7bb7b570ea64583e4c41d9ff",
+      "publishedAt": "2026-11-04T22:16:53Z",
+      "summary": "fix(auth): show sign-in guidance in failed chat turns (#192647) * fix(auth): preserve sign-in guidance in failed chat turns * test(auth): allocate terminal guidance regression lines Grant exactly the 36 net lines used by the existing raw-401 regression extended through canonical auth terminal recording and durable history. Keep the shared ceiling and production behavior unchanged. Co-authored-by: hannesrudolph",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(chat): keep follow state out of the transcript body (#165948)",
-      "summaryZh": "重點：perf(chat): keep follow state out of the transcript body (#165948) Isolate scroll-follow observation from transcript con..."
+      "titleZh": "OpenClaw 程式碼更新：修正(auth): show sign-in guidance in failed chat turns (#192647)",
+      "summaryZh": "重點：修正(auth): show sign-in guidance in failed chat turns (#192647) * 修正(auth): preserve sign-in guidance in failed chat turn..."
     },
     {
       "id": 5,
+      "title": "聯發科邀請前英特爾高層 Navid Shahriari 加入，深化與台積電等重要供應鏈夥伴合作",
+      "link": "https://finance.technews.tw/2026/11/05/mediatek-invites-former-intel-executive-navid-shahriari-to-join-the-company/",
+      "publishedAt": "Wed, 04 Nov 2026 22:00:49 +0000",
+      "summary": "IC 設計龍投聯發科宣布，擁有 37 年半導體設計工程與先進封裝深厚經歷、並在資料中心市場有豐富實戰經驗的 前 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "英特爾發布 intel 14A 製程 0.9 版 PDK，距離量產階段又再走近一步",
+      "link": "https://finance.technews.tw/2026/11/05/intel-releases-version-0-9-of-the-intel-14a-process-pdk/",
+      "publishedAt": "Wed, 04 Nov 2026 22:00:45 +0000",
+      "summary": "英特爾晶圓代工（Intel Foundry）已向客戶發布其即將推出的 intel 14A 製程技術的 0.9 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "美選重挫科技富豪，天價政治獻金難弭選民對資料中心疑慮恐影響 AI 發展",
+      "link": "https://finance.technews.tw/2026/11/05/exorbitant-political-donations-may-fail-to-dispel-voters-concerns-about-data-centers-and-could-hinder-the-development-of-ai/",
+      "publishedAt": "Wed, 04 Nov 2026 22:00:37 +0000",
+      "summary": "在最新的美國期中選舉中，民主黨一舉奪下國會參眾兩院控制權，為華府政局開創了對科技大廠與億萬富豪展現強硬抗衡的新 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "民主黨重返多數對 AI 與資料中心發展非全然負面，一文全面了解原因",
+      "link": "https://finance.technews.tw/2026/11/05/the-democratic-partys-return-to-a-majority-is-not-entirely-negative-for-the-development-of-ai-and-data-centers/",
+      "publishedAt": "Wed, 04 Nov 2026 22:00:06 +0000",
+      "summary": "根據外媒報導，美國民主黨雖然在選舉中贏得聯邦參議院、眾議院以及德克薩斯州州長選舉，但美國人工智慧（AI）投資陷 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "Windows 11 效能大升級！微軟稱 8GB 記憶體電腦速度可提升 20%",
       "link": "https://technews.tw/2026/11/04/microsoft-improves-windows-11-performance-on-pcs-with-just-8gb-of-ram/",
       "publishedAt": "Wed, 04 Nov 2026 13:24:02 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Binance揭露63億美元竊案攻擊鏈，駭客以假面試誘使工程師執行惡意程式",
       "link": "https://www.ithome.com.tw/news/180203",
       "publishedAt": "2026-11-04 12:11:52",
       "summary": "全球最大加密貨幣交易平臺Binance公開約63.4億美元加密資產遭竊事件的初步調查，揭露駭客透過假求職面試植入惡意程式，再利用內部AI工具控制其他工程師電腦，取得容器部署權限，進而入侵錢包簽章服務轉走加密資產。 攻擊最早可追溯至今年6月，一名錢包維運工程師為了安裝AI程式開發工具，從搜尋結果下載遭變造的Homebrew安裝程式。Binance資安團隊雖然偵測異常，更換裝置並重設相關憑證，但該名工程師的職務及同事資訊已遭駭客取得。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "XCPE殭屍網路波及臺灣近9萬臺Android設備，感染數量排名全球第5",
-      "link": "https://www.ithome.com.tw/news/180211",
-      "publishedAt": "2026-11-04 12:11:45",
-      "summary": "透過漏洞、弱密碼或惡意程式感染大量設備，進而建立殭屍網路，是駭客常見的攻擊手法，但由設備供應商在產品出廠前便主動植入惡意程式，則是相當特殊的案例。Google近期揭露的XCPE殭屍網路便屬於此類，後門直接預載於Android設備韌體，使設備從交付使用者時便已遭到控制，也讓一般使用者難以透過更新或移除應用程式自行清除。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "NetApp揭露旗下多款儲存產品受Linux核心TCP漏洞影響",
-      "link": "https://www.ithome.com.tw/news/180208",
-      "publishedAt": "2026-11-04 12:11:40",
-      "summary": "日前揭露的Linux核心TCP漏洞CVE-2026-98432，不僅影響各Linux發行版，也涵蓋基於Linux平臺的其他產品，儲存廠商NetApp便於11月2日發布公告，指出旗下多款儲存產品受此漏洞影響，包括AFF、ASA及FAS系列儲存設備的BMC控制器與Service Processor處理器，E系列儲存設備的SANtricity OS，StorageGRID系列儲存設備，",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "11月Android例行安全更新修補216個漏洞",
-      "link": "https://www.ithome.com.tw/news/180207",
-      "publishedAt": "2026-11-04 12:11:33",
-      "summary": "11月2日Google發布每月Android例行更新，一口氣修補216個資安漏洞，這些弱點有119個存在於安卓核心元件，其餘97個存在於第三方元件，用戶應留意裝置製造商的公告，以便新版韌體推出後即時套用。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "日本三得利集團雲端服務遭駭，員工、合作夥伴及客戶等逾10萬人個資外洩",
-      "link": "https://www.ithome.com.tw/news/180210",
-      "publishedAt": "2026-11-04 12:11:26",
-      "summary": "日本飲料製造商三得利（Suntory）的母公司三得利控股，以及三得利健康本週公告，集團使用的外部雲端服務遭第三方未授權存取，攻擊者下載了部分包含員工、合作夥伴及客戶個資的檔案，逾10萬人的個資因此外洩。 三得利是在10月28日偵測到外部雲端服務異常活動，第一時間將該未授權存取阻斷，採取必要措施防止損害擴大，並著手調查。",
       "source": "iThome",
       "tag": "繁中"
     }
