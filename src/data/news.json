@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-11-04T08:49:42.608Z",
+  "generatedAt": "2026-11-04T16:54:26.920Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(codex): keep native shell for hidden subagents by disabling nativ…",
+      "link": "https://github.com/openclaw/openclaw/commit/37d5c24faec707c5e0cd2d3642abc3ae6cb8435c",
+      "publishedAt": "2026-11-04T16:52:43Z",
+      "summary": "fix(codex): keep native shell for hidden subagents by disabling native delegation (#192599) * fix(codex): keep native shell for session-tool denies by disabling native delegation * test(codex): live proof that hidden subagents keep the native shell without gateway fallback * test(codex): support API-key auth in the hidden subagent shell live proof * test(codex): spawn live-proof subagents through the parent model turn * fix(codex): fail closed when managed config pins native delegation on for session-tool denies Session-tool denies are enforced by disabling native delegation, so managed requirements or legacy managed layers that pin multi_agent/multi_agent_v2 on now fail the turn before inference. The live proof waits for the child settled reply and asserts delegation facts from the child native thread record. Docs updated; test lines allocated. * fix(codex): restore live-proof path import and keep delegation deny list private * fix(codex): reject structured and aliased managed delegation pins for session-tool denies A legacy managed layer can enable native delegation as [features.multi_agent_v2] enabled = true (reported as features.multi_agent_v2: {enabled: true} with its origin on .enabled) or through the collab alias. Preflight now recognizes boolean, table and alias forms and checks the origin of the enabled field, failing the turn before thread admission. Cases use config/read shapes captured from Codex 0.164.0. * test(codex): match test-line allocation after merging main",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(codex): keep native shell for hidden subagents by disabling nativ…",
+      "summaryZh": "重點：修正(codex): keep native shell for hidden subagents by disabling native delegation (#192599) * 修正(codex): keep native shel..."
+    },
+    {
+      "id": 2,
+      "title": "fix(agents): start MCP failure cooldown after requests settle (#192870)",
+      "link": "https://github.com/openclaw/openclaw/commit/d79c89f95190fc1b66ef8b72498567ef408c38ee",
+      "publishedAt": "2026-11-04T16:51:03Z",
+      "summary": "fix(agents): start MCP failure cooldown after requests settle (#192870)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(agents): start MCP failure cooldown after requests settle (#192870)",
+      "summaryZh": "重點：修正(agents): start MCP failure cooldown after requests settle (#192870)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(memory): continue turns when automatic project recall stalls (#19…",
+      "link": "https://github.com/openclaw/openclaw/commit/8cb658e39b6dbe1bbe03746bf2a468a898c15da2",
+      "publishedAt": "2026-11-04T16:47:00Z",
+      "summary": "fix(memory): continue turns when automatic project recall stalls (#192815) * fix(memory): bound automatic project recall preparation Continue turns after a one-second project recall budget, record the omission, and revoke late provider authority while retaining cleanup. Explicit memory tools keep their own lifetime. Cold stores may omit automatic recall on consecutive turns. * fix(memory): preserve turn authority while bounding recall wait Bound prompt observation without introducing a separate cancellation owner. Late memory work retains the existing live turn and audience checks and releases its provider through the original finally path. Keep the omission visible and discard late prompt results.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): continue turns when automatic project recall stalls (#19…",
+      "summaryZh": "重點：修正(記憶): continue turns when automatic project recall stalls (#192815) * 修正(記憶): bound automatic project recall preparati..."
+    },
+    {
+      "id": 4,
+      "title": "perf(chat): keep follow state out of the transcript body (#165948)",
+      "link": "https://github.com/openclaw/openclaw/commit/f2c27f09ea536a3ec1df3be216263923009f23fd",
+      "publishedAt": "2026-11-04T16:31:50Z",
+      "summary": "perf(chat): keep follow state out of the transcript body (#165948) Isolate scroll-follow observation from transcript construction using one view-local observable state owner and two leaf consumers. Preserve the existing reader-follow, keyboard, session, and one-shot positioning policies. Reviewed at 5b531a0728f3bdc26a5a687ef8c0a3b411057b32. Native swipe traces were independently recounted; their source applicability is retained in the archived exact-head review. This is a transcript work-count improvement, not a physical-device latency or frame-rate claim. Co-authored-by: Solvely-Colin Co-authored-by: Marvinthebored",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(chat): keep follow state out of the transcript body (#165948)",
+      "summaryZh": "重點：perf(chat): keep follow state out of the transcript body (#165948) Isolate scroll-follow observation from transcript con..."
+    },
+    {
+      "id": 5,
+      "title": "Windows 11 效能大升級！微軟稱 8GB 記憶體電腦速度可提升 20%",
+      "link": "https://technews.tw/2026/11/04/microsoft-improves-windows-11-performance-on-pcs-with-just-8gb-of-ram/",
+      "publishedAt": "Wed, 04 Nov 2026 13:24:02 +0000",
+      "summary": "微軟分享 Windows 11 改善進展與具體變化，宣稱在 8GB 記憶體的電腦上，Windows 11 的系 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "Binance揭露63億美元竊案攻擊鏈，駭客以假面試誘使工程師執行惡意程式",
       "link": "https://www.ithome.com.tw/news/180203",
       "publishedAt": "2026-11-04 12:11:52",
@@ -11,8 +64,8 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
-      "title": "XCPE殭屍網路波及臺灣近9萬臺Android設備，全球排名第5",
+      "id": 7,
+      "title": "XCPE殭屍網路波及臺灣近9萬臺Android設備，感染數量排名全球第5",
       "link": "https://www.ithome.com.tw/news/180211",
       "publishedAt": "2026-11-04 12:11:45",
       "summary": "透過漏洞、弱密碼或惡意程式感染大量設備，進而建立殭屍網路，是駭客常見的攻擊手法，但由設備供應商在產品出廠前便主動植入惡意程式，則是相當特殊的案例。Google近期揭露的XCPE殭屍網路便屬於此類，後門直接預載於Android設備韌體，使設備從交付使用者時便已遭到控制，也讓一般使用者難以透過更新或移除應用程式自行清除。",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "NetApp揭露旗下多款儲存產品受Linux核心TCP漏洞影響",
       "link": "https://www.ithome.com.tw/news/180208",
       "publishedAt": "2026-11-04 12:11:40",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "11月Android例行安全更新修補216個漏洞",
       "link": "https://www.ithome.com.tw/news/180207",
       "publishedAt": "2026-11-04 12:11:33",
@@ -38,66 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "日本三得利集團雲端服務遭駭，員工、合作夥伴及客戶等逾10萬人個資外洩",
       "link": "https://www.ithome.com.tw/news/180210",
       "publishedAt": "2026-11-04 12:11:26",
       "summary": "日本飲料製造商三得利（Suntory）的母公司三得利控股，以及三得利健康本週公告，集團使用的外部雲端服務遭第三方未授權存取，攻擊者下載了部分包含員工、合作夥伴及客戶個資的檔案，逾10萬人的個資因此外洩。 三得利是在10月28日偵測到外部雲端服務異常活動，第一時間將該未授權存取阻斷，採取必要措施防止損害擴大，並著手調查。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "TeamViewer修補反向攻擊漏洞，受控端可藉遠端連線攻擊控制端",
-      "link": "https://www.ithome.com.tw/news/180204",
-      "publishedAt": "2026-11-04 11:11:59",
-      "summary": "廣獲使用的遠端桌面存取軟體TeamViewer於10月27日修補可能導致反向攻擊的高風險漏洞，漏洞編號CVE-2026-111585，CVSS嚴重性評分達8.8分。不同於一般遠端存取工具漏洞多是造成控制端攻擊受控端的情境，這個漏洞允許受控端反過來攻擊發起連線的控制端電腦，問題源自遠端畫面解壓縮處理程序的整數溢位，攻擊者可利用受控端傳送特製畫面資料，使控制端配置的記憶體緩衝區不足，進而造成堆積緩衝區溢位。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(codex): restore physical-exit recovery test controls (#192638)",
-      "link": "https://github.com/openclaw/openclaw/commit/893451a3d70ad170fe3887b5a398eac08cad74d4",
-      "publishedAt": "2026-11-04T08:48:45Z",
-      "summary": "fix(codex): restore physical-exit recovery test controls (#192638) * fix(codex): restore physical-exit recovery controls Capture the native process facade emitted by the stdio Worker and keep the retention override on its launch message. Preserve the existing physical-exit, cancellation, and binding assertions. Co-authored-by: steipete * fix(codex): explain receiver-preserving fixture calls The fixture deliberately stores the prototype methods and supplies the original emitter or Worker as this through call. Scope the unbound-method exceptions to those two borrowed methods, as in the Worker CPU observer. Co-authored-by: steipete * fix(codex): reuse recovery fixtures without lint exceptions Capture original prototype functions through typed own descriptors and forward their receivers explicitly. Reuse HTTP and model fixtures, share Gateway close cleanup, and preserve all physical-exit, cancellation and binding assertions. The complete candidate removes three test lines relative to its PR base, with no baseline changes. Co-authored-by: steipete --------- Co-authored-by: steipete",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(codex): restore physical-exit recovery test controls (#192638)",
-      "summaryZh": "重點：修正(codex): restore physical-exit recovery test controls (#192638) * 修正(codex): restore physical-exit recovery controls C..."
-    },
-    {
-      "id": 8,
-      "title": "improve(plugins): rename prompt permission config with Doctor migrati…",
-      "link": "https://github.com/openclaw/openclaw/commit/13374fde99e2dbbbe329141a55d05282754ca0e3",
-      "publishedAt": "2026-11-04T08:47:18Z",
-      "summary": "improve(plugins): rename prompt permission config with Doctor migration (#192634) * improve(plugins): migrate prompt permission config to modification * test(config): isolate prompt permission boolean coverage * fix(doctor): preserve active prompt grants before backup recovery * fix(doctor): include prompt migration in PR wrapper inventory",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：improve(plugins): rename prompt permission config with 文件tor migrati…",
-      "summaryZh": "重點：improve(plugins): rename prompt permission config with 文件tor migration (#192634) * improve(plugins): migrate prompt perm..."
-    },
-    {
-      "id": 9,
-      "title": "fix(ci): align Knip proof config assertion with registered roots (#19…",
-      "link": "https://github.com/openclaw/openclaw/commit/c2b82d6b9c5ce46a319feaffe50d4ea9ec5ab737",
-      "publishedAt": "2026-11-04T08:44:52Z",
-      "summary": "fix(ci): align Knip proof config assertion with registered roots (#192659)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): align Knip proof config assertion with registered roots (#19…",
-      "summaryZh": "重點：修正(ci): align Knip proof config assertion with registered roots (#192659)..."
-    },
-    {
-      "id": 10,
-      "title": "refactor(learn): /learn stops naming Skill Workshop in core prompts a…",
-      "link": "https://github.com/openclaw/openclaw/commit/1ba543b6dd6ffe014139c02a4b62a7904c52a2a2",
-      "publishedAt": "2026-11-04T08:37:08Z",
-      "summary": "refactor(learn): /learn stops naming Skill Workshop in core prompts and replies (#192622) * refactor(learn): let /learn contributions supply their own unavailable reply Core's /learn frame no longer names the Skill Workshop tool or CLI; the plugin supplies its remedy through LearnContribution.unavailableText. Co-authored-by: obviyus * fix(learn): honor a selected subcommand's unavailable reply when no tools are available Co-authored-by: obviyus * chore(test): allocate test lines for the /learn unavailable-reply coverage Co-authored-by: obviyus * fix(learn): take a subcommand's unavailable reply from its own contributor Co-authored-by: obviyus Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(learn): /learn stops naming Skill Workshop in core prompts a…",
-      "summaryZh": "重點：refactor(learn): /learn stops naming Skill Workshop in core prompts and replies (#192622) * refactor(learn): let /learn ..."
     }
   ]
 }
