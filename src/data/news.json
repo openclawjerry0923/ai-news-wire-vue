@@ -1,8 +1,61 @@
 {
-  "generatedAt": "2026-11-05T11:56:05.663Z",
+  "generatedAt": "2026-11-05T19:41:41.980Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(knowledge): tools fail with \"authority no longer active\" after th…",
+      "link": "https://github.com/openclaw/openclaw/commit/0ab5fde497bbdf5574e16b23ca416344657071c6",
+      "publishedAt": "2026-11-05T19:36:54Z",
+      "summary": "fix(knowledge): tools fail with \"authority no longer active\" after the first turn of a warm Claude Code session (#193687) * fix(knowledge): check storage worker authority in each call's own context * test(knowledge): share worker test setup; budget caller-context regression --------- Co-authored-by: VACInc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(knowledge): tools fail with \"authority no longer active\" after th…",
+      "summaryZh": "重點：修正(knowledge): tools fail with \"authority no longer active\" after the first turn of a warm Claude Code session (#193687)..."
+    },
+    {
+      "id": 2,
+      "title": "perf(gateway): reuse prepared run state when presenting session rows …",
+      "link": "https://github.com/openclaw/openclaw/commit/43119bc5c91e814a8a9119ba79e3375640a688e8",
+      "publishedAt": "2026-11-05T19:36:18Z",
+      "summary": "perf(gateway): reuse prepared run state when presenting session rows (#193675) * perf(gateway): reuse prepared run state when presenting session rows Pass the temporal state already checked by the synchronous presentation owner to row construction. Standalone row readers retain their own computation, and viewer authorization and row encodings remain unchanged. * perf(gateway): verify prepared row bytes across viewer changes",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): reuse prepared run state when presenting session rows …",
+      "summaryZh": "重點：perf(Gateway): reuse prepared run state when presenting session rows (#193675) * perf(Gateway): reuse prepared run state..."
+    },
+    {
+      "id": 3,
+      "title": "fix: interrupted triage leaves full-size SQLite snapshot copies in th…",
+      "link": "https://github.com/openclaw/openclaw/commit/8785b572b3e269fcbfb8f9ca4963dba46f826e5c",
+      "publishedAt": "2026-11-05T19:31:39Z",
+      "summary": "fix: interrupted triage leaves full-size SQLite snapshot copies in the cache (#193174) * fix: retire cancelled workers' SQLite snapshot copies When `openclaw triage` (or Doctor's in-process collection) is interrupted, the database-engine inspection worker task is cancelled while it holds a private read-only snapshot. Its cleanup runs, but every SQLite statement on the staging token, and the retirement of the copy's admission facts, goes through the worker's admission exchange. That exchange checks the task's cancellation first, so cleanup failed with \"SQLite admission facts exchange cancelled by its caller\" and the multi-gigabyte copy stayed under ~/Library/Caches/openclaw/sqlite-/ after the process exited. Add a settlement scope to the admission relay that keeps the caller's deadline but not its cancellation, and use it in the two cleanup primitives: the staging token's lock operations and admission-fact retirement for a removed path. Live readers still fence retirement through their own disk tokens. * fix: keep the admission-wait scope out of the worker relay import cycle Move the admission-wait scope (its store, deadline reader, cancellation check and the new settlement scope) into a leaf module. The staging token and admission-fact retirement import it there instead of through the worker relay, which closed a madge type-import cycle. The relay re-exports the helpers its existing importers use. Record the regression test's exact net test-line growth. * fix: list the admission-wait leaf in the PR wrapper inventory The PR wrapper extracts its import closure from scripts/pr-lib/wrapper-components.txt. The new src/infra/sqlite-database-admission-wait.ts is in that closure, so wrapper bootstrap and PR worktree provisioning failed to resolve it. * fix(sqlite): keep cancelled tasks from minting snapshot staging owners Cancelled cleanup only needs reclaim, release and retirement, so leave create-mode token acquisition outside the settlement scope. The regression test now stages the copy in a nested child directory whose creator exits first, so retiring the parent must reclaim the child after cancellation.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: interrupted triage leaves full-size SQLite snapshot copies in th…",
+      "summaryZh": "重點：修正: interrupted triage leaves full-size SQLite snapshot copies in the cache (#193174) * 修正: retire cancelled workers' SQ..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ios): clear stale folder errors after loading more files (#193504)",
+      "link": "https://github.com/openclaw/openclaw/commit/efe90b42a8ca4b928715bf18d0cb17c739ba6328",
+      "publishedAt": "2026-11-05T19:30:23Z",
+      "summary": "fix(ios): clear stale folder errors after loading more files (#193504) Fix stale iOS Files errors after a successful Load More retry. Clear the previous page failure only after the next page has been decoded and its entries committed. Preserve loaded files and visible errors through failed retries. Cover repeated failure followed by recovery with the native pagination fixture. Co-authored-by: Solvely-Colin",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): clear stale folder errors after loading more files (#193504)",
+      "summaryZh": "重點：修正(ios): clear stale folder errors after loading more files (#193504) 修正 stale iOS Files errors after a successful Load ..."
+    },
+    {
+      "id": 5,
+      "title": "可見光加紅外線雙視角，兩大太空望遠鏡看穿神祕「貓頭星雲」",
+      "link": "https://technews.tw/2026/11/05/cats-head-nebula/",
+      "publishedAt": "Thu, 05 Nov 2026 13:44:37 +0000",
+      "summary": "美國太空總署（NASA）的哈伯與詹姆斯·韋伯太空望遠鏡近日聯手捕捉到一幅動態十足且神祕的恆星誕生場景。這片區域 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
       "title": "C++26標準化遇罕見挫敗，Contracts設計爭議成關鍵",
       "link": "https://www.ithome.com.tw/news/180248",
       "publishedAt": "2026-11-05 12:11:55",
@@ -11,7 +64,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
       "title": "日本外務省網站被駭3,600筆個資恐外洩，但強調非機要外交通訊",
       "link": "https://www.ithome.com.tw/news/180251",
       "publishedAt": "2026-11-05 12:11:55",
@@ -20,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 8,
       "title": "中國駭客利用Zyxel GS1900系列交換器零時差漏洞並竊得敏感資料",
       "link": "https://www.ithome.com.tw/news/180254",
       "publishedAt": "2026-11-05 12:11:33",
@@ -29,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 9,
       "title": "法國國家血液機構冷藏設備遭網路攻擊，3處設施溫度控制遭竄改",
       "link": "https://www.ithome.com.tw/news/180253",
       "publishedAt": "2026-11-05 12:11:13",
@@ -38,65 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 5,
+      "id": 10,
       "title": "Zyxel GS1900系列交換器存在越界寫入漏洞，攻擊者不需通過身分驗證就能執行作業系統命令",
       "link": "https://www.ithome.com.tw/news/180252",
       "publishedAt": "2026-11-05 12:11:09",
       "summary": "11月3日網通設備製造商兆勤（Zyxel）發布資安公告，GS1900系列交換器存在越界寫入漏洞CVE-2026-107441，該漏洞存在於交換器韌體的CGI程式，位於區域網路（LAN）內的攻擊者，可透過傳送特製HTTP請求觸發漏洞，進而在不需通過身分驗證的情況下執行作業系統命令，該公司已為10款GS1900交換器推出新版",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "refactor(transcription): separate provider host contexts (#193390)",
-      "link": "https://github.com/openclaw/openclaw/commit/89ac5490831bebf751f784543ef9dd56044813b6",
-      "publishedAt": "2026-11-05T11:50:07Z",
-      "summary": "refactor(transcription): separate provider host contexts (#193390)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(transcription): separate provider host contexts (#193390)",
-      "summaryZh": "重點：refactor(transcription): separate provider host contexts (#193390)..."
-    },
-    {
-      "id": 7,
-      "title": "chore(release): close out 2026.11.1 on main (#193427)",
-      "link": "https://github.com/openclaw/openclaw/commit/de04fbe0caa9332999bdcc28d5d4e049672afb16",
-      "publishedAt": "2026-11-05T11:40:05Z",
-      "summary": "chore(release): close out 2026.11.1 on main (#193427)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(版本發布): close out 2026.11.1 on main (#193427)",
-      "summaryZh": "重點：chore(版本發布): close out 2026.11.1 on main (#193427)..."
-    },
-    {
-      "id": 8,
-      "title": "test(gateway): await Workshop startup method readiness",
-      "link": "https://github.com/openclaw/openclaw/commit/f07f46a62fe0e561e064b9d45c0d9750e2577621",
-      "publishedAt": "2026-11-05T11:38:16Z",
-      "summary": "test(gateway): await Workshop startup method readiness Hold retained-input recovery to reproduce early hello admission, then wait on the lifecycle-owned startupMethodsReady promise before both Workshop scenarios. Preserve the hello-only helper contract and the production startup refusal. Simplify duplicated candidate projection and config setup; no net test growth.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): await Workshop startup method readiness",
-      "summaryZh": "重點：test(Gateway): await Workshop startup method readiness Hold retained-input recovery to reproduce early hello admission, ..."
-    },
-    {
-      "id": 9,
-      "title": "fix(sandbox): attribute waits for shared workspace preparation (#193430)",
-      "link": "https://github.com/openclaw/openclaw/commit/ec2e9b6328d21d39d7efb4022f529bee3a444706",
-      "publishedAt": "2026-11-05T11:35:32Z",
-      "summary": "fix(sandbox): attribute waits for shared workspace preparation (#193430) Record projection custody and coalesced preparation waits as workspaceWait, including reused sandbox checkouts waiting behind dependency-template preparation. Add real-custody regression coverage and a reproducible btrfs commit-change benchmark. Dependency reuse retains its existing lifecycle-script contract.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sandbox): attribute waits for shared workspace preparation (#193430)",
-      "summaryZh": "重點：修正(sandbox): attribute waits for shared workspace preparation (#193430) Record projection custody and coalesced preparat..."
-    },
-    {
-      "id": 10,
-      "title": "2027 羊年台股怎麼走、記憶體榮景持續？TrendForce 大預測一次看（上）",
-      "link": "https://technews.tw/2026/11/05/trendforce-2027-annual-forecast-foundry/",
-      "publishedAt": "Thu, 05 Nov 2026 11:27:59 +0000",
-      "summary": "研調機構 TrendForce 今（5 日）與群益證券共同舉辦 2027 科技產業大預測，針對台股大盤、晶圓代 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
