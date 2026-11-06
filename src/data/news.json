@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-11-06T15:43:16.948Z",
+  "generatedAt": "2026-11-06T21:19:20.788Z",
   "items": [
     {
       "id": 1,
-      "title": "test(agents): tolerate unrelated WAL ticks in memory worktree policy …",
-      "link": "https://github.com/openclaw/openclaw/commit/73005a14b8c2c68565e7a8abfffa6834a160a5f2",
-      "publishedAt": "2026-11-06T15:42:15Z",
-      "summary": "test(agents): tolerate unrelated WAL ticks in memory worktree policy test (#194188)",
+      "title": "perf(ci): avoid unused credential guard symbol lookups (#194314)",
+      "link": "https://github.com/openclaw/openclaw/commit/38f68a10828da63adf76376ac974e92577b43f55",
+      "publishedAt": "2026-11-06T21:06:21Z",
+      "summary": "perf(ci): avoid unused credential guard symbol lookups (#194314)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): tolerate unrelated WAL ticks in 記憶 worktree policy …",
-      "summaryZh": "重點：test(agents): tolerate unrelated WAL ticks in 記憶 worktree policy test (#194188)..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ci): avoid unused credential guard symbol lookups (#194314)",
+      "summaryZh": "重點：perf(ci): avoid unused credential guard symbol lookups (#194314)..."
     },
     {
       "id": 2,
-      "title": "perf(ui): reclaim Chat boot bytes and lower budgets (#194135)",
-      "link": "https://github.com/openclaw/openclaw/commit/9a5ecd3f4c7accffc6957271cb48f43685aebcc0",
-      "publishedAt": "2026-11-06T15:40:43Z",
-      "summary": "perf(ui): reclaim Chat boot bytes and lower budgets (#194135) * perf(ui): reclaim Chat boot bytes and lower budgets Remove retired English copy, obsolete browser fallbacks, and unused emitted initialization. Preserve layout and behavior while reducing normalized Chat boot by 1,741 B and total CSS by 158 B; ratchet measured caps with 64 B headroom. * fix(ui): preserve Communications tab spacing * test(ui): scope catalog idle checks to the current socket * perf(ui): ratchet caps against complete plugin builds * fix(ui): cancel scheduled sidebar captures on deletion Retire a pending timer or idle capture when snapshot invalidation removes a session. Otherwise a cross-tab deletion can be followed by a stale live projection that writes the deleted row back into storage before the local roster catches up. Keep the two-tab write budget unchanged. Add a persisted-row regression that fails before the fix; all 34 owner tests and both deletion E2E cases pass. The repair adds 3 B normalized gzip and retains a 1,829 B Chat boot saving; ratchet caps to the final measurements plus 64 B. * test(ui): settle menu entry animation before spacing checks WebKit CI observed the menu's 0.95 entry scale, turning the correct 6px gap into a transient 5.7px rectangle gap. Finish finite menu animations with the existing helper before measuring static geometry; retain the exact spacing, clickability, and modal assertions. All nine transient surface cases pass in Chromium and WebKit. UI types, focused lint/format, and independent review pass. Production bundles are unchanged. * test(ui): allocate sidebar regression coverage Record the 11 net test lines for the persisted-row resurrection regression and native-menu geometry settlement after removing redundant base64 fallback coverage. Keep the shared test-line scalar unchanged. The exact test-line ratchet and independent review pass. This is metadata only; production assets and prior behavior proof are unchanged. * test(ui): await queued catalog publications before picker checks Track observed catalog invalidations until the corresponding read starts, then retain the existing reply and no-new-request assertions. This covers the publication coalescing window without arbitrary sleeps or product changes. The scoped test allocation now covers 27 net regression-test lines, including 16 lines for publication settlement.",
+      "title": "fix(update): update and Doctor still copy the state database for most…",
+      "link": "https://github.com/openclaw/openclaw/commit/ba3392580165f2593b9d061aa90607517694ba53",
+      "publishedAt": "2026-11-06T21:01:12Z",
+      "summary": "fix(update): update and Doctor still copy the state database for most reads (#194267) * wip: seed snapshot reuse from one-shot producers * wip: tests and worker identity overload * wip: admit scope, artifact reads reuse, clock quantum * wip: docs and allocation * wip: format and allocation count * wip: retire held images before Doctor's retained-runtime reclaim * Revert \"wip: retire held images before Doctor's retained-runtime reclaim\" This reverts commit 764bcf86637081d4f583053000c9c42763f3b8da.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ui): reclaim Chat boot bytes and lower budgets (#194135)",
-      "summaryZh": "重點：perf(ui): reclaim Chat boot bytes and lower budgets (#194135) * perf(ui): reclaim Chat boot bytes and lower budgets Remo..."
+      "titleZh": "OpenClaw 文件更新：修正(update): update and 文件tor still copy the state database for most…",
+      "summaryZh": "重點：修正(update): update and 文件tor still copy the state database for most reads (#194267) * wip: seed snapshot reuse from one-..."
     },
     {
       "id": 3,
-      "title": "fix(macos): Dashboard widgets fail to load over Remote over SSH (#193…",
-      "link": "https://github.com/openclaw/openclaw/commit/3e6a1232b2ee6c7c9c4bbc73d0cbcd18818cb1f6",
-      "publishedAt": "2026-11-06T15:39:11Z",
-      "summary": "fix(macos): Dashboard widgets fail to load over Remote over SSH (#193854) * fix(macos): forward the widget sandbox port over Remote over SSH The SSH tunnel forwarded only the Gateway port, so Dashboard widgets and MCP Apps could not reach the remote sandbox listener (Gateway port + 1) that the Control UI addresses on the tunnel host. Forward it to the same local port, skipping it when that port is busy or reserved by a Gateway this Mac hosts. Refs #145522 * fix(macos): reserve local sandbox ports only while hosting is on Turning hosting beside the remote primary off keeps the separated gateway.port, so the port split no longer implies a local Gateway. Read the hosting preference instead; it stays part of the tunnel configuration, so toggling it replaces the tunnel and frees or claims the port. Refs #145522 * fix(macos): retire a stale SSH tunnel before starting the hosted Gateway A tunnel opened while hosting was off can hold the hosted Gateway's port or its widget sandbox port. Local startup attached to that listener and skipped launching, and the later tunnel replacement never reran startup. Retire a tunnel whose configuration is stale, and wait for its SSH process to exit, before starting the hosted Gateway. Refs #145522 * fix(macos): replace an SSH tunnel missing its widget sandbox forward A tunnel opened while the sandbox port was busy or reserved (a hosted Gateway still shutting down, a stale tunnel) stayed healthy and reusable for as long as its control port listened, so widgets stayed unreachable after the port freed. Record the forward each tunnel actually opened, and have the manager's reuse check replace a tunnel without it once that port is available. Refs #145522 * fix(macos): run the widget sandbox forward in its own SSH process Both forwards shared one ssh process with ExitOnForwardFailure, so a sandbox bind failure took the Gateway route down, and the reuse check retired a healthy Gateway tunnel to add the forward. The probe also bound loopback with SO_REUSEADDR, which succeeds beside a 0.0.0.0 listener that ssh then collides with (GatewayPorts=yes) or shadows. Open the sandbox forward in a separate ssh process owned by the tunnel manager, retried at most every 30 s and retired with the Gateway route. Pin it to 127.0.0.1 so ssh_config cannot move the bind, and probe that address without SO_REUSEADDR so any existing listener counts as busy. Refs #145522 * fix(macos): log skipped widget sandbox forwards and describe their retry Log once per route when the sandbox port is in use or reserved, describe the lookup-driven retry with its 30 s backoff in the docs, and name the manager fixture test for what it proves. Refs #145522 * fix(macos): cancel an unfinished widget sandbox forward on retirement * fix(macos): keep the widget sandbox forward recognizable to shipped PortGuardian v2026.11.1 shares the version 2 PortGuardian ledger and drops any receipt whose ssh command it cannot match before it checks the live parent. The explicit 127.0.0.1 bind address on the sandbox forward was such a command, so a running stable app could erase the receipt of this build's live forward. Use the Gateway tunnel's -L shape and pin the loopback bind with a command-line GatewayPorts=no, and keep the matcher identical to stable. * fix(macos): keep inherited alias forwards from ending the widget sandbox forward The sandbox SSH process reads the same ssh alias as the Gateway process. Any LocalForward, RemoteForward or DynamicForward in that alias is already held by the Gateway process, so the sandbox copy always failed to bind and ExitOnForwardFailure=yes ended the sandbox process on every retry, even with its own port free. ClearAllForwardings would also clear the sandbox -L. Turn ExitOnForwardFailure off for the sandbox process only. Readiness already requires this pid to listen on the sandbox port, so a failed own bind still ends the attempt. The Gateway command is unchanged.",
+      "title": "fix(ci): reuse prepared SDK for tail extension lint (#194311)",
+      "link": "https://github.com/openclaw/openclaw/commit/154d60ec2bc612db80a39c13b61466a64acfc527",
+      "publishedAt": "2026-11-06T20:46:44Z",
+      "summary": "fix(ci): reuse prepared SDK for tail extension lint (#194311)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): Dashboard widgets fail to load over Remote over SSH (#193…",
-      "summaryZh": "重點：修正(macos): Dashboard widgets fail to load over Remote over SSH (#193854) * 修正(macos): forward the widget sandbox port ov..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): reuse prepared SDK for tail extension lint (#194311)",
+      "summaryZh": "重點：修正(ci): reuse prepared SDK for tail extension lint (#194311)..."
     },
     {
       "id": 4,
-      "title": "perf: avoid unnecessary transcript viewport reads (#194131)",
-      "link": "https://github.com/openclaw/openclaw/commit/f65c7816928db9d77d982002f70da1b91a2a9301",
-      "publishedAt": "2026-11-06T15:38:34Z",
-      "summary": "perf: avoid unnecessary transcript viewport reads (#194131) Skip viewport-specific row keys when no admitted footprints exist and let the position rail use its owned measurement after the initial overscan window. Preserve focus targets and cached row-height semantics.",
+      "title": "fix(ci): align Knip with report and proof owners",
+      "link": "https://github.com/openclaw/openclaw/commit/966e6c30ad5a4b7c0e988960555fc85527b6f21c",
+      "publishedAt": "2026-11-06T20:24:21Z",
+      "summary": "fix(ci): align Knip with report and proof owners Keep report segmentation private and exercise rendered text, UTF-8 citation fallback, and unsafe URLs through the production report API. Register the documented Goal upgrade proof as an exact standalone script entry. Validated six report cases on Node and pinned Bun, scoped typed lint, tooling and extension-test types, and zero unused-file/export findings. Allocate exactly six added test lines without changing the shared scalar.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf: avoid unnecessary transcript viewport reads (#194131)",
-      "summaryZh": "重點：perf: avoid unnecessary transcript viewport reads (#194131) Skip viewport-specific row keys when no admitted footprints ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): align Knip with report and proof owners",
+      "summaryZh": "重點：修正(ci): align Knip with report and proof owners Keep report segmentation private and exercise rendered text, UTF-8 citat..."
     },
     {
       "id": 5,
+      "title": "質量僅預期的千分之一，韋伯望遠鏡意外發現最遙遠電波爆誕生地",
+      "link": "https://technews.tw/2026/11/07/the-origin-of-the-most-distant-fast-radio-burst/",
+      "publishedAt": "Fri, 06 Nov 2026 16:00:47 +0000",
+      "summary": "詹姆斯·韋伯太空望遠鏡協助天文學家確認了迄今最遙遠的快速電波爆 FRB 20240304B 所在的星系，為「快 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "最新民調：八成美國民眾呼籲醫療 AI 需透明化，逾六成盼掌握「醫療話語權」",
+      "link": "https://technews.tw/2026/11/07/medical-ai-use-transparency-poll/",
+      "publishedAt": "Fri, 06 Nov 2026 16:00:45 +0000",
+      "summary": "根據皮尤研究中心（Pew Research Center）最新發布的調查，多數美國成年人期盼醫療人員在使用人工 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "富采 Q3 業外挹注轉盈，預期 Q4 營收受 AI 產業鏈排擠下滑",
       "link": "https://finance.technews.tw/2026/11/06/ennostar-q3/",
       "publishedAt": "Fri, 06 Nov 2026 13:03:05 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "強攻 AI 與企業級市場，潘健成：群聯擺脫依賴低價庫存邁入 AI 營運收割期",
       "link": "https://finance.technews.tw/2026/11/06/phison-breaks-free-from-reliance-on-low-priced-inventory-and-enters-a-period-of-reaping-the-benefits-of-ai-driven-operations/",
       "publishedAt": "Fri, 06 Nov 2026 12:50:00 +0000",
@@ -64,8 +82,8 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
-      "title": "長江存儲第四晶圓廠本土設備力拼占比逾七成，進一步降低美國箝制",
+      "id": 9,
+      "title": "長江存儲第四晶圓廠本土設備力拚占比逾七成，降低美國箝制",
       "link": "https://finance.technews.tw/2026/11/06/yangtze-memory-technologies-fourth-wafer-fab-strives-to-achieve-a-domestic-equipment-ratio-of-over-70/",
       "publishedAt": "Fri, 06 Nov 2026 12:20:38 +0000",
       "summary": "根據外媒報導，中國最大快閃記憶體製造商長江存儲（YMTC）計劃將位於武漢的第四座記憶體晶圓廠之本土設備採購比例 [&#8230;]",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "NTT Docomo線上服務遭駭，可能洩露30萬筆用戶個資",
       "link": "https://www.ithome.com.tw/news/180283",
       "publishedAt": "2026-11-06 12:11:35",
       "summary": "日本行動電信NTT Docomo本週公告網站及My docomo服務遭到駭客攻擊，可能有多達30萬筆用戶個資外洩，包括電話號碼等資料。 NTT Docomo在11月4日確認Docomo線上商店及My docomo服務遭到第三方人士未經授權存取。為防止損害擴大及進行調查，Docomo在11月5日凌晨1時5分左右暫停Docomo線上商店及My docomo的各項手續。這些服務可供用戶查詢合約內容、辦理合約異動及購買手機等產品。",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "OpenAI發表GPT-6 Cyber，找出Firefox 81個未知高風險漏洞",
-      "link": "https://www.ithome.com.tw/news/180285",
-      "publishedAt": "2026-11-06 12:11:11",
-      "summary": "OpenAI周四（11/5）發表GPT-6 Cyber，此一專為資安研究開發的AI模型，已在Firefox瀏覽器中發現81個先前未知的高風險漏洞，並針對Linux核心的948個漏洞開發出可實際運作的攻擊程式。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "宜鼎10月營收月減11.1%",
-      "link": "https://finance.technews.tw/2026/11/06/innodisk-5289-202610-financial-report/",
-      "publishedAt": "Fri, 06 Nov 2026 12:10:04 +0000",
-      "summary": "宜鼎（5289）公布 10 月合併營收 77.50 億元，較上（9）月成長 -11.1%，與去年同期相比為年增 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
