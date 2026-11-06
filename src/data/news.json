@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-05T19:41:41.980Z",
+  "generatedAt": "2026-11-06T00:49:26.259Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(knowledge): tools fail with \"authority no longer active\" after th…",
-      "link": "https://github.com/openclaw/openclaw/commit/0ab5fde497bbdf5574e16b23ca416344657071c6",
-      "publishedAt": "2026-11-05T19:36:54Z",
-      "summary": "fix(knowledge): tools fail with \"authority no longer active\" after the first turn of a warm Claude Code session (#193687) * fix(knowledge): check storage worker authority in each call's own context * test(knowledge): share worker test setup; budget caller-context regression --------- Co-authored-by: VACInc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(knowledge): tools fail with \"authority no longer active\" after th…",
-      "summaryZh": "重點：修正(knowledge): tools fail with \"authority no longer active\" after the first turn of a warm Claude Code session (#193687)..."
+      "title": "Anthropic推出Claude個人理財功能，可連結銀行帳戶分析收支",
+      "link": "https://www.ithome.com.tw/news/180268",
+      "publishedAt": "2026-11-06 08:11:44",
+      "summary": "繼OpenAI今年5月推出ChatGPT個人理財服務後，Anthropic周四（11/5）也宣布推出Claude Personal Finance，讓使用者連結銀行及信用卡帳戶，透過AI分析收支與財務狀況，進一步加入AI個人理財市場的競爭。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "perf(gateway): reuse prepared run state when presenting session rows …",
-      "link": "https://github.com/openclaw/openclaw/commit/43119bc5c91e814a8a9119ba79e3375640a688e8",
-      "publishedAt": "2026-11-05T19:36:18Z",
-      "summary": "perf(gateway): reuse prepared run state when presenting session rows (#193675) * perf(gateway): reuse prepared run state when presenting session rows Pass the temporal state already checked by the synchronous presentation owner to row construction. Standalone row readers retain their own computation, and viewer authorization and row encodings remain unchanged. * perf(gateway): verify prepared row bytes across viewer changes",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(Gateway): reuse prepared run state when presenting session rows …",
-      "summaryZh": "重點：perf(Gateway): reuse prepared run state when presenting session rows (#193675) * perf(Gateway): reuse prepared run state..."
+      "title": "資料安全業者Sentra獲1.5億美元投資，擴大AI代理安全業務",
+      "link": "https://www.ithome.com.tw/news/180235",
+      "publishedAt": "2026-11-06 08:11:00",
+      "summary": "企業資料安全業者Sentra於11月4日宣布獲得1.5億美元投資，由美國金融服務業者Capital One旗下創投部門Capital One Ventures領投。Sentra計畫利用這筆資金持續開發AI代理資料安全相關產品，並拓展銷售通路及新市場。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: interrupted triage leaves full-size SQLite snapshot copies in th…",
-      "link": "https://github.com/openclaw/openclaw/commit/8785b572b3e269fcbfb8f9ca4963dba46f826e5c",
-      "publishedAt": "2026-11-05T19:31:39Z",
-      "summary": "fix: interrupted triage leaves full-size SQLite snapshot copies in the cache (#193174) * fix: retire cancelled workers' SQLite snapshot copies When `openclaw triage` (or Doctor's in-process collection) is interrupted, the database-engine inspection worker task is cancelled while it holds a private read-only snapshot. Its cleanup runs, but every SQLite statement on the staging token, and the retirement of the copy's admission facts, goes through the worker's admission exchange. That exchange checks the task's cancellation first, so cleanup failed with \"SQLite admission facts exchange cancelled by its caller\" and the multi-gigabyte copy stayed under ~/Library/Caches/openclaw/sqlite-/ after the process exited. Add a settlement scope to the admission relay that keeps the caller's deadline but not its cancellation, and use it in the two cleanup primitives: the staging token's lock operations and admission-fact retirement for a removed path. Live readers still fence retirement through their own disk tokens. * fix: keep the admission-wait scope out of the worker relay import cycle Move the admission-wait scope (its store, deadline reader, cancellation check and the new settlement scope) into a leaf module. The staging token and admission-fact retirement import it there instead of through the worker relay, which closed a madge type-import cycle. The relay re-exports the helpers its existing importers use. Record the regression test's exact net test-line growth. * fix: list the admission-wait leaf in the PR wrapper inventory The PR wrapper extracts its import closure from scripts/pr-lib/wrapper-components.txt. The new src/infra/sqlite-database-admission-wait.ts is in that closure, so wrapper bootstrap and PR worktree provisioning failed to resolve it. * fix(sqlite): keep cancelled tasks from minting snapshot staging owners Cancelled cleanup only needs reclaim, release and retirement, so leave create-mode token acquisition outside the settlement scope. The regression test now stages the copy in a nested child directory whose creator exits first, so retiring the parent must reclaim the child after cancellation.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: interrupted triage leaves full-size SQLite snapshot copies in th…",
-      "summaryZh": "重點：修正: interrupted triage leaves full-size SQLite snapshot copies in the cache (#193174) * 修正: retire cancelled workers' SQ..."
+      "title": "CISA提出關鍵基礎設施韌性4項重點，降低網路攻擊造成的營運衝擊",
+      "link": "https://www.ithome.com.tw/news/180234",
+      "publishedAt": "2026-11-06 08:11:00",
+      "summary": "美國網路安全暨基礎設施安全局（CISA）提出強化關鍵基礎設施韌性的4項準備重點，呼籲相關業者除了防範網路攻擊，也應事先規畫重要服務中斷時的應變與復原措施，降低資安事故及其他中斷事件對營運造成的影響。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(ios): clear stale folder errors after loading more files (#193504)",
-      "link": "https://github.com/openclaw/openclaw/commit/efe90b42a8ca4b928715bf18d0cb17c739ba6328",
-      "publishedAt": "2026-11-05T19:30:23Z",
-      "summary": "fix(ios): clear stale folder errors after loading more files (#193504) Fix stale iOS Files errors after a successful Load More retry. Clear the previous page failure only after the next page has been decoded and its entries committed. Preserve loaded files and visible errors through failed retries. Cover repeated failure followed by recovery with the native pagination fixture. Co-authored-by: Solvely-Colin",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): clear stale folder errors after loading more files (#193504)",
-      "summaryZh": "重點：修正(ios): clear stale folder errors after loading more files (#193504) 修正 stale iOS Files errors after a successful Load ..."
+      "title": "英國情報機構GCHQ管理出包，數千個儲存裝置下落不明",
+      "link": "https://www.ithome.com.tw/news/180221",
+      "publishedAt": "2026-11-06 08:11:00",
+      "summary": "英國調查權力專員辦公室（IPCO）揭露，英國情報機構政府通訊總部（GCHQ）多年來持續清查內部可移除式儲存媒體（removable media）的去向，但估計仍有數千個裝置下落不明，其中部分可能存有與情報監察及調查活動相關的資料。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "可見光加紅外線雙視角，兩大太空望遠鏡看穿神祕「貓頭星雲」",
-      "link": "https://technews.tw/2026/11/05/cats-head-nebula/",
-      "publishedAt": "Thu, 05 Nov 2026 13:44:37 +0000",
-      "summary": "美國太空總署（NASA）的哈伯與詹姆斯·韋伯太空望遠鏡近日聯手捕捉到一幅動態十足且神祕的恆星誕生場景。這片區域 [&#8230;]",
-      "source": "TechNews",
+      "title": "英國NCSC預警2028年前AI惡意程式恐用於勒索軟體攻擊，威脅關鍵基礎設施",
+      "link": "https://www.ithome.com.tw/news/180196",
+      "publishedAt": "2026-11-06 08:11:00",
+      "summary": "英國國家網路安全中心（NCSC）發布AI網路入侵威脅評估，認為2028年前，攻擊者極可能使用AI驅動的惡意程式，對英國關鍵基礎設施發動勒索軟體攻擊。NCSC指出，AI可能讓攻擊者更快找出並利用系統漏洞，擴大網路攻擊的規模與速度。即使失去原有的入侵管道，攻擊者也可能以較低成本找到其他入侵途徑。換言之，AI不一定帶來全新的攻擊手法，卻可能讓既有的網路攻擊變得更有效率。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "C++26標準化遇罕見挫敗，Contracts設計爭議成關鍵",
-      "link": "https://www.ithome.com.tw/news/180248",
-      "publishedAt": "2026-11-05 12:11:55",
-      "summary": "C++26國際標準草案未通過國際標準化組織（ISO）各國標準機構表決，新版標準發布時程面臨延後。C++標準委員會WG21成員Andreas Fertig指出，10月下旬結束的國際標準草案（DIS）表決未達所需的三分之二多數支持，主要爭議集中在契約（Contracts）功能是否已成熟到足以納入標準。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix: restore standalone AOT module loading (#193640)",
+      "link": "https://github.com/openclaw/openclaw/commit/58ee1671270c1045061ab041a67d22c2e42eeb73",
+      "publishedAt": "2026-11-06T00:48:27Z",
+      "summary": "fix: restore standalone AOT module loading (#193640) * fix: share compiled modules with standalone disk plugins * fix: preserve captured plugin URL identity * test: use portable plugin import URLs on Windows * test: make standalone resource ordering explicit * perf: defer standalone image export hooks Register the image-export loader only when a mapped disk import needs it. An unused onLoad hook adds Gateway CPU even when its callback never runs. Extend the existing image-boundary fixture to cover lazy registration through both namespace producers and preserve shared exports. * build: avoid formatting oversized standalone metadata * docs: note AOT disk module query limitation",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: restore standalone AOT module loading (#193640)",
+      "summaryZh": "重點：修正: restore standalone AOT module loading (#193640) * 修正: share compiled modules with standalone disk plugins * 修正: pres..."
     },
     {
       "id": 7,
-      "title": "日本外務省網站被駭3,600筆個資恐外洩，但強調非機要外交通訊",
-      "link": "https://www.ithome.com.tw/news/180251",
-      "publishedAt": "2026-11-05 12:11:55",
-      "summary": "日本外務省上週公布，其可與外部通訊的網路遭第三方未授權存取，可能導致約3,600筆個資外洩，包括姓名、電子郵件地址等。外務省強調，這起事件未涉及處理高度機密資訊的封閉網路。",
-      "source": "iThome",
+      "title": "AI 泡沫破裂將為美國和世界經濟打開潘朵拉寶盒",
+      "link": "https://finance.technews.tw/2026/11/06/the-bursting-of-the-ai-%e2%80%8b%e2%80%8bbubble-will-open-pandoras-box-for-the-u-s-and-global-economies/",
+      "publishedAt": "Fri, 06 Nov 2026 00:48:05 +0000",
+      "summary": "AI 熱潮帶動全球股市屢創新高，但這場科技投資盛宴也可能成為下一場經濟危機的導火線。國際信評機構惠譽 (Fit [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "中國駭客利用Zyxel GS1900系列交換器零時差漏洞並竊得敏感資料",
-      "link": "https://www.ithome.com.tw/news/180254",
-      "publishedAt": "2026-11-05 12:11:33",
-      "summary": "兆勤（Zyxel）近日修補GS1900系列交換器漏洞CVE-2026-107441，通報此事的韌體安全公司Binarly也公布該漏洞的發現過程，該公司在調查資安廠商Acronis、",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "perf(ui): reduce medium transcript fragment work (#193689)",
+      "link": "https://github.com/openclaw/openclaw/commit/0d5a8def5b0f83fba08a90a0134b4fd2cdf572a5",
+      "publishedAt": "2026-11-06T00:44:05Z",
+      "summary": "perf(ui): reduce medium transcript fragment work (#193689) * perf(ui): prewarm medium transcript fragments as data * test(ui): measure completed-run scrolling across engines * test(ui): avoid returning frame handle from promise callback * test(ui): distinguish partial transcript gaps from empty viewports * perf(ui): keep scroll lookahead for medium transcripts * perf(ui): avoid speculative forward mounts in medium transcripts * fix(ui): keep arriving medium transcript rows painted * perf(ui): share the medium transcript row budget * perf(ui): pace medium transcript row preparation * perf(ui): skip unused transcript fragment metadata * perf(ui): pair medium-session transcript fragments * test(ui): allocate medium transcript regression coverage * perf(ui): avoid empty galleries and row sizing styles * perf(ui): bound paired transcript rows by content * style(ui): use nonmutating prepared row iteration * test(ui): reuse the shared completed-run benchmark * test(ui): consolidate transcript index assertions * test(ui): keep fragment assertions within the file limit * test(ui): remove stale cloud-dispatch absence assertion * fix(ci): align medium transcript proof budgets * test(ui): settle Details entrance before geometry baseline",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): reduce medium transcript fragment work (#193689)",
+      "summaryZh": "重點：perf(ui): reduce medium transcript fragment work (#193689) * perf(ui): prewarm medium transcript fragments as data * tes..."
     },
     {
       "id": 9,
-      "title": "法國國家血液機構冷藏設備遭網路攻擊，3處設施溫度控制遭竄改",
-      "link": "https://www.ithome.com.tw/news/180253",
-      "publishedAt": "2026-11-05 12:11:13",
-      "summary": "近期歐洲冷凍冷藏設備遭網路攻擊的事件，已從超市與零售業蔓延至醫療機構。法國國家血液機構（EFS）於11月3日證實旗下3處設施的冷藏設備控制系統遭遇網路攻擊，攻擊者竄改溫度及除霜設定，企圖將冷藏設備調高至極端溫度。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(ios): keep New session options reachable at accessibility sizes (…",
+      "link": "https://github.com/openclaw/openclaw/commit/e9b943f9593dcac3dfe74548dfaa5c875f103f8a",
+      "publishedAt": "2026-11-06T00:34:51Z",
+      "summary": "fix(ios): keep New session options reachable at accessibility sizes (#193600) * Merge selected base main Co-authored-by: PollyBot13 * docs(ios): coordinate New session accessibility verification Worked on by: - @PollyBot13 Co-authored-by: PollyBot13 OpenClaw-Publication: 79cbee51-1584-4aa4-ac51-a2ba1fcc8377 * Publish openclaw/vivid-lobster-3 Worked on by: - @PollyBot13 Co-authored-by: PollyBot13 OpenClaw-Publication: 30dbab5a-f348-4df5-9c7d-2c4fded73aed --------- Co-authored-by: roboclaw-bot Co-authored-by: PollyBot13",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep New session options reachable at accessibility sizes (…",
+      "summaryZh": "重點：修正(ios): keep New session options reachable at accessibility sizes (#193600) * Merge selected base main Co-authored-by: ..."
     },
     {
       "id": 10,
-      "title": "Zyxel GS1900系列交換器存在越界寫入漏洞，攻擊者不需通過身分驗證就能執行作業系統命令",
-      "link": "https://www.ithome.com.tw/news/180252",
-      "publishedAt": "2026-11-05 12:11:09",
-      "summary": "11月3日網通設備製造商兆勤（Zyxel）發布資安公告，GS1900系列交換器存在越界寫入漏洞CVE-2026-107441，該漏洞存在於交換器韌體的CGI程式，位於區域網路（LAN）內的攻擊者，可透過傳送特製HTTP請求觸發漏洞，進而在不需通過身分驗證的情況下執行作業系統命令，該公司已為10款GS1900交換器推出新版",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(ui): keep catalog and stale-chunk recovery windows on monotonic t…",
+      "link": "https://github.com/openclaw/openclaw/commit/38776e59e870c4a878f5342e218a10080052ed34",
+      "publishedAt": "2026-11-06T00:27:19Z",
+      "summary": "fix(ui): keep catalog and stale-chunk recovery windows on monotonic time (#193070) fix(ui): keep Control UI recovery windows on elapsed time Two Control UI recovery windows measured time with the wall clock: the stale-chunk document reload and the Talk catalog warming retry. After a clock step, the Talk menu kept showing \"Couldn't check provider availability\" instead of retrying, and the stale-chunk reload mis-timed. Both now use the shared monotonic helpers. Timeouts, defaults, auth and routes are unchanged. Evidence: built Gateway and built Control UI in Chromium, stepping only the page's process-local `Date`, twice per ref, plus no-step controls (12 scenes). On main the Talk menu stayed stuck on \"Couldn't check provider availability\"; with this change it retries and shows the real provider state. Size: +197 B combined on the hosted comparison, within the 600 B allowance. Screenshots and traces: https://github.com/openclaw/openclaw/pull/193070#issuecomment-6673040407. Thanks @wangmiao0668000666. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep catalog and stale-chunk recovery windows on monotonic t…",
+      "summaryZh": "重點：修正(ui): keep catalog and stale-chunk recovery windows on monotonic time (#193070) 修正(ui): keep Control UI recovery windo..."
     }
   ]
 }
