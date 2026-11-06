@@ -1,8 +1,79 @@
 {
-  "generatedAt": "2026-11-06T07:43:22.597Z",
+  "generatedAt": "2026-11-06T15:43:16.948Z",
   "items": [
     {
       "id": 1,
+      "title": "test(agents): tolerate unrelated WAL ticks in memory worktree policy …",
+      "link": "https://github.com/openclaw/openclaw/commit/73005a14b8c2c68565e7a8abfffa6834a160a5f2",
+      "publishedAt": "2026-11-06T15:42:15Z",
+      "summary": "test(agents): tolerate unrelated WAL ticks in memory worktree policy test (#194188)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(agents): tolerate unrelated WAL ticks in 記憶 worktree policy …",
+      "summaryZh": "重點：test(agents): tolerate unrelated WAL ticks in 記憶 worktree policy test (#194188)..."
+    },
+    {
+      "id": 2,
+      "title": "perf(ui): reclaim Chat boot bytes and lower budgets (#194135)",
+      "link": "https://github.com/openclaw/openclaw/commit/9a5ecd3f4c7accffc6957271cb48f43685aebcc0",
+      "publishedAt": "2026-11-06T15:40:43Z",
+      "summary": "perf(ui): reclaim Chat boot bytes and lower budgets (#194135) * perf(ui): reclaim Chat boot bytes and lower budgets Remove retired English copy, obsolete browser fallbacks, and unused emitted initialization. Preserve layout and behavior while reducing normalized Chat boot by 1,741 B and total CSS by 158 B; ratchet measured caps with 64 B headroom. * fix(ui): preserve Communications tab spacing * test(ui): scope catalog idle checks to the current socket * perf(ui): ratchet caps against complete plugin builds * fix(ui): cancel scheduled sidebar captures on deletion Retire a pending timer or idle capture when snapshot invalidation removes a session. Otherwise a cross-tab deletion can be followed by a stale live projection that writes the deleted row back into storage before the local roster catches up. Keep the two-tab write budget unchanged. Add a persisted-row regression that fails before the fix; all 34 owner tests and both deletion E2E cases pass. The repair adds 3 B normalized gzip and retains a 1,829 B Chat boot saving; ratchet caps to the final measurements plus 64 B. * test(ui): settle menu entry animation before spacing checks WebKit CI observed the menu's 0.95 entry scale, turning the correct 6px gap into a transient 5.7px rectangle gap. Finish finite menu animations with the existing helper before measuring static geometry; retain the exact spacing, clickability, and modal assertions. All nine transient surface cases pass in Chromium and WebKit. UI types, focused lint/format, and independent review pass. Production bundles are unchanged. * test(ui): allocate sidebar regression coverage Record the 11 net test lines for the persisted-row resurrection regression and native-menu geometry settlement after removing redundant base64 fallback coverage. Keep the shared test-line scalar unchanged. The exact test-line ratchet and independent review pass. This is metadata only; production assets and prior behavior proof are unchanged. * test(ui): await queued catalog publications before picker checks Track observed catalog invalidations until the corresponding read starts, then retain the existing reply and no-new-request assertions. This covers the publication coalescing window without arbitrary sleeps or product changes. The scoped test allocation now covers 27 net regression-test lines, including 16 lines for publication settlement.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): reclaim Chat boot bytes and lower budgets (#194135)",
+      "summaryZh": "重點：perf(ui): reclaim Chat boot bytes and lower budgets (#194135) * perf(ui): reclaim Chat boot bytes and lower budgets Remo..."
+    },
+    {
+      "id": 3,
+      "title": "fix(macos): Dashboard widgets fail to load over Remote over SSH (#193…",
+      "link": "https://github.com/openclaw/openclaw/commit/3e6a1232b2ee6c7c9c4bbc73d0cbcd18818cb1f6",
+      "publishedAt": "2026-11-06T15:39:11Z",
+      "summary": "fix(macos): Dashboard widgets fail to load over Remote over SSH (#193854) * fix(macos): forward the widget sandbox port over Remote over SSH The SSH tunnel forwarded only the Gateway port, so Dashboard widgets and MCP Apps could not reach the remote sandbox listener (Gateway port + 1) that the Control UI addresses on the tunnel host. Forward it to the same local port, skipping it when that port is busy or reserved by a Gateway this Mac hosts. Refs #145522 * fix(macos): reserve local sandbox ports only while hosting is on Turning hosting beside the remote primary off keeps the separated gateway.port, so the port split no longer implies a local Gateway. Read the hosting preference instead; it stays part of the tunnel configuration, so toggling it replaces the tunnel and frees or claims the port. Refs #145522 * fix(macos): retire a stale SSH tunnel before starting the hosted Gateway A tunnel opened while hosting was off can hold the hosted Gateway's port or its widget sandbox port. Local startup attached to that listener and skipped launching, and the later tunnel replacement never reran startup. Retire a tunnel whose configuration is stale, and wait for its SSH process to exit, before starting the hosted Gateway. Refs #145522 * fix(macos): replace an SSH tunnel missing its widget sandbox forward A tunnel opened while the sandbox port was busy or reserved (a hosted Gateway still shutting down, a stale tunnel) stayed healthy and reusable for as long as its control port listened, so widgets stayed unreachable after the port freed. Record the forward each tunnel actually opened, and have the manager's reuse check replace a tunnel without it once that port is available. Refs #145522 * fix(macos): run the widget sandbox forward in its own SSH process Both forwards shared one ssh process with ExitOnForwardFailure, so a sandbox bind failure took the Gateway route down, and the reuse check retired a healthy Gateway tunnel to add the forward. The probe also bound loopback with SO_REUSEADDR, which succeeds beside a 0.0.0.0 listener that ssh then collides with (GatewayPorts=yes) or shadows. Open the sandbox forward in a separate ssh process owned by the tunnel manager, retried at most every 30 s and retired with the Gateway route. Pin it to 127.0.0.1 so ssh_config cannot move the bind, and probe that address without SO_REUSEADDR so any existing listener counts as busy. Refs #145522 * fix(macos): log skipped widget sandbox forwards and describe their retry Log once per route when the sandbox port is in use or reserved, describe the lookup-driven retry with its 30 s backoff in the docs, and name the manager fixture test for what it proves. Refs #145522 * fix(macos): cancel an unfinished widget sandbox forward on retirement * fix(macos): keep the widget sandbox forward recognizable to shipped PortGuardian v2026.11.1 shares the version 2 PortGuardian ledger and drops any receipt whose ssh command it cannot match before it checks the live parent. The explicit 127.0.0.1 bind address on the sandbox forward was such a command, so a running stable app could erase the receipt of this build's live forward. Use the Gateway tunnel's -L shape and pin the loopback bind with a command-line GatewayPorts=no, and keep the matcher identical to stable. * fix(macos): keep inherited alias forwards from ending the widget sandbox forward The sandbox SSH process reads the same ssh alias as the Gateway process. Any LocalForward, RemoteForward or DynamicForward in that alias is already held by the Gateway process, so the sandbox copy always failed to bind and ExitOnForwardFailure=yes ended the sandbox process on every retry, even with its own port free. ClearAllForwardings would also clear the sandbox -L. Turn ExitOnForwardFailure off for the sandbox process only. Readiness already requires this pid to listen on the sandbox port, so a failed own bind still ends the attempt. The Gateway command is unchanged.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): Dashboard widgets fail to load over Remote over SSH (#193…",
+      "summaryZh": "重點：修正(macos): Dashboard widgets fail to load over Remote over SSH (#193854) * 修正(macos): forward the widget sandbox port ov..."
+    },
+    {
+      "id": 4,
+      "title": "perf: avoid unnecessary transcript viewport reads (#194131)",
+      "link": "https://github.com/openclaw/openclaw/commit/f65c7816928db9d77d982002f70da1b91a2a9301",
+      "publishedAt": "2026-11-06T15:38:34Z",
+      "summary": "perf: avoid unnecessary transcript viewport reads (#194131) Skip viewport-specific row keys when no admitted footprints exist and let the position rail use its owned measurement after the initial overscan window. Preserve focus targets and cached row-height semantics.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf: avoid unnecessary transcript viewport reads (#194131)",
+      "summaryZh": "重點：perf: avoid unnecessary transcript viewport reads (#194131) Skip viewport-specific row keys when no admitted footprints ..."
+    },
+    {
+      "id": 5,
+      "title": "富采 Q3 業外挹注轉盈，預期 Q4 營收受 AI 產業鏈排擠下滑",
+      "link": "https://finance.technews.tw/2026/11/06/ennostar-q3/",
+      "publishedAt": "Fri, 06 Nov 2026 13:03:05 +0000",
+      "summary": "富采 6 日法說會公布 2026 年第三季合併財務報表，營收連兩季成長，營業毛利率提升至 12.3%，營業淨損 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "強攻 AI 與企業級市場，潘健成：群聯擺脫依賴低價庫存邁入 AI 營運收割期",
+      "link": "https://finance.technews.tw/2026/11/06/phison-breaks-free-from-reliance-on-low-priced-inventory-and-enters-a-period-of-reaping-the-benefits-of-ai-driven-operations/",
+      "publishedAt": "Fri, 06 Nov 2026 12:50:00 +0000",
+      "summary": "快閃記憶體控制晶片大廠群聯電子（Phison）舉辦法人說明會，執行長潘健成親自回覆法人提問。面對消費性電子疲軟 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "長江存儲第四晶圓廠本土設備力拼占比逾七成，進一步降低美國箝制",
+      "link": "https://finance.technews.tw/2026/11/06/yangtze-memory-technologies-fourth-wafer-fab-strives-to-achieve-a-domestic-equipment-ratio-of-over-70/",
+      "publishedAt": "Fri, 06 Nov 2026 12:20:38 +0000",
+      "summary": "根據外媒報導，中國最大快閃記憶體製造商長江存儲（YMTC）計劃將位於武漢的第四座記憶體晶圓廠之本土設備採購比例 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "NTT Docomo線上服務遭駭，可能洩露30萬筆用戶個資",
       "link": "https://www.ithome.com.tw/news/180283",
       "publishedAt": "2026-11-06 12:11:35",
@@ -11,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 9,
       "title": "OpenAI發表GPT-6 Cyber，找出Firefox 81個未知高風險漏洞",
       "link": "https://www.ithome.com.tw/news/180285",
       "publishedAt": "2026-11-06 12:11:11",
@@ -20,84 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
-      "title": "OpenSSH發布緊急更新，修補可利用長密碼繞過身分驗證的資安漏洞SSHole",
-      "link": "https://www.ithome.com.tw/news/180281",
-      "publishedAt": "2026-11-06 11:11:15",
-      "summary": "OpenSSH開發團隊於11月5日發布緊急更新10.6p2，受到資安界高度關注，原因是其中修補能透過長密碼利用的身分驗證繞過漏洞SSHole（CVE-2026-123158），問題源自OpenSSH與musl C程式庫之間的密碼驗證處理方式。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "遠東生技電子商城委外廠商發生資安事件，訂單及個資是否外洩仍待釐清",
-      "link": "https://www.ithome.com.tw/news/180274",
-      "publishedAt": "2026-11-06 10:11:35",
-      "summary": "11月5日興櫃公司遠東生技（6886）在股市公開資訊觀測站發布重大訊息，電子商城平臺委外服務廠商順立智慧（Cyberbiz）發生資安事件，資料庫部分資料遭未經授權的異常存取，其中包含遠東生技電子商城的訂單及個人資料，此次事件對公司財務及業務尚無重大影響，但目前尚無法確認相關資料是否受到影響，以",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "騰勢委外線上服務系統遭異常存取，已啟動資安應變並調查影響範圍",
-      "link": "https://www.ithome.com.tw/news/180275",
-      "publishedAt": "2026-11-06 10:11:07",
-      "summary": "興櫃保健食品公司騰勢（7889）11月5日於股市公開資訊觀測站發布重大訊息，委外線上服務系統發生異常資料存取事件。該公司接獲委外服務廠商通知，發現其服務系統近期出現異常資料存取狀況，廠商發現後已阻擋相關異常存取行為。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Anthropic擴大Claude文字浮水印部署，部分舊版模型仍未支援",
-      "link": "https://www.ithome.com.tw/news/180269",
-      "publishedAt": "2026-11-06 09:11:53",
-      "summary": "Anthropic本周公告，將文字浮水印推向更早期推出的Claude模型版本，但Opus 4.6及Sonnet 4.6在某些情況下無法穩定生成浮水印。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "refactor(agents): separate native hook relay contexts (#194005)",
-      "link": "https://github.com/openclaw/openclaw/commit/8a186ad7ad77966c864fa9eb47221a1499c1e716",
-      "publishedAt": "2026-11-06T07:41:40Z",
-      "summary": "refactor(agents): separate native hook relay contexts (#194005)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): separate native hook relay contexts (#194005)",
-      "summaryZh": "重點：refactor(agents): separate native hook relay contexts (#194005)..."
-    },
-    {
-      "id": 8,
-      "title": "feat(google): expose owned managed-research interactions (#173966)",
-      "link": "https://github.com/openclaw/openclaw/commit/8b023da72a1a595450b3071782ec1d4940bd459f",
-      "publishedAt": "2026-11-06T07:38:18Z",
-      "summary": "feat(google): expose owned managed-research interactions (#173966) * fix(research): keep evidence types in their leaf contract * test(codex): account for native research boundary coverage * feat(google): add authority-bound managed research adapter * test(google): prove managed research lifecycle * fix(google): satisfy research architecture contracts",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(google): expose owned managed-research interactions (#173966)",
-      "summaryZh": "重點：新功能(google): expose owned managed-research interactions (#173966) * 修正(research): keep evidence types in their leaf cont..."
-    },
-    {
-      "id": 9,
-      "title": "fix(gmail): secure Gog watcher tokens and offer Homebrew upgrades (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/ca97a57aaaba6d582bac1b8cee46e9075f2fd580",
-      "publishedAt": "2026-11-06T07:34:41Z",
-      "summary": "fix(gmail): secure Gog watcher tokens and offer Homebrew upgrades (#192019) * fix(gmail): keep watch credentials in child environment * fix: correct Gmail hook reference and test mocks * test: remove incidental Gmail help assertions * fix(gmail): migrate watcher token transport without breaking connections * test(gmail): narrow fixture command before lookup --------- Co-authored-by: joshavant",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(gmail): secure Gog watcher tokens and offer Homebrew upgrades (#1…",
-      "summaryZh": "重點：修正(gmail): secure Gog watcher tokens and offer Homebrew upgrades (#192019) * 修正(gmail): keep watch credentials in child ..."
-    },
-    {
       "id": 10,
-      "title": "fix(ui): speed up WebKit with reduced motion (#194009)",
-      "link": "https://github.com/openclaw/openclaw/commit/3dcbccb6979e367dde7a443b8ce22f49546e6b8b",
-      "publishedAt": "2026-11-06T07:33:18Z",
-      "summary": "fix(ui): speed up WebKit with reduced motion (#194009) * perf(ui): avoid default transition work with reduced motion Default static elements to no transition property under reduced motion while preserving authored property lists, zero durations, and intentional fades. This removes the shared WebKit style-recalculation penalty in warm boot, retained session activation, and sidebar toggles without restoring motion. Keep per-activation input/first-change/final-commit timestamps in the engine harness so rendering work remains distinct from driver and settle delays. * test(ui): allocate reduced-motion regression coverage Reserve exactly 175 test lines for preserving reduced-motion computed styles and per-activation timing boundaries. The shared test baseline remains unchanged; its separate 25-line debt still requires reconciliation.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): speed up WebKit with reduced motion (#194009)",
-      "summaryZh": "重點：修正(ui): speed up WebKit with reduced motion (#194009) * perf(ui): avoid default transition work with reduced motion Defa..."
+      "title": "宜鼎10月營收月減11.1%",
+      "link": "https://finance.technews.tw/2026/11/06/innodisk-5289-202610-financial-report/",
+      "publishedAt": "Fri, 06 Nov 2026 12:10:04 +0000",
+      "summary": "宜鼎（5289）公布 10 月合併營收 77.50 億元，較上（9）月成長 -11.1%，與去年同期相比為年增 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     }
   ]
 }
