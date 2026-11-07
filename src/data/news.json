@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-07T19:56:39.501Z",
+  "generatedAt": "2026-11-07T23:31:18.444Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(test): prepare ClawRouter decisions before the operation deadline…",
-      "link": "https://github.com/openclaw/openclaw/commit/72b51fb608902c02a56f24773e9e0e38d633b685",
-      "publishedAt": "2026-11-07T19:51:40Z",
-      "summary": "fix(test): prepare ClawRouter decisions before the operation deadline (#194756) Preload the lazy core executor during integration fixture setup, matching the existing OpenRouter and Liquid fixtures. Preserve the five-second deadline and all HTTP/result assertions; allocate exactly the two added test lines. Co-authored-by: roboclaw-bot Co-authored-by: Jason (Json) Co-authored-by: steipete",
+      "title": "chore(ui): refresh control ui locales (#194858)",
+      "link": "https://github.com/openclaw/openclaw/commit/28a5a66d0703003576563c95b0b492f94200a499",
+      "publishedAt": "2026-11-07T23:16:38Z",
+      "summary": "chore(ui): refresh control ui locales (#194858) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): prepare ClawRouter decisions before the operation deadline…",
-      "summaryZh": "重點：修正(test): prepare ClawRouter decisions before the operation deadline (#194756) Preload the lazy core executor during int..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#194858)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#194858) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 2,
-      "title": "fix(ci): stabilize tooling duration regression across inventory chang…",
-      "link": "https://github.com/openclaw/openclaw/commit/6ca3c2eb5f586083584b1274947e5258dd1c7d82",
-      "publishedAt": "2026-11-07T19:51:36Z",
-      "summary": "fix(ci): stabilize tooling duration regression across inventory changes (#194754) Pin unknown tooling weights in the measured-selection regression so a small hybrid tail cannot invalidate its startup-cost comparison. Retain the original assertion and require the full fallback file weight. Allocate exactly four added test lines for this fixture and stronger check. Co-authored-by: roboclaw-bot Co-authored-by: Vincent Koc Co-authored-by: steipete",
+      "title": "improve(gateway): avoid archived scans in active session lists (#194817)",
+      "link": "https://github.com/openclaw/openclaw/commit/fd83c2d59181b0021ba5b63423f5f0e05c80e483",
+      "publishedAt": "2026-11-07T23:11:15Z",
+      "summary": "improve(gateway): avoid archived scans in active session lists (#194817) * perf(gateway): partition session lists by archive state Keep active and archived selection revisions separate so list refreshes only visit their requested population. Preserve federation and sharing policy, including archive moves and zero archive timestamps. Add handler-level work-count and viewer-isolation regression coverage (74 test lines), plus a 60k-row synthetic update-stream benchmark. Production code shrinks by three lines. * test(perf): measure cold session-list thread CPU * perf(gateway): skip hashing before session partitions exist * test(gateway): pin archived-only profile reference resolution * test(gateway): align retained checks with archive partitions",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): stabilize tooling duration regression across inventory chang…",
-      "summaryZh": "重點：修正(ci): stabilize tooling duration regression across inventory changes (#194754) Pin unknown tooling weights in the meas..."
+      "titleZh": "OpenClaw 程式碼更新：improve(Gateway): avoid archived scans in active session lists (#194817)",
+      "summaryZh": "重點：improve(Gateway): avoid archived scans in active session lists (#194817) * perf(Gateway): partition session lists by arc..."
     },
     {
       "id": 3,
-      "title": "fix(cli): distinguish recovered Doctor reservations from unsettled cu…",
-      "link": "https://github.com/openclaw/openclaw/commit/968bdc453d7f8784beec78dcbad11b40608bf5b3",
-      "publishedAt": "2026-11-07T19:51:33Z",
-      "summary": "fix(cli): distinguish recovered Doctor reservations from unsettled custody (#194744) Keep real IPC coverage for recovered empty reservations and interrupted, unreadable receipts. Pin the recovery census input and retain strict custody refusal assertions. Co-authored-by: roboclaw-bot Co-authored-by: steipete",
+      "title": "test(perf): measure rich boot at mobile viewport sizes (#194851)",
+      "link": "https://github.com/openclaw/openclaw/commit/fa28846c60d05424f9c57f2c354bf3b2d75bb996",
+      "publishedAt": "2026-11-07T23:09:39Z",
+      "summary": "test(perf): measure rich boot at mobile viewport sizes (#194851)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(cli): distinguish recovered 文件tor reservations from unsettled cu…",
-      "summaryZh": "重點：修正(cli): distinguish recovered 文件tor reservations from unsettled custody (#194744) Keep real IPC coverage for recovered ..."
+      "titleZh": "OpenClaw 程式碼更新：test(perf): measure rich boot at mobile viewport sizes (#194851)",
+      "summaryZh": "重點：test(perf): measure rich boot at mobile viewport sizes (#194851)..."
     },
     {
       "id": 4,
-      "title": "improve: reduce hidden chat rendering during streamed replies (#194752)",
-      "link": "https://github.com/openclaw/openclaw/commit/6052befe7a26a888cda422e7c5f336d2bb91e9be",
-      "publishedAt": "2026-11-07T19:48:15Z",
-      "summary": "improve: reduce hidden chat rendering during streamed replies (#194752) * perf(ui): park live transcript rendering while tabs are hidden Keep the live stream source parked alongside the pane frame, preserving synchronous event handling and catching up to the latest content on visibility return. Extend the transcript regression and add a hidden-work, reconnect, and multi-tab benchmark. * perf(ui): avoid duplicate tab-return correctness scans * test(ui): cover native tab return and retained heap * test(ui): verify hidden session completion and full replies * fix(test): keep multi-tab diagnostics within harness contracts",
+      "title": "fix(android): honor sentence capitalization in chat inputs (#194321)",
+      "link": "https://github.com/openclaw/openclaw/commit/867ed52730e4a6f84850c4d6daeb3381e6a63a04",
+      "publishedAt": "2026-11-07T23:03:36Z",
+      "summary": "fix(android): honor sentence capitalization in chat inputs (#194321) Request sentence capitalization from the keyboard for the Android chat composer and free-text question answers. Preserve keyboard preferences, existing drafts and password inputs without rewriting entered text. Closes #194320 Co-authored-by: AgentXenAI",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve: reduce hidden chat rendering during streamed replies (#194752)",
-      "summaryZh": "重點：improve: reduce hidden chat rendering during streamed replies (#194752) * perf(ui): park live transcript rendering while..."
+      "titleZh": "OpenClaw 程式碼更新：修正(android): honor sentence capitalization in chat inputs (#194321)",
+      "summaryZh": "重點：修正(android): honor sentence capitalization in chat inputs (#194321) Request sentence capitalization from the keyboard fo..."
     },
     {
       "id": 5,
