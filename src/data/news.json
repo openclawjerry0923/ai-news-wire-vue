@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-11-07T15:28:56.891Z",
+  "generatedAt": "2026-11-07T19:56:39.501Z",
   "items": [
     {
       "id": 1,
-      "title": "test(ui): track current composer alert in corner fixture",
-      "link": "https://github.com/openclaw/openclaw/commit/f8b1a6ba3d8d7a29fd44529fa3833229e61f6261",
-      "publishedAt": "2026-11-07T15:25:25Z",
-      "summary": "test(ui): track current composer alert in corner fixture The fixture added by #193621 retained agent-chat__composer-errors--standalone after #194124 moved real alerts to agent-chat__composer-alert. Production CSS already targets the current class. Keep every radius assertion and exercise the real alert markup. Proof: both curvature variants fail at 0px on d58287d7e9b; all three tests pass with this fixture correction. Focused browser test, formatting, diff check, and independent review passed.",
+      "title": "fix(test): prepare ClawRouter decisions before the operation deadline…",
+      "link": "https://github.com/openclaw/openclaw/commit/72b51fb608902c02a56f24773e9e0e38d633b685",
+      "publishedAt": "2026-11-07T19:51:40Z",
+      "summary": "fix(test): prepare ClawRouter decisions before the operation deadline (#194756) Preload the lazy core executor during integration fixture setup, matching the existing OpenRouter and Liquid fixtures. Preserve the five-second deadline and all HTTP/result assertions; allocate exactly the two added test lines. Co-authored-by: roboclaw-bot Co-authored-by: Jason (Json) Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): track current composer alert in corner 修正ture",
-      "summaryZh": "重點：test(ui): track current composer alert in corner 修正ture The 修正ture added by #193621 retained agent-chat__composer-errors..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): prepare ClawRouter decisions before the operation deadline…",
+      "summaryZh": "重點：修正(test): prepare ClawRouter decisions before the operation deadline (#194756) Preload the lazy core executor during int..."
     },
     {
       "id": 2,
-      "title": "fix(test): stabilize context prewarm responsiveness checks (#194317)",
-      "link": "https://github.com/openclaw/openclaw/commit/d58287d7e9b47b7a6e8562be57692dd949239ca6",
-      "publishedAt": "2026-11-07T15:20:48Z",
-      "summary": "fix(test): stabilize context prewarm responsiveness checks (#194317) * fix(test): make context prewarm responsiveness deterministic Measure model rows consumed per event-loop turn instead of runner wall time while retaining real Gateway HTTP and RPC probes. Co-authored-by: steipete * fix(test): stop prewarm observer before awaiting probes End the responsiveness observer with prewarm so slow transport probes cannot keep the immediate loop running. Co-authored-by: steipete --------- Co-authored-by: roboclaw-bot Co-authored-by: steipete",
+      "title": "fix(ci): stabilize tooling duration regression across inventory chang…",
+      "link": "https://github.com/openclaw/openclaw/commit/6ca3c2eb5f586083584b1274947e5258dd1c7d82",
+      "publishedAt": "2026-11-07T19:51:36Z",
+      "summary": "fix(ci): stabilize tooling duration regression across inventory changes (#194754) Pin unknown tooling weights in the measured-selection regression so a small hybrid tail cannot invalidate its startup-cost comparison. Retain the original assertion and require the full fallback file weight. Allocate exactly four added test lines for this fixture and stronger check. Co-authored-by: roboclaw-bot Co-authored-by: Vincent Koc Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): stabilize context prewarm responsiveness checks (#194317)",
-      "summaryZh": "重點：修正(test): stabilize context prewarm responsiveness checks (#194317) * 修正(test): make context prewarm responsiveness dete..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): stabilize tooling duration regression across inventory chang…",
+      "summaryZh": "重點：修正(ci): stabilize tooling duration regression across inventory changes (#194754) Pin unknown tooling weights in the meas..."
     },
     {
       "id": 3,
-      "title": "fix(doctor): rewrite failure-report paths once per target (#194636)",
-      "link": "https://github.com/openclaw/openclaw/commit/a6ee6a18a5d748a8ed8e395b63c4a5d2a6e02982",
-      "publishedAt": "2026-11-07T14:56:47Z",
-      "summary": "fix(doctor): rewrite failure-report paths once per target (#194636) `openclaw doctor --session-sqlite recover` rewrites failure-report paths once per target instead of once per issue, so large recoveries (100k+ deferred issues) no longer stall for hours in report sanitization. Sanitization strength is unchanged (fixes #194621). Co-authored-by: Wang Rui",
+      "title": "fix(cli): distinguish recovered Doctor reservations from unsettled cu…",
+      "link": "https://github.com/openclaw/openclaw/commit/968bdc453d7f8784beec78dcbad11b40608bf5b3",
+      "publishedAt": "2026-11-07T19:51:33Z",
+      "summary": "fix(cli): distinguish recovered Doctor reservations from unsettled custody (#194744) Keep real IPC coverage for recovered empty reservations and interrupted, unreadable receipts. Pin the recovery census input and retain strict custody refusal assertions. Co-authored-by: roboclaw-bot Co-authored-by: steipete",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正(文件tor): rewrite failure-report paths once per target (#194636)",
-      "summaryZh": "重點：修正(文件tor): rewrite failure-report paths once per target (#194636) `OpenClaw 文件tor --session-sqlite recover` rewrites fai..."
+      "titleZh": "OpenClaw 文件更新：修正(cli): distinguish recovered 文件tor reservations from unsettled cu…",
+      "summaryZh": "重點：修正(cli): distinguish recovered 文件tor reservations from unsettled custody (#194744) Keep real IPC coverage for recovered ..."
     },
     {
       "id": 4,
-      "title": "fix(ui): avoid the extra remount when opening General settings (#194624)",
-      "link": "https://github.com/openclaw/openclaw/commit/b4411857f195fb3444fa02f0414944db5be96bd9",
-      "publishedAt": "2026-11-07T14:44:32Z",
-      "summary": "fix(ui): avoid the extra remount when opening General settings (#194624) * perf(ui): normalize retired General settings before navigation * chore(ui): allocate General route regression tests Reserve exactly the 37 new test lines that prove both retired General destinations before a delayed module resolves. Keep the shared test-line baseline unchanged.",
+      "title": "improve: reduce hidden chat rendering during streamed replies (#194752)",
+      "link": "https://github.com/openclaw/openclaw/commit/6052befe7a26a888cda422e7c5f336d2bb91e9be",
+      "publishedAt": "2026-11-07T19:48:15Z",
+      "summary": "improve: reduce hidden chat rendering during streamed replies (#194752) * perf(ui): park live transcript rendering while tabs are hidden Keep the live stream source parked alongside the pane frame, preserving synchronous event handling and catching up to the latest content on visibility return. Extend the transcript regression and add a hidden-work, reconnect, and multi-tab benchmark. * perf(ui): avoid duplicate tab-return correctness scans * test(ui): cover native tab return and retained heap * test(ui): verify hidden session completion and full replies * fix(test): keep multi-tab diagnostics within harness contracts",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): avoid the extra remount when opening General settings (#194624)",
-      "summaryZh": "重點：修正(ui): avoid the extra remount when opening General settings (#194624) * perf(ui): normalize retired General settings b..."
+      "titleZh": "OpenClaw 程式碼更新：improve: reduce hidden chat rendering during streamed replies (#194752)",
+      "summaryZh": "重點：improve: reduce hidden chat rendering during streamed replies (#194752) * perf(ui): park live transcript rendering while..."
     },
     {
       "id": 5,
+      "title": "睪固酮低下加上高果糖飲食超傷肝，研究揭腸道菌是惡化幫兇",
+      "link": "https://technews.tw/2026/11/08/low-testosterone-exacerbates-sugar-induced-fatty-liver-disease/",
+      "publishedAt": "Sat, 07 Nov 2026 16:00:56 +0000",
+      "summary": "日本大阪公立大學研究團隊發現，低睪固酮與高果糖飲食並非各自獨立影響肝臟，而是會產生強烈的相互作用，進一步惡化脂 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "星系風吹走生命元素，GLOW 計畫證實超新星爆發加速矮星系氧氣流失",
+      "link": "https://technews.tw/2026/11/08/nasas-hubble-uncovers-case-of-missing-oxygen-in-nearby-dwarf-galaxies/",
+      "publishedAt": "Sat, 07 Nov 2026 16:00:01 +0000",
+      "summary": "美國太空總署（NASA）的哈伯太空望遠鏡近期在我們的宇宙鄰近區域發現了一項神祕現象。根據週一發表於《天文物理學 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "力晶投控祭出 1,088 元股東會禮品，廣邀股東購買股權支持",
       "link": "https://finance.technews.tw/2026/11/07/pihc-stock-7/",
       "publishedAt": "Sat, 07 Nov 2026 13:36:52 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "傳跨足先進記憶體生產？焦佑鈞：台積電與三大記憶體原廠均有合作不會加入競爭",
       "link": "https://finance.technews.tw/2026/11/07/tsmc-collaborates-with-all-three-major-memory-manufacturers-and-will-not-join-the-competition/",
       "publishedAt": "Sat, 07 Nov 2026 12:00:12 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "華邦電 2026 年業績亮眼，員工獎金平均可望達到約 30 個月",
       "link": "https://finance.technews.tw/2026/11/07/winbond-electronics-employees-are-expected-to-receive-an-average-bonus-of-approximately-30-months-salary/",
       "publishedAt": "Sat, 07 Nov 2026 11:40:11 +0000",
@@ -73,30 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "Linux核心IPv4 TCP連線漏洞影響廣泛，多家廠商陸續推出修補",
       "link": "https://www.ithome.com.tw/news/180298",
       "publishedAt": "2026-11-07 10:11:00",
       "summary": "存在Linux核心網路子系統的9.8分重大漏洞CVE-2026-98432，影響Linux 核心的IPv4 TCP連線處理機制，並可能導致遠端程式碼執行（RCE），於10月底浮出檯面，由於AI模型廠商Anthropic揭露其AI服務Claude編寫出利用這個漏洞的程式，使得相",
       "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "被 AI 取代後更難翻身，高盛：年長勞工重返職場比他人多等五週",
-      "link": "https://technews.tw/2026/11/07/goldman-sachs-says-ai-displaced-employees-face-a-harder-path-back-to-work/",
-      "publishedAt": "Sat, 07 Nov 2026 09:00:32 +0000",
-      "summary": "高盛（Goldman Sachs）最新研究顯示，人工智慧正在重塑勞動市場，而因 AI 影響而失業的勞工，重返職 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "少子化與 AI 下的高教兩極化：頂大狂開跨域新學程，私校連理工系所也失守",
-      "link": "https://technews.tw/2026/11/07/ai-impacting-ntu-nccu-nthu-new-degree-programs-private-schools-suspend-stem-enrollment/",
-      "publishedAt": "Sat, 07 Nov 2026 08:30:51 +0000",
-      "summary": "在近年少子化浪潮對大學校院的持續挑戰之下，除大學退場或合併外，大學科系的存廢也是一個重點，尤其面臨 AI 對職 [&#8230;]",
-      "source": "TechNews",
       "tag": "繁中"
     }
   ]
