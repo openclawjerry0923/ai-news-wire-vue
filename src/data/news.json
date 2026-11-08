@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-08T11:46:46.544Z",
+  "generatedAt": "2026-11-08T17:42:14.342Z",
   "items": [
     {
       "id": 1,
-      "title": "perf(ci): avoid repeated worker package-owner lookups (#195191)",
-      "link": "https://github.com/openclaw/openclaw/commit/c83c99124501ffb5be91fa5c70742cd2f3f3c284",
-      "publishedAt": "2026-11-08T11:45:27Z",
-      "summary": "perf(ci): avoid repeated worker package-owner lookups (#195191) Visit each ancestor once while capturing worker compiler package inputs. Sibling and nested packages retain their nearest manifest, and subsequent build phases reuse the same completed walks. Replay of the actual callback over two recorded full inventories reduces package existence probes from 2642 to 1007 with the same 267 manifests. This measures operations, not elapsed-time or billing savings. Focused real native worker/SDK proof, scripts typecheck, scoped lint, format and independent review pass.",
+      "title": "fix(process): trust redacted Darwin argv only for entitled system ima…",
+      "link": "https://github.com/openclaw/openclaw/commit/71bf0fcf30f925c9ceb4d53d1e3b838010448c57",
+      "publishedAt": "2026-11-08T17:40:44Z",
+      "summary": "fix(process): trust redacted Darwin argv only for entitled system images (#195283) * fix(process): classify redacted Darwin argument images by kernel image macOS redacts the argument image of binaries entitled with com.apple.private.no-read-procargs (mdworker), which then fails the argv alignment check as layout-mismatch. The runtime census treated that PID as unknown, so doctor --fix kept every retained updater runtime on affected Macs. Read the kernel accounting name instead: a non-JS, non-OpenClaw image is not custody doubt, matching the Windows rule. Refs #191944 * fix(process): trust only entitled system images with redacted argv layout-mismatch also fires for valid argv containing non-UTF-8 bytes, so an image name alone cannot rule out custody: a shell whose arguments point into a retained runtime would be exempted. Read the running image from its kernel text vnode and exempt it only when it is a sealed /System binary carrying com.apple.private.no-read-procargs, as mdworker does. Refs #191944 * fix(process): read the default codesign entitlement dump Some macOS 27 hosts reject the XML entitlement form for mdworker's blob, which left the intended binary unknown. Read the default key/value dump and accept either representation with an explicit true value. Refs #191944 * fix(process): confirm the Darwin image with its kernel accounting name The first lsof text mapping is ordered by address, so a process that maps an entitled binary below its own image could pose as it. Require the kernel accounting name to match that image's basename before trusting it. Refs #191944",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(ci): avoid repeated worker package-owner lookups (#195191)",
-      "summaryZh": "重點：perf(ci): avoid repeated worker package-owner lookups (#195191) Visit each ancestor once while capturing worker compiler..."
+      "titleZh": "OpenClaw 程式碼更新：修正(process): trust redacted Darwin argv only for entitled system ima…",
+      "summaryZh": "重點：修正(process): trust redacted Darwin argv only for entitled system images (#195283) * 修正(process): classify redacted Darwi..."
     },
     {
       "id": 2,
-      "title": "fix(android): Talk button demands a realtime provider on a native Tal…",
-      "link": "https://github.com/openclaw/openclaw/commit/b0e90e6a4b359fff7756698067fdce4758b1907b",
-      "publishedAt": "2026-11-08T11:24:51Z",
-      "summary": "fix(android): Talk button demands a realtime provider on a native Talk setup (#191194) fix(android): admit native Talk without a realtime provider On a Gateway that is set up for native Talk, the Android Talk button still required a realtime provider and showed \"Configure a Realtime Talk provider on the Gateway\". Android now combines the Gateway's Talk catalog readiness with the existing Talk configuration parser. It uses that result when the composer starts Talk or resumes after microphone permission, and it refreshes cached readiness after configuration changes. Evidence: built APKs from main and this change on a real Android emulator, paired to a built Gateway configured for native Talk with no realtime provider. Main showed the realtime-provider dialog (both runs). With this change, native Talk starts: \"Listening — Native Talk: using device speech recognition and configured Talk voice.\" (both runs). A Gateway with a realtime provider behaves the same on both. 59 tests and ktlint pass. Screenshots and details: https://github.com/openclaw/openclaw/pull/191194#issuecomment-6720016627. The linked issue also reports a separate dictation symptom; this change does not cover it. Landed with maintainer approval: review proof 5/6 and patch 4/6, and the review recommends landing after CI. Its 3/6 overall rating reflects only the uncovered dictation symptom. Thanks @saariuslystoned. Co-authored-by: Claude Opus 5.5 Co-authored-by: Ayaan Zaidi",
+      "title": "feat: approve OpenClaw ID nodes from Access (#194007)",
+      "link": "https://github.com/openclaw/openclaw/commit/e43e623ba068405c44637adee9a51d5c75903df9",
+      "publishedAt": "2026-11-08T17:34:05Z",
+      "summary": "feat: approve OpenClaw ID nodes from Access (#194007) Implements openclaw-517.6. Keep join secrets in the owner dialog and require explicit code and command-surface approval.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(android): Talk button demands a realtime provider on a native Tal…",
-      "summaryZh": "重點：修正(android): Talk button demands a realtime provider on a native Talk setup (#191194) 修正(android): admit native Talk wit..."
+      "titleZh": "OpenClaw 程式碼更新：新功能: approve OpenClaw ID nodes from Access (#194007)",
+      "summaryZh": "重點：新功能: approve OpenClaw ID nodes from Access (#194007) Implements OpenClaw-517.6. Keep join secrets in the owner dialog an..."
     },
     {
       "id": 3,
-      "title": "chore: trace first-run Gateway work and verify later replies (#195185)",
-      "link": "https://github.com/openclaw/openclaw/commit/dad2ce895d93fdbcb7ac423b1b7990b6047e7089",
-      "publishedAt": "2026-11-08T11:18:39Z",
-      "summary": "chore: trace first-run Gateway work and verify later replies (#195185) * perf(gateway): trim cold setup detection work Compile only model info for disposable Apple Foundation Models discovery and load the setup detection owner without the activation barrel. Keep full optimized inference compilation on explicit selection. Extend the isolated first-run workload with opt-in server attribution and a third real reply. Performance acceptance is measured separately; no session or database runtime behavior changes. * test(perf): wait for completed first-run replies Keep the strict unique reply assertion while excluding the streaming working placeholder from readiness. Firefox can expose that placeholder beside the reply during the third turn. * perf(gateway): keep setup detection import timing unchanged Isolate the Apple info-only compilation change. The wider setup candidate improved detection medians but failed later-turn latency and CPU guardrails, so retain the existing detector barrel and its tests. * test(perf): retain diagnostics after rejecting runtime candidates The Apple-only candidate improved setup detection but failed first-reply and later CPU guardrails in the paired Firefox run. Restore the native helper and retain only the reusable first-run benchmark improvements.",
+      "title": "fix(ci): avoid legacy scans in current routing fixtures (#195325)",
+      "link": "https://github.com/openclaw/openclaw/commit/79223767c5565ec29b8ec271e085ac8e773888e4",
+      "publishedAt": "2026-11-08T17:33:40Z",
+      "summary": "fix(ci): avoid legacy scans in current routing fixtures (#195325)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore: trace first-run Gateway work and verify later replies (#195185)",
-      "summaryZh": "重點：chore: trace first-run Gateway work and verify later replies (#195185) * perf(Gateway): trim cold setup detection work C..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): avoid legacy scans in current routing 修正tures (#195325)",
+      "summaryZh": "重點：修正(ci): avoid legacy scans in current routing 修正tures (#195325)..."
     },
     {
       "id": 4,
-      "title": "fix(knowledge): keep deleted messages out of reply previews (#195126)",
-      "link": "https://github.com/openclaw/openclaw/commit/464d4935035d305ea75b69ea47dbe908dd06677e",
-      "publishedAt": "2026-11-08T11:18:32Z",
-      "summary": "fix(knowledge): keep deleted messages out of reply previews (#195126) fix(knowledge): mark deleted targets in cross-day reply previews In standalone chat-transcript output, a reply preview that pointed at a message from an earlier day still quoted the original text after the target was deleted (deleted_at set). The target's own transcript already shows the existing \"[deleted]\" marker. Reply previews now use that same marker before the quote is truncated. Raw JSONL is unchanged. Evidence: the packaged standalone CLI. Main quoted the deleted text in the cross-day reply preview; with this change it shows [deleted]. Ordinary cross-day and same-day replies, a missing target, and raw JSONL and chunk integrity are unchanged. Details: https://github.com/openclaw/openclaw/pull/195126#issuecomment-6720191000. Thanks @zhangguiping-xydt. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(memory): adding one agent sweeps every agent database at once (#1…",
+      "link": "https://github.com/openclaw/openclaw/commit/da3cea2ce4a280ac6acc89b62693a19c6534f68d",
+      "publishedAt": "2026-11-08T17:24:31Z",
+      "summary": "fix(memory): adding one agent sweeps every agent database at once (#195290) * fix(memory): reloading standing-intent maintenance sweeps every agent database at once Any agents.* change reloads the memory-core-standing-intents service. Start scheduled a sweep at now for every agent, so adding one agent opened every agent database together (about 470 on the reporting gateway, minutes of CPU and main-thread stalls). Deadlines learned from completed operations now live in the process-wide maintenance owner and survive the reload; only databases without a known deadline are swept immediately, and a past deadline still runs at once. Sweeps are also bounded to two at a time so first starts no longer open every store in the same instant. Refs #195272 * fix(memory): keep the match fast path off until a sweep learns absence after reload An operation in flight across a reload updates the previous owner's facts, so seeding the new owner as empty could hide an intent it just created. * fix(memory): forget a learned standing-intent deadline after an uncertain write A worker that commits and then fails leaves the cached deadline stale, so a later reload would skip the recovery sweep for that database. * fix(memory): schedule recovery when an uncertain standing-intent write invalidates its deadline A successor that inherited the old deadline during an overlapping reload would otherwise never learn the write may have committed. * fix(memory): keep the standing-intent retry backoff on repeated failed writes * test: allocate the standing-intent reload regression lines * test: correct the allocated line count to the branch delta Co-authored-by: Peter Steinberger",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(knowledge): keep deleted messages out of reply previews (#195126)",
-      "summaryZh": "重點：修正(knowledge): keep deleted messages out of reply previews (#195126) 修正(knowledge): mark deleted targets in cross-day re..."
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): adding one agent sweeps every agent database at once (#1…",
+      "summaryZh": "重點：修正(記憶): adding one agent sweeps every agent database at once (#195290) * 修正(記憶): reloading standing-intent maintenance s..."
     },
     {
       "id": 5,
