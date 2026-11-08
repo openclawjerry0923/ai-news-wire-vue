@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-08T17:42:14.342Z",
+  "generatedAt": "2026-11-08T21:46:10.234Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(process): trust redacted Darwin argv only for entitled system ima…",
-      "link": "https://github.com/openclaw/openclaw/commit/71bf0fcf30f925c9ceb4d53d1e3b838010448c57",
-      "publishedAt": "2026-11-08T17:40:44Z",
-      "summary": "fix(process): trust redacted Darwin argv only for entitled system images (#195283) * fix(process): classify redacted Darwin argument images by kernel image macOS redacts the argument image of binaries entitled with com.apple.private.no-read-procargs (mdworker), which then fails the argv alignment check as layout-mismatch. The runtime census treated that PID as unknown, so doctor --fix kept every retained updater runtime on affected Macs. Read the kernel accounting name instead: a non-JS, non-OpenClaw image is not custody doubt, matching the Windows rule. Refs #191944 * fix(process): trust only entitled system images with redacted argv layout-mismatch also fires for valid argv containing non-UTF-8 bytes, so an image name alone cannot rule out custody: a shell whose arguments point into a retained runtime would be exempted. Read the running image from its kernel text vnode and exempt it only when it is a sealed /System binary carrying com.apple.private.no-read-procargs, as mdworker does. Refs #191944 * fix(process): read the default codesign entitlement dump Some macOS 27 hosts reject the XML entitlement form for mdworker's blob, which left the intended binary unknown. Read the default key/value dump and accept either representation with an explicit true value. Refs #191944 * fix(process): confirm the Darwin image with its kernel accounting name The first lsof text mapping is ordered by address, so a process that maps an entitled binary below its own image could pose as it. Require the kernel accounting name to match that image's basename before trusting it. Refs #191944",
+      "title": "fix(update): restore LaunchAgent registration after repair contention…",
+      "link": "https://github.com/openclaw/openclaw/commit/c1e55e24b3cb5729dc62b853af5f8844e42828bf",
+      "publishedAt": "2026-11-08T21:35:21Z",
+      "summary": "fix(update): restore LaunchAgent registration after repair contention (#195406) * fix(update): honor maintenance ownership and restore LaunchAgent registration * chore: fund inherited main test-line debt for #195406 --------- Co-authored-by: roboclaw-bot",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(process): trust redacted Darwin argv only for entitled system ima…",
-      "summaryZh": "重點：修正(process): trust redacted Darwin argv only for entitled system images (#195283) * 修正(process): classify redacted Darwi..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): restore LaunchAgent registration after repair contention…",
+      "summaryZh": "重點：修正(update): restore LaunchAgent registration after repair contention (#195406) * 修正(update): honor maintenance ownership..."
     },
     {
       "id": 2,
-      "title": "feat: approve OpenClaw ID nodes from Access (#194007)",
-      "link": "https://github.com/openclaw/openclaw/commit/e43e623ba068405c44637adee9a51d5c75903df9",
-      "publishedAt": "2026-11-08T17:34:05Z",
-      "summary": "feat: approve OpenClaw ID nodes from Access (#194007) Implements openclaw-517.6. Keep join secrets in the owner dialog and require explicit code and command-surface approval.",
+      "title": "fix: speed up GitHub publication in repositories with many sessions (…",
+      "link": "https://github.com/openclaw/openclaw/commit/92115f4bf77c53572406ddf3abe08af858f82b0b",
+      "publishedAt": "2026-11-08T21:34:38Z",
+      "summary": "fix: speed up GitHub publication in repositories with many sessions (#195413) * fix: speed up GitHub publication fetches in busy repositories * test: reconcile publication negotiation coverage budget",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: approve OpenClaw ID nodes from Access (#194007)",
-      "summaryZh": "重點：新功能: approve OpenClaw ID nodes from Access (#194007) Implements OpenClaw-517.6. Keep join secrets in the owner dialog an..."
+      "titleZh": "OpenClaw 程式碼更新：修正: speed up GitHub publication in repositories with many sessions (…",
+      "summaryZh": "重點：修正: speed up GitHub publication in repositories with many sessions (#195413) * 修正: speed up GitHub publication fetches i..."
     },
     {
       "id": 3,
-      "title": "fix(ci): avoid legacy scans in current routing fixtures (#195325)",
-      "link": "https://github.com/openclaw/openclaw/commit/79223767c5565ec29b8ec271e085ac8e773888e4",
-      "publishedAt": "2026-11-08T17:33:40Z",
-      "summary": "fix(ci): avoid legacy scans in current routing fixtures (#195325)",
+      "title": "improve(ci): trim worker builds for agentic tests (#195412)",
+      "link": "https://github.com/openclaw/openclaw/commit/98fad049dcaec6a4fe4d31040ea80f88dba80cd8",
+      "publishedAt": "2026-11-08T21:27:53Z",
+      "summary": "improve(ci): trim worker builds for agentic tests (#195412)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): avoid legacy scans in current routing 修正tures (#195325)",
-      "summaryZh": "重點：修正(ci): avoid legacy scans in current routing 修正tures (#195325)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ci): trim worker builds for agentic tests (#195412)",
+      "summaryZh": "重點：improve(ci): trim worker builds for agentic tests (#195412)..."
     },
     {
       "id": 4,
-      "title": "fix(memory): adding one agent sweeps every agent database at once (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/da3cea2ce4a280ac6acc89b62693a19c6534f68d",
-      "publishedAt": "2026-11-08T17:24:31Z",
-      "summary": "fix(memory): adding one agent sweeps every agent database at once (#195290) * fix(memory): reloading standing-intent maintenance sweeps every agent database at once Any agents.* change reloads the memory-core-standing-intents service. Start scheduled a sweep at now for every agent, so adding one agent opened every agent database together (about 470 on the reporting gateway, minutes of CPU and main-thread stalls). Deadlines learned from completed operations now live in the process-wide maintenance owner and survive the reload; only databases without a known deadline are swept immediately, and a past deadline still runs at once. Sweeps are also bounded to two at a time so first starts no longer open every store in the same instant. Refs #195272 * fix(memory): keep the match fast path off until a sweep learns absence after reload An operation in flight across a reload updates the previous owner's facts, so seeding the new owner as empty could hide an intent it just created. * fix(memory): forget a learned standing-intent deadline after an uncertain write A worker that commits and then fails leaves the cached deadline stale, so a later reload would skip the recovery sweep for that database. * fix(memory): schedule recovery when an uncertain standing-intent write invalidates its deadline A successor that inherited the old deadline during an overlapping reload would otherwise never learn the write may have committed. * fix(memory): keep the standing-intent retry backoff on repeated failed writes * test: allocate the standing-intent reload regression lines * test: correct the allocated line count to the branch delta Co-authored-by: Peter Steinberger",
+      "title": "fix(gateway): give each utility fallback its own observer deadline (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/0d4c07fb0a25a1f24adc358d2b1f6b5034156817",
+      "publishedAt": "2026-11-08T21:26:31Z",
+      "summary": "fix(gateway): give each utility fallback its own observer deadline (#191653) The observer bounded model preparation and the whole utility fallback chain with one 30s abort timer, while each candidate received the same 30s as its own call timeout. A primary that used its budget left the configured fallback no time at all, so two such failures disabled assessments for the run. Size the deadline by the configured candidate count so every candidate can use a full call. Single-model configs keep the original 30s bound.",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): adding one agent sweeps every agent database at once (#1…",
-      "summaryZh": "重點：修正(記憶): adding one agent sweeps every agent database at once (#195290) * 修正(記憶): reloading standing-intent maintenance s..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): give each utility fallback its own observer deadline (#…",
+      "summaryZh": "重點：修正(Gateway): give each utility fallback its own observer deadline (#191653) The observer bounded 模型 preparation and the ..."
     },
     {
       "id": 5,
