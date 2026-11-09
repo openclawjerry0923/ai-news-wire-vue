@@ -1,8 +1,79 @@
 {
-  "generatedAt": "2026-11-09T09:17:23.965Z",
+  "generatedAt": "2026-11-09T20:28:43.903Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(memory): large session exports exhaust workers (#196158)",
+      "link": "https://github.com/openclaw/openclaw/commit/e64c3514e4194c1100779f9617f2d0c7b0439c4c",
+      "publishedAt": "2026-11-09T20:20:20Z",
+      "summary": "fix(memory): large session exports exhaust workers (#196158) fix(memory): keep large session exports under the worker memory limit One large session could make the memory-index session export worker exceed its 512 MB heap limit. The whole Gateway then aborted with exit 134 and the index stayed empty. The renderer now releases intermediate data while it exports, so peak memory stays under the limit. Exported content is unchanged. Evidence: a built Gateway in Docker on node:24.22.1 with no heap changes, using the reporter's own seed script (12,460 messages of 15 KB, about 178 MB of text), indexed through openclaw memory search. On main the Gateway aborted twice with exit 134 (\"Reached heap limit\"); the export worker was at about 615 to 622 MB. With this change the search succeeds twice on the same Gateway process, the session is fully indexed (236,702 chunks), both runs give identical rows, and the worker peaked at 436 to 494 MB. A small mixed session and an 8,000-message session give identical index rows on main and this change, and the 8,000-message chunks match the large export at the same positions. Details: https://github.com/openclaw/openclaw/pull/196158#issuecomment-6749876072. check-lint-core-4 is an inherited max-lines red in six untouched files: https://github.com/openclaw/openclaw/pull/196158#issuecomment-6750460723 Thanks @ericcaiwx-star. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(記憶): large session exports exhaust workers (#196158)",
+      "summaryZh": "重點：修正(記憶): large session exports exhaust workers (#196158) 修正(記憶): keep large session exports under the worker 記憶 limit One..."
+    },
+    {
+      "id": 2,
+      "title": "fix(mcp): fenced MCP sign-in offers only Sign out in plugin settings …",
+      "link": "https://github.com/openclaw/openclaw/commit/d325e9e069a5f3fda2fab49154248822e27c6c5a",
+      "publishedAt": "2026-11-09T20:09:06Z",
+      "summary": "fix(mcp): fenced MCP sign-in offers only Sign out in plugin settings (#196133) A refresh claim left by an uncertain token exchange blocks every token use, but credential status still reported the stored tokens as authorized, so the plugin page offered Sign out instead of Connect. Report a refresh claim as requiring authorization.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(mcp): fenced MCP sign-in offers only Sign out in plugin settings …",
+      "summaryZh": "重點：修正(mcp): fenced MCP sign-in offers only Sign out in plugin settings (#196133) A refresh claim left by an uncertain token..."
+    },
+    {
+      "id": 3,
+      "title": "fix(templates): use automations in portable manifests (#196218)",
+      "link": "https://github.com/openclaw/openclaw/commit/bb2f1c4a8acc31dde09a18fe61c5b51e76c85511",
+      "publishedAt": "2026-11-09T20:06:27Z",
+      "summary": "fix(templates): use automations in portable manifests (#196218)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(templates): use automations in portable manifests (#196218)",
+      "summaryZh": "重點：修正(templates): use automations in portable manifests (#196218)..."
+    },
+    {
+      "id": 4,
+      "title": "chore(ui): refresh control ui locales (#196184)",
+      "link": "https://github.com/openclaw/openclaw/commit/25e72283724944062b5092aef874fb44cf18c35c",
+      "publishedAt": "2026-11-09T19:55:19Z",
+      "summary": "chore(ui): refresh control ui locales (#196184) Co-authored-by: github-actions[bot]",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#196184)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#196184) Co-authored-by: github-actions[bot]..."
+    },
+    {
+      "id": 5,
+      "title": "小行星形狀影響核爆偏轉效果，照射位置成行星防禦關鍵",
+      "link": "https://technews.tw/2026/11/09/asteroid-shape-affects-effectiveness-of-nuclear-deflection/",
+      "publishedAt": "Mon, 09 Nov 2026 13:57:43 +0000",
+      "summary": "當具有撞擊地球風險的小行星無法及時以太空船攔截時，在其附近引爆核裝置，利用瞬間釋放的 X 射線加熱小行星表面， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "Google 第八代 TPU 再添兩款，聯手 AMD 打造安全與機密推論 TPU",
+      "link": "https://technews.tw/2026/11/09/google-introduces-tpu-8tx-and-tpu-8i-max/",
+      "publishedAt": "Mon, 09 Nov 2026 13:00:40 +0000",
+      "summary": "Google 擴充第八代 TPU（Tensor Processing Unit）產品陣容，新增 2 款 TPU [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "康控-KY10月營收1.93 億元",
+      "link": "https://finance.technews.tw/2026/11/09/concraft-4943-202610-financial-report/",
+      "publishedAt": "Mon, 09 Nov 2026 12:40:03 +0000",
+      "summary": "康控-KY（4943）今（9）日公布 10 月營收，達 1.93 億元，較 9 月成長 1.8%，較去年同期成 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "展碁國際子公司好漾生活先行暫停線上商店營運，釐清線上商店委外業者Cyberbiz資安事件影響",
       "link": "https://www.ithome.com.tw/news/180327",
       "publishedAt": "2026-11-09 12:11:50",
@@ -11,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 9,
       "title": "諾貝兒線上商店委外廠商Cyberbiz資料庫遭異常存取，客戶訂單資料恐受影響",
       "link": "https://www.ithome.com.tw/news/180319",
       "publishedAt": "2026-11-09 12:11:08",
@@ -20,84 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 10,
       "title": "Perplexity推出Teammates，支援多個常駐AI代理人分工協作",
       "link": "https://www.ithome.com.tw/news/180320",
       "publishedAt": "2026-11-09 12:11:06",
       "summary": "隨著科技業者相繼投入主動型AI代理人市場，Perplexity周三（11/4）宣布推出Teammates，讓使用者建立多個常駐AI代理人，各自負責長期專案，主動追蹤進度、執行任務，並互相交辦工作。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "半導體封測廠精材遭不明IP入侵，客戶與員工聯絡資訊外洩",
-      "link": "https://www.ithome.com.tw/news/180318",
-      "publishedAt": "2026-11-09 12:11:05",
-      "summary": "半導體封測廠商精材（3374）於11月6日發布重大訊息，表示發現不明IP異常侵入內部資訊系統，造成某客戶、部分供應商及少數員工的名稱與商務郵件聯絡資訊外洩。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "LINE WORKS瞄準企業通訊管理痛點，讓LINE從員工私訊走向企業協作平臺",
-      "link": "https://www.ithome.com.tw/news/180311",
-      "publishedAt": "2026-11-09 11:11:55",
-      "summary": "LINE在臺灣已是高度普及的日常通訊工具，不少企業從主管、辦公室員工到第一線門市人員，都習慣透過LINE聯繫工作。然而，當私人通訊軟體成為企業日常溝通的主要管道，使用便利的背後逐漸浮現管理問題，例如：員工之間的工作對話留在個人手機，公司無法完整掌握溝通紀錄，員工離職時可能造成工作資訊斷層，企業更難將累積的對話資料轉化為知識資產，進一步導入AI應用。 LINE WORKS株式會社代表取締役社長島岡岳史日前在臺灣一場演講中指出，LINE WORKS延續LINE簡單、直覺的使用體驗，卻加入企業所需的帳號與管理機制，讓公司可以掌握內部溝通資訊，同時保留與一般LINE用戶互通的能力。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Acronis揭露AI自動化攻擊系統BOSSAI運作細節，整合12個AI代理、MCP與Skills",
-      "link": "https://www.ithome.com.tw/news/180310",
-      "publishedAt": "2026-11-09 11:11:52",
-      "summary": "資安業者Acronis威脅研究單位（TRU）近日揭露，臺灣緊急服務系統遭到名為BossAI的AI攻擊架構鎖定，而且攻擊目標不只是臺灣緊急服務系統，還涵蓋全球11個國家的數百個組織。研究人員進一步發現，這套架構由一名據信位於臺灣花蓮市的攻擊者操作，整合12個AI代理，透過不同代理分工、模型上下文協定（MCP）串接滲透測試工具，並使用移除安全限制的本機AI模型執行攻擊。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(cron): keep parent-pause notice names surrogate-safe (#195820)",
-      "link": "https://github.com/openclaw/openclaw/commit/d9d3eb4a27de0fbc7ae1433cfe7d79d8156bb7d6",
-      "publishedAt": "2026-11-09T09:14:47Z",
-      "summary": "fix(cron): keep parent-pause notice names surrogate-safe (#195820) fix(cron): keep parent-pause notice names surrogate-safe Fixes #195818. When an automation's parent conversation is archived and the automation is re-enabled, a forced run is skipped with a pause notice that includes the automation name, cut with slice(0, 120). An emoji at the cut left half a character in the notice sent to the main session and in the run history (where storage turns it into replacement characters). The name is now cut with the existing truncateUtf16Safe helper. The notice wording is unchanged. Evidence: built Gateway on node:24.22.1 in secretless Docker with isolated state. A conversation with three automations was archived, each automation was re-enabled and run. For a name of 119 \"a\" plus an emoji, main stored 122 units ending in three U+FFFD in the run history and sent 120 units ending in a lone \\ud83d to chat.history; with this change both are 119 units with a clean cut. A 130-character ASCII name is still cut at 120 and a short name with an emoji is unchanged on both. With the name and job id masked, the notice text is byte-identical on both. Details: https://github.com/openclaw/openclaw/pull/195820#issuecomment-6736198669. Thanks @moguangyu5-design. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): keep parent-pause notice names surrogate-safe (#195820)",
-      "summaryZh": "重點：修正(排程): keep parent-pause notice names surrogate-safe (#195820) 修正(排程): keep parent-pause notice names surrogate-safe 修正..."
-    },
-    {
-      "id": 8,
-      "title": "fix(ios): discard stale wake commands after chat or Gateway changes (…",
-      "link": "https://github.com/openclaw/openclaw/commit/bebf8f9cd67a51dec9f14323ccb57025cdb82f2e",
-      "publishedAt": "2026-11-09T09:12:03Z",
-      "summary": "fix(ios): discard stale wake commands after chat or Gateway changes (#191521) Retire buffered Voice Wake recognition when chat, agent, Gateway, or push-to-talk routes change. Use the existing recognition teardown and restart gates so stale callbacks cannot dispatch into the new destination. Name the operation discardCaptureForRouteChange, update all five callers, and retain private cancellation-only bookkeeping. Validation: six VoiceWakeManagerStateTests passed, including the four route-change cases; focused SwiftFormat, SwiftLint, and whitespace checks passed. Physical voice proof was explicitly waived. Co-authored-by: jjjhenriksen Co-authored-by: Vyctor H. Brzezowski",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ios): discard stale wake commands after chat or Gateway changes (…",
-      "summaryZh": "重點：修正(ios): discard stale wake commands after chat or Gateway changes (#191521) Retire buffered Voice Wake recognition when..."
-    },
-    {
-      "id": 9,
-      "title": "test(ci): pin shutdown fixture runtime to Node (#195852)",
-      "link": "https://github.com/openclaw/openclaw/commit/0020174a20d1870f669ca9d0d739406397ec47c0",
-      "publishedAt": "2026-11-09T09:10:48Z",
-      "summary": "test(ci): pin shutdown fixture runtime to Node (#195852)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ci): pin shutdown 修正ture runtime to Node (#195852)",
-      "summaryZh": "重點：test(ci): pin shutdown 修正ture runtime to Node (#195852)..."
-    },
-    {
-      "id": 10,
-      "title": "improve(chat): stop re-parsing split transcript rows for citations on…",
-      "link": "https://github.com/openclaw/openclaw/commit/92b5e898d8029031b058c8146bbd93ac26d0acc5",
-      "publishedAt": "2026-11-09T09:02:49Z",
-      "summary": "improve(chat): stop re-parsing split transcript rows for citations on every render (#193741) * perf(chat): stop re-parsing split rows for citations on every render - Skip the citation parse in previews(for:) when the message has no source previews; the filtered result is always empty there. - Keep each split row's citation links by presentation ID and reuse them while the row's role, content, footer ownership, stop reason and error message are unchanged (every input of its visible text); prune entries in update() once their message has no previews. - Take the citation extractor as an init parameter so a test can count parses. - Test asserts one parse per row text, none for rows without cards, cards that follow edited text before and after update(), and a re-parse when only the footer's stop reason turns into a cited error. * test(chat): cover each footer input of the split-row citation cache - Add steps that change only the error message and only the footer ownership of an unchanged split row; each must re-parse and show the card for the row's new visible text. * refactor(chat): drop the test-only citation extractor hook - ChatSourcePreviewState calls ChatSourcePreviewProjector.citations directly again; init(citations:) had no production caller. - The split-row test now asserts only card output: cards follow edited text and each footer input (stop reason, error message, footer ownership) across repeated renders. * style(chat): use a doc comment for the split-row link cache - SwiftFormat 0.63.1 docComments rule: the comment above partLinks becomes a doc comment. No code change.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：improve(chat): stop re-parsing split transcript rows for citations on…",
-      "summaryZh": "重點：improve(chat): stop re-parsing split transcript rows for citations on every render (#193741) * perf(chat): stop re-parsi..."
     }
   ]
 }
