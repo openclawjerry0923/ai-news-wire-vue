@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-09T20:28:43.903Z",
+  "generatedAt": "2026-11-10T03:14:03.407Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(memory): large session exports exhaust workers (#196158)",
-      "link": "https://github.com/openclaw/openclaw/commit/e64c3514e4194c1100779f9617f2d0c7b0439c4c",
-      "publishedAt": "2026-11-09T20:20:20Z",
-      "summary": "fix(memory): large session exports exhaust workers (#196158) fix(memory): keep large session exports under the worker memory limit One large session could make the memory-index session export worker exceed its 512 MB heap limit. The whole Gateway then aborted with exit 134 and the index stayed empty. The renderer now releases intermediate data while it exports, so peak memory stays under the limit. Exported content is unchanged. Evidence: a built Gateway in Docker on node:24.22.1 with no heap changes, using the reporter's own seed script (12,460 messages of 15 KB, about 178 MB of text), indexed through openclaw memory search. On main the Gateway aborted twice with exit 134 (\"Reached heap limit\"); the export worker was at about 615 to 622 MB. With this change the search succeeds twice on the same Gateway process, the session is fully indexed (236,702 chunks), both runs give identical rows, and the worker peaked at 436 to 494 MB. A small mixed session and an 8,000-message session give identical index rows on main and this change, and the 8,000-message chunks match the large export at the same positions. Details: https://github.com/openclaw/openclaw/pull/196158#issuecomment-6749876072. check-lint-core-4 is an inherited max-lines red in six untouched files: https://github.com/openclaw/openclaw/pull/196158#issuecomment-6750460723 Thanks @ericcaiwx-star. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(記憶): large session exports exhaust workers (#196158)",
-      "summaryZh": "重點：修正(記憶): large session exports exhaust workers (#196158) 修正(記憶): keep large session exports under the worker 記憶 limit One..."
+      "title": "台灣櫻花購物商城的委外廠商資料庫遭異常存取，訂單及消費者個資恐受影響",
+      "link": "https://www.ithome.com.tw/news/180358",
+      "publishedAt": "2026-11-10 11:11:06",
+      "summary": "11月9日家電及廚房設備製造商櫻花（9911）於股市公開資訊觀測站發布重大訊息，指出旗下「SAKURA台灣櫻花官方購物商城」的委外服務廠商順立智慧（Cyberbiz）近日通知該公司，順立智慧的資料庫部分內容遭到未經授權的異常存取，涉及櫻花購物商城的訂單及消費者個人資料。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(mcp): fenced MCP sign-in offers only Sign out in plugin settings …",
-      "link": "https://github.com/openclaw/openclaw/commit/d325e9e069a5f3fda2fab49154248822e27c6c5a",
-      "publishedAt": "2026-11-09T20:09:06Z",
-      "summary": "fix(mcp): fenced MCP sign-in offers only Sign out in plugin settings (#196133) A refresh claim left by an uncertain token exchange blocks every token use, but credential status still reported the stored tokens as authorized, so the plugin page offered Sign out instead of Connect. Report a refresh claim as requiring authorization.",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mcp): fenced MCP sign-in offers only Sign out in plugin settings …",
-      "summaryZh": "重點：修正(mcp): fenced MCP sign-in offers only Sign out in plugin settings (#196133) A refresh claim left by an uncertain token..."
+      "title": "SEGA集團因日本Arara資安事件外洩資料220萬筆",
+      "link": "https://www.ithome.com.tw/news/180353",
+      "publishedAt": "2026-11-10 10:11:53",
+      "summary": "日本遊戲大廠SEGA上周公告，因委外的郵件發送服務商Arara發生資安事件影響，SEGA遊戲製作及SEGA玩具製造部門SEGA FAVE外洩客戶電子郵件地址將近220萬筆。 SEGA指出，近日接獲負責公司集團下SEGA及SEGA FAVE部分電子報發送的Arara通知，Arara的郵件發送系統遭第三方未授權存取，導致用於發送電子報的訂閱客戶電子郵件地址及部分個資外洩。 根據分析，已確認外流的客戶資訊包括數份電子報訂戶的電子郵件地址2,196,044筆，以及隨信發送的用戶個人資訊92,273筆。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(templates): use automations in portable manifests (#196218)",
-      "link": "https://github.com/openclaw/openclaw/commit/bb2f1c4a8acc31dde09a18fe61c5b51e76c85511",
-      "publishedAt": "2026-11-09T20:06:27Z",
-      "summary": "fix(templates): use automations in portable manifests (#196218)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(templates): use automations in portable manifests (#196218)",
-      "summaryZh": "重點：修正(templates): use automations in portable manifests (#196218)..."
+      "title": "曜亞子公司線上購物平臺遭委外廠商資安事件波及，訂單資料遭異常存取",
+      "link": "https://www.ithome.com.tw/news/180352",
+      "publishedAt": "2026-11-10 10:11:27",
+      "summary": "11月9日晚間生技醫療公司曜亞（4138）於股市公開資訊觀測站發布資安重訊，旗下重要子公司曜胜生技的線上商店「DR CYJ購物網」，受到委外服務廠商順立智慧（Cyberbiz）資安事件影響，購物平臺訂單相關資料遭未經授權異常存取。根據初步評估，此次事件對曜胜財務及業務尚無重大影響。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "chore(ui): refresh control ui locales (#196184)",
-      "link": "https://github.com/openclaw/openclaw/commit/25e72283724944062b5092aef874fb44cf18c35c",
-      "publishedAt": "2026-11-09T19:55:19Z",
-      "summary": "chore(ui): refresh control ui locales (#196184) Co-authored-by: github-actions[bot]",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#196184)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#196184) Co-authored-by: github-actions[bot]..."
+      "title": "SemiAnalysis揭中國AI資料中心建設成本僅美國1/5",
+      "link": "https://www.ithome.com.tw/news/180355",
+      "publishedAt": "2026-11-10 10:11:26",
+      "summary": "美國半導體與AI基礎設施研究機構SemiAnalysis於11月8日發表報告，揭露中國內蒙古一座大型AI資料中心僅花一年便完成120MW設施，建設成本只有美國的1/5，並已測試800V直流電供電技術，展現中國在AI基礎設施建設速度、成本及能源整合上的優勢。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "小行星形狀影響核爆偏轉效果，照射位置成行星防禦關鍵",
-      "link": "https://technews.tw/2026/11/09/asteroid-shape-affects-effectiveness-of-nuclear-deflection/",
-      "publishedAt": "Mon, 09 Nov 2026 13:57:43 +0000",
-      "summary": "當具有撞擊地球風險的小行星無法及時以太空船攔截時，在其附近引爆核裝置，利用瞬間釋放的 X 射線加熱小行星表面， [&#8230;]",
-      "source": "TechNews",
+      "title": "存在漏洞且暴露於網際網路的Danfoss冷藏控制器，Shadowserver示警全球仍有170臺",
+      "link": "https://www.ithome.com.tw/news/180357",
+      "publishedAt": "2026-11-10 10:11:19",
+      "summary": "歐洲多國冷凍冷藏系統接連遭到網路攻擊，攻擊者遠端操控冷凍冷藏設備的控制器，導致冷藏設備進入除霜模式或溫度設定遭到竄改。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "Google 第八代 TPU 再添兩款，聯手 AMD 打造安全與機密推論 TPU",
-      "link": "https://technews.tw/2026/11/09/google-introduces-tpu-8tx-and-tpu-8i-max/",
-      "publishedAt": "Mon, 09 Nov 2026 13:00:40 +0000",
-      "summary": "Google 擴充第八代 TPU（Tensor Processing Unit）產品陣容，新增 2 款 TPU [&#8230;]",
-      "source": "TechNews",
+      "title": "美吾華購物網站疑似個資外洩，茅頭指向委外的電商服務系統",
+      "link": "https://www.ithome.com.tw/news/180356",
+      "publishedAt": "2026-11-10 10:11:14",
+      "summary": "生技醫療公司美吾華（1731）於11月9日，在股市公開資訊觀測站發布重大訊息，該公司於11月6日接獲線上購物網站會員反映疑似個資外洩，經初步了解，事件與公司委外的電商平臺服務廠商系統有關，確切原因及影響範圍仍在調查中。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "康控-KY10月營收1.93 億元",
-      "link": "https://finance.technews.tw/2026/11/09/concraft-4943-202610-financial-report/",
-      "publishedAt": "Mon, 09 Nov 2026 12:40:03 +0000",
-      "summary": "康控-KY（4943）今（9）日公布 10 月營收，達 1.93 億元，較 9 月成長 1.8%，較去年同期成 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "release-publish/b8d5978b73f7-1794280080: fix(release): accept authenticated retained npm producer (#196405)",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2Fb8d5978b73f7-1794280080",
+      "publishedAt": "2026-11-10T03:01:50Z",
+      "summary": "fix(release): accept authenticated retained npm producer Project the original artifact producer after strict FRV authentication instead of comparing retained npm descriptors to recovery tooling. Preserve ordinary and historical publication plus mismatched-producer rejection at the real workflow projection boundary. Co-authored-by: RomneyDa 6581799+RomneyDa@users.noreply.github.com fix(release): accept authenticated retained npm producer OpenClaw-Publication: b70bbd5b-a80e-49b7-9fc2-c25203cfefba Co-authored-by: RomneyDa 6581799+RomneyDa@users.noreply.github.com",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/b8d5978b73f7-1794280080: 修正(版本發布): accept authenticated retained npm producer (#196405)",
+      "summaryZh": "重點：修正(版本發布): accept authenticated retained npm producer Project the original artifact producer after strict FRV authenticat..."
     },
     {
       "id": 8,
-      "title": "展碁國際子公司好漾生活先行暫停線上商店營運，釐清線上商店委外業者Cyberbiz資安事件影響",
-      "link": "https://www.ithome.com.tw/news/180327",
-      "publishedAt": "2026-11-09 12:11:50",
-      "summary": "11月6日上市電子通路業者展碁國際（6776）發布資安事件重大訊息，指出子公司好漾生活的線上商店委外服務廠商順立智慧（Cyberbiz），部分客戶發生資料庫部分資料遭未經授權存取事件，展碁國際得知此事後，持續關注事件發展，並與順立智慧保持聯繫，以釐清好漾生活",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(release): accept authenticated retained npm producer (#196405)",
+      "link": "https://github.com/openclaw/openclaw/commit/b8d5978b73f7d0dd2f354e8719947051f62106b9",
+      "publishedAt": "2026-11-10T03:01:50Z",
+      "summary": "fix(release): accept authenticated retained npm producer (#196405) * fix(release): accept authenticated retained npm producer Project the original artifact producer after strict FRV authentication instead of comparing retained npm descriptors to recovery tooling. Preserve ordinary and historical publication plus mismatched-producer rejection at the real workflow projection boundary. Co-authored-by: RomneyDa * fix(release): accept authenticated retained npm producer OpenClaw-Publication: b70bbd5b-a80e-49b7-9fc2-c25203cfefba --------- Co-authored-by: RomneyDa",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): accept authenticated retained npm producer (#196405)",
+      "summaryZh": "重點：修正(版本發布): accept authenticated retained npm producer (#196405) * 修正(版本發布): accept authenticated retained npm producer Pr..."
     },
     {
       "id": 9,
-      "title": "諾貝兒線上商店委外廠商Cyberbiz資料庫遭異常存取，客戶訂單資料恐受影響",
-      "link": "https://www.ithome.com.tw/news/180319",
-      "publishedAt": "2026-11-09 12:11:08",
-      "summary": "經營丁丁藥局的上櫃公司諾貝兒寶貝（6844）11月8日（週日）發布資安事件重大訊息，指出接獲線上商店委外服務廠商順立智慧（Cyberbiz）通知，其資料庫部分資料遭未經授權的異常存取，而該資料庫亦存有諾貝兒線上商店平臺的訂單相關資料，因此訂單資料可能受到影響。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(models): surface the --json/--plain conflict as an ExpectedCliErr…",
+      "link": "https://github.com/openclaw/openclaw/commit/1ebc46e1a52ff2b8828b6186e7b5ab943227c9ae",
+      "publishedAt": "2026-11-10T02:53:07Z",
+      "summary": "fix(models): surface the --json/--plain conflict as an ExpectedCliError (#196382) fix(models): surface the --json/--plain conflict as an ExpectedCliError openclaw models list --json --plain and models status --json --plain threw a plain Error, so the CLI showed only the generic \"The CLI command failed.\" line instead of the existing message \"Choose either --json or --plain, not both.\" The shared option check now uses ExpectedCliError, as #196094 and #196081 did for related checks. The exit code and the JSON error on stdout are unchanged, and no text is new. Evidence: built CLIs on node 24.22.1 in secretless Docker with an isolated HOME. Both commands with --json --plain printed only the generic failure line on main (exit 1) and the existing conflict message with this change (exit 1); the JSON error on stdout is byte-identical. list --json, list --plain, status --json, status --plain and status --probe --plain are identical on both. Details: https://github.com/openclaw/openclaw/pull/196382#issuecomment-6757466400. Thanks @wangmiao0668000666. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(模型): surface the --json/--plain conflict as an ExpectedCliErr…",
+      "summaryZh": "重點：修正(模型): surface the --json/--plain conflict as an ExpectedCliError (#196382) 修正(模型): surface the --json/--plain conflict..."
     },
     {
       "id": 10,
-      "title": "Perplexity推出Teammates，支援多個常駐AI代理人分工協作",
-      "link": "https://www.ithome.com.tw/news/180320",
-      "publishedAt": "2026-11-09 12:11:06",
-      "summary": "隨著科技業者相繼投入主動型AI代理人市場，Perplexity周三（11/4）宣布推出Teammates，讓使用者建立多個常駐AI代理人，各自負責長期專案，主動追蹤進度、執行任務，並互相交辦工作。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(browser): prevent Lightpanda navigation from timing out (#196400)",
+      "link": "https://github.com/openclaw/openclaw/commit/3f9f10abb24a2543618b27ddfbe8b9a5bf32d10c",
+      "publishedAt": "2026-11-10T02:51:10Z",
+      "summary": "fix(browser): prevent Lightpanda navigation from timing out (#196400) * fix(browser): prevent Lightpanda navigation from timing out * fix(browser): prevent Lightpanda navigation from timing out OpenClaw-Publication: 4fcc3a61-13c2-41b9-b716-031a6ccbdc71 --------- Co-authored-by: RomneyDa",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(browser): prevent Lightpanda navigation from timing out (#196400)",
+      "summaryZh": "重點：修正(browser): prevent Lightpanda navigation from timing out (#196400) * 修正(browser): prevent Lightpanda navigation from t..."
     }
   ]
 }
