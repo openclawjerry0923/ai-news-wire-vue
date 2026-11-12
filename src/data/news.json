@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T15:48:39.535Z",
+  "generatedAt": "2026-11-12T22:05:08.769Z",
   "items": [
     {
       "id": 1,
@@ -12,91 +12,91 @@
     },
     {
       "id": 2,
-      "title": "test(postgres): qualify remote acceptance crash windows (#197780)",
-      "link": "https://github.com/openclaw/openclaw/commit/bbed5e958a8d7d9ad12ad4c41e74a669961196d5",
-      "publishedAt": "2026-11-12T15:41:54Z",
-      "summary": "test(postgres): qualify remote acceptance crash windows (#197780)",
+      "title": "improve(ui): show remote access setup steps in one card with details …",
+      "link": "https://github.com/openclaw/openclaw/commit/7d014324876c9e2287cc10a472e5161cc244bc2d",
+      "publishedAt": "2026-11-12T22:04:06Z",
+      "summary": "improve(ui): show remote access setup steps in one card with details on demand (#197527) Group the four remote access setup steps in one progress card and show warnings and technical details on demand. Reuse the shared Tooltip owner so keyboard focus can enter and leave long details without leaving the popup stranded. Preserve signing, registration, relay behavior, and the approved card design. Co-authored-by: Vyctor H. Brzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(postgres): qualify remote acceptance crash windows (#197780)",
-      "summaryZh": "重點：test(postgres): qualify remote acceptance crash windows (#197780)..."
+      "titleZh": "OpenClaw 程式碼更新：improve(ui): show remote access setup steps in one card with details …",
+      "summaryZh": "重點：improve(ui): show remote access setup steps in one card with details on demand (#197527) Group the four remote access se..."
     },
     {
       "id": 3,
-      "title": "fix(test): assert tool-result fidelity at each output (#197771)",
-      "link": "https://github.com/openclaw/openclaw/commit/c859ddabad93bba60abe623f475c220cf7887941",
-      "publishedAt": "2026-11-12T15:40:25Z",
-      "summary": "fix(test): assert tool-result fidelity at each output (#197771) * docs(test): record tool-result fidelity audit * fix(test): assert tool-result fidelity at each output",
+      "title": "fix(update): updating from 2026.11.3 fails when Workboard is installe…",
+      "link": "https://github.com/openclaw/openclaw/commit/b48c682b71bd25845fea3f0af14ab99532d5bc72",
+      "publishedAt": "2026-11-12T22:03:15Z",
+      "summary": "fix(update): updating from 2026.11.3 fails when Workboard is installed (#197526) * fix(update): answer released drivers in the schema shape they verify Published 2026.11.3 drivers read schema rows from the candidate worker but compare every non-shared row against the agent schema, so Workboard's own user_version 0 failed the second Doctor (\"expected schema 41, found 0\") and blocked rollback. Those drivers omit includeLocalStoreVersions; their replies now carry only shared and agent-owned rows (owners, registered paths, agent directory overrides), the same set the 2026.11.3 worker itself publishes. Discovery, capture, backup and generation checks still include Workboard. The candidate worker also applies the existing 2026.11.1 Workboard-only PostgreSQL normalization to the config released drivers serialize, so the snapshot no longer refuses with \"Existing SQLite state data cannot switch engines\". Refs #197320 * fix(update): read 2026.11.3 rehearsal configs as SQLite Rehearsal state is private SQLite images, never live PostgreSQL anchors. Current drivers write that projection into the rehearsal config; 2026.11.3 copies the source database selection unchanged, so the candidate doctor treated the copied shared state as PostgreSQL and refused it with \"Existing SQLite state data cannot switch engines\". The candidate's config read now applies the same projection when the update rehearsal contract is present. The PostgreSQL regression continues past the snapshot into the candidate doctor's database preflight with the config a 2026.11.3 driver writes. Refs #197320",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): assert tool-result fidelity at each output (#197771)",
-      "summaryZh": "重點：修正(test): assert tool-result fidelity at each output (#197771) * 文件(test): record tool-result fidelity audit * 修正(test):..."
+      "titleZh": "OpenClaw 程式碼更新：修正(update): updating from 2026.11.3 fails when Workboard is installe…",
+      "summaryZh": "重點：修正(update): updating from 2026.11.3 fails when Workboard is installed (#197526) * 修正(update): answer 版本發布d drivers in th..."
     },
     {
       "id": 4,
-      "title": "fix(ci): right-size serial central type checks (#197786)",
-      "link": "https://github.com/openclaw/openclaw/commit/f765f6340ebe2750e948089f0c8ec4fb0e8ef7d5",
-      "publishedAt": "2026-11-12T15:28:54Z",
-      "summary": "fix(ci): right-size serial central type checks (#197786)",
+      "title": "feat(identity): accept co-author credit from trusted-proxy headers (#…",
+      "link": "https://github.com/openclaw/openclaw/commit/f4f290c52f9614cdac8e8d95322b96590dc1b96e",
+      "publishedAt": "2026-11-12T22:02:57Z",
+      "summary": "feat(identity): accept co-author credit from trusted-proxy headers (#196867) * feat: let profiles configure Git co-author details Signed-off-by: Russell Bryant * fix: preserve co-author consent across profile changes Reset consent when the first supplied address arrives, preserve the selected address and its consent through merges, and keep optional organization defaults from exhausting user preference capacity. Transfer custom details before consent when merge capacity is limited. Keep optional co-author constants outside browser startup. Signed-off-by: Russell Bryant * fix(identity): address co-author review and CI integration Signed-off-by: Russell Bryant * refactor(identity): limit co-author details to trusted proxy claims Signed-off-by: Russell Bryant * fix(identity): preserve proxy credit consent and profile presentation Bind organization credit to the observed details and current proxy policy, refresh Profile safely, preserve verified GitHub mentions, and repair CI fixtures and canonical configuration metadata. Fold in the related OIDC presentation fix: do not infer a display name from an issuer-qualified subject, hide opaque authentication aliases from Linked emails, and preserve the canonical principal bindings and profile IDs. Keep mutation responses consistent with profile reads and cover name/avatar saves in the resident and real-Gateway regressions. Show selected credit details inline beside consent, distinguish sign-in emails, and expose only the verified public-GitHub noreply pair in self-profile reads. Regenerate the owning protocol validators and align the Profile browser fixtures. Co-authored-by: sallyom * refactor(identity): simplify co-author state and coverage Keep consent local to identity reads and consolidate canonical documentation, protected metadata, admission and Profile coverage. Preserve full preference capacity, both sign-in transports, explicit organization consent and verified GitHub variants. Co-authored-by: sallyom --------- Signed-off-by: Russell Bryant Co-authored-by: sallyom",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): right-size serial central type checks (#197786)",
-      "summaryZh": "重點：修正(ci): right-size serial central type checks (#197786)..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(identity): accept co-author credit from trusted-proxy headers (#…",
+      "summaryZh": "重點：新功能(identity): accept co-author credit from trusted-proxy headers (#196867) * 新功能: let profiles configure Git co-author ..."
     },
     {
       "id": 5,
-      "title": "fix(cli): let interrupted ID status checks exit promptly (#197747)",
-      "link": "https://github.com/openclaw/openclaw/commit/5cef30a310125838abdbd3400a4db3dd334e8220",
-      "publishedAt": "2026-11-12T15:17:20Z",
-      "summary": "fix(cli): let interrupted ID status checks exit promptly (#197747) fix(cli): stop id status Gateway requests when interrupted openclaw id status noticed Ctrl-C or SIGTERM but kept its Gateway status and people-link requests open. Under the normal launcher the command never stopped on its own and was killed with exit 137; without respawn it waited for the reply and could print the full report after the interrupt. Both requests now take the command's abort signal, and an abort after interrupt ends quietly with the existing interrupt exit code. Uninterrupted status, Gateway errors and rebind are unchanged. No new text. Evidence: the built CLI in a secretless node:24.22.1 container against a stand-in Gateway that holds the status reply for 30 s, plain and --json, SIGINT and SIGTERM, main twice and candidate twice. On main the launcher killed the command after 2-4 s with exit 137, and with OPENCLAW_NO_RESPAWN=1 it waited about 30 s and printed the report late in three of four runs. With this change every run exits within 1 s with 130 or 143 and prints only the existing interrupt line. Uninterrupted status in text and JSON, a key rotation through id rebind and a Gateway error are identical on both. Net test lines 0. Details: https://github.com/openclaw/openclaw/pull/197747#issuecomment-6826386963. Thanks @Alix-007. Co-authored-by: Ayaan Zaidi",
+      "title": "chore(ui): refresh control ui locales (#197933)",
+      "link": "https://github.com/openclaw/openclaw/commit/d58eadb1f7aa5dc199dadfc0c260fcebad19f578",
+      "publishedAt": "2026-11-12T22:00:15Z",
+      "summary": "chore(ui): refresh control ui locales (#197933) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): let interrupted ID status checks exit promptly (#197747)",
-      "summaryZh": "重點：修正(cli): let interrupted ID status checks exit promptly (#197747) 修正(cli): stop id status Gateway requests when interrup..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#197933)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#197933) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 6,
-      "title": "黃仁勳確定離職，AI 供應鏈全面拉警報",
-      "link": "https://technews.tw/2026/11/12/jensen-huang-step-down/",
-      "publishedAt": "Thu, 12 Nov 2026 14:38:11 +0000",
-      "summary": "輝達執行長黃仁勳確定離職，財務長將接任臨時 CEO，也宣告這顆桃色炸彈正式炸翻全球 AI 供應鏈。 NVIDI [&#8230;]",
+      "title": "輝達臨時執行長致信員工穩定軍心，坦承艱難期但對未來充滿信心",
+      "link": "https://finance.technews.tw/2026/11/13/nvidias-interim-ceo-sends-letter-to-employees-to-reassure-staff/",
+      "publishedAt": "Thu, 12 Nov 2026 18:40:27 +0000",
+      "summary": "就在執行長黃仁勳（Jensen Huang）突然離職後，繪圖晶片龍頭輝達（Nvidia）新任臨時執行長克瑞斯（ [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "韋伯望遠鏡在「飛龍」星系捕捉 104 顆放大恆星，刷新單一星系紀錄",
-      "link": "https://technews.tw/2026/11/12/jwst-tracks-more-than-100-magnified-stellar-events-in-the-dragon-galaxy/",
-      "publishedAt": "Thu, 12 Nov 2026 13:35:42 +0000",
-      "summary": "利用詹姆斯·韋伯太空望遠鏡（JWST），天文學家在一座名為「飛龍」（Dragon）的遙遠星系中，成功辨識出 1 [&#8230;]",
+      "title": "黃仁勳確定去職，華爾街分析看好 AMD 業績與市場未來表現",
+      "link": "https://finance.technews.tw/2026/11/13/wall-street-analysts-are-optimistic-about-amds-future-performance-and-market-outlook/",
+      "publishedAt": "Thu, 12 Nov 2026 18:15:27 +0000",
+      "summary": "隨著人工智慧（AI）晶片龍頭輝達（Nvidia）執行長黃仁勳（Jensen Huang）傳出請辭消息，半導體市 [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "Google同步更新Chrome 157穩定版、Chrome 156延伸穩定版與ChromeOS LTS版",
-      "link": "https://www.ithome.com.tw/news/180443",
-      "publishedAt": "2026-11-12 12:11:54",
-      "summary": "Google於11月11日同步發布Chrome瀏覽器及ChromeOS作業系統安全更新。其中在Chrome 157桌面穩定版方面，Windows與Linux平臺更新至157.0.8103.78版，macOS平臺更新至157.0.8103.79版，共修補83個漏洞，包含5個重大漏洞與78個高風險漏洞。在漏洞涉及的元件方面，以Skia與V8元件最多，各有17個。",
-      "source": "iThome",
+      "title": "黃仁勳去職，輝達股價大跌為全球科技股投下重量級深水炸彈",
+      "link": "https://finance.technews.tw/2026/11/13/nvidias-stock-price-plunge-sends-a-bombshell-into-global-tech-stocks/",
+      "publishedAt": "Thu, 12 Nov 2026 17:45:44 +0000",
+      "summary": "輝達（Nvidia）執行長黃仁勳（Jensen Huang）因個人緋聞醜聞持續延燒而正式辭職，重創這家晶片大廠 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "OpenAI招募AI旅遊規畫平臺Odessia創辦人",
-      "link": "https://www.ithome.com.tw/news/180441",
-      "publishedAt": "2026-11-12 12:11:43",
-      "summary": "OpenAI將招募以AI輔助旅遊規畫平臺新創公司Odessia創辦人暨執行長，以強化線上旅遊服務能力。 Odessia執行長Francis Davidson本周透過X宣布這項消息。他的LinkedIn個人帳號職稱也已改成OpenAI旅遊部門。",
-      "source": "iThome",
+      "title": "黃仁勳去職後，已答應美國會將於下周出席閉門聽證會",
+      "link": "https://finance.technews.tw/2026/11/13/jensen-huang-has-agreed-to-attend-a-closed-door-hearing-before-the-u-s-congress-next-week/",
+      "publishedAt": "Thu, 12 Nov 2026 17:10:09 +0000",
+      "summary": "輝達（Nvidia）執行長黃仁勳在確認去職之後，根據外媒報導，已同意前往美國國會作證。美國聯邦眾議院外交委員會 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "菲律賓證管會傳數位平臺被駭，逾40萬用戶資料外洩",
-      "link": "https://www.ithome.com.tw/news/180442",
-      "publishedAt": "2026-11-12 12:11:01",
-      "summary": "菲律賓證券交易管理委員會（Securities and Exchange Commission，SEC）本週一（11月9日）傳出數位平臺被駭，導致駭客竊走超過40萬用戶姓名、使用者名稱及稅籍編號等資料並放上網兜售。菲國SEC已著手調查。",
-      "source": "iThome",
+      "title": "黃仁勳確定去職，臨危授命暫代執行長的財務長是甚麼樣來頭？",
+      "link": "https://finance.technews.tw/2026/11/13/the-cfo-was-appointed-to-temporarily-act-as-ceo-during-a-crisis/",
+      "publishedAt": "Thu, 12 Nov 2026 16:45:30 +0000",
+      "summary": "全球市值最高晶片大廠輝達（Nvidia）創辦人黃仁勳日前突發辭職，在公司任職長達 13 年的財務長柯瑞斯（Co [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     }
   ]
