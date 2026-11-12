@@ -1,8 +1,79 @@
 {
-  "generatedAt": "2026-11-12T06:06:33.261Z",
+  "generatedAt": "2026-11-12T15:48:39.535Z",
   "items": [
     {
       "id": 1,
+      "title": "基因序列預測模型AlphaGenome 2深入細胞層次，追查疾病相關DNA變異",
+      "link": "https://www.ithome.com.tw/news/180462",
+      "publishedAt": "2026-11-13 08:11:00",
+      "summary": "DeepMind發布基因序列預測模型AlphaGenome 2，能依不同細胞類型與狀態，預測DNA變異對基因表現的影響。前代模型主要分析組織整體的分子活動，新版則能辨識只在特定細胞中發揮作用的變異，協助研究人員追查疾病相關的基因調控機制。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 2,
+      "title": "test(postgres): qualify remote acceptance crash windows (#197780)",
+      "link": "https://github.com/openclaw/openclaw/commit/bbed5e958a8d7d9ad12ad4c41e74a669961196d5",
+      "publishedAt": "2026-11-12T15:41:54Z",
+      "summary": "test(postgres): qualify remote acceptance crash windows (#197780)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(postgres): qualify remote acceptance crash windows (#197780)",
+      "summaryZh": "重點：test(postgres): qualify remote acceptance crash windows (#197780)..."
+    },
+    {
+      "id": 3,
+      "title": "fix(test): assert tool-result fidelity at each output (#197771)",
+      "link": "https://github.com/openclaw/openclaw/commit/c859ddabad93bba60abe623f475c220cf7887941",
+      "publishedAt": "2026-11-12T15:40:25Z",
+      "summary": "fix(test): assert tool-result fidelity at each output (#197771) * docs(test): record tool-result fidelity audit * fix(test): assert tool-result fidelity at each output",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): assert tool-result fidelity at each output (#197771)",
+      "summaryZh": "重點：修正(test): assert tool-result fidelity at each output (#197771) * 文件(test): record tool-result fidelity audit * 修正(test):..."
+    },
+    {
+      "id": 4,
+      "title": "fix(ci): right-size serial central type checks (#197786)",
+      "link": "https://github.com/openclaw/openclaw/commit/f765f6340ebe2750e948089f0c8ec4fb0e8ef7d5",
+      "publishedAt": "2026-11-12T15:28:54Z",
+      "summary": "fix(ci): right-size serial central type checks (#197786)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): right-size serial central type checks (#197786)",
+      "summaryZh": "重點：修正(ci): right-size serial central type checks (#197786)..."
+    },
+    {
+      "id": 5,
+      "title": "fix(cli): let interrupted ID status checks exit promptly (#197747)",
+      "link": "https://github.com/openclaw/openclaw/commit/5cef30a310125838abdbd3400a4db3dd334e8220",
+      "publishedAt": "2026-11-12T15:17:20Z",
+      "summary": "fix(cli): let interrupted ID status checks exit promptly (#197747) fix(cli): stop id status Gateway requests when interrupted openclaw id status noticed Ctrl-C or SIGTERM but kept its Gateway status and people-link requests open. Under the normal launcher the command never stopped on its own and was killed with exit 137; without respawn it waited for the reply and could print the full report after the interrupt. Both requests now take the command's abort signal, and an abort after interrupt ends quietly with the existing interrupt exit code. Uninterrupted status, Gateway errors and rebind are unchanged. No new text. Evidence: the built CLI in a secretless node:24.22.1 container against a stand-in Gateway that holds the status reply for 30 s, plain and --json, SIGINT and SIGTERM, main twice and candidate twice. On main the launcher killed the command after 2-4 s with exit 137, and with OPENCLAW_NO_RESPAWN=1 it waited about 30 s and printed the report late in three of four runs. With this change every run exits within 1 s with 130 or 143 and prints only the existing interrupt line. Uninterrupted status in text and JSON, a key rotation through id rebind and a Gateway error are identical on both. Net test lines 0. Details: https://github.com/openclaw/openclaw/pull/197747#issuecomment-6826386963. Thanks @Alix-007. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(cli): let interrupted ID status checks exit promptly (#197747)",
+      "summaryZh": "重點：修正(cli): let interrupted ID status checks exit promptly (#197747) 修正(cli): stop id status Gateway requests when interrup..."
+    },
+    {
+      "id": 6,
+      "title": "黃仁勳確定離職，AI 供應鏈全面拉警報",
+      "link": "https://technews.tw/2026/11/12/jensen-huang-step-down/",
+      "publishedAt": "Thu, 12 Nov 2026 14:38:11 +0000",
+      "summary": "輝達執行長黃仁勳確定離職，財務長將接任臨時 CEO，也宣告這顆桃色炸彈正式炸翻全球 AI 供應鏈。 NVIDI [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "韋伯望遠鏡在「飛龍」星系捕捉 104 顆放大恆星，刷新單一星系紀錄",
+      "link": "https://technews.tw/2026/11/12/jwst-tracks-more-than-100-magnified-stellar-events-in-the-dragon-galaxy/",
+      "publishedAt": "Thu, 12 Nov 2026 13:35:42 +0000",
+      "summary": "利用詹姆斯·韋伯太空望遠鏡（JWST），天文學家在一座名為「飛龍」（Dragon）的遙遠星系中，成功辨識出 1 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "Google同步更新Chrome 157穩定版、Chrome 156延伸穩定版與ChromeOS LTS版",
       "link": "https://www.ithome.com.tw/news/180443",
       "publishedAt": "2026-11-12 12:11:54",
@@ -11,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 9,
       "title": "OpenAI招募AI旅遊規畫平臺Odessia創辦人",
       "link": "https://www.ithome.com.tw/news/180441",
       "publishedAt": "2026-11-12 12:11:43",
@@ -20,84 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 10,
       "title": "菲律賓證管會傳數位平臺被駭，逾40萬用戶資料外洩",
       "link": "https://www.ithome.com.tw/news/180442",
       "publishedAt": "2026-11-12 12:11:01",
-      "summary": "菲律賓證券交易管理委員會（Securities and Exchange Commission，SEC）本周一（11月9日）傳出數位平臺被駭，導致駭客竊走超過40萬用戶姓名、使用者名稱及稅籍編號等資料並放上網兜售。菲國SEC已著手調查。",
+      "summary": "菲律賓證券交易管理委員會（Securities and Exchange Commission，SEC）本週一（11月9日）傳出數位平臺被駭，導致駭客竊走超過40萬用戶姓名、使用者名稱及稅籍編號等資料並放上網兜售。菲國SEC已著手調查。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 4,
-      "title": "航運巨擘馬士基證實資料外洩，傳遭勒索組織WhiteArmor索討500萬美元",
-      "link": "https://www.ithome.com.tw/news/180437",
-      "publishedAt": "2026-11-12 11:11:34",
-      "summary": "全球最大貨櫃承運商之一的丹麥航運與物流業者馬士基（Maersk），於11月11日證實發生資安事件，攻擊者入侵一套來自先前併購公司的本地舊系統，並竊取其中資料。馬士基表示，該公司網路安全團隊發現問題後，已立即展開調查並採取因應措施，目前沒有跡象顯示其他內部系統，以及透過API或EDI介接的客戶、合作夥伴系統受到影響，預期不會影響正常營運，客戶仍可照常使用馬士基平臺進行貨運預訂及管理。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "N-central資安漏洞Able2Shell公布後出現嘗試利用活動",
-      "link": "https://www.ithome.com.tw/news/180439",
-      "publishedAt": "2026-11-12 11:11:29",
-      "summary": "本週資安研究員Sean Bales公布33個N-central零時差漏洞（統稱為Able2Shell），N-able隨後關閉全球多個地區的代管服務，要求本地部署客戶暫時關閉伺服器因應。值得留意的是，在這些漏洞公布不久，攻擊者已嘗試用於實際攻擊。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "OKX攜手紐約證交所母公司ICE，本月推出24小時代幣化證券交易",
-      "link": "https://www.ithome.com.tw/news/180440",
-      "publishedAt": "2026-11-12 11:11:20",
-      "summary": "加密貨幣交易所OKX周三（11/11）宣布，將於11月23日透過與紐約證交所母公司洲際交易所（Intercontinental Exchange，ICE）合資成立的OKXICE，在美國推出代幣化證券交易服務，讓符合資格的美國投資人能夠全天候交易美國股票及指數股票型基金（ETF）。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(ci): align memory quarantine and worker publication fixtures (#19…",
-      "link": "https://github.com/openclaw/openclaw/commit/3b13df5767c256222e8cd4ed8fea17c6b836b2aa",
-      "publishedAt": "2026-11-12T06:02:20Z",
-      "summary": "fix(ci): align memory quarantine and worker publication fixtures (#197543) Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): align 記憶 quarantine and worker publication 修正tures (#19…",
-      "summaryZh": "重點：修正(ci): align 記憶 quarantine and worker publication 修正tures (#197543) Co-authored-by: Vincent Koc..."
-    },
-    {
-      "id": 8,
-      "title": "fix: label the MCP setup documentation link accurately (#197548)",
-      "link": "https://github.com/openclaw/openclaw/commit/e56cb20b41bb8e7811764e705ca3f1a4c07e467d",
-      "publishedAt": "2026-11-12T06:01:16Z",
-      "summary": "fix: label the MCP setup documentation link accurately (#197548)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：修正: label the MCP setup 文件umentation link accurately (#197548)",
-      "summaryZh": "重點：修正: label the MCP setup 文件umentation link accurately (#197548)..."
-    },
-    {
-      "id": 9,
-      "title": "fix: prevent credential status reads from blocking the Gateway (#197460)",
-      "link": "https://github.com/openclaw/openclaw/commit/441878ba0e17b6b1e9650dcc84eb69689fdf4544",
-      "publishedAt": "2026-11-12T05:59:33Z",
-      "summary": "fix: prevent credential status reads from blocking the Gateway (#197460) * fix: keep credential status reads off the gateway thread Use ClickClack account metadata for status and policy reads, and move managed GitHub profile validation into the existing Git worker. Preserve external credential rotation and live authority without a new cache. * fix: preserve native filesystem policy in credential workers * fix: register credential worker and measurement entries",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: prevent credential status reads from blocking the Gateway (#197460)",
-      "summaryZh": "重點：修正: prevent credential status reads from blocking the Gateway (#197460) * 修正: keep credential status reads off the Gatew..."
-    },
-    {
-      "id": 10,
-      "title": "fix: bundle macOS native dependencies before signing (#197383)",
-      "link": "https://github.com/openclaw/openclaw/commit/f817a8b3eb1175df6b4a5c38fdd93baf8187a1f2",
-      "publishedAt": "2026-11-12T05:55:49Z",
-      "summary": "fix: bundle macOS native dependencies before signing (#197383)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: bundle macOS native dependencies before signing (#197383)",
-      "summaryZh": "重點：修正: bundle macOS native dependencies before signing (#197383)..."
     }
   ]
 }
