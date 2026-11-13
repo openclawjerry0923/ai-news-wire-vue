@@ -1,8 +1,88 @@
 {
-  "generatedAt": "2026-11-13T11:55:14.119Z",
+  "generatedAt": "2026-11-13T19:18:29.497Z",
   "items": [
     {
       "id": 1,
+      "title": "fix(update): avoid duplicate database copies while the Gateway is sto…",
+      "link": "https://github.com/openclaw/openclaw/commit/3bd03dafb94c6538af7e5b661eebea050e42c7ad",
+      "publishedAt": "2026-11-13T19:15:36Z",
+      "summary": "fix(update): avoid duplicate database copies while the Gateway is stopped (#198148) * fix(update): avoid duplicate database copies while stopped Use the existing maintenance custody and drained-family fact before eager read preparation. Reuse the completed stopped backup image for registry rediscovery while retaining current filesystem inventory and source mutation checks. Preserve backup publication, migration, and rollback contracts. * fix(update): reuse stopped WAL databases without inspection copies Checkpoint committed WAL frames once under the native updater handoff before recording backup identities. Retain the pinned-reader fallback, final-image integrity validation, and primary rollback payload. Read journal-free databases directly under maintenance custody across Doctor and read-only worker paths. Resolve file aliases before selecting immutable reads. Add WAL and alias regressions plus serial synthetic measurement tooling. * fix(update): carry immutable reads through auth worker IPC * test(perf): preserve native safety in byte-copy update proof * test(perf): retain checks for agents created by update Doctor * test(update): verify WAL capture after capacity admission * test(perf): reclaim sparse staging space between update arms * fix(update): admit backup capacity before WAL checkpointing",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid duplicate database copies while the Gateway is sto…",
+      "summaryZh": "重點：修正(update): avoid duplicate database copies while the Gateway is stopped (#198148) * 修正(update): avoid duplicate databas..."
+    },
+    {
+      "id": 2,
+      "title": "feat(gateway): role definitions no longer turn on named-role enforcem…",
+      "link": "https://github.com/openclaw/openclaw/commit/9fc96c43e5d20f5723e82b584523d21d436dac65",
+      "publishedAt": "2026-11-13T19:11:32Z",
+      "summary": "feat(gateway): role definitions no longer turn on named-role enforcement without a default (#197712) * feat(gateway): separate role definitions from enforcement Use gateway.roles.default as the named-role enforcement switch, keeping definitions-only catalogs from changing other sign-ins. Preserve OpenClaw ID membership policy and existing default-enabled authorization. * test: enable named-role enforcement in policy fixtures Give enforcement fixtures explicit valid defaults so definitions-only config continues to test its separate unrestricted contract without weakening any assertion. * fix: preserve compact test capacity and bound role handler size Recognize the exact qualified Gateway core/client selection when inventory packing combines them. Move role assignment validation to its profile-access owner without changing lazy config reads, keeping users.ts within the line-growth ratchet.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): role definitions no longer turn on named-role enforcem…",
+      "summaryZh": "重點：新功能(Gateway): role definitions no longer turn on named-role enforcement without a default (#197712) * 新功能(Gateway): sepa..."
+    },
+    {
+      "id": 3,
+      "title": "perf(worktrees): buffer recovery snapshot object checks (#198414)",
+      "link": "https://github.com/openclaw/openclaw/commit/e3665e5c147caf54e7095306d43f3cb41b1b0185",
+      "publishedAt": "2026-11-13T19:09:55Z",
+      "summary": "perf(worktrees): buffer recovery snapshot object checks (#198414) Avoid a separate pipe write for every retained object while preserving object validation, recovery commits, and restore behavior. Extend the synthetic owner benchmark and buffered restore coverage. Production LOC is unchanged.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：perf(worktrees): buffer recovery snapshot object checks (#198414)",
+      "summaryZh": "重點：perf(worktrees): buffer recovery snapshot object checks (#198414) Avoid a separate pipe write for every retained object ..."
+    },
+    {
+      "id": 4,
+      "title": "fix(macos): native approvals fail with an older external CLI",
+      "link": "https://github.com/openclaw/openclaw/commit/34600e99e21c203ca7e345323aef3d2ff033d682",
+      "publishedAt": "2026-11-13T19:05:46Z",
+      "summary": "fix(macos): native approvals fail with an older external CLI * fix(macos): use bundled CLI for native approvals * fix(macos): native approvals fail with an older external CLI OpenClaw-Publication: ca31ffb5-e1ca-4765-aa71-bdcdccebbf7e",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(macos): native approvals fail with an older external CLI",
+      "summaryZh": "重點：修正(macos): native approvals fail with an older external CLI * 修正(macos): use bundled CLI for native approvals * 修正(macos..."
+    },
+    {
+      "id": 5,
+      "title": "哈伯太空望遠鏡凝視 M30，追溯銀河系早期歷史",
+      "link": "https://technews.tw/2026/11/14/hubble-peers-into-m30-to-trace-the-milky-ways-early-history/",
+      "publishedAt": "Fri, 13 Nov 2026 16:00:47 +0000",
+      "summary": "NASA 與 ESA 共同營運的哈伯太空望遠鏡，最近將觀測目標轉向球狀星團 M30，尋找銀河系早期恆星族群的形 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "唾液檢測掌握生理時鐘，德國新創 TimeTeller 助癌症治療精準掌握「給藥時機」",
+      "link": "https://technews.tw/2026/11/14/timeteller-puts-our-internal-clocks-at-the-center-of-personalized-medicine/",
+      "publishedAt": "Fri, 13 Nov 2026 16:00:14 +0000",
+      "summary": "德國新創公司 TimeTeller 致力將「內在時鐘」概念引入個人化醫療領域。執行長 Angela Relóg [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "跑起來，別用走的！皮衣黃仁勳再也不上台演講的 AI 時代就這樣跑步來臨",
+      "link": "https://finance.technews.tw/2026/11/13/the-ai-%e2%80%8b%e2%80%8bera-is-rapidly-approaching-with-jensen-huang-no-longer-giving-speeches-on-stage/",
+      "publishedAt": "Fri, 13 Nov 2026 12:45:40 +0000",
+      "summary": "「跑起來，別用走的！」（Run, don&#8217;t walk!）曾是輝達（NVIDIA）創辦人黃仁勳最撼 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "聯手 Palantir 與台灣廠商，L3Harris 展示聯合全領域作戰網路",
+      "link": "https://technews.tw/2026/11/13/l3harris-published-its-jado-tech-in-taiwan-for-the-first-time/",
+      "publishedAt": "Fri, 13 Nov 2026 12:40:41 +0000",
+      "summary": "美國 L3Harris 今日在台灣晉陞太空公司位於苗栗市的總部，舉辦「聯合全領域作戰網路」（Joint All [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "Apache修補網頁伺服器HTTP/2模組的重大漏洞，64%雲端環境恐曝險",
       "link": "https://www.ithome.com.tw/news/180490",
       "publishedAt": "2026-11-13 12:11:45",
@@ -11,91 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 10,
       "title": "Rust 1.100允許延後採用新套件，Never Type歷經10年正式穩定",
       "link": "https://www.ithome.com.tw/news/180489",
       "publishedAt": "2026-11-13 12:11:12",
       "summary": "程式語言Rust開發團隊發布Rust 1.100.0，套件管理工具Cargo新增依賴套件發布冷卻期，讓開發者延後採用剛上架的套件版本，降低軟體供應鏈攻擊風險。新版也正式支援歷經10年5次進入穩定階段嘗試未果的Never Type，並開放自訂記憶體配置器的核心介面。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 3,
-      "title": "test(auto-reply): scope memory carriers to the current human turn (#1…",
-      "link": "https://github.com/openclaw/openclaw/commit/6399d3151e1dd64a1dd188feee53172368ccdb7e",
-      "publishedAt": "2026-11-13T11:53:46Z",
-      "summary": "test(auto-reply): scope memory carriers to the current human turn (#198242) Retained runtime-context carriers can precede the current human message after #198100. Count exactly one carrier after that message while retaining exact human text, transcript isolation, and runtime placement proof. Also reject the private memory prompt and system instructions anywhere in the foreground wire request. Co-authored-by: obviyus Co-authored-by: steipete",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(auto-reply): scope 記憶 carriers to the current human turn (#1…",
-      "summaryZh": "重點：test(auto-reply): scope 記憶 carriers to the current human turn (#198242) Retained runtime-context carriers can precede th..."
-    },
-    {
-      "id": 4,
-      "title": "fix(workspaces): let checkpoints progress during manifest sweeps (#19…",
-      "link": "https://github.com/openclaw/openclaw/commit/3e0130930848d53adcdf0418ae2e736197ca45ac",
-      "publishedAt": "2026-11-13T11:47:54Z",
-      "summary": "fix(workspaces): let checkpoints progress during manifest sweeps (#198157) * fix(workspaces): release sweep reads between bounded pages * style(workspaces): avoid shadowing the sweep query helper",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(workspaces): let checkpoints progress during manifest sweeps (#19…",
-      "summaryZh": "重點：修正(workspaces): let checkpoints progress during manifest sweeps (#198157) * 修正(workspaces): 版本發布 sweep reads between bou..."
-    },
-    {
-      "id": 5,
-      "title": "feat(database): hold Gateway state ownership in PostgreSQL on all-Pos…",
-      "link": "https://github.com/openclaw/openclaw/commit/c886f82c779386cc320195732b6d1b74ad5d05ae",
-      "publishedAt": "2026-11-13T11:47:40Z",
-      "summary": "feat(database): hold Gateway state ownership in PostgreSQL on all-PostgreSQL installs (#196237) * feat(database): hold Gateway ownership in PostgreSQL for localStores none - Add database.localStores (\"anchors\" default, \"none\"); config validation accepts \"none\" only when database.engine is postgres and no family overrides to sqlite. In this stage \"none\" only moves Gateway ownership. - With \"none\", engine selection carries an installation UUID read from or created once in /postgres-install.json (0600, link() publish). - acquireGatewayLock also takes a session-level pg_try_advisory_lock keyed by the installation UUID on one dedicated connection outside the pool (TCP keepalive, 10 s query timeout), and writes _install.gateway_owner (pid, host, boot id, heartbeat). - Contention reuses GatewayStateOwnerContentionError, names the install schema and the holder's pid, host and boot id, and is logged once per holder while a Gateway waits. - Session end, a failed heartbeat or a query timeout marks ownership lost and closes the session, releasing the lock; later ownership checks fail. - Default mode and mixed installs take no PostgreSQL lock and create no install schema. - Docs: \"Gateway ownership in PostgreSQL\" in database-engines.md, including the session-mode pooler requirement; regenerated config baseline hashes. - Test-lines allocation for the new PostgreSQL and config coverage. Part of #196156 * fix(database): type the owner heartbeat catch as unknown - Heartbeat failure callback takes `unknown` (use-unknown-in-catch-callback-variable) and keeps the original error as the cause. - Tests go through acquireConfiguredGatewayPostgresOwner, so the test-only exports acquireGatewayPostgresOwner and gatewayOwnerLockKey are no longer exported (production unused-export scan). - Test-lines allocation updated to the exact net growth (+181). Part of #196156 * fix(database): retire the Gateway when PostgreSQL ownership is lost - PostgreSQL session loss aborts a custody signal that retires the process state owner, so admission, queued work and the server lifecycle all stop. - Bound connection startup with connectionTimeoutMillis and every session close with the same 10 s; release never rejects, so local custody is always released. - Stop the heartbeat after loss; a silent network is reported by the next heartbeat within about 20 s. - Drop postgres-install.json and the install schema; the lock key is the schema prefix within the database, and the holder is read from pg_locks and pg_stat_activity. * fix(database): take PostgreSQL custody for cold CLI owners - A cold CLI owner resolves its configured engine after taking the lock, so the lock saw no PostgreSQL selection and skipped installation custody. - The lock handle now takes PostgreSQL custody once the selection is in scope; runWithLocalStateOwner calls it before stateful work. Config-only repair keeps its offline boundary. - Custody loss still retires the same process owner; a sibling helper keeps gateway-lock.ts under its line cap. * fix(database): keep PostgreSQL custody while retained leases hold the owner - Uncertain child cleanup borrows the process owner before the lock is released; release used to end the PostgreSQL session anyway, so another host could take ownership while child work still ran. - acquireGatewayStateOwner takes an onReleased hook that runs once physical custody ends, after the last retained lease; the lock ends its PostgreSQL session there. * Merge remote-tracking branch 'origin/main' into feat/postgres-install-registry * refactor(database): name the setting database.postgres.ownership - database.localStores \"none\" becomes database.postgres.ownership \"installation\"; the default is \"state-directory\". - The name now describes what this release changes (Gateway state ownership) instead of an end state where anchors are gone. - Validation, runtime selection, tests and the operator guide follow the new key. * Merge remote-tracking branch 'origin/main' into feat/postgres-install-registry * Merge remote-tracking branch 'origin/main' into feat/postgres-install-registry * fix(database): bound PostgreSQL ownership handoff * fix: refresh the reviewed correction baseline Baseline-Refresh: a62260acc6a7472995dadd2dd749b8ba579784cb * test(database): cover capture and ownership config integration * fix(database): type bounded owner queries and regression fixtures Co-authored-by: Mitchell Etzel Co-authored-by: Mitchell Etzel Co-authored-by: Vincent Koc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(database): hold Gateway state ownership in PostgreSQL on all-Pos…",
-      "summaryZh": "重點：新功能(database): hold Gateway state ownership in PostgreSQL on all-PostgreSQL installs (#196237) * 新功能(database): hold Gat..."
-    },
-    {
-      "id": 6,
-      "title": "fix(mattermost): answer shows twice when a post lands below the strea…",
-      "link": "https://github.com/openclaw/openclaw/commit/a71fd0b73262c539e3c96d45fabfeb115e981819",
-      "publishedAt": "2026-11-13T11:46:41Z",
-      "summary": "fix(mattermost): answer shows twice when a post lands below the streaming preview (#198206) fix(mattermost): keep answer text out of a preview that is no longer last With the default preview streaming, when another post landed below the preview during a run (for example a message-tool progress note), the answer was streamed into the old preview and then posted again as a new post, with the preview deleted afterwards. Clients that keep deleted posts, such as the Mattermost iOS app, showed the answer twice. Answer text now goes into the preview only while it is still the newest post; otherwise the preview keeps its status text and the answer is posted once below. If the order check fails, it falls back silently to streaming in place. Runs with no newer post, thread replies and block streaming are otherwise unchanged. No new text. Evidence: a built Gateway with the bundled Mattermost plugin against a real Mattermost server in Docker, with a stand-in model that sends a message-tool progress note and then streams the answer, main twice and candidate twice. On main the answer was edited into the preview three times and then posted again, so two posts held the answer. With this change the preview kept only its status text and exactly one answer post appeared. A run with no newer post still streams in place, a thread reply shows the same fix, and block streaming behaves the same on both. All five placement cases in the existing test fail on main, at net 0 test lines. Details: https://github.com/openclaw/openclaw/pull/198206#issuecomment-6851590438. Closes #198205. Thanks @hannnnn-l. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mattermost): answer shows twice when a post lands below the strea…",
-      "summaryZh": "重點：修正(mattermost): answer shows twice when a post lands below the streaming preview (#198206) 修正(mattermost): keep answer t..."
-    },
-    {
-      "id": 7,
-      "title": "美而快電商系統遭異常存取，部分請求涉及會員訂單API",
-      "link": "https://www.ithome.com.tw/news/180488",
-      "publishedAt": "2026-11-13 11:11:37",
-      "summary": "11月12日電子商務及服飾零售公司美而快（5321）於股市公開資訊觀測站發布重大訊息，該公司於11月10日接獲客戶反映，有消費者收到疑似詐騙電子郵件，他們隨即啟動資安應變及調查機制，經回溯分析系統存取紀錄，發現外部特定IP位址曾對電商系統進行異常存取，部分請求涉及會員訂單相關API。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "BBC：美國會議員要求黃仁勳 12/3 赴參議院作證",
-      "link": "https://finance.technews.tw/2026/11/13/bbc-us-lawmakers-request-jensen-huang-testify-senate-december-3rd/",
-      "publishedAt": "Fri, 13 Nov 2026 10:30:47 +0000",
-      "summary": "英國廣播公司（BBC）報導，美國聯邦參議員史考特（Tim Scott）已致函 AI 晶片巨頭輝達前執行長黃仁勳 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "長榮物流部分資訊系統遭攻擊，啟動資安防禦與復原機制",
-      "link": "https://www.ithome.com.tw/news/180484",
-      "publishedAt": "2026-11-13 10:11:54",
-      "summary": "11月12日物流及貨運服務公司榮運（2607）於股市公開資訊觀測站發布重大訊息，長榮物流部分資訊系統遭受駭客攻擊，伺服器出現異常情形，公司隨即啟動資安應變措施因應，目前資訊系統已恢復正常，初步評估對公司財務及業務並無重大影響。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "泰航與芬蘭航空各因Amadeus資安事件外洩逾6萬筆與11萬筆旅客資訊",
-      "link": "https://www.ithome.com.tw/news/180477",
-      "publishedAt": "2026-11-13 10:11:39",
-      "summary": "泰國航空（Thai Airways）及芬蘭航空（Finnair）週一（11月9日）公告， 訂票服務系統供應商Amadeus遭到非法存取，分別導致超過6萬及11.6萬筆乘客記錄可能外流。",
       "source": "iThome",
       "tag": "繁中"
     }
