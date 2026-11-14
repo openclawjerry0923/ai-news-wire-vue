@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-11-14T14:49:52.705Z",
+  "generatedAt": "2026-11-14T19:45:59.326Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(anthropic): report owner loss after a broken CLI input pipe (#198…",
-      "link": "https://github.com/openclaw/openclaw/commit/121b720292e111d247ce1fab669716c5caaedefc",
-      "publishedAt": "2026-11-14T14:47:31Z",
-      "summary": "fix(anthropic): report owner loss after a broken CLI input pipe (#198778)",
+      "title": "fix: model refresh fails with empty legacy Codex auth file (#199137)",
+      "link": "https://github.com/openclaw/openclaw/commit/186db3a17736cf5dc7cb528c654b27b9af6ae59f",
+      "publishedAt": "2026-11-14T19:42:28Z",
+      "summary": "fix: model refresh fails with empty legacy Codex auth file (#199137) * fix: model refresh fails with empty legacy Codex auth file Ignore only a parsed empty object in the legacy agent auth guard. Keep the existing guard in a focused sibling without growing the oversized bridge. Preserve migration diagnostics, ephemeral auth ownership, and existing files. Co-authored-by: hannesrudolph * fix: model refresh fails with empty legacy Codex auth file Worked on by: - @hannesrudolph Co-authored-by: hannesrudolph OpenClaw-Publication: 8ca2407d-a7fa-4e1b-b969-7823152cffdc --------- Co-authored-by: hannesrudolph",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(anthropic): report owner loss after a broken CLI input pipe (#198…",
-      "summaryZh": "重點：修正(anthropic): report owner loss after a broken CLI input pipe (#198778)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: 模型 refresh fails with empty legacy Codex auth file (#199137)",
+      "summaryZh": "重點：修正: 模型 refresh fails with empty legacy Codex auth file (#199137) * 修正: 模型 refresh fails with empty legacy Codex auth fil..."
     },
     {
       "id": 2,
-      "title": "feat(browser): support experimental Kitesurf browsing (#198833)",
-      "link": "https://github.com/openclaw/openclaw/commit/2ec7900c035e69f5f69e1cd8fcb7cd8c8090ec58",
-      "publishedAt": "2026-11-14T14:47:07Z",
-      "summary": "feat(browser): support experimental Kitesurf browsing (#198833) * feat(browser): support experimental Kitesurf browsing * perf(browser): reuse immutable page target identities",
+      "title": "fix: report native Gateway subscriber buffer overflows (#199126)",
+      "link": "https://github.com/openclaw/openclaw/commit/11651564c0673bfbc1847ce3eb2fbd9188a5cf46",
+      "publishedAt": "2026-11-14T19:36:57Z",
+      "summary": "fix: report native Gateway subscriber buffer overflows (#199126) Report the first overflow and the total dropped-event count for bounded native Gateway subscriber streams without logging payloads or changing delivery policy. Isolate the reviewed diagnostics from the already-landed subscription foundation. Co-authored-by: mikengyn Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(browser): support experimental Kitesurf browsing (#198833)",
-      "summaryZh": "重點：新功能(browser): support experimental Kitesurf browsing (#198833) * 新功能(browser): support experimental Kitesurf browsing * ..."
+      "titleZh": "OpenClaw 程式碼更新：修正: report native Gateway subscriber buffer overflows (#199126)",
+      "summaryZh": "重點：修正: report native Gateway subscriber buffer overflows (#199126) Report the first overflow and the total dropped-event co..."
     },
     {
       "id": 3,
-      "title": "fix(bench): require the state-reader task counter (#198912)",
-      "link": "https://github.com/openclaw/openclaw/commit/5e302bddf1cbf56acc94bc84061bff1eede74031",
-      "publishedAt": "2026-11-14T14:45:54Z",
-      "summary": "fix(bench): require the state-reader task counter (#198912) Broker worker metrics can omit tasksCompleted, while this benchmark requires the state-reader pool counter to validate reply coverage. Assert that contract before summing rather than treating missing telemetry as zero. Co-authored-by: RomneyDa",
+      "title": "fix(gateway): dedupe legacy Claude CLI gap-only turns (#199121)",
+      "link": "https://github.com/openclaw/openclaw/commit/b65adbde233413252665f535c2630a06aa34e2a3",
+      "publishedAt": "2026-11-14T19:35:21Z",
+      "summary": "fix(gateway): dedupe legacy Claude CLI gap-only turns (#199121) fix(gateway): dedupe legacy Claude CLI gap-only turns OpenClaw v2026.11.1-v2026.11.3 could write a Claude CLI user turn that starts with the gap note alone, without the replay block: fresh sessions got the gap note while the replay block needed an existing native session. #199016 made history comparison recognize the replay-plus-gap shape only, so a gap-only turn still showed twice in chat.history. The replay block is now optional in that exact legacy pattern, which still matches only the shipped gap-note wordings. Comparison is read-time only: stored transcripts are not rewritten, nothing model-facing changes, and there is no new text or migration. Evidence: vitest-source, the new gap-only case fails on main and passes here, and the existing replay-plus-gap and drift cases keep their original wording. Source tier with an isolated HOME, a native Claude JSONL in the shipped gap-only shape bound to a claude-cli session, and chat.history over a loopback Gateway: main returned two user rows, this change returns one. Replay-plus-gap, drift-note-only and malformed-header controls behave the same on both, and the stored JSONL is byte-identical. Full build and packed smoke pass. Net 0 test lines. Follow-up to #199016 (#198606). Co-authored-by: Ayaan Zaidi",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(bench): require the state-reader task counter (#198912)",
-      "summaryZh": "重點：修正(bench): require the state-reader task counter (#198912) Broker worker metrics can omit tasksCompleted, while this ben..."
+      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): dedupe legacy Claude CLI gap-only turns (#199121)",
+      "summaryZh": "重點：修正(Gateway): dedupe legacy Claude CLI gap-only turns (#199121) 修正(Gateway): dedupe legacy Claude CLI gap-only turns Open..."
     },
     {
       "id": 4,
-      "title": "fix(plugins): show why a stale registry refresh was refused (#198839)",
-      "link": "https://github.com/openclaw/openclaw/commit/1b947c9a9f61c260219ddf0a6f281854600b7bdd",
-      "publishedAt": "2026-11-14T14:41:12Z",
-      "summary": "fix(plugins): show why a stale registry refresh was refused (#198839) fix(plugins): show the registry refresh freshness error in text mode When `openclaw plugins registry --refresh` could not confirm the refreshed registry as fresh, text mode threw a plain error, so the user saw only \"The CLI command failed.\" and the doctor hint. The existing message, naming the plugin that differs and saying \"Stop plugin package changes, then run `openclaw plugins registry --refresh` again.\", was printed only with --json. It is now raised as an expected CLI error, so text mode shows it too. No new text. Evidence: source tier with isolated state and a local plugin whose manifest was replaced with valid alternatives during a real refresh. Base text mode printed only the generic failure; this change prints the existing reason. A clean refresh and the --json failure behave the same on both. Vitest-source: the regression fails on base and passes here (20/20). Full build and packed smoke pass. Net 0 test lines. The one red check, check-test-types, is inherited from main (receipt: https://github.com/openclaw/openclaw/pull/198839#issuecomment-6878978457). Details: https://github.com/openclaw/openclaw/pull/198839#issuecomment-6878672891. Thanks @wangmiao0668000666. Co-authored-by: Ayaan Zaidi",
+      "title": "fix(ui): keep the model label close to its chevron (#199089)",
+      "link": "https://github.com/openclaw/openclaw/commit/5fa918a71f3f4887cc0413af6e45fb6ca902d455",
+      "publishedAt": "2026-11-14T19:34:21Z",
+      "summary": "fix(ui): keep the model label close to its chevron (#199089) Fit the model label to its content up to the existing cap, keep the mobile chevron anchored, and preserve surrounding composer controls during catalog updates. Co-authored-by: vyctorbrzezowski",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(plugins): show why a stale registry refresh was refused (#198839)",
-      "summaryZh": "重點：修正(plugins): show why a stale registry refresh was refused (#198839) 修正(plugins): show the registry refresh freshness er..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep the 模型 label close to its chevron (#199089)",
+      "summaryZh": "重點：修正(ui): keep the 模型 label close to its chevron (#199089) Fit the 模型 label to its content up to the existing cap, keep th..."
     },
     {
       "id": 5,
+      "title": "就算從未誕生生命，地球仍能靠地質循環維持數十億年宜居環境",
+      "link": "https://technews.tw/2026/11/15/scientists-simulated-what-earth-would-be-like-if-life-never-existed/",
+      "publishedAt": "Sat, 14 Nov 2026 16:00:34 +0000",
+      "summary": "我們在這裡。雖然我們並不完全清楚自己究竟是如何來到這裡的，但我們確實存在於此。但是&#8230;&#8230; [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "AI 問診漸成主流但侵蝕大眾信任感，醫病關係仍是最重要核心",
+      "link": "https://technews.tw/2026/11/15/in-the-ai-era-can-we-preserve-humanity-in-healthcare/",
+      "publishedAt": "Sat, 14 Nov 2026 16:00:06 +0000",
+      "summary": "民眾愈來愈常問 AI 聊天機器人健康資訊，但醫療現場的人性溫度仍難取代。埃默里大學（Emory Univers [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "AI趨勢周報第294期：AI Agent不只要會看圖，Google新Benchmark直接考專業工作實戰",
+      "link": "https://www.ithome.com.tw/news/180507",
+      "publishedAt": "2026-11-14 11:11:39",
+      "summary": "重點新聞（1106～1112）",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "減重手術對第二型糖尿病療效最佳，14 年追蹤緩解率達六成",
       "link": "https://technews.tw/2026/11/14/could-type-2-diabetes-be-reversed-14-year-study-reveals-remarkable-results/",
       "publishedAt": "Sat, 14 Nov 2026 09:00:25 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "特斯拉前能源主管創立 Lunar Energy，以可堆疊電池與雙向充電器挑戰 Powerwall",
       "link": "https://technews.tw/2026/11/14/the-biggest-threat-to-teslas-home-battery-business-is-its-ex-chief/",
       "publishedAt": "Sat, 14 Nov 2026 09:00:12 +0000",
@@ -64,38 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "微軟全球當機，傳真機、電話、藍牙成企業救命三寶",
       "link": "https://technews.tw/2026/11/14/microsoft-365-fax-machine-phone-call-bluetooth/",
       "publishedAt": "Sat, 14 Nov 2026 08:36:14 +0000",
       "summary": "你有想過在全世界積極擁抱雲端、生成式 AI 的現代，關鍵時刻竟然還得仰賴傳統技術—傳真機、電話與藍牙來維持日常 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "宛如 40 年前賈伯斯遭逼宮重演：黃仁勳深陷地緣政治風暴，輝達帝國面臨權力危機",
-      "link": "https://finance.technews.tw/2026/11/14/chinese-media-state-machinery-targets-jensen-huang-personal-conduct-political-persecution/",
-      "publishedAt": "Sat, 14 Nov 2026 08:30:56 +0000",
-      "summary": "上次科技公司創辦人兼 CEO 遇上這等級的逼宮事件，還是 1985 年的蘋果，年僅 30 歲的賈伯斯在庫比蒂諾 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "韋伯望遠鏡發現 130 億年前原始星系，含氧量僅太陽 1/240",
-      "link": "https://technews.tw/2026/11/14/james-webb-discovers-a-nearly-pristine-galaxy-from-the-dawn-of-the-universe/",
-      "publishedAt": "Sat, 14 Nov 2026 08:00:17 +0000",
-      "summary": "金澤大學（Kanazawa University）領軍的國際團隊以韋伯太空望遠鏡觀測重力透鏡放大的微小星系 L [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "吃素的貓咪比較不容易過胖？大型調查發現值得進一步研究的現象",
-      "link": "https://technews.tw/2026/11/14/can-vegan-cat-food-really-help-prevent-obesity/",
-      "publishedAt": "Sat, 14 Nov 2026 07:30:40 +0000",
-      "summary": "貓咪明明是肉食性動物，如果改吃素，會不會影響健康？這可能是許多飼主面對「素食貓糧」（vegan cat foo [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
