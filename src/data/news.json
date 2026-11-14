@@ -1,52 +1,79 @@
 {
-  "generatedAt": "2026-11-13T19:18:29.497Z",
+  "generatedAt": "2026-11-14T00:43:02.791Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(update): avoid duplicate database copies while the Gateway is sto…",
-      "link": "https://github.com/openclaw/openclaw/commit/3bd03dafb94c6538af7e5b661eebea050e42c7ad",
-      "publishedAt": "2026-11-13T19:15:36Z",
-      "summary": "fix(update): avoid duplicate database copies while the Gateway is stopped (#198148) * fix(update): avoid duplicate database copies while stopped Use the existing maintenance custody and drained-family fact before eager read preparation. Reuse the completed stopped backup image for registry rediscovery while retaining current filesystem inventory and source mutation checks. Preserve backup publication, migration, and rollback contracts. * fix(update): reuse stopped WAL databases without inspection copies Checkpoint committed WAL frames once under the native updater handoff before recording backup identities. Retain the pinned-reader fallback, final-image integrity validation, and primary rollback payload. Read journal-free databases directly under maintenance custody across Doctor and read-only worker paths. Resolve file aliases before selecting immutable reads. Add WAL and alias regressions plus serial synthetic measurement tooling. * fix(update): carry immutable reads through auth worker IPC * test(perf): preserve native safety in byte-copy update proof * test(perf): retain checks for agents created by update Doctor * test(update): verify WAL capture after capacity admission * test(perf): reclaim sparse staging space between update arms * fix(update): admit backup capacity before WAL checkpointing",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(update): avoid duplicate database copies while the Gateway is sto…",
-      "summaryZh": "重點：修正(update): avoid duplicate database copies while the Gateway is stopped (#198148) * 修正(update): avoid duplicate databas..."
+      "title": "基因編輯有望終結「慢性病藥罐子」？專家示警：永久性介入恐藏不可逆風險",
+      "link": "https://technews.tw/2026/11/14/potential-risks-challenges-gene-editing-medical-treatments/",
+      "publishedAt": "Sat, 14 Nov 2026 00:30:40 +0000",
+      "summary": "基因編輯技術正迎來重大轉折，未來有望從「罕見遺傳疾病」的專屬療法，跨足到一般常見慢性病的預防與管理。最新醫界討 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat(gateway): role definitions no longer turn on named-role enforcem…",
-      "link": "https://github.com/openclaw/openclaw/commit/9fc96c43e5d20f5723e82b584523d21d436dac65",
-      "publishedAt": "2026-11-13T19:11:32Z",
-      "summary": "feat(gateway): role definitions no longer turn on named-role enforcement without a default (#197712) * feat(gateway): separate role definitions from enforcement Use gateway.roles.default as the named-role enforcement switch, keeping definitions-only catalogs from changing other sign-ins. Preserve OpenClaw ID membership policy and existing default-enabled authorization. * test: enable named-role enforcement in policy fixtures Give enforcement fixtures explicit valid defaults so definitions-only config continues to test its separate unrestricted contract without weakening any assertion. * fix: preserve compact test capacity and bound role handler size Recognize the exact qualified Gateway core/client selection when inventory packing combines them. Move role assignment validation to its profile-access owner without changing lazy config reads, keeping users.ts within the line-growth ratchet.",
+      "title": "fix(ci): vary scheduled CLI audit capture (#198505)",
+      "link": "https://github.com/openclaw/openclaw/commit/4cffd43ee043275f6a4c693aaacee8d8e5a61288",
+      "publishedAt": "2026-11-14T00:26:17Z",
+      "summary": "fix(ci): vary scheduled CLI audit capture (#198505)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(Gateway): role definitions no longer turn on named-role enforcem…",
-      "summaryZh": "重點：新功能(Gateway): role definitions no longer turn on named-role enforcement without a default (#197712) * 新功能(Gateway): sepa..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): vary scheduled CLI audit capture (#198505)",
+      "summaryZh": "重點：修正(ci): vary scheduled CLI audit capture (#198505)..."
     },
     {
       "id": 3,
-      "title": "perf(worktrees): buffer recovery snapshot object checks (#198414)",
-      "link": "https://github.com/openclaw/openclaw/commit/e3665e5c147caf54e7095306d43f3cb41b1b0185",
-      "publishedAt": "2026-11-13T19:09:55Z",
-      "summary": "perf(worktrees): buffer recovery snapshot object checks (#198414) Avoid a separate pipe write for every retained object while preserving object validation, recovery commits, and restore behavior. Extend the synthetic owner benchmark and buffered restore coverage. Production LOC is unchanged.",
+      "title": "fix(ci): keep the release waiver table private (#198306)",
+      "link": "https://github.com/openclaw/openclaw/commit/a1083027deecf9ba0fd4f833cb8b984308300fad",
+      "publishedAt": "2026-11-14T00:14:57Z",
+      "summary": "fix(ci): keep the release waiver table private (#198306)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(worktrees): buffer recovery snapshot object checks (#198414)",
-      "summaryZh": "重點：perf(worktrees): buffer recovery snapshot object checks (#198414) Avoid a separate pipe write for every retained object ..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): keep the 版本發布 waiver table private (#198306)",
+      "summaryZh": "重點：修正(ci): keep the 版本發布 waiver table private (#198306)..."
     },
     {
       "id": 4,
-      "title": "fix(macos): native approvals fail with an older external CLI",
-      "link": "https://github.com/openclaw/openclaw/commit/34600e99e21c203ca7e345323aef3d2ff033d682",
-      "publishedAt": "2026-11-13T19:05:46Z",
-      "summary": "fix(macos): native approvals fail with an older external CLI * fix(macos): use bundled CLI for native approvals * fix(macos): native approvals fail with an older external CLI OpenClaw-Publication: ca31ffb5-e1ca-4765-aa71-bdcdccebbf7e",
+      "title": "fix(test): prove WebSocket connections use pinned proxy DNS (#198502)",
+      "link": "https://github.com/openclaw/openclaw/commit/961b23b3210da439214ce3381476d1a53c95f87a",
+      "publishedAt": "2026-11-14T00:10:21Z",
+      "summary": "fix(test): prove WebSocket connections use pinned proxy DNS (#198502) * docs(test): record WebSocket proxy DNS audit candidate * fix(test): prove WebSocket connections use pinned proxy DNS",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): native approvals fail with an older external CLI",
-      "summaryZh": "重點：修正(macos): native approvals fail with an older external CLI * 修正(macos): use bundled CLI for native approvals * 修正(macos..."
+      "titleZh": "OpenClaw 程式碼更新：修正(test): prove WebSocket connections use pinned proxy DNS (#198502)",
+      "summaryZh": "重點：修正(test): prove WebSocket connections use pinned proxy DNS (#198502) * 文件(test): record WebSocket proxy DNS audit candid..."
     },
     {
       "id": 5,
+      "title": "輝達助攻矽品登峰！從 CoWoS 代工邁向 CPO 新藍海，研發老將揭密十年技術布局",
+      "link": "https://finance.technews.tw/2026/11/14/ase-tech-holding-growth-accelerates-nvidia-spil-cowos-cpo-strategic-planning-new-segments/",
+      "publishedAt": "Sat, 14 Nov 2026 00:00:23 +0000",
+      "summary": "今年以來，封測龍頭日月光投控成長顯著，今年前三季營收再創高峰。 旗下矽品研發大將，在成功大學舉辦的成材論壇上， [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix: adopt recovery controllers after native schema crossings (#198501)",
+      "link": "https://github.com/openclaw/openclaw/commit/e6c7c5e0da4b2407e2d991a00c5d38b599e05050",
+      "publishedAt": "2026-11-13T23:54:54Z",
+      "summary": "fix: adopt recovery controllers after native schema crossings (#198501)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: adopt recovery controllers after native schema crossings (#198501)",
+      "summaryZh": "重點：修正: adopt recovery controllers after native schema crossings (#198501)..."
+    },
+    {
+      "id": 7,
+      "title": "波音重心轉向六代機，美國海軍另尋超級大黃蜂延壽產能",
+      "link": "https://technews.tw/2026/11/14/us-navy-is-searching-other-companies-for-upgrading-fa-18ef-and-ea-18g-fleets/",
+      "publishedAt": "Fri, 13 Nov 2026 23:00:54 +0000",
+      "summary": "隨著波音將產能重心轉向 F-47 與 F/A-XX 六代戰機，美國海軍也開始為現役 F/A-18E/F 超級大 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "哈伯太空望遠鏡凝視 M30，追溯銀河系早期歷史",
       "link": "https://technews.tw/2026/11/14/hubble-peers-into-m30-to-trace-the-milky-ways-early-history/",
       "publishedAt": "Fri, 13 Nov 2026 16:00:47 +0000",
@@ -55,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 9,
       "title": "唾液檢測掌握生理時鐘，德國新創 TimeTeller 助癌症治療精準掌握「給藥時機」",
       "link": "https://technews.tw/2026/11/14/timeteller-puts-our-internal-clocks-at-the-center-of-personalized-medicine/",
       "publishedAt": "Fri, 13 Nov 2026 16:00:14 +0000",
@@ -64,39 +91,12 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 10,
       "title": "跑起來，別用走的！皮衣黃仁勳再也不上台演講的 AI 時代就這樣跑步來臨",
       "link": "https://finance.technews.tw/2026/11/13/the-ai-%e2%80%8b%e2%80%8bera-is-rapidly-approaching-with-jensen-huang-no-longer-giving-speeches-on-stage/",
       "publishedAt": "Fri, 13 Nov 2026 12:45:40 +0000",
       "summary": "「跑起來，別用走的！」（Run, don&#8217;t walk!）曾是輝達（NVIDIA）創辦人黃仁勳最撼 [&#8230;]",
       "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "聯手 Palantir 與台灣廠商，L3Harris 展示聯合全領域作戰網路",
-      "link": "https://technews.tw/2026/11/13/l3harris-published-its-jado-tech-in-taiwan-for-the-first-time/",
-      "publishedAt": "Fri, 13 Nov 2026 12:40:41 +0000",
-      "summary": "美國 L3Harris 今日在台灣晉陞太空公司位於苗栗市的總部，舉辦「聯合全領域作戰網路」（Joint All [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "Apache修補網頁伺服器HTTP/2模組的重大漏洞，64%雲端環境恐曝險",
-      "link": "https://www.ithome.com.tw/news/180490",
-      "publishedAt": "2026-11-13 12:11:45",
-      "summary": "Apache軟體基金會（ASF）於11月11日發布Apache HTTP Server 2.4.71，修補3個資安漏洞，其中最受到關注的部分，是存在於HTTP/2模組mod_http2中的重大安全漏洞CVE-2026-119618，該弱點源自多執行緒處理HTTP/2請求時的競爭條件，可能導致",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Rust 1.100允許延後採用新套件，Never Type歷經10年正式穩定",
-      "link": "https://www.ithome.com.tw/news/180489",
-      "publishedAt": "2026-11-13 12:11:12",
-      "summary": "程式語言Rust開發團隊發布Rust 1.100.0，套件管理工具Cargo新增依賴套件發布冷卻期，讓開發者延後採用剛上架的套件版本，降低軟體供應鏈攻擊風險。新版也正式支援歷經10年5次進入穩定階段嘗試未果的Never Type，並開放自訂記憶體配置器的核心介面。",
-      "source": "iThome",
       "tag": "繁中"
     }
   ]
