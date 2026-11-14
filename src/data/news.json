@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-14T19:45:59.326Z",
+  "generatedAt": "2026-11-14T23:41:36.563Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: model refresh fails with empty legacy Codex auth file (#199137)",
-      "link": "https://github.com/openclaw/openclaw/commit/186db3a17736cf5dc7cb528c654b27b9af6ae59f",
-      "publishedAt": "2026-11-14T19:42:28Z",
-      "summary": "fix: model refresh fails with empty legacy Codex auth file (#199137) * fix: model refresh fails with empty legacy Codex auth file Ignore only a parsed empty object in the legacy agent auth guard. Keep the existing guard in a focused sibling without growing the oversized bridge. Preserve migration diagnostics, ephemeral auth ownership, and existing files. Co-authored-by: hannesrudolph * fix: model refresh fails with empty legacy Codex auth file Worked on by: - @hannesrudolph Co-authored-by: hannesrudolph OpenClaw-Publication: 8ca2407d-a7fa-4e1b-b969-7823152cffdc --------- Co-authored-by: hannesrudolph",
+      "title": "perf(sessions): prepare event sharing only for target checks (#199297)",
+      "link": "https://github.com/openclaw/openclaw/commit/8aa2434748afb90b64e2de12b645d61f1538b8cf",
+      "publishedAt": "2026-11-14T23:35:07Z",
+      "summary": "perf(sessions): prepare event sharing only for target checks (#199297) * perf(sessions): prepare event sharing only for target checks * test(sessions): type the sharing benchmark fixture",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: 模型 refresh fails with empty legacy Codex auth file (#199137)",
-      "summaryZh": "重點：修正: 模型 refresh fails with empty legacy Codex auth file (#199137) * 修正: 模型 refresh fails with empty legacy Codex auth fil..."
+      "titleZh": "OpenClaw 程式碼更新：perf(sessions): prepare event sharing only for target checks (#199297)",
+      "summaryZh": "重點：perf(sessions): prepare event sharing only for target checks (#199297) * perf(sessions): prepare event sharing only for ..."
     },
     {
       "id": 2,
-      "title": "fix: report native Gateway subscriber buffer overflows (#199126)",
-      "link": "https://github.com/openclaw/openclaw/commit/11651564c0673bfbc1847ce3eb2fbd9188a5cf46",
-      "publishedAt": "2026-11-14T19:36:57Z",
-      "summary": "fix: report native Gateway subscriber buffer overflows (#199126) Report the first overflow and the total dropped-event count for bounded native Gateway subscriber streams without logging payloads or changing delivery policy. Isolate the reviewed diagnostics from the already-landed subscription foundation. Co-authored-by: mikengyn Co-authored-by: vyctorbrzezowski",
+      "title": "perf(ui): reduce WebKit style work in Plugin Settings (#199277)",
+      "link": "https://github.com/openclaw/openclaw/commit/3049d421c9514b143e4632de911daf8f9b1e8cd8",
+      "publishedAt": "2026-11-14T23:30:55Z",
+      "summary": "perf(ui): reduce WebKit style work in Plugin Settings (#199277)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: report native Gateway subscriber buffer overflows (#199126)",
-      "summaryZh": "重點：修正: report native Gateway subscriber buffer overflows (#199126) Report the first overflow and the total dropped-event co..."
+      "titleZh": "OpenClaw 程式碼更新：perf(ui): reduce WebKit style work in Plugin Settings (#199277)",
+      "summaryZh": "重點：perf(ui): reduce WebKit style work in Plugin Settings (#199277)..."
     },
     {
       "id": 3,
-      "title": "fix(gateway): dedupe legacy Claude CLI gap-only turns (#199121)",
-      "link": "https://github.com/openclaw/openclaw/commit/b65adbde233413252665f535c2630a06aa34e2a3",
-      "publishedAt": "2026-11-14T19:35:21Z",
-      "summary": "fix(gateway): dedupe legacy Claude CLI gap-only turns (#199121) fix(gateway): dedupe legacy Claude CLI gap-only turns OpenClaw v2026.11.1-v2026.11.3 could write a Claude CLI user turn that starts with the gap note alone, without the replay block: fresh sessions got the gap note while the replay block needed an existing native session. #199016 made history comparison recognize the replay-plus-gap shape only, so a gap-only turn still showed twice in chat.history. The replay block is now optional in that exact legacy pattern, which still matches only the shipped gap-note wordings. Comparison is read-time only: stored transcripts are not rewritten, nothing model-facing changes, and there is no new text or migration. Evidence: vitest-source, the new gap-only case fails on main and passes here, and the existing replay-plus-gap and drift cases keep their original wording. Source tier with an isolated HOME, a native Claude JSONL in the shipped gap-only shape bound to a claude-cli session, and chat.history over a loopback Gateway: main returned two user rows, this change returns one. Replay-plus-gap, drift-note-only and malformed-header controls behave the same on both, and the stored JSONL is byte-identical. Full build and packed smoke pass. Net 0 test lines. Follow-up to #199016 (#198606). Co-authored-by: Ayaan Zaidi",
+      "title": "fix(cron): run keeps owner-private memory after its requester loses o…",
+      "link": "https://github.com/openclaw/openclaw/commit/7a4e9f177fcbb9c0664b481edbf37a25d13d55c7",
+      "publishedAt": "2026-11-14T23:29:48Z",
+      "summary": "fix(cron): run keeps owner-private memory after its requester loses owner status (#198697) * fix(cron): recheck the requester's owner status when a run starts A fired condition can wait a long time for a run slot after its occurrence was admitted. Each run minted the owner bit captured at admission, so a requester who lost owner status during the wait still got an owner context, and with it owner-private memory. Each run now reads the bit again from the requester's existing owner check against the live config. Refs #196859 * test(cron): cover owner removal through a published config on both memory runtimes",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): dedupe legacy Claude CLI gap-only turns (#199121)",
-      "summaryZh": "重點：修正(Gateway): dedupe legacy Claude CLI gap-only turns (#199121) 修正(Gateway): dedupe legacy Claude CLI gap-only turns Open..."
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): run keeps owner-private 記憶 after its requester loses o…",
+      "summaryZh": "重點：修正(排程): run keeps owner-private 記憶 after its requester loses owner status (#198697) * 修正(排程): recheck the requester's ow..."
     },
     {
       "id": 4,
-      "title": "fix(ui): keep the model label close to its chevron (#199089)",
-      "link": "https://github.com/openclaw/openclaw/commit/5fa918a71f3f4887cc0413af6e45fb6ca902d455",
-      "publishedAt": "2026-11-14T19:34:21Z",
-      "summary": "fix(ui): keep the model label close to its chevron (#199089) Fit the model label to its content up to the existing cap, keep the mobile chevron anchored, and preserve surrounding composer controls during catalog updates. Co-authored-by: vyctorbrzezowski",
+      "title": "fix(bonjour): Bonjour discovery fails on npm installs of 2026.11.5 be…",
+      "link": "https://github.com/openclaw/openclaw/commit/b9871343b96dc5ec37027acac2feb476c0175ea2",
+      "publishedAt": "2026-11-14T23:28:50Z",
+      "summary": "fix(bonjour): Bonjour discovery fails on npm installs of 2026.11.5 betas (#199156) * fix(bonjour): ship patched Ciao as a self-contained npm bundle The core Bonjour advertiser imports @homebridge/ciao/native.js, an entry that only exists in the patched Ciao (patches/@homebridge__ciao@1.3.12.patch). The root npm package declared Ciao as an ordinary dependency, so npm installs of 2026.11.5-beta.1 and beta.2 resolved the registry package without native.js and Bonjour failed with ERR_MODULE_NOT_FOUND. Bundle the patched Ciao in the root package, as the Bonjour plugin package already does, and make the tarball check require bundling whenever dist imports the patched entry. Bundling alone is not enough: npm packs a pnpm-linked bundle's installed dependencies at their store path (node_modules/.pnpm/.../node_modules/debug), where the relocated bundle cannot resolve them and the tarball check rejects them. Packing now restages any linked bundle that has installed dependencies into a flat npm layout and drops the leftover store entries, so Ciao ships with debug, fast-deep-equal, source-map-support and tslib next to it. Refs #198010 Refs #198011 Co-authored-by: Alfred J Berchtold Co-authored-by: alfredjbclaw * fix(package): restage only bundles npm packed under their pnpm store entry The first cut restaged every pnpm-linked bundle with installed dependencies. That also restaged @openclaw/ai, whose dependencies the root package already installs, and pulled its whole transitive closure into the tarball (346,027 installed entries). Restage a linked bundle only when npm actually left its dependencies under that bundle's pnpm store entry in the packed root; other packed bundles stay as npm wrote them. Refs #198010 --------- Co-authored-by: Alfred J Berchtold Co-authored-by: alfredjbclaw",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep the 模型 label close to its chevron (#199089)",
-      "summaryZh": "重點：修正(ui): keep the 模型 label close to its chevron (#199089) Fit the 模型 label to its content up to the existing cap, keep th..."
+      "titleZh": "OpenClaw 程式碼更新：修正(bonjour): Bonjour discovery fails on npm installs of 2026.11.5 be…",
+      "summaryZh": "重點：修正(bonjour): Bonjour discovery fails on npm installs of 2026.11.5 betas (#199156) * 修正(bonjour): ship patched Ciao as a ..."
     },
     {
       "id": 5,
