@@ -1,49 +1,49 @@
 {
-  "generatedAt": "2026-11-15T13:34:30.716Z",
+  "generatedAt": "2026-11-15T19:35:38.115Z",
   "items": [
     {
       "id": 1,
-      "title": "fix(nodes): cancel interrupted camera list and location reads (#199388)",
-      "link": "https://github.com/openclaw/openclaw/commit/52fd3d802952e967381b9a8d1ab131329e342c8e",
-      "publishedAt": "2026-11-15T13:27:29Z",
-      "summary": "fix(nodes): cancel interrupted camera list and location reads (#199388) fix(cli): stop nodes camera list and location get on Ctrl-C and SIGTERM `openclaw nodes camera list` and `nodes location get` called node.invoke through the wrapper that ignores the CLI's abort signal, so a Ctrl-C or SIGTERM while the node was still answering left the CLI waiting until the cleanup watchdog force-killed it. Both read-only commands now use the existing runNodesReadCommand wrapper that passes the signal, as the other node reads do since #197185. Commands that change node state (invoke, snap, clip, run) are unchanged. No new text. Evidence: dist-nodts in a secretless Linux container with a real Gateway (token auth) and a real paired Linux headless node whose location.get waits for a GeoClue fix (`nodes location get` naturally took about 18 s before LOCATION_TIMEOUT); no proxy or held replies. SIGINT and SIGTERM about 1 s in: base was force-killed after about 2 s and the socket dropped (1006); this change exits 130 and 143 within 54 ms with a clean close (1005) and nothing printed after the interrupt notice. Uninterrupted output, `nodes invoke` and `camera snap` behave the same on both. Vitest-source: the cancellation cases fail on base and 76 nodes-cli tests pass here; full build and packed smoke pass. Net -3 test lines; two stale mock-baseline entries for the removed mocks are deleted. Receipts: https://github.com/openclaw/openclaw/pull/199388#issuecomment-6893479661. Thanks @wangmiao0668000666. Co-authored-by: Ayaan Zaidi",
+      "title": "feat(ui): tell owners when a member or node is waiting for approval",
+      "link": "https://github.com/openclaw/openclaw/commit/257759ae2be0f365b4369c942ef43fd3e207b88d",
+      "publishedAt": "2026-11-15T19:24:02Z",
+      "summary": "feat(ui): tell owners when a member or node is waiting for approval * feat(ui): tell owners when a member or node is waiting for approval * fix(ui): scope join request prompts to the profile and close them when new requests resolve * feat(ui): tell owners when a member or node is waiting for approval OpenClaw-Publication: a46f104f-c50a-8936-8134-428a17b08648 * fix(ui): keep join request time left current and test expiry on a controlled clock * Publish openclaw/mild-lobster OpenClaw-Publication: 5bae7ae5-5752-8cd0-b573-5547c579842a",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(nodes): cancel interrupted camera list and location reads (#199388)",
-      "summaryZh": "重點：修正(nodes): cancel interrupted camera list and location reads (#199388) 修正(cli): stop nodes camera list and location get ..."
+      "titleZh": "OpenClaw 程式碼更新：新功能(ui): tell owners when a member or node is waiting for approval",
+      "summaryZh": "重點：新功能(ui): tell owners when a member or node is waiting for approval * 新功能(ui): tell owners when a member or node is waiti..."
     },
     {
       "id": 2,
-      "title": "refactor(exec): replace script preflight refusal with an opaque appro…",
-      "link": "https://github.com/openclaw/openclaw/commit/07ed3bfd1927e1410e36aa47cbc1fa4664cdd9d2",
-      "publishedAt": "2026-11-15T13:20:55Z",
-      "summary": "refactor(exec): replace script preflight refusal with an opaque approval fact (#199590) ## Problem Exec ran a \"script preflight\" before it started a command. The preflight had two refusals: 1. **\"complex interpreter invocation\"**: a regex parser refused a command when a shell chain, pipeline, wrapper or process substitution started `python` or `node` with a script. Examples: `cd dir &amp;&amp; node main.js`, `cat main.py | python3`, `bash -c 'node main.js'`. 2. **\"likely shell variable injection\"**: the preflight read Python script files and refused the command when it found text like `$VAR`. These refusals were not policy. They did not ask a person or a reviewer, and the operator could not approve the command. One production host recorded 618 of these refusals in two weeks. Over time, many patches made the parser narrower, and two related issues were closed as not planned. The preflight was skipped only when `host=gateway`, `security=full` and the effective `ask=off`. The effective `ask` includes the per-call `ask` argument from the model. A run without a message channel (for example a collector subagent launch) keeps that argument. So a model that sent `ask: \"on-miss\"` turned the preflight on under a full/off policy. The same command ran without that argument and was refused with it. This is why refusals appeared in subagent sessions on a host whose approvals are full/off. ## Fix - Delete the preflight: `bash-tools.exec-script-preflight.ts`, `bash-tools.exec-script-ambiguity.ts`, `bash-tools.exec-script-target.ts` and the dead `scriptPreflightCwd` field. Exec has no refusal path for this case now. - The existing command analysis (`infra/command-analysis/risks.ts`) emits one fact: `detectOpaqueInterpreterProgram(command, segments)` returns `{ opaque: boolean }`. It has no refuse member. A command is opaque when a chain, pipeline or shell wrapper starts a Python or Node program from a file or stdin. Inline eval (`-c`, `-e`) and modules (`-m`) stay with their existing owners. - A new sibling, `bash-tools.exec-interpreter-approval.ts`, holds the interpreter facts that approval uses (the existing strict inline-eval fact moves there too, so the Gateway host file gets smaller). - Gateway approval treats `opaque: true` as an allowlist miss, only where the policy asks (`security=allowlist` with `ask=on-miss`): - With a person: an approval request. - With auto review: the reviewer gets `reason: \"allowlist-miss\"`. - When the command cannot be bound for approval (for example after `cd`), the current policy decides, as before this preflight existed. - With `security=full`, with `ask=off`, or in a sandbox: the command runs. The sandbox is the gate. - Python script errors such as a stray `$VAR` are left to Python, which reports its own error. - Update `docs/tools/exec.md` and `docs/tools/exec-approvals.md`. The per-call `ask` behavior for runs without a channel is not changed here. It can no longer cause a refusal, because the opaque fact has no effect when security is full. ## Proof Base: `a426bf146b1b` (`ocx base merge-base`). | Check | Tier | Base | Head | |---|---|---|---| | New: `cd dir &amp;&amp; node main.js`, `cat main.js \\| node`, `echo start &amp;&amp; node main.js` under full/off, with and without a per-call `ask: \"on-miss\"` (`bash-tools.exec-authorization.integration.test.ts`) | vitest-source | With the per-call ask: refused, `exec preflight: complex interpreter invocation detected` | All run, no approval call | | New: the same opaque command under `security=allowlist`, `ask=on-miss`, `node` allowlisted | vitest-source | Refused | Approval request (`exec.approval.request`), then the program runs. Control: `node main.js` runs without approval | | New: auto review mode | vitest-source | Refused | Reviewer called with `reason: \"allowlist-miss\"`, then the program runs | | New: opaque commands that approval cannot bind, under an asking policy | vitest-source | Refused | Run under the current allowlist | | New: `python3 bad.py` with `$DM_JSON`, `cat bad.py \\| python3`, `bash -c \"node bad.js\"` (`bash-tools.exec.script-preflight.test.ts`) | vitest-source | 3 refusals | 3 start | | New: `detectOpaqueInterpreterProgram` facts, and a type test that its return type is `{ opaque: boolean }` (`risks.test.ts`) | vitest-source | — | 31 tests pass | | Affected files: gateway host exec, workdir, tool adapter, terminal resolution, exec guard | vitest-source | — | 147 tests pass | | Real Gateway, `tools.exec.mode=full`, approvals unset (full/off). A scripted model calls exec with `ask: \"on-miss\"`; `openclaw agent` runs each turn through the Gateway with no channel | source (`ocx src`) | 3 of 3 refused: `exec preflight: complex interpreter invocation detected` | 3 of 3 ran: `node-program-ran`, `python-program-ran`, `node-program-ran`; 0 `exec preflight` log lines | | `pnpm check:test-types`, `pnpm tsgo:scripts` | typecheck | — | Pass | | `ocx build --dts`, then `npm pack` with the bundled channel entry smoke | full | — | Pass: package tarball integrity and bundled channel entry smoke | | `rg` for every removed symbol in `src/ scripts/ test/ extensions/` | — | — | No matches | ## Net lines `git diff --stat origin/main...HEAD`: 18 files, +303 / −1,149 (net −846). - Source (non-test `src/`): +111 / −891. - Tests: +189 / −255. - Docs and CI scope: the rest. Co-authored-by: Ayaan Zaidi",
+      "title": "chore(ui): refresh control ui locales (#199734)",
+      "link": "https://github.com/openclaw/openclaw/commit/aa3f0405586bdedae5063f9fc91031b0f6c0d0e8",
+      "publishedAt": "2026-11-15T19:14:16Z",
+      "summary": "chore(ui): refresh control ui locales (#199734) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(exec): replace script preflight refusal with an opaque appro…",
-      "summaryZh": "重點：refactor(exec): replace script preflight refusal with an opaque approval fact (#199590) ## Problem Exec ran a \"script pr..."
+      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#199734)",
+      "summaryZh": "重點：chore(ui): refresh control ui locales (#199734) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 3,
-      "title": "perf(memory): share published tool checkpoint descriptors (#199609)",
-      "link": "https://github.com/openclaw/openclaw/commit/2e1b61901c5d139dd4b40e00eb3ca326a0ef9b89",
-      "publishedAt": "2026-11-15T13:09:07Z",
-      "summary": "perf(memory): share published tool checkpoint descriptors (#199609)",
+      "title": "chore(i18n): refresh native locales (#199724)",
+      "link": "https://github.com/openclaw/openclaw/commit/ba9f29d471ab260f8a564d43fac2966bc71e09cf",
+      "publishedAt": "2026-11-15T19:11:55Z",
+      "summary": "chore(i18n): refresh native locales (#199724) Co-authored-by: github-actions[bot]",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：perf(記憶): share published tool checkpoint descriptors (#199609)",
-      "summaryZh": "重點：perf(記憶): share published tool checkpoint descriptors (#199609)..."
+      "titleZh": "OpenClaw 程式碼更新：chore(i18n): refresh native locales (#199724)",
+      "summaryZh": "重點：chore(i18n): refresh native locales (#199724) Co-authored-by: github-actions[bot]..."
     },
     {
       "id": 4,
-      "title": "fix(talk): allow fresh consultations after cancellation (#199538)",
-      "link": "https://github.com/openclaw/openclaw/commit/81ca4f4d712a67c012c7dc0311e0fa37ac576490",
-      "publishedAt": "2026-11-15T12:20:54Z",
-      "summary": "fix(talk): allow fresh consultations after cancellation (#199538) * fix(talk): allow fresh consultations after cancellation * test(talk): preserve hidden input across reconnect history * test(talk): retain native consult history after close",
+      "title": "fix(knowledge): match canonically equivalent NFC/NFD keywords (#195092)",
+      "link": "https://github.com/openclaw/openclaw/commit/6341f93c9c565364ea86b417f21ffde4519b51b7",
+      "publishedAt": "2026-11-15T19:02:17Z",
+      "summary": "fix(knowledge): match canonically equivalent NFC/NFD keywords (#195092) Fixes #195031. Match canonically equivalent Unicode keyword spellings with bounded query-time original/NFC/NFD alternatives. Preserve stored text, record identity, and original snippet offsets; keep the mixed-normalization phrase limitation documented. Validated by exact-head CI (run 43050714314), the contributor's candidate/base differential, and their isolated real-model Gateway save/search proof. The service regression is ported to the current record_detail contract. Work session: https://team.openclaw.ai/chat/roboclaw/~key/dashboard/1ca268a8-6ae1-4bd7-9ce9-a1cf2238f75b Co-authored-by: jalehman Co-authored-by: Linux2010",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(talk): allow fresh consultations after cancellation (#199538)",
-      "summaryZh": "重點：修正(talk): allow fresh consultations after cancellation (#199538) * 修正(talk): allow fresh consultations after cancellatio..."
+      "titleZh": "OpenClaw 程式碼更新：修正(knowledge): match canonically equivalent NFC/NFD keywords (#195092)",
+      "summaryZh": "重點：修正(knowledge): match canonically equivalent NFC/NFD keywords (#195092) 修正 #195031. Match canonically equivalent Unicode ..."
     },
     {
       "id": 5,
