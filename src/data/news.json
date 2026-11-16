@@ -1,17 +1,79 @@
 {
-  "generatedAt": "2026-11-16T05:12:56.798Z",
+  "generatedAt": "2026-11-16T15:02:47.886Z",
   "items": [
     {
       "id": 1,
-      "title": "MongoDB修補可能導致資料庫切換節點時當機的重大漏洞",
-      "link": "https://www.ithome.com.tw/news/180527",
-      "publishedAt": "2026-11-16 12:11:25",
-      "summary": "資料庫軟體業者MongoDB於11月10日修補資料庫伺服器重大漏洞CVE-2026-118383，CVSS嚴重性評分達9.5。",
+      "title": "fix(knowledge): keep historical claims distinct and reject changed re…",
+      "link": "https://github.com/openclaw/openclaw/commit/0b305a28be644140b1ee0fef413ebfca237610b4",
+      "publishedAt": "2026-11-16T15:00:56Z",
+      "summary": "fix(knowledge): keep historical claims distinct and reject changed retries (#200140) Reject changed input when retrying any retained Knowledge remember request, including a completed publication. Keep historical claim dates, precision, assertion origin, validity and ownership distinct during duplicate detection. Reserve same-title record paths within each batch so distinct claims publish atomically. Verified with red-on-base regressions, 22 focused Node tests, extension production/test typechecks, changed-file lint and formatting, size/assertion guards, and independent P0-P2 review. No schema migration, live recovery or deployment. Co-authored-by: vincentkoc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(knowledge): keep historical claims distinct and reject changed re…",
+      "summaryZh": "重點：修正(knowledge): keep historical claims distinct and reject changed retries (#200140) Reject changed input when retrying a..."
+    },
+    {
+      "id": 2,
+      "title": "fix(ui): align dropdown arrows on mobile New Session",
+      "link": "https://github.com/openclaw/openclaw/commit/a139d420834e6e04641303c79eb7c6e0e4444fa5",
+      "publishedAt": "2026-11-16T14:53:31Z",
+      "summary": "fix(ui): align dropdown arrows on mobile New Session Co-authored-by: vincentkoc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): align dropdown arrows on mobile New Session",
+      "summaryZh": "重點：修正(ui): align dropdown arrows on mobile New Session Co-authored-by: vincentkoc..."
+    },
+    {
+      "id": 3,
+      "title": "improve(sessions): archive inactive transcripts by default (#199899)",
+      "link": "https://github.com/openclaw/openclaw/commit/f8649312873296688d785b5714a1518c2cd06748",
+      "publishedAt": "2026-11-16T14:51:44Z",
+      "summary": "improve(sessions): archive inactive transcripts by default (#199899) * improve(sessions): archive inactive transcripts by default Keep the 30-day inactivity cutoff and explicit false opt-out. Share cold policy defaults between scheduler admission and extraction, and align Settings and help with the default-on policy. Co-authored-by: vincentkoc * improve(sessions): archive inactive transcripts by default Worked on by: - @vincentkoc Co-authored-by: vincentkoc OpenClaw-Publication: 05ec025a-c3d8-4b48-afc9-82a95ea9c595 * test(gateway): keep timer fixtures free of cold storage work Use the existing explicit false opt-out in fake-clock timer fixtures so the new production default does not dispatch transcript database work. Preserve the separate default-on integration proof and all maintenance lifecycle assertions. Co-authored-by: vincentkoc * Publish openclaw/cold-storage-default-enabled Worked on by: - @vincentkoc Co-authored-by: vincentkoc OpenClaw-Publication: 8cd5cd62-7f26-478b-a05e-fea5011e7d0e * Publish openclaw/cold-storage-default-enabled Worked on by: - @vincentkoc Co-authored-by: vincentkoc OpenClaw-Publication: daee0a91-3aa1-4af9-9cc6-153e0533bd7d --------- Co-authored-by: vincentkoc",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve(sessions): archive inactive transcripts by default (#199899)",
+      "summaryZh": "重點：improve(sessions): archive inactive transcripts by default (#199899) * improve(sessions): archive inactive transcripts b..."
+    },
+    {
+      "id": 4,
+      "title": "refactor(agents): own background commands and yield waits by the chat…",
+      "link": "https://github.com/openclaw/openclaw/commit/5d35af150b0758338bec6aa456f3774c48b01984",
+      "publishedAt": "2026-11-16T14:50:33Z",
+      "summary": "refactor(agents): own background commands and yield waits by the chat (#200097) ## What Problem This Solves Background commands, `sessions_yield` waits and exec-exit wakes were owned by the run that started them. A run id names one attempt, and a chat gets a new one on every turn. So every follow-up run lost the commands of the earlier runs: - A later turn could not yield on a command that an earlier turn started. `listYieldAwaitableExecs(runId)` matched `originRunId === runId`, so `sessions_yield` returned `nothing_pending` and the model started to poll. - A paused subagent task continued only when the wake named the paused run. #200046 patched one caller of this: it moved the running commands to the new run (`moveRunningSessionsToRun`). - Child completions compared the captured requester session id and lifecycle revision. After a reset or a compaction successor, a private completion was withheld with \"Subagent results from the previous session were not delivered\". ## Why This Change Was Made The bug class is \"address work by an id that changes\". The chat's session key is the only id that survives edits, resets, compaction and follow-up runs. This PR makes the key the owner: - `listYieldAwaitableExecs`, `awaitExecsForYield` and `openExecYieldResume` are keyed by the chat: agent id plus session key, so a raw shared key such as `global` stays separate per agent. A yield awaits every wake-armed command of the chat, including commands from earlier runs. - Reply admission continues the task that is paused in the chat, whichever run paused it (`continuesPausedTask` replaces `pausedRunId`). - Child and harness completions, and the failure notice of a required completion, go to the requester chat as it is now. The reads of `completionRequesterSessionId` / `LifecycleRevision`, the settle-receipt exact compare, the collector and `agents_wait` incarnation filters, and the reset replacement notice are deleted. - Deleted: `ProcessSession.originRunId`, `moveRunningSessionsToRun` (the #200046 patch), `matchesSubagentRequesterSession`, `recordRequesterReplacementNotice`, `listCollectorRunsForRequesterIncarnation` (now `listCollectorRunsForRequester`). - Kept as a fact only: an exec wake still names the starting run in `inputProvenance.runId` (`ProcessSession.startedByRunId`), because plugins use it (#179816). It routes nothing. - The requester id fields are still written for one release, so a downgrade keeps working. No schema, stored-row or protocol change. Production delta: −227 lines in `src` (+127 / −354); whole PR −427. ## User Impact - A chat can start a background command in one turn and wait for it with `sessions_yield` in a later turn. The exit continues the chat. - A yielded subagent always continues its paused task when one of its commands exits, also after a follow-up run. - A subagent result reaches the parent chat after `/new` or compaction instead of being withheld. ## Evidence Real agent on an isolated source Gateway (`ocx src`, scratch state, port and HOME, scrubbed env), Claude Opus through the shared Claude proxy. base = merge base `96ad377596ca`, head = this PR. | Journey | base | head | |---|---|---| | J1: #200046 incident (paused child, A's exit continues the task in run 2, then B, started by run 1, exits) | parent got `child-final` (with the #200046 patch) | parent got `child-final` (patch deleted); registry `generation=4 delivery=delivered` | | J2: run 1 starts a background command; run 2 calls `sessions_yield` | `{\"status\":\"nothing_pending\"}` | `{\"status\":\"yielded\"}`; the exit wakes the chat, which replies `j2-woke` | | J3: parent spawns a child and does not yield | ordinary completion (`subagent_announce`) | ordinary completion (`subagent_announce`) | | J1 parent side: parent yields on its child | private completion (`subagent_settle`) | private completion (`subagent_settle`) | Head arms ran on the production code of `3793f6d`; later commits change only tests, docs and the failure-notice path of a required completion, which unit tests cover. A `/new` while the parent is yielded on a running child interrupts the child on both arms, so that journey does not separate them and is not a claim of this PR. Unit: `openclaw-tools.requester-yield.test.ts` now awaits a command with no starting run (fails on base). The delivery tests assert that a private completion reaches a replacement parent session. Gates: oxfmt, oxlint on changed files, `pnpm tsgo:core`, `pnpm check:test-types`, `ocx test` on `src/agents/subagents/`, requester-yield, exec background and notify suites, agents_wait, harness completion, session reactivation and adoption, `src/cron/isolated-agent`. Build, full suites and cross-OS checks: hosted CI on this head. `src/gateway/server-startup-post-attach.test.ts` fails the same way on the merge base `059db8a`; this PR does not touch it. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(agents): own background commands and yield waits by the chat…",
+      "summaryZh": "重點：refactor(agents): own background commands and yield waits by the chat (#200097) ## What Problem This Solves Background c..."
+    },
+    {
+      "id": 5,
+      "title": "土衛六遭撞或催生土星環，卡西尼號資料揭土星多項未解之謎",
+      "link": "https://technews.tw/2026/11/16/saturn-facts-from-nasa-which-details-are-fixed-and-which-are-still-being-revised/",
+      "publishedAt": "Mon, 16 Nov 2026 14:38:50 +0000",
+      "summary": "土星光環可能源自一次衛星撞擊。美國 SETI 協會天文學家丘克（Matija Ćuk）團隊以電腦模擬提出新假設 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "CISA警告Check Point權限提升漏洞遭積極利用",
+      "link": "https://www.ithome.com.tw/news/180528",
+      "publishedAt": "2026-11-16 12:11:29",
+      "summary": "上週Check Point揭露鎖定旗下資安閘道的漏洞利用活動，過程中駭客使用零時差漏洞CVE-2026-123039提升權限，後續美國網路安全與基礎設施安全局（CISA）也針對漏洞遭到利用提出警告，呼籲各界提高警覺。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 7,
+      "title": "MongoDB修補可能導致資料庫切換節點時當機的重大漏洞",
+      "link": "https://www.ithome.com.tw/news/180527",
+      "publishedAt": "2026-11-16 12:11:25",
+      "summary": "資料庫軟體業者MongoDB於11月10日修補重大漏洞CVE-2026-118383，CVSS嚴重性評分達9.5。該漏洞源自資料庫複製（Replication）元件，影響MongoDB複製集（replica set）伺服器，涵蓋4.4至9.0等分支版本，使用者應升級至已修補的4.4.32、5.0.35、6.0.30、7.0.48、8.0.37、8.3.16及9.0.7等版本。",
+      "source": "iThome",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
       "title": "韓國企業協作平臺DaouOffice傳遭零時差漏洞攻擊，客戶共用帳號又遭暴力破解，至少3家金融業者受駭",
       "link": "https://www.ithome.com.tw/news/180522",
       "publishedAt": "2026-11-16 12:11:05",
@@ -20,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 9,
       "title": "微軟Windows本機AI模型將改用Aion Instruct，輸入上下文上限擴大逾9倍",
       "link": "https://www.ithome.com.tw/news/180525",
       "publishedAt": "2026-11-16 12:11:03",
@@ -29,75 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
-      "title": "Fireworks AI事件波及，惡意版Anthropic Claude擴充程式於Cursor市集上架",
+      "id": 10,
+      "title": "Cursor受Fireworks AI事件波及，惡意版Anthropic Claude擴充程式於Cursor市集上架",
       "link": "https://www.ithome.com.tw/news/180519",
       "publishedAt": "2026-11-16 11:11:44",
       "summary": "AI程式碼撰寫平臺Cursor 11月13日公告，受到使用的Fireworks AI平臺被駭影響，導致自家外掛平臺上出現了惡意版的Anthropic Claude擴充程式，致使用戶受害。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "Check Point閘道設備遭PHP2Shell漏洞攻擊，駭客植入後門並透過虛擬化平臺進行資料破壞",
-      "link": "https://www.ithome.com.tw/news/180523",
-      "publishedAt": "2026-11-16 11:11:36",
-      "summary": "11月12日資安公司Check Point公布與修補權限提升漏洞CVE-2026-123039，同一天該公司的威脅研究團隊透露，此弱點已被用於自10月底出現的攻擊活動。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "Uber因Fireworks AI事件，外洩數千司機證件資訊",
-      "link": "https://www.ithome.com.tw/news/180520",
-      "publishedAt": "2026-11-16 11:11:25",
-      "summary": "受到AI推論基礎架構Fireworks AI遭駭事件影響，Uber上週通報美國多州政府至少8,000名司機個資因此外洩。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "test(ui): await cold Settings search imports (#199963)",
-      "link": "https://github.com/openclaw/openclaw/commit/270b338edea53c5fb8778d60e5ba7f68d36c31fd",
-      "publishedAt": "2026-11-16T05:02:36Z",
-      "summary": "test(ui): await cold Settings search imports (#199963)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): await cold Settings search imports (#199963)",
-      "summaryZh": "重點：test(ui): await cold Settings search imports (#199963)..."
-    },
-    {
-      "id": 8,
-      "title": "refactor(agents): replace tool-loop detectors with an arguments-only …",
-      "link": "https://github.com/openclaw/openclaw/commit/3a3eed8695e68e182c4851285a3de90ca2cba0ff",
-      "publishedAt": "2026-11-16T04:59:21Z",
-      "summary": "refactor(agents): replace tool-loop detectors with an arguments-only repeat guard (#199591) ## Problem The tool-loop guard was 12 files and about 1,700 lines. It hashed tool outcomes, had name checks for single tools (exec, message, wait, memory_search, computer, progress_card, write, process), and had four separate detectors plus a post-compaction guard. Rolling detection was opt-in, so most installs did not use it. One part was always on: after 3 identical failing calls, the next identical call ended the turn. The model got no chance to answer, and the user got a stop message in place of an answer. ## Fix One guard in `packages/agent-core/src/tool-repeat-guard.ts` (105 lines), used by the agent loop: - It compares each tool call with the call before it. It compares the tool name and the canonical arguments only. It never compares outcomes. - 3rd identical call in a row: the call runs, and a redirect note is added to its result. The note names the tool and tells the model to change its approach. - 20th identical call in a row: the call does not run. The turn ends with the typed reason `tool_repeat_limit` and this message: `OpenClaw stopped this turn: the model called with the same arguments 20 times in a row. Send a new message to continue.` - Tools declare `repeatable` themselves and skip the check: Code Mode `wait`, `process` poll/log/list, `agents_wait`, `sessions_yield`, `subagents` list/wait, `computer` screenshot/wait. The declaration is plain data (`true` or `{ actions: [...] }`), so it crosses the worker wire. - Worker turns (cloud and node workers) run the same guard over all their tools. The Gateway resolves `tools.loopDetection.enabled` (agent over global) into the worker tool-surface policy as `toolRepeatGuard`, and each tool definition carries its `repeatable` exemption. Two optional fields are added to the closed worker tool-surface schema (`definition.repeatable`, `policy.toolRepeatGuard`); worker bundles are build-bound to the Gateway. - Calls to an unknown tool are keyed by name. - New user input resets the streak. Removed: outcome hashing, per-tool checks, argument churn, ping-pong, the rolling history, batch admission and recovery state, the post-compaction guard, the \"3 identical failures\" hard stop and its error code. Repeated identical failing calls now get the same note and cap as any other repeat. Config: - `tools.loopDetection.enabled` stays. `false` turns the guard off. Unset or `true` keeps it on. This also folds the rolling detection that was opt-in into the one default rule. - The Codex `appServer.loopDetectionPreToolUseRelay` key is retired. `openclaw doctor --fix` removes it. - The `tool.loop` diagnostic event stays, with `detector: \"tool_repeat\"`. ## User impact - A model that repeats a failing call now gets a note and can still answer, instead of the turn ending after 3 failures. - A model stuck on one call is stopped after 20 identical calls with a clear message, on local and worker turns alike. - `tools.loopDetection.enabled: false` still turns the guard off. Existing configs keep loading; `openclaw doctor --fix` removes the retired keys. ## Proof | Check | Tier | Base (`5d5ca9d2`) | Head (`ecb05477`) | |---|---|---|---| | Unit: note at 3rd identical call, stop at 20th with `tool_repeat_limit`, repeatable tools skip, unknown tool keyed by name, guard off when disabled (`tool-repeat-guard.test.ts`) | vitest-source | n/a (new) | 10/10 pass | | Regression: 4 identical failing calls, then the model answers | vitest-source | **fails**: turn ends after 3 failures, no answer | pass | | Real Gateway, mock model repeats one failing read (`tool-loop-global-breaker`, step 1) | dist-nodts | **fails**: Gateway logs `OpenClaw stopped this turn: the same read call failed 3 times`, run ends in error with no answer | pass: note on 3rd read, model recovers with its final answer | | Real Gateway, mock model ignores the note (step 2) | dist-nodts | n/a | pass: exactly 20 reads, 20th not run, user sees the `tool_repeat_limit` message | | Regression: worker turn with loop detection on, `progress_card` called 3 times with `{\"markdown\":\"Still working\"}` gets the redirect note on the 3rd result; with `tools.loopDetection.enabled: false` it gets none (`worker.runtime.test.ts`, real worker runtime + fake Gateway) | vitest-source | **fails** on `a3f26f46` (worker forced `enabled: false`) | pass | | Gateway policy: `toolRepeatGuard: false` only when loop detection is off; agent setting overrides global (`prepared-tool-surface.test.ts`) | vitest-source | n/a (new) | pass | | Upgrade: config written by latest stable `2026.11.3` (`tools.loopDetection.enabled`, Codex `appServer.loopDetectionPreToolUseRelay` + `requestTimeoutMs`) plus the old sub-keys (`windowSize`, `historySize`, `warningThreshold`, `criticalThreshold`, `globalCircuitBreakerThreshold`, `detectors`, `postCompactionGuard`, which stable already rejects, as left by older releases); stable Gateway runs turn 1 on a mock model; head `openclaw doctor --fix`; head Gateway starts and runs turns 2 and 3 on the same session (fresh HOME, throwaway ports) | source CLI | | pass: doctor removes every retired key and keeps `enabled` and `requestTimeoutMs`; head Gateway starts on the migrated config; turn 2 answers; turn 3's provider request contains turn 1's reply, so the session survives | | `packages/agent-core` | vitest-source | | 29 files, 343 tests pass | | 51 touched unit test files + 2 before-tool-call e2e files | vitest-source | | pass | | `pnpm check:test-types`, `pnpm tsgo:scripts`, `tsgo:core`, `tsgo:extensions` | type | | pass | | Full build with declarations + packed tarball check | full | | pass; guard in package, old symbols absent | | `rg` for every removed symbol across `src/ scripts/ test/ extensions/ packages/` | static | | 0 hits | ## Net lines `209 files changed, 1275 insertions(+), 9989 deletions(-)` (net -8,714) - Source: +815 / -3,585 (net -2,770; includes the regenerated `predicates.js` validator) - Tests: +391 / -6,198 (net -5,807) - Docs: +69 / -206 (net -137) Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(agents): replace tool-loop detectors with an arguments-only …",
-      "summaryZh": "重點：refactor(agents): replace tool-loop detectors with an arguments-only repeat guard (#199591) ## Problem The tool-loop gua..."
-    },
-    {
-      "id": 9,
-      "title": "fix(test): retain startup fixtures after cleanup failure (#199964)",
-      "link": "https://github.com/openclaw/openclaw/commit/09d8f8db59582d8746948aa3586eea47fc119271",
-      "publishedAt": "2026-11-16T04:59:17Z",
-      "summary": "fix(test): retain startup fixtures after cleanup failure (#199964) * fix(test): retain startup fixtures after cleanup failure * test: record startup cleanup fault and retry proof * docs(test): format cleanup proof commands",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(test): retain startup 修正tures after cleanup failure (#199964)",
-      "summaryZh": "重點：修正(test): retain startup 修正tures after cleanup failure (#199964) * 修正(test): retain startup 修正tures after cleanup failur..."
-    },
-    {
-      "id": 10,
-      "title": "fix(control-ui): remove ellipses from chat progress labels (#198560)",
-      "link": "https://github.com/openclaw/openclaw/commit/4ff607aa61f32c820a4fe362a9c9972e866e012f",
-      "publishedAt": "2026-11-16T04:58:17Z",
-      "summary": "fix(control-ui): remove ellipses from chat progress labels (#198560) * feat(clawhub): let chat plugin cards represent community plugins The card payload reader required official: true, so a Gateway-authored card for a community plugin was dropped before it reached the chat. Plugin cards now carry the registry's official flag; skill cards stay official-only. The loading placeholder shows the official badge only for official cards. The loaded card already rechecks the Gateway's catalog answer, shows no badge for a community plugin, and offers View details instead of Install. * feat(message): show one exact ClawHub plugin card by package name clawhub now takes either query (search, unchanged) or plugin, the exact ClawHub package name. The exact form looks up that one package, never falls back to search, and shows its existing card. A name ClawHub does not know, or that is not a plugin, returns an explanation and shows no card. Search still returns official plugins and skills only. An exactly named community plugin is shown with the registry's own official flag. * docs(control-ui): document exact ClawHub plugin cards * fix(chat): render source reply cards before run adoption * test(chat): classify producer display regression as Node integration * fix(message): send ClawHub cards without generated captions * perf(chat): consolidate source reply admission and card decoding * test(chat): document independent card delivery proof boundaries * refactor(chat): use native named-export lazy card loading * refactor(outbound): keep attachment normalization in payload owner * test(chat): attach profile isolation reason to the mock * feat(templates): name the Template's agent in catalog detail The release detail already validates the Template's agent id from the ClawHub manifest summary. Return it so a client can name the agent it wants before Add, without a plan. * feat(templates): add a plan-free chat mode to templates.add.apply A request with mode \"chat\" names the agent id it wants and carries no plan digest. The Gateway admits the agent and chat under an unused id, fetches the Template, writes its workspace, then installs declared skills, bundled plugins and MCP servers one at a time. A dependency that cannot be set up is collected instead of stopping creation, and plugins referenced on ClawHub and automations are left to the agent's conversation. Failing to fetch the Template or write its workspace removes the agent and chat this request created. The agent's first turn starts after creation and receives a setup report through buildTemplateOpeningMessage, which still returns the existing opening. The plan-based request used by the CLI is unchanged. * feat(templates): copy CLAW.md and allow setup tools in chat-based Add Chat-based Add copies the Template's CLAW.md unchanged to the workspace root as an ordinary file, bound into the same retry checkpoint as the other workspace files. A Template whose own workspace files claim that path keeps its file and the setup report says so. The saved tool allowlist gains automations, plugins and message when the Template's allowlist omits them. A Template without an allowlist inherits the operator's policy, and a tool the Template denies stays denied. * test(templates): cover chat-based Add at the Gateway request seam Drive templates.add.apply in chat mode against a Template fixture shaped like Travel Copilot, with real admission, workspace, bundled skill and plugin, MCP and rollback owners. A declared plugin that is installed but disabled does not block, a missing skill keeps the agent and is reported, an unfetchable Template or failed workspace write leaves no agent, chat or workspace, and a taken id yields the next unused one. * feat(ui): add Templates from the Control UI without a plan Add no longer requests templates.add.plan. It sends one chat-mode templates.add.apply with the release's package name, exact version and an agent id derived from the Template's own id, then opens the pending chat as before. The review step for plugin capability grants and skill warnings is gone from the Add path; ClawHub's audit of a flagged release still asks first. A card Add reads the release detail once, because only the detail names the Template's agent. When the Gateway answers a first Add with an error it kept nothing, so the user returns to the catalog with the error on that card. * docs(templates): describe plan-free Add from the Control UI * fix(templates): retain effective setup tool grants in chat Add * fix(ui): open Template chat before resolving release details * fix(templates): reserve original manifest in chat Add * fix(templates): extract Gateway Add result leaf contract * perf(templates): keep trust decoder outside shared UI boot * fix(templates): report incomplete chat Add setup truthfully * test(templates): preserve reviewed checkpoint across chat retry refusal * fix(pr): include the ClawHub trust reader in wrapper extraction * perf(templates): decode trust errors without connection adapter * fix(templates): explain reserved manifest recovery after rollback * test(templates): reconcile creation regression allocation * feat(templates): add the setup prompt for a new Template agent The Gateway is moving to create a Template agent deterministically and leave the remaining setup to the agent's own first turn. This adds the hidden prompt for that turn. It is not used yet. The prompt fixes the order of the setup conversation: greeting, paused automations from CLAW.md, added MCP servers, ClawHub plugin state and install cards, creation failures, then the author's BOOTSTRAP.md opening. Automations carry the same declaration key, schedule, session target and delivery as the Gateway installer creates today, so a second run adds no duplicates. CLAW.md and the report are author-influenced, so the prompt treats them as data. Report text reaches the model only as bounded JSON, and two rules hold whatever a workspace file says: automations stay paused, and only the user installs or enables a plugin. * feat(gateway): run a Template setup prompt with the agent's tools The Template opening turn passed an empty runtime tool allowlist, which removes every tool, so the agent could not finish its own setup. startAgentOnboardingConversation now accepts the setup prompt for a Template agent. With one, the turn sends that prompt and passes no runtime allowlist, so the agent's own tool policy decides what it can call. The prompt stays hidden from the chat as before. No caller passes a prompt yet, so the existing Template opening and New agent onboarding still run without tools. * fix(plugins): preserve exact package identity in tool inventory * feat(templates): finish Add through retryable hidden setup * docs(templates): reconcile chat Add manifest and heartbeat limits * fix(templates): present setup cards without redundant narration * fix(templates): preserve incomplete dependency results through setup retry * fix(templates): keep setup retry outcomes truthful independently * fix(templates): attach chat while dependency setup settles * test(chat): provide submission owners to chat fixtures * docs(templates): cite concurrent setup prompt incident * fix(templates): keep Add timing diagnostics at debug level * test(ui): supply submissions owner to plugin identity fixture * fix(ui): retain Template Retry input across reconnects * test(ui): share Template live-custody scenarios * fix(control-ui): remove ellipses from chat progress labels * test(ui): preserve connection settings reconnect label * test(ui): align live activity expectations with status copy * test(ui): align remaining e2e progress expectations with status copy The command palette preview, tool-turn outcome and Mantis chat proof scenarios still expected a trailing ellipsis on labels this change makes plain (Starting, Working, and the running activity headline).",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(control-ui): remove ellipses from chat progress labels (#198560)",
-      "summaryZh": "重點：修正(control-ui): remove ellipses from chat progress labels (#198560) * 新功能(clawhub): let chat plugin cards represent comm..."
     }
   ]
 }
