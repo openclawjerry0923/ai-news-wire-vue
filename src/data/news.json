@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-16T23:59:48.925Z",
+  "generatedAt": "2026-11-17T07:44:07.225Z",
   "items": [
     {
       "id": 1,
-      "title": "feat(templates): honor optional preferred models on Add (#199988)",
-      "link": "https://github.com/openclaw/openclaw/commit/aeabca2e109167fe9dbc0037fd698848a2378b63",
-      "publishedAt": "2026-11-16T23:57:52Z",
-      "summary": "feat(templates): honor optional preferred models on Add (#199988) * feat(templates): honor optional preferred models on Add * feat(templates): honor optional preferred models on Add OpenClaw-Publication: 959930eb-5c47-887b-83c8-2752cde3b158 * test(templates): expect preferred model planning resolver * feat(templates): honor optional preferred models on Add OpenClaw-Publication: 1a954c52-6e3f-87d4-89b1-9f5abaaf0add --------- Co-authored-by: Patrick-Erichsen",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(templates): honor optional preferred 模型 on Add (#199988)",
-      "summaryZh": "重點：新功能(templates): honor optional preferred 模型 on Add (#199988) * 新功能(templates): honor optional preferred 模型 on Add * 新功能(..."
+      "title": "公開網路上存在逾3,800個AI攻擊框架執行個體，臺灣也有20個",
+      "link": "https://www.ithome.com.tw/news/180560",
+      "publishedAt": "2026-11-17 12:11:39",
+      "summary": "美國聯邦調查局（FBI）11月13日發布警示，指出駭客至少從今年8月起，已利用開源AI自主滲透測試框架ARTEX發動攻擊，大幅加快入侵速度。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "fix(state): keep completed retained agent stores out of startup upgra…",
-      "link": "https://github.com/openclaw/openclaw/commit/e3f8a67bc94d2d7582cca9527d97f04aa6c597bd",
-      "publishedAt": "2026-11-16T23:56:13Z",
-      "summary": "fix(state): keep completed retained agent stores out of startup upgrade (#200284) Startup state upgrade no longer selects or copies agent stores whose deletion completed with files retained (deletion journal: cleanup_completed=1, delete_files=0). Their older schema made the startup migration chain fail. That triggered the generic-copy fallback, which rewrote the retained database or exited with \"no such module: vec0\" and crash-looped the Gateway. Active agents, shared state and pending deletions keep their existing validation. Proof: real-SQLite red/green regression (with a vec0 table); exact-head CI green; live Crabbox upgrade from npm 2026.11.4. On base the chain failed and fell back to the generic copy, rewriting the retained store. On the PR head the migration chain succeeded, /readyz was ready, and the retained store and seal were byte-identical. Fixes #200271 Reported-by: @hannesrudolph Co-authored-by: steipete",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(state): keep completed retained agent stores out of startup upgra…",
-      "summaryZh": "重點：修正(state): keep completed retained agent stores out of startup upgrade (#200284) Startup state upgrade no longer selects..."
+      "title": "駭客利用AI自動化漏洞研究，遭到利用的零時差漏洞一個月爆增至22個",
+      "link": "https://www.ithome.com.tw/news/180561",
+      "publishedAt": "2026-11-17 12:11:10",
+      "summary": "11月17日Google威脅情報團隊（GTIG）發布AI威脅追蹤報告，當中特別提及駭客將AI代理與大型語言模型（LLM）進行漏洞研究與攻擊工具開發的情況，已從實驗階段進入實際運作。攻擊者透過多代理系統執行修補程式差異分析、動態模糊測試，以及概念驗證（PoC）攻擊程式開發等工作，逐步建立自動化漏洞攻擊流程，甚至出現完全不需要人工介入的漏洞發現與利用活動。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(templates): authorize new-agent rollback writes (#200300)",
-      "link": "https://github.com/openclaw/openclaw/commit/42f3067f39681b305a5e45a9747bb4d35dc5b400",
-      "publishedAt": "2026-11-16T23:54:53Z",
-      "summary": "fix(templates): authorize new-agent rollback writes (#200300) Allow the existing guarded rollback to remove only the agent Template Add created when local runtime activation fails before availability. Preserve the current agent/workspace ownership checks and later retained-agent behavior. Carry forward Anmol's fix from https://github.com/openclaw/openclaw/pull/196054 with a current-boundary real-writer regression and stable-ID replan proof. Co-authored-by: Anmol Bhardwaj",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(templates): authorize new-agent rollback writes (#200300)",
-      "summaryZh": "重點：修正(templates): authorize new-agent rollback writes (#200300) Allow the existing guarded rollback to remove only the agen..."
+      "title": "Apple調整macOS App權限管理，27.3測試版開始可限制存取範圍",
+      "link": "https://www.ithome.com.tw/news/180559",
+      "publishedAt": "2026-11-17 12:11:08",
+      "summary": "Apple在macOS 27.3 beta 2加入更細緻的應用程式授權機制，當部分App要求完整磁碟存取或控制其他應用程式時，使用者可限定開放的資料夾與App，不必直接授予廣泛的系統存取權。新版也允許使用者設定App每次控制其他程式前先取得同意，並在App控制其他程式時顯示狀態提示，讓使用者更清楚App取得的權限。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "乾淨回收的假象：台灣既是模範生，也是電子廢棄物的幫兇",
-      "link": "https://technews.tw/2026/11/17/taiwan-clean-recycling-illusion-model-student-e-waste-accomplice/",
-      "publishedAt": "Mon, 16 Nov 2026 23:50:41 +0000",
-      "summary": "2022 年全球產生 6,200 萬噸電子廢棄物，但正式記錄與妥善回收的比例只有 22.3%。更值得警惕的是， [&#8230;]",
-      "source": "TechNews",
+      "title": "漏洞濫用速度加快，Anthropic將重大漏洞揭露靜默期由90天縮短為30天",
+      "link": "https://www.ithome.com.tw/news/180557",
+      "publishedAt": "2026-11-17 11:11:55",
+      "summary": "AI技術使得軟體漏洞的發現及濫用愈來愈容易，Anthropic本週預告將調整協調漏洞揭露（coordinated vulnerability disclosure，CVD）政策，將從2027年1月1日起，漏洞揭露的期間由90天縮短為30天和45天。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "chore(ui): refresh control ui locales (#200311)",
-      "link": "https://github.com/openclaw/openclaw/commit/df315eb3bb99eeb23e5395893e61a9e9daba80e3",
-      "publishedAt": "2026-11-16T23:50:37Z",
-      "summary": "chore(ui): refresh control ui locales (#200311) Co-authored-by: github-actions[bot]",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#200311)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#200311) Co-authored-by: github-actions[bot]..."
+      "title": "美國加強AI晶片出口管制，限制中國等國家透過海外資料中心取得算力",
+      "link": "https://www.ithome.com.tw/news/180558",
+      "publishedAt": "2026-11-17 11:11:41",
+      "summary": "美國商務部工業暨安全局（BIS）周一（11/16）宣布擴大先進AI晶片出口管制，一方面限制中國等國家透過海外資料中心遠端取得AI算力，另一方面擴大對印尼、新加坡等5國的晶片出口限制，以防堵透過第三國規避美國出口管制的漏洞。 美國現行出口管制將中國、古巴、伊朗、伊拉克及俄羅斯等22國列入D:5國家組別，也就是受到美國武器禁運的國家，並對這些國家的先進AI晶片出口實施嚴格的許可限制。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "Adobe 前班底打造 Phota Labs 獲 a16z 千萬注資，用 AI 把隨手拍 NG 照變大師級神作",
-      "link": "https://technews.tw/2026/11/17/photo-labs-ai-photo-assistant/",
-      "publishedAt": "Mon, 16 Nov 2026 23:40:08 +0000",
-      "summary": "由兩名 Adobe 前員工創立的新創公司 Phota Labs，於 12 日正式推出一款全新 iOS 應用程式 [&#8230;]",
-      "source": "TechNews",
+      "title": "美國多家銀行APP傳出服務異常，JP摩根表示內部系統軟體臭蟲造成交易延遲",
+      "link": "https://www.ithome.com.tw/news/180556",
+      "publishedAt": "2026-11-17 11:11:20",
+      "summary": "美國多家大型銀行11月16日傳出網路銀行及行動APP服務異常，大量使用者透過故障通報網站Downdetector反映無法正常存取帳戶或進行交易，涉及JP摩根大通（JPMorgan Chase）、美國銀行（Bank of America）、美國合眾銀行（U.S. Bank）及富國銀行（Wells Fargo）等業者，直到當天下午故障通報才明顯下降。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "日本主導國際調查，發現千個伺服器可能用於 AI 驅動網攻",
-      "link": "https://infosecu.technews.tw/2026/11/17/thousands-of-servers-could-be-used-in-ai-powered-cyberattacks/",
-      "publishedAt": "Mon, 16 Nov 2026 23:30:09 +0000",
-      "summary": "日本共同社報導，一項由日本主導的國際調查 14 日顯示，自去年 10 月開始，約 1,000 個伺服器疑似被用 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ci): report tooling volumes against original full plans (#200108)",
+      "link": "https://github.com/openclaw/openclaw/commit/30c63f950b9deeb94d0b543219bf3e9f1af4ccda",
+      "publishedAt": "2026-11-17T07:41:35Z",
+      "summary": "fix(ci): report tooling volumes against original full plans (#200108) * fix(ci): report tooling volumes against original full plans * fix(ci): preserve full manifest during baseline integration",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): report tooling volumes against original full plans (#200108)",
+      "summaryZh": "重點：修正(ci): report tooling volumes against original full plans (#200108) * 修正(ci): report tooling volumes against original f..."
     },
     {
       "id": 8,
-      "title": "新手也能當駭客，AI 讓勒索犯罪圈走向分散化",
-      "link": "https://infosecu.technews.tw/2026/11/17/beware-the-new-ai-fueled-ransomware-boom/",
-      "publishedAt": "Mon, 16 Nov 2026 23:20:15 +0000",
-      "summary": "資安研究者警告，人工智慧正在加速勒索軟體生態擴張。雖然「全自動化」的勒索攻擊尚未真正到來，但攻擊者已開始將 A [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(test): retain status runtime fixtures after cleanup failure (#200…",
+      "link": "https://github.com/openclaw/openclaw/commit/8a1d86daa41754f352fc6955ad94535066a309af",
+      "publishedAt": "2026-11-17T07:38:35Z",
+      "summary": "fix(test): retain status runtime fixtures after cleanup failure (#200476) * fix(test): retain status runtime fixtures on cleanup failure * docs(test): record status runtime cleanup proof",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): retain status runtime 修正tures after cleanup failure (#200…",
+      "summaryZh": "重點：修正(test): retain status runtime 修正tures after cleanup failure (#200476) * 修正(test): retain status runtime 修正tures on cle..."
     },
     {
       "id": 9,
-      "title": "藥物開發新策略，讓難以抑制的細胞受體直接進入分解程序",
-      "link": "https://technews.tw/2026/11/17/a-much-needed-new-way-to-inactivate-gpcrs-the-most-common-drug-targets/",
-      "publishedAt": "Mon, 16 Nov 2026 23:10:00 +0000",
-      "summary": "人體細胞表面有許多受體蛋白，能接收外界的訊息，並將訊號傳入細胞內，幫助調節血壓、心跳、免疫反應等生理功能。許多 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ci): release reset gate before awaiting route recovery (#200473)",
+      "link": "https://github.com/openclaw/openclaw/commit/ff9b38134a5f8d7e1a36023028c4b71a55ae767e",
+      "publishedAt": "2026-11-17T07:38:12Z",
+      "summary": "fix(ci): release reset gate before awaiting route recovery (#200473)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): 版本發布 reset gate before awaiting route recovery (#200473)",
+      "summaryZh": "重點：修正(ci): 版本發布 reset gate before awaiting route recovery (#200473)..."
     },
     {
       "id": 10,
-      "title": "中國手機品牌全球化：記憶體價格影響下的海外策略布局變化",
-      "link": "https://technews.tw/2026/11/17/chinese-mobile-phone-brands-globalization-overseas-strategy-memory-price-impact/",
-      "publishedAt": "Mon, 16 Nov 2026 23:00:58 +0000",
-      "summary": "受 AI 伺服器大量擠壓高頻寬記憶體產能影響，手機用 DRAM 與 NAND Flash 供給嚴重緊縮。由於 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: reduce Gateway memory retained after restart (#200435)",
+      "link": "https://github.com/openclaw/openclaw/commit/56e6861a4d0967f9794a6bca1759cc72cd9965e2",
+      "publishedAt": "2026-11-17T07:34:45Z",
+      "summary": "fix: reduce Gateway memory retained after restart (#200435) * fix: release completed Gateway restart recovery inputs Release prepared session rows when restart input recovery settles, including failure, so published admission closures do not retain completed work. Preserve recovery ordering and startup authority. Reuse the existing synchronous assertion helper to keep the startup owner below its line cap. * fix(tooling): include startup assertion helper in PR inventory",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: reduce Gateway 記憶 retained after restart (#200435)",
+      "summaryZh": "重點：修正: reduce Gateway 記憶 retained after restart (#200435) * 修正: 版本發布 completed Gateway restart recovery inputs 版本發布 prepare..."
     }
   ]
 }
