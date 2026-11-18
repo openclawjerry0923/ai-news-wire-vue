@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-11-18T17:50:45.542Z",
+  "generatedAt": "2026-11-18T23:58:01.560Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: reflect failed access checks in provider status",
-      "link": "https://github.com/openclaw/openclaw/commit/7ce2d10eced5f379e31a0b01a96fbcbf9741ccbe",
-      "publishedAt": "2026-11-18T17:29:19Z",
-      "summary": "fix: reflect failed access checks in provider status Co-authored-by: sallyom",
+      "title": "refactor: retire tar and Arrow dependency patches",
+      "link": "https://github.com/openclaw/openclaw/commit/9dc69b2b017bd1efa9a847687b959bd1f0996a8a",
+      "publishedAt": "2026-11-18T23:55:20Z",
+      "summary": "refactor: retire tar and Arrow dependency patches Co-authored-by: vincentkoc",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: reflect failed access checks in provider status",
-      "summaryZh": "重點：修正: reflect failed access checks in provider status Co-authored-by: sallyom..."
+      "titleZh": "OpenClaw 程式碼更新：refactor: retire tar and Arrow dependency patches",
+      "summaryZh": "重點：refactor: retire tar and Arrow dependency patches Co-authored-by: vincentkoc..."
     },
     {
       "id": 2,
-      "title": "fix: keep setup diagnostics separate from progress output (#200859)",
-      "link": "https://github.com/openclaw/openclaw/commit/5cb5f15409575744f6f2f157a5eed8c5bec2071b",
-      "publishedAt": "2026-11-18T17:28:09Z",
-      "summary": "fix: keep setup diagnostics separate from progress output (#200859) * fix: keep setup diagnostics separate from progress output Worked on by: - @daniel-lxs Co-authored-by: daniel-lxs OpenClaw-Publication: 73a0ab7d-eace-46ef-911a-1ef5db9f3b06 * Publish openclaw/onboard-diagnostic-progress Worked on by: - @daniel-lxs Co-authored-by: daniel-lxs OpenClaw-Publication: 877a844b-98b5-4ac5-a68e-9e35fb09a503 --------- Co-authored-by: daniel-lxs",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep setup diagnostics separate from progress output (#200859)",
-      "summaryZh": "重點：修正: keep setup diagnostics separate from progress output (#200859) * 修正: keep setup diagnostics separate from progress o..."
+      "title": "路透：川普政府擬要求美企，揭露中國 AI 模型使用情況",
+      "link": "https://technews.tw/2026/11/19/trump-administration-weighs-forcing-us-firms-to-disclose-chinese-ai-use/",
+      "publishedAt": "Wed, 18 Nov 2026 23:50:02 +0000",
+      "summary": "路透社引述 3 名知情人士獨家報導，川普政府正考慮要求美國企業，公開揭露使用中國 AI 模型的情況，希望藉此降 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix(macos): defer Local Network permission until discovery starts (#2…",
-      "link": "https://github.com/openclaw/openclaw/commit/bde2e84084bffa49cad046351f7ddd739d26d9ea",
-      "publishedAt": "2026-11-18T17:24:50Z",
-      "summary": "fix(macos): defer Local Network permission until discovery starts (#201004) * Merge selected base main Co-authored-by: daniel-lxs * fix(macos): defer Local Network permission until discovery starts Worked on by: - @daniel-lxs Co-authored-by: daniel-lxs OpenClaw-Publication: e9c19376-c662-4b21-896a-d240104d91ef --------- Co-authored-by: daniel-lxs",
+      "title": "fix: let updates finish when plugins change no config and openclaw.js…",
+      "link": "https://github.com/openclaw/openclaw/commit/5242bcedfc890e6c799eff6f24ac2cfe6bcb5c02",
+      "publishedAt": "2026-11-18T23:47:50Z",
+      "summary": "fix: let updates finish when plugins change no config and openclaw.json is read-only (#201331) * fix(update): publish plugin records without an empty config write When plugin convergence after a core update changes no config path, publish the install records without writing openclaw.json. A config file the update cannot replace, such as a link to a provisioned read-only file, no longer fails an update whose plugin work converged, and the file keeps its bytes. A real config change against such a file is still refused. The update report for a healthy Gateway with unfinished maintenance now names `openclaw gateway stop --force`, the command that works in a non-interactive shell and the one repair names. Adds the published-driver-plugin-publication Docker lane: a published 2026.11.5 updater's first update with two official npm plugins and a symlinked read-only config. * test(e2e): record the published-driver plugin cell before asserting * test(update): keep the post-Doctor publication check on a real config change * fix(update): bind records-only plugin publication to the planned config path Check the config path proof captured for the update before and after the records-only publication, so a re-pointed config link cannot receive records planned for another config. The published-driver cell now pins its baseline plugin versions through a fixture registry and requires readable update history that names the update's own run. * test(e2e): isolate and bound the published-driver plugin publication cell Give the lane its own artifact directory, read readiness only from a successful probe in this run, bound fixture fetches by the cell deadline, and add a refused-channel-change mode: a real config write against the read-only config still fails the update, and the report names a Gateway stop that works unattended. * test(e2e): pin the refused channel write and the cell's own artifact default The negative control now requires the symlink refusal in post-update verification, the wrapper selects the plugin publication cell's artifact directory with its entry point, and the plugin observation is named after the local inventory it reads. * test(e2e): default the plugin publication cell to a release and pin the refused control's plugins * test(e2e): stamp lane plugin fixtures with the core target and check the config link itself",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(macos): defer Local Network permission until discovery starts (#2…",
-      "summaryZh": "重點：修正(macos): defer Local Network permission until discovery starts (#201004) * Merge selected base main Co-authored-by: da..."
+      "titleZh": "OpenClaw 程式碼更新：修正: let updates finish when plugins change no config and OpenClaw.js…",
+      "summaryZh": "重點：修正: let updates finish when plugins change no config and OpenClaw.json is read-only (#201331) * 修正(update): publish plug..."
     },
     {
       "id": 4,
-      "title": "fix(sessions): keep the running turn when a command is delivered mid-…",
-      "link": "https://github.com/openclaw/openclaw/commit/b68925530d2979ba3f2a702f1edcc5e145ea5228",
-      "publishedAt": "2026-11-18T17:23:57Z",
-      "summary": "fix(sessions): keep the running turn when a command is delivered mid-turn (#201271) Fixes #194451.",
+      "title": "fix(ui): keep consent assets off the Skills route (#201504)",
+      "link": "https://github.com/openclaw/openclaw/commit/b96a3f2dacfaef47fa7abb004bbe3222ba147cb4",
+      "publishedAt": "2026-11-18T23:40:49Z",
+      "summary": "fix(ui): keep consent assets off the Skills route (#201504) * fix(ui): keep consent assets off the Skills route * fix(ui): share plugin artwork with presentation helpers",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(sessions): keep the running turn when a command is delivered mid-…",
-      "summaryZh": "重點：修正(sessions): keep the running turn when a command is delivered mid-turn (#201271) 修正 #194451...."
+      "titleZh": "OpenClaw 程式碼更新：修正(ui): keep consent assets off the Skills route (#201504)",
+      "summaryZh": "重點：修正(ui): keep consent assets off the Skills route (#201504) * 修正(ui): keep consent assets off the Skills route * 修正(ui): ..."
     },
     {
       "id": 5,
+      "title": "懷疑被某人封鎖嗎？iPhone 判斷「被黑名單」的四個關鍵跡象",
+      "link": "https://technews.tw/2026/11/19/ways-to-tell-if-someone-blocked-your-phone-number-on-iphone/",
+      "publishedAt": "Wed, 18 Nov 2026 23:40:29 +0000",
+      "summary": "許多 iPhone 用戶聯絡不上對方時，常懷疑自己的號碼已遭封鎖。科技媒體 Engadget 整理出幾項判斷線 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "fix(update): snapshot busy WAL databases instead of refusing admissio…",
+      "link": "https://github.com/openclaw/openclaw/commit/07baab52b4147001e9b6060ea4371d383aabd683",
+      "publishedAt": "2026-11-18T23:34:27Z",
+      "summary": "fix(update): snapshot busy WAL databases instead of refusing admission (#201327) Artifact-preserving SQLite inspection copies the database bytes and compares them until they hold still. A live writer that checkpoints during every copy (a busy Gateway agent turn on a large agent database) exhausts all ten attempts, so update admission refused with \"SQLite source did not stabilize (reason=wal-copy-unstable, attempts=10)\". When every attempt loses to committed writes on a complete WAL family (main, WAL and index present, no rollback journal), take one SQLite read transaction through the existing online-backup owner instead. Only a live connection can keep checkpointing, so its WAL index is current: the read cannot recover it or change the 96-byte commit header that update captures compare, only reader slots after it. Idle, crashed and index-less families never churn and keep the byte-neutral copy; rollback-journal families keep refusing because a native reader would block their writer. Refs #200791",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(update): snapshot busy WAL databases instead of refusing admissio…",
+      "summaryZh": "重點：修正(update): snapshot busy WAL databases instead of refusing admission (#201327) Artifact-preserving SQLite inspection co..."
+    },
+    {
+      "id": 7,
+      "title": "連國企也快撐不住！珠海華發負債逾 2 兆，恐成中國房市新地雷",
+      "link": "https://finance.technews.tw/2026/11/19/zhuhai-huafa-could-become-chinas-next-real-estate-flashpoint/",
+      "publishedAt": "Wed, 18 Nov 2026 23:30:33 +0000",
+      "summary": "中國房地產市場恐再爆地雷，廣東省珠海市政府旗下大型國有企業珠海華發集團，因資金周轉惡化，面臨債務償還壓力，截至 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "機器人握得住手卻給不了安慰，共感是 AI 學不會的人類超能力",
+      "link": "https://technews.tw/2026/11/19/sensitivity-ai-will-never-learn/",
+      "publishedAt": "Wed, 18 Nov 2026 23:20:59 +0000",
+      "summary": "《富比士》（Forbes）於 11 月 13 日刊登的評論指出，人工智慧（AI）即使未來能更完整地解析情感連結 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "找到 8 分鐘重複一次的神祕電波來源，天文學家證實源自白矮星雙星系統",
       "link": "https://technews.tw/2026/11/18/a-mysterious-radio-signal-repeats-every-8-minutes-astronomers-finally-know-whats-behind-it/",
       "publishedAt": "Wed, 18 Nov 2026 13:56:15 +0000",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "OpenAI推出GPT-6.2雙模型，Astra首度達AI自我改進高風險門檻",
       "link": "https://www.ithome.com.tw/news/180605",
       "publishedAt": "2026-11-18 12:11:58",
       "summary": "OpenAI周二（11/17）宣布推出GPT-6.2 Astra與GPT-6.2 Sol兩款AI模型，分別鎖定複雜專業工作與日常應用。其中，Astra首次達到OpenAI訂定的AI自我改進能力高風險（High）門檻，顯示AI協助開發下一代AI系統的能力進一步提升。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "N-able發布N-central重大安全更新，修補17個漏洞並強化身分驗證機制",
-      "link": "https://www.ithome.com.tw/news/180606",
-      "publishedAt": "2026-11-18 12:11:24",
-      "summary": "企業IT監控與管理軟體供應商N-able於11月16日發布N-central 2026.4 Hotfix 3（HF3），修補17個安全漏洞，涉及身分驗證、存取控制、檔案處理及伺服器安全等多個層面，並改善Agent與Probe連線至N-central伺服器時的身分驗證及工作階段管理機制。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "Chrome 158正式推出，修補204個資安漏洞",
-      "link": "https://www.ithome.com.tw/news/180609",
-      "publishedAt": "2026-11-18 12:11:17",
-      "summary": "11月17日Google發布Chrome 158穩定版更新，一口氣修補204個資安漏洞，從漏洞的嚴重程度來看，6個為重大等級、62個為高風險等級，中度及低風險分別為82個與54個。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "資安署揭露某機關平臺忘記帳號功能存在身分驗證漏洞，而被新增34組異常帳號",
-      "link": "https://www.ithome.com.tw/news/180607",
-      "publishedAt": "2026-11-18 12:11:08",
-      "summary": "資安署每期發布的《資通安全網路月報》，都會整理政府機關近期發生的資安事件，供各機關借鏡。本週公布的115年10月月報，則檢討一起機關服務平臺資安事件，該平臺的「忘記帳號」功能存在身分驗證漏洞，系統誤判憑證驗證狀態，導致攻擊者即使未完成憑證驗證，仍能取得帳號維護權限，並進一步新增34組異常帳號。 資安署指出，這批異常帳號後續曾嘗試存取平臺其他功能，但遭到機關既有的權限存取控制機制攔阻，因此未影響平臺正常運作，也未發現功能異常或資料遭竄改、外洩等情事。本次事件影響範圍僅限於異常帳號建立，機關目前已完成漏洞修補。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "Node.js修補16個漏洞，包括可能導致伺服器當機與洩漏連線資料的HTTP/2漏洞",
-      "link": "https://www.ithome.com.tw/news/180608",
-      "publishedAt": "2026-11-18 12:11:00",
-      "summary": "開源JavaScript執行環境專案Node.js於11月11日發布更新，涵蓋26.x、24.x與22.x等三個主要分支版本，共修補16個漏洞，其中7個為高風險漏洞，包括多項影響HTTP/2與HTTP伺服器功能的漏洞。",
       "source": "iThome",
       "tag": "繁中"
     }
