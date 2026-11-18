@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-18T00:39:11.114Z",
+  "generatedAt": "2026-11-18T08:15:53.227Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: finish A2A tasks for messages sent while the agent is still answ…",
-      "link": "https://github.com/openclaw/openclaw/commit/b15c658270ddab1a3942a6560f6520301f6aed6c",
-      "publishedAt": "2026-11-18T00:37:14Z",
-      "summary": "fix: finish A2A tasks for messages sent while the agent is still answering (#200846) Root cause: `extensions/a2a/src/inbound.ts:165` completes an A2A task only when dispatch returns `deferredToActiveRun` unset, and #183803 settles only `\"followup\"` later through `onQueuedFollowupReplyBatch`; a `\"steer\"` result has no reply delivery or queued batch of its own, so nothing ever settles that task. Fixes #200646 ## What Problem This Solves With the default `steer` queue mode, an A2A peer that sends a second message while the first is still being answered gets a new task for it. The agent answers that message inside the running turn, but the new task stays `TASK_STATE_WORKING` forever, so a peer polling `GetTask` waits indefinitely and never sees the answer. ## User Impact A2A peers now get a terminal state for every message steered into an active turn: `TASK_STATE_COMPLETED` with the replies the turn delivered after the message joined it, `TASK_STATE_FAILED` (`Agent run failed`) if that turn fails, or `TASK_STATE_FAILED` (`Agent run aborted`) if an operator stops it. These are the same states a queued followup gets. Tasks that start their own turn or queue as a followup are unchanged. ## Why This Change Was Made The A2A dispatch whose run is executing in a session records the final replies it delivers. That is either its own run, or its queued followup's run once that starts: queued followups call the source dispatch's run-start observer. A dispatch that comes back as steered registers with that owner, and when the owner's run ends the steered task settles through the same settlement #183803 added for queued followups (same reply filtering, same `Agent run ` failure). A followup run ends with its terminal batch. Core reports a run's end as completed or failed and reports nothing for a cancelled run, so a run that reported neither settles its steered tasks as aborted. A followup that never starts never becomes the owner, so a dropped followup leaves nothing behind. No core, SDK, schema or config change. ## Evidence Real Gateway from source (`ocx src`, bundled `a2a` channel, `messages.queue.mode: \"steer\"`) with a local OpenAI-compatible provider fixture. An A2A peer sends m1 (\"answer ONE\", reply delayed 8 s), then m2 (\"answer TWO\") 2 s later in the same `contextId`, both with `returnImmediately`, and polls `GetTask` on both. - Base `f3638439b9` (twice): m1 `COMPLETED [\"ONE\"]`, m2 `WORKING []` 45 s after the turn ended. The fixture log shows m2 was answered (`TWO`) inside m1's run. - Candidate (twice): m1 `COMPLETED [\"ONE\"]`, m2 `COMPLETED` with an artifact holding the replies `ONE` and `TWO`, about 10 s after sending. - Failure control (provider returns 500 on every request): base m1 `FAILED`, m2 still `WORKING` 65 s later; candidate m1 and m2 both `FAILED` (`Agent run failed`). - Operator stop (`openclaw gateway call chat.abort`) after the run consumed the steer: base m2 still `WORKING` 60 s later (twice); previous head 4968ee20a3 m2 `COMPLETED` without text (the review finding); candidate m2 `FAILED` `Agent run aborted` (twice). Normal flow on the same build: m2 `COMPLETED` with `ONE` and `TWO`. - Built artifact (`ocx build --dts`, `node dist/entry.js`) at this head for the stop and normal runs. - Steered into a queued followup's run (start in `followup` mode so m2 queues, operator runs `openclaw config set messages.queue.mode steer` while m2's run executes, m3 then steers into it): base 8c09105a m3 still `WORKING` 60 s later (twice, plus once with an operator stop); candidate m3 `COMPLETED` with `TWO` and `THREE` (twice), or `FAILED` `Agent run aborted` when the operator stops the run (twice). - Full captures: https://github.com/openclaw/openclaw/pull/200846#issuecomment-6963955920, https://github.com/openclaw/openclaw/pull/200846#issuecomment-6964428507 and https://github.com/openclaw/openclaw/pull/200846#issuecomment-6965151308 - Regression tests: `settles a message steered into the active run when that run completes|fails|is cancelled` (red on base for all three; cancelled case red on 4968ee20a3) and `settles a message steered into a queued followup's run with that run's batch` (red on 8c09105a). `inbound.test.ts` + `http.test.ts` pass at this head (41/41). Thanks @alexph-dev for the precise report and probe. Merge danger: two-way door. The change is local to the A2A plugin's inbound dispatch and writes no new state; a revert restores the old behavior exactly. Blast radius: A2A peers only; other channels and the core queue are untouched. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: finish A2A tasks for messages sent while the agent is still answ…",
-      "summaryZh": "重點：修正: finish A2A tasks for messages sent while the agent is still answering (#200846) Root cause: `extensions/a2a/src/inbo..."
+      "title": "OpenAI推出GPT-6.2雙模型，Astra首度達AI自我改進高風險門檻",
+      "link": "https://www.ithome.com.tw/news/180605",
+      "publishedAt": "2026-11-18 12:11:58",
+      "summary": "OpenAI周二（11/17）宣布推出GPT-6.2 Astra與GPT-6.2 Sol兩款AI模型，分別鎖定複雜專業工作與日常應用。其中，Astra首次達到OpenAI訂定的AI自我改進能力高風險（High）門檻，顯示AI協助開發下一代AI系統的能力進一步提升。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "傳輝達曾提醒客戶，美限制中企存取 AI 晶片法將帶來法律風險",
-      "link": "https://technews.tw/2026/11/18/nvidia-warns-chip-buyers-of-legal-risks-tied-to-china-ai-access/",
-      "publishedAt": "Wed, 18 Nov 2026 00:35:40 +0000",
-      "summary": "CNBC 17 日報導，輝達（Nvidia）近幾個月曾提醒客戶，美國為限制中國企業使用其人工智慧（AI）晶片而 [&#8230;]",
-      "source": "TechNews",
+      "title": "N-able發布N-central重大安全更新，修補17個漏洞並強化身分驗證機制",
+      "link": "https://www.ithome.com.tw/news/180606",
+      "publishedAt": "2026-11-18 12:11:24",
+      "summary": "企業IT監控與管理軟體供應商N-able於11月16日發布N-central 2026.4 Hotfix 3（HF3），修補17個安全漏洞，涉及身分驗證、存取控制、檔案處理及伺服器安全等多個層面，並改善Agent與Probe連線至N-central伺服器時的身分驗證及工作階段管理機制。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: keep owner device approval working when the Gateway connection d…",
-      "link": "https://github.com/openclaw/openclaw/commit/420247df39b4873c242e445346a2b0515a4f186d",
-      "publishedAt": "2026-11-18T00:35:21Z",
-      "summary": "fix: keep owner device approval working when the Gateway connection drops (#200842) * fix: keep owner device approval working when the Gateway connection drops * test: consolidate owner approval reconnect tests --------- Co-authored-by: VACInc",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep owner device approval working when the Gateway connection d…",
-      "summaryZh": "重點：修正: keep owner device approval working when the Gateway connection drops (#200842) * 修正: keep owner device approval work..."
+      "title": "Chrome 158正式推出，修補204個資安漏洞",
+      "link": "https://www.ithome.com.tw/news/180609",
+      "publishedAt": "2026-11-18 12:11:17",
+      "summary": "11月17日Google發布Chrome 158穩定版更新，一口氣修補204個資安漏洞，從漏洞的嚴重程度來看，6個為重大等級、62個為高風險等級，中度及低風險分別為82個與54個。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "連科學家都說不清科學是什麼，研究揭同領域學者觀點也大不同",
-      "link": "https://technews.tw/2026/11/18/what-is-science/",
-      "publishedAt": "Wed, 18 Nov 2026 00:30:06 +0000",
-      "summary": "一項發表於《皇家學會開放科學》（Royal Society Open Science）的研究調查 91 位科學 [&#8230;]",
-      "source": "TechNews",
+      "title": "資安署揭露某機關平臺忘記帳號功能存在身分驗證漏洞，而被新增34組異常帳號",
+      "link": "https://www.ithome.com.tw/news/180607",
+      "publishedAt": "2026-11-18 12:11:08",
+      "summary": "資安署每期發布的《資通安全網路月報》，都會整理政府機關近期發生的資安事件，供各機關借鏡。本週公布的115年10月月報，則檢討一起機關服務平臺資安事件，該平臺的「忘記帳號」功能存在身分驗證漏洞，系統誤判憑證驗證狀態，導致攻擊者即使未完成憑證驗證，仍能取得帳號維護權限，並進一步新增34組異常帳號。 資安署指出，這批異常帳號後續曾嘗試存取平臺其他功能，但遭到機關既有的權限存取控制機制攔阻，因此未影響平臺正常運作，也未發現功能異常或資料遭竄改、外洩等情事。本次事件影響範圍僅限於異常帳號建立，機關目前已完成漏洞修補。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "docs: publish release notes for v2026.11.5 (#200841)",
-      "link": "https://github.com/openclaw/openclaw/commit/29ce933e9e0fb59b47650f14c70bdeae7fa8791a",
-      "publishedAt": "2026-11-18T00:28:46Z",
-      "summary": "docs: publish release notes for v2026.11.5 (#200841)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 文件更新：文件: publish 版本發布 notes for v2026.11.5 (#200841)",
-      "summaryZh": "重點：文件: publish 版本發布 notes for v2026.11.5 (#200841)..."
+      "title": "Node.js修補16個漏洞，包括可能導致伺服器當機與洩漏連線資料的HTTP/2漏洞",
+      "link": "https://www.ithome.com.tw/news/180608",
+      "publishedAt": "2026-11-18 12:11:00",
+      "summary": "開源JavaScript執行環境專案Node.js於11月11日發布更新，涵蓋26.x、24.x與22.x等三個主要分支版本，共修補16個漏洞，其中7個為高風險漏洞，包括多項影響HTTP/2與HTTP伺服器功能的漏洞。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "美 AI 晶片新規，經部：台廠代工若涉管制由美系客戶申請許可",
-      "link": "https://technews.tw/2026/11/18/moea-taiwan-oems-us-ai-chip-new-rules-client-permits/",
-      "publishedAt": "Wed, 18 Nov 2026 00:25:46 +0000",
-      "summary": "川習會晤前，美國發布新規，限制晶片出口至海外資料中心，以防止中國透過轉運取得先進 AI 晶片。經濟部 17 日 [&#8230;]",
-      "source": "TechNews",
+      "title": "研究人員公布OpenJDK重大漏洞Java4Shell細節",
+      "link": "https://www.ithome.com.tw/news/180601",
+      "publishedAt": "2026-11-18 11:11:44",
+      "summary": "11月17日Oracle發布本月關鍵安全修補更新（CSPU），當中修補OpenJDK記憶體損毀漏洞CVE-2026-114938，通報此事的資安公司Calif.io指出，該弱點發生在Java虛擬機器（JVM）的Base64解碼器，攻擊者可利用特製輸入資料造成堆積記憶體（Heap）越界寫入，進一步竊取記憶體中的敏感資訊，甚至達成遠端程式碼執行（RCE），CVSS v4.0評分達9.2分（",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "fix: preserve pending tools in watchdog stop diagnostics (#200874)",
-      "link": "https://github.com/openclaw/openclaw/commit/d57603b0b3319ef3f4502a64bce9b9d8504c3278",
-      "publishedAt": "2026-11-18T00:22:55Z",
-      "summary": "fix: preserve pending tools in watchdog stop diagnostics (#200874)",
+      "title": "fix: stop extra narration after an agent already replied while its su…",
+      "link": "https://github.com/openclaw/openclaw/commit/1eb33504f612da1a83993d26b747b80e17264ffc",
+      "publishedAt": "2026-11-18T08:15:20Z",
+      "summary": "fix: stop extra narration after an agent already replied while its sub-agents run (#200655) * fix(agents): preserve waiting replies for already-pending children (cherry picked from commit bc0ca8a5537746d6c1f5bf4ac073b37ecf36ff8b) * fix(agents): end the turn when an already-pending yield follows a delivered reply * refactor(agents): count a waiting acknowledgment as yield continuation evidence * test(ui): prove an already-pending yield after a delivered reply ends the turn * test(ui): drive the already-pending yield e2e through message-tool-only replies * test(ui): accept message-tool-only completion input in the wait fixture * fix(agents): require the current input's own delivered reply before an already-pending yield ends it * fix(agents): end an already-pending yield turn only when a pending child will wake the session * style(agents): bind the steered-input reset and test invoker explicitly * test(ui): register the already-pending yield e2e as a real-Gateway file and allocate its test lines * test(ui): list the already-pending yield e2e with the serial real-Gateway files * test: account for the inline yield acknowledgment case after the suite fold --------- Co-authored-by: Jan Leon",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: preserve pending tools in watchdog stop diagnostics (#200874)",
-      "summaryZh": "重點：修正: preserve pending tools in watchdog stop diagnostics (#200874)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: stop extra narration after an agent already replied while its su…",
+      "summaryZh": "重點：修正: stop extra narration after an agent already replied while its sub-agents run (#200655) * 修正(agents): preserve waitin..."
     },
     {
       "id": 8,
-      "title": "烏克蘭試驗無人機撤離傷員有成，將放大規模",
-      "link": "https://technews.tw/2026/11/18/ukraine-to-scale-up-medical-evacuation-drones/",
-      "publishedAt": "Wed, 18 Nov 2026 00:20:11 +0000",
-      "summary": "俄烏戰場是全球無人機戰爭許多理論的實踐地，無人機的應用不只包括偵查與作戰本身，其實在後勤的應用上對戰場更是有關 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test: age catalog listings before renewal checks (#201078)",
+      "link": "https://github.com/openclaw/openclaw/commit/6a8eb5a93234fddc924f07e5b6f8edbf7072f190",
+      "publishedAt": "2026-11-18T08:12:25Z",
+      "summary": "test: age catalog listings before renewal checks (#201078)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: age catalog listings before renewal checks (#201078)",
+      "summaryZh": "重點：test: age catalog listings before renewal checks (#201078)..."
     },
     {
       "id": 9,
-      "title": "憂美選後 AI 支出放緩，美銀調查經理人減碼科技股創 20 年最劇",
-      "link": "https://finance.technews.tw/2026/11/18/investors-slashed-tech-exposure-allocations-by-most-since-2006/",
-      "publishedAt": "Wed, 18 Nov 2026 00:15:27 +0000",
-      "summary": "根據美國銀行（Bank of America）調查，基金經理人淨增持科技股比重從 10 月的 37% 銳減至本 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix: stop showing a running Linux Gateway service as last exit 0 (#20…",
+      "link": "https://github.com/openclaw/openclaw/commit/2fe1f8c116b4dd0e523d99af62a4332c0efb0132",
+      "publishedAt": "2026-11-18T08:04:48Z",
+      "summary": "fix: stop showing a running Linux Gateway service as last exit 0 (#200778) Root cause: src/daemon/systemd-runtime.ts:186 (and the D-Bus reader at src/daemon/systemd-loaded-runtime.ts:243) copied systemd's `ExecMainStatus`/`ExecMainCode` into the last exit even while the main process was still running, when systemd holds both at 0, so `openclaw gateway status` and onboarding printed `last exit 0, reason 0` for a Gateway that had never exited. Scope: this PR fixes one defect, the false `last exit 0` diagnostic that #200671 was filed on (\"startup failure exits 0\"). It does not close #200671. The rest of that report is not a defect in this code path: the startup-failure path already exits nonzero (`src/cli/gateway-cli/run.ts:881`, 1 or 78), restarting on any exit is the deliberate `Restart=always` service policy, and a fresh Gateway outgrowing a 1 GB host below the 2048 MiB heap floor is a separate memory/performance question. ## What Problem This Solves On a low-memory Linux host, a systemd-managed Gateway that keeps getting killed and restarted shows `Runtime: running (pid …, state active, last exit 0, reason 0)`. That reads as \"the Gateway exits cleanly and systemd keeps restarting it\", which is how #200671 was filed. The Gateway never exited 0: every restart in the journal was `code=killed, status=9/KILL` (out of memory). The 0/0 is systemd's placeholder for a main process that has not exited yet. ## User Impact `openclaw gateway status` and the onboarding readiness summary no longer claim a running Gateway last exited with 0. Real exits (for example `last exit 9, reason 2` after a kill, or the status after a stop) are still shown. ## Why This Change Was Made systemd resets `ExecMainCode` to 0 when it starts a new main process and sets it only when that process exits. Both systemd readers now report the last exit only when `ExecMainCode` is non-zero. The startup-failure exit path itself is unchanged: it already exits 1 (or 78 for config refusals), and `Restart=always` restarts on any status by design. ## Evidence Reporter's flow (`openclaw onboard --non-interactive … --install-daemon`) in a Debian 12 container with systemd as PID 1, Node 24.22.1, 906 MiB RAM + 511 MiB swap (cgroup limits), building this branch and its base inside Linux. Base (1f3524eec31a): ```text systemctl --user show: ActiveState=active SubState=running ExecMainCode=0 ExecMainStatus=0 NRestarts=5 journal: openclaw-gateway.service: Main process exited, code=killed, status=9/KILL (every restart) openclaw gateway status: Runtime: running (pid 645, state active, sub running, last exit 0, reason 0) ``` Candidate (this branch): ```text systemctl --user show: ActiveState=active SubState=running ExecMainCode=0 ExecMainStatus=0 NRestarts=7 openclaw gateway status: Runtime: running (pid 1161, state active, sub running) control, during auto-restart: Runtime: unknown (state activating, sub auto-restart, last exit 9, reason 2) control, after stop: Runtime: stopped (state inactive, sub dead, last exit 9, reason 2) ``` Regression tests in `src/daemon/systemd-loaded-runtime.test.ts` cover both readers (systemctl show and D-Bus); they fail on the base with `lastExitStatus: 0` / `lastExitReason: \"0\"` and pass here. Thanks @DonnieFi for the detailed Raspberry Pi report. Merge danger: two-way door. Display only; no state, config or contract change. Blast radius: Linux systemd Gateway status and onboarding summaries. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: stop showing a running Linux Gateway service as last exit 0 (#20…",
+      "summaryZh": "重點：修正: stop showing a running Linux Gateway service as last exit 0 (#200778) Root cause: src/daemon/systemd-runtime.ts:186 ..."
     },
     {
       "id": 10,
-      "title": "Vibe Coding 引爆企業「影子 IT」危機，失控原型恐成外洩破口",
-      "link": "https://finance.technews.tw/2026/11/18/ai-platform-vulnerability-confidential-data-leakage/",
-      "publishedAt": "Wed, 18 Nov 2026 00:10:30 +0000",
-      "summary": "隨著「Vibe coding」（透過自然語言生成程式與應用）的快速普及，不具備工程背景的使用者現在也能在極短時 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(plugins): let hooks see the verified paired device that sent a tu…",
+      "link": "https://github.com/openclaw/openclaw/commit/74e5127c0c3dcc4589cd38309819102e2c9bf840",
+      "publishedAt": "2026-11-18T07:46:52Z",
+      "summary": "fix(plugins): let hooks see the verified paired device that sent a turn (#200664) Related: #189600, #187952, #177713 ## What Problem This Solves A plugin hook can't tell which paired device sent a turn. The gateway already knows: every `chat.send` from a paired operator device runs with `ApprovalReviewerDeviceId` set from the connection's verified device (`client.connect.device.id`), and exec approvals are bound to it. But neither the agent hook context nor the tool requester context exposes it. What hooks do see, `senderId`, names the kind of client (for example `openclaw-ios`), not the device, so two phones running the same app look identical to a plugin. A plugin that wants to allow or refuse a turn based on which paired device sent it has no field to read. ## User Impact Plugins get the verified device id for turns a paired device sends: - agent hooks (`before_agent_run`, `before_prompt_build`, `agent_end`, …): `ctx.requesterDeviceId` - tool hooks (`before_tool_call`, …): `ctx.requester.deviceId` Both are optional and read-only. Both are set only from the authenticated connection, never from request params (`chat.send` still rejects unknown properties), and only for user-triggered turns. A device-less client (shared token, no device identity) gets neither field. Nothing changes for plugins that don't read them. ## Why This Change Was Made The id already exists on the run (`approvalReviewerDeviceId`, threaded into the embedded attempt for approval binding). This change copies it onto the two hook contexts at the points where they're built. It doesn't add a new source or a new trust decision: - `src/plugins/hook-agent-context.types.ts` / `hook-agent-context.ts`: `requesterDeviceId?` on `PluginHookAgentContext`, set by `buildAgentHookContextIdentityFields` from `approvalReviewerDeviceId` under the same `trigger === \"user\"` (or unset) rule that already governs `senderId` and `chatId`. - `src/agents/harness/hook-context.ts`: passes the attempt's `requesterDeviceId` through. - `extensions/codex/src/app-server/run-attempt-context.ts`: the Codex app-server runtime builds its own agent hook context, so it sets `requesterDeviceId` from the attempt's `approvalReviewerDeviceId` too. The shared builder still applies the user-trigger rule. - `src/agents/cli-runner/prepare-hook-context.ts`: CLI backend turns build their `before_prompt_build` context separately, so it takes `requesterDeviceId` from the shared identity projection (same user-trigger rule). The CLI's other hooks already used that projection. - `src/plugins/hook-tool-context.types.ts` / `src/agents/harness/host-requester.ts`: `readonly deviceId?` on the tool requester, set from `attempt.approvalReviewerDeviceId`. - Docs: `docs/plugins/hooks/tool-policy.md` and `docs/plugins/hooks/prompt-and-session.md`. - Tests: `src/plugins/hook-agent-context.test.ts`, `extensions/codex/src/app-server/run-attempt.auth-context.test.ts` (the Codex prompt and compaction hooks carry the id on a user turn and drop it on cron), a case in `src/agents/cli-runner/prepare.test.ts` (the CLI prompt-build hook receives it), and new `src/agents/harness/host-requester.test.ts`. `prepare-mcp.test-support.ts`'s grant-transfer case now expects `deviceId` on the tool requester. **How this relates to #189600.** That PR gives tool factories `toolContext.requesterProfile`, the verified Gateway *profile* (the person) behind an admitted Control UI turn, with a liveness check. This one gives hooks the verified *device* behind any paired device's turn, phones and native apps included, which have no profile and no Control UI session. They answer different questions (which person, which device) at different layers (tool factory, hooks), they touch none of the same files, and either can land first. If maintainers would rather have one requester-identity object, `deviceId` fits next to `requesterProfile` without changing this PR's meaning. Accepted edge cases: - Only user-triggered turns carry the id, the same as `senderId`. Cron, heartbeat and other system-triggered runs don't. - A run a plugin starts with `api.runtime.subagent.run` carries the id only when it's started inside the paired device's gateway-method request. That's when the in-process `agent` dispatch uses the device's connection. A run started from the plugin's own detached context runs as the plugin and carries none, which is correct: no device asked for it. - The id is the device that sent the turn. It isn't a person; for that, see #189600. ## Evidence **Real gateway with a real model.** Source build of this PR's head (80af2eefc62). The model was `openai/gpt-5.4-mini`, which runs on the Codex app-server runtime. Clients were OpenClaw's own `GatewayClient`, and a probe plugin logged every hook's context. Device ids are cut to 8 characters: | Case | `before_prompt_build` / `agent_end` | `before_tool_call` (every tool the model called) | |---|---|---| | a: paired device `openclaw-ios`/ui sends `chat.send` | `requesterDeviceId c74f633c…`, `senderId openclaw-ios` | `requester.deviceId c74f633c…` | | c: second paired device, same client id and display name | `requesterDeviceId 03d163ad…` (its own) | `requester.deviceId 03d163ad…` | | d: device-less `cli` (shared token) | no `requesterDeviceId`, `senderId cli` | no `requester.deviceId`, including on `device_probe_tool` | This run found a gap in this PR's first head (9449852c725). On the Codex runtime, tool hooks had the id but `before_prompt_build` and `agent_end` didn't, because that runtime builds its own agent hook context. The second commit fixes it. With the first commit's tree restored, the extended Codex test fails (`expected … to match object … requesterDeviceId: 'device-a'`). The stub-model runs below use the embedded runtime (`openai-completions` provider) and cover the request-param and pairing cases. Real gateway, source build of this change (6e198d5d6a9, before the rebase) against its parent on main (5fb231527f4), with a probe plugin that logs both hook contexts, OpenClaw's own `GatewayClient` and a local OpenAI-compatible stub model. No provider keys were set, and device ids are cut to 8 characters: | Case | This head | Base (5fb231527f4) | |---|---|---| | Paired device (`openclaw-ios`/ui) sends `chat.send` | `before_agent_run`: `requesterDeviceId bc313985…`; `before_tool_call` (`dispatch_action` and the inner plugin tool): `requester.deviceId bc313985…` | `senderId openclaw-ios` only; no device id anywhere | | Same device adds `requesterDeviceId` or `approvalReviewerDeviceId` to `chat.send` | `INVALID_REQUEST … unexpected property` (closed schema), no run | same | | Second device with the same client id and display name | sees its own id (`cc3b699f…`), never the first's | n/a | | Device-less client (`cli`, shared token) | no `requesterDeviceId`, no `requester.deviceId` | same | `grep -rl requesterDeviceId dist` finds nothing in the base build. The same change, backported onto 2026.11.4, was also run with a plugin whose gateway method starts `subagent.run` inside the device's request. The id was on every hook of the run, including hooks that fired after the device's socket had closed, and the run finished normally. Checks on this PR's head (abe48fb77f8, on main bb45ba99390): - Tests: 19 test files that touch the requester device or hook contexts (hook-agent-context, host-requester, Codex run-attempt.auth-context, native-hook-relay and dynamic-tools, CLI prepare, tool-authority and reliability, embedded attempt tool context, before-tool-call approval policy, plugin tool context, reply authority and others) pass, except one Codex `dynamic-tools` case (\"bounds high-cardinality validation errors\") that fails the same way on main bb45ba99390. The new hook-agent-context, Codex and CLI assertions each fail with main's production line. - `pnpm tsgo:core` and `pnpm tsgo:extensions` pass. - oxlint and oxfmt are clean on the changed files, `git diff --check` is clean, and `check:test-lines-ratchet` passes (+49 net test lines, within the 400 allowance). - The local Codex autoreview (`--mode branch --engine codex --max-priority P2`) found nothing on the first commit. - On the change before the rebase (6e198d5d6a9), every `lint:tmp:*` script, `check:max-lines-ratchet`, `check:assertion-safety`, `check:test-timeout-race-ratchet` and `config:docs:check`/`config:schema:check` also passed. - Plugin SDK API diff: additive optional fields only (`PluginHookAgentContext.requesterDeviceId`, `PluginHookToolRequesterContext.deviceId`). Not run: the full test suite locally (CI covers it), the CLI runner path with a real model, and a real phone app. ## Maintainer fix **Bug found in review:** steering from device B into device A's active run kept reporting device A to hooks. A device allowlist then authorized B's input as A. **Fix:** - `src/plugins/hook-requester-device.ts` records the device of every human input accepted into a run. Hook dispatch withholds the device unless all input came from that device. A missing device is acceptable; a wrong device is not. - Talk steering (`talk.client.steer`) carries the verified caller device, so a client that steers its own run keeps its device. - Sync hooks (`tool_result_persist`, `before_message_write`) carry no device and are not projected. - Pure hook-selection helpers moved to `src/plugins/hook-registration-select.ts` to keep `hooks.ts` within the line cap. - Docs: steering caveat and a device allowlist example. **Real Gateway proof** (isolated Gateway, real model, two paired devices A and B, probe plugin logging the device each hook sees): | Scenario | Device the hook sees | |---|---| | `chat.send` from A | A | | B steers into A's run, before fix | A (wrong) | | B steers into A's run, after fix | none | | A steers its own run | A | | Collect from A and B | separate runs, each its own device | | Restart resume | none | | Revoke A mid-run | run cancelled, `agent_end` shows A | | Subagent / `sessions_send` / `tools.invoke` from B | none | | Allowlist plugin (allow A only) | A's run reaches `session_status`; B's run is blocked at `dispatch_action` | Checked from source only: retries and fallback reuse the same runId and input; compaction keeps the runId; cron and side questions carry no device; MCP HTTP grants carry the device and runId. Regression tests (red before, green after): `src/auto-reply/reply/message-injection-requester-device.test.ts`, `src/agents/cli-runner/prepare-hook-context.test.ts`, `src/talk/agent-run-control.test.ts`. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(plugins): let hooks see the verified paired device that sent a tu…",
+      "summaryZh": "重點：修正(plugins): let hooks see the verified paired device that sent a turn (#200664) Related: #189600, #187952, #177713 ## W..."
     }
   ]
 }
