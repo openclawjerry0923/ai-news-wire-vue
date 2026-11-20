@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-19T17:07:10.626Z",
+  "generatedAt": "2026-11-20T00:21:18.906Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: stop repeated full-history rewrites during worktree cleanup (#20…",
-      "link": "https://github.com/openclaw/openclaw/commit/6ef632bfb498ef0b02ce30b207c0295e172beae2",
-      "publishedAt": "2026-11-19T16:55:24Z",
-      "summary": "fix: stop repeated full-history rewrites during worktree cleanup (#201930) * fix(worktrees): bound geometric pack rewrites Roll up the largest affordable break in the pack-size progression so small overlapping arrivals cannot starve history-pack convergence or force repeated full-history unions. Use actual replacement sizes on later passes and retain the existing verification, retirement, ordering, and lease owners. Synthetic real-Git cycles fail on the base and converge with the fix for both promisor classes. Preserve revision compression and object custody with zero net test-line growth. Restart re-arming may advance another bounded convergence batch before the next hourly slot; no scheduler persistence is needed once the inventory converges. * test(worktrees): preserve dominant packs in missing-object fixture",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: stop repeated full-history rewrites during worktree cleanup (#20…",
-      "summaryZh": "重點：修正: stop repeated full-history rewrites during worktree cleanup (#201930) * 修正(worktrees): bound geometric pack rewrites..."
+      "title": "Ruby修補7項記憶體安全漏洞，5項可能導致遠端程式碼執行",
+      "link": "https://www.ithome.com.tw/news/180667",
+      "publishedAt": "2026-11-20 08:11:00",
+      "summary": "程式語言Ruby維護團隊11月18日發布安全更新，修補7項記憶體安全漏洞，其中3項被列為重大（Critical）風險、3項為高（High）風險，另有1項為中度（Moderate）風險。官方指出，其中5項漏洞已有概念驗證（PoC）證明，在特定情況下可觸發遠端程式碼執行（RCE），使用受影響版本的企業應留意應用程式處理外部輸入時的安全風險。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "refactor(gateway): check node dispatch run authority once at caller e…",
-      "link": "https://github.com/openclaw/openclaw/commit/a38c7df01e968814be530663f931432e580e3be5",
-      "publishedAt": "2026-11-19T16:49:14Z",
-      "summary": "refactor(gateway): check node dispatch run authority once at caller entry (#201887) Problem: node plugin policy re-checked the calling run's authority several times while one node dispatch ran: before the transport wrapper, after the pairing await, just before the transport, in the final send, inside the approval currentness check, and when deciding whether to attribute the result. When the run's authority closed partway through, a node command that had already started was refused with \"agent runtime approval authority closed before node dispatch\". Fix: the run is checked once at each caller's entry. node.invoke and terminal go through the Gateway's pre-dispatch admission. Computer transport calls assertInvocationCurrent before the policy, which checks delegated run authority and worker-turn currentness. isCallerRuntimeAuthorityActive and every use are deleted, as is the agent-runtime clause of resolveNodeInvokeRuntimeAuthorityError. Forwarded-approval, plugin, private-owner, session, stream, command, upload and placement-grant checks are unchanged. User impact: a node command that a run has started is no longer refused because the run's authority closed meanwhile. A policy result that arrives after the run ended is now recorded instead of dropped. Proof: entry checks confirmed for each caller; 14 node-dispatch test files including a new late-result attribution case; tsgo and test types; oxlint, format and the lifetime-check, line-cap, session-identity, mock-export and max-lines ratchets; ocx build --dts plus a packed install smoke on the head. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：refactor(Gateway): check node dispatch run authority once at caller e…",
-      "summaryZh": "重點：refactor(Gateway): check node dispatch run authority once at caller entry (#201887) Problem: node plugin policy re-check..."
+      "title": "NIST完成量子位置驗證實驗，未來有望防範駭客從遠端冒用身分",
+      "link": "https://www.ithome.com.tw/news/180652",
+      "publishedAt": "2026-11-20 08:11:00",
+      "summary": "帳號密碼一旦遭竊，攻擊者就可能冒用合法使用者身分，從其他地點登入系統。美國國家標準暨技術研究院（NIST）近日公布量子位置驗證（Quantum Position Verification，QPV）研究成果，利用量子糾纏與訊息傳輸時間，確認通訊對象是否位於指定地點，未來有望為企業存取控制增加一道防護。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "fix: updates remove their own backups once verified and delete old up…",
-      "link": "https://github.com/openclaw/openclaw/commit/aecb49e3e3bad29b230c0629f5bb4cd1cb70bd50",
-      "publishedAt": "2026-11-19T16:48:34Z",
-      "summary": "fix: updates remove their own backups once verified and delete old updater backups (#201711) * fix(update): remove a verified update's backups and old updater backups An update's Doctor backups now record the update run that took them, and a database rollback writes a receipt for the files it moves aside. Automatic cleanup decides from the run outcome instead of the live database inode, removes a verified update's own images and captures, deletes earlier updater-owned sets, keeps the newest unverified set and anything a pending recovery or unfinished run references, and reports what it freed and kept. * fix(update): release already-current captures and rerun cleanup after verification * fix(update): keep rollbacks and unverified images safe while cleaning up Receipt writes never block a database rollback and keep the database directory's mode. Non-restorable pre-migration images keep their existing retention. A changed newest set no longer releases older sets, the ledger keeps the cleanup report on every finished run, and a failed run's sealed capture is released by a later verified update. * fix(update): release update backups per database, never per run An older backup of a database is released only by a verified update after it or by an intact backup of the same database from a later run; a moved-aside family counts as intact only when every recorded member is present. Receipt reads count against the status scan budget, a cleanup rerun replaces the recorded report, sizes are reported as logical bytes and the suggested removal path is shell-quoted. * fix(update): re-prove successors, keep live-database checks, scan configured agent dirs A newer Doctor backup releases an older one only after its recorded content is re-verified, and moved-aside families never stand in for older backups. Released backups still require a present, unaliased live database. Receipts alone load run history, configured agent directories are scanned, a volume renumbered by a reboot keeps its receipt valid, and a settled rerun clears an earlier cleanup warning instead of restating it. * fix(update): keep copies while their live database is missing and report cleanup in text output Moved-aside families now need a present live database before removal, as Doctor backups do. Bounded status and read-only Doctor never hash a backup. The plain-text update report prints the cleanup summary, a warning-only attempt replaces the recorded summary, and the suggested removal path uses the CLI quoting helpers for the platform. * fix(update): require full successor images, running-run tags, and a live database for moved-aside copies * test: record the test-line allocation for the round-four regressions * chore(pr): add the update run reader to the wrapper inventory",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: updates remove their own backups once verified and delete old up…",
-      "summaryZh": "重點：修正: updates remove their own backups once verified and delete old updater backups (#201711) * 修正(update): remove a verif..."
+      "title": "API金鑰隨Docker Hub映像檔對外曝光，研究發現最快7.86秒就遭濫用",
+      "link": "https://www.ithome.com.tw/news/180635",
+      "publishedAt": "2026-11-20 08:11:00",
+      "summary": "美國石溪大學（Stony Brook University）研究人員近期發布研究，發現自動化掃描工具持續搜尋Docker Hub等公開儲存庫中的容器映像檔，並擷取其中的雲端服務金鑰。研究團隊透過蜜罐實驗發現，AWS測試金鑰最快在映像檔發布後7.86秒，就被用來呼叫AWS API，顯示企業若不慎將金鑰留在公開映像檔中，金鑰可能很快就遭到未經授權的使用。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix(ui): hide plugin toolbar actions in the resting phone composer (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/d89d554d06ee662a9c06a6758621395de21e85eb",
-      "publishedAt": "2026-11-19T16:46:17Z",
-      "summary": "fix(ui): hide plugin toolbar actions in the resting phone composer (#201939) ## What Problem This Solves On a phone, an empty composer the user is not typing in rests as one line: **+**, the placeholder, microphone and send. Its stylesheet hides every other control. A plugin composer action with an icon (#201695), such as Better, still showed: it dropped to its own row under the one-line composer and made it taller. ## Cause The contributions element set `host.style.display = \"contents\"` inline. The resting layout hides the lead's other controls with a stylesheet `display: none`, which an inline style outranks, so the plugin's toolbar slot stayed visible. `base.css` already gives `openclaw-plugin-contributions` `display: contents`, so the inline style was redundant. ## Fix Remove the inline style. The resting phone composer hides toolbar actions like its other controls; typing or focusing the composer shows the full toolbar again, including the action. An action like Better is disabled on an empty draft anyway. ## Evidence - New e2e (`native-plugin-composer.e2e.test.ts`, 390px phone): the resting composer hides the icon action, and typing shows it. Red on main (`expected true to be false`), green with the fix. - All composer-task and native plugin UI e2e (17) and `control-ui-contributions` unit tests pass; `tsgo:ui`, oxlint. - `chat-composer-size.e2e.test.ts` 360/375px active-run cases fail identically on unmodified main; unrelated. - Before/after phone screenshots in the comments. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ui): hide plugin toolbar actions in the resting phone composer (#…",
-      "summaryZh": "重點：修正(ui): hide plugin toolbar actions in the resting phone composer (#201939) ## What Problem This Solves On a phone, an e..."
+      "title": "資安AI新創Corma相隔3個月再募資1.25億美元，估值達10億美元",
+      "link": "https://www.ithome.com.tw/news/180568",
+      "publishedAt": "2026-11-20 08:11:00",
+      "summary": "今年8月才宣布取得6,000萬美元種子輪資金的資安AI新創公司Corma，相隔約3個月，再完成1.25億美元A輪募資，公司估值達10億美元。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "Apple多項雲端服務大規模中斷，內部軟體更新問題影響iCloud等服務逾6個小時",
-      "link": "https://www.ithome.com.tw/news/180645",
-      "publishedAt": "2026-11-19 12:11:58",
-      "summary": "Apple於11月17日發生多項網路服務中斷，最早於美東時間上午11時15分左右出現異常，影響範圍隨後擴大。Apple向媒體表示，問題源自內部軟體更新，並非網路攻擊，該公司已復原部分系統，正設法讓其餘服務重新上線。",
-      "source": "iThome",
+      "title": "AI 科學家自動完成上萬步驟實驗，設計、分析都能自己來",
+      "link": "https://technews.tw/2026/11/20/autodna-system-uses-ai-to-autonomously-perform-thousands-of-experimental-steps/",
+      "publishedAt": "Fri, 20 Nov 2026 00:20:31 +0000",
+      "summary": "人工智慧（AI）已可協助科學家搜尋文獻、分析數據，甚至提出研究假說，但要真正完成一項實驗，仍需要研究人員親自操 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "日本藥妝業者DHC因第三方行銷分析平臺被駭，外洩用戶個資1,911萬筆",
-      "link": "https://www.ithome.com.tw/news/180648",
-      "publishedAt": "2026-11-19 12:11:35",
-      "summary": "日本藥妝及健康食品業者DHC週三（11月18日）公告因使用的行銷分析平臺KARTE遭駭，外流客戶資料約1,911萬筆。 DHC指出，11月13日，DHC接獲外包商PLAID通知，告知後者提供的互動式行銷及客戶分析平臺KARTE遭到第三方未經授權存取，波及DHC的客戶資訊被非法存取。經過調查，DHC確認一部分客戶資料外洩。",
-      "source": "iThome",
+      "title": "傳美出口管制新規衝擊，台積電、三星暫停部分對中晶片出貨",
+      "link": "https://technews.tw/2026/11/20/tsmc-and-samsung-suspend-some-chip-shipments-to-chinese-customers/",
+      "publishedAt": "Fri, 20 Nov 2026 00:15:10 +0000",
+      "summary": "英國《金融時報》引述知情人士報導，美國商務部推出一項出口管制新規定後，台積電與三星電子已暫停部分對中國客戶的晶 [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "美國警告群暉NAS、Apache Axis等4款應用系統的漏洞遭積極利用",
-      "link": "https://www.ithome.com.tw/news/180644",
-      "publishedAt": "2026-11-19 12:11:13",
-      "summary": "11月18日美國網路安全與基礎設施安全局（CISA）表示，他們已掌握4個漏洞遭積極利用的證據，將其納入已知遭利用的漏洞名單（KEV），這些漏洞編號是CVE-2024-10441、CVE-2026-40217、CVE-2026-90436，以及CVE-2026-90817，分別影響群暉NAS作業系統DiskStation Manager（DSM）、LiteLLM、Apache Axis，以及REDCap。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix: reclaim stale scratch clones and Git repack leftovers (#202122)",
+      "link": "https://github.com/openclaw/openclaw/commit/3f078860b5498f9f2e6aa9d5f3f48ad8e18eeb0d",
+      "publishedAt": "2026-11-20T00:10:57Z",
+      "summary": "fix: reclaim stale scratch clones and Git repack leftovers (#202122) * fix: reclaim stale scratch clones and Git repack leftovers * test: retain an active owner in the snapshot GC fixture",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: reclaim stale scratch clones and Git repack leftovers (#202122)",
+      "summaryZh": "重點：修正: reclaim stale scratch clones and Git repack leftovers (#202122) * 修正: reclaim stale scratch clones and Git repack le..."
     },
     {
       "id": 8,
-      "title": "資安業者揭露ARTEX攻擊事件應變過程，AI代理程式取得API金鑰後幾分鐘內即發動攻擊，防守方也用AI加速調查",
-      "link": "https://www.ithome.com.tw/news/180647",
-      "publishedAt": "2026-11-19 12:11:05",
-      "summary": "AI代理程式攻擊框架ARTEX持續受到資安界關注，已有多家資安業者揭露相關攻擊活動及調查結果，但較少詳細說明第一線資安團隊的實際應變經過。資安業者Eye Security近日公布一起企業遭ARTEX攻擊的事件應變案例，詳細揭露攻擊者如何利用AI代理程式快速滲透企業環境，以及防守方如何調查、阻擋攻擊，甚至運用AI代理程式協助應變。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test(ui): tolerate fractional chat card button geometry (#202131)",
+      "link": "https://github.com/openclaw/openclaw/commit/02d41858d3b913c1899b580be823e91f838b7dd7",
+      "publishedAt": "2026-11-20T00:09:05Z",
+      "summary": "test(ui): tolerate fractional chat card button geometry (#202131)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): tolerate fractional chat card button geometry (#202131)",
+      "summaryZh": "重點：test(ui): tolerate fractional chat card button geometry (#202131)..."
     },
     {
       "id": 9,
-      "title": "Google升級Gemini Tasks，新增AI代打電話、購物付款功能，首度開放免費使用",
-      "link": "https://www.ithome.com.tw/news/180641",
-      "publishedAt": "2026-11-19 11:11:50",
-      "summary": "Google周二（11/17）宣布升級AI代理人功能Gemini Tasks，率先於美國推出代打電話、預約服務、購物付款及帳單分析等進階功能，同時首度開放美國、日本、南韓、加拿大、澳洲及印度等6國用戶免費使用。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test: align prompt checks with owned scratch guidance (#202130)",
+      "link": "https://github.com/openclaw/openclaw/commit/62b7a678086db1b5016e78507210012847cf25cc",
+      "publishedAt": "2026-11-20T00:04:39Z",
+      "summary": "test: align prompt checks with owned scratch guidance (#202130)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: align prompt checks with owned scratch guidance (#202130)",
+      "summaryZh": "重點：test: align prompt checks with owned scratch guidance (#202130)..."
     },
     {
       "id": 10,
-      "title": "美國NSA機密通訊網路NSANet傳中斷，官方稱例行維護期間發生異常",
-      "link": "https://www.ithome.com.tw/news/180642",
-      "publishedAt": "2026-11-19 11:11:49",
-      "summary": "美國國家安全局（NSA）內部高機密通訊網路NSANet於11月17日發生服務異常，影響員工存取機密資訊及日常作業。NSANet是NSA內部傳輸與交換機密情報的網路，也是該機構情報分析與作業的重要基礎設施。故障期間，NSA調整馬里蘭州總部員工到班時間，避免大量人員同時登入加重網路負載。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix: stop worktree pack consolidation inflating delta storage (#202128)",
+      "link": "https://github.com/openclaw/openclaw/commit/ede5c7d5fa5f0da8ff6dfc71404b1c3d00839525",
+      "publishedAt": "2026-11-20T00:01:54Z",
+      "summary": "fix: stop worktree pack consolidation inflating delta storage (#202128)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: stop worktree pack consolidation inflating delta storage (#202128)",
+      "summaryZh": "重點：修正: stop worktree pack consolidation inflating delta storage (#202128)..."
     }
   ]
 }
