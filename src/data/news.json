@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-23T03:32:25.287Z",
+  "generatedAt": "2026-11-23T14:06:07.196Z",
   "items": [
     {
       "id": 1,
-      "title": "微軟明年淘汰To Do，企業用戶轉向Planner，個人用戶無替代方案",
-      "link": "https://www.ithome.com.tw/news/180702",
-      "publishedAt": "2026-11-23 11:11:42",
-      "summary": "微軟（Microsoft）宣布，將於2027年6月30日正式淘汰待辦事項管理工具Microsoft To Do，涵蓋Windows、Mac、iOS、Android及網頁版。企業與學校用戶將轉向Microsoft Planner，但個人用戶沒有相應替代產品，加上既有資料無法自動移轉，引發用戶不滿。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "refactor(auto-reply): drop mid-run operator re-checks in reply runner…",
+      "link": "https://github.com/openclaw/openclaw/commit/24167fa166736a37326dc5063dcae5030607256a",
+      "publishedAt": "2026-11-23T14:02:46Z",
+      "summary": "refactor(auto-reply): drop mid-run operator re-checks in reply runner (R6c part 4a) (#204069) ## Problem Authority is checked once, when work starts. A started run may finish; Stop cancels; data fences stay. After parts 1-3 (#203999, #204031, #204048), `src/auto-reply/**` still calls `operatorAuthority.assertCurrent()` mid-run in ~37 production files. This is part 4a of the agents/sessions/auto-reply refusal sweep. ## Fix Test for each site: can it fire when only a permission, approval or config changes while nothing about the run or data changes? Yes → authority re-check, deleted. No → Stop, run close or data fence, kept and reworded. `operatorAuthority.assertCurrent()` re-reads the requester's source (request/ingress lifetime, held reference, caller check). Stop is not lost: every site below already checks the run's own abort signal next to it, and `resolveFollowupAbortSignal` already folds `operatorAuthority.signal` into the queued run's abort signal and the reply operation's upstream signal. | Site | Kind | Action | |---|---|---| | `reply-agent-turn-preparation.ts` `assertOperatorCurrent` after the claim (×4) and the preflight-failure `beforeFreshMessageCommit` check | authority (queued start already re-admits through `prepareFollowupRunOperatorAuthority`, unchanged) | **deleted**; `operation.abortSignal` and lifecycle-generation checks stay | | same file, the one check before the mailbox claim | queued start + data fence: a retired cron delivery fence (`createCronCompletionDeliveryFence`) rides on the queued source's `assertCurrent` | **kept** (cut less, CI round 1: without it a retired cron follow-up was claimed and left session-controller cleanup pending, `cron/service.restart-delivery.test.ts`) | | `agent-runner-run.ts` (start + enqueue `assertCurrent`) | authority | **deleted**; lifecycle-generation check stays | | `agent-runner-execute.ts` stalled-turn continuation | authority | **deleted**; the recorded `operatorAuthority.signal` refusal stays (now an `aborted` read, no try/catch) | | `agent-runner-memory.ts` compaction `assertActive`, memory-flush `assertMemoryFlushCurrent` | authority | **deleted**; abort signal + `authorize()` stay | | `agent-runner-session-activity.ts` activity commit | authority (only input of its `assertCurrent` param) | **deleted** with the param | | `agent-runner-steer-adoption.ts`, `agent-runner-question-input.ts` | authority | **deleted**; abort signals stay | | `followup-delivery-tts.ts` (×2), `followup-turn-execution.ts` (×3) | authority | **deleted**; `turn.operation.abortSignal` stays | | `queue/delivery-context.ts`, `queue/enqueue.ts`, `queue/lifecycle.ts` (×2) | authority | **deleted**; cancellation/abort checks stay | | `reply-input-admission.ts`, `reply-source-admission.ts` | authority | **deleted**; abort, lifecycle generation and controller-operation fences stay | | `reply-source-binding.ts` | authority | **deleted**; source signal stays | | `reply-tool-authority-inbound.ts` incoming collaborative-steering participant | authority | **deleted**; host-issuer check `assertAdmittedRunOperatorAuthority` stays | | `reply-workspace.ts` + `get-reply.ts` plumbing | authority | **deleted** `operatorAuthority` param; preprocessing abort stays | | `get-reply.ts` (×2: after agent scope, before reset hooks) | authority | **deleted**; preprocessing abort stays | | `goal-continuation.ts` (×2), `goal-continuation-return.ts` (×2) | authority | **deleted**; eligibility, rearm-generation and session fences stay | Left unchanged: - `agents/worktrees/errors.ts` \"GitHub publication worktree authority changed\" (a registry data fence; reword planned: \"GitHub publication worktree changed\"). Cut less: its only expectation is in `gateway/github-publication.test.ts`, and the local review input scanner scans the whole touched file, including the base blob whose redaction fixture has a `user:password@` URL (trufflehog URI finding at line 403). Replacing the fixture still puts the old line in the reviewed input, so any PR that touches the file is refused until the scanner approves that synthetic value. - Split per the ~25-file rule (this PR touches 20 production files, +11/−59): `operatorAuthority.assertCurrent` callers in `channel-run-admission`, `commands-compact`, `conversation-label-generator`, `dispatch-from-config.{gather,lifecycle,prepare-context,prepare-delivery,prepare-operation}`, `get-reply-inline-actions`, `get-reply-run-admission`, `get-reply-run-context`, `get-reply.types`, `model-selection`, `request-native-subagent`, `session-event-{context,handoff,target}` (17 files) go to part 4a-2; the `src/agents/**` callers are part 4b. ## User impact - A requester whose access changes while their reply runs (preparation, compaction, memory flush, steering, TTS, goal continuation) sees the turn finish. The next request is admitted again. - Queued input still re-admits at its start (`prepareFollowupRunOperatorAuthority`), so revoke-while-queued stays a visible refusal. - Stop still cancels. - No new refusal, prompt or wait. ## Tests Deleted (they assert a mid-run permission refusal through `assertCurrent`): - `agent-runner-memory.test.ts` `operator` invalidation row; `agent-runner-memory.accounting.test.ts` \"rechecks live authority after delayed … accounting\". - `agent-runner.stalled-turn.test.ts` \"unrecorded refusal\" row (the recorded-revocation row stays). - `agent-runner-direct-runtime-config.test.ts` \"refused during preflight\" and \"revoked while resolving input\" rows. - `get-reply.workspace-failure.test.ts` operator-revocation half (the abort half stays). - `agent-runner-steer-adoption.worker.test.ts` \"keeps refused pre-handoff steering …\" (used `assertCurrent` as the fault trigger). - `goal-continuation.test.ts` `revoked` row; `queue/enqueue.steering.test.ts` \"rechecks channel execution authority after waiting …\" and \"queues an unaccepted steer after an unrecorded authority refusal\". - `agent-runner-fallback-steering.test.ts` `backend-ready` + `caller revoked` row (the fingerprint rows still pass through agents-side readers, part 4b). - `reply-agent-turn-preparation.test.ts` `revoked=true` row (operator signal abort during a mocked admission; real admissions follow it through the upstream signal) and the `assertCurrent` call-count expectation. Pre-push (local): - CI round 1 (`3c3c172b476d`): OURS `cron/service.restart-delivery.test.ts` teardown (fixed above by cutting less) and `server.chat-goal.test.ts` \"lets an admitted owner Goal successor's tool effect finish\" (69/69 pass locally on the fix head). Rerun of both plus `reply-agent-turn-preparation.test.ts`: 125/125 pass. - `ocx test` with `OPENCLAW_NODE_TEST_PLAN_CONTINUE_ON_FAILURE=1` on 33 related test files (every direct importer test that builds an operator authority, plus the touched tests; the 382-file direct importer set is over the 150 cap, so CI runs the rest). 16 reds, all mid-run refusals through `assertCurrent`; deleted as listed above. Rerun of all 10 touched test files: 282/282 pass. - `pnpm tsgo:core`, `pnpm tsgo:test`: clean. oxfmt and oxlint on changed files: clean. - lifetime-check ratchet: OK (0 in changed files). session-identity ratchet: OK. ## Evidence One-admission E2E (isolated Gateway, real model) on head `3094468004d1` (and before on `3c3c172b476d`), `verdict.json` `pass: true` both times: - R `running-turn-finishes`: pass (revoke while running → the turn finishes; 3 tool ends after revoke) - Q `queued-input-refused-visibly`: pass (revoke while queued → refused visibly in the transcript) - S `stop-cancels`: pass (Stop → aborted) Local review: \"patch is correct\", no findings, on `3c3c172b476d` and on `3094468004d1`. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：refactor(auto-reply): drop mid-run operator re-checks in reply runner…",
+      "summaryZh": "重點：refactor(auto-reply): drop mid-run operator re-checks in reply runner (R6c part 4a) (#204069) ## Problem Authority is ch..."
     },
     {
       "id": 2,
-      "title": "OpenSSL Base64編碼函式傳出堆積緩衝區溢位漏洞，可能導致記憶體破壞與程式當機",
-      "link": "https://www.ithome.com.tw/news/180700",
-      "publishedAt": "2026-11-23 11:11:37",
-      "summary": "OpenSSL專案於11月18日揭露Base64編碼函式漏洞CVE-2026-121481，問題源自Base64編碼EVP_EncodeBlock()函式存在堆積緩衝區溢位，當輸入資料長度接近整數上限INT_MAX（約2GB）時，函式計算編碼後的輸出長度可能發生整數溢位，導致寫入資料超出呼叫端配置的緩衝區，造成記憶體破壞或程式當機，受影響版本包括4.0.0至4.0.3，以及4.1.0。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix: restore two OpenClaw regression suites (#203569)",
+      "link": "https://github.com/openclaw/openclaw/commit/0df58d4f87b24acd33b9ffb73728d29e67d0158f",
+      "publishedAt": "2026-11-23T14:01:35Z",
+      "summary": "fix: restore two OpenClaw regression suites (#203569) ## Problem Two suites are red on scheduled `main`: - `src/agents/openclaw-tools.subagents.sessions-spawn.lifecycle.test.ts` (checks-node-compact-large-13): 4 cases throw \"No model is configured\". Since #203271, a spawn refuses to start without a configured model, and these fixtures set none. - `src/flows/doctor-health.legacy-update.test.ts` (checks-node-compact-large-4): the legacy-update cases that replay a finished run had no run receipt, so they no longer match how a finished run is recorded. ## Fix - The lifecycle fixtures set a default model. - The doctor-health cases that replay a finished run claim a run receipt first, through the existing test support. - Imports sorted (format only). No product code changes. ## Impact Test-only. Restores checks-node-compact-large-4 and -13 on `main`. ## Evidence - Scheduled `main` runs 45165162201 and 45175216085: both jobs red on these files. - This head (6d68b451, on current `main`): CI run 45187939922 green. - Local ClawSweeper review on this head: patch is correct, no findings. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: restore two OpenClaw regression suites (#203569)",
+      "summaryZh": "重點：修正: restore two OpenClaw regression suites (#203569) ## Problem Two suites are red on scheduled `main`: - `src/agents/Op..."
     },
     {
       "id": 3,
-      "title": "KPMG加拿大被駭，外洩部分客戶稅務資料",
-      "link": "https://www.ithome.com.tw/news/180701",
-      "publishedAt": "2026-11-23 11:11:30",
-      "summary": "全球四大會計師事務所之一KPMG的加拿大成員所上週證實遭駭，導致部分客戶稅務資料外流。 加拿大媒體Globe and Mail上週首先報導，KPMG已證實內部系統被駭，部分客戶稅務文件遭到竊取，並已聯繫客戶。 KPMG發出聲明指出，根據調查，截至目前為止，受到影響的客戶資料未外流到線上或遭到任何形式的誤用。不過KPMG未說明受影響的客戶數量、存取的檔案規模，或是駭客存取的管道。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test(ui): trim repetitive hovercard presentation cases (#198921)",
+      "link": "https://github.com/openclaw/openclaw/commit/a10e445719a65729e73abd835c774c716aba752d",
+      "publishedAt": "2026-11-23T13:54:05Z",
+      "summary": "test(ui): trim repetitive hovercard presentation cases (#198921) * test(ui): trim repetitive hovercard presentation cases * test(ui): preserve hovercard transition removal guards * test(ui): establish collapsed toast pointer state",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): trim repetitive hovercard presentation cases (#198921)",
+      "summaryZh": "重點：test(ui): trim repetitive hovercard presentation cases (#198921) * test(ui): trim repetitive hovercard presentation case..."
     },
     {
       "id": 4,
-      "title": "東亞多所大學遭鎖定，中國駭客用AI攻擊框架Cairn發動攻擊，11分鐘內發現並利用醫療影像AI軟體零時差漏洞",
-      "link": "https://www.ithome.com.tw/news/180697",
-      "publishedAt": "2026-11-23 11:11:02",
-      "summary": "開放原始碼醫療影像AI軟體MONAI Label的零時差漏洞遭駭客利用，攻擊者透過AI代理程式自行發現漏洞並成功入侵大學伺服器，取得root最高權限。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "test(ui): expect no rail search in the compact chat drawer (#203541)",
+      "link": "https://github.com/openclaw/openclaw/commit/7f6e113c68b42ce34927f5b8748441c7dc0d1f4a",
+      "publishedAt": "2026-11-23T13:52:51Z",
+      "summary": "test(ui): expect no rail search in the compact chat drawer (#203541) ## Problem `native-nav-responsive-layout.e2e.test.ts` (checks-ui-e2e 7/10) is red on scheduled `main`. The \"keeps compact chat search reachable\" case taps the search control in the open mobile nav drawer. #203440 intentionally hides that desktop-only rail control on every mobile page, so the control is present but not visible and the tap never reaches the palette. ## Fix The case now asserts the current behavior: the compact chat drawer has no visible rail search (the element exists, so the case still fails on a page that did not render). After the drawer closes, the palette keyboard chord still opens the command palette, so the case still fails if the rail change also removed the palette. No product code changes. ## Impact Test-only. Restores checks-ui-e2e 7/10 on `main`. ## Evidence - Scheduled `main` runs 45165162201 and 45175216085: checks-ui-e2e (7/10) red on this file. - This head (575b4842, rebased on current `main`): CI run 45185907796 green, including the UI e2e lanes. - Local ClawSweeper review on this head: patch is correct, no findings. Co-authored-by: nebulacoder-v8.0 Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test(ui): expect no rail search in the compact chat drawer (#203541)",
+      "summaryZh": "重點：test(ui): expect no rail search in the compact chat drawer (#203541) ## Problem `native-nav-responsive-layout.e2e.test.t..."
     },
     {
       "id": 5,
-      "title": "CISA警告VMware vCenter等4款應用系統的漏洞遭積極利用",
-      "link": "https://www.ithome.com.tw/news/180699",
-      "publishedAt": "2026-11-23 10:11:47",
-      "summary": "11月20日美國網路安全與基礎設施安全局（CISA）發布公告，他們已掌握4個漏洞遭到積極利用的證據，將它們列入已知遭利用漏洞名單（KEV），這些漏洞是：CVE-2025-42884、",
-      "source": "iThome",
+      "title": "Google 打造「鏡像維度」模擬網路，為 Chrome Agent 建立安全訓練沙盒",
+      "link": "https://infosecu.technews.tw/2026/11/23/google-chrome-introduces-mirror-dimension-to-safely-test-ai-agents/",
+      "publishedAt": "Mon, 23 Nov 2026 13:04:16 +0000",
+      "summary": "Google 日前公開一套名為「鏡像維度」（Mirror Dimension）的隔離式合成網路，作為 Chro [&#8230;]",
+      "source": "TechNews",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "Signal將封鎖手機版Siri、Gemini螢幕截圖",
-      "link": "https://www.ithome.com.tw/news/180698",
-      "publishedAt": "2026-11-23 10:11:38",
-      "summary": "為了防範使用者上網裝置資訊遭竊取，加密通訊程式Signal逐步限制作業系統內建的AI代理人截取和儲存Signal螢幕畫面。去年Signal已先自Windows開始，封鎖微軟Recall AI截取Windows 11桌機版的Signal訊息畫面。上週開發這款軟體的公司宣布，同樣的措施將擴大到iOS 27和Android版。",
+      "title": "新加坡CSA警告Apache HTTP/2重大漏洞已遭積極利用，公開PoC也已流傳",
+      "link": "https://www.ithome.com.tw/news/180711",
+      "publishedAt": "2026-11-23 12:11:50",
+      "summary": "新加坡網路安全局（CSA）於11月17日發布警告，指出Apache HTTP Server的HTTP/2模組漏洞CVE-2026-119618據報已遭攻擊者積極利用，且已有公開的概念驗證（PoC）攻擊程式。CSA指出，此漏洞可能讓攻擊者遠端執行程式碼，CVSS嚴重性評分達8.1分，但未進一步說明遭攻擊的受害對象、攻擊規模或PoC的技術細節，僅提醒使用者立即更新至修補版本。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "fix(ci): allow fifteen minutes for macOS handoff package checks (#203…",
-      "link": "https://github.com/openclaw/openclaw/commit/82848e3103dbe31aa5190c4eee888f54ecefd7b5",
-      "publishedAt": "2026-11-23T03:28:21Z",
-      "summary": "fix(ci): allow fifteen minutes for macOS handoff package checks (#203896) Keep the existing metadata checks enabled while allowing slow npm pack dry runs to finish. App source, release tag, and build identity are unchanged. Co-authored-by: RomneyDa",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): allow fifteen minutes for macOS handoff package checks (#203…",
-      "summaryZh": "重點：修正(ci): allow fifteen minutes for macOS handoff package checks (#203896) Keep the existing metadata checks enabled while..."
+      "title": "OpenJDK重大漏洞Java4Shell出現嘗試利用活動",
+      "link": "https://www.ithome.com.tw/news/180709",
+      "publishedAt": "2026-11-23 12:11:44",
+      "summary": "11月17日Oracle與OpenJDK修補被稱為Java4Shell的OpenJDK重大漏洞CVE-2026-114938，發現此弱點的資安公司Calif.io已確認可在多款Java應用程式利用，隨後多家威脅情報公司發現，攻擊者已開始嘗試利用，企業應儘速採取行動因應。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "test: trim infrastructure state and cron diagnostics (#198919)",
-      "link": "https://github.com/openclaw/openclaw/commit/b151c830713020fe0de9e37c3d21b76671fe0add",
-      "publishedAt": "2026-11-23T03:16:48Z",
-      "summary": "test: trim infrastructure state and cron diagnostics (#198919) * test: trim low-value infrastructure diagnostics * test: remove orphaned worker memory fixture * test(ci): remove stale database worker inventory paths",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test: trim infrastructure state and 排程 diagnostics (#198919)",
-      "summaryZh": "重點：test: trim infrastructure state and 排程 diagnostics (#198919) * test: trim low-value infrastructure diagnostics * test: r..."
+      "title": "Apache Tomcat傳出重大漏洞，可能導致未經身分驗證攻擊者加入受信任伺服器叢集",
+      "link": "https://www.ithome.com.tw/news/180707",
+      "publishedAt": "2026-11-23 12:11:15",
+      "summary": "Java Web應用程式伺服器軟體專案Apache Tomcat於11月19日揭露重大漏洞CVE-2026-133325，問題源自叢集通訊使用TLS 1.3搭配預先共享金鑰（TLS-PSK）時，金鑰交換過程未能驗證連線對端身分，導致未經身分驗證的遠端攻擊者，只要能連線至叢集通訊服務，就可能冒充受信任節點加入叢集，存取叢集通訊及資料，影響Tomcat 11.0.28至11.0.29、10.1.62及9.0.124等版本。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "release-publish/49795c31df01-1795402770",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F49795c31df01-1795402770",
-      "publishedAt": "2026-11-23T02:58:03Z",
-      "summary": "fix(release): reuse original ClawHub bytes after partial publication …",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：版本發布-publish/49795c31df01-1795402770",
-      "summaryZh": "重點：修正(版本發布): reuse original ClawHub bytes after partial publication …..."
+      "title": "社群交友服務業者尚凡揭露不明IP位址侵入資訊設備，旗下iPair、SweetRing公告系統維護",
+      "link": "https://www.ithome.com.tw/news/180708",
+      "publishedAt": "2026-11-23 12:11:07",
+      "summary": "以雲端交友與社群平臺起家的上櫃公司尚凡國際創新科技（5278），11月21日（週六）發布資安事件重大訊息，指出當日發現不明IP位址侵入公司資訊設備，資安團隊隨即啟動資安緊急應變機制，目前評估事件對營運尚無重大影響。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "fix(release): reuse original ClawHub bytes after partial publication …",
-      "link": "https://github.com/openclaw/openclaw/commit/49795c31df01d405cf9930ecdf817333e41473d1",
-      "publishedAt": "2026-11-23T02:58:03Z",
-      "summary": "fix(release): reuse original ClawHub bytes after partial publication (#203888) * fix(release): reuse original ClawHub bytes after partial publication Preserve full original roster authentication before selecting receipt-less absent packages, and refresh authority before exposing restored artifacts. Co-authored-by: vincentkoc Co-authored-by: RomneyDa * fix(release): reuse original ClawHub bytes after partial publication Worked on by: - @vincentkoc - @RomneyDa Co-authored-by: vincentkoc Co-authored-by: RomneyDa OpenClaw-Publication: fb4b1fad-09e0-4060-8a16-68b5ecec9b67 --------- Co-authored-by: vincentkoc Co-authored-by: RomneyDa",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): reuse original ClawHub bytes after partial publication …",
-      "summaryZh": "重點：修正(版本發布): reuse original ClawHub bytes after partial publication (#203888) * 修正(版本發布): reuse original ClawHub bytes afte..."
+      "title": "全國電子發布資安重訊，會員收到含真實個資的假訂單釣魚郵件，來源待查",
+      "link": "https://www.ithome.com.tw/news/180706",
+      "publishedAt": "2026-11-23 12:11:07",
+      "summary": "11月19日上市電子通路業者全國電（6281）發布資安事件重大訊息，指出近期陸續接獲部分會員反映，收到冒用全國電名義寄發的虛假訂單電子郵件。經查發現，郵件中的會員姓名、電子郵件及會員卡號等資訊與真實資料相符，懷疑相關資訊遭第三方利用進行釣魚詐騙。",
+      "source": "iThome",
+      "tag": "繁中"
     }
   ]
 }
