@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-22T22:18:23.682Z",
+  "generatedAt": "2026-11-23T03:32:25.287Z",
   "items": [
     {
       "id": 1,
-      "title": "fix: label tied peaks once in the Activity chart (#203633)",
-      "link": "https://github.com/openclaw/openclaw/commit/617ab5fd16cf967ef9561fe64a483883444eee23",
-      "publishedAt": "2026-11-22T22:16:53Z",
-      "summary": "fix: label tied peaks once in the Activity chart (#203633) * fix(ui): label the busiest Activity bucket once Co-authored-by: vyctorbrzezowski * fix: label tied peaks once in the Activity chart Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: cbb6994c-8ef9-8724-a55c-aeefb22d48a7 --------- Co-authored-by: vyctorbrzezowski",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: label tied peaks once in the Activity chart (#203633)",
-      "summaryZh": "重點：修正: label tied peaks once in the Activity chart (#203633) * 修正(ui): label the busiest Activity bucket once Co-authored-b..."
+      "title": "微軟明年淘汰To Do，企業用戶轉向Planner，個人用戶無替代方案",
+      "link": "https://www.ithome.com.tw/news/180702",
+      "publishedAt": "2026-11-23 11:11:42",
+      "summary": "微軟（Microsoft）宣布，將於2027年6月30日正式淘汰待辦事項管理工具Microsoft To Do，涵蓋Windows、Mac、iOS、Android及網頁版。企業與學校用戶將轉向Microsoft Planner，但個人用戶沒有相應替代產品，加上既有資料無法自動移轉，引發用戶不滿。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat: move a conversation that has no project into one (#202306)",
-      "link": "https://github.com/openclaw/openclaw/commit/a567e783d8bd2db50e8d4aeefd62402989338bc9",
-      "publishedAt": "2026-11-22T22:15:57Z",
-      "summary": "feat: move a conversation that has no project into one (#202306) * feat(gateway): move a conversation without a project into one moveSessionIntoProject records the project and a pending checkout on a conversation that has neither, the same intent a session created in the project carries. Its next turn opens the checkout through prepareSessionWorkspaceForRun, so setup scripts, ignored files, sandbox and context follow the project open path. A move can name a folder in the conversation's workspace. Its commit starts the new branch, and its unsaved changes are laid over the checkout. Git reads that folder inside the conversation's sandbox, or on the host through the trusted-config view with hooks off, and hands the project one bundle. Earlier messages keep opening the files they named. The idle check moves out of PR adoption into describeSessionWorkspaceBlocker so both callers share it. * fix(gateway): keep a host carry inside the conversation's own Git data A checkout in the conversation's workspace can name Git data elsewhere on the host through a .git file or objects/info/alternates. The host carry then read another repository's commits into the project and wrote objects into it. The carry now requires the checkout's git dir and common dir to resolve inside the workspace, with no alternates, and refuses with nothing moved. * fix(gateway): refuse a host carry whose Git data holds symlinks * feat(agents): let an agent move its own conversation into a project The opt-in session_project tool lists the registered projects the requester may use and moves the conversation into one, optionally bringing a checkout's work along. The move records the project and pending checkout; because the resumed turn is a session event, which never prepares a pending checkout, the tool opens it through prepareSessionWorkspaceForRun before resuming. Conversations with or without a sandbox can move. The tool is built only when tool policy names it, so agents without a tool profile do not gain it. The GitHub publication tool construction moves into a sibling module with it so openclaw-tools.ts stays within its line cap. * refactor(gateway): move the newest core method rows into an appended table core-descriptors.ts is at its line cap, so new core methods could not be added. Its last rows move unchanged into core-descriptors.appended.ts, which the main table spreads at its end, keeping the combined order append-only. The protocol since guard and the protocol-generation scope read both files. * feat(ui): move a conversation without a project into one Adds the projects.moveSessionOptions and projects.moveSession protocol schemas and a \"Move to project…\" item in the conversation header menu for conversations outside every project and worktree. The dialog lists the projects the conversation can move into, says which local work comes along, and moves it, ending with a toast that names the project and branch. * feat(gateway): let an operator move a conversation without a project into one projects.moveSessionOptions lists the registered projects the operator may use, each with the checkouts in the conversation's workspace whose origin is that project. Git reads them inside the conversation's sandbox, or on the host through the trusted-config view for a conversation without one. projects.moveSession records the move; the person's next message opens the project, as it does for a session created in it, so the dialog's toast says so instead of naming a branch. * fix(gateway): list only checkouts whose Git data is the conversation's own The move dialog's host listing read HEAD, subject and origin through a .git file or alternates that could point at another repository on the host. It now skips any checkout whose git dir or common dir resolves outside the workspace or that borrows objects through alternates. * fix(ci): repair session project move checks * ci: retry Android native validation * fix: offer matching projects to general conversations * perf(ui): defer project move dialog and copy * fix: keep project move within CI guards and boot budget * fix: preview and restore carried project work before setup * fix: keep project moves within lint and chat boot budgets * fix: carry project work from a shared Git ancestor * feat: let agents move into registered projects by default * fix: align project move scope and break session type cycle * fix: preserve successful session project handoffs * fix: resume project moves with current sandbox authority * fix(ui): simplify the project move dialog * refactor(gateway): share workspace transition checks * fix(agents): finish the request after a project move * fix(gateway): reject unsupported sandbox project moves * fix: replay a completed project move as a historical receipt * fix: prepare a conversation checkout before confirming its project move * refactor(gateway): remove deferred project move preparation * fix(gateway): let the session store guard project moves * fix(agents): replay completed project moves as native history --------- Co-authored-by: Codex",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能: move a conversation that has no project into one (#202306)",
-      "summaryZh": "重點：新功能: move a conversation that has no project into one (#202306) * 新功能(Gateway): move a conversation without a project in..."
+      "title": "OpenSSL Base64編碼函式傳出堆積緩衝區溢位漏洞，可能導致記憶體破壞與程式當機",
+      "link": "https://www.ithome.com.tw/news/180700",
+      "publishedAt": "2026-11-23 11:11:37",
+      "summary": "OpenSSL專案於11月18日揭露Base64編碼函式漏洞CVE-2026-121481，問題源自Base64編碼EVP_EncodeBlock()函式存在堆積緩衝區溢位，當輸入資料長度接近整數上限INT_MAX（約2GB）時，函式計算編碼後的輸出長度可能發生整數溢位，導致寫入資料超出呼叫端配置的緩衝區，造成記憶體破壞或程式當機，受影響版本包括4.0.0至4.0.3，以及4.1.0。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 3,
-      "title": "test(ui): wait for initial configuration in provider usage tests (#20…",
-      "link": "https://github.com/openclaw/openclaw/commit/20b72cde566113a27f1baecb9837efcd7cd3a5d4",
-      "publishedAt": "2026-11-22T22:15:24Z",
-      "summary": "test(ui): wait for initial configuration in provider usage tests (#203756)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(ui): wait for initial configuration in provider usage tests (#20…",
-      "summaryZh": "重點：test(ui): wait for initial configuration in provider usage tests (#203756)..."
+      "title": "KPMG加拿大被駭，外洩部分客戶稅務資料",
+      "link": "https://www.ithome.com.tw/news/180701",
+      "publishedAt": "2026-11-23 11:11:30",
+      "summary": "全球四大會計師事務所之一KPMG的加拿大成員所上週證實遭駭，導致部分客戶稅務資料外流。 加拿大媒體Globe and Mail上週首先報導，KPMG已證實內部系統被駭，部分客戶稅務文件遭到竊取，並已聯繫客戶。 KPMG發出聲明指出，根據調查，截至目前為止，受到影響的客戶資料未外流到線上或遭到任何形式的誤用。不過KPMG未說明受影響的客戶數量、存取的檔案規模，或是駭客存取的管道。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 4,
-      "title": "fix: keep About build rows in place when copying fails (#203631)",
-      "link": "https://github.com/openclaw/openclaw/commit/c0a1c0c1a2b4a9d9ba4c54a3a9885ee8be0f604f",
-      "publishedAt": "2026-11-22T22:13:42Z",
-      "summary": "fix: keep About build rows in place when copying fails (#203631) * fix(ui): keep About copy failures in the build row Co-authored-by: vyctorbrzezowski * fix: keep About build rows in place when copying fails Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: c8d70227-9978-8f14-86c7-2e78c58612c2 --------- Co-authored-by: vyctorbrzezowski",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: keep About build rows in place when copying fails (#203631)",
-      "summaryZh": "重點：修正: keep About build rows in place when copying fails (#203631) * 修正(ui): keep About copy failures in the build row Co-a..."
+      "title": "東亞多所大學遭鎖定，中國駭客用AI攻擊框架Cairn發動攻擊，11分鐘內發現並利用醫療影像AI軟體零時差漏洞",
+      "link": "https://www.ithome.com.tw/news/180697",
+      "publishedAt": "2026-11-23 11:11:02",
+      "summary": "開放原始碼醫療影像AI軟體MONAI Label的零時差漏洞遭駭客利用，攻擊者透過AI代理程式自行發現漏洞並成功入侵大學伺服器，取得root最高權限。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 5,
-      "title": "台股跌逾 17% 失守年線還未完？安聯投信：後市盯緊四大止穩訊號",
-      "link": "https://finance.technews.tw/2026/11/22/falling-below-the-annual-moving-average/",
-      "publishedAt": "Sun, 22 Nov 2026 09:35:50 +0000",
-      "summary": "台股近期修正壓力快速升高，若自 11 月 13 日收盤 43,675.12 點計算，台股短短一週修正幅度已逾 [&#8230;]",
-      "source": "TechNews",
+      "title": "CISA警告VMware vCenter等4款應用系統的漏洞遭積極利用",
+      "link": "https://www.ithome.com.tw/news/180699",
+      "publishedAt": "2026-11-23 10:11:47",
+      "summary": "11月20日美國網路安全與基礎設施安全局（CISA）發布公告，他們已掌握4個漏洞遭到積極利用的證據，將它們列入已知遭利用漏洞名單（KEV），這些漏洞是：CVE-2025-42884、",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "輝達遭勒索組織暗網威脅十天後洩漏資料，但官方稱系統未遭入侵",
-      "link": "https://infosecu.technews.tw/2026/11/22/nvidia-ransom-demand-by-the-gentlemen-leak-timer-under-10-days/",
-      "publishedAt": "Sun, 22 Nov 2026 09:00:16 +0000",
-      "summary": "勒索軟體組織 The Gentlemen 18 日將輝達（NVIDIA）列入暗網資料外洩網站，聲稱取得公司資料 [&#8230;]",
-      "source": "TechNews",
+      "title": "Signal將封鎖手機版Siri、Gemini螢幕截圖",
+      "link": "https://www.ithome.com.tw/news/180698",
+      "publishedAt": "2026-11-23 10:11:38",
+      "summary": "為了防範使用者上網裝置資訊遭竊取，加密通訊程式Signal逐步限制作業系統內建的AI代理人截取和儲存Signal螢幕畫面。去年Signal已先自Windows開始，封鎖微軟Recall AI截取Windows 11桌機版的Signal訊息畫面。上週開發這款軟體的公司宣布，同樣的措施將擴大到iOS 27和Android版。",
+      "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "AI 顛覆航空收益管理，「訂票後最佳化」啟動營收與滿意度三贏革命",
-      "link": "https://technews.tw/2026/11/22/ai-boosts-post-booking-optimization-aviation-industry/",
-      "publishedAt": "Sun, 22 Nov 2026 08:30:47 +0000",
-      "summary": "人工智慧（AI）正為航空業的收益管理帶來顛覆性的動態變革！最新產業分析指出，航空公司的營運焦點已不再侷限於「訂 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(ci): allow fifteen minutes for macOS handoff package checks (#203…",
+      "link": "https://github.com/openclaw/openclaw/commit/82848e3103dbe31aa5190c4eee888f54ecefd7b5",
+      "publishedAt": "2026-11-23T03:28:21Z",
+      "summary": "fix(ci): allow fifteen minutes for macOS handoff package checks (#203896) Keep the existing metadata checks enabled while allowing slow npm pack dry runs to finish. App source, release tag, and build identity are unchanged. Co-authored-by: RomneyDa",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(ci): allow fifteen minutes for macOS handoff package checks (#203…",
+      "summaryZh": "重點：修正(ci): allow fifteen minutes for macOS handoff package checks (#203896) Keep the existing metadata checks enabled while..."
     },
     {
       "id": 8,
-      "title": "改變全球電腦操作卻沒賺大錢，揭密 1970 年首款「木製滑鼠」誕生史",
-      "link": "https://ccc.technews.tw/2026/11/22/why-mouse-called-mouse/",
-      "publishedAt": "Sun, 22 Nov 2026 08:00:32 +0000",
-      "summary": "動動滑鼠、按幾個鍵，就能開啟檔案、瀏覽網頁，甚至完成各種複雜的工作。不過，在滑鼠出現之前，操作電腦可不像現在這 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "test: trim infrastructure state and cron diagnostics (#198919)",
+      "link": "https://github.com/openclaw/openclaw/commit/b151c830713020fe0de9e37c3d21b76671fe0add",
+      "publishedAt": "2026-11-23T03:16:48Z",
+      "summary": "test: trim infrastructure state and cron diagnostics (#198919) * test: trim low-value infrastructure diagnostics * test: remove orphaned worker memory fixture * test(ci): remove stale database worker inventory paths",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：test: trim infrastructure state and 排程 diagnostics (#198919)",
+      "summaryZh": "重點：test: trim infrastructure state and 排程 diagnostics (#198919) * test: trim low-value infrastructure diagnostics * test: r..."
     },
     {
       "id": 9,
-      "title": "AI 文字偵測器學會邊用邊調整，識破偽裝文字準確率逾九成",
-      "link": "https://technews.tw/2026/11/22/helping-ai-text-detectors-keep-up-with-changing-conditions/",
-      "publishedAt": "Sun, 22 Nov 2026 07:30:52 +0000",
-      "summary": "麻省理工學院（MIT）與康乃爾大學用「測試時調適」（test-time adaptation，TTA）技術，讓 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "release-publish/49795c31df01-1795402770",
+      "link": "https://github.com/openclaw/openclaw/releases/tag/release-publish%2F49795c31df01-1795402770",
+      "publishedAt": "2026-11-23T02:58:03Z",
+      "summary": "fix(release): reuse original ClawHub bytes after partial publication …",
+      "source": "OpenClaw Releases",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 最新動態：版本發布-publish/49795c31df01-1795402770",
+      "summaryZh": "重點：修正(版本發布): reuse original ClawHub bytes after partial publication …..."
     },
     {
       "id": 10,
-      "title": "信紘科奪 49 億機電工程大單！攜手中工打造台塑大樓 220 億都更案",
-      "link": "https://finance.technews.tw/2026/11/22/mechanical-and-electrical-engineering/",
-      "publishedAt": "Sun, 22 Nov 2026 07:21:10 +0000",
-      "summary": "信紘科與中華工程近日宣布共同投入台北市重大都市更新指標工程「台塑大樓都市更新新建工程」，全案由台塑建設擔任實施 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
+      "title": "fix(release): reuse original ClawHub bytes after partial publication …",
+      "link": "https://github.com/openclaw/openclaw/commit/49795c31df01d405cf9930ecdf817333e41473d1",
+      "publishedAt": "2026-11-23T02:58:03Z",
+      "summary": "fix(release): reuse original ClawHub bytes after partial publication (#203888) * fix(release): reuse original ClawHub bytes after partial publication Preserve full original roster authentication before selecting receipt-less absent packages, and refresh authority before exposing restored artifacts. Co-authored-by: vincentkoc Co-authored-by: RomneyDa * fix(release): reuse original ClawHub bytes after partial publication Worked on by: - @vincentkoc - @RomneyDa Co-authored-by: vincentkoc Co-authored-by: RomneyDa OpenClaw-Publication: fb4b1fad-09e0-4060-8a16-68b5ecec9b67 --------- Co-authored-by: vincentkoc Co-authored-by: RomneyDa",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(版本發布): reuse original ClawHub bytes after partial publication …",
+      "summaryZh": "重點：修正(版本發布): reuse original ClawHub bytes after partial publication (#203888) * 修正(版本發布): reuse original ClawHub bytes afte..."
     }
   ]
 }
