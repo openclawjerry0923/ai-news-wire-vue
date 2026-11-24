@@ -1,52 +1,88 @@
 {
-  "generatedAt": "2026-11-24T13:20:40.493Z",
+  "generatedAt": "2026-11-24T23:23:50.437Z",
   "items": [
     {
       "id": 1,
-      "title": "ci(performance): keep npm debug logs with the Kova lane report (#204664)",
-      "link": "https://github.com/openclaw/openclaw/commit/d4c6c46e32aed4018592e4b0fcc32ab6aa3fb271",
-      "publishedAt": "2026-11-24T13:18:10Z",
-      "summary": "ci(performance): keep npm debug logs with the Kova lane report (#204664) ## Problem The Kova lanes in `openclaw-performance.yml` fail intermittently: Kova's `target-setup` runs `ocm runtime build-local`, the build finishes, and then npm 11.19.1 `pack` stops with `npm error Exit handler never called!` (#204375). The live lane failed on 11-06 to 11-08, 11-13, 11-15 to 11-21, 11-23 and 11-24, on both Blacksmith and GitHub-hosted runners. Three faithful local replays packed without error, including linux/amd64 with the real ocm v0.2.48 binary. npm writes its own stack for this error only to `~/.npm/_logs/-debug-0.log` on the runner. The Kova report keeps only the last stderr lines, so the cause cannot be read from any artifact. ## Change Add one step to the Kova job, before the existing artifact upload: when the lane ran, copy `~/.npm/_logs/*-debug-0.log` into the lane's report folder (`$REPORT_DIR/npm-logs/`). The existing upload already includes that folder. No other step, gate or retry changes. npm redacts auth tokens in these logs; they contain argv, cwd and timing. ## Next After the next failing scheduled run, read the npm debug log for the failing `pack` and fix the cause. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：ci(performance): keep npm debug logs with the Kova lane report (#204664)",
-      "summaryZh": "重點：ci(performance): keep npm debug logs with the Kova lane report (#204664) ## Problem The Kova lanes in `OpenClaw-performa..."
+      "title": "CMU 教授創辦 Xlue 募得 3,500 萬美元，專攻癌症早期「風險分層」",
+      "link": "https://technews.tw/2026/11/25/biotech-healthcare-ai-integration/",
+      "publishedAt": "Tue, 24 Nov 2026 23:20:15 +0000",
+      "summary": "卡內基美隆大學（Carnegie Mellon University）研究員創辦的新創公司 Xlue 近日完成 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 2,
-      "title": "feat(plugin-sdk): send a message to the resolved session (#204638)",
-      "link": "https://github.com/openclaw/openclaw/commit/f956be4663d1a1d332775d30ba76d4a8331583ce",
-      "publishedAt": "2026-11-24T13:17:44Z",
-      "summary": "feat(plugin-sdk): send a message to the resolved session (#204638) * feat(gateway): require the selected session for conditional chat sends * fix(gateway): keep conditional stop requests on the selected session * chore(protocol): compile conditional chat send validation * refactor(sessions): bind conditional chat targets at the store boundary * refactor(gateway): pass the session routing predicate to admission * feat(plugin-sdk): send to a resolved session under the current caller * style(plugin-sdk): brace resolved send decisions * test(plugin-sdk): bind the send fixture to an admitted client",
+      "title": "test(sessions): remove orphaned archive timeout fixture (#204948)",
+      "link": "https://github.com/openclaw/openclaw/commit/a4be1cee8ea2df9a2c95f1ef3ffb6446f0446c93",
+      "publishedAt": "2026-11-24T23:18:08Z",
+      "summary": "test(sessions): remove orphaned archive timeout fixture (#204948)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：新功能(plugin-sdk): send a message to the resolved session (#204638)",
-      "summaryZh": "重點：新功能(plugin-sdk): send a message to the resolved session (#204638) * 新功能(Gateway): require the selected session for condi..."
+      "titleZh": "OpenClaw 程式碼更新：test(sessions): remove orphaned archive timeout 修正ture (#204948)",
+      "summaryZh": "重點：test(sessions): remove orphaned archive timeout 修正ture (#204948)..."
     },
     {
       "id": 3,
-      "title": "fix(cron): finish jobs after spawned children return (#204621)",
-      "link": "https://github.com/openclaw/openclaw/commit/24085c1a35c7d9e9d608aafeac8b339a6806681e",
-      "publishedAt": "2026-11-24T13:14:56Z",
-      "summary": "fix(cron): finish jobs after spawned children return (#204621)",
+      "title": "fix: keep your message when the model changes in a chat that uses a c…",
+      "link": "https://github.com/openclaw/openclaw/commit/b01a7fd97685a4de004a663448f925652d482185",
+      "publishedAt": "2026-11-24T23:16:06Z",
+      "summary": "fix: keep your message when the model changes in a chat that uses a context engine (#204887) * fix(agents): keep the user message when a prompt rebuild shortens history A system prompt rebuild retires earlier prompt-update rows from the live message list after the pre-prompt count was taken. With a context engine that owns its history, the loop hook then split the request one message late: the current user message fell on the engine-owned side and was replaced by stored history that did not contain it yet. Move the count with the retired rows, and never let the split place the admitted user message in engine-owned history. * fix: keep your message when the model changes in a chat that uses a context engine OpenClaw-Publication: 1a7c3081-0fdf-403c-a92b-d949686f6a9c",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(排程): finish jobs after spawned children return (#204621)",
-      "summaryZh": "重點：修正(排程): finish jobs after spawned children return (#204621)..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep your message when the 模型 changes in a chat that uses a c…",
+      "summaryZh": "重點：修正: keep your message when the 模型 changes in a chat that uses a context engine (#204887) * 修正(agents): keep the user mes..."
     },
     {
       "id": 4,
-      "title": "fix(beam): reserve publisher handoff for the verified person (#204570)",
-      "link": "https://github.com/openclaw/openclaw/commit/a647468e9d3ade33ba498725a5ab12d39fda2941",
-      "publishedAt": "2026-11-24T13:14:09Z",
-      "summary": "fix(beam): reserve publisher handoff for the verified person (#204570) * fix(beam): reserve publisher handoff for the verified person * test(beam): satisfy lint in publisher authority fixtures",
+      "title": "test(docs-i18n): remove redundant frontmatter fixture (#204954)",
+      "link": "https://github.com/openclaw/openclaw/commit/80c4352a1ec16a45aca10bd3a43ba18612d0b500",
+      "publishedAt": "2026-11-24T23:11:10Z",
+      "summary": "test(docs-i18n): remove redundant frontmatter fixture (#204954)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(beam): reserve publisher handoff for the verified person (#204570)",
-      "summaryZh": "重點：修正(beam): reserve publisher handoff for the verified person (#204570) * 修正(beam): reserve publisher handoff for the veri..."
+      "titleZh": "OpenClaw 文件更新：test(文件-i18n): remove redundant frontmatter 修正ture (#204954)",
+      "summaryZh": "重點：test(文件-i18n): remove redundant frontmatter 修正ture (#204954)..."
     },
     {
       "id": 5,
+      "title": "fix: keep a session on its selected model when subagent results and o…",
+      "link": "https://github.com/openclaw/openclaw/commit/355167f92b1aef9b78dc79017a10834895f4842e",
+      "publishedAt": "2026-11-24T23:10:24Z",
+      "summary": "fix: keep a session on its selected model when subagent results and other internal turns run (#204896) * fix(agents): run internal session turns on the session's inherited model A session without its own model pick inherits its parent's. Chat turns resolved that pick, but turns on the agent command path (subagent results, sessions_send, restart continuation) prepare a store holding only the session's own entry, so the parent lookup always missed and the turn ran on the agent default. Each provider flip restarted the pinned system prompt and discarded the prompt cache. The command model resolver now reads the parent entry on demand, and skips the read when the caller supplies a complete one-off override. * fix: keep a session on its selected model when subagent results and other internal turns run OpenClaw-Publication: f24dccea-2c5e-86a2-95ca-345d81d40dd7",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: keep a session on its selected 模型 when subagent results and o…",
+      "summaryZh": "重點：修正: keep a session on its selected 模型 when subagent results and other internal turns run (#204896) * 修正(agents): run int..."
+    },
+    {
+      "id": 6,
+      "title": "蘋果傳裁員重整 Siri 舊架構團隊，真正次世代 AI 助理最快 2027 年底登場",
+      "link": "https://technews.tw/2026/11/25/apple-ai-assistant-delay-2027-internal-reorg-siri-team-disbanded/",
+      "publishedAt": "Tue, 24 Nov 2026 23:10:00 +0000",
+      "summary": "科技記者馬克·古爾曼（Mark Gurman）透露，蘋果（Apple）近期針對 Siri 團隊裁員，主要影響負 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
+      "title": "爭奪 GW 級電力配額！AI 大廠共址發電與全球重電供應鏈戰略重估",
+      "link": "https://technews.tw/2026/11/25/ai-giants-gw-power-quotas-co-location-heavy-electrical-supply-chain-reassessment/",
+      "publishedAt": "Tue, 24 Nov 2026 23:00:27 +0000",
+      "summary": "AI 賽局的競爭邊界已從單純的 GPU 晶片配額，轉向掌握「電網配額、發電端與輸電路徑」三位一體的 GW 級容 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 8,
+      "title": "黃仁勳復職首次員工大會，坦言是除了與妻子溝通外第二艱難會議",
+      "link": "https://finance.technews.tw/2026/11/25/jensen-huangs-first-all-hands-meeting-since-returning-to-his-role/",
+      "publishedAt": "Tue, 24 Nov 2026 22:45:17 +0000",
+      "summary": "輝達（NVIDIA）執行長黃仁勳在董事會決議恢復其執行長職務後，於11月24日主持復職以來首次全體員工大會。面 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 9,
       "title": "Google發布Chrome穩定版及延伸穩定版更新，修補重大等級的輸入驗證不當漏洞",
       "link": "https://www.ithome.com.tw/news/180748",
       "publishedAt": "2026-11-24 12:11:24",
@@ -55,47 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 10,
       "title": "Apple揭露macOS重大漏洞，可能導致系統與App當機或執行任意程式碼",
       "link": "https://www.ithome.com.tw/news/180747",
       "publishedAt": "2026-11-24 12:11:20",
       "summary": "Apple於11月20日為macOS安全公告新增數個重大漏洞訊息，包括3個可能導致系統與App當機，或執行任意程式碼的重大漏洞。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "資安研究員公布Windows零時差漏洞FastUnlock，攻擊者有機會以此在鎖定螢幕的電腦執行程式",
-      "link": "https://www.ithome.com.tw/news/180746",
-      "publishedAt": "2026-11-24 11:11:48",
-      "summary": "屢次槓上微軟的研究人員Nightmare Eclipse，在之前透露自己的身分是微軟前員工後，最近再度公布新的Windows零時差漏洞FastUnlock，這次公布的弱點相當特別，攻擊者只要能實際接觸目標電腦，就可能利用Windows內建的朗讀程式（Narrator），繞過正常登入流程，在未登入使用者帳號的情況下執行程式與檔案，由於微軟尚未提供修補程式或緩解措施，使用者應避免讓他人能實際接觸電腦來降低風險。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 8,
-      "title": "韓國三星證券客戶申訴系統遭駭，逾8,200名客戶個資外洩",
-      "link": "https://www.ithome.com.tw/news/180744",
-      "publishedAt": "2026-11-24 11:11:21",
-      "summary": "韓國三星集團旗下金融服務企業三星證券於11月23日證實，官網「客戶之聲」（Voice of Customer，VOC）系統遭外部入侵，調查發現共有8,241名客戶個資外洩。三星證券於21日發現異常，確認部分客戶上傳的附件檔案遭竊，外洩資訊包括姓名、帳戶號碼、地址、聯絡方式及駕照號碼等13類資料，各客戶實際外洩項目不盡相同，該公司已採取阻擋措施封鎖攻擊來源IP位址，並通報韓國金融監督院及韓國資訊安全署。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "川普受訪讚魏哲家是傑出人才，稱台積電將在德州建廠",
-      "link": "https://technews.tw/2026/11/24/trump-praises-cc-wei-exceptional-talent-tsmc-texas-factory-build/",
-      "publishedAt": "Tue, 24 Nov 2026 10:20:26 +0000",
-      "summary": "美國總統川普（Donald Trump）接受美媒訪問，談到 AI 晶片巨頭輝達（NVIDIA）前執行長黃仁勳復 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "思科、OpenAI合作推出開源AI基礎架構防護技術Shirudo",
-      "link": "https://www.ithome.com.tw/news/180742",
-      "publishedAt": "2026-11-24 10:11:22",
-      "summary": "思科和OpenAI週一（11月23日）宣布合作推出運用AI代理人加速基礎架構防護的開源技術Shirudo，能在不重啟系統的情況下抵禦攻擊，能在漏洞修補程式釋出前，確保企業系統安全。",
       "source": "iThome",
       "tag": "繁中"
     }
