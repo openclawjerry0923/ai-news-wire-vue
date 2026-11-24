@@ -1,103 +1,103 @@
 {
-  "generatedAt": "2026-11-24T02:00:41.277Z",
+  "generatedAt": "2026-11-24T13:20:40.493Z",
   "items": [
     {
       "id": 1,
-      "title": "Anthropic推出Claude Ship，AI自動審查、修正及核准程式碼",
-      "link": "https://www.ithome.com.tw/news/180741",
-      "publishedAt": "2026-11-24 09:11:16",
-      "summary": "Anthropic周一（11/23）宣布推出Claude Ship，將AI程式開發的自動化範圍從撰寫程式碼延伸至軟體交付流程，讓AI能夠自動審查及修正程式碼，甚至依據企業的自定政策來核准程式碼的變更，目前開放Claude Team及Enterprise用戶測試。 隨著愈來愈多開發人員使用AI代理人撰寫程式碼，後續的人工審查及核准流程可能成為軟體開發的瓶頸。Anthropic表示，旗下Claude Code團隊的大部分程式碼已由Claude撰寫，為了加快提交程式碼後的處理流程，開發了Claude Ship。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "ci(performance): keep npm debug logs with the Kova lane report (#204664)",
+      "link": "https://github.com/openclaw/openclaw/commit/d4c6c46e32aed4018592e4b0fcc32ab6aa3fb271",
+      "publishedAt": "2026-11-24T13:18:10Z",
+      "summary": "ci(performance): keep npm debug logs with the Kova lane report (#204664) ## Problem The Kova lanes in `openclaw-performance.yml` fail intermittently: Kova's `target-setup` runs `ocm runtime build-local`, the build finishes, and then npm 11.19.1 `pack` stops with `npm error Exit handler never called!` (#204375). The live lane failed on 11-06 to 11-08, 11-13, 11-15 to 11-21, 11-23 and 11-24, on both Blacksmith and GitHub-hosted runners. Three faithful local replays packed without error, including linux/amd64 with the real ocm v0.2.48 binary. npm writes its own stack for this error only to `~/.npm/_logs/-debug-0.log` on the runner. The Kova report keeps only the last stderr lines, so the cause cannot be read from any artifact. ## Change Add one step to the Kova job, before the existing artifact upload: when the lane ran, copy `~/.npm/_logs/*-debug-0.log` into the lane's report folder (`$REPORT_DIR/npm-logs/`). The existing upload already includes that folder. No other step, gate or retry changes. npm redacts auth tokens in these logs; they contain argv, cwd and timing. ## Next After the next failing scheduled run, read the npm debug log for the failing `pack` and fix the cause. Co-authored-by: Ayaan Zaidi",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：ci(performance): keep npm debug logs with the Kova lane report (#204664)",
+      "summaryZh": "重點：ci(performance): keep npm debug logs with the Kova lane report (#204664) ## Problem The Kova lanes in `OpenClaw-performa..."
     },
     {
       "id": 2,
-      "title": "Nvidia董事會宣布黃仁勳回鍋，離職11天後重掌執行長職務",
-      "link": "https://www.ithome.com.tw/news/180739",
-      "publishedAt": "2026-11-24 08:11:42",
-      "summary": "Nvidia周一（11/23）宣布黃仁勳恢復總裁、執行長及董事職務，結束11天的離職風波。黃仁勳當天返回公司總部，受到員工熱烈歡迎，並承諾成為更好的執行長。據媒體報導，雙方上周六開始協商，周日決定復職，美國總統川普（Donald Trump）也親自介入。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "feat(plugin-sdk): send a message to the resolved session (#204638)",
+      "link": "https://github.com/openclaw/openclaw/commit/f956be4663d1a1d332775d30ba76d4a8331583ce",
+      "publishedAt": "2026-11-24T13:17:44Z",
+      "summary": "feat(plugin-sdk): send a message to the resolved session (#204638) * feat(gateway): require the selected session for conditional chat sends * fix(gateway): keep conditional stop requests on the selected session * chore(protocol): compile conditional chat send validation * refactor(sessions): bind conditional chat targets at the store boundary * refactor(gateway): pass the session routing predicate to admission * feat(plugin-sdk): send to a resolved session under the current caller * style(plugin-sdk): brace resolved send decisions * test(plugin-sdk): bind the send fixture to an admitted client",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能(plugin-sdk): send a message to the resolved session (#204638)",
+      "summaryZh": "重點：新功能(plugin-sdk): send a message to the resolved session (#204638) * 新功能(Gateway): require the selected session for condi..."
     },
     {
       "id": 3,
-      "title": "CrowdStrike以439億美元併購Zscaler，創下資安界交易紀錄",
-      "link": "https://www.ithome.com.tw/news/180740",
-      "publishedAt": "2026-11-24 08:11:37",
-      "summary": "CrowdStrike和Zscaler周一宣佈簽訂協議，CrowdStrike將以全股票交易總價439億美元的代價併購Zscaler，跨足網路安全領域，創下資安最大併購案的紀錄。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(cron): finish jobs after spawned children return (#204621)",
+      "link": "https://github.com/openclaw/openclaw/commit/24085c1a35c7d9e9d608aafeac8b339a6806681e",
+      "publishedAt": "2026-11-24T13:14:56Z",
+      "summary": "fix(cron): finish jobs after spawned children return (#204621)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(排程): finish jobs after spawned children return (#204621)",
+      "summaryZh": "重點：修正(排程): finish jobs after spawned children return (#204621)..."
     },
     {
       "id": 4,
-      "title": "微軟Entra Connect Health漏洞遭利用，企業管理員聯絡資訊與租用戶資料外洩",
-      "link": "https://www.ithome.com.tw/news/180716",
-      "publishedAt": "2026-11-24 08:11:00",
-      "summary": "微軟（Microsoft）旗下身分識別基礎架構監控服務Microsoft Entra Connect Health傳出資安事件。攻擊者利用該服務的API漏洞，未經授權存取部分企業租用戶的管理員聯絡資訊及組態資料。這項雲端服務可協助企業監控內部部署身分識別系統的運作狀態、效能與警示。",
-      "source": "iThome",
-      "tag": "繁中"
+      "title": "fix(beam): reserve publisher handoff for the verified person (#204570)",
+      "link": "https://github.com/openclaw/openclaw/commit/a647468e9d3ade33ba498725a5ab12d39fda2941",
+      "publishedAt": "2026-11-24T13:14:09Z",
+      "summary": "fix(beam): reserve publisher handoff for the verified person (#204570) * fix(beam): reserve publisher handoff for the verified person * test(beam): satisfy lint in publisher authority fixtures",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(beam): reserve publisher handoff for the verified person (#204570)",
+      "summaryZh": "重點：修正(beam): reserve publisher handoff for the verified person (#204570) * 修正(beam): reserve publisher handoff for the veri..."
     },
     {
       "id": 5,
-      "title": "2026年工控資安事故比例增至去年的1.7倍，逾7成事故期間廠區或系統曾停機",
-      "link": "https://www.ithome.com.tw/news/180694",
-      "publishedAt": "2026-11-24 08:11:00",
-      "summary": "資安研究與教育訓練機構SANS Institute公布2026年工業控制系統（ICS）與營運技術（OT）資安調查，34%的受訪者表示，所屬組織過去12個月曾發生ICS/OT資安事故，比例為2025年的1.7倍，創下SANS追蹤這項數據以來的最大單年度增幅。其中72%的事故伴隨廠區或系統停機，對工業設施正常運作造成衝擊。 這項調查蒐集696名IT與工控資安專業人員的意見，涵蓋能源、製造業及政府等領域，並聚焦工控環境的資安韌性，探討企業在事故發生後維持安全生產與恢復營運的能力。",
+      "title": "Google發布Chrome穩定版及延伸穩定版更新，修補重大等級的輸入驗證不當漏洞",
+      "link": "https://www.ithome.com.tw/news/180748",
+      "publishedAt": "2026-11-24 12:11:24",
+      "summary": "11月23日Google為電腦穩定版及Android版Chrome發布更新，不過這次有所不同的是，該公司僅有修補一個重大等級的資安漏洞CVE-2026-134401，這在近期加快更新節奏，且經常修補一",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 6,
-      "title": "美國總務署在既有身分驗證智慧卡上成功執行抗量子密碼演算法",
-      "link": "https://www.ithome.com.tw/news/180653",
-      "publishedAt": "2026-11-24 08:11:00",
-      "summary": "美國聯邦政府持續推動後量子密碼學（PQC）轉型，既有身分驗證設備能否支援抗量子密碼演算法，也受到關注。根據資安媒體CyberScoop報導，美國總務署（GSA）近期公布測試成果，技術團隊成功在既有個人身分驗證（PIV）智慧卡晶片上執行抗量子密碼演算法，顯示部分現有智慧卡可能不必汰換，就能支援新演算法。",
+      "title": "Apple揭露macOS重大漏洞，可能導致系統與App當機或執行任意程式碼",
+      "link": "https://www.ithome.com.tw/news/180747",
+      "publishedAt": "2026-11-24 12:11:20",
+      "summary": "Apple於11月20日為macOS安全公告新增數個重大漏洞訊息，包括3個可能導致系統與App當機，或執行任意程式碼的重大漏洞。",
       "source": "iThome",
       "tag": "繁中"
     },
     {
       "id": 7,
-      "title": "fix: restore compact failed-reply cards in the Control UI (#204303)",
-      "link": "https://github.com/openclaw/openclaw/commit/1ce543270b2f73f38a28210608b9746a37eecdc9",
-      "publishedAt": "2026-11-24T01:55:51Z",
-      "summary": "fix: restore compact failed-reply cards in the Control UI (#204303) * Save workspace before refreshing its selected base Co-authored-by: daniel-lxs * fix: restore compact failed-reply cards in the Control UI Worked on by: - @daniel-lxs Co-authored-by: daniel-lxs OpenClaw-Publication: 5a5ad6a9-e128-4f81-a8ec-1fef11dfadef * Publish openclaw/fix-the-couldn-t-finish-this-reply-card-layout-194607-e57fd3 Worked on by: - @daniel-lxs Co-authored-by: daniel-lxs OpenClaw-Publication: e4507005-e72e-460d-9a53-3e40bb6d39ba --------- Co-authored-by: roboclaw-bot Co-authored-by: daniel-lxs",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正: restore compact failed-reply cards in the Control UI (#204303)",
-      "summaryZh": "重點：修正: restore compact failed-reply cards in the Control UI (#204303) * Save workspace before refreshing its selected base ..."
+      "title": "資安研究員公布Windows零時差漏洞FastUnlock，攻擊者有機會以此在鎖定螢幕的電腦執行程式",
+      "link": "https://www.ithome.com.tw/news/180746",
+      "publishedAt": "2026-11-24 11:11:48",
+      "summary": "屢次槓上微軟的研究人員Nightmare Eclipse，在之前透露自己的身分是微軟前員工後，最近再度公布新的Windows零時差漏洞FastUnlock，這次公布的弱點相當特別，攻擊者只要能實際接觸目標電腦，就可能利用Windows內建的朗讀程式（Narrator），繞過正常登入流程，在未登入使用者帳號的情況下執行程式與檔案，由於微軟尚未提供修補程式或緩解措施，使用者應避免讓他人能實際接觸電腦來降低風險。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 8,
-      "title": "v2026.11.10-beta.3",
-      "link": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.10-beta.3",
-      "publishedAt": "2026-11-24T01:51:05Z",
-      "summary": "OpenClaw 2026.11.10-beta.3",
-      "source": "OpenClaw Releases",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 最新動態：v2026.11.10-beta.3",
-      "summaryZh": "重點：OpenClaw 2026.11.10-beta.3..."
+      "title": "韓國三星證券客戶申訴系統遭駭，逾8,200名客戶個資外洩",
+      "link": "https://www.ithome.com.tw/news/180744",
+      "publishedAt": "2026-11-24 11:11:21",
+      "summary": "韓國三星集團旗下金融服務企業三星證券於11月23日證實，官網「客戶之聲」（Voice of Customer，VOC）系統遭外部入侵，調查發現共有8,241名客戶個資外洩。三星證券於21日發現異常，確認部分客戶上傳的附件檔案遭竊，外洩資訊包括姓名、帳戶號碼、地址、聯絡方式及駕照號碼等13類資料，各客戶實際外洩項目不盡相同，該公司已採取阻擋措施封鎖攻擊來源IP位址，並通報韓國金融監督院及韓國資訊安全署。",
+      "source": "iThome",
+      "tag": "繁中"
     },
     {
       "id": 9,
-      "title": "chore(ui): refresh control ui locales (#204320)",
-      "link": "https://github.com/openclaw/openclaw/commit/29bc3e3ee37076e9aa256c83ca5f9e02c609fd9a",
-      "publishedAt": "2026-11-24T01:38:24Z",
-      "summary": "chore(ui): refresh control ui locales (#204320) Co-authored-by: github-actions[bot]",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：chore(ui): refresh control ui locales (#204320)",
-      "summaryZh": "重點：chore(ui): refresh control ui locales (#204320) Co-authored-by: github-actions[bot]..."
+      "title": "川普受訪讚魏哲家是傑出人才，稱台積電將在德州建廠",
+      "link": "https://technews.tw/2026/11/24/trump-praises-cc-wei-exceptional-talent-tsmc-texas-factory-build/",
+      "publishedAt": "Tue, 24 Nov 2026 10:20:26 +0000",
+      "summary": "美國總統川普（Donald Trump）接受美媒訪問，談到 AI 晶片巨頭輝達（NVIDIA）前執行長黃仁勳復 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
     },
     {
       "id": 10,
-      "title": "test(vitest): keep database-worker files out of the shared-core proje…",
-      "link": "https://github.com/openclaw/openclaw/commit/60dede98ad3001e6c78621edd8cc1cb6e426d27a",
-      "publishedAt": "2026-11-24T01:36:18Z",
-      "summary": "test(vitest): keep database-worker files out of the shared-core project (#204316) ## Result `test/vitest-projects-config.test.ts` \"covers each normal full-suite test file exactly once\" passes again. `src/shared/session-unread.test.ts` runs in one project only. ## Cause #204281 (`7986fe168800`) moved `src/shared/session-unread.test.ts` into `databaseWorkerCoreTestFiles` (it now reads the transcript through the agent database worker). The infra project runs those files. The `shared-core` project (`src/shared/**/*.test.ts`) did not exclude the list, so the file ran in both `vitest.infra.config.ts` and `vitest.shared-core.config.ts`. Every other scoped project that can include a listed file already excludes `databaseWorkerCoreTestFiles`. ## Fix `vitest.shared-core.config.ts` excludes `databaseWorkerCoreTestFiles`, like the other scoped configs. ## Evidence - Ownership audit (`auditFullSuiteTestFileOwnership`) on `main`: duplicated `src/shared/session-unread.test.ts: vitest.infra.config.ts, vitest.shared-core.config.ts`. On the head: no duplicates and nothing missing. - Head: `vitest-projects-config.test.ts` (42) and `session-unread.test.ts` (5) pass. CI green on the head; local ClawSweeper: patch is correct, no findings. Co-authored-by: Ayaan Zaidi",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(vitest): keep database-worker files out of the shared-core proje…",
-      "summaryZh": "重點：test(vitest): keep database-worker files out of the shared-core project (#204316) ## Result `test/vitest-projects-config..."
+      "title": "思科、OpenAI合作推出開源AI基礎架構防護技術Shirudo",
+      "link": "https://www.ithome.com.tw/news/180742",
+      "publishedAt": "2026-11-24 10:11:22",
+      "summary": "思科和OpenAI週一（11月23日）宣布合作推出運用AI代理人加速基礎架構防護的開源技術Shirudo，能在不重啟系統的情況下抵禦攻擊，能在漏洞修補程式釋出前，確保企業系統安全。",
+      "source": "iThome",
+      "tag": "繁中"
     }
   ]
 }
