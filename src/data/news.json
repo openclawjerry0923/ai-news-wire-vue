@@ -1,8 +1,70 @@
 {
-  "generatedAt": "2026-11-25T07:23:34.498Z",
+  "generatedAt": "2026-11-25T18:28:16.626Z",
   "items": [
     {
       "id": 1,
+      "title": "fix: stop browser test previews from reporting false plugin activatio…",
+      "link": "https://github.com/openclaw/openclaw/commit/3f5610d8f97ed34fdfb273500ae689325c8499a7",
+      "publishedAt": "2026-11-25T18:26:15Z",
+      "summary": "fix: stop browser test previews from reporting false plugin activation errors (#203738) * test(ui): omit settings-only presentations from mock activation catalogs Keep prepared assets for packaged Settings panels without passing their modules to the normal activation loader. An explicit all-settings fixture returns an empty catalog; an ordinary plugin in a mixed fixture is still advertised. Co-authored-by: vyctorbrzezowski * fix: stop browser test previews from reporting false plugin activation errors Worked on by: - @vyctorbrzezowski Co-authored-by: vyctorbrzezowski OpenClaw-Publication: 8f471de1-72d5-8218-a4ab-06f4cb8f7f5e --------- Co-authored-by: vyctorbrzezowski",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正: stop browser test previews from reporting false plugin activatio…",
+      "summaryZh": "重點：修正: stop browser test previews from reporting false plugin activation errors (#203738) * test(ui): omit settings-only pr..."
+    },
+    {
+      "id": 2,
+      "title": "feat: manage projects and who they are shared with from the Control U…",
+      "link": "https://github.com/openclaw/openclaw/commit/fadc308e4a31421fc933097d6148b7189bcc4aaf",
+      "publishedAt": "2026-11-25T18:23:01Z",
+      "summary": "feat: manage projects and who they are shared with from the Control UI (#203472) * feat(ui): add Projects tab for project management and role access Adds a Projects tab to the Sessions hub that lists projects with their type, location, and the named roles that can use them. Admins register folders or GitHub clones, rename and remove projects, and share registry projects with roles by editing gateway.roles.definitions..projects through the shared config editor. New Session tells restricted roles when no projects are shared with them and links admins to the tab. * fix(ui): hide Gateway folder browsing from connections without write access * fix(ui): present project role shares explicitly and harden Projects page operations * test(ui): run project share config validation in the node environment * chore: allocate test lines for the Projects tab * chore: correct the Projects tab test-line allocation * fix(ui): reuse shared styles for the Projects tab and cover it in the page census Drops projects.css and the picker wrap rule in favor of existing settings, table, chip and dialog styles so total CSS does not grow; adds the projects route to the engine page census; documents each isolated mock; removes tests duplicated by the config round-trip and E2E coverage; lowers the test-line allocation to 343. * perf(ui): keep the Projects route out of the chat boot bundle Moves the Projects layout boundary into the lazy page module and registers the projectsPage strings with the lazy catalog instead of the startup English catalog, so the new route adds no chat boot JS against a base that already exceeds its cap. * fix(ui): open Projects details from the row like Sessions rows Project names render as plain table text with the repository line beneath, and the row itself is focusable and opens details on click, Enter or Space, matching the Sessions hub table. Drops the ghost button that sat offset from the repository line. * fix(ui): fold Greek sigma in the Projects search Use the shared foldSearchCase helper for the query and each candidate so a final-sigma project name matches σ, Σ and ς queries, as the project picker already does. Drop the Projects page test that only pinned static share copy; the saving test covers the unchecked guest switch.",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：新功能: manage projects and who they are shared with from the Control U…",
+      "summaryZh": "重點：新功能: manage projects and who they are shared with from the Control UI (#203472) * 新功能(ui): add Projects tab for project ..."
+    },
+    {
+      "id": 3,
+      "title": "fix(test): expect interrupted inline commands after Stop (#205488)",
+      "link": "https://github.com/openclaw/openclaw/commit/7219415bb902aec02dfa03b376a141c40ffafc80",
+      "publishedAt": "2026-11-25T18:21:58Z",
+      "summary": "fix(test): expect interrupted inline commands after Stop (#205488)",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：修正(test): expect interrupted inline commands after Stop (#205488)",
+      "summaryZh": "重點：修正(test): expect interrupted inline commands after Stop (#205488)..."
+    },
+    {
+      "id": 4,
+      "title": "improve: reduce Gateway diagnostics and scheduler allocation (#205464)",
+      "link": "https://github.com/openclaw/openclaw/commit/ca6183c40ba3cafc0d384d7df4a0ae92608cd835",
+      "publishedAt": "2026-11-25T18:21:44Z",
+      "summary": "improve: reduce Gateway diagnostics and scheduler allocation (#205464) * perf: reduce Gateway memory telemetry and scheduler allocations Seal owned memory snapshots before dispatch and skip the default abort reason when no scope signal escaped. Preserve diagnostic listener isolation and include original stacks in scheduled failure logs. * style: apply scoped lint to diagnostics performance proof * fix: keep worker telemetry independent of diagnostic dispatch * fix: include diagnostic snapshots in the PR wrapper inventory * test(gateway): allow scheduler stacks in update failure reports",
+      "source": "OpenClaw Commits",
+      "tag": "OpenClaw",
+      "titleZh": "OpenClaw 程式碼更新：improve: reduce Gateway diagnostics and scheduler allocation (#205464)",
+      "summaryZh": "重點：improve: reduce Gateway diagnostics and scheduler allocation (#205464) * perf: reduce Gateway 記憶 telemetry and scheduler..."
+    },
+    {
+      "id": 5,
+      "title": "矩尺臂可能不是旋臂，新研究指它也許是銀河棒前緣的恆星形成區",
+      "link": "https://technews.tw/2026/11/25/a-galactic-shock-wave-could-rewrite-the-map-of-the-milky-way/",
+      "publishedAt": "Wed, 25 Nov 2026 14:39:08 +0000",
+      "summary": "雪梨大學（University of Sydney）主導的研究指出，銀河系中央旋轉的棒狀結構在周圍氣體雲中形成 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "光焱科技董座對 2027 年展望極為樂觀，矽光子檢測可望加速放量",
+      "link": "https://finance.technews.tw/2026/11/25/enlitech-chairman-highly-optimistic-about-2027-outlook/",
+      "publishedAt": "Wed, 25 Nov 2026 13:15:30 +0000",
+      "summary": "光焱科技董事長柯歷亞25日在新廠動土典禮後，接受媒體聯訪時表示，公司對2027年營運「非常樂觀」，並指出在多元 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "Google修補Nest Hub裝置53個漏洞，包括可能導致遠端執行程式碼的藍牙重大漏洞",
       "link": "https://www.ithome.com.tw/news/180789",
       "publishedAt": "2026-11-25 12:11:58",
@@ -11,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 2,
+      "id": 8,
       "title": "Google公布全新AI代理人安全控管介面",
       "link": "https://www.ithome.com.tw/news/180788",
       "publishedAt": "2026-11-25 12:11:44",
@@ -20,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 3,
+      "id": 9,
       "title": "SolarWinds修補Serv-U重大權限提升漏洞",
       "link": "https://www.ithome.com.tw/news/180790",
       "publishedAt": "2026-11-25 12:11:31",
@@ -29,75 +91,13 @@
       "tag": "繁中"
     },
     {
-      "id": 4,
+      "id": 10,
       "title": "網擎揭露AI應用布局，從郵件產品功能創新到加速軟體開發與測試",
       "link": "https://www.ithome.com.tw/news/180693",
       "publishedAt": "2026-11-25 12:11:06",
       "summary": "如同其他企業將AI用於輔助內部營運，網擎以此提升技術服務與雲端營運的效率，身為軟體廠商，也將AI用於產品資安功能與軟體工程的強化，希望打造出更安全的產品，並持續推出AI新應用，例如，透過AI協助用戶善用既有的郵件資料，藉此活化組織的記憶資產，或運用AI提升資安產品的威脅偵測與攔截效果。 活用AI提升競爭力是所有企業高度關切的議題，網擎資訊執行長廖長健在近期宣布策略投資微智安聯的記者會上，透露公司內部運用AI的做法。",
       "source": "iThome",
       "tag": "繁中"
-    },
-    {
-      "id": 5,
-      "title": "音樂串流平臺Tidal將全面封殺純AI生成音樂",
-      "link": "https://www.ithome.com.tw/news/180783",
-      "publishedAt": "2026-11-25 11:11:31",
-      "summary": "音樂串流平臺Tidal周二（11/24）宣布，自今年12月9日起，將拒絕音樂發行商提交完全由AI生成的音樂，並移除平臺上既有的純AI生成歌曲，成為全球首個全面禁止純AI生成音樂的訂閱制音樂串流平臺。 相較於Spotify及Apple Music，2014年推出的Tidal更強調音樂創作者的收益及無損音質，並致力於建立對音樂創作者更公平的收益分配機制。它在2015年被美國饒舌歌手Jay-Z收購，2021年由金融科技業者Square（現為Block）取得多數股權。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 6,
-      "title": "微軟啟動紅色警戒計畫，目標1小時內修復全球服務故障",
-      "link": "https://www.ithome.com.tw/news/180785",
-      "publishedAt": "2026-11-25 11:11:23",
-      "summary": "路透社（Reuters）周二（11/24）報導，微軟在本月發生Microsoft 365全球大規模當機事故後，已於內部啟動紅色警戒（Code Red）計畫，將全面改革服務故障的預防及應變機制，目標是在未來發生重大事故時，能於1小時內完成全球服務修復。",
-      "source": "iThome",
-      "tag": "繁中"
-    },
-    {
-      "id": 7,
-      "title": "fix(auth): avoid repeated profile publication and unused catalog read…",
-      "link": "https://github.com/openclaw/openclaw/commit/60b20293765d64f024ddc51e09d4f246bc17ab08",
-      "publishedAt": "2026-11-25T07:16:29Z",
-      "summary": "fix(auth): avoid repeated profile publication and unused catalog reads (#205118) * fix(auth): skip unchanged profile snapshot publications * perf(agents): skip unused catalog auth label source reads",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(auth): avoid repeated profile publication and unused catalog read…",
-      "summaryZh": "重點：修正(auth): avoid repeated profile publication and unused catalog reads (#205118) * 修正(auth): skip unchanged profile snaps..."
-    },
-    {
-      "id": 8,
-      "title": "fix(mcp): release idle stdio servers when their session is retired (#…",
-      "link": "https://github.com/openclaw/openclaw/commit/b2cef179b1970026992487bf6e5d5bb9c76b5df5",
-      "publishedAt": "2026-11-25T07:10:11Z",
-      "summary": "fix(mcp): release idle stdio servers when their session is retired (#205117) * fix(gateway): retire session MCP transports before archiving Join the physical transport close before acknowledging an archive. Capture pending cleanup by identity so delayed retirement joins the original session generation and preserves its cleanup failure after reuse. * fix(mcp): close idle transports when their last session store prunes them Automatic retention could delete expired hook rows while their MCP stdio children stayed resident. Carry the committed store identity through run admission, capture its claims before pruning, and release them after the writer commits. Keep shared transports available for surviving stores, active views, and unqualified callers. * fix(mcp): keep store admissions and runtime claims with their owners The 119 test lines above the normal allowance cover cross-store ownership, pending physical disposal and SQLite commit timing. A stale retirement handle must leave a later store admission intact. * test(gateway): restore ordinary upgrades from the admitted snapshot * chore(cron): drop the retired session identity allowance * test(cron): close the memory store when the fixture finishes",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(mcp): 版本發布 idle stdio servers when their session is retired (#…",
-      "summaryZh": "重點：修正(mcp): 版本發布 idle stdio servers when their session is retired (#205117) * 修正(Gateway): retire session MCP transports be..."
-    },
-    {
-      "id": 9,
-      "title": "fix(gateway): skip optional warmups when memory falls after startup (…",
-      "link": "https://github.com/openclaw/openclaw/commit/09685a55de3eb3025c4fa37aa21cec77aeaed142",
-      "publishedAt": "2026-11-25T07:10:07Z",
-      "summary": "fix(gateway): skip optional warmups when memory falls after startup (#205119) * fix(gateway): recheck memory before optional warmups * test(gateway): preserve host memory exports in prewarm tests",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(Gateway): skip optional warmups when 記憶 falls after startup (…",
-      "summaryZh": "重點：修正(Gateway): skip optional warmups when 記憶 falls after startup (#205119) * 修正(Gateway): recheck 記憶 before optional warmu..."
-    },
-    {
-      "id": 10,
-      "title": "fix(ci): keep update helpers private (#205116)",
-      "link": "https://github.com/openclaw/openclaw/commit/ca58e63b688cbe110cc1bce8b14df359e3e881e4",
-      "publishedAt": "2026-11-25T07:08:45Z",
-      "summary": "fix(ci): keep update helpers private (#205116)",
-      "source": "OpenClaw Commits",
-      "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(ci): keep update helpers private (#205116)",
-      "summaryZh": "重點：修正(ci): keep update helpers private (#205116)..."
     }
   ]
 }
