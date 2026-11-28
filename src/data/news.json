@@ -1,52 +1,70 @@
 {
-  "generatedAt": "2026-11-28T13:55:58.769Z",
+  "generatedAt": "2026-11-28T21:36:14.136Z",
   "items": [
     {
       "id": 1,
-      "title": "test(agents): remove unused lifecycle fixture defaults (#207477)",
-      "link": "https://github.com/openclaw/openclaw/commit/da76574286513bacf53d2ec3e9670b8cdc18a8ac",
-      "publishedAt": "2026-11-28T13:55:00Z",
-      "summary": "test(agents): remove unused lifecycle fixture defaults (#207477) Co-authored-by: Vincent Koc",
+      "title": "test(cli): move discovery budget coverage to live update caller (#207…",
+      "link": "https://github.com/openclaw/openclaw/commit/a737f42590c1439ad76e298fdf24fcb82bb14548",
+      "publishedAt": "2026-11-28T21:35:25Z",
+      "summary": "test(cli): move discovery budget coverage to live update caller (#207575)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(agents): remove unused lifecycle 修正ture defaults (#207477)",
-      "summaryZh": "重點：test(agents): remove unused lifecycle 修正ture defaults (#207477) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：test(cli): move discovery budget coverage to live update caller (#207…",
+      "summaryZh": "重點：test(cli): move discovery budget coverage to live update caller (#207575)..."
     },
     {
       "id": 2,
-      "title": "test(gateway): remove unused stage child mock fields (#207472)",
-      "link": "https://github.com/openclaw/openclaw/commit/ef487a2a0fd7ecf9251d4739619982d0a70c0fc7",
-      "publishedAt": "2026-11-28T13:53:08Z",
-      "summary": "test(gateway): remove unused stage child mock fields (#207472) Co-authored-by: Vincent Koc",
+      "title": "fix: keep your place when expanding long messages on iOS (#207488)",
+      "link": "https://github.com/openclaw/openclaw/commit/65616c3300af9020eef3b7f5e5328b896a58b7d6",
+      "publishedAt": "2026-11-28T21:34:54Z",
+      "summary": "fix: keep your place when expanding long messages on iOS (#207488) * fix: keep the current paragraph in view when expanding an iOS chat message * fix: reveal long iOS prompts without clipping the visible paragraphs * fix: clamp the iOS transcript when a long prompt collapses",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): remove unused stage child mock fields (#207472)",
-      "summaryZh": "重點：test(Gateway): remove unused stage child mock fields (#207472) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：修正: keep your place when expanding long messages on iOS (#207488)",
+      "summaryZh": "重點：修正: keep your place when expanding long messages on iOS (#207488) * 修正: keep the current paragraph in view when expandin..."
     },
     {
       "id": 3,
-      "title": "test(gateway): exercise in-flight discovery cancellation (#207470)",
-      "link": "https://github.com/openclaw/openclaw/commit/b46646b9470662b173f04f7a0068e771dcf9e8a1",
-      "publishedAt": "2026-11-28T13:48:53Z",
-      "summary": "test(gateway): exercise in-flight discovery cancellation (#207470) Co-authored-by: Vincent Koc",
+      "title": "fix(ios): keep search results in place and archived matches last (#20…",
+      "link": "https://github.com/openclaw/openclaw/commit/9a92306b9fe60cd4a339e65c3a1bc91a194da23a",
+      "publishedAt": "2026-11-28T21:31:55Z",
+      "summary": "fix(ios): keep search results in place and archived matches last (#207641) * fix(ios): keep search results in place and archived matches last * fix(ios): keep scrolling tabs inside the search glass * fix(ios): match search filters to the floating glass controls * fix(ios): satisfy lint in search gateway fixtures",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：test(Gateway): exercise in-flight discovery cancellation (#207470)",
-      "summaryZh": "重點：test(Gateway): exercise in-flight discovery cancellation (#207470) Co-authored-by: Vincent Koc..."
+      "titleZh": "OpenClaw 程式碼更新：修正(ios): keep search results in place and archived matches last (#20…",
+      "summaryZh": "重點：修正(ios): keep search results in place and archived matches last (#207641) * 修正(ios): keep search results in place and ar..."
     },
     {
       "id": 4,
-      "title": "fix(cli): keep one-shot databases open until admitted detached work s…",
-      "link": "https://github.com/openclaw/openclaw/commit/440945fd120c1cd90b0f73a0c830d41e7399e0f4",
-      "publishedAt": "2026-11-28T13:45:44Z",
-      "summary": "fix(cli): keep one-shot databases open until admitted detached work settles (#207510) ## Problem A one-shot command (`openclaw agent --local`, `agent exec`, `templates add`) closes its databases as soon as its own turn returns. Work the command admitted that runs detached from the turn (subagent completion, announcements back to the parent, cleanup flows) is cut off: its next database write fails with `Database maintenance resource admission is closed`, and the result is lost without a visible error. ## Solution One owner waits: the one-shot database owners wait for admitted root work to go idle before they close the databases. - `waitForGatewayRootWorkIdle` (process/gateway-work-admission.ts): resolves when no root work outside the caller is active. It is event-driven (root-work release listeners, no timer). Long-lived subscriptions never count, by the existing `isActiveRootWork` rule, so a process that hosts no Gateway cannot wait on listeners or loops. - `waitForLocalBackgroundWork` (cli/local-state-owner.ts) is the single call both one-shot owners use: `runWithLocalStateOwner` before it closes its resources, and `agent exec` before it cleans up its temporary state. - While it waits, the CLI prints `Waiting for N background tasks to finish. Press Ctrl-C to stop.` Ctrl-C stops the wait: through the CLI signal gate, or through the command's own signal bridge for `agent --local` and `agent exec`. ## User impact - One-shot commands that started detached work keep their databases open until it finishes, with one visible waiting line. - Commands that start no detached work exit as before, with no wait. - Gateway users: unchanged. The wait runs only in the one-shot owners. - This is part A of a split. Part B (subagent spawn in one-shot `agent --local`) builds on it. ## Accepted edge cases - **Ctrl-C** stops the wait, not the work. The databases then close under any work still running, which is what main does today for all detached work. - **Failure retries on timers** hold no root work during the delay, so a one-shot process can exit before a retry runs. The work stays persisted as pending; the next Gateway start recovers it. ## Evidence - New test `local-state-owner.test.ts` \"keeps the command's databases open until detached work it admitted settles\": red on main (the owner settles while the detached work is still held), green here. - `gateway-work-admission.idle.test.ts`: no work or only a subscription returns at once; detached work is waited for and reported once; an interrupt stops the wait. - Consumer tests of every changed module pass. Co-authored-by: Ayaan Zaidi",
+      "title": "test(infra): exercise proxy constructor failure (#207625)",
+      "link": "https://github.com/openclaw/openclaw/commit/8cbcc8fa27d6f38eeb62e9294679f75569866919",
+      "publishedAt": "2026-11-28T21:29:26Z",
+      "summary": "test(infra): exercise proxy constructor failure (#207625)",
       "source": "OpenClaw Commits",
       "tag": "OpenClaw",
-      "titleZh": "OpenClaw 程式碼更新：修正(cli): keep one-shot databases open until admitted detached work s…",
-      "summaryZh": "重點：修正(cli): keep one-shot databases open until admitted detached work settles (#207510) ## Problem A one-shot command (`Ope..."
+      "titleZh": "OpenClaw 程式碼更新：test(infra): exercise proxy constructor failure (#207625)",
+      "summaryZh": "重點：test(infra): exercise proxy constructor failure (#207625)..."
     },
     {
       "id": 5,
+      "title": "穩定調節性 T 細胞，可逆轉免疫療法引發的發炎反應",
+      "link": "https://technews.tw/2026/11/29/cancer-immunotherapy-has-a-dangerous-side-effect-scientists-may-have-found-a-way-to-stop-it/",
+      "publishedAt": "Sat, 28 Nov 2026 16:00:48 +0000",
+      "summary": "癌症免疫療法讓許多患者重獲生機，卻也可能使免疫系統轉而攻擊健康組織。美國匹茲堡大學醫學院團隊發現，這類副作用的 [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 6,
+      "title": "天文學家靠「水分子兆級微波雷射」篩選 21 個星系，為太空望遠鏡指路",
+      "link": "https://technews.tw/2026/11/29/water-megamasers-advance-black-hole-shadow-imaging-research/",
+      "publishedAt": "Sat, 28 Nov 2026 16:00:14 +0000",
+      "summary": "黑洞具有極強的重力場，連光線也無法逃脫，其周圍發光物質所襯托出的暗區稱為「黑洞陰影」（Black Hole S [&#8230;]",
+      "source": "TechNews",
+      "tag": "繁中"
+    },
+    {
+      "id": 7,
       "title": "Google 攜手聯發科推進新 TPU 客製化 HBM5 基礎晶片，韓國憂心主導權弱化",
       "link": "https://finance.technews.tw/2026/11/28/google-partners-with-mediatek-to-advance-new-tpu-custom-hbm5-base-die/",
       "publishedAt": "Sat, 28 Nov 2026 08:00:29 +0000",
@@ -55,7 +73,7 @@
       "tag": "繁中"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "普渡大學生打造防 AI 作弊編輯器 Syntax！不看成品改追蹤打字與游標，已獲美 40 所大專院校採用",
       "link": "https://technews.tw/2026/11/28/purdue-university-students-develop-ai-writing-monitoring-software/",
       "publishedAt": "Sat, 28 Nov 2026 08:00:09 +0000",
@@ -64,7 +82,7 @@
       "tag": "繁中"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "日本市議員補選四張海報全是 AI 生成，暴露選舉法規落後科技現實",
       "link": "https://technews.tw/2026/11/28/japanese-election-candidate-uses-ai-to-generate-campaign-posters/",
       "publishedAt": "Sat, 28 Nov 2026 07:30:52 +0000",
@@ -73,29 +91,11 @@
       "tag": "繁中"
     },
     {
-      "id": 8,
+      "id": 10,
       "title": "神經元不到百萬卻會觀察學習，大黃蜂驚人認知能力揭開智慧演化新線索",
       "link": "https://technews.tw/2026/11/28/bumblebees-may-hold-the-secret-to-how-intelligence-evolved/",
       "publishedAt": "Sat, 28 Nov 2026 07:00:23 +0000",
       "summary": "一篇刊登於《科學》（Science）期刊的觀點文章指出，大黃蜂（Bumblebee）或許能為「智慧如何演化」提 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 9,
-      "title": "三星侵犯 Maxell 相機專利，Galaxy S25 系列面臨美國進口禁令危機",
-      "link": "https://technews.tw/2026/11/28/samsung-infringes-on-maxell-camera-patents/",
-      "publishedAt": "Sat, 28 Nov 2026 07:00:15 +0000",
-      "summary": "美國國際貿易委員會（ITC）近日裁定，三星電子（Samsung）侵犯日本企業 Maxell 的相機技術專利，並 [&#8230;]",
-      "source": "TechNews",
-      "tag": "繁中"
-    },
-    {
-      "id": 10,
-      "title": "黃仁勳回鍋輝達談話全紀錄：坦承不忠、檢討高壓管理、撇清白宮干預，五大重點直擊",
-      "link": "https://finance.technews.tw/2026/11/28/jensen-huang-first-town-hall-return-stabilize-morale-boost-spirit-5-key-points/",
-      "publishedAt": "Sat, 28 Nov 2026 06:30:48 +0000",
-      "summary": "「這是我人生中第二艱難的會議；最艱難的那場，是與我太太的對話。」11 月 24 日，黃仁勳在輝達（NVIDIA [&#8230;]",
       "source": "TechNews",
       "tag": "繁中"
     }
